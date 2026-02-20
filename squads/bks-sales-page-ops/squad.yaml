@@ -1,0 +1,11 @@
+name: bks-sales-page-ops
+orchestrator: sales_page_operator
+
+agents:
+  - strategy/client_requirements_analyst
+  - copy/sales_page_copywriter
+  - design/ux_ui_page_designer
+  - design/design_system_curator
+  - build/frontend_page_developer
+  - build/backend_page_developer
+  - qa/sales_page_validator

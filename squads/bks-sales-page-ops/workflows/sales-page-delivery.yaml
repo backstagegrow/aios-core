@@ -1,0 +1,148 @@
+﻿workflow:
+  id: sales-page-delivery
+  name: Sales Page Delivery
+  version: "1.0"
+  description: >-
+    Workflow completo para criação e validação de página de vendas:
+    briefing estratégico -> copy -> UX/UI -> design system -> frontend -> backend -> QA final.
+  type: squad
+  target_context: squad
+  squad_name: bks-sales-page-ops
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+
+  phases:
+    - phase_1: Strategy Brief
+    - phase_2: Copywriting
+    - phase_3: UX/UI Design
+    - phase_4: Design System Lite
+    - phase_5: Frontend Build
+    - phase_6: Backend Integration
+    - phase_7: Final Validation
+
+  sequence:
+    - step: gather_requirements
+      id: brief
+      phase: 1
+      agent: client_requirements_analyst
+      action: Estruturar briefing de conversao
+      notes: |
+        Consolidar objetivo comercial, ICP, oferta, provas, objecoes e restricoes.
+      outputs:
+        - strategic_brief
+        - messaging_constraints
+      next: copy
+
+    - step: write_sales_copy
+      id: copy
+      phase: 2
+      agent: sales_page_copywriter
+      action: Gerar copy completa da pagina
+      requires: brief
+      notes: |
+        Produzir copy final por secoes: hero, problema, solucao, oferta, provas, FAQ e CTA.
+      outputs:
+        - sales_page_copy
+      next: ux
+
+    - step: design_page_experience
+      id: ux
+      phase: 3
+      agent: ux_ui_page_designer
+      action: Definir arquitetura UX/UI da pagina
+      requires: copy
+      notes: |
+        Traduzir copy em estrutura de interface, componentes e diretrizes mobile-first.
+      outputs:
+        - ux_ui_blueprint
+      next: ds
+
+    - step: define_design_system
+      id: ds
+      phase: 4
+      agent: design_system_curator
+      action: Definir design system lite da pagina
+      requires: ux
+      notes: |
+        Definir tokens e especificacao de componentes para implementacao consistente.
+      outputs:
+        - design_tokens
+        - component_specs
+      next: front
+
+    - step: build_frontend
+      id: front
+      phase: 5
+      agent: frontend_page_developer
+      action: Implementar frontend da pagina
+      requires: ds
+      notes: |
+        Implementar em clients/[ClientName]/builds/ (index.html, style.css, main.js).
+      outputs:
+        - frontend_artifacts
+      next: back
+
+    - step: build_backend
+      id: back
+      phase: 6
+      agent: backend_page_developer
+      action: Implementar captura e validacao backend
+      requires: front
+      notes: |
+        Implementar endpoint de lead e payload CRM-ready em clients/[ClientName]/builds/server/.
+      outputs:
+        - backend_artifacts
+      next: validate
+
+    - step: validate_delivery
+      id: validate
+      phase: 7
+      agent: sales_page_validator
+      action: Rodar quality gate final
+      requires: back
+      notes: |
+        Validar copy, UX, UI, frontend, backend e tracking.
+        Se score < 8 em qualquer dimensao critica, retornar para ajustes.
+      outputs:
+        - validation_report
+        - scorecard
+        - go_no_go
+      next: complete
+      on_failure: copy
+
+    - workflow_end:
+      id: complete
+      action: sales_page_ready
+      notes: |
+        Entrega concluida: pagina de vendas pronta para validacao/aprovacao do cliente.
+
+  handoff_prompts:
+    brief_ready: |
+      Briefing estrategico concluido.
+      Pode iniciar a criacao da copy completa.
+
+    copy_ready: |
+      Copy da pagina pronta.
+      Pode seguir para desenho UX/UI.
+
+    ux_ready: |
+      Blueprint UX/UI pronto.
+      Pode seguir para definicao do design system lite.
+
+    ds_ready: |
+      Design system lite definido.
+      Pode iniciar implementacao frontend.
+
+    frontend_ready: |
+      Frontend implementado.
+      Pode seguir para backend e captura de leads.
+
+    backend_ready: |
+      Backend implementado.
+      Pode executar validacao final.
+
+    approved: |
+      Quality gate aprovado.
+      Pagina pronta para revisao final do cliente.

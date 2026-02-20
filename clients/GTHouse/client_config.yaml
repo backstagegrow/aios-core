@@ -1,0 +1,15 @@
+name: GTHouse
+id: gth_001
+status: active
+timezone: America/Sao_Paulo
+currency: BRL
+meta_ads:
+  pixel_id: 
+  account_id: 
+tracking:
+  use_utm: true
+  crm_integration: true
+tags:
+  - alto_de_pinheiros
+  - corporate_events
+  - b2b_premium
