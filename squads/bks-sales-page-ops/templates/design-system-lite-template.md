@@ -1,4 +1,4 @@
-﻿# Design System Lite Template (Sales Page)
+﻿# Design System Template (Sales Page Professional)
 
 ## 1. Tokens
 ### Colors
@@ -15,7 +15,7 @@
 
 ### Typography
 - --font-family-heading:
-- --font-family-body:
+- --font-family-body: "Poppins", sans-serif
 - --font-size-h1:
 - --font-size-h2:
 - --font-size-h3:
@@ -37,6 +37,13 @@
 - --bp-md:
 - --bp-lg:
 
+### Motion Tokens
+- --motion-fast:
+- --motion-base:
+- --motion-slow:
+- --ease-standard:
+- --ease-emphasis:
+
 ## 2. Components
 - Button (primary, secondary, ghost)
 - Input / Select / Textarea
@@ -45,6 +52,7 @@
 - Proof/Testimonial card
 - FAQ item
 - CTA banner
+- Gallery/Carousel (required, even with placeholders)
 
 For each component, define:
 - Variants
@@ -57,9 +65,17 @@ For each component, define:
 - Every long section must end with a contextual CTA.
 - Proof blocks must be visible before pricing/offer decision point.
 - Mobile CTA tap area minimum 44px.
+- CTA buttons should include premium interaction states (gradient shift or pulse micro-animation).
+- Carousel should support navigation and smooth transitions.
 
 ## 4. Accessibility Baseline
 - Contrast: WCAG AA minimum
 - Visible focus style for keyboard navigation
 - Form errors with explicit text + visual state
 - Semantic heading order
+
+## 5. Motion Baseline
+- Entrance motion for hero and first CTA
+- Scroll reveal for major sections (subtle stagger)
+- Hover/focus transitions under 250ms for controls
+- Respect reduced-motion preferences where possible

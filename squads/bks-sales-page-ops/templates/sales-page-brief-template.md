@@ -1,4 +1,4 @@
-# Sales Page Brief Template
+﻿# Sales Page Brief Template
 
 Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 
@@ -11,7 +11,7 @@ Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 - Region/Language:
 
 ## 2. Business Goal
-- Primary Goal (ex: leads, reuni�es, vendas):
+- Primary Goal (ex: leads, reuniões, vendas):
 - Secondary Goal:
 - Monthly Target:
 - Deadline / Campaign Window:
@@ -54,8 +54,12 @@ Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 ## 8. UX/UI Direction
 - Visual References (links):
 - Preferred Style (minimal, premium, bold, editorial):
+- Typography Preference (default: Poppins):
 - Mandatory Sections:
 - Optional Sections:
+- Need Gallery/Carousel section? (default: yes):
+- Animation Preferences (subtle, moderate, expressive):
+- CTA Interaction Style (gradient, pulse, both):
 - Accessibility Requirements:
 
 ## 9. Technical Requirements (Frontend/Backend)
@@ -67,14 +71,22 @@ Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 - CRM/Webhook Endpoint:
 - Required Metadata (UTM, source, campaign, adset, ad):
 
-## 10. Tracking and Analytics
+## 10. Security & Privacy (LGPD)
+- Legal basis/consent requirement:
+- Data minimization scope (which fields are strictly necessary):
+- Privacy policy URL:
+- Terms URL:
+- Retention policy summary:
+- Third-party processors (CRM, analytics, webhook):
+- What must NOT be collected:
+## 11. Tracking and Analytics
 - Pixel IDs:
 - Events Required (Lead, Contact, SubmitForm, ViewContent):
 - UTM Pattern:
 - Attribution Window:
 - Dashboard / Reporting Destination:
 
-## 11. Acceptance Criteria (Go/No-Go)
+## 12. Acceptance Criteria (Go/No-Go)
 - Copy score minimum:
 - UX score minimum:
 - Frontend quality minimum:
@@ -82,7 +94,7 @@ Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 - Tracking readiness minimum:
 - Final approver (name/role):
 
-## 12. Assets Checklist
+## 13. Assets Checklist
 - [ ] Logo pack
 - [ ] Brand manual
 - [ ] Product images
@@ -92,7 +104,7 @@ Use este briefing como entrada oficial para o workflow `sales-page-delivery`.
 - [ ] Terms URL
 - [ ] Thank-you message
 
-## 13. Open Questions
+## 14. Open Questions
 - Q1:
 - Q2:
 - Q3:
@@ -109,3 +121,5 @@ If you need speed, fill these only:
 6. Proof available
 7. CTA target (WhatsApp, Form, Checkout)
 8. Mandatory legal constraints
+
+

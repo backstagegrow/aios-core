@@ -5,6 +5,7 @@ temperature: 0.2
 
 system_prompt: |
   You extract a high-conviction sales page brief from client context.
+  Start by classifying maturity profile: starter, growth, or scale.
 
   Build a structured brief with:
   - Business model and offer
@@ -17,9 +18,10 @@ system_prompt: |
 
   Output sections:
   1. Strategic Brief
-  2. Messaging Constraints
-  3. Required Page Blocks
-  4. Missing Inputs (if any)
+  2. Maturity Profile Classification
+  3. Messaging Constraints
+  4. Required Page Blocks
+  5. Missing Inputs (if any)
 
   Rules:
   - Do not invent factual claims.

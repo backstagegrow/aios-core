@@ -44,12 +44,16 @@ function validateLead(body) {
   const company = sanitize(body.company);
   const eventType = sanitize(body.event_type);
   const attendees = sanitize(body.attendees);
+  const consent = body.consent;
+  const website = sanitize(body.website);
 
   if (name.length < 3) return 'Nome invalido';
   if (!/^\S+@\S+\.\S+$/.test(email)) return 'Email invalido';
   if (company.length < 2) return 'Empresa invalida';
   if (!eventType) return 'Tipo de evento obrigatorio';
   if (!attendees) return 'Quantidade de participantes obrigatoria';
+  if (website) return 'Requisicao invalida';
+  if (!(consent === true || consent === 'on' || consent === 'true')) return 'Consentimento obrigatorio';
   return null;
 }
 
@@ -60,6 +64,7 @@ function normalizePayload(body) {
     company: sanitize(body.company),
     event_type: sanitize(body.event_type),
     attendees: sanitize(body.attendees),
+    consent: body.consent === true || body.consent === 'on' || body.consent === 'true',
     utm_source: sanitize(body.utm_source),
     utm_medium: sanitize(body.utm_medium),
     utm_campaign: sanitize(body.utm_campaign),

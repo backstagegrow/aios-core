@@ -21,6 +21,7 @@
     - phase_5: Frontend Build
     - phase_6: Backend Integration
     - phase_7: Final Validation
+    - phase_8: Learning & Finance Wrap-up
 
   sequence:
     - step: gather_requirements
@@ -109,8 +110,21 @@
         - validation_report
         - scorecard
         - go_no_go
-      next: complete
+      next: wrap
       on_failure: copy
+
+    - step: wrapup_learning_finance
+      id: wrap
+      phase: 8
+      agent: sales_page_operator
+      action: Consolidar memoria de aprendizado e visao financeira
+      requires: validate
+      notes: |
+        Registrar learnings por agente e garantir instrumentacao para custo por reuniao/proposta/fechamento.
+      outputs:
+        - agent_learning_log
+        - cfo_unit_economics_note
+      next: complete
 
     - workflow_end:
       id: complete
