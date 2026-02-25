@@ -35,6 +35,15 @@ const DATA_DIR = path.join(ROOT_DIR, 'development', 'data');
 const UTILS_DIR = path.join(ROOT_DIR, 'development', 'utils');
 const WORKFLOWS_DIR = path.join(ROOT_DIR, 'development', 'workflows');
 const SCRIPTS_DIR = path.join(ROOT_DIR, 'development', 'scripts');
+const LEGACY_PRODUCT_TEMPLATES_DIR = path.join(ROOT_DIR, 'product', 'templates');
+const LEGACY_PRODUCT_DATA_DIR = path.join(ROOT_DIR, 'product', 'data');
+const LEGACY_PRODUCT_CHECKLISTS_DIR = path.join(ROOT_DIR, 'product', 'checklists');
+const LEGACY_ROOT_DATA_DIR = path.join(ROOT_DIR, 'data');
+const LEGACY_ROOT_SCRIPTS_DIR = path.join(ROOT_DIR, 'scripts');
+const LEGACY_INFRA_SCRIPTS_DIR = path.join(ROOT_DIR, 'infrastructure', 'scripts');
+const LEGACY_SCHEMAS_DIR = path.join(ROOT_DIR, 'schemas');
+const LEGACY_CORE_EXECUTION_DIR = path.join(ROOT_DIR, 'core', 'execution');
+const LEGACY_CORE_MEMORY_DIR = path.join(ROOT_DIR, 'core', 'memory');
 
 // Commands that are allowed to be shared by multiple agents
 // These are utility/infrastructure commands, not domain-specific
@@ -127,6 +136,52 @@ async function fileExists(filePath) {
 }
 
 /**
+ * Build candidate paths for each dependency.
+ */
+function buildDependencyCandidates(depType, depFile) {
+  const depDirsByType = {
+    tasks: [TASKS_DIR],
+    templates: [TEMPLATES_DIR, LEGACY_PRODUCT_TEMPLATES_DIR],
+    checklists: [CHECKLISTS_DIR, LEGACY_PRODUCT_CHECKLISTS_DIR],
+    data: [DATA_DIR, LEGACY_PRODUCT_DATA_DIR, LEGACY_ROOT_DATA_DIR],
+    utils: [UTILS_DIR, SCRIPTS_DIR, LEGACY_ROOT_SCRIPTS_DIR, LEGACY_INFRA_SCRIPTS_DIR, LEGACY_CORE_EXECUTION_DIR, LEGACY_CORE_MEMORY_DIR],
+    workflows: [WORKFLOWS_DIR],
+    scripts: [SCRIPTS_DIR, LEGACY_ROOT_SCRIPTS_DIR, LEGACY_INFRA_SCRIPTS_DIR, LEGACY_CORE_EXECUTION_DIR, LEGACY_CORE_MEMORY_DIR],
+    schemas: [LEGACY_SCHEMAS_DIR],
+  };
+
+  const candidates = [];
+  const depDirs = depDirsByType[depType] || [];
+
+  for (const depDir of depDirs) {
+    candidates.push(path.join(depDir, depFile));
+
+    // Compatibility: some references omit extension.
+    if (!path.extname(depFile)) {
+      candidates.push(path.join(depDir, `${depFile}.js`));
+      candidates.push(path.join(depDir, `${depFile}.md`));
+      candidates.push(path.join(depDir, `${depFile}.yaml`));
+      candidates.push(path.join(depDir, `${depFile}.yml`));
+      candidates.push(path.join(depDir, `${depFile}.json`));
+      candidates.push(path.join(depDir, `${depFile}.sql`));
+    }
+  }
+
+  // Compatibility aliases for renamed files.
+  if (depType === 'tasks' && depFile === 'manage-story-backlog.md') {
+    candidates.push(path.join(TASKS_DIR, 'po-manage-story-backlog.md'));
+  }
+  if (depType === 'tasks' && depFile === 'add-tech-doc.md') {
+    candidates.push(path.join(TASKS_DIR, 'create-doc.md'));
+  }
+  if (depType === 'templates' && depFile === 'task-template.md') {
+    candidates.push(path.join(TEMPLATES_DIR, 'squad', 'task-template.md'));
+  }
+
+  return candidates;
+}
+
+/**
  * Validate command uniqueness across agents
  * Returns: { errors: [], warnings: [], commandOwners: Map }
  */
@@ -187,16 +242,6 @@ async function validateDependencies(agents) {
   const errors = [];
   const warnings = [];
 
-  const depDirs = {
-    tasks: TASKS_DIR,
-    templates: TEMPLATES_DIR,
-    checklists: CHECKLISTS_DIR,
-    data: DATA_DIR,
-    utils: UTILS_DIR,
-    workflows: WORKFLOWS_DIR,
-    scripts: SCRIPTS_DIR,
-  };
-
   // Dependency types that are not file-based (external tools, integrations)
   const skipDepTypes = new Set(['tools', 'coderabbit_integration', 'pr_automation', 'repository_agnostic_design', 'git_authority', 'workflow_examples']);
 
@@ -208,8 +253,8 @@ async function validateDependencies(agents) {
       if (skipDepTypes.has(depType)) continue;
       if (!Array.isArray(depList)) continue;
 
-      const depDir = depDirs[depType];
-      if (!depDir) {
+      const supportedDepTypes = new Set(['tasks', 'templates', 'checklists', 'data', 'utils', 'workflows', 'scripts', 'schemas']);
+      if (!supportedDepTypes.has(depType)) {
         warnings.push({
           type: 'UNKNOWN_DEP_TYPE',
           agent: agent.id,
@@ -220,8 +265,17 @@ async function validateDependencies(agents) {
       }
 
       for (const depFile of depList) {
-        const depPath = path.join(depDir, depFile);
-        const exists = await fileExists(depPath);
+        const candidates = buildDependencyCandidates(depType, depFile);
+        let exists = false;
+        let matchedPath = null;
+        for (const candidate of candidates) {
+          // eslint-disable-next-line no-await-in-loop
+          if (await fileExists(candidate)) {
+            exists = true;
+            matchedPath = candidate;
+            break;
+          }
+        }
 
         if (!exists) {
           // Missing dependencies are warnings, not errors (pre-existing technical debt)
@@ -230,9 +284,9 @@ async function validateDependencies(agents) {
             agent: agent.id,
             depType,
             depFile,
-            expectedPath: depPath,
+            expectedPath: candidates[0],
             message: `Missing dependency: @${agent.id} → ${depType}/${depFile}`,
-            suggestion: `Create the file at ${depPath} or remove from agent dependencies.`,
+            suggestion: 'Create one of the candidate files or remove from agent dependencies.',
           });
         }
       }

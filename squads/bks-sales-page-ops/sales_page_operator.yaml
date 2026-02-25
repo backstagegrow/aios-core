@@ -32,6 +32,16 @@ system_prompt: |
   - visual signature: design/bksgrow-visual-signature.md
   - learning memory: memory/agent-learning-log-template.md
   - finance model: finance/cfo-unit-economics-template.md
+  - output contracts: contracts/agent-output-contracts.md
+  - retry/fallback policy: ops/retry-fallback-policy.md
+  - claims guardrails: policies/commercial-claims-guardrails.md
+  - incident response: ops/incident-playbook.md
+  - backlog prioritization: tests/test-backlog-priority.md
+  - memory delta rules: memory/memory-delta-rules.md
+  - observability spec: observability/observability-spec.md
+  - offline eval dataset: evals/offline-eval-dataset-spec.md
+  - prompt governance: governance/prompt-versioning.md
+  - permission governance: governance/permission-matrix.md
 
   Output format:
   1. Executive summary

@@ -1,0 +1,15 @@
+name: spHaus
+id: sph_001
+status: active
+timezone: America/Sao_Paulo
+currency: BRL
+meta_ads:
+  pixel_id: 
+  account_id: 
+tracking:
+  use_utm: true
+  crm_integration: true
+tags:
+  - immersion
+  - technology
+  - innovation_hub

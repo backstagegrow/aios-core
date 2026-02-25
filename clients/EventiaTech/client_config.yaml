@@ -1,0 +1,12 @@
+name: EventiaTech
+id: evt_999
+status: onboarding
+timezone: America/Sao_Paulo
+currency: BRL
+meta_ads:
+  pixel_id: ""
+  account_id: ""
+tags:
+  - vr_technology
+  - immersive_events
+  - stress_test

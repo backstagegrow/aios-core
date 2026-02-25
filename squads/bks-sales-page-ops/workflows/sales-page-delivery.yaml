@@ -120,10 +120,12 @@
       action: Consolidar memoria de aprendizado e visao financeira
       requires: validate
       notes: |
-        Registrar learnings por agente e garantir instrumentacao para custo por reuniao/proposta/fechamento.
+        Registrar learnings por agente, garantir instrumentacao para custo por reuniao/proposta/fechamento
+        e gerar resumo executivo automatico (CEO/CMO/CFO).
       outputs:
         - agent_learning_log
         - cfo_unit_economics_note
+        - executive_summary_auto
       next: complete
 
     - workflow_end:
