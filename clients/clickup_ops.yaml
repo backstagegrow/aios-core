@@ -1,0 +1,406 @@
+clickup_ops:
+  workspace:
+    id: "90132645314"
+    name: "Gerenciamento de Clientes"
+    url: "https://app.clickup.com/90132645314/v/o/s/901312834269"
+  reporting:
+    management_space:
+      name: "Gestão Empresarial"
+      reports_location_name: "Relatórios"
+      reports_doc_target_id: "4006945040979908393"
+
+  members:
+    backstage_grow: "248595236"
+    darlon_do_prado: "112074266"
+    erick_moreira_sena_silveira: "111906470"
+    robson_nobre: "112074279"
+    vitoria_santos: "112048722"
+
+  folders:
+    social_media:
+      id: "901316465410"
+      name: "Gestão de Social Media"
+      url: "https://app.clickup.com/90132645314/v/o/f/901316465410?pr=901312834269"
+
+  lists:
+    backstage_grow_social_media:
+      name: "Backstage Grow (Social Media)"
+      list_id: "4006954504910967862"
+      custom_fields:
+        formato:
+          field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
+          type: "drop_down"
+          options:
+            reels: "8eb367da-1037-4aaa-9a39-845910008c18"
+            carrossel: "dde7fc87-9cb6-46a5-9402-a98cd04c099b"
+            estatico: "9addfe3e-211b-42ea-acf2-1e606faaddde"
+            stories: "cbc79c4d-0411-4cae-b1ff-08aa7ee011f8"
+        acao:
+          field_id: "4a01c86c-52f8-4c9c-aff0-a5591a5e8e10"
+          type: "drop_down"
+          options:
+            gerar_autoridade: "7f88b6ae-68cd-4ae4-bbcf-97b81a843809"
+            aumentar_medias_visualizacoes: "5401ad67-2d96-41f1-9d9b-c74b43b30db2"
+            gerar_interacao: "3dfa7d88-70f8-4cbd-8b38-9c992567a250"
+            gerar_compartilhamento: "8d89d49f-7d42-44d6-82ac-df6cbf5ef215"
+            converter_seguidores: "1a25ee30-d63c-409b-94f1-561796cb84ca"
+        objetivo:
+          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
+          type: "drop_down"
+          options:
+            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
+            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
+            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
+            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
+            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
+            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
+        entrega_do_design:
+          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          type: "date"
+
+    espaco_constru_social_media:
+      name: "Espaço Constru (Social Media)"
+      list_id: "4006912347966905596"
+      custom_fields:
+        formato:
+          field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
+          type: "drop_down"
+          options:
+            reels: "8eb367da-1037-4aaa-9a39-845910008c18"
+            carrossel: "dde7fc87-9cb6-46a5-9402-a98cd04c099b"
+            estatico: "9addfe3e-211b-42ea-acf2-1e606faaddde"
+            stories: "cbc79c4d-0411-4cae-b1ff-08aa7ee011f8"
+        acao:
+          field_id: "4a01c86c-52f8-4c9c-aff0-a5591a5e8e10"
+          type: "drop_down"
+          options:
+            gerar_autoridade: "7f88b6ae-68cd-4ae4-bbcf-97b81a843809"
+            aumentar_medias_visualizacoes: "5401ad67-2d96-41f1-9d9b-c74b43b30db2"
+            gerar_interacao: "3dfa7d88-70f8-4cbd-8b38-9c992567a250"
+            gerar_compartilhamento: "8d89d49f-7d42-44d6-82ac-df6cbf5ef215"
+            converter_seguidores: "1a25ee30-d63c-409b-94f1-561796cb84ca"
+        objetivo:
+          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
+          type: "drop_down"
+          options:
+            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
+            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
+            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
+            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
+            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
+            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
+        entrega_do_design:
+          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          type: "date"
+
+    gt_house_social_media:
+      name: "GT House (Social Media)"
+      list_id: "4006969979138979002"
+      custom_fields:
+        formato:
+          field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
+          type: "drop_down"
+          options:
+            reels: "8eb367da-1037-4aaa-9a39-845910008c18"
+            carrossel: "dde7fc87-9cb6-46a5-9402-a98cd04c099b"
+            estatico: "9addfe3e-211b-42ea-acf2-1e606faaddde"
+            stories: "cbc79c4d-0411-4cae-b1ff-08aa7ee011f8"
+        acao:
+          field_id: "e7b5800d-1547-4221-acf8-beaf94212a68"
+          type: "drop_down"
+          options:
+            gerar_autoridade: "9a9a9d2e-8d5d-462f-afec-453bc936a000"
+            aumentar_medias_visualizacoes: "5e49a54d-0658-405a-9287-c15a5bcb4ade"
+            gerar_interacao: "866f0a68-2102-4709-a0b4-f42657a7c438"
+            gerar_compartilhamento: "7f160840-f050-4d5d-a5c4-590d028fd56f"
+            converter_seguidores: "4e2572de-7b33-4419-ac61-a1a3f568258b"
+        objetivo:
+          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
+          type: "drop_down"
+          options:
+            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
+            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
+            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
+            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
+            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
+            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
+        entrega_do_design:
+          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          type: "date"
+
+    via_br_cenografia_social_media:
+      name: "Via BR Cenografia (Social Media)"
+      list_id: "4006966506583225995"
+      custom_fields:
+        formato:
+          field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
+          type: "drop_down"
+          options:
+            reels: "8eb367da-1037-4aaa-9a39-845910008c18"
+            carrossel: "dde7fc87-9cb6-46a5-9402-a98cd04c099b"
+            estatico: "9addfe3e-211b-42ea-acf2-1e606faaddde"
+            stories: "cbc79c4d-0411-4cae-b1ff-08aa7ee011f8"
+        acao:
+          field_id: "e7b5800d-1547-4221-acf8-beaf94212a68"
+          type: "drop_down"
+          options:
+            gerar_autoridade: "9a9a9d2e-8d5d-462f-afec-453bc936a000"
+            aumentar_medias_visualizacoes: "5e49a54d-0658-405a-9287-c15a5bcb4ade"
+            gerar_interacao: "866f0a68-2102-4709-a0b4-f42657a7c438"
+            gerar_compartilhamento: "7f160840-f050-4d5d-a5c4-590d028fd56f"
+            converter_seguidores: "4e2572de-7b33-4419-ac61-a1a3f568258b"
+        objetivo:
+          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
+          type: "drop_down"
+          options:
+            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
+            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
+            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
+            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
+            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
+            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
+        entrega_do_design:
+          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          type: "date"
+
+    sp_haus_social_media:
+      name: "sp HAUS (Gestão de Social Media)"
+      list_id: "4006956218271573997"
+      custom_fields:
+        formato:
+          field_id: "6c3b84f0-ce83-49b2-8f2f-c6186343ecac"
+          type: "drop_down"
+          options:
+            reels: "7fcdd070-6320-4a31-b491-e03bab3a6a01"
+            carrossel: "beb43ae5-2521-401f-b64e-2bd1d4a0d3bf"
+            estatico: "196dd42c-b19a-4532-9368-10a6d4ec01d8"
+            stories: "3a796451-5e68-431a-a031-9a58304e6128"
+        objetivo:
+          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
+          type: "drop_down"
+          options:
+            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
+            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
+            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
+            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
+            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
+            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
+        acao:
+          field_id: "4a01c86c-52f8-4c9c-aff0-a5591a5e8e10"
+          type: "drop_down"
+          options:
+            gerar_autoridade: "7f88b6ae-68cd-4ae4-bbcf-97b81a843809"
+            aumentar_medias_visualizacoes: "5401ad67-2d96-41f1-9d9b-c74b43b30db2"
+            gerar_interacao: "3dfa7d88-70f8-4cbd-8b38-9c992567a250"
+            gerar_compartilhamento: "8d89d49f-7d42-44d6-82ac-df6cbf5ef215"
+            converter_seguidores: "1a25ee30-d63c-409b-94f1-561796cb84ca"
+        entrega_do_design:
+          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          type: "date"
+
+    sp_haus_trafego_pago:
+      name: "sp HAUS (Gestão de Tráfego Pago)"
+      list_id: "4006949177519686941"
+      custom_fields: {}
+
+    gt_house_trafego_pago:
+      name: "GT House (Gestão de Tráfego Pago)"
+      list_id: "4006909115324802615"
+      custom_fields: {}
+
+    sp_haus_automacoes:
+      name: "sp HAUS (Automações)"
+      list_id: "4006927771270429340"
+      custom_fields: {}
+
+    via_br_cenografia_automacoes:
+      name: "Via BR Cenografia (Automações)"
+      list_id: "4006946623684212362"
+      custom_fields: {}
+
+    espaco_constru_automacoes:
+      name: "Espaço Constru (Automações)"
+      list_id: "4006911367424542286"
+      custom_fields: {}
+
+    backstage_grow_automacoes:
+      name: "Backstage Grow (Automações)"
+      list_id: "4006967380295741386"
+      custom_fields: {}
+
+    gt_house_automacoes:
+      name: "GT House (Automações)"
+      list_id: "4006925123372848283"
+      custom_fields: {}
+
+    backstage_grow_trafego_pago:
+      name: "Backstage Grow (Tráfego Pago)"
+      list_id: "4006939345109387035"
+      custom_fields: {}
+
+    espaco_constru_trafego_pago:
+      name: "Espaço Constru (Tráfego Pago)"
+      list_id: "4006901846442487393"
+      custom_fields: {}
+
+    via_br_cenografia_trafego_pago:
+      name: "Via BR Cenografia (Tráfego Pago)"
+      list_id: "4006945298609117636"
+      custom_fields: {}
+
+    espaco_constru_onboarding:
+      name: "Espaço Constru (Onboarding)"
+      list_id: "4006911058032940449"
+      custom_fields: {}
+
+    gt_house_onboarding:
+      name: "GT House (Onboarding)"
+      list_id: "4006926170538287220"
+      custom_fields: {}
+
+    via_br_cenografia_onboarding:
+      name: "Via BR Cenografia (Onboarding)"
+      list_id: "4006905575449557889"
+      custom_fields: {}
+
+    sp_haus_onboarding:
+      name: "sp HAUS (Onboarding)"
+      list_id: "4006937845762530674"
+      custom_fields: {}
+
+  routing:
+    copy: "112048722"
+    design: "112074279"
+    social_media: "112048722"
+    paid_media: "112074266"
+    onboarding: "248595236"
+    automacao: "112074279"
+    relatorio: "111906470"
+    revisao: "248595236"
+    fallback_assignee: "248595236"
+
+  status_by_list:
+    default:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+
+    backstage_grow_social_media:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    espaco_constru_social_media:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    gt_house_social_media:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    via_br_cenografia_social_media:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    sp_haus_social_media:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+
+    sp_haus_trafego_pago:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    gt_house_trafego_pago:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    backstage_grow_trafego_pago:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    espaco_constru_trafego_pago:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    via_br_cenografia_trafego_pago:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+
+    sp_haus_automacoes:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    via_br_cenografia_automacoes:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    espaco_constru_automacoes:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    backstage_grow_automacoes:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    gt_house_automacoes:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+
+    espaco_constru_onboarding:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    gt_house_onboarding:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    via_br_cenografia_onboarding:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"
+    sp_haus_onboarding:
+      - "TO DO"
+      - "EM PRODUÇÃO"
+      - "REVISÃO"
+      - "APROVADO"
+      - "CONCLUÍDO"

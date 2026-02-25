@@ -59,6 +59,8 @@ Atalhos aceitos por agente:
 - `@aios-master`, `/aios-master`, `/aios-master.md` -> `.aios-core/development/agents/aios-master.md`
 - `@analyst`, `/analyst`, `/analyst.md` -> `.aios-core/development/agents/analyst.md`
 - `@architect`, `/architect`, `/architect.md` -> `.aios-core/development/agents/architect.md`
+- `@clickup-ops`, `/clickup-ops`, `/clickup-ops.md` -> `.aios-core/development/agents/clickup-ops.md`
+- `@clickup-reporting`, `/clickup-reporting`, `/clickup-reporting.md` -> `.aios-core/development/agents/clickup-reporting.md`
 - `@data-engineer`, `/data-engineer`, `/data-engineer.md` -> `.aios-core/development/agents/data-engineer.md`
 - `@dev`, `/dev`, `/dev.md` -> `.aios-core/development/agents/dev.md`
 - `@devops`, `/devops`, `/devops.md` -> `.aios-core/development/agents/devops.md`

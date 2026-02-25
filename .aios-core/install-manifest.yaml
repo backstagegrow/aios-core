@@ -8,9 +8,9 @@
 # - File types for categorization
 #
 version: 4.2.13
-generated_at: "2026-02-25T13:35:18.861Z"
+generated_at: "2026-02-25T16:56:48.517Z"
 generator: scripts/generate-install-manifest.js
-file_count: 1007
+file_count: 1012
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -1104,6 +1104,14 @@ files:
     hash: sha256:624cc2a9e8a6cb1549321614927649714a867332272faaa5861f4378206f1c34
     type: agent
     size: 18980
+  - path: development/agents/clickup-ops.md
+    hash: sha256:12ce0209f76c270277b56dd9fa77d5534e90579ece16df07bb572662de18a20f
+    type: agent
+    size: 3311
+  - path: development/agents/clickup-reporting.md
+    hash: sha256:1e550e61ff54454c563508cf6bc536f6c385d483020bc337b8197decad48b47f
+    type: agent
+    size: 2707
   - path: development/agents/data-engineer.md
     hash: sha256:4be2e5bff60e58d7444d39030edd1e8d34e326e6d1267ae84772871f3e76ec19
     type: agent
@@ -1568,6 +1576,18 @@ files:
     hash: sha256:10d9fab42ba133a03f76094829ab467d2ef53b80bcc3de39245805679cedfbbd
     type: task
     size: 877
+  - path: development/tasks/clickup-create-update-task.md
+    hash: sha256:8a0af467d952d6a4ba154ace19324fa45590d632887751a8dabe41deba86120b
+    type: task
+    size: 2893
+  - path: development/tasks/clickup-generate-management-report.md
+    hash: sha256:e6d18051e2b1cfee1dccf9520f951ecd6fa778a0413a44e8b9a939a26296e87f
+    type: task
+    size: 3285
+  - path: development/tasks/clickup-publish-task.md
+    hash: sha256:7033c42096c2183411a0147a7d8fe37b7ec716fd7108436a1d34d0f357ddd5e6
+    type: task
+    size: 3128
   - path: development/tasks/collaborative-edit.md
     hash: sha256:cd4e1d63aaef58bc622fb86276344f01c2919eb807c7fc2c6106fe92087bf702
     type: task
