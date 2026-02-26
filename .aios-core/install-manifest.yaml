@@ -8,7 +8,7 @@
 # - File types for categorization
 #
 version: 4.2.13
-generated_at: "2026-02-25T16:56:48.517Z"
+generated_at: "2026-02-26T20:25:43.493Z"
 generator: scripts/generate-install-manifest.js
 file_count: 1012
 files:
@@ -1045,9 +1045,9 @@ files:
     type: data
     size: 34251
   - path: data/entity-registry.yaml
-    hash: sha256:77c1e76653f019115f626e5b0c4a0cc5629f0a28940b432a3fae30d0899ff714
+    hash: sha256:5e70e00b003b8e0d4a07a9de75618c24f4ae419f65bf37a95210e09f65bbaef4
     type: data
-    size: 291795
+    size: 294928
   - path: data/learned-patterns.yaml
     hash: sha256:24ac0b160615583a0ff783d3da8af80b7f94191575d6db2054ec8e10a3f945dc
     type: data
@@ -1105,13 +1105,13 @@ files:
     type: agent
     size: 18980
   - path: development/agents/clickup-ops.md
-    hash: sha256:12ce0209f76c270277b56dd9fa77d5534e90579ece16df07bb572662de18a20f
+    hash: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
     type: agent
-    size: 3311
+    size: 3684
   - path: development/agents/clickup-reporting.md
-    hash: sha256:1e550e61ff54454c563508cf6bc536f6c385d483020bc337b8197decad48b47f
+    hash: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
     type: agent
-    size: 2707
+    size: 3080
   - path: development/agents/data-engineer.md
     hash: sha256:4be2e5bff60e58d7444d39030edd1e8d34e326e6d1267ae84772871f3e76ec19
     type: agent
@@ -3545,9 +3545,9 @@ files:
     type: template
     size: 6785
   - path: product/templates/ide-rules/codex-rules.md
-    hash: sha256:e8345404f17977a268b917a4ff86e4f10f80174a6bb572865e5413c8f7dd217a
+    hash: sha256:4ae3a5b04a3b4669da095dcdb9868c4bff352f82daa0e8da166516d69511368e
     type: template
-    size: 2702
+    size: 3080
   - path: product/templates/ide-rules/copilot-rules.md
     hash: sha256:8ff2822680e189ba5fd0e14370625964ddb1017f893c1d0c5aa242b9bf786069
     type: template

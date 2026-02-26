@@ -58,6 +58,8 @@
     "validate:codex-skills": "node .aios-core/infrastructure/scripts/codex-skills-sync/validate.js --strict",
     "validate:paths": "node .aios-core/infrastructure/scripts/validate-paths.js",
     "validate:parity": "node .aios-core/infrastructure/scripts/validate-parity.js",
+    "notebooklm:import": "powershell -ExecutionPolicy Bypass -File ./scripts/notebooklm-import.ps1",
+    "notebooklm:dispatch": "powershell -ExecutionPolicy Bypass -File ./scripts/notebooklm-dispatch.ps1",
     "validate:semantic-lint": "node scripts/semantic-lint.js",
     "manifest:ensure": "node scripts/ensure-manifest.js",
     "sync:ide:cursor": "node .aios-core/infrastructure/scripts/ide-sync/index.js sync --ide cursor",

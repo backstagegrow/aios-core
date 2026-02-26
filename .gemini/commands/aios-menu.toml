@@ -15,6 +15,8 @@ Mostre a lista de agentes abaixo em formato numerado, explicando em 1 linha quan
 10. /aios-sm - Scrum Master (Use for user story creation from PRD, story validation and completeness checking, acceptance criteria definition, story…)
 11. /aios-squad-creator - Squad Creator (Use to create, validate, publish and manage squads)
 12. /aios-ux-design-expert - UX/UI Designer & Design System Architect (Complete design workflow - user research, wireframes, design systems, token extraction, component building, and quality…)
+13. /aios-clickup-ops - ClickUp Operations Specialist (Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync)
+14. /aios-clickup-reporting - ClickUp Reporting Specialist (Use for cross-folder ClickUp audits, management KPI summaries, and publishing reports to ClickUp Docs)
 
 No final, peça para o usuário escolher um número ou digitar o comando direto.
 """

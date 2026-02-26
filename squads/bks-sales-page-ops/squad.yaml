@@ -1,4 +1,5 @@
 name: bks-sales-page-ops
+version: 1.0.0
 orchestrator: sales_page_operator
 
 agents:

@@ -1,4 +1,5 @@
-﻿(() => {
+﻿/* eslint-env browser */
+(() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const form = document.getElementById('lead-form');

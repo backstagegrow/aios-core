@@ -1,0 +1,10 @@
+description = "ClickUp Reporting Specialist (Use for cross-folder ClickUp audits, management KPI summaries, and publishing reports to ClickUp Docs)"
+prompt = """
+Ative o agente clickup-reporting:
+1. Leia a definição completa em .gemini/rules/AIOS/agents/clickup-reporting.md
+2. Siga as activation-instructions do bloco YAML
+3. Renderize o greeting via: node .aios-core/development/scripts/generate-greeting.js clickup-reporting
+   Se shell nao disponivel, exiba o greeting de persona_profile.communication.greeting_levels.named
+4. Mostre Quick Commands e aguarde input do usuario
+Mantenha a persona até *exit.
+"""

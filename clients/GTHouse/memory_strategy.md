@@ -35,6 +35,8 @@
 - **Preço médio:** R$ 60.000 (estimado)
 - **Diferenciais:** Ambiente imersivo integrado à natureza, localização estratégica (Alto de Pinheiros), estrutura técnica instalada, versatilidade, cases com grandes marcas.
 - **Provas Sociais:** Adidas, Red Bull, Caixa, Stone, O Boticário. Auditório (200-310 pax). Naming rights.
+- **Eventos Estratégicos:** Open Day (12 de Março, 18h-22h) focado em agências, parceiros e fornecedores.
+- **Parceiros Técnicos:** Cheff Orgânico (Buffet), Binotti (Drinks).
 - **Garantia:** Implícita via reputação e portfólio.
 - **Posicionamento:** “A casa das grandes empresas” | Espaço que transforma encontros em decisões.
 - **Tom de comunicação:** Institucional sofisticado, estratégico, premium.

@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-02-25T13:35:00.637Z'
-  entityCount: 509
+  lastUpdated: '2026-02-25T16:56:51.128Z'
+  entityCount: 514
   checksumAlgorithm: sha256
 entities:
   tasks:
@@ -3927,6 +3927,65 @@ entities:
         extensionPoints: []
       checksum: sha256:0e69435307db814563823896e7ba9b29a4a9c10d90f6dedec5cb7a6d6f7ba936
       lastVerified: '2026-02-16T20:19:27.659Z'
+    clickup-create-update-task:
+      path: .aios-core/development/tasks/clickup-create-update-task.md
+      type: task
+      purpose: >-
+        criar/atualizar tasks no ClickUp via MCP, atribuir ao membro correto, criar arquivo local no cliente escolhido e
+        preencher campos personalizados validos.
+      keywords:
+        - clickup
+        - create
+        - update
+        - task
+        - clickup-create-update-task
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:8a0af467d952d6a4ba154ace19324fa45590d632887751a8dabe41deba86120b
+      lastVerified: '2026-02-25T16:56:51.122Z'
+    clickup-generate-management-report:
+      path: .aios-core/development/tasks/clickup-generate-management-report.md
+      type: task
+      purpose: >-
+        auditar lanes/pastas específicas no ClickUp (social_media, trafego_pago, automacoes, onboarding), gerar
+        relatório gerencial consolidado e publicar em documento na área Gestão Empresarial > Relatórios.
+      keywords:
+        - clickup
+        - generate
+        - management
+        - report
+        - clickup-generate-management-report
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:e6d18051e2b1cfee1dccf9520f951ecd6fa778a0413a44e8b9a939a26296e87f
+      lastVerified: '2026-02-25T16:56:51.124Z'
+    clickup-publish-task:
+      path: .aios-core/development/tasks/clickup-publish-task.md
+      type: task
+      purpose: >-
+        publicar saida de agentes (copy, ads, social, onboarding, automacao) como task pronta no ClickUp com briefing na
+        descricao, campos personalizados, responsavel correto e arquivo local opcional.
+      keywords:
+        - clickup
+        - publish
+        - task
+        - clickup-publish-task
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:7033c42096c2183411a0147a7d8fe37b7ec716fd7108436a1d34d0f357ddd5e6
+      lastVerified: '2026-02-25T16:56:51.125Z'
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -9047,6 +9106,38 @@ entities:
         extensionPoints: []
       checksum: sha256:5dde817f220f1f452b53026643e267eb027e4a131d1e5fc4bbcf6ebd772da3bb
       lastVerified: '2026-02-15T19:33:09.495Z'
+    clickup-ops:
+      path: .aios-core/development/agents/clickup-ops.md
+      type: agent
+      purpose: Show all available commands
+      keywords:
+        - clickup
+        - ops
+        - clickup-ops
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:12ce0209f76c270277b56dd9fa77d5534e90579ece16df07bb572662de18a20f
+      lastVerified: '2026-02-25T16:56:51.118Z'
+    clickup-reporting:
+      path: .aios-core/development/agents/clickup-reporting.md
+      type: agent
+      purpose: Show available commands
+      keywords:
+        - clickup
+        - reporting
+        - clickup-reporting
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:1e550e61ff54454c563508cf6bc536f6c385d483020bc337b8197decad48b47f
+      lastVerified: '2026-02-25T16:56:51.121Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md

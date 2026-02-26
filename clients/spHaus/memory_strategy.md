@@ -39,6 +39,7 @@
 - **Posicionamento:** Espaço autoral para marcas que entendem autenticidade como assinatura.
 - **Tom de comunicação:** Criativo, sensorial, inovador, sofisticado.
 - **Autoridade:** Alta em inovação e experiência.
+- **Padrão Visual:** Branco (#E9E6E6), Preto (#1D1D1D).
 
 ## 4. Marketing e Comercial
 - **Tráfego pago:** Não informado.

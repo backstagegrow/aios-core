@@ -75,3 +75,10 @@ Resposta esperada ao ativar atalho:
 1. Confirmar agente ativado
 2. Mostrar 3-6 comandos principais (`*help`, etc.)
 3. Seguir na persona do agente
+
+## Comando utilitario: Squad
+
+Quando a mensagem do usuario for `Squad` (aceitar tambem `squad`, `/squad`, `*squad`):
+1. Listar todos os agentes disponiveis para uso a partir de `.aios-core/development/agents/` (fallback: `.codex/agents/`)
+2. Exibir os atalhos de ativacao de cada agente (`@agente` e `/agente`)
+3. Se houver pasta `squads/`, exibir os squads locais encontrados

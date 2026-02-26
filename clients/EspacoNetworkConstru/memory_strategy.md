@@ -10,8 +10,8 @@
   - Locação para eventos corporativos
   - Eventos de networking e encontros empresariais
   - Palestras e workshops
-  - Estrutura tecnológica e audiovisual
-  - Apoio estratégico à experiência do evento
+  - Estrutura tecnológica (Smart-boards interativas com escrita em tela)
+  - Apoio estratégico à experiência do evento (Pé direito duplo exclusivo)
 - **Ticket médio:** R$ 8.000 – R$ 40.000 por evento
 - **Capacidade operacional:** 10–20 eventos/mês
 - **Margem estimada:** 35% – 50%
@@ -31,10 +31,10 @@
 ## 3. Oferta Principal & Posicionamento
 - **Produto/serviço:** Infraestrutura premium preparada para networking e encontros empresariais.
 - **Preço médio:** R$ 18.000 (média estratégica).
-- **Diferenciais:** Localização estratégica em Alphaville, foco em negócios, estrutura funcional, ambiente preparado para decisores.
+- **Diferenciais:** Pé direito duplo (amplitude real/exclusiva), Smart-board interativa (escrita em tela para palestras dinâmicas), localização estratégica (Alphaville), infraestrutura tecnológica integrada.
 - **Provas Sociais:** Eventos que geraram parcerias e conexões empresariais recorrentes.
 - **Garantia:** Valor sustentado pela proposta de experiência estratégica.
-- **Posicionamento:** Infraestrutura que ativa negócios | Ambiente estratégico para decisões.
+- **Posicionamento:** Amplitude que ativa negócios | O único espaço com o pé direito que o seu evento merece em Alphaville.
 - **Tom de comunicação:** Institucional acessível, estratégico, regional.
 - **Autoridade:** Moderada (em crescimento).
 

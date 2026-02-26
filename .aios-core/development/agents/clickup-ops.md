@@ -69,6 +69,23 @@ dependencies:
     - clickup-create-update-task.md
   tools:
     - clickup
+autoClaude:
+  version: '3.0'
+  migratedAt: '2026-02-26T14:55:00.000Z'
+  execution:
+    canCreatePlan: false
+    canCreateContext: false
+    canExecute: true
+    canVerify: true
+  recovery:
+    canTrack: true
+    canRollback: true
+    maxAttempts: 3
+    stuckDetection: true
+  memory:
+    canCaptureInsights: true
+    canExtractPatterns: false
+    canDocumentGotchas: false
 ```
 
 ---

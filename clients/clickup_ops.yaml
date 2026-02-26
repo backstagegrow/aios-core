@@ -25,7 +25,7 @@ clickup_ops:
   lists:
     backstage_grow_social_media:
       name: "Backstage Grow (Social Media)"
-      list_id: "4006954504910967862"
+      list_id: "901324771638"
       custom_fields:
         formato:
           field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
@@ -60,7 +60,7 @@ clickup_ops:
 
     espaco_constru_social_media:
       name: "Espaço Constru (Social Media)"
-      list_id: "4006912347966905596"
+      list_id: "901324526474"
       custom_fields:
         formato:
           field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
@@ -95,7 +95,7 @@ clickup_ops:
 
     gt_house_social_media:
       name: "GT House (Social Media)"
-      list_id: "4006969979138979002"
+      list_id: "901324517019"
       custom_fields:
         formato:
           field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
@@ -130,7 +130,7 @@ clickup_ops:
 
     via_br_cenografia_social_media:
       name: "Via BR Cenografia (Social Media)"
-      list_id: "4006966506583225995"
+      list_id: "901324514634"
       custom_fields:
         formato:
           field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
@@ -165,7 +165,7 @@ clickup_ops:
 
     sp_haus_social_media:
       name: "sp HAUS (Gestão de Social Media)"
-      list_id: "4006956218271573997"
+      list_id: "901324514510"
       custom_fields:
         formato:
           field_id: "6c3b84f0-ce83-49b2-8f2f-c6186343ecac"
@@ -200,12 +200,12 @@ clickup_ops:
 
     sp_haus_trafego_pago:
       name: "sp HAUS (Gestão de Tráfego Pago)"
-      list_id: "4006949177519686941"
+      list_id: "901324526553"
       custom_fields: {}
 
     gt_house_trafego_pago:
       name: "GT House (Gestão de Tráfego Pago)"
-      list_id: "4006909115324802615"
+      list_id: "901324526554"
       custom_fields: {}
 
     sp_haus_automacoes:
@@ -235,17 +235,17 @@ clickup_ops:
 
     backstage_grow_trafego_pago:
       name: "Backstage Grow (Tráfego Pago)"
-      list_id: "4006939345109387035"
+      list_id: "901324771662"
       custom_fields: {}
 
     espaco_constru_trafego_pago:
       name: "Espaço Constru (Tráfego Pago)"
-      list_id: "4006901846442487393"
+      list_id: "901324526551"
       custom_fields: {}
 
     via_br_cenografia_trafego_pago:
       name: "Via BR Cenografia (Tráfego Pago)"
-      list_id: "4006945298609117636"
+      list_id: "901324526552"
       custom_fields: {}
 
     espaco_constru_onboarding:
@@ -343,11 +343,11 @@ clickup_ops:
       - "APROVADO"
       - "CONCLUÍDO"
     via_br_cenografia_trafego_pago:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
+      - "aberto"
+      - "em progresso"
+      - "revisão"
+      - "aprovação"
+      - "finalizado"
 
     sp_haus_automacoes:
       - "TO DO"

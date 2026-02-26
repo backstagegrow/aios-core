@@ -16,6 +16,20 @@
 4. Ao rodar tarefas estratégicas, peça explicitamente para usar a base NotebookLM:
    - "Use a base em knowledge/notebooklm como source of truth."
 
+## Dispatch automático (recomendado)
+
+Você pode importar + classificar + preparar envio para o melhor agente em um comando:
+
+```powershell
+npm run notebooklm:dispatch -- -Theme "marketing" -Title "Resumo semanal" -FromClipboard
+```
+
+Saída do comando:
+- salva o conteúdo em `knowledge/notebooklm/...`
+- detecta agente recomendado (`clickup-ops`, `clickup-reporting`, `analyst`, etc.)
+- gera payload em `.antigravity/inbox/dispatch-*.json`
+- imprime o prompt pronto para colar na IDE
+
 ## Fluxo sugerido
 
 1. Ingestão de conhecimento:
@@ -30,4 +44,3 @@
 
 - O `.mcp.json` deste projeto é local ao repositório.
 - Se sua IDE usa apenas MCP global, replique a entrada `filesystem-notebooklm` no config global da IDE.
-

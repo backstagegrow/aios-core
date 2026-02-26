@@ -62,4 +62,11 @@ Interprete os atalhos abaixo carregando o arquivo correspondente em `.aios-core/
 - `@ux-design-expert`, `/ux-design-expert`, `/ux-design-expert.md` -> `.aios-core/development/agents/ux-design-expert.md`
 - `@squad-creator`, `/squad-creator`, `/squad-creator.md` -> `.aios-core/development/agents/squad-creator.md`
 - `@aios-master`, `/aios-master`, `/aios-master.md` -> `.aios-core/development/agents/aios-master.md`
+
+## Comando utilitario: Squad
+
+Quando a mensagem do usuario for `Squad` (aceitar tambem `squad`, `/squad`, `*squad`):
+1. Listar todos os agentes disponiveis para uso a partir de `.aios-core/development/agents/` (fallback: `.codex/agents/`)
+2. Exibir os atalhos de ativacao de cada agente (`@agente` e `/agente`)
+3. Se houver pasta `squads/`, exibir os squads locais encontrados
 <!-- AIOS-MANAGED-END: shortcuts -->
