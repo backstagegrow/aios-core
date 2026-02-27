@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-02-25T16:56:51.128Z'
+  lastUpdated: '2026-02-26T20:40:55.472Z'
   entityCount: 514
   checksumAlgorithm: sha256
 entities:
@@ -3946,7 +3946,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:8a0af467d952d6a4ba154ace19324fa45590d632887751a8dabe41deba86120b
-      lastVerified: '2026-02-25T16:56:51.122Z'
+      lastVerified: '2026-02-26T20:40:55.466Z'
     clickup-generate-management-report:
       path: .aios-core/development/tasks/clickup-generate-management-report.md
       type: task
@@ -3966,7 +3966,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:e6d18051e2b1cfee1dccf9520f951ecd6fa778a0413a44e8b9a939a26296e87f
-      lastVerified: '2026-02-25T16:56:51.124Z'
+      lastVerified: '2026-02-26T20:40:55.467Z'
     clickup-publish-task:
       path: .aios-core/development/tasks/clickup-publish-task.md
       type: task
@@ -3985,7 +3985,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:7033c42096c2183411a0147a7d8fe37b7ec716fd7108436a1d34d0f357ddd5e6
-      lastVerified: '2026-02-25T16:56:51.125Z'
+      lastVerified: '2026-02-26T20:40:55.469Z'
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -4840,8 +4840,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:e8345404f17977a268b917a4ff86e4f10f80174a6bb572865e5413c8f7dd217a
-      lastVerified: '2026-02-15T17:43:13.184Z'
+      checksum: sha256:4ae3a5b04a3b4669da095dcdb9868c4bff352f82daa0e8da166516d69511368e
+      lastVerified: '2026-02-26T20:40:55.470Z'
     brownfield-risk-report-tmpl:
       path: .aios-core/product/templates/brownfield-risk-report-tmpl.yaml
       type: template
@@ -9014,7 +9014,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:8ae5410162212e1d469843200ac6712d06d39bed509bd15e90b640c532a3f4e8
-      lastVerified: '2026-02-25T13:35:00.634Z'
+      lastVerified: '2026-02-26T20:40:55.464Z'
     pm:
       path: .aios-core/development/agents/pm.md
       type: agent
@@ -9120,8 +9120,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:12ce0209f76c270277b56dd9fa77d5534e90579ece16df07bb572662de18a20f
-      lastVerified: '2026-02-25T16:56:51.118Z'
+      checksum: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
+      lastVerified: '2026-02-26T20:40:55.460Z'
     clickup-reporting:
       path: .aios-core/development/agents/clickup-reporting.md
       type: agent
@@ -9136,8 +9136,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:1e550e61ff54454c563508cf6bc536f6c385d483020bc337b8197decad48b47f
-      lastVerified: '2026-02-25T16:56:51.121Z'
+      checksum: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
+      lastVerified: '2026-02-26T20:40:55.463Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md

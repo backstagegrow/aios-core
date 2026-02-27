@@ -13,7 +13,7 @@
     utm_source: params.get('utm_source') || 'direct',
     utm_medium: params.get('utm_medium') || 'none',
     utm_campaign: params.get('utm_campaign') || 'gthouse_sales_page',
-    utm_content: params.get('utm_content') || ''
+    utm_content: params.get('utm_content') || '',
   };
 
   function setStatus(text, isError = false) {
@@ -81,7 +81,7 @@
 
     Object.assign(payload, utm, {
       page: window.location.pathname,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
 
     submitBtn.disabled = true;
@@ -91,7 +91,7 @@
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {

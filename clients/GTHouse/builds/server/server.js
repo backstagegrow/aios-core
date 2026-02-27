@@ -13,7 +13,7 @@ function sendJson(res, status, payload) {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Headers': 'Content-Type',
   });
   res.end(JSON.stringify(payload));
 }
@@ -70,7 +70,7 @@ function normalizePayload(body) {
     utm_campaign: sanitize(body.utm_campaign),
     utm_content: sanitize(body.utm_content),
     page: sanitize(body.page),
-    timestamp: sanitize(body.timestamp) || new Date().toISOString()
+    timestamp: sanitize(body.timestamp) || new Date().toISOString(),
   };
 }
 
@@ -79,7 +79,7 @@ async function maybeSendToCRM(payload) {
   await fetch(CRM_WEBHOOK_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   });
 }
 

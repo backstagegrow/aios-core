@@ -1,0 +1,27 @@
+# Synkra AIOS Development Rules
+
+These rules configure the behavior of AI agents in this repository.
+
+## 1. CLI First
+- MUST: All features must work via CLI first.
+- MUST: Dashboards only observe, they don't control.
+
+## 2. Agent Authority
+- @devops handles all Git pushes and PR creations.
+- @architect makes all architecture decisions.
+- @qa gives the final word on code quality.
+
+## 3. Story-Driven Development
+- docs/stories/ is the directory for all active development.
+- Always use checkboxes [ ] and update the File List.
+
+## 4. Quality Gates
+- No merge without: `npm run lint`, `npm run typecheck`, `npm test`.
+- Absolute imports with `@/` alias preferred.
+
+## 5. Agent Shortcuts
+- @dev, @qa, @architect, @pm, @po, @sm, @analyst, @devops
+- Use `*help` for commands and `*exit` to stop.
+
+---
+*Follow .aios-core/constitution.md for full details.*
