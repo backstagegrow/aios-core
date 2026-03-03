@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   ALPHA BUSINESS ACADEMY — Design System v2
+   Multi-tonal + textured backgrounds + rich gradients
+   ═══════════════════════════════════════════════════════ */
+
+@theme {
+    /* ── Primary: Warm Amber Gradient ── */
+    --color-amber-50: #fff8e1;
+    --color-amber-100: #ffecb3;
+    --color-amber-200: #ffe082;
+    --color-amber-300: #ffd54f;
+    --color-amber-400: #d4af37;
+    --color-amber-500: #c8a45c;
+    --color-amber-600: #a88a42;
+    --color-amber-700: #8b7235;
+    --color-amber-800: #6d5a2a;
+
+    /* ── Surfaces: Multi-tonal Darks ── */
+    --color-surface-950: #04040a;
+    --color-surface-900: #08081a;
+    --color-surface-850: #0c0c20;
+    --color-surface-800: #101028;
+    --color-surface-750: #141430;
+    --color-surface-700: #1a1a38;
+    --color-surface-650: #1e1e40;
+    --color-surface-600: #242448;
+
+    /* ── Accent: Cool Purple/Blue for depth ── */
+    --color-cool-950: #0a0818;
+    --color-cool-900: #12102a;
+    --color-cool-800: #1c1840;
+    --color-cool-700: #2a2458;
+    --color-cool-600: #3a3270;
+    --color-cool-500: #5046a0;
+
+    /* ── Text ── */
+    --color-text-primary: #f0ece4;
+    --color-text-secondary: #b0a898;
+    --color-text-muted: #6b6660;
+    --color-text-subtle: #3d3a35;
+
+    /* ── Semantic ── */
+    --color-success: #3ecf8e;
+    --color-error: #e05252;
+
+    /* ── Font ── */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base ── */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: var(--color-surface-950);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    position: relative;
+}
+
+/* Subtle noise texture overlay for entire page */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+}
+
+/* Ensure content sits above the noise */
+body>* {
+    position: relative;
+    z-index: 2;
+}
+
+::selection {
+    background: rgba(200, 164, 92, 0.3);
+    color: #fff;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-surface-950);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-amber-700);
+    border-radius: 3px;
+}
+
+/* ── Glow Button Animation ── */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(200, 164, 92, 0.2), 0 0 40px rgba(200, 164, 92, 0.05);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(200, 164, 92, 0.4), 0 0 60px rgba(200, 164, 92, 0.1), 0 0 90px rgba(200, 164, 92, 0.05);
+    }
+}
+
+.animate-glow {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ── Gradient text utility ── */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-text-primary) 40%, var(--color-amber-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Glass card ── */
+.glass {
+    background: linear-gradient(135deg, rgba(20, 20, 48, 0.6), rgba(10, 10, 28, 0.8));
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 164, 92, 0.08);
+}
+
+.glass:hover {
+    border-color: rgba(200, 164, 92, 0.2);
+}
+
+/* ── Section divider gradient ── */
+.divider-gradient {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-amber-600) 30%, var(--color-cool-500) 70%, transparent 100%);
+    opacity: 0.3;
+}
+
+/* ── Rich section backgrounds ── */
+.bg-section-alt {
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(42, 36, 88, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(200, 164, 92, 0.04) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-surface-900) 0%, var(--color-surface-950) 100%);
+}
+
+.bg-section-cool {
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(80, 70, 160, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(42, 36, 88, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-cool-950) 0%, var(--color-surface-950) 100%);
+}
+
+.bg-section-warm {
+    background:
+        radial-gradient(ellipse at 70% 30%, rgba(200, 164, 92, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(80, 70, 160, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-surface-950) 0%, var(--color-surface-900) 50%, var(--color-surface-950) 100%);
+}

@@ -4,7 +4,11 @@
  */
 
 module.exports = {
-  API_KEY: process.env.CLICKUP_API_KEY || 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA',
+  API_KEY: process.env.CLICKUP_API_KEY || (() => {
+    throw new Error(
+      'CLICKUP_API_KEY not set. Add it to .env or set as environment variable.'
+    );
+  })(),
   WORKSPACE_ID: '90132645314',
 
   SPACES: {

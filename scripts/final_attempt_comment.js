@@ -1,7 +1,7 @@
 const https = require('https');
 const fs = require('fs');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
+const { API_KEY, clickupRequest } = require('./lib/clickup-env');
 const DOC_ID = '2ky561e2-2453';
 const CONTENT = '# MANUAL ESTRATÉGICO sp HAUS (FW BKS) 🚀\n\nEste é o manual completo. Copie este texto para o corpo da página se desejar.\n\n### 🎯 Posicionamento\nA sp HAUS é a autoridade em inovação cenográfica...';
 

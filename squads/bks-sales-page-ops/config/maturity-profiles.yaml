@@ -19,3 +19,6 @@
       integrations: advanced
       requires_finance_model: true
       requires_benchmark_reference: true
+
+prompt_version: 1.0.0
+fallback_model: claude-3-5-haiku-20241022

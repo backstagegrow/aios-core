@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-02-26T20:40:55.472Z'
+  lastUpdated: '2026-02-27T17:49:55.699Z'
   entityCount: 514
   checksumAlgorithm: sha256
 entities:
@@ -3946,7 +3946,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:8a0af467d952d6a4ba154ace19324fa45590d632887751a8dabe41deba86120b
-      lastVerified: '2026-02-26T20:40:55.466Z'
+      lastVerified: '2026-02-27T17:49:55.693Z'
     clickup-generate-management-report:
       path: .aios-core/development/tasks/clickup-generate-management-report.md
       type: task
@@ -3966,7 +3966,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:e6d18051e2b1cfee1dccf9520f951ecd6fa778a0413a44e8b9a939a26296e87f
-      lastVerified: '2026-02-26T20:40:55.467Z'
+      lastVerified: '2026-02-27T17:49:55.695Z'
     clickup-publish-task:
       path: .aios-core/development/tasks/clickup-publish-task.md
       type: task
@@ -3985,7 +3985,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:7033c42096c2183411a0147a7d8fe37b7ec716fd7108436a1d34d0f357ddd5e6
-      lastVerified: '2026-02-26T20:40:55.469Z'
+      lastVerified: '2026-02-27T17:49:55.696Z'
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -4841,7 +4841,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:4ae3a5b04a3b4669da095dcdb9868c4bff352f82daa0e8da166516d69511368e
-      lastVerified: '2026-02-26T20:40:55.470Z'
+      lastVerified: '2026-02-27T17:49:55.698Z'
     brownfield-risk-report-tmpl:
       path: .aios-core/product/templates/brownfield-risk-report-tmpl.yaml
       type: template
@@ -6059,28 +6059,21 @@ entities:
     dev-helper:
       path: .aios-core/core/code-intel/helpers/dev-helper.js
       type: module
-      purpose: >-
-        Code intelligence helper for @dev agent tasks - IDS G4 automation, duplicate detection, conventions, blast
-        radius
+      purpose: Entity at .aios-core\core\code-intel\helpers\dev-helper.js
       keywords:
-        - code-intel
-        - dev-helper
-        - ids-g4
-        - duplicate-detection
-        - blast-radius
-        - conventions
-        - reuse
+        - dev
+        - helper
       usedBy: []
       dependencies:
-        - code-intel
+        - index
       adaptability:
         score: 0.7
         constraints:
           - Requires code-intel module (NOG-1)
         extensionPoints:
           - Additional helper functions for other agents
-      checksum: ''
-      lastVerified: '2026-02-16T00:00:00.000Z'
+      checksum: sha256:7e7f9bb92725ca1d85b0a7151668bc5bcdd6fc9b73fed5b2b2c28217d14535ab
+      lastVerified: '2026-02-27T17:49:55.683Z'
     registry-syncer:
       path: .aios-core/core/code-intel/registry-syncer.js
       type: module
@@ -6131,7 +6124,8 @@ entities:
       purpose: Entity at .aios-core\core\ids\index.js
       keywords:
         - index
-      usedBy: []
+      usedBy:
+        - dev-helper
       dependencies:
         - registry-loader
         - incremental-decision-engine
@@ -9014,7 +9008,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:8ae5410162212e1d469843200ac6712d06d39bed509bd15e90b640c532a3f4e8
-      lastVerified: '2026-02-26T20:40:55.464Z'
+      lastVerified: '2026-02-27T17:49:55.692Z'
     pm:
       path: .aios-core/development/agents/pm.md
       type: agent
@@ -9121,7 +9115,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
-      lastVerified: '2026-02-26T20:40:55.460Z'
+      lastVerified: '2026-02-27T17:49:55.687Z'
     clickup-reporting:
       path: .aios-core/development/agents/clickup-reporting.md
       type: agent
@@ -9137,7 +9131,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
-      lastVerified: '2026-02-26T20:40:55.463Z'
+      lastVerified: '2026-02-27T17:49:55.690Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md

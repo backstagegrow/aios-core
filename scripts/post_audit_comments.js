@@ -1,7 +1,6 @@
 const https = require('https');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
-
+const { API_KEY, clickupRequest } = require('./lib/clickup-env');
 const ADVISORIES = {
   '86afhe4ej': "🚀 **AUDITORIA COPY ELITE:** A headline é forte, mas o corpo está muito 'checklist'. Vamos agitar mais a dor: 'Agenda cheia sem sistema é uma prisão lucrativa'. Sugestão: Substitua a lista de serviços por 'Instalamos o Mecanismo que separa o dono da execução'.",
   '86afhc1x7': "🔥 **AUDITORIA COPY ELITE:** Conceito 10/10. Para escalar a conversão, mude o CTA: 'Comenta ESTRUTURA se você quer ver os bastidores do nosso dashboard de guerra no WhatsApp'. Isso gera curiosidade real.",

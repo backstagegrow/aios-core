@@ -16,3 +16,8 @@
 - Flat generic blocks
 - Random gradients without hierarchy
 - Repetitive stock layout patterns
+
+## References
+- https://productbuilders.voru.io
+- https://unkern.com
+- https://www.academialendaria.ai

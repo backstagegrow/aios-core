@@ -1,12 +1,52 @@
 name: bks-sales-page-ops
-version: 1.0.0
+version: 2.0.0
+description: >-
+  Squad de operações de landing pages. Pipeline completo:
+  Copy Chief (bks-copy-elite) → estrutura → preview Stitch →
+  UX/UI → design system → dev build (localhost) → QA →
+  review humano → deploy Supabase (manual trigger).
+  Entrega landing pages de conversão validadas e prontas para produção.
 orchestrator: sales_page_operator
 
 agents:
   - strategy/client_requirements_analyst
+  - strategy/page_structure_architect
   - copy/sales_page_copywriter
   - design/ux_ui_page_designer
   - design/design_system_curator
   - build/frontend_page_developer
   - build/backend_page_developer
   - qa/sales_page_validator
+
+external_squads:
+  - bks-copy-elite
+
+external_tools:
+  - name: stitch_mcp
+    purpose: Visual preview generation before dev build
+    phases: [3, 9]
+    operations:
+      - create_project
+      - generate_screen_from_text
+      - edit_screens
+      - list_screens
+      - get_screen
+  - name: supabase_mcp
+    purpose: Production deploy and lead capture database
+    phases: [10]
+    operations:
+      - apply_migration
+      - execute_sql
+      - get_project_url
+      - get_publishable_keys
+
+human_gates:
+  - phase: 9
+    type: approval
+    description: Review da página em localhost antes do deploy
+  - phase: 10
+    type: manual_trigger
+    description: Deploy para Supabase só com comando explícito
+
+prompt_version: 2.0.0
+fallback_model: claude-3-5-haiku-20241022

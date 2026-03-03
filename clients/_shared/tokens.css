@@ -1,0 +1,207 @@
+/* ==========================================
+   BKS DESIGN SYSTEM — GLOBAL TOKENS
+   Versão: 1.0 | 27/02/2026
+   
+   COMO USAR:
+   1. Importe este arquivo antes de qualquer CSS de projeto
+   2. No HTML do cliente: <html data-brand="gthouse"> ou "sphaus"
+   3. No brand.css do cliente: sobrescreva só as variáveis de marca
+   ========================================== */
+
+/* ============================================
+   SPACING SCALE (base 8px)
+   ============================================ */
+:root {
+    --sp-1: 8px;
+    --sp-2: 16px;
+    --sp-3: 24px;
+    --sp-4: 32px;
+    --sp-5: 40px;
+    --sp-6: 48px;
+    --sp-8: 64px;
+    --sp-10: 80px;
+    --sp-12: 96px;
+    --sp-16: 128px;
+    --sp-20: 160px;
+
+    /* SECTION PADDING (usados em section) */
+    --section-y: 120px;
+    --section-y-sm: 80px;
+
+    /* CONTAINER */
+    --container: 1320px;
+    --container-narrow: 900px;
+    --container-pad: 60px;
+
+    /* NAVBAR */
+    --navbar-h: 72px;
+}
+
+/* ============================================
+   TYPOGRAPHY SCALE
+   ============================================ */
+:root {
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 22px;
+    --text-2xl: 28px;
+    --text-3xl: 36px;
+    --text-4xl: 48px;
+    --text-5xl: 64px;
+    --text-hero: clamp(44px, 6vw, 96px);
+    --text-headline: clamp(36px, 4.5vw, 72px);
+    --text-subhead: clamp(28px, 3vw, 52px);
+
+    /* LINE HEIGHTS */
+    --leading-tight: 1.05;
+    --leading-snug: 1.2;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.75;
+    --leading-loose: 1.85;
+
+    /* LETTER SPACING */
+    --tracking-tag: 0.2em;
+    --tracking-label: 0.15em;
+    --tracking-cta: 0.1em;
+    --tracking-logo: 0.12em;
+    --tracking-wide: 0.08em;
+}
+
+/* ============================================
+   BORDER RADIUS
+   ============================================ */
+:root {
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-pill: 100px;
+    --radius-full: 9999px;
+}
+
+/* ============================================
+   SHADOWS
+   ============================================ */
+:root {
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.4);
+    --shadow-accent: 0 8px 32px color-mix(in srgb, var(--brand-accent) 30%, transparent);
+}
+
+/* ============================================
+   ANIMATION & EASING
+   ============================================ */
+:root {
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --dur-fast: 0.15s;
+    --dur-base: 0.3s;
+    --dur-slow: 0.6s;
+    --dur-slower: 0.9s;
+    --dur-hero: 1.2s;
+}
+
+/* ============================================
+   BRAND TOKENS — DEFAULT (fallback)
+   Cada cliente sobrescreve no seu brand.css
+   ============================================ */
+:root {
+    /* Colors */
+    --brand-bg: #0A0A0A;
+    --brand-surface: #141414;
+    --brand-surface2: #1E1E1E;
+    --brand-accent: #FFFFFF;
+    --brand-accent2: #CCCCCC;
+    --brand-text: #FFFFFF;
+    --brand-muted: #888888;
+    --brand-border: rgba(255, 255, 255, 0.07);
+
+    /* Fonts */
+    --font-display: 'Georgia', serif;
+    --font-body: 'system-ui', sans-serif;
+
+    /* Computed */
+    --brand-accent-glow: rgba(255, 255, 255, 0.12);
+    --brand-accent-border: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   BRAND PRESET — spHAUS
+   ============================================ */
+[data-brand="sphaus"] {
+    --brand-bg: #0A0A0A;
+    --brand-surface: #141414;
+    --brand-surface2: #1E1E1E;
+    --brand-accent: #FFFFFF;
+    --brand-accent2: #BDBDBD;
+    --brand-text: #FFFFFF;
+    --brand-muted: #888888;
+    --brand-border: rgba(255, 255, 255, 0.07);
+    --brand-accent-glow: rgba(255, 255, 255, 0.06);
+    --brand-accent-border: rgba(255, 255, 255, 0.25);
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+/* ============================================
+   BRAND PRESET — GT House
+   ============================================ */
+[data-brand="gthouse"] {
+    --brand-bg: #0D1B2A;
+    --brand-surface: #112236;
+    --brand-surface2: #1A3247;
+    --brand-accent: #00BFA5;
+    --brand-accent2: #00897B;
+    --brand-text: #F5F0E8;
+    --brand-muted: #8FA3B3;
+    --brand-border: rgba(255, 255, 255, 0.07);
+    --brand-accent-glow: rgba(0, 191, 165, 0.12);
+    --brand-accent-border: rgba(0, 191, 165, 0.3);
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* ============================================
+   BRAND PRESET — Espaço Network Construtora
+   (Para futuro uso)
+   ============================================ */
+[data-brand="espaconetwork"] {
+    --brand-bg: #0F0F0F;
+    --brand-surface: #171717;
+    --brand-surface2: #222222;
+    --brand-accent: #C9A84C;
+    /* gold */
+    --brand-accent2: #A07C30;
+    --brand-text: #F2EDE0;
+    --brand-muted: #888070;
+    --brand-border: rgba(201, 168, 76, 0.12);
+    --brand-accent-glow: rgba(201, 168, 76, 0.1);
+    --brand-accent-border: rgba(201, 168, 76, 0.3);
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+/* ============================================
+   BRAND PRESET — Via Br Cenografia
+   (Para futuro uso)
+   ============================================ */
+[data-brand="viabr"] {
+    --brand-bg: #0C0C1A;
+    --brand-surface: #13132A;
+    --brand-surface2: #1C1C3A;
+    --brand-accent: #6C63FF;
+    /* purple */
+    --brand-accent2: #4B44CC;
+    --brand-text: #EEEEFF;
+    --brand-muted: #8080AA;
+    --brand-border: rgba(108, 99, 255, 0.12);
+    --brand-accent-glow: rgba(108, 99, 255, 0.12);
+    --brand-accent-border: rgba(108, 99, 255, 0.35);
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+}

@@ -1,6 +1,6 @@
 const https = require('https');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
+const { API_KEY, clickupRequest } = require('./lib/clickup-env');
 const TEAM_ID = '90132645314';
 
 function clickupRequest(method, path) {
@@ -31,20 +31,22 @@ function clickupRequest(method, path) {
 
 async function run() {
   try {
-    const search = 'empresarial';
+    const searchTerms = ['haus', 'vanguard', 'bks', 'house', 'cenografia'];
+    const search = searchTerms.join('|');
+    const regex = new RegExp(search, 'i');
     const spaces = await clickupRequest('GET', `/team/${TEAM_ID}/space`);
     for (const space of spaces.spaces) {
-      if (space.name.toLowerCase().includes(search)) console.log(`SPACE: ${space.name} (ID: ${space.id})`);
+      if (regex.test(space.name)) console.log(`SPACE: ${space.name} (ID: ${space.id})`);
 
       const folders = await clickupRequest('GET', `/space/${space.id}/folder`);
       if (folders.folders) {
         for (const folder of folders.folders) {
-          if (folder.name.toLowerCase().includes(search)) console.log(`FOLDER: ${folder.name} (ID: ${folder.id}) in ${space.name}`);
+          if (regex.test(folder.name)) console.log(`FOLDER: ${folder.name} (ID: ${folder.id}) in ${space.name}`);
 
           const lists = await clickupRequest('GET', `/folder/${folder.id}/list`);
           if (lists.lists) {
             for (const list of lists.lists) {
-              if (list.name.toLowerCase().includes(search)) console.log(`LIST: ${list.name} (ID: ${list.id}) in ${folder.name}`);
+              if (regex.test(list.name)) console.log(`LIST: ${list.name} (ID: ${list.id}) in ${folder.name}`);
             }
           }
         }
@@ -53,7 +55,7 @@ async function run() {
       const soloLists = await clickupRequest('GET', `/space/${space.id}/list`);
       if (soloLists.lists) {
         for (const list of soloLists.lists) {
-          if (list.name.toLowerCase().includes(search)) console.log(`LIST: ${list.name} (ID: ${list.id}) in ${space.name}`);
+          if (regex.test(list.name)) console.log(`LIST: ${list.name} (ID: ${list.id}) in ${space.name}`);
         }
       }
     }

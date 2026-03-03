@@ -1,6 +1,6 @@
 const https = require('https');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
+const { API_KEY, clickupRequest } = require('./lib/clickup-env');
 const FOLDER_ID = '901316473884'; // Gestão de Tráfego Pago
 
 function clickupRequest(method, path) {
@@ -40,7 +40,7 @@ async function run() {
 
       if (tasksRes.tasks && tasksRes.tasks.length > 0) {
         tasksRes.tasks.forEach(task => {
-          console.log(`  - [${task.status.status.toUpperCase()}] ${task.name}`);
+          console.log(`  - [${task.status.status.toUpperCase()}] ${task.name} (${task.id})`);
           if (task.description) {
             const snippet = task.description.substring(0, 150).replace(/\n/g, ' ');
             console.log(`    Content: ${snippet}...`);

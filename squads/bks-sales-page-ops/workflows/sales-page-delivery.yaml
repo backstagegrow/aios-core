@@ -1,10 +1,12 @@
 ﻿workflow:
   id: sales-page-delivery
-  name: Sales Page Delivery
-  version: "1.0"
+  name: Sales Page Delivery Pipeline
+  version: "2.0"
   description: >-
-    Workflow completo para criação e validação de página de vendas:
-    briefing estratégico -> copy -> UX/UI -> design system -> frontend -> backend -> QA final.
+    Pipeline completo para criação de landing pages com controle humano:
+    briefing → Copy Chief (bks-copy-elite) → estrutura da página →
+    preview Stitch → UX/UI → design system → dev build (localhost) →
+    QA → review humano → deploy Supabase (manual trigger).
   type: squad
   target_context: squad
   squad_name: bks-sales-page-ops
@@ -14,151 +16,400 @@
     confirmation_required: true
 
   phases:
-    - phase_1: Strategy Brief
-    - phase_2: Copywriting
-    - phase_3: UX/UI Design
-    - phase_4: Design System Lite
-    - phase_5: Frontend Build
-    - phase_6: Backend Integration
-    - phase_7: Final Validation
-    - phase_8: Learning & Finance Wrap-up
+    - phase_0: Client Briefing & Intake
+    - phase_1: Copy Chief (Strategic Copy)
+    - phase_2: Page Structure Architecture
+    - phase_3: Visual Preview (Stitch MCP)
+    - phase_4: UX/UI Design
+    - phase_5: Design System Lite
+    - phase_6: Frontend Build (Localhost)
+    - phase_7: Backend Integration
+    - phase_8: QA & Validation
+    - phase_9: Localhost Review (Human Gate)
+    - phase_10: Deploy to Supabase (Manual Trigger)
+    - phase_11: Learning & Finance Wrap-up
 
   sequence:
+    # ═══════════════════════════════════════════════════
+    # PHASE 0: BRIEFING & INTAKE
+    # ═══════════════════════════════════════════════════
     - step: gather_requirements
       id: brief
-      phase: 1
+      phase: 0
       agent: client_requirements_analyst
-      action: Estruturar briefing de conversao
+      action: Estruturar briefing completo de conversão
       notes: |
-        Consolidar objetivo comercial, ICP, oferta, provas, objecoes e restricoes.
+        Consolidar a partir do briefing do cliente (ClickUp task ou clients/[ClientName]/):
+        - Objetivo comercial, ICP, oferta, provas, objeções, restrições
+        - Classificação de maturidade (starter/growth/scale)
+        - Inventário de assets disponíveis (logo, fotos, vídeos, depoimentos)
+        - Preencher template: templates/sales-page-brief-template.md
       outputs:
         - strategic_brief
         - messaging_constraints
-      next: copy
+        - maturity_profile
+        - assets_inventory
+      output_path: clients/[ClientName]/brief/strategic_brief.md
+      next: copy_chief
 
-    - step: write_sales_copy
-      id: copy
-      phase: 2
-      agent: sales_page_copywriter
-      action: Gerar copy completa da pagina
+    # ═══════════════════════════════════════════════════
+    # PHASE 1: COPY CHIEF (BKS-COPY-ELITE SQUAD)
+    # ═══════════════════════════════════════════════════
+    - step: strategic_copy_creation
+      id: copy_chief
+      phase: 1
+      agent: "@bks-copy-elite/copy_chief"
+      action: Executar pipeline completo de copy estratégica
       requires: brief
       notes: |
-        Produzir copy final por secoes: hero, problema, solucao, oferta, provas, FAQ e CTA.
+        Copy Chief orquestra o squad bks-copy-elite:
+        1. Classificar cliente na B2B Matrix (b2b-matrix-exent.md)
+        2. market_research_strategist → pesquisa de mercado
+        3. big_idea_engineer → Big Idea (incluir tier B2B + assets do cliente)
+        4. offer_architect → arquitetura de oferta + conceitos WOW (creative_tech_benchmark.md)
+        5. conversion_copywriter → copy section-by-section
+        6. brand_positioning_writer → se necessário
+        7. script_specialist → se vídeo/áudio necessário
+        8. persuasion_optimizer → QA (score ≥ 8 em clareza e oferta)
       outputs:
-        - sales_page_copy
+        - approved_copy
+        - b2b_classification
+        - big_idea
+        - offer_spec
+      output_path: clients/[ClientName]/copy/
+      next: structure
+
+    # ═══════════════════════════════════════════════════
+    # PHASE 2: PAGE STRUCTURE ARCHITECTURE (NOVO)
+    # ═══════════════════════════════════════════════════
+    - step: define_page_structure
+      id: structure
+      phase: 2
+      agent: page_structure_architect
+      action: Definir estrutura completa da landing page
+      requires: copy_chief
+      notes: |
+        Com base na copy aprovada + brief estratégico:
+        - Tipo de página (LP única, funnel multi-page, hub)
+        - Quantidade e ordem exata das seções
+        - Formulário: sim/não, campos, posição, multi-step
+        - Estratégia de CTAs: texto, posição, animação (pulse/gradient/glow)
+        - Animações: hero entrance, scroll reveals, card staggers
+        - Componentes especiais: timer, calculadora, chatbot, vídeo
+        - Comportamento mobile-first vs desktop
+        - Diretivas para preview visual via Stitch MCP
+      outputs:
+        - page_structure_spec
+        - stitch_preview_directive
+      output_path: clients/[ClientName]/specs/page_structure_spec.md
+      next: stitch_preview
+
+    # ═══════════════════════════════════════════════════
+    # PHASE 3: VISUAL PREVIEW (STITCH MCP)
+    # ═══════════════════════════════════════════════════
+    - step: generate_visual_preview
+      id: stitch_preview
+      phase: 3
+      agent: antigravity
+      tool: stitch_mcp
+      action: Gerar preview visual das seções-chave via Stitch MCP
+      requires: structure
+      notes: |
+        Usando o Stitch MCP (StitchMCP server):
+        1. create_project → criar projeto Stitch para o cliente
+        2. generate_screen_from_text → gerar preview de cada seção-chave:
+           - Hero section (com CTA e headline)
+           - Seção de prova social / depoimentos
+           - Seção de oferta / pricing
+           - Footer com formulário
+        3. Usar deviceType: DESKTOP e MOBILE para cada preview
+        4. Edit screens conforme feedback
+        5. Exportar screenshots para clients/[ClientName]/specs/previews/
+        IMPORTANTE: Previews servem como referência visual ANTES do dev build.
+        Aprovação dos previews = sinal verde para iniciar UX/UI + dev.
+      outputs:
+        - stitch_project_id
+        - preview_screenshots
+      output_path: clients/[ClientName]/specs/previews/
       next: ux
 
+    # ═══════════════════════════════════════════════════
+    # PHASE 4: UX/UI DESIGN
+    # ═══════════════════════════════════════════════════
     - step: design_page_experience
       id: ux
-      phase: 3
+      phase: 4
       agent: ux_ui_page_designer
-      action: Definir arquitetura UX/UI da pagina
-      requires: copy
+      action: Definir arquitetura UX/UI baseada no page structure spec + previews
+      requires: stitch_preview
       notes: |
-        Traduzir copy em estrutura de interface, componentes e diretrizes mobile-first.
+        Traduzir copy + page structure spec + stitch previews em:
+        - Arquitetura de informação (ordem e justificativa das seções)
+        - Layout wireframe-level por seção
+        - Inventário de componentes
+        - Mapa de interações e animações (conforme structure spec)
+        - Comportamento mobile-first e breakpoints
+        - Direção visual (tipografia, cores, espaçamento)
+        - Padrões de confiança e redução de fricção
       outputs:
         - ux_ui_blueprint
       next: ds
 
+    # ═══════════════════════════════════════════════════
+    # PHASE 5: DESIGN SYSTEM LITE
+    # ═══════════════════════════════════════════════════
     - step: define_design_system
       id: ds
-      phase: 4
+      phase: 5
       agent: design_system_curator
-      action: Definir design system lite da pagina
+      action: Definir design system lite para implementação
       requires: ux
       notes: |
-        Definir tokens e especificacao de componentes para implementacao consistente.
+        Definir tokens e specs de componentes:
+        - Color roles, typography scale, spacing, radius, shadows
+        - Motion tokens (duração, easing, delay)
+        - Component specs (buttons, forms, cards, FAQ, carousel)
+        - Regras de uso e constrains mobile
       outputs:
         - design_tokens
         - component_specs
       next: front
 
+    # ═══════════════════════════════════════════════════
+    # PHASE 6: FRONTEND BUILD (LOCALHOST ONLY)
+    # ═══════════════════════════════════════════════════
     - step: build_frontend
       id: front
-      phase: 5
+      phase: 6
       agent: frontend_page_developer
-      action: Implementar frontend da pagina
+      action: Implementar frontend da página em localhost
       requires: ds
       notes: |
-        Implementar em clients/[ClientName]/builds/ (index.html, style.css, main.js).
+        Implementar em clients/[ClientName]/builds/:
+        - index.html (semântico, acessível)
+        - style.css (responsivo, design system aplicado)
+        - main.js (interações, animações, formulário)
+        - assets/ (imagens otimizadas)
+
+        REGRAS CRÍTICAS:
+        - Seguir page_structure_spec EXATAMENTE (seções, formulário, animações)
+        - Implementar TODAS as animações definidas no structure spec
+        - Mobile-first com breakpoints do design system
+        - Progressive enhancement (funciona sem JS)
+        - NÃO apontar para produção — tudo local/staging
+        - Preservar fidelidade da copy aprovada
       outputs:
         - frontend_artifacts
+      output_path: clients/[ClientName]/builds/
       next: back
 
+    # ═══════════════════════════════════════════════════
+    # PHASE 7: BACKEND INTEGRATION
+    # ═══════════════════════════════════════════════════
     - step: build_backend
       id: back
-      phase: 6
+      phase: 7
       agent: backend_page_developer
-      action: Implementar captura e validacao backend
+      action: Implementar captura de leads e validação backend
       requires: front
       notes: |
-        Implementar endpoint de lead e payload CRM-ready em clients/[ClientName]/builds/server/.
+        Implementar em clients/[ClientName]/builds/server/:
+        - Endpoint de lead com validação de input
+        - Payload normalizado para CRM/webhook
+        - Metadata de tracking (UTM, source, campaign)
+        - Anti-spam básico
+        - Consentimento LGPD
+
+        REGRA: config.json aponta para STAGING, não produção.
+        Credenciais Supabase de produção só são inseridas na Phase 10.
       outputs:
         - backend_artifacts
+      output_path: clients/[ClientName]/builds/server/
       next: validate
 
+    # ═══════════════════════════════════════════════════
+    # PHASE 8: QA & VALIDATION
+    # ═══════════════════════════════════════════════════
     - step: validate_delivery
       id: validate
-      phase: 7
+      phase: 8
       agent: sales_page_validator
-      action: Rodar quality gate final
+      action: Rodar quality gate completo
       requires: back
       notes: |
-        Validar copy, UX, UI, frontend, backend e tracking.
-        Se score < 8 em qualquer dimensao critica, retornar para ajustes.
+        Validar TODAS as dimensões (score ≥ 8/10 cada):
+        - Message-market fit
+        - Copy clarity e persuasion
+        - UX flow e CTA logic
+        - UI consistency e premium perception
+        - Frontend responsiveness e accessibility
+        - Backend reliability e data quality
+        - Tracking readiness (UTM/events)
+        - Motion quality e interaction smoothness
+        - Security e privacy (LGPD baseline)
+
+        BLOQUEAR se:
+        - Qualquer issue crítico
+        - Visual genérico/template-like
+        - Animações não implementadas conforme structure spec
+        - Formulário não segue spec
+        - Security/privacy baseline falha
+
+        Se score < 8 → loop para fase relevante.
       outputs:
         - validation_report
         - scorecard
         - go_no_go
-      next: wrap
-      on_failure: copy
+      next: human_review
+      on_failure: structure
 
-    - step: wrapup_learning_finance
-      id: wrap
-      phase: 8
-      agent: sales_page_operator
-      action: Consolidar memoria de aprendizado e visao financeira
+    # ═══════════════════════════════════════════════════
+    # PHASE 9: LOCALHOST REVIEW — HUMAN GATE 🛑
+    # ═══════════════════════════════════════════════════
+    - step: localhost_human_review
+      id: human_review
+      phase: 9
+      agent: human
+      action: Review da página em localhost — aprovação humana obrigatória
       requires: validate
       notes: |
-        Registrar learnings por agente, garantir instrumentacao para custo por reuniao/proposta/fechamento
-        e gerar resumo executivo automatico (CEO/CMO/CFO).
+        GATE HUMANO — NÃO PULAR.
+
+        Antigravity deve:
+        1. Abrir a página no browser local para preview
+        2. Gerar screenshots em 3 viewports (mobile 375px, tablet 768px, desktop 1440px)
+        3. Apresentar validation report + scorecard
+        4. Aguardar decisão:
+           ✅ APROVADO → avança para deploy (Phase 10)
+           🔄 REVISÃO → retorna para fase específica com feedback
+           ❌ REJEITADO → retorna para briefing (Phase 0)
+
+        Nenhum deploy acontece sem aprovação explícita nesta fase.
+
+        IMPORTANTE: Usar Stitch MCP para gerar versão final de preview
+        se o cliente precisar ver antes do deploy.
+      outputs:
+        - human_decision
+        - revision_feedback (if revision)
+      next: deploy
+      on_revision: copy_chief
+      on_rejection: brief
+
+    # ═══════════════════════════════════════════════════
+    # PHASE 10: DEPLOY TO SUPABASE — MANUAL TRIGGER 🚀
+    # ═══════════════════════════════════════════════════
+    - step: deploy_to_production
+      id: deploy
+      phase: 10
+      agent: antigravity
+      tool: supabase_mcp
+      action: Deploy da página para Supabase (SOMENTE com comando explícito)
+      requires: human_review
+      trigger: manual
+      notes: |
+        TRIGGER MANUAL — SÓ EXECUTA COM COMANDO EXPLÍCITO DO HUMANO.
+
+        Checklist de deploy:
+        1. ☐ Upload de assets estáticos para Supabase Storage
+        2. ☐ Criar/atualizar tabela de leads no Supabase DB
+        3. ☐ Configurar Edge Function para captura de leads (se necessário)
+        4. ☐ Atualizar config.json com credenciais de PRODUÇÃO
+        5. ☐ Configurar DNS/domínio customizado (se aplicável)
+        6. ☐ Ativar tracking (GTM container, Pixel, eventos)
+        7. ☐ Teste de formulário em produção
+        8. ☐ Teste de responsividade em device real
+        9. ☐ Verificar HTTPS e headers de segurança
+        10. ☐ Confirmar LGPD compliance (consent, privacy policy link)
+
+        Supabase MCP tools:
+        - apply_migration → criar tabela de leads
+        - execute_sql → validar schema
+        - get_project_url → confirmar URL de produção
+        - get_publishable_keys → configurar frontend
+      outputs:
+        - production_url
+        - deploy_report
+        - lead_table_schema
+      next: wrap
+
+    # ═══════════════════════════════════════════════════
+    # PHASE 11: LEARNING & FINANCE WRAP-UP
+    # ═══════════════════════════════════════════════════
+    - step: wrapup_learning_finance
+      id: wrap
+      phase: 11
+      agent: sales_page_operator
+      action: Consolidar memória de aprendizado e visão financeira
+      requires: deploy
+      notes: |
+        Registrar:
+        - Learnings por agente (o que funcionou, o que precisou revisão)
+        - Instrumentação para custo por reunião/proposta/fechamento
+        - Resumo executivo automático (CEO/CMO/CFO view)
+        - Tempo total do pipeline (brief → deploy)
+        - Versão da página para controle de A/B futuro
       outputs:
         - agent_learning_log
         - cfo_unit_economics_note
         - executive_summary_auto
+        - pipeline_metrics
       next: complete
 
     - workflow_end:
       id: complete
-      action: sales_page_ready
+      action: landing_page_live
       notes: |
-        Entrega concluida: pagina de vendas pronta para validacao/aprovacao do cliente.
+        Entrega concluída: landing page em produção no Supabase,
+        com tracking ativo e tabela de leads capturando.
 
   handoff_prompts:
     brief_ready: |
-      Briefing estrategico concluido.
-      Pode iniciar a criacao da copy completa.
+      Briefing estratégico concluído.
+      Enviando para Copy Chief (bks-copy-elite) para criação da copy estratégica.
 
     copy_ready: |
-      Copy da pagina pronta.
-      Pode seguir para desenho UX/UI.
+      Copy estratégica aprovada pelo Copy Chief (score ≥ 8).
+      Enviando para Page Structure Architect para definição da estrutura.
+
+    structure_ready: |
+      Estrutura da página definida (seções, formulário, animações, CTAs).
+      Gerando previews visuais via Stitch MCP antes de avançar para UX/UI.
+
+    preview_ready: |
+      Previews visuais gerados no Stitch.
+      Enviando para UX/UI Designer com structure spec + previews como referência.
 
     ux_ready: |
       Blueprint UX/UI pronto.
-      Pode seguir para definicao do design system lite.
+      Pode seguir para definição do design system lite.
 
     ds_ready: |
       Design system lite definido.
-      Pode iniciar implementacao frontend.
+      Pode iniciar implementação frontend (LOCALHOST ONLY).
 
     frontend_ready: |
-      Frontend implementado.
+      Frontend implementado em localhost.
       Pode seguir para backend e captura de leads.
 
     backend_ready: |
-      Backend implementado.
-      Pode executar validacao final.
+      Backend implementado (staging config).
+      Pode executar validação final (QA).
 
-    approved: |
-      Quality gate aprovado.
-      Pagina pronta para revisao final do cliente.
+    qa_passed: |
+      QA aprovado (score ≥ 8/10 em todas as dimensões).
+      AGUARDANDO REVIEW HUMANO em localhost antes do deploy.
+
+    human_approved: |
+      Review humano APROVADO.
+      AGUARDANDO COMANDO MANUAL para deploy no Supabase.
+
+    deployed: |
+      Deploy concluído no Supabase.
+      Landing page em produção. Iniciando wrap-up de learnings.
+
+    completed: |
+      Pipeline completo. Landing page live.
+      Métricas de pipeline e learnings registrados.
+
+prompt_version: 2.0.0
+fallback_model: claude-3-5-haiku-20241022

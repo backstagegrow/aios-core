@@ -1,7 +1,7 @@
 const https = require('https');
 const fs = require('fs');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
+const { API_KEY, clickupRequest } = require('./lib/clickup-env');
 const FOLDER_ID = '901316465410'; // Gestão de Social Media
 
 function clickupRequest(method, path) {

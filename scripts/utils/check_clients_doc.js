@@ -1,6 +1,6 @@
 const https = require('https');
 
-const API_KEY = 'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';
+const { API_KEY, clickupRequest } = require('../lib/clickup-env');
 const DOC_ID = '2ky561e2-2453';
 const PAGE_ID = '2ky561e2-173';
 
