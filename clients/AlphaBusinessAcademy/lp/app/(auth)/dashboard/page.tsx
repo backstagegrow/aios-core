@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
     const supabase = createServerComponentClient({ cookies });
