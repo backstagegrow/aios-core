@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import { usePopup } from "../context/PopupContext";
+import { usePopup } from "../../context/PopupContext";
 
 export default function SocialProof() {
     const { openPopup } = usePopup();

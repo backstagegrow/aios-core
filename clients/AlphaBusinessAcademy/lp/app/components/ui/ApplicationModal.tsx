@@ -1,7 +1,7 @@
 "use client";
 import { useState, FormEvent, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePopup } from "../context/PopupContext";
+import { usePopup } from "../../context/PopupContext";
 
 export default function ApplicationModal() {
     const { isOpen, closePopup } = usePopup();
