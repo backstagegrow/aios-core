@@ -1,167 +1,130 @@
 @import "tailwindcss";
 
-/* ═══════════════════════════════════════════════════════
-   ALPHA BUSINESS ACADEMY — Design System v2
-   Multi-tonal + textured backgrounds + rich gradients
-   ═══════════════════════════════════════════════════════ */
-
 @theme {
-    /* ── Primary: Warm Amber Gradient ── */
-    --color-amber-50: #fff8e1;
-    --color-amber-100: #ffecb3;
-    --color-amber-200: #ffe082;
-    --color-amber-300: #ffd54f;
-    --color-amber-400: #d4af37;
-    --color-amber-500: #c8a45c;
-    --color-amber-600: #a88a42;
-    --color-amber-700: #8b7235;
-    --color-amber-800: #6d5a2a;
+  --color-background: #0A0A0A;
+  --color-foreground: #FAF9F6;
+  --color-amber: #D4A847;
+  --color-amber-light: #E8C97A;
+  --color-amber-dark: #B8922E;
+  --color-purple: #6B46C1;
+  --color-purple-light: #8B6AD0;
+  --color-surface: #141414;
+  --color-surface-light: #1E1E1E;
+  --color-muted: #9CA3AF;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
 
-    /* ── Surfaces: Multi-tonal Darks ── */
-    --color-surface-950: #04040a;
-    --color-surface-900: #08081a;
-    --color-surface-850: #0c0c20;
-    --color-surface-800: #101028;
-    --color-surface-750: #141430;
-    --color-surface-700: #1a1a38;
-    --color-surface-650: #1e1e40;
-    --color-surface-600: #242448;
-
-    /* ── Accent: Cool Purple/Blue for depth ── */
-    --color-cool-950: #0a0818;
-    --color-cool-900: #12102a;
-    --color-cool-800: #1c1840;
-    --color-cool-700: #2a2458;
-    --color-cool-600: #3a3270;
-    --color-cool-500: #5046a0;
-
-    /* ── Text ── */
-    --color-text-primary: #f0ece4;
-    --color-text-secondary: #b0a898;
-    --color-text-muted: #6b6660;
-    --color-text-subtle: #3d3a35;
-
-    /* ── Semantic ── */
-    --color-success: #3ecf8e;
-    --color-error: #e05252;
-
-    /* ── Font ── */
-    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 }
 
-/* ── Base ── */
 html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
-    background: var(--color-surface-950);
-    color: var(--color-text-primary);
-    font-family: var(--font-sans);
-    position: relative;
-}
-
-/* Subtle noise texture overlay for entire page */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 128px 128px;
-}
-
-/* Ensure content sits above the noise */
-body>* {
-    position: relative;
-    z-index: 2;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-    background: rgba(200, 164, 92, 0.3);
-    color: #fff;
+  background: var(--color-amber);
+  color: var(--color-background);
 }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar {
-    width: 6px;
+/* CTA Button */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.125rem 3rem;
+  background: var(--color-amber);
+  color: var(--color-background);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--color-surface-950);
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--color-amber-700);
-    border-radius: 3px;
+.cta-button:hover::before {
+  transform: translateX(100%);
 }
 
-/* ── Glow Button Animation ── */
-@keyframes glow-pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(200, 164, 92, 0.2), 0 0 40px rgba(200, 164, 92, 0.05);
-    }
-
-    50% {
-        box-shadow: 0 0 30px rgba(200, 164, 92, 0.4), 0 0 60px rgba(200, 164, 92, 0.1), 0 0 90px rgba(200, 164, 92, 0.05);
-    }
+.cta-button:hover {
+  background: var(--color-amber-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212, 168, 71, 0.3);
 }
 
-.animate-glow {
-    animation: glow-pulse 3s ease-in-out infinite;
+/* Section styles */
+.section-dark {
+  background: var(--color-background);
 }
 
-/* ── Gradient text utility ── */
-.text-gradient {
-    background: linear-gradient(135deg, var(--color-text-primary) 40%, var(--color-amber-400));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.section-surface {
+  background: var(--color-surface);
 }
 
-/* ── Glass card ── */
-.glass {
-    background: linear-gradient(135deg, rgba(20, 20, 48, 0.6), rgba(10, 10, 28, 0.8));
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(200, 164, 92, 0.08);
+.section-cream {
+  background: var(--color-foreground);
+  color: var(--color-background);
 }
 
-.glass:hover {
-    border-color: rgba(200, 164, 92, 0.2);
+/* Image placeholder */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%);
+  border: 2px dashed rgba(212, 168, 71, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ── Section divider gradient ── */
-.divider-gradient {
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--color-amber-600) 30%, var(--color-cool-500) 70%, transparent 100%);
-    opacity: 0.3;
+.img-placeholder::after {
+  content: '📷 Foto será inserida';
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 4px;
+  font-size: 0.75rem;
 }
 
-/* ── Rich section backgrounds ── */
-.bg-section-alt {
-    background:
-        radial-gradient(ellipse at 20% 80%, rgba(42, 36, 88, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(200, 164, 92, 0.04) 0%, transparent 50%),
-        linear-gradient(180deg, var(--color-surface-900) 0%, var(--color-surface-950) 100%);
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-amber) 0%, var(--color-amber-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.bg-section-cool {
-    background:
-        radial-gradient(ellipse at 50% 50%, rgba(80, 70, 160, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 0% 100%, rgba(42, 36, 88, 0.1) 0%, transparent 50%),
-        linear-gradient(180deg, var(--color-cool-950) 0%, var(--color-surface-950) 100%);
+/* Animate on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.bg-section-warm {
-    background:
-        radial-gradient(ellipse at 70% 30%, rgba(200, 164, 92, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 70%, rgba(80, 70, 160, 0.06) 0%, transparent 50%),
-        linear-gradient(180deg, var(--color-surface-950) 0%, var(--color-surface-900) 50%, var(--color-surface-950) 100%);
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

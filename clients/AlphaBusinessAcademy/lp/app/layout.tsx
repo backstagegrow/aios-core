@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { PopupProvider } from "./context/PopupContext";
+
+export const runtime = 'edge';
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "O Caminho do Dono — Imersão Presencial | Alpha Business Academy",
+  title: "Alpha Business Academy — O Caminho do Dono | Imersão Presencial",
   description:
-    "Imersão presencial de 2 dias para empresários que querem sair do operacional e escalar com lucro. São Paulo, 21-22 de Março de 2026.",
-  openGraph: {
-    title: "O Caminho do Dono — Imersão Presencial",
-    description:
-      "2 dias para empresários que querem sair do operacional, montar um time que funciona e escalar com lucro de verdade.",
-    type: "website",
-    locale: "pt_BR",
-  },
+    "2 dias intensivos para donos de restaurantes, cafeterias e franquias que querem sair do operacional, montar um time que funciona sem eles e escalar com lucro de verdade.",
+  keywords: [
+    "alpha business academy",
+    "imersão empresarial",
+    "food service",
+    "gestão de restaurantes",
+    "escalar negócio",
+  ],
 };
 
 export default function RootLayout({
@@ -29,11 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body className="antialiased">
-        <PopupProvider>
-          {children}
-        </PopupProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

@@ -1,16 +1,14 @@
-import Hero from "./components/Hero";
-import PainCards from "./components/PainCards";
-import Transition from "./components/Transition";
-import Pillars from "./components/Pillars";
-import EventDetails from "./components/EventDetails";
-import SocialProof from "./components/SocialProof";
-import PhotoGallery from "./components/PhotoGallery";
-import Speakers from "./components/Speakers";
-import Qualification from "./components/Qualification";
-import FAQ from "./components/FAQ";
-import ApplicationForm from "./components/ApplicationForm";
-import Footer from "./components/Footer";
-import ApplicationModal from "./components/ApplicationModal";
+import Hero from "./components/sections/Hero";
+import PainCards from "./components/sections/PainCards";
+import Transition from "./components/sections/Transition";
+import Pillars from "./components/sections/Pillars";
+import EventDetails from "./components/sections/EventDetails";
+import PhotoGallery from "./components/sections/PhotoGallery";
+import Speakers from "./components/sections/Speakers";
+import Qualification from "./components/sections/Qualification";
+import FAQ from "./components/sections/FAQ";
+import ApplicationForm from "./components/sections/ApplicationForm";
+import Footer from "./components/layout/Footer";
 
 export default function Home() {
   return (
@@ -20,14 +18,12 @@ export default function Home() {
       <Transition />
       <Pillars />
       <EventDetails />
-      <SocialProof />
       <PhotoGallery />
       <Speakers />
       <Qualification />
       <FAQ />
       <ApplicationForm />
       <Footer />
-      <ApplicationModal />
     </main>
   );
 }
