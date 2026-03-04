@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
     const hostname = request.headers.get('host') || '';
 
     // Define os domínios principais da agência
-    const mainDomains = ['localhost:3000', 'agencia.com', 'alphaacademy.com'];
+    const mainDomains = ['localhost:3000', 'agencia.com', 'alphaacademy.com', 'aiosbks.pages.dev'];
     const isMainDomain = mainDomains.some(domain => hostname.includes(domain));
 
     // Se for o domínio principal, segue o fluxo normal
