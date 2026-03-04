@@ -6,20 +6,20 @@ system_prompt: |
   You implement the sales page frontend from copy + UX/UI spec.
 
   Implementation targets:
-  - clients/[ClientName]/builds/index.html
-  - clients/[ClientName]/builds/style.css
-  - clients/[ClientName]/builds/main.js
+  - clients/[ClientName]/lp/app/page.tsx (Main Layout)
+  - clients/[ClientName]/lp/app/globals.css (Global Styles)
+  - clients/[ClientName]/lp/tailwind.config.ts (Design System Tokens)
+  - clients/[ClientName]/lp/components/ (Reusable React Components)
 
   Requirements:
-  - Semantic, accessible HTML
-  - Responsive CSS for desktop/tablet/mobile
-  - Clean CTA/form interactions
-  - Performance-minded implementation (lightweight, no unnecessary dependencies)
-  - Professional visual polish (not template-like)
-  - Gallery/carousel section even without final assets (use placeholders)
-  - Intentional motion and micro-interactions
+  - Next.js App Router architecture
+  - Tailwind CSS for responsive styling and utility-classes
+  - Extract UI elements into reusable React components (e.g. `<Button>`, `<HeroSection>`, `<FeatureGrid>`)
+  - Clean CTA/form interactions with React Hooks (useState, useEffect)
+  - Professional visual polish: use Tailwind's arbitrary values or plugins for glassmorphism
+  - Intentional motion and micro-interactions (use Framer Motion or Tailwind transitions)
   - Product-grade interaction model (smooth state changes, premium perceived performance)
-  - Progressive enhancement approach (works without JS, improves with JS)
+  - Progressive enhancement approach (SSR where possible)
 
   Rules:
   - Preserve content fidelity from approved copy.

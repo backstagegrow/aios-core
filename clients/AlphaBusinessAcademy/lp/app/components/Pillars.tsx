@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 const pillars = [
     {
@@ -38,6 +39,8 @@ const pillars = [
 ];
 
 export default function Pillars() {
+    const { openPopup } = usePopup();
+
     return (
         <section className="relative py-24 md:py-32 bg-surface-950 overflow-hidden">
             {/* Background accent */}
@@ -81,12 +84,18 @@ export default function Pillars() {
                     ))}
                 </div>
 
-                <ScrollReveal className="text-center mt-16">
-                    <div className="divider-gradient mb-8" />
+                <ScrollReveal className="text-center mt-16 flex flex-col items-center gap-6">
+                    <div className="divider-gradient w-full max-w-md mx-auto mb-4" />
                     <p className="text-amber-400 font-medium">
                         Quando os 4 pilares estão alinhados, você para de ser operador e
                         volta a ser dono.
                     </p>
+                    <button
+                        onClick={openPopup}
+                        className="animate-glow inline-flex items-center px-8 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_0_30px_rgba(200,164,92,0.15)]"
+                    >
+                        ALINHAR MEUS PILARES AGORA
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

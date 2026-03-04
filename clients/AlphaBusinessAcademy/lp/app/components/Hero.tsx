@@ -1,24 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { usePopup } from "../context/PopupContext";
 
 export default function Hero() {
+    const { openPopup } = usePopup();
+
     return (
         <section
             id="hero"
             className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden"
         >
-            {/* Rich background with image + overlays */}
+            {/* Rich background with overlays */}
             <div className="absolute inset-0">
-                <Image
-                    src="/images/hero-bg.png"
-                    alt=""
-                    fill
-                    className="object-cover"
-                    priority
-                    quality={85}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-surface-950/40 via-surface-950/70 to-surface-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-surface-950 via-surface-950 to-surface-950" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(80,70,160,0.12),transparent_60%),radial-gradient(ellipse_at_70%_20%,rgba(200,164,92,0.08),transparent_50%)]" />
             </div>
 
@@ -88,12 +82,12 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col items-center gap-4 mb-12"
                 >
-                    <a
-                        href="#aplicacao"
+                    <button
+                        onClick={(e) => { e.preventDefault(); openPopup(); }}
                         className="animate-glow inline-flex items-center px-10 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 hover:-translate-y-0.5"
                     >
                         QUERO APLICAR PARA A IMERSÃO
-                    </a>
+                    </button>
                     <span className="text-text-muted text-sm tracking-wide">
                         Vagas limitadas — processo seletivo de 3 minutos
                     </span>

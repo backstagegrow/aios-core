@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 const pains = [
     {
@@ -39,6 +40,8 @@ const pains = [
 ];
 
 export default function PainCards() {
+    const { openPopup } = usePopup();
+
     return (
         <section className="relative py-24 md:py-32 bg-section-alt">
             <div className="divider-gradient mb-24" />
@@ -66,10 +69,18 @@ export default function PainCards() {
                 </div>
 
                 <ScrollReveal>
-                    <p className="text-amber-400 font-medium mt-16 pt-8 border-t border-amber-400/10 text-center md:text-left">
-                        Se você se viu em pelo menos um desses cenários, este evento foi
-                        desenhado para você.
-                    </p>
+                    <div className="mt-16 pt-8 border-t border-amber-400/10 flex flex-col items-center gap-6">
+                        <p className="text-amber-400 font-medium text-center">
+                            Se você se viu em pelo menos um desses cenários, este evento foi
+                            desenhado para você.
+                        </p>
+                        <button
+                            onClick={openPopup}
+                            className="inline-flex items-center px-8 py-3 rounded-xl bg-surface-800 text-amber-400 border border-amber-400/20 font-bold tracking-wider text-sm hover:bg-surface-700 transition-all duration-300"
+                        >
+                            SAIR DESTE CENÁRIO E APLICAR
+                        </button>
+                    </div>
                 </ScrollReveal>
             </div>
         </section>

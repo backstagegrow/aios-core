@@ -1,7 +1,10 @@
 "use client";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 export default function Qualification() {
+    const { openPopup } = usePopup();
+
     const forWho = [
         "Empresários com negócio em operação que precisam subir o nível de decisão",
         "Quem já fatura, mas sente que o crescimento virou peso e não liberdade",
@@ -69,11 +72,17 @@ export default function Qualification() {
                     </ScrollReveal>
                 </div>
 
-                <ScrollReveal className="text-center mt-12">
+                <ScrollReveal className="text-center mt-12 flex flex-col items-center gap-6">
                     <p className="text-text-muted">
                         Por isso existe o processo seletivo. Não é para qualquer um. É para
                         quem está pronto.
                     </p>
+                    <button
+                        onClick={openPopup}
+                        className="inline-flex items-center px-8 py-3 rounded-xl bg-surface-800 text-amber-400 border border-amber-400/20 font-bold tracking-wider text-sm hover:bg-surface-700 transition-all duration-300"
+                    >
+                        APLICAR PARA A SELEÇÃO
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

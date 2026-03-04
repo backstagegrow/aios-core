@@ -1,7 +1,10 @@
 "use client";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 export default function EventDetails() {
+    const { openPopup } = usePopup();
+
     const info = [
         { icon: "📅", title: "21 e 22 de Março de 2026", sub: "Dia inteiro" },
         { icon: "🍸", title: "Coquetel de Networking", sub: "Na véspera do evento" },
@@ -70,10 +73,16 @@ export default function EventDetails() {
                 </div>
 
                 <ScrollReveal className="text-center mt-16">
-                    <p className="text-amber-400 font-medium pt-8 border-t border-amber-400/10">
+                    <p className="text-amber-400 font-medium pt-8 border-t border-amber-400/10 mb-8">
                         Não é palestra. Não é motivacional. É um ambiente de decisão para
                         quem já opera e quer operar melhor.
                     </p>
+                    <button
+                        onClick={openPopup}
+                        className="animate-glow inline-flex items-center px-8 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_0_30px_rgba(200,164,92,0.15)]"
+                    >
+                        GARANTIR MINHA VAGA AGORA
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 /* ──────────────────────────────────────────────
    DADOS VALIDADOS contra o site oficial:
@@ -37,6 +38,8 @@ const speakers = [
 ];
 
 export default function Speakers() {
+    const { openPopup } = usePopup();
+
     return (
         <section
             id="mentores"
@@ -88,6 +91,16 @@ export default function Speakers() {
                         </ScrollReveal>
                     ))}
                 </div>
+
+                <ScrollReveal className="text-center mt-16 mt-20">
+                    <button
+                        onClick={openPopup}
+                        className="animate-glow inline-flex items-center px-10 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_0_30px_rgba(200,164,92,0.15)] hover:-translate-y-0.5"
+                    >
+                        QUERO APRENDER COM QUEM EXECUTA
+                    </button>
+                </ScrollReveal>
+
             </div>
         </section>
     );

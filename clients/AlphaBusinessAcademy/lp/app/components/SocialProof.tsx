@@ -2,8 +2,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 export default function SocialProof() {
+    const { openPopup } = usePopup();
+
     return (
         <section className="relative py-24 md:py-32 overflow-hidden">
             {/* Rich section background */}
@@ -13,6 +16,9 @@ export default function SocialProof() {
                     alt=""
                     fill
                     className="object-cover opacity-40"
+                    onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                    }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-surface-950 via-transparent to-surface-950" />
             </div>
@@ -32,41 +38,11 @@ export default function SocialProof() {
                     </p>
                 </ScrollReveal>
 
-                {/* Photo grid — event atmosphere */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-                    {[
-                        { label: "Networking de alto nível", span: "md:col-span-2" },
-                        { label: "Mentores e líderes", span: "" },
-                        { label: "Estratégia no campo", span: "" },
-                        { label: "Conexões estratégicas", span: "md:col-span-2" },
-                    ].map((item, i) => (
-                        <ScrollReveal key={i} delay={i * 0.08} className={item.span}>
-                            <motion.div
-                                whileHover={{ scale: 1.02 }}
-                                className="relative rounded-2xl overflow-hidden aspect-[16/10] group cursor-pointer"
-                            >
-                                <Image
-                                    src="/images/event-atmosphere.png"
-                                    alt={item.label}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    style={{
-                                        objectPosition: `${25 * i}% 50%`,
-                                    }}
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-surface-950/90 via-surface-950/20 to-transparent" />
-                                <div className="absolute bottom-0 left-0 right-0 p-5">
-                                    <span className="text-sm font-semibold">{item.label}</span>
-                                    <span className="text-amber-400 text-xs ml-2">↗</span>
-                                </div>
-                            </motion.div>
-                        </ScrollReveal>
-                    ))}
-                </div>
+                {/* No photo grid, moved elsewhere or removed */}
 
                 {/* Stats row */}
                 <ScrollReveal>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
                         {[
                             { num: "+500", label: "Operações escaladas" },
                             { num: "2", label: "Dias de imersão" },
@@ -86,6 +62,15 @@ export default function SocialProof() {
                             </div>
                         ))}
                     </div>
+                </ScrollReveal>
+
+                <ScrollReveal className="text-center">
+                    <button
+                        onClick={openPopup}
+                        className="animate-glow inline-flex items-center px-10 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_0_30px_rgba(200,164,92,0.15)] hover:-translate-y-0.5"
+                    >
+                        COLOCAR MINHA EMPRESA NESSE NÍVEL
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

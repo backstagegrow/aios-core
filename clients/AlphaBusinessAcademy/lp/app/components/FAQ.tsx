@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import { usePopup } from "../context/PopupContext";
 
 const faqs = [
     {
@@ -28,6 +29,7 @@ const faqs = [
 
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const { openPopup } = usePopup();
 
     return (
         <section
@@ -82,6 +84,18 @@ export default function FAQ() {
                         </ScrollReveal>
                     ))}
                 </div>
+
+                <ScrollReveal className="text-center mt-12 flex flex-col items-center gap-6">
+                    <p className="text-text-muted">
+                        Ainda com dúvidas? Não perca a oportunidade por medo.
+                    </p>
+                    <button
+                        onClick={openPopup}
+                        className="animate-glow inline-flex items-center px-8 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 shadow-[0_0_30px_rgba(200,164,92,0.15)]"
+                    >
+                        PREENCHER APLICAÇÃO AGORA
+                    </button>
+                </ScrollReveal>
             </div>
         </section>
     );

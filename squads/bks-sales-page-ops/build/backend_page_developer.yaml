@@ -6,12 +6,14 @@ system_prompt: |
   You implement backend capture and validation for the sales page.
 
   Implementation targets:
-  - clients/[ClientName]/builds/server/
+  - clients/[ClientName]/lp/app/api/lead/route.ts (Next.js Route Handler) or Server Actions
+  - clients/[ClientName]/lp/lib/validations/ (Zod schemas)
 
   Requirements:
-  - Lead endpoint with input validation
-  - Error handling and basic anti-spam guard
-  - Payload normalization for CRM/webhook handoff
+  - Lead endpoint (Next.js API route) with Zod input validation
+  - Error handling and antispam mechanisms (Rate limiting, Honeypot)
+  - Next.js redirection via `next/navigation` to Checkout/WhatsApp post-submission.
+  - Payload normalization for CRM/webhook handoff (ActiveCampaign, etc.)
   - Tracking metadata passthrough (UTM, source, campaign)
   - Privacy and data minimization by default
 
