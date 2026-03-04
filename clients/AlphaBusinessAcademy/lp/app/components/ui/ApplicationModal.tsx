@@ -46,23 +46,21 @@ export default function ApplicationModal() {
 
         console.log("📥 Lead captured:", data);
 
-        // Simulate API setup and redirect to checkout
         setTimeout(() => {
             setIsLoading(false);
             setShowSuccess(true);
             (e.target as HTMLFormElement).reset();
             setPhone("");
 
-            // Replicate Monster Day's flow: redirect after form
             setTimeout(() => {
-                window.location.href = "https://pay.kiwify.com.br/placeholder";
+                window.location.href = "https://api.whatsapp.com/send/?phone=5511939411365&text=Olá%21+Gostaria+de+validar+meu+ingresso+para+a+imersão+presencial&type=phone_number&app_absent=0";
             }, 2500);
         }, 1500);
     }
 
     return (
         <AnimatePresence>
-            {isOpen && !showSuccess && (
+            {isOpen && (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -70,172 +68,137 @@ export default function ApplicationModal() {
                     className="fixed inset-0 z-50 flex items-center justify-center px-4 overflow-y-auto"
                 >
                     <div
-                        className="fixed inset-0 bg-surface-950/80 backdrop-blur-sm"
+                        className="fixed inset-0 bg-[#0A0A0A]"
                         onClick={closePopup}
                     />
-                    <motion.div
-                        initial={{ scale: 0.95, opacity: 0, y: 20 }}
-                        animate={{ scale: 1, opacity: 1, y: 0 }}
-                        exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-2xl my-8 glass rounded-3xl p-6 md:p-10 bg-gradient-to-br from-amber-400/5 to-cool-700/5 z-10"
-                    >
-                        <button
-                            onClick={closePopup}
-                            className="absolute top-5 right-5 text-text-muted hover:text-text-primary transition-colors text-2xl leading-none"
+
+                    {!showSuccess ? (
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            className="relative w-full max-w-xl bg-[#0A0A0A] border border-white/10 p-8 shadow-2xl overflow-hidden rounded-sm"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            &times;
-                        </button>
-
-                        <div className="text-center mb-8">
-                            <span className="inline-block text-xs font-bold tracking-[0.2em] text-amber-400 uppercase mb-2">
-                                APLICAÇÃO
-                            </span>
-                            <h2 className="text-2xl md:text-3xl font-extrabold leading-tight mb-2">
-                                Preencha seus dados
-                            </h2>
-                            <p className="text-text-secondary text-sm md:text-base">
-                                Reserve sua vaga na Imersão Alpha Business.
-                            </p>
-                        </div>
-
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-semibold text-text-secondary mb-1">
-                                    Nome completo
-                                </label>
-                                <input
-                                    type="text"
-                                    name="nome"
-                                    required
-                                    placeholder="Seu nome completo"
-                                    className="w-full px-4 py-3 rounded-lg bg-surface-950/80 border border-amber-400/10 text-text-primary placeholder:text-text-subtle outline-none focus:border-amber-400/40 focus:ring-2 focus:ring-amber-400/10 transition-all text-sm"
-                                />
-                            </div>
-
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm font-semibold text-text-secondary mb-1">
-                                        E-mail
-                                    </label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        required
-                                        placeholder="seu@email.com"
-                                        className="w-full px-4 py-3 rounded-lg bg-surface-950/80 border border-amber-400/10 text-text-primary placeholder:text-text-subtle outline-none focus:border-amber-400/40 focus:ring-2 focus:ring-amber-400/10 transition-all text-sm"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-text-secondary mb-1">
-                                        WhatsApp
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        name="whatsapp"
-                                        required
-                                        value={phone}
-                                        onChange={(e) => setPhone(formatPhone(e.target.value))}
-                                        placeholder="(11) 99999-9999"
-                                        className="w-full px-4 py-3 rounded-lg bg-surface-950/80 border border-amber-400/10 text-text-primary placeholder:text-text-subtle outline-none focus:border-amber-400/40 focus:ring-2 focus:ring-amber-400/10 transition-all text-sm"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm font-semibold text-text-secondary mb-1">
-                                        Nome da Empresa
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="empresa"
-                                        required
-                                        placeholder="Sua empresa"
-                                        className="w-full px-4 py-3 rounded-lg bg-surface-950/80 border border-amber-400/10 text-text-primary placeholder:text-text-subtle outline-none focus:border-amber-400/40 focus:ring-2 focus:ring-amber-400/10 transition-all text-sm"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-text-secondary mb-1">
-                                        Faturamento Mensal
-                                    </label>
-                                    <select
-                                        name="faturamento"
-                                        required
-                                        className="w-full px-4 py-3 rounded-lg bg-surface-950/80 border border-amber-400/10 text-text-primary outline-none focus:border-amber-400/40 focus:ring-2 focus:ring-amber-400/10 transition-all appearance-none cursor-pointer text-sm"
-                                    >
-                                        <option value="" disabled selected className="text-text-subtle">
-                                            Selecione...
-                                        </option>
-                                        <option value="ate-50k">Até R$ 50 mil</option>
-                                        <option value="50k-200k">R$ 50 mil — R$ 200 mil</option>
-                                        <option value="200k-500k">R$ 200 mil — R$ 500 mil</option>
-                                        <option value="acima-500k">Acima de R$ 500 mil</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <label className="flex items-start gap-3 cursor-pointer text-xs text-text-secondary pt-2">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    className="mt-0.5 accent-amber-400"
-                                />
-                                <span>
-                                    Concordo com a{" "}
-                                    <a href="#" className="text-amber-400 underline hover:text-amber-300">
-                                        Política de Privacidade
-                                    </a>.
-                                </span>
-                            </label>
 
                             <button
-                                type="submit"
-                                disabled={isLoading}
-                                className="animate-glow w-full py-4 mt-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-surface-950 font-bold tracking-wider text-sm hover:from-amber-300 hover:to-amber-500 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                                onClick={closePopup}
+                                className="absolute top-6 right-6 text-[#9CA3AF] hover:text-white transition-colors z-20"
                             >
-                                {isLoading ? (
-                                    <span className="flex items-center justify-center gap-2">
-                                        <span className="w-4 h-4 border-2 border-surface-950/30 border-t-surface-950 rounded-full animate-spin" />
-                                        Processando...
-                                    </span>
-                                ) : (
-                                    "AVANÇAR PARA CHEKCOUT →"
-                                )}
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                             </button>
-                            <p className="text-center text-text-muted text-xs mt-3">
-                                Compra 100% segura e garantida.
-                            </p>
-                        </form>
-                    </motion.div>
-                </motion.div>
-            )}
 
-            {/* Success Status View */}
-            {showSuccess && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="fixed inset-0 z-50 flex items-center justify-center px-4"
-                >
-                    <div className="fixed inset-0 bg-surface-950/90 backdrop-blur-md" />
-                    <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="relative glass rounded-3xl p-10 text-center max-w-md mx-4 z-10"
-                    >
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center mx-auto mb-6 text-surface-950 text-3xl font-bold">
-                            ✓
-                        </div>
-                        <h3 className="text-2xl font-extrabold mb-3">
-                            Tudo certo!
-                        </h3>
-                        <p className="text-text-secondary mb-6">
-                            Redirecionando você para a página de checkout seguro...
-                        </p>
-                        <div className="mx-auto w-8 h-8 border-4 border-amber-400/20 border-t-amber-400 rounded-full animate-spin" />
-                    </motion.div>
+                            <div className="relative z-10 space-y-8">
+                                <div className="text-center">
+                                    <span className="text-[#D4A847] text-xs font-bold tracking-[0.2em] uppercase">Aplicação</span>
+                                    <h2 className="text-2xl md:text-3xl font-black text-white mt-2 uppercase">Preencha seus dados</h2>
+                                    <p className="text-[#9CA3AF] text-sm mt-1">Reserve sua vaga na Imersão Alpha Business.</p>
+                                </div>
+
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[10px] font-black text-[#9CA3AF] uppercase tracking-widest mb-2">Nome completo</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                name="name"
+                                                placeholder="Seu nome completo"
+                                                className="w-full bg-white/5 border border-white/10 px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#D4A847]/50 transition-colors rounded-sm"
+                                            />
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-[10px] font-black text-[#9CA3AF] uppercase tracking-widest mb-2">E-mail</label>
+                                                <input
+                                                    required
+                                                    type="email"
+                                                    name="email"
+                                                    placeholder="seu@email.com"
+                                                    className="w-full bg-white/5 border border-white/10 px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#D4A847]/50 transition-colors rounded-sm"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-[10px] font-black text-[#9CA3AF] uppercase tracking-widest mb-2">WhatsApp</label>
+                                                <input
+                                                    required
+                                                    type="tel"
+                                                    name="phone"
+                                                    value={phone}
+                                                    onChange={(e) => setPhone(formatPhone(e.target.value))}
+                                                    placeholder="(11) 99999-9999"
+                                                    className="w-full bg-white/5 border border-white/10 px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#D4A847]/50 transition-colors rounded-sm"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-[10px] font-black text-[#9CA3AF] uppercase tracking-widest mb-2">Nome da Empresa</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                name="company"
+                                                placeholder="Sua empresa"
+                                                className="w-full bg-white/5 border border-white/10 px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#D4A847]/50 transition-colors rounded-sm"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-start gap-3">
+                                        <input required type="checkbox" className="mt-1 accent-[#D4A847]" id="privacy" />
+                                        <label htmlFor="privacy" className="text-[10px] text-[#9CA3AF] leading-tight uppercase font-bold">
+                                            Concordo com a <a href="#" className="text-[#D4A847] hover:underline">Política de Privacidade</a>.
+                                        </label>
+                                    </div>
+
+                                    <div className="pt-2">
+                                        <button
+                                            type="submit"
+                                            disabled={isLoading}
+                                            style={{
+                                                width: "100%",
+                                                padding: "20px 0",
+                                                background: "linear-gradient(to right, #D4A847, #B68E35)",
+                                                color: "#000",
+                                                fontWeight: 900,
+                                                fontSize: "14px",
+                                                textTransform: "uppercase" as const,
+                                                letterSpacing: "0.1em",
+                                                border: "none",
+                                                cursor: "pointer",
+                                                borderRadius: "2px",
+                                            }}
+                                        >
+                                            {isLoading ? "Processando..." : "FINALIZAR NO WHATSAPP →"}
+                                        </button>
+                                        <p className="text-center text-[10px] text-[#4B5563] uppercase tracking-[0.2em] font-black mt-4">
+                                            Compra 100% segura e garantida.
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="relative bg-[#0A0A0A] border border-[#D4A847]/30 rounded-sm p-12 text-center max-w-md mx-4 z-10 shadow-[0_0_50px_rgba(212,168,71,0.1)]"
+                        >
+                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#D4A847] to-[#B68E35] flex items-center justify-center mx-auto mb-8 text-black text-4xl shadow-lg">
+                                ✓
+                            </div>
+                            <h3 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter">
+                                Tudo certo!
+                            </h3>
+                            <p className="text-[#9CA3AF] mb-8 leading-relaxed">
+                                Redirecionando você para a página de ingresso...
+                            </p>
+                            <div className="mx-auto w-10 h-10 border-4 border-[#D4A847]/20 border-t-[#D4A847] rounded-full animate-spin" />
+                        </motion.div>
+                    )}
                 </motion.div>
             )}
         </AnimatePresence>

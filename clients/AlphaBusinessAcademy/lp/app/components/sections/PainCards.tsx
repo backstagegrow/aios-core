@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from "../ui/ScrollReveal";
+import { usePopup } from "../../context/PopupContext";
 
 const painPoints = [
     {
@@ -20,6 +21,7 @@ const painPoints = [
 ];
 
 export default function PainCards() {
+    const { openPopup } = usePopup();
     return (
         <section className="py-24 section-surface">
             <div className="max-w-6xl mx-auto px-6">
@@ -32,12 +34,12 @@ export default function PainCards() {
                     </p>
                 </ScrollReveal>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {painPoints.map((card, i) => (
                         <ScrollReveal key={i}>
-                            <div className="bg-[#0A0A0A] border border-white/5 p-8 h-full hover:border-[#D4A847]/30 transition-all duration-500 group">
+                            <div className="bg-[#141414] border border-white/5 p-8 h-full hover:border-[#D4A847]/30 transition-all duration-500 group">
                                 <div className="text-4xl mb-6">{card.icon}</div>
-                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#D4A847] transition-colors">
+                                <h3 className="text-xl font-bold mb-4 group-hover:text-[#D4A847] transition-colors text-white">
                                     {card.title}
                                 </h3>
                                 <p className="text-[#9CA3AF] leading-relaxed text-sm">{card.body}</p>
@@ -45,6 +47,12 @@ export default function PainCards() {
                         </ScrollReveal>
                     ))}
                 </div>
+
+                <ScrollReveal className="text-center">
+                    <button onClick={openPopup} className="cta-button px-10 py-4">
+                        → QUERO SAIR DESSA SITUAÇÃO
+                    </button>
+                </ScrollReveal>
             </div>
         </section>
     );

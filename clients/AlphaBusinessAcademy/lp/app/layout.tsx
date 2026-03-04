@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   ],
 };
 
+import { PopupProvider } from "./context/PopupContext";
+import ApplicationModal from "./components/ui/ApplicationModal";
+
 export default function RootLayout({
   children,
 }: {
@@ -30,7 +33,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <PopupProvider>
+          {children}
+          <ApplicationModal />
+        </PopupProvider>
+      </body>
     </html>
   );
 }

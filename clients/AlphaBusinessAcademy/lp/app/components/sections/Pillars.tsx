@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from "../ui/ScrollReveal";
+import { usePopup } from "../../context/PopupContext";
 
 const pillars = [
     {
@@ -25,6 +26,7 @@ const pillars = [
 ];
 
 export default function Pillars() {
+    const { openPopup } = usePopup();
     return (
         <section className="py-24 section-dark">
             <div className="max-w-6xl mx-auto px-6">
@@ -62,11 +64,14 @@ export default function Pillars() {
                     ))}
                 </div>
 
-                <ScrollReveal>
-                    <p className="text-center mt-12 text-lg font-semibold text-white">
+                <ScrollReveal className="text-center mt-12">
+                    <p className="text-lg font-semibold text-white mb-8">
                         Quando os 4 pilares estão instalados, você para de sobreviver e{" "}
                         <span className="gradient-text">volta a ser dono de verdade.</span>
                     </p>
+                    <button onClick={openPopup} className="cta-button px-10 py-4">
+                        → INSTALAR ESSA ESTRUTURA NO MEU NEGÓCIO
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

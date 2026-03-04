@@ -22,7 +22,6 @@ export default function Home() {
       <Speakers />
       <Qualification />
       <FAQ />
-      <ApplicationForm />
       <Footer />
     </main>
   );

@@ -1,7 +1,25 @@
 "use client";
 import ScrollReveal from "../ui/ScrollReveal";
+import { usePopup } from "../../context/PopupContext";
+
+const galleryImages = [
+    "DE3A2507.jpg",
+    "DSC00015.jpg",
+    "DSC00016.jpg",
+    "DSC00471 (1).jpg",
+    "DSC00471 (2).jpg",
+    "DSC00471.jpg",
+    "DSC00529.jpg",
+    "DSC08448.jpg", // Substituí para garantir diversidade
+    "DSC08333.jpg",
+    "DSC08376.jpg",
+    "DSC08386.jpg",
+    "DSC08417.jpg",
+];
 
 export default function PhotoGallery() {
+    const { openPopup } = usePopup();
+
     return (
         <section className="py-24 section-cream">
             <div className="max-w-6xl mx-auto px-6">
@@ -15,22 +33,22 @@ export default function PhotoGallery() {
                     </p>
                 </ScrollReveal>
 
-                {/* Photo Grid - Placeholders */}
+                {/* Photo Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {Array.from({ length: 8 }).map((_, i) => (
+                    {galleryImages.map((img, i) => (
                         <ScrollReveal key={i}>
                             <div
-                                className={`relative overflow-hidden border-[#D4A847]/10 ${i === 0 || i === 5
+                                className={`relative overflow-hidden group shadow-lg ${i === 0 || i === 5
                                     ? "md:col-span-2 md:row-span-2 aspect-square"
                                     : "aspect-[4/3]"
                                     }`}
                             >
                                 <img
-                                    src={`/images/gallery/foto${i + 1}.png`}
-                                    alt={`Foto ${i + 1}`}
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => (e.currentTarget.parentElement!.classList.add('img-placeholder', 'bg-[#E5E5E5]'))}
+                                    src={`/images/Bastidores de Quem Já Passou Por Aqui/${img}`}
+                                    alt={`Bastidores ${i + 1}`}
+                                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                                 />
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
                             </div>
                         </ScrollReveal>
                     ))}
@@ -38,14 +56,7 @@ export default function PhotoGallery() {
 
                 <ScrollReveal>
                     <div className="text-center mt-12">
-                        <button
-                            onClick={() =>
-                                document
-                                    .getElementById("aplicacao")
-                                    ?.scrollIntoView({ behavior: "smooth" })
-                            }
-                            className="cta-button"
-                        >
+                        <button onClick={openPopup} className="cta-button">
                             → Quero Viver Isso na Próxima Edição
                         </button>
                         <p className="text-sm text-[#0A0A0A]/50 mt-3">

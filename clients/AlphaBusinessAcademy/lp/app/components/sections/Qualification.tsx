@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from "../ui/ScrollReveal";
+import { usePopup } from "../../context/PopupContext";
 
 const forWho = [
     "Donos de restaurantes, cafeterias, franquias e dark kitchens que já faturam",
@@ -16,6 +17,7 @@ const notForWho = [
 ];
 
 export default function Qualification() {
+    const { openPopup } = usePopup();
     return (
         <section className="py-24 section-surface">
             <div className="max-w-5xl mx-auto px-6">
@@ -63,13 +65,16 @@ export default function Qualification() {
                     </ScrollReveal>
                 </div>
 
-                <ScrollReveal>
-                    <p className="text-center mt-8 text-white text-sm font-semibold">
+                <ScrollReveal className="text-center mt-8">
+                    <p className="text-white text-sm font-semibold mb-8">
                         Por isso existe o processo seletivo.{" "}
                         <span className="gradient-text">
                             Não é para qualquer um. É para quem está pronto.
                         </span>
                     </p>
+                    <button onClick={openPopup} className="cta-button px-10 py-4">
+                        → VALIDAR SE EU ESTOU PRONTO
+                    </button>
                 </ScrollReveal>
             </div>
         </section>

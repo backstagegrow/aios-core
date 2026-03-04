@@ -1,73 +1,98 @@
 "use client";
-import ScrollReveal from "../ui/ScrollReveal";
+import { usePopup } from "../../context/PopupContext";
 
 export default function Hero() {
-    const scrollToForm = () => {
-        document.getElementById("aplicacao")?.scrollIntoView({ behavior: "smooth" });
-    };
+    const { openPopup } = usePopup();
 
     return (
-        <section className="relative min-h-screen flex items-center overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#141414] to-[#0A0A0A]" />
-            <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A847' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
+        <section className="relative min-h-screen bg-[#0A0A0A] flex items-center overflow-hidden">
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-                {/* Copy */}
-                <ScrollReveal>
-                    <div className="space-y-8">
+            {/* Subtle gradient accents */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#D4A847]/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#D4A847]/3 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    {/* ——— LEFT COLUMN: All copy ——— */}
+                    <div>
+                        {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4A847]/10 border border-[#D4A847]/30 text-[#D4A847] text-sm font-semibold tracking-wider uppercase">
                             🔒 Últimas vagas — Imersão Presencial em SP, 21 e 22 de Março
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
-                            Em 2 Dias, Instale
-                            <br />
-                            <span className="gradient-text">a Estrutura Que Faz</span>
-                            <br />
-                            Seu Negócio Lucrar
-                            <br />
+                        {/* Title — mb-10 = 40px de espaço */}
+                        <h1 className="mt-8 mb-10 text-5xl md:text-6xl lg:text-7xl font-black leading-[1.15] tracking-tight text-white">
+                            Em 2 Dias, Instale{" "}
+                            <span className="gradient-text">a Estrutura Que Faz</span>{" "}
+                            Seu Negócio Lucrar{" "}
                             <span className="gradient-text">Sem Você no Balcão.</span>
                         </h1>
 
-                        <p className="text-lg text-[#9CA3AF] max-w-xl leading-relaxed">
-                            A imersão presencial para donos de restaurantes, cafeterias e franquias que faturam bem — mas <strong className="text-white">trabalham demais, lucram de menos e não conseguem tirar 2 dias de folga</strong> sem o negócio parar.
+                        {/* Description — mb-10 = 40px de espaço */}
+                        <p className="mb-10 text-lg text-[#9CA3AF] max-w-xl leading-[1.8]">
+                            A imersão presencial para donos de restaurantes, cafeterias e
+                            franquias que faturam bem — mas{" "}
+                            <strong className="text-white">
+                                trabalham demais, lucram de menos e não conseguem tirar 2
+                                dias de folga
+                            </strong>{" "}
+                            sem o negócio parar.
                         </p>
 
-                        <div className="space-y-4">
-                            <button onClick={scrollToForm} className="cta-button w-full sm:w-auto">
+                        {/* CTA — mb-10 = 40px de espaço */}
+                        <div className="mb-10">
+                            <button onClick={openPopup} className="cta-button px-12 py-5 text-lg">
                                 → Quero Minha Vaga na Imersão
                             </button>
-                            <p className="text-sm text-[#9CA3AF]">
-                                Aplicação de 3 minutos • Apenas 40 vagas por edição • Resposta em 48h
+                            <p className="mt-4 text-sm text-[#6B7280]">
+                                Aplicação de 3 minutos • <strong className="text-[#9CA3AF]">Apenas 40 vagas por edição</strong> • Resposta em 48h
                             </p>
                         </div>
 
-                        <div className="flex items-center gap-6 pt-4 border-t border-white/10">
+                        {/* Social Proof */}
+                        <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                             <div className="flex -space-x-3">
-                                {[1, 2, 3].map((i) => (
-                                    <div key={i} className="w-10 h-10 rounded-full bg-[#1E1E1E] border-2 border-[#D4A847]/40 img-placeholder" style={{ fontSize: 0 }} />
-                                ))}
+                                <img src="/images/Quem Vai Guiar Sua Transformação/Lucas.jpg" className="w-10 h-10 rounded-full object-cover border-2 border-[#0A0A0A]" alt="Lucas Silva" />
+                                <img src="/images/Quem Vai Guiar Sua Transformação/José Ricardo.jpeg" className="w-10 h-10 rounded-full object-cover border-2 border-[#0A0A0A]" alt="José Ricardo" />
+                                <img src="/images/Quem Vai Guiar Sua Transformação/Robert.png" className="w-10 h-10 rounded-full object-cover border-2 border-[#0A0A0A]" alt="Robert CFO" />
                             </div>
-                            <p className="text-sm text-[#9CA3AF]">
-                                <span className="text-white font-semibold">Lucas Silva • José Ricardo • Robert CFO</span>
-                                <br />+500 operações escaladas
-                            </p>
+                            <div>
+                                <p className="text-sm font-bold text-white">Lucas Silva • José Ricardo • Robert CFO</p>
+                                <p className="text-xs text-[#6B7280]">+500 operações escaladas</p>
+                            </div>
                         </div>
                     </div>
-                </ScrollReveal>
 
-                {/* Hero Image Placeholder */}
-                <ScrollReveal className="hidden lg:block">
-                    <div className="relative aspect-[4/5] img-placeholder rounded-sm">
-                        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-                        <div className="absolute bottom-6 left-6 right-6">
-                            <div className="text-xs text-[#9CA3AF] uppercase tracking-widest mb-1">Speaker Principal</div>
-                            <img src="/images/speakers/principal.png" alt="Principal Speaker" className="w-full h-full object-cover rounded-sm" onError={(e) => (e.currentTarget.style.display = 'none')} />
-                            <div className="text-lg font-bold">📷 Foto do mentor será inserida aqui</div>
+                    {/* ——— RIGHT COLUMN: Mentor Photo ——— */}
+                    <div className="relative flex items-end justify-center lg:h-[680px]">
+                        {/* Glow */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-80 h-80 bg-[#D4A847]/10 rounded-full blur-[80px]" />
                         </div>
+
+                        {/* Label */}
+                        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+                            <span className="text-xs text-[#6B7280] uppercase tracking-[0.2em] font-semibold">
+                                Speaker Principal
+                            </span>
+                        </div>
+
+                        {/* Photo */}
+                        <img
+                            src="/images/Quem Vai Guiar Sua Transformação/Lucas.jpg"
+                            alt="Lucas Silva — Speaker Principal"
+                            className="relative z-10 w-full max-w-sm lg:max-w-none lg:h-full object-cover object-top"
+                            style={{ maxHeight: "680px" }}
+                        />
+
+                        {/* Bottom fade */}
+                        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent z-20" />
                     </div>
-                </ScrollReveal>
+
+                </div>
             </div>
         </section>
     );
