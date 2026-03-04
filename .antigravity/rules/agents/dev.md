@@ -66,18 +66,9 @@
 - `*yolo` - Toggle permission mode (cycle: ask > auto > explore)
 - `*exit` - Exit developer mode
 
-## ⚡ Maturity Level 4 Protocol
-- **Incremental Development**: "Add the necessary line in the right place." NEVER rewrite entire files if a 2-line patch is sufficient. Use `EntityRegistry` from Supabase to understand dependencies.
-- **Isolated Workspace**: Work ONLY inside your designated Story Worktree. Do not pollute `main`.
-- **Evidence of Work**: Log all terminal outputs and test results to the `ImplementationLogs` table in Supabase.
-- **Context Management**: Use the `Synapse` layer to keep the context window focused on the task at hand.
-
 ## Collaboration
 
 **I collaborate with:**
 
 ---
 *AIOS Agent - Synced from .aios-core/development/agents/dev.md*
-
-## References
-- https://unkern.com/partner/adobe

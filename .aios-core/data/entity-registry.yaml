@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-02-25T00:35:46.816Z'
-  entityCount: 740
+  lastUpdated: '2026-03-04T15:11:18.469Z'
+  entityCount: 745
   checksumAlgorithm: sha256
   resolutionRate: 100
 entities:
@@ -16,8 +16,7 @@ entities:
         - mcp
         - server
         - task
-      usedBy:
-        - devops
+      usedBy: []
       dependencies:
         - analyst
       externalDeps: []
@@ -601,8 +600,7 @@ entities:
         - docs
         - links
         - check-docs-links
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -627,8 +625,7 @@ entities:
         - configure
         - ci/cd
         - pipeline
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps:
@@ -681,7 +678,6 @@ entities:
       usedBy:
         - list-worktrees
         - remove-worktree
-        - devops
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -1094,7 +1090,6 @@ entities:
         - list-worktrees
         - remove-worktree
         - dev
-        - devops
         - auto-worktree
       dependencies:
         - worktree-manager
@@ -1917,7 +1912,6 @@ entities:
         - environment-bootstrap
       usedBy:
         - setup-github
-        - devops
       dependencies:
         - config-resolver
         - github-cli.yaml
@@ -2255,7 +2249,6 @@ entities:
         - github-pr-automation.md
       usedBy:
         - resolve-github-issue
-        - devops
       dependencies:
         - repository-detector
         - devops-helper
@@ -2291,7 +2284,6 @@ entities:
       usedBy:
         - publish-npm
         - resolve-github-issue
-        - devops
       dependencies:
         - repository-detector
         - devops-helper
@@ -2318,8 +2310,7 @@ entities:
         - repository
         - cleanup
         - repository-cleanup.md
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps:
@@ -2344,8 +2335,7 @@ entities:
         - version
         - management
         - version-management.md
-      usedBy:
-        - devops
+      usedBy: []
       dependencies:
         - repository-detector
       externalDeps: []
@@ -2683,8 +2673,7 @@ entities:
         - list
         - mcps
         - list-mcps
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -2708,7 +2697,6 @@ entities:
         - create-worktree
         - remove-worktree
         - dev
-        - devops
       dependencies:
         - worktree-manager
         - create-worktree
@@ -2757,7 +2745,6 @@ entities:
         - merge-worktree
       usedBy:
         - create-worktree
-        - devops
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -3936,7 +3923,6 @@ entities:
         - releases
       usedBy:
         - publish-npm
-        - devops
       dependencies:
         - po
         - devops
@@ -3961,8 +3947,7 @@ entities:
         - remove
         - mcp
         - remove-mcp
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -3986,7 +3971,6 @@ entities:
         - create-worktree
         - list-worktrees
         - dev
-        - devops
       dependencies:
         - worktree-manager
         - create-worktree
@@ -4014,7 +3998,6 @@ entities:
         - resolve-github-issue.md
       usedBy:
         - triage-github-issues
-        - devops
       dependencies:
         - triage-github-issues
         - github-devops-pre-push-quality-gate
@@ -4142,8 +4125,7 @@ entities:
         - mcp
         - catalog
         - task
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -4282,8 +4264,7 @@ entities:
         - setup
         - github
         - setup-github
-      usedBy:
-        - devops
+      usedBy: []
       dependencies:
         - environment-bootstrap
         - github-cli.yaml
@@ -4336,8 +4317,7 @@ entities:
         - mcp
         - docker
         - toolkit
-      usedBy:
-        - devops
+      usedBy: []
       dependencies:
         - devops
       externalDeps: []
@@ -5029,7 +5009,6 @@ entities:
         - triage-github-issues.md
       usedBy:
         - resolve-github-issue
-        - devops
       dependencies:
         - resolve-github-issue
         - devops
@@ -5513,6 +5492,68 @@ entities:
         extensionPoints: []
       checksum: sha256:f128542695ae1bd358ab553fd777e41ead19c7af31bb97b31d89771f88960332
       lastVerified: '2026-02-24T22:56:46.002Z'
+    clickup-create-update-task:
+      path: .aios-core/development/tasks/clickup-create-update-task.md
+      layer: L2
+      type: task
+      purpose: >-
+        criar/atualizar tasks no ClickUp via MCP, atribuir ao membro correto, criar arquivo local no cliente escolhido e
+        preencher campos personalizados validos.
+      keywords:
+        - clickup
+        - create
+        - update
+        - task
+        - clickup-create-update-task
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:8a0af467d952d6a4ba154ace19324fa45590d632887751a8dabe41deba86120b
+      lastVerified: '2026-03-04T15:11:18.458Z'
+    clickup-generate-management-report:
+      path: .aios-core/development/tasks/clickup-generate-management-report.md
+      layer: L2
+      type: task
+      purpose: >-
+        auditar lanes/pastas específicas no ClickUp (social_media, trafego_pago, automacoes, onboarding), gerar
+        relatório gerencial consolidado e publicar em documento na área Gestão Empresarial > Relatórios.
+      keywords:
+        - clickup
+        - generate
+        - management
+        - report
+        - clickup-generate-management-report
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:e6d18051e2b1cfee1dccf9520f951ecd6fa778a0413a44e8b9a939a26296e87f
+      lastVerified: '2026-03-04T15:11:18.460Z'
+    clickup-publish-task:
+      path: .aios-core/development/tasks/clickup-publish-task.md
+      layer: L2
+      type: task
+      purpose: >-
+        publicar saida de agentes (copy, ads, social, onboarding, automacao) como task pronta no ClickUp com briefing na
+        descricao, campos personalizados, responsavel correto e arquivo local opcional.
+      keywords:
+        - clickup
+        - publish
+        - task
+        - clickup-publish-task
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:7033c42096c2183411a0147a7d8fe37b7ec716fd7108436a1d34d0f357ddd5e6
+      lastVerified: '2026-03-04T15:11:18.461Z'
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -5719,8 +5760,7 @@ entities:
       keywords:
         - changelog
         - template
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -5926,8 +5966,7 @@ entities:
         - actions
         - cd
         - template
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -5948,8 +5987,7 @@ entities:
         - actions
         - ci
         - template
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -5971,8 +6009,7 @@ entities:
         - template
         - pull
         - request
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -6595,18 +6632,7 @@ entities:
         - (codex
         - cli)
       usedBy: []
-      dependencies:
-        - architect
-        - dev
-        - qa
-        - pm
-        - po
-        - sm
-        - analyst
-        - devops
-        - data-engineer
-        - ux-design-expert
-        - aios-master
+      dependencies: []
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -6614,8 +6640,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:e8345404f17977a268b917a4ff86e4f10f80174a6bb572865e5413c8f7dd217a
-      lastVerified: '2026-02-24T22:56:46.031Z'
+      checksum: sha256:4ae3a5b04a3b4669da095dcdb9868c4bff352f82daa0e8da166516d69511368e
+      lastVerified: '2026-03-04T15:11:18.465Z'
     copilot-rules:
       path: .aios-core/product/templates/ide-rules/copilot-rules.md
       layer: L2
@@ -10459,8 +10485,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:2418a5f541003c73cc284e88a6b0cb666896a47ffd5ed4c08648269d281efc4c
-      lastVerified: '2026-02-24T22:56:46.142Z'
+      checksum: sha256:7e7f9bb92725ca1d85b0a7151668bc5bcdd6fc9b73fed5b2b2c28217d14535ab
+      lastVerified: '2026-03-04T15:11:18.447Z'
     devops-helper:
       path: .aios-core/core/code-intel/helpers/devops-helper.js
       layer: L1
@@ -12795,7 +12821,6 @@ entities:
         - run-workflow
         - sync-registry-intel
         - claude-rules
-        - codex-rules
       dependencies:
         - advanced-elicitation
         - analyze-framework
@@ -12876,7 +12901,6 @@ entities:
         - story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - entity-registry
         - brownfield-discovery
@@ -12938,7 +12962,6 @@ entities:
         - story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-compatibility-checklist
         - brownfield-discovery
@@ -12998,7 +13021,6 @@ entities:
         - validate-next-story
         - story-tmpl
         - claude-rules
-        - codex-rules
         - brownfield-discovery
       dependencies:
         - create-doc
@@ -13099,7 +13121,6 @@ entities:
         - story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-compatibility-checklist
         - brownfield-fullstack
@@ -13192,41 +13213,9 @@ entities:
         - validate-next-story
         - story-tmpl
         - claude-rules
-        - codex-rules
         - memory-audit-checklist
         - greenfield-fullstack
-      dependencies:
-        - environment-bootstrap
-        - setup-github
-        - github-devops-version-management
-        - github-devops-pre-push-quality-gate
-        - github-devops-github-pr-automation
-        - ci-cd-configuration
-        - github-devops-repository-cleanup
-        - release-management
-        - search-mcp
-        - add-mcp
-        - list-mcps
-        - remove-mcp
-        - setup-mcp-docker
-        - check-docs-links
-        - triage-github-issues
-        - resolve-github-issue
-        - create-worktree
-        - list-worktrees
-        - remove-worktree
-        - cleanup-worktrees
-        - merge-worktree
-        - github-pr-template
-        - github-actions-ci.yml
-        - github-actions-cd.yml
-        - changelog-template
-        - pre-push-checklist
-        - release-checklist
-        - github-cli
-        - asset-inventory.js
-        - path-analyzer.js
-        - migrate-agent.js
+      dependencies: []
       externalDeps:
         - coderabbit
         - git
@@ -13238,8 +13227,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:37f03463eba31d0595bc6e6c4bc328905ea188ff435a93f96ea9522b9648d96a
-      lastVerified: '2026-02-24T22:56:46.230Z'
+      checksum: sha256:53fab4494aa260572c8f8e2e59c08f144762bb9447edb8a09438d3cd55f24cfa
+      lastVerified: '2026-03-04T15:11:18.456Z'
     pm:
       path: .aios-core/development/agents/pm.md
       layer: L2
@@ -13263,7 +13252,6 @@ entities:
         - story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-discovery
         - brownfield-fullstack
@@ -13326,7 +13314,6 @@ entities:
         - design-story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - memory-audit-checklist
         - brownfield-fullstack
@@ -13398,7 +13385,6 @@ entities:
         - story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-discovery
         - brownfield-fullstack
@@ -13463,7 +13449,6 @@ entities:
         - design-story-tmpl
         - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-fullstack
         - brownfield-service
@@ -13546,7 +13531,6 @@ entities:
         - design-story-tmpl
         - story-tmpl
         - claude-rules
-        - codex-rules
         - brownfield-discovery
         - brownfield-ui
         - design-system-build-quality
@@ -13621,6 +13605,40 @@ entities:
         extensionPoints: []
       checksum: sha256:eb2a3f733781f4094ffac4f52656d917c4cdf93ee1bdb26ea4c54728b8ba0b34
       lastVerified: '2026-02-24T22:56:46.242Z'
+    clickup-ops:
+      path: .aios-core/development/agents/clickup-ops.md
+      layer: L2
+      type: agent
+      purpose: Show all available commands
+      keywords:
+        - clickup
+        - ops
+        - clickup-ops
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
+      lastVerified: '2026-03-04T15:11:18.453Z'
+    clickup-reporting:
+      path: .aios-core/development/agents/clickup-reporting.md
+      layer: L2
+      type: agent
+      purpose: Show available commands
+      keywords:
+        - clickup
+        - reporting
+        - clickup-reporting
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
+      lastVerified: '2026-03-04T15:11:18.454Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -14457,8 +14475,7 @@ entities:
       keywords:
         - asset
         - inventory
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -15168,8 +15185,7 @@ entities:
       keywords:
         - migrate
         - agent
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -15255,8 +15271,7 @@ entities:
       keywords:
         - path
         - analyzer
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -15981,8 +15996,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:3a800a109edfeced0391550119b2b90f58405c65d6e0d4f1119e611c33ccbac2
-      lastVerified: '2026-02-24T22:56:46.315Z'
+      checksum: sha256:fec0f03f6b5e5d47ece9a7347417a27959b972a6e5a54d527f954147805f2493
+      lastVerified: '2026-03-04T15:11:18.464Z'
     validate-claude-integration:
       path: .aios-core/infrastructure/scripts/validate-claude-integration.js
       layer: L2
@@ -16614,7 +16629,6 @@ entities:
       usedBy:
         - environment-bootstrap
         - setup-github
-        - devops
         - po
       dependencies: []
       externalDeps: []
@@ -17198,8 +17212,7 @@ entities:
         - pre-push
         - quality
         - gate
-      usedBy:
-        - devops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -17220,7 +17233,6 @@ entities:
         - checklist
       usedBy:
         - publish-npm
-        - devops
       dependencies: []
       externalDeps: []
       plannedDeps: []

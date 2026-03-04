@@ -26,12 +26,6 @@ NOT for: PRD creation or epic structure → Use @pm. Market research or competit
 - `*yolo` - Toggle permission mode (cycle: ask > auto > explore)
 - `*exit` - Exit Scrum Master mode
 
-## 🌊 Maturity Level 4 Protocol
-- **ADE Enforcement**: Stories MUST be developed in isolated worktrees. Call `worktree-manager.js` when a story starts.
-- **Handoff Quality Agent**: Quinn (@qa) is the mandatory gatekeeper. No merge to `main` without Quinn's explicit approval.
-- **Story Breakdown**: Breakdown ➔ Register in Supabase ➔ Activate Worktree.
-- **Data Engineering Handoff**: Sempre que uma tarefa envolver o banco de dados Supabase, gere uma história de desenvolvimento específica para o agente especializado `@db-sage` atuar.
-
 ## Collaboration
 
 **I collaborate with:**
