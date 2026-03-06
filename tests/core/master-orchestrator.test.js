@@ -20,6 +20,18 @@ const { OrchestratorState, EpicStatus, EPIC_CONFIG } = MasterOrchestrator;
 describe('MasterOrchestrator', () => {
   let tempDir;
   let orchestrator;
+  let consoleLogSpy;
+  let consoleWarnSpy;
+
+  beforeAll(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
 
   beforeEach(async () => {
     // Create temp directory for tests

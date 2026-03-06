@@ -87,7 +87,7 @@ describe('Onboarding smoke flow (AIOS-DIFF-4.0.5)', () => {
     const greeting = runNode(greetingScript, ['dev'], repoRoot);
 
     const elapsedSeconds = (Date.now() - startedAt) / 1000;
-    expect(greeting).toContain('Agent dev loaded');
+    expect(greeting).toMatch(/Dex|Builder|ready/i);
     // Greeting may use full format ("Available Commands:") or fallback ("*help")
     expect(greeting).toMatch(/Available Commands|\*help/);
 

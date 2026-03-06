@@ -25,6 +25,18 @@ describe('Dashboard Integration (Story 0.8)', () => {
   let tempDir;
   let orchestrator;
   let dashboard;
+  let consoleLogSpy;
+  let consoleWarnSpy;
+
+  beforeAll(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
 
   beforeEach(async () => {
     tempDir = path.join(os.tmpdir(), `dashboard-test-${Date.now()}`);

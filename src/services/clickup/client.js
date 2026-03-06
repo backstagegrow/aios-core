@@ -36,7 +36,7 @@ class ClickUpClient {
           if (res.statusCode >= 200 && res.statusCode < 300) {
             try {
               resolve(data ? JSON.parse(data) : {});
-            } catch (e) {
+            } catch {
               resolve(data);
             }
           } else {
@@ -45,7 +45,7 @@ class ClickUpClient {
         });
       });
 
-      req.on('error', (e) => reject(e));
+      req.on('error', (error) => reject(error));
       if (body) req.write(JSON.stringify(body));
       req.end();
     });

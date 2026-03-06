@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT House - Área Garden</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #052F33;
+            --primary-dark-alt: #0A3F44;
+            --accent-blue: #1FA2D6;
+            --accent-blue-light: #49B8E8;
+            --bg-light: #D7DEE2;
+            --text-dark: #0C3B40;
+            --text-sec: #6B7C86;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: var(--text-dark);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .smooth-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-animate="slide-left"] {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        [data-animate="slide-left"].is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-animate="slide-right"] {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+
+        [data-animate="slide-right"].is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[#49B8E8] selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-[88px]">
+            <a href="index.html" class="flex items-center gap-1 group">
+                <img src="../assets/logos/GT-House-Logo-branca%20(para%20fundos%20claros)%20horizontal%20(1).png"
+                    alt="GT House Logo" class="h-10 transform smooth-hover group-hover:scale-105"
+                    style="object-fit: contain; object-position: left; width: 160px;">
+            </a>
+            <div
+                class="hidden md:flex items-center gap-10 text-[15px] tracking-wide font-medium text-[var(--text-sec)]">
+                <a href="index.html" class="hover:text-[var(--primary-dark)] smooth-hover">Início</a>
+                <a href="index.html#espacos" class="hover:text-[var(--primary-dark)] smooth-hover">Ambientes</a>
+                <a href="index.html#diferenciais" class="hover:text-[var(--primary-dark)] smooth-hover">Estrutura</a>
+                <a href="index.html#localizacao" class="hover:text-[var(--primary-dark)] smooth-hover">Localização</a>
+            </div>
+            <a href="index.html#orcamento"
+                class="hidden md:inline-flex bg-[var(--primary-dark)] text-white px-7 py-3 rounded-full text-[15px] font-medium hover:bg-[var(--accent-blue)] hover:shadow-lg hover:shadow-[var(--accent-blue-light)]/30 smooth-hover">
+                Solicitar Proposta
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Ambiente -->
+    <section class="pt-48 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <div data-animate="slide-left"
+                class="relative rounded-[2rem] overflow-hidden group shadow-[0_30px_60px_rgba(5,47,51,0.08)] border-[6px] border-white">
+                <img src="../assets/photos/Garden.JPEG" alt="Área Garden GT House"
+                    class="w-full aspect-square object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/60 via-transparent to-transparent pointer-events-none mix-blend-multiply">
+                </div>
+                <span
+                    class="absolute bottom-6 left-6 inline-block bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-sm font-medium tracking-wide border border-white/30">Até
+                    120 pax</span>
+            </div>
+
+            <div data-animate="slide-right" class="flex flex-col pt-4 lg:pt-10">
+                <div
+                    class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-[var(--bg-light)] text-[12px] font-semibold text-[#34D399] mb-8 w-fit uppercase tracking-wider shadow-sm">
+                    <i data-lucide="leaf" class="w-3.5 h-3.5"></i> Ambiente Ao Ar Livre
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-bold tracking-tight text-[var(--primary-dark)] mb-4 font-display">
+                    Área<br /><span class="italic font-light text-[var(--text-sec)]">Garden</span></h1>
+                <p class="text-xl text-[var(--text-sec)] mb-14 font-light leading-relaxed max-w-xl">Um respiro
+                    arquitetônico. Ambiente desconstruído com iluminação natural e paisagismo integrado — o cenário
+                    perfeito para o ápice do networking.</p>
+
+                <div data-animate class="delay-100 grid grid-cols-4 gap-6 mb-14">
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-2xl bg-[var(--bg-light)]/40 border border-[var(--bg-light)] flex items-center justify-center mb-4 group-hover:bg-[var(--accent-blue)]/10 smooth-hover">
+                            <i data-lucide="scan" stroke-width="1.5" class="w-7 h-7 text-[var(--primary-dark)]"></i>
+                        </div>
+                        <span class="text-lg font-display font-semibold text-[var(--primary-dark)] block">U-Shape</span>
+                        <span class="text-sm text-[var(--text-sec)] font-light">40 pax</span>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-2xl bg-[var(--bg-light)]/40 border border-[var(--bg-light)] flex items-center justify-center mb-4 group-hover:bg-[var(--accent-blue)]/10 smooth-hover">
+                            <i data-lucide="rectangle-horizontal" stroke-width="1.5"
+                                class="w-7 h-7 text-[var(--primary-dark)]"></i>
+                        </div>
+                        <span
+                            class="text-lg font-display font-semibold text-[var(--primary-dark)] block">Pranchão</span>
+                        <span class="text-sm text-[var(--text-sec)] font-light">60 pax</span>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-2xl bg-[var(--bg-light)]/40 border border-[var(--bg-light)] flex items-center justify-center mb-4 group-hover:bg-[var(--accent-blue)]/10 smooth-hover">
+                            <i data-lucide="grid-3x3" stroke-width="1.5" class="w-7 h-7 text-[var(--primary-dark)]"></i>
+                        </div>
+                        <span
+                            class="text-lg font-display font-semibold text-[var(--primary-dark)] block">Auditório</span>
+                        <span class="text-sm text-[var(--text-sec)] font-light">120 pax</span>
+                    </div>
+                    <div class="text-center group cursor-default">
+                        <div
+                            class="w-16 h-16 mx-auto rounded-2xl bg-[var(--bg-light)]/40 border border-[var(--bg-light)] flex items-center justify-center mb-4 group-hover:bg-[var(--accent-blue)]/10 smooth-hover">
+                            <i data-lucide="utensils" stroke-width="1.5" class="w-7 h-7 text-[var(--primary-dark)]"></i>
+                        </div>
+                        <span class="text-lg font-display font-semibold text-[var(--primary-dark)] block">Jantar</span>
+                        <span class="text-sm text-[var(--text-sec)] font-light">80 pax</span>
+                    </div>
+                </div>
+
+                <div data-animate class="delay-200 space-y-0 mb-14">
+                    <div class="flex items-center gap-6 py-5 border-b border-[var(--bg-light)]">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[var(--bg-light)]/40 flex items-center justify-center shrink-0">
+                            <i data-lucide="trees" stroke-width="1.5" class="w-6 h-6 text-[var(--accent-blue)]"></i>
+                        </div>
+                        <span class="text-lg text-[var(--text-dark)] font-light">Ambiente semi-aberto com iluminação
+                            natural</span>
+                    </div>
+                    <div class="flex items-center gap-6 py-5 border-b border-[var(--bg-light)]">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[var(--bg-light)]/40 flex items-center justify-center shrink-0">
+                            <i data-lucide="leaf" stroke-width="1.5" class="w-6 h-6 text-[var(--accent-blue)]"></i>
+                        </div>
+                        <span class="text-lg text-[var(--text-dark)] font-light">Paisagismo integrado e jardim
+                            vertical</span>
+                    </div>
+                    <div class="flex items-center gap-6 py-5 border-b border-[var(--bg-light)]">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[var(--bg-light)]/40 flex items-center justify-center shrink-0">
+                            <i data-lucide="wine" stroke-width="1.5" class="w-6 h-6 text-[var(--accent-blue)]"></i>
+                        </div>
+                        <span class="text-lg text-[var(--text-dark)] font-light">Ideal para networking, coquetéis e
+                            ativações</span>
+                    </div>
+                </div>
+
+                <div data-animate class="delay-300">
+                    <a href="index.html#orcamento"
+                        class="inline-flex bg-[var(--accent-blue)] text-white px-10 py-4.5 rounded-full text-lg font-medium hover:bg-[var(--primary-dark)] hover:scale-[1.02] smooth-hover shadow-[0_8px_25px_rgba(31,162,214,0.3)] items-center gap-3 group">
+                        Solicitar Proposta
+                        <i data-lucide="arrow-right" stroke-width="2"
+                            class="w-5 h-5 group-hover:translate-x-2 smooth-hover"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional -->
+    <section class="py-32 bg-[var(--primary-dark)] text-white relative overflow-hidden">
+        <div
+            class="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[var(--accent-blue)]/10 blur-[150px] rounded-full pointer-events-none">
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center relative z-10">
+            <div data-animate="slide-left">
+                <h2
+                    class="text-4xl lg:text-5xl font-display font-bold tracking-tight text-[var(--accent-blue-light)] mb-10">
+                    The GT House</h2>
+                <p class="text-xl font-light leading-relaxed text-white/70 max-w-2xl">
+                    A casa das grandes empresas. Um espaço de eventos corporativos com arquitetura impactante,
+                    versatilidade e conexão com a natureza, no coração da zona oeste de São Paulo.
+                </p>
+            </div>
+            <div data-animate="slide-right">
+                <p class="text-xl font-light leading-relaxed text-white/70 max-w-2xl">
+                    A Área Garden é um respiro arquitetônico. Ambiente desconstruído com iluminação natural e paisagismo
+                    integrado — o cenário perfeito para o ápice do networking e experiências corporativas ao ar livre.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-20 pb-12 border-t border-[var(--bg-light)] bg-white text-center">
+        <img src="../assets/logos/GT-House-Logo-branca%20(para%20fundos%20claros)%20horizontal%20(1).png" alt="GT House"
+            class="h-8 mx-auto mb-8 opacity-40" style="object-fit: contain;">
+        <div class="flex justify-center gap-8 mb-8">
+            <a href="#" class="text-[var(--text-sec)] hover:text-[var(--primary-dark)] smooth-hover"><i
+                    data-lucide="instagram" stroke-width="1.5"></i></a>
+            <a href="#" class="text-[var(--text-sec)] hover:text-[var(--primary-dark)] smooth-hover"><i
+                    data-lucide="linkedin" stroke-width="1.5"></i></a>
+        </div>
+        <p class="text-[var(--text-sec)] font-light text-[11px] tracking-[0.2em] uppercase">© 2026 GT House Premium
+            Events. SP/BR.</p>
+    </footer>
+
+    <a href="#"
+        class="fixed bottom-10 right-10 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:scale-105 smooth-hover z-50">
+        <i data-lucide="message-circle" stroke-width="1.5" class="w-7 h-7"></i>
+    </a>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

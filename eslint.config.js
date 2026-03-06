@@ -18,10 +18,15 @@ module.exports = [
       '**/node_modules/**',
       '**/coverage/**',
       '**/build/**',
+      '**/builds/**',
       '**/dist/**',
       '**/.next/**',
+      '**/.vercel/**',
       // Dashboard has its own ESLint config
       'apps/dashboard/**',
+      // Experimental/frontend playgrounds with own lint pipelines
+      'apps/brand-console/**',
+      'DEsign/**',
       '**/.aios-core/_legacy-v4.31.0/**',
       '**/web-bundles/**',
       '**/*.min.js',
@@ -39,6 +44,9 @@ module.exports = [
       // Scripts that need cleanup (TODO: fix in Story 6.2)
       '.aios-core/quality/**',
       '.aios-core/scripts/**',
+      // Utility scripts and client deliverables are validated in their own pipelines
+      'scripts/**',
+      'clients/**',
       // Development scripts with known ESLint errors (TODO: fix in future story)
       '.aios-core/development/scripts/**',
       '.claude/commands/AIOS/scripts/**',
@@ -66,7 +74,7 @@ module.exports = [
 
   // JavaScript files configuration
   {
-    files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    files: ['**/*.js', '**/*.cjs'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'commonjs',
@@ -138,6 +146,22 @@ module.exports = [
     },
   },
 
+  // ESM JavaScript files (.mjs)
+  {
+    files: ['**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        Buffer: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
+      },
+    },
+  },
+
   // TypeScript files configuration
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -153,6 +177,8 @@ module.exports = [
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
+      // TypeScript handles undefined symbol resolution
+      'no-undef': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {

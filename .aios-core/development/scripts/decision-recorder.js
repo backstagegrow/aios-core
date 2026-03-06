@@ -12,6 +12,7 @@ const { generateDecisionLog } = require('./decision-log-generator');
 const fs = require('fs').promises;
 const _path = require('path');
 const yaml = require('js-yaml');
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
 
 // Global context instance (singleton pattern for yolo mode session)
 let globalContext = null;
@@ -33,7 +34,9 @@ async function initializeDecisionLogging(agentId, storyPath, options = {}) {
     const configContent = await fs.readFile('.aios-core/core-config.yaml', 'utf8');
     config = yaml.load(configContent);
   } catch (error) {
-    console.warn('Warning: Could not load core-config.yaml:', error.message);
+    if (!IS_TEST_ENV) {
+      console.warn('Warning: Could not load core-config.yaml:', error.message);
+    }
   }
 
   const enabled = options.enabled !== undefined
@@ -41,7 +44,9 @@ async function initializeDecisionLogging(agentId, storyPath, options = {}) {
     : (config.decisionLogging?.enabled !== false);
 
   if (!enabled) {
-    console.log('Decision logging disabled by configuration');
+    if (!IS_TEST_ENV) {
+      console.log('Decision logging disabled by configuration');
+    }
     return null;
   }
 

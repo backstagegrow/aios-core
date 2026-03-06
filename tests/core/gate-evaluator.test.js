@@ -23,6 +23,18 @@ const {
 describe('Gate Evaluator (Story 0.6)', () => {
   let tempDir;
   let evaluator;
+  let consoleLogSpy;
+  let consoleWarnSpy;
+
+  beforeAll(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
 
   beforeEach(async () => {
     tempDir = path.join(os.tmpdir(), `gate-evaluator-test-${Date.now()}`);

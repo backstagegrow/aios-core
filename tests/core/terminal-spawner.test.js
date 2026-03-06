@@ -354,8 +354,21 @@ describe('TerminalSpawner', () => {
 describe('pm.sh Script', () => {
   const { execSync } = require('child_process');
   const scriptPath = TerminalSpawner.getScriptPath();
+  const hasBash = (() => {
+    try {
+      if (process.platform === 'win32') {
+        execSync('where bash', { stdio: 'ignore' });
+      } else {
+        execSync('which bash', { stdio: 'ignore' });
+      }
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  })();
+  const runIfBash = hasBash ? test : test.skip;
 
-  test('should display help with --help flag', () => {
+  runIfBash('should display help with --help flag', () => {
     const result = execSync(`bash "${scriptPath}" --help`, { encoding: 'utf8' });
     expect(result).toContain('AIOS Multi-Modal Orchestration Script');
     expect(result).toContain('Usage:');
@@ -363,13 +376,13 @@ describe('pm.sh Script', () => {
     expect(result).toContain('Options:');
   });
 
-  test('should display version with --version flag', () => {
+  runIfBash('should display version with --version flag', () => {
     const result = execSync(`bash "${scriptPath}" --version`, { encoding: 'utf8' });
     expect(result).toContain('version');
     expect(result).toMatch(/\d+\.\d+\.\d+/);
   });
 
-  test('should fail with missing arguments', () => {
+  runIfBash('should fail with missing arguments', () => {
     try {
       execSync(`bash "${scriptPath}"`, { encoding: 'utf8', stdio: 'pipe' });
       fail('Should have thrown an error');
@@ -378,7 +391,7 @@ describe('pm.sh Script', () => {
     }
   });
 
-  test('should fail with only agent argument', () => {
+  runIfBash('should fail with only agent argument', () => {
     try {
       execSync(`bash "${scriptPath}" dev`, { encoding: 'utf8', stdio: 'pipe' });
       fail('Should have thrown an error');
@@ -387,7 +400,7 @@ describe('pm.sh Script', () => {
     }
   });
 
-  test('should fail with non-existent context file', () => {
+  runIfBash('should fail with non-existent context file', () => {
     try {
       execSync(`bash "${scriptPath}" dev develop --context /nonexistent/file.json`, {
         encoding: 'utf8',

@@ -12,6 +12,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { globalConfigCache } = require('../../core/config/config-cache');
 const { trackConfigLoad } = require('../../infrastructure/scripts/performance-tracker');
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
 
 /**
  * Agent configuration requirements cache
@@ -266,6 +267,10 @@ class AgentConfigLoader {
    * @param {number} loadTime - Load time in milliseconds
    */
   logPerformance(loadTime) {
+    if (IS_TEST_ENV) {
+      return;
+    }
+
     const target = this.requirements.performance_target || '<150ms';
     const targetMs = parseInt(target.replace('<', '').replace('ms', ''));
 

@@ -51,6 +51,7 @@ const { SurfaceChecker } = require('../../core/orchestration/surface-checker');
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
 
 const GREETING_TIMEOUT = 150; // 150ms hard limit per-section
 const _TOTAL_GREETING_TIMEOUT = 200; // 200ms total pipeline budget (Story ACT-7, documented constant)
@@ -159,7 +160,9 @@ class GreetingBuilder {
 
       return await Promise.race([greetingPromise, timeoutPromise]);
     } catch (error) {
-      console.warn('[GreetingBuilder] Fallback to simple greeting:', error.message);
+      if (!IS_TEST_ENV) {
+        console.warn('[GreetingBuilder] Fallback to simple greeting:', error.message);
+      }
       return fallbackGreeting;
     }
   }

@@ -10,8 +10,13 @@ const WorktreeManager = require('../scripts/worktree-manager');
 describe('WorktreeManager', () => {
   let manager;
   let testRoot;
+  let consoleLogSpy;
+  let consoleWarnSpy;
 
   beforeEach(async () => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     // Use OS temp directory to ensure complete isolation from source tree
     testRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'aios-worktree-test-'));
 
@@ -46,6 +51,9 @@ describe('WorktreeManager', () => {
     } catch (error) {
       // Ignore cleanup errors
     }
+
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 
   describe('constructor', () => {

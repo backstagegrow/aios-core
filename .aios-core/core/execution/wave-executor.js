@@ -287,7 +287,9 @@ class WaveExecutor extends EventEmitter {
    */
   async defaultExecutor(task, _context) {
     // This should be overridden or configured
-    console.log(`[WaveExecutor] Executing task: ${task.id}`);
+    if (process.env.NODE_ENV !== 'test') {
+      console.log(`[WaveExecutor] Executing task: ${task.id}`);
+    }
     return { success: true, output: 'Default executor - no action taken' };
   }
 

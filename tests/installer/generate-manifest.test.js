@@ -15,6 +15,19 @@ const {
 } = require('../../scripts/generate-install-manifest');
 
 describe('generate-install-manifest', () => {
+  let consoleLogSpy;
+  let consoleWarnSpy;
+
+  beforeEach(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
+
   describe('FOLDERS_TO_COPY', () => {
     it('should include v2.1 modular structure folders', () => {
       expect(FOLDERS_TO_COPY).toContain('core');

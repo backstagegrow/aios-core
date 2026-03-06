@@ -82,3 +82,28 @@ Quando a mensagem do usuario for `Squad` (aceitar tambem `squad`, `/squad`, `*sq
 1. Listar todos os agentes disponiveis para uso a partir de `.aios-core/development/agents/` (fallback: `.codex/agents/`)
 2. Exibir os atalhos de ativacao de cada agente (`@agente` e `/agente`)
 3. Se houver pasta `squads/`, exibir os squads locais encontrados
+
+---
+
+## 🚀 Skills Library (Superpowers Protocol)
+
+Antes de qualquer tarefa complexa, verifique se há uma skill relevante em `agents/skills/`. As skills são mandatórias, não sugestões.
+
+### Workflow Padrão (Superpowers)
+1. **`brainstorming`** → Antes de escrever código/copy. Valida o design com o usuário.
+2. **`writing-plans`** → Após aprovação. Cria plano granular com arquivos e verificações.
+3. **`test-driven-development`** → Durante a implementação. Ciclo RED-GREEN-REFACTOR.
+4. **`systematic-debugging`** → Quando algo quebra. 4 fases de análise antes de qualquer fix.
+
+### Skills Disponíveis em `agents/skills/`
+| Skill | Propósito |
+|---|---|
+| `brainstorming` | Design e validação antes de codar |
+| `writing-plans` | Planos de implementação detalhados |
+| `test-driven-development` | TDD rigoroso |
+| `systematic-debugging` | Debugging por causa raiz |
+| `gsd-framework` | Framework de execução GSD |
+| `ui-ux-pro-max` | Manual de design premium |
+
+### Awesome Claude Code (Referência)
+Consulte `agents/skills/awesome-claude-code-index.md` para descobrir novas skills, hooks, plugins e ferramentas compatíveis com este ecossistema.

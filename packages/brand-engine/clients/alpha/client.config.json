@@ -1,0 +1,28 @@
+{
+    "client": {
+        "name": "Alpha Business Academy",
+        "slug": "alpha"
+    },
+    "brand": {
+        "logo": {
+            "primary": "./brand/logo.svg"
+        },
+        "colors": {
+            "brandPrimary": "#C9A24A",
+            "brandSecondary": "#0B0B0B",
+            "brandAccent": "#FFFFFF",
+            "danger": "#E5484D",
+            "success": "#30A46C",
+            "warning": "#F5A524"
+        },
+        "typography": {
+            "fontHeading": "Montserrat",
+            "fontBody": "Inter",
+            "fontMono": "JetBrains Mono"
+        },
+        "shape": {
+            "radiusScale": "soft"
+        },
+        "mode": "dark"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "client": "Alpha Business Academy",
+    "brand": {
+        "logo": "logo.svg",
+        "primaryColor": "#C9A24A",
+        "secondaryColor": "#1A1A1A",
+        "accentColor": "#F5F5F5",
+        "headingFont": "Inter",
+        "bodyFont": "Inter",
+        "radius": "12px",
+        "buttonStyle": "glass"
+    },
+    "status": {
+        "version": "1.0.0",
+        "lastUpdated": "2026-03-05"
+    }
+}

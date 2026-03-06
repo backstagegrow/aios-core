@@ -10,7 +10,8 @@
   },
   "preferGlobal": false,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "files": [
     "bin/",
@@ -40,17 +41,17 @@
   ],
   "scripts": {
     "format": "prettier --write \"**/*.md\"",
-    "test": "jest",
+    "test": "jest --runInBand --forceExit",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:health-check": "mocha tests/health-check/**/*.test.js --timeout 30000",
+    "test:health-check": "jest tests/health-check/**/*.test.js --runInBand --forceExit",
     "lint": "eslint . --cache --cache-location .eslintcache",
     "typecheck": "tsc --noEmit",
     "release": "semantic-release",
     "release:test": "semantic-release --dry-run --no-ci || echo 'Config test complete - authentication errors are expected locally'",
     "generate:manifest": "node scripts/generate-install-manifest.js",
     "validate:manifest": "node scripts/validate-manifest.js",
-    "validate:structure": "node .aios-core/infrastructure/scripts/source-tree-guardian/index.js",
+    "validate:structure": "npm run validate:paths",
     "validate:agents": "node .aios-core/infrastructure/scripts/validate-agents.js",
     "sync:ide": "node .aios-core/infrastructure/scripts/ide-sync/index.js sync",
     "sync:ide:validate": "node .aios-core/infrastructure/scripts/ide-sync/index.js validate",
@@ -81,6 +82,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@aios-fullstack/pro": "^0.2.0",
     "@clack/prompts": "^0.11.0",
     "@kayvan/markdown-tree-parser": "^1.5.0",
     "ajv": "^8.17.1",

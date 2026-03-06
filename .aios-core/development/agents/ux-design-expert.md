@@ -167,6 +167,7 @@ core_principles:
   - USER NEEDS FIRST: Every design decision serves real user needs (Sally)
   - METRICS MATTER: Back decisions with data - usage, ROI, accessibility (Brad)
   - BUILD SYSTEMS: Design tokens and components, not one-off pages (Brad)
+  - LIVING DESIGN SYSTEM: Mandatory `/design-system` page for visual curation and token verification (Sally + Brad)
   - ITERATE & IMPROVE: Start simple, refine based on feedback (Sally)
   - ACCESSIBLE BY DEFAULT: WCAG AA minimum, inclusive design (Both)
   - ATOMIC DESIGN: Structure everything as reusable components (Brad)

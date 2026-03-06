@@ -1,0 +1,28 @@
+{
+    "client": {
+        "name": "House GT",
+        "slug": "house-gt"
+    },
+    "brand": {
+        "logo": {
+            "primary": "./brand/logo.svg"
+        },
+        "colors": {
+            "brandPrimary": "#1A1A1A",
+            "brandSecondary": "#FFFFFF",
+            "brandAccent": "#C9A24A",
+            "danger": "#FF4D4D",
+            "success": "#00C853",
+            "warning": "#FFB300"
+        },
+        "typography": {
+            "fontHeading": "Playfair Display",
+            "fontBody": "Montserrat",
+            "fontMono": "Courier New"
+        },
+        "shape": {
+            "radiusScale": "sharp"
+        },
+        "mode": "light"
+    }
+}

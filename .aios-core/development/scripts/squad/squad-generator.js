@@ -37,6 +37,7 @@ const SQUAD_DESIGN_SCHEMA_PATH = path.join(__dirname, '../../schemas/squad-desig
  * @constant {string}
  */
 const DEFAULT_AIOS_MIN_VERSION = '2.1.0';
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
 
 /**
  * Available templates
@@ -696,7 +697,9 @@ class SquadGenerator {
     // Only return if at least one config file was found
     const foundCount = Object.keys(detected).length;
     if (foundCount > 0) {
-      console.log(`[squad-generator] Detected ${foundCount} project config(s) in docs/framework/`);
+      if (!IS_TEST_ENV) {
+        console.log(`[squad-generator] Detected ${foundCount} project config(s) in docs/framework/`);
+      }
       return detected;
     }
 
@@ -777,7 +780,7 @@ class SquadGenerator {
       projectConfigs = await this.detectProjectConfigs(fullConfig.projectRoot, squadPath);
       useProjectConfigs = projectConfigs !== null;
 
-      if (useProjectConfigs) {
+      if (useProjectConfigs && !IS_TEST_ENV) {
         console.log('[squad-generator] Using project-level configuration from docs/framework/');
       }
     }
@@ -815,13 +818,17 @@ class SquadGenerator {
     // Generate config files (SQS-10: skip if using project configs)
     if (useProjectConfigs) {
       // Don't create local config files, just add .gitkeep to config directory
-      console.log('[squad-generator] Skipping local config file creation (using project-level configs)');
+      if (!IS_TEST_ENV) {
+        console.log('[squad-generator] Skipping local config file creation (using project-level configs)');
+      }
       const gitkeepPath = path.join(squadPath, 'config', '.gitkeep');
       await fs.writeFile(gitkeepPath, '# Config files are referenced from project docs/framework/\n', 'utf-8');
       files.push(gitkeepPath);
     } else {
       // Fallback: Create local config files (AC10.3)
-      console.log('[squad-generator] Creating local configuration files');
+      if (!IS_TEST_ENV) {
+        console.log('[squad-generator] Creating local configuration files');
+      }
       const configFiles = {
         'config/coding-standards.md': generateCodingStandards(fullConfig),
         'config/tech-stack.md': generateTechStack(fullConfig),

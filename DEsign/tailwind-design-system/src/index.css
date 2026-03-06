@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+
+  --color-bg: rgb(var(--bg));
+  --color-surface: rgb(var(--surface));
+  --color-surface-2: rgb(var(--surface-2));
+  --color-border: rgb(var(--border));
+  --color-border-strong: rgb(var(--border-strong));
+
+  --color-text: rgb(var(--text));
+  --color-text-muted: rgb(var(--text-muted));
+  --color-text-subtle: rgb(var(--text-subtle));
+
+  --color-brand: rgb(var(--brand));
+  --color-brand-fg: rgb(var(--brand-foreground));
+  --color-brand-soft: rgb(var(--brand-soft));
+
+  --color-danger: rgb(var(--danger));
+  --color-danger-soft: rgb(var(--danger-soft));
+  --color-success: rgb(var(--success));
+  --color-success-soft: rgb(var(--success-soft));
+  --color-warning: rgb(var(--warning));
+  --color-warning-soft: rgb(var(--warning-soft));
+
+  --color-focus: rgb(var(--focus));
+}
+
+@layer base {
+  :root {
+    /* Typography */
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-display: var(--font-sans);
+
+    /* Radius */
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+
+    /* Surfaces */
+    --bg: 250 250 250;          /* app background */
+    --surface: 255 255 255;     /* cards/containers */
+    --surface-2: 245 246 248;   /* subtle surface */
+    --border: 228 228 231;      /* border subtle */
+    --border-strong: 212 212 216;
+
+    /* Text */
+    --text: 24 24 27;           /* primary text */
+    --text-muted: 82 82 91;     /* secondary */
+    --text-subtle: 113 113 122; /* helper/labels */
+
+    /* Brand / Actions */
+    --brand: 79 70 229;         /* primary brand */
+    --brand-foreground: 255 255 255;
+    --brand-soft: 238 242 255;
+
+    /* States */
+    --danger: 220 38 38;
+    --danger-soft: 254 226 226;
+    --success: 22 163 74;
+    --success-soft: 220 252 231;
+    --warning: 217 119 6;
+    --warning-soft: 254 243 199;
+
+    /* Focus */
+    --focus: 99 102 241;
+
+    /* Shadow */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.06);
+    --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+
+    color-scheme: light;
+  }
+
+  html[data-brand="default"] { }
+
+  html[data-brand="viabr"]{
+    --brand: 124 58 237; /* roxo */
+    --focus: 124 58 237;
+    --font-display: var(--font-sans);
+    --radius-md: 16px;
+  }
+
+  html[data-brand="sphaus"]{
+    --brand: 17 94 89;   /* teal */
+    --focus: 17 94 89;
+    --radius-md: 14px;
+  }
+
+  html[data-brand="gthouse"]{
+    --brand: 2 6 23;     /* quase preto */
+    --brand-foreground: 255 255 255;
+    --focus: 2 6 23;
+    --radius-md: 14px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    @apply bg-bg text-text;
+  }
+}
+
+.ds-display {
+  font-family: var(--font-display);
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 24;
+}

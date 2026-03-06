@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backstage Grow | Estrutura de Crescimento para Eventos</title>
+    <meta name="description"
+        content="Transformamos fornecedores de eventos em máquina de vendas previsível. Estrutura completa de marketing e growth.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        green: {
+                            DEFAULT: '#A3E635', // lime-400
+                            primary: '#84CC16', // lime-500
+                            dark: '#4D7C0F'
+                        },
+                        surface: '#1A1A1A',
+                        dark: '#0A0A0A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Animation & WebGL Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/40 border-b border-white/5 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-50">
+            <a href="#" class="flex items-center gap-2">
+                <img src="assets/logos/Backstage Logo Verde.png" alt="Backstage Grow Logo" class="h-8 md:h-10">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
+                <a href="#solucoes" class="hover:text-white transition-colors">Solução</a>
+                <a href="#metodo" class="hover:text-white transition-colors">Metodologia</a>
+                <a href="#diferenciais" class="hover:text-white transition-colors">Diferenciais</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </nav>
+            <a href="#contato"
+                class="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-black bg-green rounded-full hover:bg-green-primary transition-all hover:scale-105">
+                Falar com Especialista
+            </a>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8 h-screen w-screen">
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-neutral-400 hover:text-white">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="#solucoes"
+                class="text-2xl font-medium text-white hover:text-green-primary transition-colors mobile-link">Solução</a>
+            <a href="#metodo"
+                class="text-2xl font-medium text-white hover:text-green-primary transition-colors mobile-link">Metodologia</a>
+            <a href="#diferenciais"
+                class="text-2xl font-medium text-white hover:text-green-primary transition-colors mobile-link">Diferenciais</a>
+            <a href="#faq"
+                class="text-2xl font-medium text-white hover:text-green-primary transition-colors mobile-link">FAQ</a>
+            <a href="#contato"
+                class="mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-green-primary rounded-full hover:scale-105 transition-all w-[80%] max-w-sm mobile-link">
+                Falar com Especialista
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <!-- 3D Canvas Background (Restrained to Hero) -->
+        <canvas id="three-canvas" class="absolute inset-0 pointer-events-none z-0"></canvas>
+
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-primary/10 blur-[100px] rounded-full -z-10 pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center z-10 hero-content relative">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
+                Transformamos <span class="text-neutral-400">FORNECEDORES<br>DE EVENTOS</span> em máquina de<br>
+                <span class="text-green-primary glow-text">vendas previsível.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Mais que marketing, estrutura de crescimento focada em previsibilidade e lucro para empresas do setor de
+                eventos.
+            </p>
+
+            <div class="flex justify-center mt-8">
+                <a href="#contato" id="magnetic-btn"
+                    class="relative group inline-flex items-center justify-center px-8 py-4 font-bold text-black bg-green rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_30px_rgba(132,204,22,0.3)] hover:shadow-[0_0_40px_rgba(132,204,22,0.5)]">
+                    <span class="relative z-10 flex items-center gap-2">
+                        CLIQUE AQUI E VEJA COMO
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                    <div
+                        class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                    </div>
+                </a>
+            </div>
+
+            <!-- Social Proof Logos -->
+            <div class="trust-section mt-12">
+                <div class="trust-logos">
+                    <img src="assets/logos/Group 38.svg" alt="Rise" class="logo-item-img">
+                    <img src="assets/logos/Camada 2.svg" alt="GT House" class="logo-item-img">
+                    <img src="assets/logos/Group 35.svg" alt="Backstage" class="logo-item-img">
+                    <img src="assets/logos/Group 36.svg" alt="Constru" class="logo-item-img">
+                    <div class="logo-item">Alphaville</div> <!-- Replace with Alphaville if available or keep text -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Metrics -->
+    <section class="py-24 relative overflow-hidden">
+        <!-- Background gradients -->
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-green-primary/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-primary"></span>
+                    Resultados que nossos clientes alcançam
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Resultados reais aplicando a nossa
+                    metodologia.</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 reveal delay-1">
+                <!-- Metric 1 -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 text-center transition-all duration-300 hover:border-green-primary/30 hover:bg-white/10 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 mx-auto rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">+72%</h3>
+                    <p class="text-neutral-400 text-sm">Leads Qualificados</p>
+                </div>
+
+                <!-- Metric 2 -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 text-center transition-all duration-300 hover:border-green-primary/30 hover:bg-white/10 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 mx-auto rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="dollar-sign"></i>
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">+50%</h3>
+                    <p class="text-neutral-400 text-sm">ROI Mapeado</p>
+                </div>
+
+                <!-- Metric 3 -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 text-center transition-all duration-300 hover:border-green-primary/30 hover:bg-white/10 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 mx-auto rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">+65%</h3>
+                    <p class="text-neutral-400 text-sm">Crescimento Previsível</p>
+                </div>
+
+                <!-- Metric 4 -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 text-center transition-all duration-300 hover:border-green-primary/30 hover:bg-white/10 hover:-translate-y-1">
+                    <div
+                        class="w-12 h-12 mx-auto rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="mouse-pointer-click"></i>
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-2">+203%</h3>
+                    <p class="text-neutral-400 text-sm">Tráfego Qualificado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossa Solução / SaaS Funnel -->
+    <section id="solucoes" class="solution-section section-padding bg-surface">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <p class="badge">Nossa Solução</p>
+                <h2>Funil SaaS para empresas de eventos</h2>
+                <p class="subtitle-text">Criamos uma estrutura completa para transformar seu marketing em um sistema
+                    previsível de geração de oportunidades.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-16 max-w-6xl mx-auto">
+                <!-- Card 1: Branding -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 hover:border-green-primary/50 flex flex-col justify-between h-full hover:-translate-y-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="layout-template"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Branding Estratégico</h3>
+                        <p class="text-neutral-400 text-sm mb-6">Posicionamento claro para diferenciar sua empresa no
+                            mercado de eventos.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Identidade de marca</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Posicionamento estratégico</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Comunicação de autoridade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Tráfego -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 hover:border-green-primary/50 flex flex-col justify-between h-full hover:-translate-y-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="magnet"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Tráfego Pago</h3>
+                        <p class="text-neutral-400 text-sm mb-6">Campanhas estruturadas para gerar oportunidades
+                            qualificadas.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Estratégia de campanhas</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Otimização contínua</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Escala de resultados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Automação -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 hover:border-green-primary/50 flex flex-col justify-between h-full hover:-translate-y-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Automação de Marketing</h3>
+                        <p class="text-neutral-400 text-sm mb-6">Processos automáticos para nutrir leads e aumentar
+                            conversões.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Nutrição de leads</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Automação de vendas</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Integração de ferramentas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Dados -->
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 hover:border-green-primary/50 flex flex-col justify-between h-full hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-green-primary group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="pie-chart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Gestão de Dados</h3>
+                        <p class="text-neutral-400 text-sm mb-6">Análise estratégica de dados para decisões mais
+                            inteligentes.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Métricas de performance</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Otimização de funil</li>
+                            <li class="flex items-center gap-3 text-sm text-neutral-300"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-primary"></i> Crescimento escalável</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5: Inteligência Artificial (Hero Card) -->
+                <div
+                    class="group relative rounded-3xl border border-green-primary/40 bg-black/60 backdrop-blur-xl p-8 overflow-hidden transition-all duration-500 hover:border-green-primary hover:shadow-[0_0_40px_rgba(132,204,22,0.2)] md:col-span-2 lg:col-span-2 flex flex-col justify-center">
+                    <!-- Tech background grid pattern inside card -->
+                    <div
+                        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-green-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+
+                    <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                                <span class="w-2 h-2 rounded-full bg-green-primary animate-pulse"></span>
+                                Acelerador Core
+                            </div>
+                            <h3 class="text-3xl font-bold text-white mb-4">Inteligência Artificial Integrada</h3>
+                            <p class="text-neutral-400 text-sm mb-6 max-w-md">Redução drástica de custo operacional e
+                                ganho de escala através de agentes de IA operando 24/7 no seu funil de vendas.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm text-neutral-200 font-medium"><i
+                                        data-lucide="bot" class="w-5 h-5 text-green-primary"></i> Automação de
+                                    qualificação</li>
+                                <li class="flex items-center gap-3 text-sm text-neutral-200 font-medium"><i
+                                        data-lucide="cpu" class="w-5 h-5 text-green-primary"></i> Agentes de prospecção
+                                    autônomos</li>
+                            </ul>
+                        </div>
+                        <!-- Abstract illustration space -->
+                        <div
+                            class="w-full md:w-64 h-48 rounded-2xl border border-white/10 bg-white/5 relative overflow-hidden flex items-center justify-center group-hover:border-green-primary/30 transition-colors">
+                            <div class="absolute w-32 h-32 bg-green-primary/20 blur-2xl rounded-full"></div>
+                            <i data-lucide="network"
+                                class="w-16 h-16 text-green-primary/50 relative z-10 group-hover:scale-110 group-hover:text-green-primary transition-all duration-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 reveal">
+                <a href="#contato" class="btn btn-primary">VER SOLUCÕES COMPLETAS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology 3 Phases -->
+    <section id="metodo" class="py-24 relative overflow-hidden bg-black/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-primary"></span>
+                    O Processo
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Nossa Metodologia em 3 Fases</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative mt-12">
+                <!-- Connecting Line (Desktop) -->
+                <div
+                    class="hidden md:block absolute top-[40px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-green-primary/30 to-transparent">
+                </div>
+
+                <div class="relative group reveal delay-1 text-center">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-full bg-black border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:border-green-primary/50 group-hover:shadow-[0_0_30px_rgba(132,204,22,0.2)] transition-all duration-500">
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-primary text-black font-bold flex items-center justify-center shadow-lg">
+                            1</div>
+                        <i data-lucide="target"
+                            class="text-green-primary w-8 h-8 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Atrair</h3>
+                    <p class="text-neutral-400 text-sm">Estratégias premium de tráfego e branding para atrair leads
+                        altamente qualificados.</p>
+                </div>
+
+                <div class="relative group reveal delay-2 text-center">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-full bg-black border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:border-green-primary/50 group-hover:shadow-[0_0_30px_rgba(132,204,22,0.2)] transition-all duration-500">
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-primary text-black font-bold flex items-center justify-center shadow-lg">
+                            2</div>
+                        <i data-lucide="refresh-cw"
+                            class="text-green-primary w-8 h-8 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Converter</h3>
+                    <p class="text-neutral-400 text-sm">Processos e automações estruturadas para transformar interesse
+                        em oportunidades reais de vendas.</p>
+                </div>
+
+                <div class="relative group reveal delay-3 text-center">
+                    <div
+                        class="w-20 h-20 mx-auto rounded-full bg-black border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:border-green-primary/50 group-hover:shadow-[0_0_30px_rgba(132,204,22,0.2)] transition-all duration-500">
+                        <div
+                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-primary text-black font-bold flex items-center justify-center shadow-lg">
+                            3</div>
+                        <i data-lucide="rocket"
+                            class="text-green-primary w-8 h-8 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Escalar</h3>
+                    <p class="text-neutral-400 text-sm">Otimização contínua com gestão de dados para expansão e
+                        crescimento previsível do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funil BKS Grow -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-primary"></span>
+                    Funil BKS Grow
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">Por que funciona para VOCÊ?
+                </h2>
+                <p class="text-neutral-400 text-lg max-w-2xl mx-auto">Desenvolvemos um ecossistema focado no mercado de
+                    eventos, eliminando desperdícios.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 mb-16">
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 overflow-hidden transition-all duration-300 hover:border-green-primary/30 reveal delay-1">
+                    <div
+                        class="text-green-primary/20 text-6xl font-black absolute -top-4 -right-4 group-hover:-top-2 group-hover:-right-2 group-hover:text-green-primary/30 transition-all duration-500">
+                        01</div>
+                    <h3 class="text-xl font-bold text-white mb-3 mt-4 relative z-10">Qualificação</h3>
+                    <p class="text-neutral-400 text-sm relative z-10">Filtramos leads para atrair apenas empresas com
+                        potencial real e fit perfeito.</p>
+                </div>
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 overflow-hidden transition-all duration-300 hover:border-green-primary/30 reveal delay-2">
+                    <div
+                        class="text-green-primary/20 text-6xl font-black absolute -top-4 -right-4 group-hover:-top-2 group-hover:-right-2 group-hover:text-green-primary/30 transition-all duration-500">
+                        02</div>
+                    <h3 class="text-xl font-bold text-white mb-3 mt-4 relative z-10">Conversão</h3>
+                    <p class="text-neutral-400 text-sm relative z-10">Transformamos interesse engajado em reuniões e
+                        oportunidades comerciais.</p>
+                </div>
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 overflow-hidden transition-all duration-300 hover:border-green-primary/30 reveal delay-3">
+                    <div
+                        class="text-green-primary/20 text-6xl font-black absolute -top-4 -right-4 group-hover:-top-2 group-hover:-right-2 group-hover:text-green-primary/30 transition-all duration-500">
+                        03</div>
+                    <h3 class="text-xl font-bold text-white mb-3 mt-4 relative z-10">Escala</h3>
+                    <p class="text-neutral-400 text-sm relative z-10">Processos e fluxos replicáveis que permitem
+                        crescimento previsível e constante.</p>
+                </div>
+                <div
+                    class="group relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 overflow-hidden transition-all duration-300 hover:border-green-primary/30 reveal delay-4">
+                    <div
+                        class="text-green-primary/20 text-6xl font-black absolute -top-4 -right-4 group-hover:-top-2 group-hover:-right-2 group-hover:text-green-primary/30 transition-all duration-500">
+                        04</div>
+                    <h3 class="text-xl font-bold text-white mb-3 mt-4 relative z-10">Lucratividade</h3>
+                    <p class="text-neutral-400 text-sm relative z-10">Mais conversões consistentes, com menos
+                        desperdício de investimento nas campanhas.</p>
+                </div>
+            </div>
+
+            <div class="text-center reveal">
+                <a href="#contato"
+                    class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-green-primary/50 text-white font-medium hover:bg-green-primary/10 transition-all duration-300 group shadow-[0_0_20px_rgba(132,204,22,0.1)] hover:shadow-[0_0_30px_rgba(132,204,22,0.3)] hover:-translate-y-1">
+                    Quero estruturar meu funil <i data-lucide="arrow-right"
+                        class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-24 relative overflow-hidden bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">O que impede o crescimento das
+                    empresas de eventos?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Bad Side -->
+                <div
+                    class="rounded-3xl border border-red-500/20 bg-gradient-to-br from-red-500/10 to-transparent backdrop-blur-md p-8 reveal delay-1">
+                    <h3 class="text-2xl font-bold text-white mb-8 border-b border-red-500/20 pb-4">Problemas comuns</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-neutral-300"><i data-lucide="x"
+                                class="w-6 h-6 text-red-400 shrink-0 mt-0.5"></i> <span>Marketing inconsistente sem
+                                estratégia central.</span></li>
+                        <li class="flex items-start gap-4 text-neutral-300"><i data-lucide="x"
+                                class="w-6 h-6 text-red-400 shrink-0 mt-0.5"></i> <span>Falta de posicionamento e
+                                percepção de valor.</span></li>
+                        <li class="flex items-start gap-4 text-neutral-300"><i data-lucide="x"
+                                class="w-6 h-6 text-red-400 shrink-0 mt-0.5"></i> <span>Leads desqualificados que gastam
+                                tempo e não compram.</span></li>
+                        <li class="flex items-start gap-4 text-neutral-300"><i data-lucide="x"
+                                class="w-6 h-6 text-red-400 shrink-0 mt-0.5"></i> <span>Dependência perigosa de
+                                indicações boca-a-boca.</span></li>
+                        <li class="flex items-start gap-4 text-neutral-300"><i data-lucide="x"
+                                class="w-6 h-6 text-red-400 shrink-0 mt-0.5"></i> <span>Falta de previsibilidade de
+                                faturamento mensal.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Good Side -->
+                <div
+                    class="rounded-3xl border border-green-primary/30 bg-gradient-to-br from-green-primary/10 to-transparent backdrop-blur-md p-8 relative reveal delay-2 shadow-[0_0_50px_rgba(132,204,22,0.1)]">
+                    <div
+                        class="absolute -top-4 right-8 bg-green-primary text-black font-bold text-sm px-4 py-1 rounded-full shadow-lg">
+                        Com BKSGrow</div>
+                    <h3 class="text-2xl font-bold text-white mb-8 border-b border-green-primary/20 pb-4">A realidade que
+                        construímos</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-white"><i data-lucide="check-circle-2"
+                                class="w-6 h-6 text-green-primary shrink-0 mt-0.5"></i> <span>Leads altamente
+                                qualificados entrando de forma recorrente.</span></li>
+                        <li class="flex items-start gap-4 text-white"><i data-lucide="check-circle-2"
+                                class="w-6 h-6 text-green-primary shrink-0 mt-0.5"></i> <span>Processo de vendas
+                                estruturado, claro e eficiente.</span></li>
+                        <li class="flex items-start gap-4 text-white"><i data-lucide="check-circle-2"
+                                class="w-6 h-6 text-green-primary shrink-0 mt-0.5"></i> <span>Marketing previsível que
+                                funciona dia e noite.</span></li>
+                        <li class="flex items-start gap-4 text-white"><i data-lucide="check-circle-2"
+                                class="w-6 h-6 text-green-primary shrink-0 mt-0.5"></i> <span>Base sólida para escalada
+                                e expansão constante.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Diferenciais -->
+    <section id="diferenciais" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-primary animate-pulse"></span>
+                    Acelerado por IA
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight max-w-3xl mx-auto">Aplicamos
+                    inteligência artificial para acelerar marketing e operações.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 hover:bg-white/10 transition-colors reveal delay-1">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-black border border-white/10 flex items-center justify-center mb-6 text-green-primary">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Posicionamento estratégico</h3>
+                    <p class="text-neutral-400 text-sm">Definimos exatamente como sua empresa deve ser percebida no
+                        mercado para atrair o cliente ideal.</p>
+                </div>
+                <div
+                    class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 hover:bg-white/10 transition-colors reveal delay-2">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-black border border-white/10 flex items-center justify-center mb-6 text-green-primary">
+                        <i data-lucide="git-merge" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Automação inteligente</h3>
+                    <p class="text-neutral-400 text-sm">Processos automatizados que trabalham pela sua operação 24 horas
+                        por dia, 7 dias por semana.</p>
+                </div>
+                <div
+                    class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 hover:bg-white/10 transition-colors reveal delay-3">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-black border border-white/10 flex items-center justify-center mb-6 text-green-primary">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Otimização de campanhas</h3>
+                    <p class="text-neutral-400 text-sm">Decisões rápidas baseadas em dados em tempo real para maximizar
+                        o retorno das suas campanhas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais List & Case -->
+    <section class="py-24 relative overflow-hidden bg-black/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row gap-16 items-center">
+
+            <div class="lg:w-1/2 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-8">Diferenciais <span
+                        class="text-green-primary">Backstage</span></h2>
+                <ul class="space-y-6">
+                    <li
+                        class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-green-primary/30 transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-primary/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="text-green-primary w-5 h-5"></i>
+                        </div>
+                        <span class="text-white font-medium">Estrutura 100% especializada em empresas de eventos</span>
+                    </li>
+                    <li
+                        class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-green-primary/30 transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-primary/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="text-green-primary w-5 h-5"></i>
+                        </div>
+                        <span class="text-white font-medium">Metodologia validada com dezenas de clientes reais</span>
+                    </li>
+                    <li
+                        class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-green-primary/30 transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-primary/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="text-green-primary w-5 h-5"></i>
+                        </div>
+                        <span class="text-white font-medium">Estratégias construídas e personalizadas para o seu
+                            negócio</span>
+                    </li>
+                    <li
+                        class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-green-primary/30 transition-colors">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-primary/20 flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="text-green-primary w-5 h-5"></i>
+                        </div>
+                        <span class="text-white font-medium">Marketing orientado puramente por métricas e dados de
+                            receita</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Case Conference -->
+            <div class="lg:w-1/2 w-full reveal delay-2">
+                <div
+                    class="relative rounded-[2.5rem] border border-green-primary/30 bg-black/60 backdrop-blur-xl p-8 lg:p-10 shadow-[0_0_50px_rgba(132,204,22,0.1)] overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-green-primary/10 to-transparent pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                            <i data-lucide="award" class="w-4 h-4"></i> Case Próprio
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2">Backstage Conference</h3>
+                        <p class="text-neutral-400 text-sm mb-8">Aplicamos a exata mesma metodologia para criar, escalar
+                            e lotar nosso próprio evento voltado para profissionais do setor.</p>
+
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-black/50 border border-white/10 rounded-2xl p-4 text-center">
+                                <h4 class="text-3xl font-black text-white mb-1">130</h4>
+                                <span class="text-xs text-neutral-400 uppercase tracking-wider">Participantes</span>
+                            </div>
+                            <div class="bg-black/50 border border-white/10 rounded-2xl p-4 text-center">
+                                <h4 class="text-3xl font-black text-white mb-1">23</h4>
+                                <span class="text-xs text-neutral-400 uppercase tracking-wider">Patrocinadores</span>
+                            </div>
+                            <div
+                                class="bg-black/50 border border-white/10 rounded-2xl p-4 text-center col-span-2 md:col-span-1">
+                                <h4 class="text-3xl font-black text-white mb-1">6</h4>
+                                <span class="text-xs text-neutral-400 uppercase tracking-wider">Expositores</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-neutral-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-primary shrink-0"></i>
+                                <span>Validação empírica de todas as teses de captação que oferecemos aos
+                                    clientes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tipos de Eventos -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-16 reveal">Tipos de empresas que
+                atendemos</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:border-green-primary/30 hover:-translate-y-1 transition-all duration-300 reveal delay-1">
+                    <i data-lucide="home" class="w-8 h-8 text-green-primary mx-auto mb-4"></i>
+                    <h4 class="text-base md:text-lg font-bold text-white">Espaços para eventos</h4>
+                </div>
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:border-green-primary/30 hover:-translate-y-1 transition-all duration-300 reveal delay-2">
+                    <i data-lucide="video" class="w-8 h-8 text-green-primary mx-auto mb-4"></i>
+                    <h4 class="text-base md:text-lg font-bold text-white">Produtoras de eventos</h4>
+                </div>
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:border-green-primary/30 hover:-translate-y-1 transition-all duration-300 reveal delay-3">
+                    <i data-lucide="briefcase" class="w-8 h-8 text-green-primary mx-auto mb-4"></i>
+                    <h4 class="text-base md:text-lg font-bold text-white">Agências corporativas</h4>
+                </div>
+                <div
+                    class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 hover:border-green-primary/30 hover:-translate-y-1 transition-all duration-300 reveal delay-4">
+                    <i data-lucide="layers" class="w-8 h-8 text-green-primary mx-auto mb-4"></i>
+                    <h4 class="text-base md:text-lg font-bold text-white">Empresas de estrutura</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visão e Porque somos diferentes -->
+    <section class="py-24 relative overflow-hidden bg-black/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div
+                    class="w-16 h-16 rounded-full bg-green-primary/10 border border-green-primary/30 flex items-center justify-center mx-auto mb-6">
+                    <i data-lucide="eye" class="text-green-primary w-8 h-8"></i>
+                </div>
+                <h2 class="text-sm font-bold tracking-widest text-neutral-400 uppercase mb-4">Nossa Visão</h2>
+                <p class="text-2xl md:text-4xl text-white font-medium max-w-4xl mx-auto leading-relaxed">
+                    "Transformar empresas do setor de eventos em operações <span class="text-green-primary">previsíveis
+                        e escaláveis</span>."
+                </p>
+            </div>
+
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-white text-center mb-12 reveal">Por Que Somos Diferentes?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors reveal delay-1">
+                        <i data-lucide="target" class="w-8 h-8 text-green-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Especialização Total em Eventos</h4>
+                        <p class="text-neutral-400">Conhecemos profundamente o mercado de eventos corporativos e suas
+                            particularidades, o que nos permite ir direto ao ponto de alavancagem.</p>
+                    </div>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors reveal delay-2">
+                        <i data-lucide="brain" class="w-8 h-8 text-green-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Inteligência Estratégica</h4>
+                        <p class="text-neutral-400">Não apertamos botões. Utilizamos dados e insights reais para criar
+                            estratégias personalizadas de alta conversão para cada cliente.</p>
+                    </div>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors reveal delay-3">
+                        <i data-lucide="check-circle-2" class="w-8 h-8 text-green-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Metodologia Comprovada</h4>
+                        <p class="text-neutral-400">Um processo comercial e de marketing testado e refinado na
+                            trincheira com dezenas comerciais de eventos bem-sucedidas.</p>
+                    </div>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors reveal delay-4">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-green-primary mb-6"></i>
+                        <h4 class="text-xl font-bold text-white mb-3">Foco Completo em ROI</h4>
+                        <p class="text-neutral-400">Cada ação é medida, metrificada e otimizada continuamente com o
+                            único objetivo de garantir o máximo retorno sobre seu investimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases de Sucesso Highlight -->
+    <section id="cases" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4 reveal">Cases de <span
+                    class="text-green-primary">Sucesso</span></h2>
+            <p class="text-neutral-400 mb-16 max-w-2xl mx-auto reveal">Veja como transformamos operações de eventos
+                comuns em líderes setoriais implacáveis.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-[2rem] reveal delay-1">
+                    <div
+                        class="bg-[#0A0A0A] rounded-[2rem] h-full p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-green-primary/10 flex items-center justify-center mb-6">
+                            <i data-lucide="dollar-sign" class="text-green-primary w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-5xl font-black text-white mb-2">+87%</h3>
+                        <p class="text-green-primary font-bold uppercase tracking-wider text-xs mb-4">no ticket médio
+                        </p>
+                        <p class="text-neutral-400 text-sm">Empresa de eventos corporativos aumentou significativamente
+                            o ticket após reposicionamento estratégico.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-gradient-to-b from-green-primary/30 to-transparent p-[1px] rounded-[2rem] reveal delay-2 shadow-[0_0_30px_rgba(132,204,22,0.1)] relative transform md:-translate-y-4">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-green-primary text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+                        Destaque</div>
+                    <div
+                        class="bg-[#0A0A0A] rounded-[2rem] h-full p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-green-primary/10 flex items-center justify-center mb-6">
+                            <i data-lucide="calendar" class="text-green-primary w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-6xl font-black text-white mb-2">+137%</h3>
+                        <p class="text-green-primary font-bold uppercase tracking-wider text-xs mb-4">na ocupação</p>
+                        <p class="text-neutral-400 text-sm">Organização de eventos conseguiu dobrar sua agenda mensal
+                            lotando seu pipeline de vendas.</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-[2rem] reveal delay-3">
+                    <div
+                        class="bg-[#0A0A0A] rounded-[2rem] h-full p-8 flex flex-col items-center justify-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-green-primary/10 flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="text-green-primary w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-5xl font-black text-white mb-2">+250%</h3>
+                        <p class="text-green-primary font-bold uppercase tracking-wider text-xs mb-4">em contratos</p>
+                        <p class="text-neutral-400 text-sm">Empresa especializada em eventos corporativos triplicou seu
+                            número de negócios fechados no ano.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 relative overflow-hidden bg-black/40 border-y border-white/5">
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-12 text-center reveal">Perguntas
+                <span class="text-green-primary">Frequentes</span>
+            </h2>
+
+            <div class="space-y-4 reveal delay-1">
+                <details
+                    class="group bg-white/5 rounded-2xl border border-white/10 overflow-hidden open:border-green-primary/30 transition-colors">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer p-6 text-white font-medium select-none">
+                        Qual o investimento para trabalhar com vocês?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="text-neutral-400 w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-neutral-400 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        O investimento para implementar o <strong class="text-white">BKS Growth Engine</strong> varia de
+                        acordo com a velocidade de tração que você busca. Não trabalhamos como um "custo de marketing",
+                        mas como uma infraestrutura de aquisição: nosso objetivo é que o próprio sistema se pague no
+                        curto prazo através da previsibilidade de novas vendas.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white/5 rounded-2xl border border-white/10 overflow-hidden open:border-green-primary/30 transition-colors">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer p-6 text-white font-medium select-none">
+                        Em quanto tempo aparecem resultados?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="text-neutral-400 w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-neutral-400 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        Depende do estágio de maturidade e estrutura atual da sua empresa, mas com a implementação da
+                        nossa metodologia, normalmente nossos parceiros começam a observar um aumento claro em
+                        oportunidades qualificadas já nos primeiros dois a três meses.
+                    </div>
+                </details>
+                <details
+                    class="group bg-white/5 rounded-2xl border border-white/10 overflow-hidden open:border-green-primary/30 transition-colors">
+                    <summary
+                        class="flex items-center justify-between cursor-pointer p-6 text-white font-medium select-none">
+                        Vocês trabalham apenas com empresas de eventos?
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="text-neutral-400 w-5 h-5"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-neutral-400 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        Sim. Toda a nossa metodologia, funis, templates, scripts e sistemas foram otimizados e validados
+                        exclusivamente para fornecedores, agências, plataformas e soluções voltadas para o mercado de
+                        eventos corporativos e de grande porte.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA / Form -->
+    <section id="contato" class="py-32 relative overflow-hidden">
+        <!-- Glows -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-green-primary/10 blur-[100px] rounded-full"></div>
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 blur-[100px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-b from-white/10 to-transparent p-[1px] rounded-[3rem] reveal">
+                <div
+                    class="bg-black/80 backdrop-blur-2xl rounded-[3rem] border-t border-white/10 p-8 md:p-16 lg:p-20 overflow-hidden relative">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="text-left">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-primary/30 bg-green-primary/10 text-green-primary text-xs font-bold uppercase tracking-wider mb-6">
+                                <span class="w-2 h-2 rounded-full bg-green-primary animate-pulse"></span>
+                                Vagas Limitadas
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                                Pronto para <span class="text-green-primary">escalar</span> sua operação de eventos?
+                            </h2>
+                            <p class="text-lg text-neutral-400 mb-8">Agende seu Mapeamento de Escalabilidade Estratégica
+                                gratuito agora e descubra exatamente os gargalos invisíveis que estão travando seu
+                                crescimento.</p>
+
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center gap-3 text-neutral-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-primary"></i>
+                                    <span>Consultoria estratégica gratuita de 45 min</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-neutral-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-primary"></i>
+                                    <span>Análise profunda da sua aquisição atual</span>
+                                </div>
+                                <div class="flex items-center gap-3 text-neutral-300">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-primary"></i>
+                                    <span>Roadmap de crescimento personalizado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 relative">
+                            <!-- Overlay se precisar desativar form -->
+                            <!-- <div class="absolute inset-0 bg-black/50 backdrop-blur-sm z-10 rounded-3xl flex items-center justify-center"><p class="font-bold text-white flex gap-2 items-center"><i data-lucide="lock" class="w-4 h-4 text-green-primary"></i> Inscrições fechadas.</p></div> -->
+
+                            <h3 class="text-2xl font-bold text-white mb-6">Solicite sua análise</h3>
+                            <form class="space-y-4" id="leadForm">
+                                <div>
+                                    <label class="block text-sm font-medium text-neutral-400 mb-1">Nome Completo</label>
+                                    <input type="text" placeholder="Como devemos chamar você?" required
+                                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-green-primary/50 focus:ring-1 focus:ring-green-primary/50 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-neutral-400 mb-1">E-mail
+                                        Corporativo</label>
+                                    <input type="email" placeholder="seu.nome@empresa.com.br" required
+                                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-green-primary/50 focus:ring-1 focus:ring-green-primary/50 transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-neutral-400 mb-1">WhatsApp</label>
+                                    <input type="tel" placeholder="(11) 99999-9999" required
+                                        class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-green-primary/50 focus:ring-1 focus:ring-green-primary/50 transition-all">
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-green-primary hover:bg-green-primary/90 text-black font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mt-2">
+                                    AGENDAR MAPEAMENTO <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </button>
+                                <p class="text-center text-xs text-neutral-500 mt-4">Ao enviar, você concorda com nossos
+                                    termos de privacidade. Seus dados estão 100% seguros conosco.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <a href="#" class="block mb-6">
+                        <img src="assets/logos/Backstage Logo Verde.png" alt="Backstage Grow"
+                            class="h-8 md:h-10 opacity-90">
+                    </a>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-sm">
+                        Transformamos empresas do setor de eventos em líderes implacáveis de mercado através de
+                        estratégias avançadas e previsíveis de marketing, vendas e crescimento.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Navegação</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-neutral-400 hover:text-green-primary transition-colors text-sm">Início</a>
+                        </li>
+                        <li><a href="#metodo"
+                                class="text-neutral-400 hover:text-green-primary transition-colors text-sm">Metodologia</a>
+                        </li>
+                        <li><a href="#resultados"
+                                class="text-neutral-400 hover:text-green-primary transition-colors text-sm">Resultados</a>
+                        </li>
+                        <li><a href="#diferenciais"
+                                class="text-neutral-400 hover:text-green-primary transition-colors text-sm">Diferenciais</a>
+                        </li>
+                        <li><a href="#faq"
+                                class="text-neutral-400 hover:text-green-primary transition-colors text-sm">Dúvidas
+                                Frequentes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contato Oficial</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-green-primary shrink-0"></i>
+                            <span class="text-neutral-400 text-sm">contato@backstagegrow.com.br</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-green-primary shrink-0"></i>
+                            <span class="text-neutral-400 text-sm">+55 11 99857-7077</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="navigation" class="w-5 h-5 text-green-primary shrink-0"></i>
+                            <span class="text-neutral-400 text-sm">Alameda Rio Negro, nº 503, andar 23 - Alphaville,
+                                Barueri/SP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-neutral-500 text-xs">
+                    &copy; 2024 Backstage Grow. Todos os direitos reservados. CNPJ: 00.000.000/0000-00
+                </p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-primary/20 hover:text-green-primary text-neutral-400 transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#"
+                        class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-primary/20 hover:text-green-primary text-neutral-400 transition-colors">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Header scroll behavior
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'bg-black/70');
+                header.classList.remove('bg-black/40', 'py-4');
+                header.classList.add('py-3');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-black/70', 'py-3');
+                header.classList.add('bg-black/40', 'py-4');
+            }
+        });
+
+        // WebGL Background System (Three.js)
+        const initWebGL = () => {
+            const canvas = document.getElementById('three-canvas');
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x0a0a0a, 0.0015);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 30;
+
+            // Particles
+            const geometry = new THREE.BufferGeometry();
+            const count = 1500;
+            const positions = new Float32Array(count * 3);
+            const sizes = new Float32Array(count);
+
+            for (let i = 0; i < count; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
+                sizes[i] = Math.random() * 2;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.15,
+                color: 0xA3E635, // lime-400
+                transparent: true,
+                opacity: 0.4,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            const clock = new THREE.Clock();
+
+            const tick = () => {
+                const elapsedTime = clock.getElapsedTime();
+
+                particles.rotation.y = elapsedTime * 0.05;
+                particles.rotation.x = elapsedTime * 0.02;
+
+                // Subtle mouse parallax
+                camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+
+                // Animate particles slowly
+                const positions = particles.geometry.attributes.position.array;
+                for (let i = 0; i < count; i++) {
+                    const i3 = i * 3;
+                    positions[i3 + 1] += Math.sin(elapsedTime + positions[i3]) * 0.01;
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(tick);
+            };
+
+            tick();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+
+        // Magnetic Button Effect
+        const initMagneticButton = () => {
+            const btn = document.getElementById('magnetic-btn');
+            if (!btn) return;
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                gsap.to(btn, {
+                    duration: 0.3,
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    ease: "power2.out"
+                });
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    duration: 0.5,
+                    x: 0,
+                    y: 0,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        };
+
+        // GSAP Scroll Animations
+        const initScrollAnimations = () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero entrace
+            gsap.from(".hero-content > *", {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+
+            // Reveal elements on scroll
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach((el) => {
+                gsap.fromTo(el, {
+                    y: 20, // softer start
+                    opacity: 0
+                }, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 95%", // closer to viewport entry
+                        toggleActions: "play none none none" // only play once
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6, // faster fade-in
+                    ease: "power2.out"
+                });
+            });
+        };
+
+        // Mobile Menu Logic
+        const initMobileMenu = () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+            };
+
+            if (menuBtn && closeBtn && mobileMenu) {
+                menuBtn.addEventListener('click', toggleMenu);
+                closeBtn.addEventListener('click', toggleMenu);
+                links.forEach(link => link.addEventListener('click', toggleMenu));
+            }
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initWebGL();
+            initMagneticButton();
+            initMobileMenu();
+            setTimeout(initScrollAnimations, 100);
+        });
+
+    </script>
+</body>
+
+</html>

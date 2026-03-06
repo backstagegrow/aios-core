@@ -44,11 +44,12 @@ const FALLBACK_EXCEPTIONS = [
  * @returns {RegExp}
  */
 function globToRegex(glob) {
-  let pattern = glob
+  const globStarPlaceholder = '__AIOS_GLOBSTAR__';
+  const pattern = glob
     .replace(/\./g, '\\.')           // escape dots
-    .replace(/\*\*/g, '\u0000')      // placeholder for **
+    .replace(/\*\*/g, globStarPlaceholder) // placeholder for **
     .replace(/\*/g, '[^/]+')         // * = single segment
-    .replace(/\u0000/g, '.+');       // ** = any depth
+    .replace(new RegExp(globStarPlaceholder, 'g'), '.+'); // ** = any depth
 
   // If pattern ends with .+ (was **), match prefix
   if (glob.endsWith('**')) {

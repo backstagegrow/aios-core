@@ -12,8 +12,11 @@ describe('ProjectStatusLoader', () => {
   let loader;
   let testRoot;
   let cacheFile;
+  let consoleWarnSpy;
 
   beforeEach(async () => {
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     // Use OS temp directory to ensure complete isolation from parent git repo
     testRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'aios-test-'));
     loader = new ProjectStatusLoader(testRoot);
@@ -27,6 +30,8 @@ describe('ProjectStatusLoader', () => {
     } catch (error) {
       // Ignore cleanup errors
     }
+
+    consoleWarnSpy.mockRestore();
   });
 
   describe('isGitRepository', () => {

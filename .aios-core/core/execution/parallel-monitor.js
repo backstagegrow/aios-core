@@ -30,6 +30,7 @@ class ParallelMonitor extends EventEmitter {
 
     // WebSocket connections (for dashboard)
     this.wsConnections = new Set();
+    this._pendingTimers = new Set();
   }
 
   /**
@@ -166,9 +167,14 @@ class ParallelMonitor extends EventEmitter {
       this.broadcast('task_completed', { taskId, task });
 
       // Remove from active after delay
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         this.activeTasks.delete(taskId);
+        this._pendingTimers.delete(timerId);
       }, 10000);
+      if (typeof timerId?.unref === 'function') {
+        timerId.unref();
+      }
+      this._pendingTimers.add(timerId);
     }
   }
 
@@ -193,9 +199,14 @@ class ParallelMonitor extends EventEmitter {
       this.broadcast('wave_completed', { waveId, wave });
 
       // Move to history after delay
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         this.activeWaves.delete(waveId);
+        this._pendingTimers.delete(timerId);
       }, 30000);
+      if (typeof timerId?.unref === 'function') {
+        timerId.unref();
+      }
+      this._pendingTimers.add(timerId);
     }
   }
 
@@ -402,6 +413,10 @@ class ParallelMonitor extends EventEmitter {
    * Clear all data
    */
   clear() {
+    for (const timerId of this._pendingTimers) {
+      clearTimeout(timerId);
+    }
+    this._pendingTimers.clear();
     this.activeWaves.clear();
     this.activeTasks.clear();
     this.taskLogs.clear();

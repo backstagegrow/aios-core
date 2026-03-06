@@ -23,6 +23,18 @@ const {
 describe('Agent Invoker (Story 0.7)', () => {
   let tempDir;
   let invoker;
+  let consoleLogSpy;
+  let consoleWarnSpy;
+
+  beforeAll(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterAll(() => {
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
+  });
 
   beforeEach(async () => {
     tempDir = path.join(os.tmpdir(), `agent-invoker-test-${Date.now()}`);

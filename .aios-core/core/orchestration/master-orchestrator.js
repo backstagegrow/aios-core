@@ -60,6 +60,8 @@ try {
   };
 }
 
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
+
 // ═══════════════════════════════════════════════════════════════════════════════════
 //                              STATE MACHINE (AC6)
 // ═══════════════════════════════════════════════════════════════════════════════════
@@ -1451,6 +1453,11 @@ class MasterOrchestrator extends EventEmitter {
     const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
     const level = options.level || 'info';
     const icon = options.icon || '';
+
+    if (IS_TEST_ENV) {
+      this.emit('log', { timestamp, level, message, ...options });
+      return;
+    }
 
     let coloredMessage;
     switch (level) {

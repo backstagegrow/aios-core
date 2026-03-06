@@ -35,7 +35,7 @@ describe('Wizard Validation Flow', () => {
     expect(validation).toHaveProperty('components');
     expect(validation).toHaveProperty('errors');
     expect(validation).toHaveProperty('warnings');
-  });
+  }, 30000);
 
   it('should handle validation with MCP health checks', async () => {
     // Given

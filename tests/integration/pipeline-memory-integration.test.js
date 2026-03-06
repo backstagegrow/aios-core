@@ -24,12 +24,17 @@ const proDetector = require('../../bin/utils/pro-detector');
 
 describe('UnifiedActivationPipeline Memory Integration (MIS-6)', () => {
   let pipeline;
+  let consoleLogSpy;
+  let consoleWarnSpy;
   const testProjectRoot = path.join(__dirname, '..', 'fixtures', 'test-project-memory');
 
   // Store original env to restore after tests
   const originalPipelineTimeout = process.env.AIOS_PIPELINE_TIMEOUT;
 
   beforeEach(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     // Increase pipeline timeout so tests don't fail under heavy load (full suite)
     process.env.AIOS_PIPELINE_TIMEOUT = '5000';
     pipeline = new UnifiedActivationPipeline(testProjectRoot);
@@ -55,6 +60,9 @@ describe('UnifiedActivationPipeline Memory Integration (MIS-6)', () => {
     // Clear all timers to prevent Jest warnings (TEST-002)
     jest.clearAllTimers();
     jest.useRealTimers();
+
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 
   /**

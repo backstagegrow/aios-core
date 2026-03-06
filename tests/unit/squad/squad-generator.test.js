@@ -38,6 +38,8 @@ describe('SquadGenerator', () => {
   let generator;
   let tempDir;
   let originalCwd;
+  let consoleLogSpy;
+  let consoleWarnSpy;
 
   beforeAll(async () => {
     // Create temp directory for tests
@@ -55,6 +57,9 @@ describe('SquadGenerator', () => {
   });
 
   beforeEach(() => {
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     // Create generator with temp directory as squads path
     generator = new SquadGenerator({
       squadsPath: tempDir,
@@ -71,6 +76,9 @@ describe('SquadGenerator', () => {
     } catch {
       // Ignore cleanup errors
     }
+
+    consoleLogSpy.mockRestore();
+    consoleWarnSpy.mockRestore();
   });
 
   describe('Constants', () => {

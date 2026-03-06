@@ -1,21 +1,72 @@
 @import "tailwindcss";
+@import "../tokens/tokens.css";
 
 @theme {
-  --color-background: #0A0A0A;
-  --color-foreground: #FAF9F6;
-  --color-amber: #D4A847;
-  --color-amber-light: #E8C97A;
-  --color-amber-dark: #B8922E;
-  --color-purple: #6B46C1;
-  --color-purple-light: #8B6AD0;
-  --color-surface: #141414;
-  --color-surface-light: #1E1E1E;
-  --color-muted: #9CA3AF;
-  --color-success: #22C55E;
-  --color-danger: #EF4444;
+  /* --- Semantic Colors --- */
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-on-dark: var(--text-on-dark);
+  --color-on-brand: var(--text-on-brand);
 
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --color-surface-page: var(--surface-page);
+  --color-surface-section: var(--surface-section);
+  --color-surface-card: var(--surface-card);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-hover: var(--action-primary-hover);
+  --color-action-primary-active: var(--action-primary-active);
+  --color-action-secondary: var(--action-secondary);
+  --color-action-strong: var(--action-strong);
+  --color-action-strong-hover: var(--action-strong-hover);
+
+  --color-border-default: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-focus: var(--border-focus);
+
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+
+  --color-overlay-backdrop: var(--overlay-backdrop);
+  --color-overlay-modal: var(--overlay-modal);
+  --color-overlay-popover: var(--overlay-popover);
+
+  /* --- Spacing --- */
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-12: var(--space-12);
+  --spacing-16: var(--space-16);
+  --spacing-20: var(--space-20);
+
+  --spacing-hero-padding: var(--space-20);
+  --spacing-section-padding: var(--space-12);
+  --spacing-section-gap: var(--space-8);
+  --spacing-component-gap: var(--space-4);
+  --spacing-stack-xs: var(--space-1);
+  --spacing-stack-sm: var(--space-2);
+  --spacing-stack-md: var(--space-3);
+  --spacing-stack-lg: var(--space-4);
+
+  /* --- Radii --- */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+
+  /* --- Typography --- */
+  --font-heading: var(--font-family-heading);
+  --font-subheading: var(--font-family-subheading);
+  --font-body: var(--font-family-body);
+  --font-mono: var(--font-family-mono);
 }
 
 html {
@@ -23,15 +74,15 @@ html {
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--surface-page);
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-amber);
-  color: var(--color-background);
+  background: var(--action-primary);
+  color: var(--background-dark);
 }
 
 /* CTA Button */
@@ -58,7 +109,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -104,7 +155,7 @@ body {
   content: '📷 Foto será inserida';
   position: absolute;
   padding: 0.5rem 1rem;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   font-size: 0.75rem;
 }

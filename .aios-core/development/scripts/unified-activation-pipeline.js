@@ -113,6 +113,7 @@ const ALL_AGENT_IDS = [
  * @type {string}
  */
 const FALLBACK_PHRASE = 'Type `*help` to see available commands.';
+const IS_TEST_ENV = process.env.NODE_ENV === 'test';
 
 class UnifiedActivationPipeline {
   constructor(options = {}) {
@@ -173,7 +174,9 @@ class UnifiedActivationPipeline {
       return result;
 
     } catch (error) {
-      console.warn(`[UnifiedActivationPipeline] Activation failed for ${agentId}:`, error.message);
+      if (!IS_TEST_ENV) {
+        console.warn(`[UnifiedActivationPipeline] Activation failed for ${agentId}:`, error.message);
+      }
       const fallbackGreeting = this._generateFallbackGreeting(agentId);
       return {
         greeting: fallbackGreeting,
@@ -389,7 +392,9 @@ class UnifiedActivationPipeline {
       const duration = Date.now() - start;
       const status = error.message.includes('timeout') ? 'timeout' : 'error';
       metrics.loaders[name] = { duration, status, start, end: start + duration, error: error.message };
-      console.warn(`[UnifiedActivationPipeline] ${name} ${status}: ${error.message}`);
+      if (!IS_TEST_ENV) {
+        console.warn(`[UnifiedActivationPipeline] ${name} ${status}: ${error.message}`);
+      }
       return null;
     }
   }

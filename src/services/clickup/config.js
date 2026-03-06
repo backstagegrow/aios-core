@@ -6,7 +6,7 @@
 module.exports = {
   API_KEY: process.env.CLICKUP_API_KEY || (() => {
     throw new Error(
-      'CLICKUP_API_KEY not set. Add it to .env or set as environment variable.'
+      'CLICKUP_API_KEY not set. Add it to .env or set as environment variable.',
     );
   })(),
   WORKSPACE_ID: '90132645314',
