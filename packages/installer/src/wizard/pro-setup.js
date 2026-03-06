@@ -1190,52 +1190,23 @@ async function stepInstallScaffold(targetDir, options = {}) {
 
   const path = require('path');
   const fs = require('fs');
-  const proSourceDir = path.join(targetDir, 'node_modules', '@aios-fullstack', 'pro');
 
-  // Step 2a: Ensure package.json exists (greenfield projects)
-  const packageJsonPath = path.join(targetDir, 'package.json');
-  if (!fs.existsSync(packageJsonPath)) {
-    const initSpinner = createSpinner(t('proInitPackageJson'));
-    initSpinner.start();
-    try {
-      const { execFileSync } = require('child_process');
-      const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-      execFileSync(npmCmd, ['init', '-y'], { cwd: targetDir, stdio: 'pipe' });
-      initSpinner.succeed(t('proPackageJsonCreated'));
-    } catch (err) {
-      initSpinner.fail(t('proPackageJsonFailed'));
-      return { success: false, error: tf('proNpmInitFailed', { message: err.message }) };
-    }
-  }
+  // Resolve pro source directory from multiple locations:
+  // 1. Bundled in aios-core package (pro/ submodule — npx and local dev)
+  // 2. @aios-fullstack/pro in node_modules (legacy brownfield)
+  const bundledProDir = path.resolve(__dirname, '..', '..', '..', '..', 'pro');
+  const npmProDir = path.join(targetDir, 'node_modules', '@aios-fullstack', 'pro');
 
-  // Step 2b: Install @aios-fullstack/pro if not present
-  if (!fs.existsSync(proSourceDir)) {
-    const installSpinner = createSpinner(t('proInstallingPackage'));
-    installSpinner.start();
-    try {
-      const { execFileSync } = require('child_process');
-      const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-      execFileSync(npmCmd, ['install', '@aios-fullstack/pro'], {
-        cwd: targetDir,
-        stdio: 'pipe',
-        timeout: 120000,
-      });
-      installSpinner.succeed(t('proPackageInstalled'));
-    } catch (err) {
-      installSpinner.fail(t('proPackageInstallFailed'));
-      return {
-        success: false,
-        error: tf('proNpmInstallFailed', { message: err.message }),
-      };
-    }
-
-    // Validate installation
-    if (!fs.existsSync(proSourceDir)) {
-      return {
-        success: false,
-        error: t('proPackageNotFound'),
-      };
-    }
+  let proSourceDir;
+  if (fs.existsSync(bundledProDir) && fs.existsSync(path.join(bundledProDir, 'squads'))) {
+    proSourceDir = bundledProDir;
+  } else if (fs.existsSync(npmProDir)) {
+    proSourceDir = npmProDir;
+  } else {
+    return {
+      success: false,
+      error: t('proPackageNotFound'),
+    };
   }
 
   // Step 2c: Scaffold pro content
