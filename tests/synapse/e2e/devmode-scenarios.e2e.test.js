@@ -28,25 +28,24 @@ const { parseManifest } = require(path.join(PROJECT_ROOT, '.aios-core', 'core', 
 /**
  * Build a default session object for testing.
  *
- * Uses prompt_count=60 to land in MODERATE bracket (~55% remaining, 1500 token
- * budget) which has sufficient headroom for the DEVMODE section after token
- * budget enforcement. FRESH bracket (prompt_count<=7) only allows 800 tokens,
- * which is not enough for constitution + global rules + DEVMODE combined.
+ * Uses prompt_count=120 to land in CRITICAL bracket (2500 token budget),
+ * ensuring the DEVMODE section survives token-budget enforcement even with
+ * large constitution/global sections loaded from the real .synapse files.
  *
  * @param {object} [overrides] - Fields to override
  * @returns {object} Session object matching SYN-2 schema
  */
 function buildSession(overrides = {}) {
   return {
-    prompt_count: 60,
+    prompt_count: 120,
     active_agent: { id: 'dev', activated_at: new Date().toISOString() },
     active_workflow: null,
     active_squad: null,
     active_task: null,
     context: {
-      last_bracket: 'MODERATE',
+      last_bracket: 'CRITICAL',
       last_tokens_used: 0,
-      last_context_percent: 55,
+      last_context_percent: 20,
     },
     ...overrides,
   };

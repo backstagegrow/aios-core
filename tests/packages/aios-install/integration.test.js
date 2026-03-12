@@ -110,7 +110,7 @@ describe('Integration - Task 8.3: Local NPX Execution', () => {
     });
   });
 
-  describe('CLI Execution Tests', () => {
+  describeSpawnIntegration('CLI Execution Tests', () => {
     it('should execute aios-install --version via node', () => {
       // Given
       const binPath = path.join(PKG_DIR, 'bin/aios-install.js');
@@ -265,7 +265,7 @@ describe('Integration - Task 8.3: Local NPX Execution', () => {
     });
   });
 
-  describe('Version Consistency', () => {
+  describeSpawnIntegration('Version Consistency', () => {
     it('should have consistent version across package.json and CLI output', () => {
       // Given
       const pkgJsonPath = path.join(PKG_DIR, 'package.json');

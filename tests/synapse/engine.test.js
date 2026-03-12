@@ -280,7 +280,7 @@ describe('SynapseEngine', () => {
     });
 
     test('should call formatSynapseRules with correct args', async () => {
-      await engine.process('test', { prompt_count: 0 });
+      await engine.process('implementar plano detalhado para workflow ativo', { prompt_count: 0 });
       expect(formatter.formatSynapseRules).toHaveBeenCalledTimes(1);
 
       const args = formatter.formatSynapseRules.mock.calls[0];
@@ -288,8 +288,12 @@ describe('SynapseEngine', () => {
       expect(args[1]).toBe('FRESH');        // bracket
       expect(args[2]).toBe(85);             // contextPercent
       expect(args[4]).toBe(false);          // devmode (default)
-      expect(args[6]).toBe(800);            // tokenBudget
+      expect(args[6]).toBe(1000);           // tokenBudget
       expect(args[7]).toBe(false);          // showHandoffWarning
+      expect(args[8]).toEqual(expect.objectContaining({
+        complexity: 'complex',
+        includeSummary: true,
+      }));
     });
 
     test('should pass devmode=true when config has devmode', async () => {
@@ -319,15 +323,14 @@ describe('SynapseEngine', () => {
     });
 
     test('should only execute L0-L2 in non-legacy mode (NOG-18)', async () => {
-      // NOG-18: In non-legacy mode, only L0-L2 are active regardless of bracket.
-      // getActiveLayers mock is overridden by DEFAULT_ACTIVE_LAYERS = [0,1,2].
+      // Simple prompts stay lean in non-legacy mode.
       contextTracker.getActiveLayers.mockReturnValue({
         layers: [0, 1, 2, 3, 4, 5, 6, 7],
         memoryHints: false,
         handoffWarning: false,
       });
 
-      const result = await engine.process('test', { prompt_count: 30 });
+      const result = await engine.process('ajusta isso', { prompt_count: 30 });
 
       // NOG-18: Only L0-L2 active — max 3 layers loaded
       expect(result.metrics.layers_loaded).toBeLessThanOrEqual(3);
@@ -337,6 +340,17 @@ describe('SynapseEngine', () => {
       if (workflowEntry) {
         expect(workflowEntry.status).toBe('skipped');
       }
+    });
+
+    test('should load richer layers for complex prompts in non-legacy mode', async () => {
+      const result = await engine.process('*develop story-1.2.3 com debug e investigacao', {
+        prompt_count: 1,
+        active_task: { id: 'story-1.2.3' },
+      });
+
+      expect(formatter.formatSynapseRules.mock.calls[0][8]).toEqual(
+        expect.objectContaining({ complexity: 'complex' }),
+      );
     });
   });
 
@@ -455,9 +469,9 @@ describe('SynapseEngine', () => {
         { content: 'Use absolute imports', source: 'procedural', relevance: 0.9, tokens: 5 },
       ]);
 
-      await engine.process('test', { prompt_count: 30, activeAgent: 'dev' });
+      await engine.process('investigar e recuperar memoria relevante para este fluxo', { prompt_count: 30, activeAgent: 'dev' });
 
-      expect(mockGetMemoryHints).toHaveBeenCalledWith('dev', 'MODERATE', 500);
+      expect(mockGetMemoryHints).toHaveBeenCalledWith('dev', 'MODERATE', 625);
 
       // Verify hints were passed to formatter via results array
       const formatterCall = formatter.formatSynapseRules.mock.calls[0];
@@ -481,9 +495,9 @@ describe('SynapseEngine', () => {
       contextTracker.getTokenBudget.mockReturnValue(300);
       mockGetMemoryHints.mockResolvedValue([]);
 
-      await engine.process('test', { prompt_count: 50, active_agent: 'qa' });
+      await engine.process('investigar falha persistente neste contexto', { prompt_count: 50, active_agent: 'qa' });
 
-      expect(mockGetMemoryHints).toHaveBeenCalledWith('qa', 'DEPLETED', 300);
+      expect(mockGetMemoryHints).toHaveBeenCalledWith('qa', 'DEPLETED', 375);
     });
   });
 

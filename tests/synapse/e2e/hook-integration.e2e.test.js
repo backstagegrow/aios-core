@@ -71,7 +71,9 @@ function buildInput(overrides = {}) {
 // Test Suite
 // ---------------------------------------------------------------------------
 
-const describeIfHookExists = HOOK_EXISTS ? describe : describe.skip;
+const describeIfHookExists = HOOK_EXISTS && process.env.SKIP_SPAWN_TESTS !== 'true'
+  ? describe
+  : describe.skip;
 
 describeIfHookExists('SYNAPSE E2E: Hook Integration', () => {
 

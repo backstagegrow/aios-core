@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT House - Ecossistema Plug-and-Play para Imersões</title>
+    <meta name="description"
+        content="A GT House é o primeiro ecossistema Plug-and-Play para Imersões e Eventos Premium em São Paulo. Estrutura técnica completa, operação silenciosa e ambiente de alta performance.">
+    <meta property="og:title" content="GT House - Ecossistema Plug-and-Play para Imersões">
+    <meta property="og:description"
+        content="Seu único trabalho é transformar vidas no palco. A GT House cuida de todo o resto.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind & Iconify -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'serif'],
+                    },
+                    colors: {
+                        gt: {
+                            dark: '#072F35',
+                            accent: '#45C5E6',
+                            hover: '#0a414a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            font-size: 17px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Fraunces ONLY on dedicated accent class and italics */
+        .font-serif,
+        h1 i,
+        h2 i,
+        h3 i {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        select {
+            background-image: none;
+        }
+
+        /* ── Scroll-driven Reveal Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(.22, 1, .36, 1), transform 0.7s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: .08s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: .16s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: .24s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: .32s;
+        }
+
+        /* ── Subtle float for hero glow ── */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, -18px);
+            }
+        }
+
+        .hero-glow {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* ── Gallery zoom on hover ── */
+        .gallery-img {
+            transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .5s ease, opacity .5s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ── FAQ accordion smooth ── */
+        details[open] .faq-body {
+            animation: faqOpen .35s ease forwards;
+        }
+
+        @keyframes faqOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── CTA pulse ring ── */
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(69, 197, 230, .35);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(69, 197, 230, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(69, 197, 230, 0);
+            }
+        }
+
+        .cta-pulse {
+            animation: pulse-ring 2.2s infinite;
+        }
+
+        /* ── WhatsApp bounce ── */
+        @keyframes waBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .wa-float {
+            animation: waBounce 2.8s ease-in-out infinite;
+        }
+
+        /* ── Comparison card hover lift ── */
+        .compare-card {
+            transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s ease;
+        }
+
+        .compare-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, .12);
+        }
+
+        /* ── Navbar scroll state ── */
+        .nav-scrolled {
+            background: rgba(7, 47, 53, .95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gt-accent selection:text-white">
+
+    <!-- ═══ Sticky Nav ═══ -->
+    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="assets/logos/GT-House-Logo-branca (para fundos escuros) horizontal (2).png" alt="GT House"
+                    class="h-10 w-auto">
+            </div>
+            <a href="#form"
+                class="hidden sm:inline-flex bg-gt-accent text-gt-dark px-6 py-2.5 text-xs font-semibold rounded-lg hover:bg-white transition-colors tracking-tight">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </nav>
+
+    <!-- ═══ Hero ═══ -->
+    <section class="relative bg-gt-dark overflow-hidden pt-28 pb-24 lg:pt-36 lg:pb-40 border-b border-white/10">
+        <div
+            class="hero-glow absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-gt-accent/5 blur-[100px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+
+                <!-- Copy -->
+                <div class="lg:col-span-6 flex flex-col reveal">
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-[3.4rem]  font-light tracking-tight text-white leading-[1.12] mb-8">
+                        Seu único trabalho é <br><i class="text-gt-accent font-light">transformar vidas no
+                            palco.</i><br>
+                        A GT House cuida de todo o resto.
+                    </h1>
+
+                    <p class="text-lg md:text-xl font-light text-slate-300 mb-10 leading-relaxed max-w-xl">
+                        O primeiro ecossistema <strong class="font-medium text-white">Plug-and-Play</strong> para
+                        Imersões e Eventos Premium em São Paulo — um espaço onde você chega, conecta e entrega.
+                    </p>
+
+                    <div class="flex flex-col gap-4 mb-12">
+                        <div class="flex items-center gap-4 text-base text-slate-300 font-light reveal reveal-delay-1">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-gt-accent text-xl shrink-0"></iconify-icon>
+                            <span>Estrutura plug-and-play</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-base text-slate-300 font-light reveal reveal-delay-2">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-gt-accent text-xl shrink-0"></iconify-icon>
+                            <span>Técnica já pronta</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-base text-slate-300 font-light reveal reveal-delay-3">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-gt-accent text-xl shrink-0"></iconify-icon>
+                            <span>Operação fluida e silenciosa</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center reveal reveal-delay-4">
+                        <a href="#form"
+                            class="cta-pulse inline-flex justify-center items-center bg-gt-accent text-gt-dark px-8 py-4 text-sm font-semibold rounded-xl hover:bg-white transition-colors duration-300 w-full sm:w-auto text-center tracking-tight">
+                            Quero conhecer a GT House
+                        </a>
+                        <a href="#como-funciona"
+                            class="inline-flex justify-center items-center text-slate-300 px-8 py-4 text-sm font-medium rounded-xl hover:text-white transition-colors w-full sm:w-auto text-center gap-2 group tracking-tight">
+                            Ver como funciona
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="text-lg group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:col-span-6 relative reveal" id="form">
+                    <div
+                        class="bg-white rounded-2xl p-8 lg:p-10 shadow-xl shadow-black/5 border border-slate-100 relative z-10">
+                        <h2 class="text-lg font-semibold text-gt-dark mb-1 tracking-tight">Solicite seu Orçamento</h2>
+                        <p class="text-xs text-slate-400 mb-6">Resposta em até 24h úteis.</p>
+
+                        <form class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Qual
+                                        o seu nome?</label>
+                                    <input type="text"
+                                        class="w-full bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all placeholder:text-slate-400"
+                                        placeholder="Seu nome completo">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">E-mail</label>
+                                    <input type="email"
+                                        class="w-full bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all placeholder:text-slate-400"
+                                        placeholder="seu@email.com.br">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Número</label>
+                                    <input type="tel"
+                                        class="w-full bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all placeholder:text-slate-400"
+                                        placeholder="(11) 99999-9999">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Nome
+                                        da sua imersão</label>
+                                    <input type="text"
+                                        class="w-full bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all placeholder:text-slate-400"
+                                        placeholder="Nome do evento">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Data
+                                        da sua imersão</label>
+                                    <input type="text"
+                                        class="w-full bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all placeholder:text-slate-400"
+                                        placeholder="DD/MM/AAAA">
+                                </div>
+                                <div class="relative">
+                                    <label
+                                        class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Formato
+                                        da imersão</label>
+                                    <select
+                                        class="w-full appearance-none bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all cursor-pointer">
+                                        <option>Auditório</option>
+                                        <option>Pranchão</option>
+                                        <option>U-Shape</option>
+                                    </select>
+                                    <iconify-icon icon="solar:alt-arrow-down-linear"
+                                        class="absolute right-4 top-9 text-slate-400 pointer-events-none text-lg"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <label
+                                    class="block text-xs text-slate-500 mb-1.5 font-medium uppercase tracking-tight">Quantas
+                                    pessoas?</label>
+                                <select
+                                    class="w-full appearance-none bg-slate-50/50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-gt-accent focus:ring-2 focus:ring-gt-accent/10 focus:bg-white transition-all cursor-pointer">
+                                    <option>de 25 a 50</option>
+                                    <option>de 51 a 100</option>
+                                    <option>Mais de 100</option>
+                                </select>
+                                <iconify-icon icon="solar:alt-arrow-down-linear"
+                                    class="absolute right-4 top-9 text-slate-400 pointer-events-none text-lg"></iconify-icon>
+                            </div>
+                            <button type="button"
+                                class="w-full bg-gt-dark text-white font-semibold py-3.5 rounded-lg text-sm hover:bg-gt-hover transition-colors mt-2 tracking-tight">
+                                Solicitar Orçamento
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Trust -->
+                    <div class="mt-8 text-center flex flex-col items-center reveal">
+                        <span class="text-xs font-medium text-slate-400 uppercase tracking-widest mb-4">Empresas que
+                            confiam na GT House</span>
+                        <div class="flex gap-8 items-center opacity-40 grayscale">
+                            <span class="text-lg font-medium tracking-tight text-white">NETFLIX</span>
+                            <span class="text-lg font-medium tracking-tight text-white">adidas</span>
+                            <span class="text-lg font-medium tracking-tight text-white">RedBull</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Authority Quote ═══ -->
+    <section class="bg-slate-50 py-24 border-b border-slate-200/60">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center reveal">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl  font-light tracking-tight text-gt-dark mb-8 leading-tight">
+                "A operação certa determina <br> <i class="text-gt-accent font-light">a performance certa.</i>"
+            </h2>
+            <p class="text-base md:text-lg font-light text-slate-600 mb-10 leading-relaxed">
+                Você pode ter o melhor conteúdo do mercado, mas se som, luz, ambiente e técnica falham, o impacto cai. A
+                profundidade diminui. A sua autoridade é prejudicada.<br><br>
+                Por isso criamos a GT House: um espaço onde a técnica acompanha a sua entrega. Onde cada detalhe existe
+                para <strong class="font-medium text-gt-dark">potencializar sua performance.</strong>
+            </p>
+            <a href="#form"
+                class="inline-flex bg-white border border-slate-200 text-gt-dark font-semibold px-8 py-3.5 rounded-xl text-sm hover:border-gt-accent hover:text-gt-accent transition-colors shadow-sm tracking-tight">
+                Quero conhecer a GT House
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ Ecosystem ═══ -->
+    <section id="como-funciona" class="bg-white py-24 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h2 class="text-3xl md:text-4xl  font-light tracking-tight text-gt-dark mb-4">
+                    O Primeiro Ecossistema <i class="text-gt-accent font-light">Plug-and-Play para Imersões</i> em São
+                    Paulo
+                </h2>
+                <p class="text-lg font-light text-slate-600">
+                    Tudo foi projetado para um único objetivo: <span class="font-medium text-gt-dark">potencializar a
+                        sua entrega.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-slate-50/50 p-8 rounded-2xl border border-slate-200/60 hover:border-gt-accent/30 transition-all duration-400 text-left group reveal reveal-delay-1 compare-card">
+                    <div
+                        class="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:border-gt-accent/40 transition-colors">
+                        <iconify-icon icon="solar:settings-linear" class="text-2xl text-gt-dark"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl  font-medium text-gt-dark mb-3 tracking-tight">A técnica já está pronta
+                    </h3>
+                    <p class="text-sm text-slate-600 font-light leading-relaxed">Sua equipe chega e foca apenas no
+                        conteúdo. Som, luz e vídeo integrados e testados para performance máxima.</p>
+                </div>
+                <div
+                    class="bg-slate-50/50 p-8 rounded-2xl border border-slate-200/60 hover:border-gt-accent/30 transition-all duration-400 text-left group reveal reveal-delay-2 compare-card">
+                    <div
+                        class="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:border-gt-accent/40 transition-colors">
+                        <iconify-icon icon="solar:target-linear" class="text-2xl text-gt-dark"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl  font-medium text-gt-dark mb-3 tracking-tight">O ambiente favorece
+                        profundidade
+                    </h3>
+                    <p class="text-sm text-slate-600 font-light leading-relaxed">Arquitetura pensada para manter a
+                        atenção do seu público ancorada na sua mensagem, sem dispersão.</p>
+                </div>
+                <div
+                    class="bg-slate-50/50 p-8 rounded-2xl border border-slate-200/60 hover:border-gt-accent/30 transition-all duration-400 text-left group reveal reveal-delay-3 compare-card">
+                    <div
+                        class="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:border-gt-accent/40 transition-colors">
+                        <iconify-icon icon="solar:volume-cross-linear" class="text-2xl text-gt-dark"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl  font-medium text-gt-dark mb-3 tracking-tight">Operação em silêncio
+                        absoluto
+                    </h3>
+                    <p class="text-sm text-slate-600 font-light leading-relaxed">Bastidores invisíveis. A mágica
+                        acontece sem que você ou seus alunos percebam a movimentação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Gallery ═══ -->
+    <section class="bg-slate-50 py-24 border-b border-slate-200/60">
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-12 mb-12 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6 reveal">
+            <h2 class="text-2xl md:text-3xl  font-light tracking-tight text-gt-dark">Veja a GT House <i
+                    class="text-gt-accent font-light">em ação</i></h2>
+            <a href="#form"
+                class="text-sm font-medium text-gt-accent hover:text-gt-dark transition-colors flex items-center gap-2">
+                Quero garantir minha data
+                <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+            </a>
+        </div>
+        <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div
+                    class="relative overflow-hidden rounded-2xl aspect-video lg:aspect-square bg-slate-200 border border-slate-200/60 group reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop"
+                        alt="Evento GT House - Palco"
+                        class="gallery-img w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                </div>
+                <div
+                    class="relative overflow-hidden rounded-2xl aspect-video lg:aspect-square bg-slate-200 border border-slate-200/60 group reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=1000&auto=format&fit=crop"
+                        alt="Evento GT House - Público"
+                        class="gallery-img w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                </div>
+                <div
+                    class="relative overflow-hidden rounded-2xl aspect-video lg:aspect-square bg-slate-200 border border-slate-200/60 group reveal reveal-delay-3">
+                    <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=1000&auto=format&fit=crop"
+                        alt="Evento GT House - Ambiente"
+                        class="gallery-img w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                </div>
+                <div
+                    class="relative overflow-hidden rounded-2xl aspect-video lg:aspect-square bg-slate-200 border border-slate-200/60 group reveal reveal-delay-4">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000&auto=format&fit=crop"
+                        alt="Evento GT House - Networking"
+                        class="gallery-img w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Ideal Audience ═══ -->
+    <section class="bg-white py-24 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl  font-light tracking-tight text-gt-dark mb-6 leading-tight">
+                    O cenário perfeito para <br><i class="text-gt-accent font-light">grandes decisões.</i>
+                </h2>
+                <p class="text-lg font-light text-slate-600">
+                    Um espaço criado para quem vive do palco, conduz jornadas profundas e precisa de um ambiente que
+                    acompanhe a seriedade da entrega.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+                <div
+                    class="bg-slate-50/50 rounded-2xl p-8 border border-slate-200/60 flex gap-5 reveal reveal-delay-1 compare-card">
+                    <div class="shrink-0 mt-0.5">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-gt-accent"></iconify-icon>
+                    </div>
+                    <p class="text-sm font-light text-slate-700 leading-relaxed">
+                        É mentor, especialista ou trainer e sabe que seu maior ativo é a clareza do conteúdo e a conexão
+                        com o público — não a gestão caótica de fornecedores.
+                    </p>
+                </div>
+                <div
+                    class="bg-slate-50/50 rounded-2xl p-8 border border-slate-200/60 flex gap-5 reveal reveal-delay-2 compare-card">
+                    <div class="shrink-0 mt-0.5">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-gt-accent"></iconify-icon>
+                    </div>
+                    <p class="text-sm font-light text-slate-700 leading-relaxed">
+                        Conduz imersões, masterminds ou treinamentos premium e precisa de um ambiente que reflita o
+                        valor do método.
+                    </p>
+                </div>
+                <div
+                    class="bg-slate-50/50 rounded-2xl p-8 border border-slate-200/60 flex gap-5 reveal reveal-delay-3 compare-card">
+                    <div class="shrink-0 mt-0.5">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-gt-accent"></iconify-icon>
+                    </div>
+                    <p class="text-sm font-light text-slate-700 leading-relaxed">
+                        Já realiza eventos presenciais, mas está cansado da complexidade operacional e do desgaste que o
+                        modelo tradicional gera.
+                    </p>
+                </div>
+                <div
+                    class="bg-slate-50/50 rounded-2xl p-8 border border-slate-200/60 flex gap-5 reveal reveal-delay-4 compare-card">
+                    <div class="shrink-0 mt-0.5">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-gt-accent"></iconify-icon>
+                    </div>
+                    <p class="text-sm font-light text-slate-700 leading-relaxed">
+                        Quer uma operação que funcione em silêncio, onde som, luz, vídeo e staff trabalham juntos para
+                        que o foco esteja 100% na mensagem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center reveal">
+                <a href="#form"
+                    class="inline-flex bg-gt-dark text-white font-semibold px-8 py-3.5 rounded-xl text-sm hover:bg-gt-hover transition-colors tracking-tight">
+                    Quero conhecer a GT House
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Comparison ═══ -->
+    <section class="bg-slate-50 py-24 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl  font-light tracking-tight text-gt-dark mb-4">
+                    Existem duas formas de <br> produzir sua <i class="text-gt-accent font-light">imersão presencial</i>
+                </h2>
+                <p class="text-lg font-light text-slate-600 max-w-2xl mx-auto">
+                    Analise qual delas protege sua entrega e sua performance no palco.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <!-- Fragmentado -->
+                <div
+                    class="bg-white border border-slate-200/60 rounded-2xl p-8 lg:p-12 shadow-sm compare-card reveal reveal-delay-1">
+                    <div class="mb-10 border-b border-slate-100 pb-6">
+                        <span class="text-xs uppercase tracking-widest text-slate-400 font-medium block mb-1">O
+                            Modelo</span>
+                        <h3 class="text-2xl  font-medium text-slate-800 tracking-tight">Fragmentado</h3>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:close-circle-linear"
+                                class="text-2xl text-slate-300 shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-800 mb-1 tracking-tight">O FOCO</h4>
+                                <p class="text-sm text-slate-600 font-light leading-relaxed">Logística. Você gasta sua
+                                    energia coordenando espaço, som, luz, vídeo, recepção e coffee — torcendo para que
+                                    tudo funcione.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:close-circle-linear"
+                                class="text-2xl text-slate-300 shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-800 mb-1 tracking-tight">O RISCO</h4>
+                                <p class="text-sm text-slate-600 font-light leading-relaxed">Alto. Se um fornecedor
+                                    falha, o impacto recai direto sobre você: falha de som, ambiente desconfortável,
+                                    atraso, público disperso.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:close-circle-linear"
+                                class="text-2xl text-slate-300 shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-800 mb-1 tracking-tight">O ATIVO FINAL</h4>
+                                <p class="text-sm text-slate-600 font-light leading-relaxed">Uma imersão limitada por
+                                    ruídos, estresse e perda de presença. O conteúdo é bom — a experiência não
+                                    acompanha.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GT House -->
+                <div
+                    class="bg-gt-dark border border-gt-dark rounded-2xl p-8 lg:p-12 relative overflow-hidden shadow-md compare-card reveal reveal-delay-2">
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-gt-accent/10 blur-[60px] rounded-full pointer-events-none">
+                    </div>
+                    <div class="mb-10 border-b border-white/10 pb-6 relative z-10">
+                        <span class="text-xs uppercase tracking-widest text-gt-accent font-medium block mb-1">O
+                            Ecossistema</span>
+                        <h3 class="text-2xl  font-medium text-white tracking-tight">GT House</h3>
+                    </div>
+                    <div class="space-y-8 relative z-10">
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-2xl text-gt-accent shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white mb-1 tracking-tight">O FOCO</h4>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed">Conteúdo. Você dedica 100%
+                                    da sua energia à condução da sua imersão, enquanto toda a operação já está pronta.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-2xl text-gt-accent shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white mb-1 tracking-tight">O RISCO</h4>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed">Zero. Som, luz, vídeo,
+                                    staff e sala são integrados em um único sistema que funciona em silêncio absoluto.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <iconify-icon icon="solar:check-circle-linear"
+                                class="text-2xl text-gt-accent shrink-0 mt-0.5"></iconify-icon>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white mb-1 tracking-tight">O ATIVO FINAL</h4>
+                                <p class="text-sm text-slate-300 font-light leading-relaxed">Uma imersão profunda,
+                                    envolvente e impecável. Sua mensagem chega com clareza, impacto e autoridade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Social Proof ═══ -->
+    <section class="bg-white py-24 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-12 lg:gap-24 reveal">
+            <div class="md:w-1/3 text-center md:text-left">
+                <h2 class="text-2xl  font-light tracking-tight text-slate-800 leading-tight">
+                    Marcas que já viveram experiências na GT House
+                </h2>
+            </div>
+            <div
+                class="md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-10 items-center justify-items-center opacity-40 grayscale">
+                <span class="text-xl font-semibold tracking-tight text-slate-800 uppercase">adidas</span>
+                <span class="text-xl font-semibold tracking-tight text-slate-800 uppercase">NETFLIX</span>
+                <span class="text-2xl font-semibold tracking-tight text-slate-800">NFL</span>
+                <span class="text-xl font-semibold tracking-tight text-slate-800 lowercase">havaianas</span>
+                <span class="text-xl font-semibold tracking-tight text-slate-800 italic">RedBull</span>
+                <span class="text-xl font-light tracking-widest text-slate-800 uppercase">SEPHORA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Video ═══ -->
+    <section class="bg-slate-50 py-24 border-b border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center reveal">
+            <h2 class="text-3xl md:text-4xl  font-light tracking-tight text-gt-dark mb-4 leading-tight">
+                Não acredite apenas em nossas palavras...
+                <span class="text-gt-accent font-light text-2xl md:text-3xl mt-2 block italic">Acredite na qualidade da
+                    nossa entrega:</span>
+            </h2>
+            <p class="text-base font-light text-slate-600 max-w-2xl mx-auto mb-12">
+                Veja como é conduzir uma imersão em um espaço criado para profundidade, foco e alta performance.
+            </p>
+
+            <div
+                class="aspect-video bg-slate-900 rounded-2xl overflow-hidden relative shadow-lg border border-slate-200/60 mb-12">
+                <video src="assets/Video/YTDown.com_YouTube_1008_Media_FA0ZapBjPJ0_001_1080p.mp4" controls
+                    preload="metadata"
+                    poster="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1600&auto=format&fit=crop"
+                    class="w-full h-full object-cover">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Objection ═══ -->
+    <section class="bg-white py-24 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div class="flex flex-col items-start reveal">
+                <h2 class="text-3xl md:text-4xl  font-light tracking-tight text-gt-dark mb-6 leading-tight">
+                    O mercado te ensinou que, para gerar impacto, você precisa de um evento enorme...
+                    <span class="text-gt-accent font-light block mt-2 italic">Isso não é verdade.</span>
+                </h2>
+                <a href="#form"
+                    class="cta-pulse inline-flex bg-gt-dark text-white font-semibold px-8 py-3.5 rounded-xl text-sm hover:bg-gt-hover transition-colors tracking-tight mt-4">
+                    Garantir minha data
+                </a>
+            </div>
+            <div class="space-y-6 reveal reveal-delay-1">
+                <p class="text-base font-light text-slate-600 leading-relaxed">
+                    A proximidade transforma mais do que a multidão. Uma imersão não é sobre reunir o maior número de
+                    pessoas possível — é sobre criar um ambiente onde cada pessoa realmente absorve o conteúdo.
+                </p>
+                <p class="text-base font-light text-slate-600 leading-relaxed">
+                    E isso só é possível em um espaço intencional, onde técnica, atmosfera e conforto trabalham juntos
+                    para <strong class="font-medium text-gt-dark">amplificar</strong> a sua entrega.
+                </p>
+                <p class="text-base font-light text-slate-600 leading-relaxed">
+                    A GT House foi criada exatamente para isso: um ambiente de alta performance onde <strong
+                        class="font-medium text-gt-dark">a profundidade vale mais que o tamanho.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="bg-slate-50 py-24">
+        <div class="max-w-3xl mx-auto px-6 lg:px-12">
+            <h2 class="text-2xl md:text-3xl  font-light tracking-tight text-gt-dark text-center mb-12 reveal">
+                Perguntas Frequentes</h2>
+
+            <div class="space-y-3">
+                <details class="group bg-white border border-slate-200/60 rounded-xl reveal reveal-delay-1" open>
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer p-6 text-sm text-slate-800 hover:text-gt-accent transition-colors">
+                        <span>Qual é o investimento para realizar uma imersão na GT House?</span>
+                        <span class="flex items-center text-slate-400 group-open:text-gt-dark">
+                            <iconify-icon icon="solar:minus-linear"
+                                class="hidden group-open:block text-xl"></iconify-icon>
+                            <iconify-icon icon="solar:add-linear"
+                                class="block group-open:hidden text-xl"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="faq-body text-sm font-light text-slate-600 px-6 pb-6 leading-relaxed">
+                        Após enviar sua solicitação, nossa equipe analisa o formato, duração e necessidades da sua
+                        imersão e envia uma proposta completa. Nosso foco é garantir que o investimento retorne em
+                        qualidade e experiência impecável.
+                    </div>
+                </details>
+                <details class="group bg-white border border-slate-200/60 rounded-xl reveal reveal-delay-2">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer p-6 text-sm text-slate-800 hover:text-gt-accent transition-colors">
+                        <span>Preciso contratar fornecedores externos para som, luz, vídeo ou operação?</span>
+                        <span class="flex items-center text-slate-400 group-open:text-gt-dark">
+                            <iconify-icon icon="solar:minus-linear"
+                                class="hidden group-open:block text-xl"></iconify-icon>
+                            <iconify-icon icon="solar:add-linear"
+                                class="block group-open:hidden text-xl"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="faq-body text-sm font-light text-slate-600 px-6 pb-6 leading-relaxed">
+                        Não. A GT House opera no modelo plug-and-play. Toda a estrutura técnica necessária já está
+                        inclusa e pronta para uso.
+                    </div>
+                </details>
+                <details class="group bg-white border border-slate-200/60 rounded-xl reveal reveal-delay-3">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer p-6 text-sm text-slate-800 hover:text-gt-accent transition-colors">
+                        <span>Posso visitar o espaço antes de fechar?</span>
+                        <span class="flex items-center text-slate-400 group-open:text-gt-dark">
+                            <iconify-icon icon="solar:minus-linear"
+                                class="hidden group-open:block text-xl"></iconify-icon>
+                            <iconify-icon icon="solar:add-linear"
+                                class="block group-open:hidden text-xl"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="faq-body text-sm font-light text-slate-600 px-6 pb-6 leading-relaxed">
+                        Sim, encorajamos visitas técnicas. Entre em contato com nossa equipe para agendar um horário.
+                    </div>
+                </details>
+                <details class="group bg-white border border-slate-200/60 rounded-xl reveal reveal-delay-4">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer p-6 text-sm text-slate-800 hover:text-gt-accent transition-colors">
+                        <span>A GT House oferece coffee break?</span>
+                        <span class="flex items-center text-slate-400 group-open:text-gt-dark">
+                            <iconify-icon icon="solar:minus-linear"
+                                class="hidden group-open:block text-xl"></iconify-icon>
+                            <iconify-icon icon="solar:add-linear"
+                                class="block group-open:hidden text-xl"></iconify-icon>
+                        </span>
+                    </summary>
+                    <div class="faq-body text-sm font-light text-slate-600 px-6 pb-6 leading-relaxed">
+                        Temos parcerias com fornecedores premium homologados que entregam A&B com o mesmo padrão de
+                        excelência do espaço.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="bg-white py-12 border-t border-slate-200/60 text-center">
+        <div class="flex items-center justify-center mb-4">
+            <img src="assets/logos/GT-House-Logo-branca (para fundos claros) horizontal (1).png" alt="GT House"
+                class="h-8 w-auto opacity-60">
+        </div>
+        <p class="text-xs font-light tracking-widest text-slate-400 uppercase">
+            © GT HOUSE — Todos os direitos reservados
+        </p>
+    </footer>
+
+    <!-- ═══ WhatsApp FAB ═══ -->
+    <a href="#" aria-label="Contato pelo WhatsApp"
+        class="wa-float fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#25D366]/25 border border-[#25D366]/20 hover:scale-110 transition-transform duration-300 z-50">
+        <iconify-icon icon="solar:chat-round-dots-linear" class="text-3xl"></iconify-icon>
+    </a>
+
+    <!-- ═══ Scripts ═══ -->
+    <script>
+        // ── Scroll Reveal ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ── Navbar scroll effect ──
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+        });
+    </script>
+
+</body>
+
+</html>

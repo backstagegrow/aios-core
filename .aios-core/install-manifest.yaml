@@ -8,9 +8,9 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-03-06T17:55:46.872Z"
+generated_at: "2026-03-12T18:07:45.589Z"
 generator: scripts/generate-install-manifest.js
-file_count: 1094
+file_count: 1095
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -784,6 +784,10 @@ files:
     hash: sha256:7e21cb18f666429746e97d477db799b4401aab036421d6a5fb821354b4e26131
     type: core
     size: 10392
+  - path: core/mcp/tool-router.js
+    hash: sha256:9edbcbf63095f140ebedc4427166194f2220d07edf519c35ed5fbc65b518902b
+    type: core
+    size: 2567
   - path: core/memory/__tests__/active-modules.verify.js
     hash: sha256:70f2689446adb1dc72faf2bd2c26c2d142814d4be30fee4f0e58b9163095a400
     type: core
@@ -801,9 +805,9 @@ files:
     type: core
     size: 1824
   - path: core/orchestration/agent-invoker.js
-    hash: sha256:4cb5cf020be06933052830434db73eb4caffe16f6a8157f57276f6d84122e3c6
+    hash: sha256:4fa538fb674c301f353ede46f8422d6e928a5166a8670dee634c5cabe8091c08
     type: core
-    size: 16573
+    size: 18627
   - path: core/orchestration/bob-orchestrator.js
     hash: sha256:84b4b5c9e2b82ea679137cecd69d16b05b92dfd295fb4bc95dfdbb3b32351f95
     type: core
@@ -1221,7 +1225,7 @@ files:
     type: data
     size: 9590
   - path: data/entity-registry.yaml
-    hash: sha256:e9f4fefdd6cec3934e6975b23126a7518186abe717ff851d49a1b46d915e3f7a
+    hash: sha256:7bbb04b4e790563cbf1115f3d94d775426ccabf6b3e47979c6395a8fb87b712d
     type: data
     size: 526613
   - path: data/learned-patterns.yaml

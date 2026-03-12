@@ -1,0 +1,110 @@
+{
+    "_meta_doc": "Bold story format — 9:16 vertical. Full-bleed background, headline dominant.",
+    "_meta_version": "1.0.0",
+    "1": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Positive Prompt",
+            "aios_param": "style_direction"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "{{AIOS:style_direction}}, vertical format, bold typographic poster, high contrast, editorial"
+        }
+    },
+    "2": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Negative Prompt"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "blurry, text, watermark, generic, low quality, horizontal composition"
+        }
+    },
+    "3": {
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+            "title": "Base Model"
+        },
+        "inputs": {
+            "ckpt_name": "sd_xl_base_1.0.safetensors"
+        }
+    },
+    "4": {
+        "class_type": "KSampler",
+        "_meta": {
+            "title": "Sampler — Bold"
+        },
+        "inputs": {
+            "model": [
+                "3",
+                0
+            ],
+            "positive": [
+                "1",
+                0
+            ],
+            "negative": [
+                "2",
+                0
+            ],
+            "latent_image": [
+                "5",
+                0
+            ],
+            "seed": 99999,
+            "steps": 30,
+            "cfg": 8.0,
+            "sampler_name": "dpmpp_2m",
+            "scheduler": "karras",
+            "denoise": 1.0
+        }
+    },
+    "5": {
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+            "title": "Canvas — 9:16 Story"
+        },
+        "inputs": {
+            "width": 768,
+            "height": 1344,
+            "batch_size": 1
+        }
+    },
+    "6": {
+        "class_type": "VAEDecode",
+        "_meta": {
+            "title": "Decode"
+        },
+        "inputs": {
+            "samples": [
+                "4",
+                0
+            ],
+            "vae": [
+                "3",
+                2
+            ]
+        }
+    },
+    "7": {
+        "class_type": "SaveImage",
+        "_meta": {
+            "title": "Save"
+        },
+        "inputs": {
+            "images": [
+                "6",
+                0
+            ],
+            "filename_prefix": "aios_story"
+        }
+    }
+}

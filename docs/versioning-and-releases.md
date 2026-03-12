@@ -13,9 +13,9 @@ The easiest way to release new versions is through **automatic semantic releases
 Use these prefixes to control what type of release happens:
 
 ```bash
-fix: resolve CLI argument parsing bug      # → patch release (4.1.0 → 4.1.1)
-feat: add new agent orchestration mode     # → minor release (4.1.0 → 4.2.0)
-feat!: redesign CLI interface              # → major release (4.1.0 → 5.0.0)
+fix: resolve CLI argument parsing bug      # → patch release (4.4.6 → 4.4.7)
+feat: add new agent orchestration mode     # → minor release (4.4.6 → 4.5.0)
+feat!: redesign CLI interface              # → major release (4.4.6 → 5.0.0)
 ```
 
 ### What Happens Automatically
@@ -67,9 +67,9 @@ npm run release:test    # Safe to run locally - tests the config
 ### Quick Manual Version Bump
 
 ```bash
-npm run version:patch   # 4.1.0 → 4.1.1 (bug fixes)
-npm run version:minor   # 4.1.0 → 4.2.0 (new features)
-npm run version:major   # 4.1.0 → 5.0.0 (breaking changes)
+npm run version:patch   # 4.4.6 → 4.4.7 (bug fixes)
+npm run version:minor   # 4.4.6 → 4.5.0 (new features)
+npm run version:major   # 4.4.6 → 5.0.0 (breaking changes)
 
 # Then manually publish:
 npm publish

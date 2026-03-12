@@ -144,7 +144,7 @@ async function main() {
 
     // 3. Create Lists under Agents folder (per squad)
     const squads = [
-        'bks-growth-ops', 'bks-copy-elite', 'bks-sales-page-ops',
+        'bks-growth-ops', 'nexus-copy-elite', 'bks-sales-page-ops',
         'bks-executive-board', 'bks-campaign-vanguard', 'bks-devops'
     ];
 
@@ -204,20 +204,20 @@ async function main() {
 
     // Copy Elite agents
     const copyEliteAgents = [
-        { name: '👑 copy_chief', role: 'Elite Copy Director', category: 'Orchestrator' },
-        { name: '🔬 market_research_strategist', role: 'Market Awareness & Sophistication Strategist', category: 'Research' },
-        { name: '💡 big_idea_engineer', role: 'Big Idea Engineer', category: 'Ideation' },
-        { name: '🎁 offer_architect', role: 'Offer Architect', category: 'Ideation' },
-        { name: '✍️ conversion_copywriter', role: 'Elite Conversion Copywriter', category: 'Copy' },
-        { name: '🏷️ brand_positioning_writer', role: 'Brand Positioning Writer', category: 'Copy' },
-        { name: '🎬 script_specialist', role: 'Script Specialist', category: 'Copy' },
-        { name: '🎯 persuasion_optimizer', role: 'Persuasion Optimizer (QA)', category: 'QA' },
+        { name: '👑 nexus_copy_chief', role: 'Nexus Elite Copy Director', category: 'Orchestrator' },
+        { name: '🔬 nexus_market_strategist', role: 'Nexus Market Research Strategist', category: 'Research' },
+        { name: '💡 nexus_big_idea_architect', role: 'Nexus Big Idea & Positioning Architect', category: 'Ideation' },
+        { name: '🎁 nexus_offer_specialist', role: 'Nexus Offer & Value Engineering Specialist', category: 'Ideation' },
+        { name: '✍️ nexus_conversion_copywriter', role: 'Nexus Elite Conversion Copywriter', category: 'Copy' },
+        { name: '🏷️ nexus_brand_positioning_writer', role: 'Nexus Brand Authority & Positioning Copywriter', category: 'Copy' },
+        { name: '🎬 nexus_script_specialist', role: 'Nexus Script & VSL Specialist', category: 'Copy' },
+        { name: '🎯 nexus_persuasion_optimizer', role: 'Nexus Persuasion & QA Optimizer', category: 'QA' },
     ];
 
     for (const agent of copyEliteAgents) {
-        const task = await createTask(squadLists['bks-copy-elite'].id, {
+        const task = await createTask(squadLists['nexus-copy-elite'].id, {
             name: agent.name,
-            description: `**Role:** ${agent.role}\n**Squad:** bks-copy-elite\n**Categoria:** ${agent.category}\n**Modelo:** claude-sonnet-4-20250514\n**Versão:** 1.0.0\n**Status:** Ativo`,
+            description: `**Role:** ${agent.role}\n**Squad:** nexus-copy-elite\n**Categoria:** ${agent.category}\n**Modelo:** claude-sonnet-4-20250514\n**Versão:** 1.0.0\n**Status:** Ativo`,
             priority: 2,
             status: 'TO DO',
         });

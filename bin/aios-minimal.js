@@ -3,7 +3,7 @@
 /**
  * AIOS-FullStack Minimal Installation
  *
- * DEPRECATED (since v3.11.1, scheduled for removal in v5.0.0):
+ * DEPRECATED (since v4.4.6, scheduled for removal in v5.0.0):
  * The --minimal mode was designed for squads which have been
  * replaced by the Squads system (OSR-8). This command now runs the
  * standard wizard through the main router.

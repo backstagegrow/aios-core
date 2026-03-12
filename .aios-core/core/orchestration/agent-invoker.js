@@ -21,6 +21,16 @@
 const fs = require('fs-extra');
 const path = require('path');
 const EventEmitter = require('events');
+const ToolRouter = require('../mcp/tool-router');
+
+// Import RAG Memory
+let ragMemory = null;
+try {
+  ragMemory = require('../../../packages/rag/memory.js');
+} catch (e) {
+  // Graceful fallback if not present or failing
+  console.warn('[AgentInvoker] Skipping RAG memory initialization. Error:', e.message);
+}
 
 // ═══════════════════════════════════════════════════════════════════════════════════
 //                              SUPPORTED AGENTS (AC2)
@@ -113,6 +123,9 @@ class AgentInvoker extends EventEmitter {
     this.agentsDir = path.join(this.projectRoot, '.aios-core', 'development', 'agents');
     this.tasksDir = path.join(this.projectRoot, '.aios-core', 'development', 'tasks');
 
+    // Tool Router (Supervisor for dynamic MCP)
+    this.toolRouter = new ToolRouter(this.projectRoot);
+
     // Audit log (AC7)
     this.invocations = [];
     this.logs = [];
@@ -163,6 +176,25 @@ class AgentInvoker extends EventEmitter {
       // Build context (AC3)
       const context = this._buildContext(agent, task, inputs);
 
+      // Auto-Read (RAG Context Injection)
+      if (ragMemory) {
+        try {
+          const pastExperiences = await ragMemory.searchAgentExperiences(task.title || agentName, {
+            agent_name: agentName,
+            limit: 3
+          });
+          if (pastExperiences && pastExperiences.length > 0) {
+            context.empirical_learning = pastExperiences.map(e => `[Score: ${e.outcome_score}/10]: ${e.summary}`).join('\n\n');
+            this._log(`[RAG] Injected ${pastExperiences.length} past experiences for @${agentName}`);
+          }
+        } catch (e) {
+          this._log(`[RAG] Failed to fetch agent experiences: ${e.message}`, 'warn');
+        }
+      }
+
+      // Mutate MCP configuration before execution (Dynamic Tool Router / Supervisor)
+      await this.toolRouter.switchToAgentContext(agentName);
+
       // Execute with retry logic (AC6)
       const result = await this._executeWithRetry(() => this._executeTask(agent, task, context), {
         invocation,
@@ -181,6 +213,25 @@ class AgentInvoker extends EventEmitter {
 
       this._log(`@${agentName} completed ${taskPath} in ${invocation.duration}ms`, 'info');
       this.emit('invocationComplete', invocation);
+
+      // Auto-Write (Memory Retention)
+      if (ragMemory) {
+        try {
+          let summary = "Task Execution succeeded.";
+          if (typeof result === 'string') summary = result.substring(0, 500);
+          else if (result && result.output) summary = String(result.output).substring(0, 500);
+
+          await ragMemory.storeAgentExperience({
+            agent_name: agentName,
+            task_type: taskPath.replace(/\.md$/, ''), // normalizando
+            outcome_score: 8, // base score for success
+            summary: `Automated retention log: \n${summary}...`
+          });
+          this._log(`[RAG] Successfully stored task retentive memory for @${agentName}`);
+        } catch (e) {
+          this._log(`[RAG] Could not retain agent experience: ${e.message}`, 'warn');
+        }
+      }
 
       return {
         success: true,

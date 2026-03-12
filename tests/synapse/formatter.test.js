@@ -278,6 +278,25 @@ describe('formatSynapseRules', () => {
     expect(xml).toContain('LOADED DOMAINS:');
   });
 
+  test('should omit SUMMARY section when format options disable it', () => {
+    const results = [
+      makeResult('constitution', ['Rule 1'], { activationReason: 'always active' }),
+    ];
+    const xml = formatSynapseRules(
+      results,
+      'FRESH',
+      85,
+      defaultSession,
+      false,
+      defaultMetrics,
+      2000,
+      false,
+      { includeSummary: false },
+    );
+
+    expect(xml).not.toContain('[LOADED DOMAINS SUMMARY]');
+  });
+
   test('should skip sections with empty rules', () => {
     const results = [
       { rules: [], metadata: { source: 'agent', layer: 2 } },

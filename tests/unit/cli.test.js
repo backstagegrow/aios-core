@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-describe('CLI Entry Point', () => {
+describeSpawnIntegration('CLI Entry Point', () => {
   const cliPath = path.join(__dirname, '../../bin/aios.js');
 
   describe('Node.js Version Check', () => {

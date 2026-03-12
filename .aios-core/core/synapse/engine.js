@@ -21,6 +21,7 @@ const {
   needsMemoryHints,
   needsHandoffWarning,
 } = require('./context/context-tracker');
+const { buildContextBudgetProfile } = require('./context/context-budget-manager');
 const { buildLayerContext } = require('./context/context-builder');
 
 const { formatSynapseRules } = require('./output/formatter');
@@ -240,6 +241,7 @@ class SynapseEngine {
     // 1. Calculate bracket (or use fixed layers in non-legacy mode)
     const promptCount = (session && session.prompt_count) || 0;
     let contextPercent, bracket, activeLayers, tokenBudget;
+    let bracketLayers = DEFAULT_ACTIVE_LAYERS;
 
     if (LEGACY_MODE) {
       // Full 8-layer processing with bracket-based filtering
@@ -254,15 +256,28 @@ class SynapseEngine {
         return { xml: '', metrics: metrics.getSummary() };
       }
       activeLayers = layerConfig.layers;
+      bracketLayers = layerConfig.layers;
     } else {
       // NOG-18: Simplified — always load L0-L2, skip bracket calculation.
       // L3-L7 produced 0 rules (require session context that never exists).
       // Bracket management replaced by native /compact.
       contextPercent = estimateContextPercent(promptCount);
       bracket = calculateBracket(contextPercent);
-      activeLayers = DEFAULT_ACTIVE_LAYERS;
       tokenBudget = getTokenBudget(bracket);
+      activeLayers = DEFAULT_ACTIVE_LAYERS;
     }
+
+    const budgetProfile = buildContextBudgetProfile({
+      prompt,
+      session: session || {},
+      bracket,
+      baseTokenBudget: tokenBudget,
+      bracketLayers,
+      legacyMode: LEGACY_MODE,
+      devmode: mergedConfig.devmode === true,
+    });
+    activeLayers = budgetProfile.activeLayers;
+    tokenBudget = budgetProfile.tokenBudget;
 
     // 2. Execute layers sequentially
     const results = [];
@@ -341,6 +356,7 @@ class SynapseEngine {
       summary,
       tokenBudget,
       needsHandoffWarning(bracket),
+      budgetProfile.formatOptions,
     );
 
     return { xml, metrics: summary, bracket };

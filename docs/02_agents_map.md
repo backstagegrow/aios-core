@@ -19,16 +19,16 @@ Foco: *Engenharia e Otimização de Campanhas Diretas*
 - **`performance_campaign_architect`** (Orquestrador)
 - **`media_intelligence_spy`** (Pesquisa & Spy)
 
-### ✍️ **Squad: BKS Copy Elite**
-Foco: *Conversão, Redação e Estratégia de Mensagem*
-- **`copy_chief`** (Orquestrador QA e Direção Criativa)
-- **`brand_positioning_writer`** (Copywriting - Posicionamento)
-- **`conversion_copywriter`** (Copywriting - Alta conversão DR)
-- **`script_specialist`** (VSL e Áudio)
-- **`big_idea_engineer`** (Ideação de Hooks & Big Ideas)
-- **`offer_architect`** (Criação do pacote de oferta irresistível)
-- **`persuasion_optimizer`** (QA de nível de persuasão e leitura)
-- **`market_research_strategist`** (Pesquisa de dor/desejo/ICP)
+### ✍️ **Squad: Nexus Copy Elite**
+Foco: *Conversão, Redação e Estratégia de Mensagem Premium*
+- **`nexus_copy_chief`** (Orquestrador QA e Direção Criativa)
+- **`nexus_brand_positioning_writer`** (Copywriting - Posicionamento)
+- **`nexus_conversion_copywriter`** (Copywriting - Alta conversão DR)
+- **`nexus_script_specialist`** (VSL e Áudio)
+- **`nexus_big_idea_architect`** (Ideação de Hooks & Big Ideas)
+- **`nexus_offer_specialist`** (Criação do pacote de oferta irresistível)
+- **`nexus_persuasion_optimizer`** (QA de nível de persuasão e leitura)
+- **`nexus_market_strategist`** (Pesquisa de dor/desejo/ICP)
 
 ### 🩺 **Squad: BKS DevOps**
 Foco: *Ciência, Monitoramento e Resiliência da Infraestrutura*

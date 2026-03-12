@@ -117,7 +117,7 @@ function buildInput(cwd, overrides = {}) {
 // Test Suites
 // ---------------------------------------------------------------------------
 
-describe('SYNAPSE Hook Entry Point (synapse-engine.cjs)', () => {
+describeSpawnIntegration('SYNAPSE Hook Entry Point (synapse-engine.cjs)', () => {
   let tmpDir;
 
   afterEach(() => {

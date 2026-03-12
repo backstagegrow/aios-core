@@ -24,9 +24,9 @@ Este pacote é responsável por gerar os Design Systems de múltiplos clientes d
 }
 ```
 
-3.  Roda o comando de geração:
+3.  Roda o comando de geração no console:
     ```bash
-    npm run ds:sync
+    cd apps/brand-console && npm run ds:sync
     ```
 
 ## Arquitetura de 3 Camadas

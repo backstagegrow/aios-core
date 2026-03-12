@@ -3,9 +3,9 @@
 /**
  * AIOS-FullStack Installation Wizard v5 (LEGACY)
  * Based on the original beautiful visual design with ASCII art
- * Version: 2.1.0
+ * Version: 4.4.6
  *
- * ⚠️ DEPRECATED (since v3.11.3, scheduled for removal in v5.0.0):
+ * ⚠️ DEPRECATED (since v4.4.6, scheduled for removal in v5.0.0):
  * This file is the LEGACY installer.
  * The new modular wizard is located at: packages/installer/src/wizard/index.js
  *
@@ -84,8 +84,8 @@ function resolveAiosCoreModule(modulePath) {
   if (!moduleExists) {
     throw new Error(
       `Cannot find AIOS Core module: ${modulePath}\n` +
-        `Searched: ${aiosCoreModule}\n` +
-        'Please ensure aios-core is installed correctly.'
+      `Searched: ${aiosCoreModule}\n` +
+      'Please ensure aios-core is installed correctly.'
     );
   }
 
@@ -515,7 +515,7 @@ async function main() {
     await fse.copy(sourceCoreDir, targetCoreDir);
     copySpinner.succeed(
       'AIOS Core files installed ' +
-        chalk.gray('(11 agents, 68 tasks, 23 templates)')
+      chalk.gray('(11 agents, 68 tasks, 23 templates)')
     );
 
     // Create installed manifest for brownfield upgrades (Story 6.18)
@@ -531,16 +531,16 @@ async function main() {
           );
           console.log(
             chalk.green('✓') +
-              ' Installation manifest created ' +
-              chalk.gray('(enables future upgrades)')
+            ' Installation manifest created ' +
+            chalk.gray('(enables future upgrades)')
           );
         }
       } catch (manifestErr) {
         // Non-critical - just log warning
         console.log(
           chalk.yellow('⚠') +
-            ' Could not create installation manifest ' +
-            chalk.gray('(brownfield upgrades may not work)')
+          ' Could not create installation manifest ' +
+          chalk.gray('(brownfield upgrades may not work)')
         );
       }
     }
@@ -946,8 +946,8 @@ See .aios-core/user-guide.md for complete documentation.
       console.log('');
       console.log(
         chalk.yellow('   Run ') +
-          chalk.cyan('aios validate --repair') +
-          chalk.yellow(' to fix issues')
+        chalk.cyan('aios validate --repair') +
+        chalk.yellow(' to fix issues')
       );
     } else {
       validationSpinner.succeed(`Installation verified (${report.stats.validFiles} files)`);
@@ -1020,11 +1020,11 @@ See .aios-core/user-guide.md for complete documentation.
     const ideDir = ide === 'gemini' ? '.gemini' : `.${ide}`;
     console.log(
       '  ' +
-        chalk.dim(`${ideDir}/`) +
-        '           - ' +
-        ide.charAt(0).toUpperCase() +
-        ide.slice(1) +
-        ' configuration'
+      chalk.dim(`${ideDir}/`) +
+      '           - ' +
+      ide.charAt(0).toUpperCase() +
+      ide.slice(1) +
+      ' configuration'
     );
   }
 

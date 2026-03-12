@@ -32,7 +32,7 @@ Identificamos a descentralização de agentes nos seguintes domínios:
    - `policies/`: Regras de negócio restritivas (ex: Security Baseline, Guardrails).
 
 2. **`squads/bks-campaign-vanguard/`**: Operações táticas de campanhas e inteligência de mídia.
-3. **`squads/bks-copy-elite/`**: Guilda de Copywriting (ideação, QA, redação, pesquisa).
+3. **`squads/nexus-copy-elite/`**: Guilda de Copywriting (ideação, QA, redação, pesquisa).
 4. **`squads/bks-devops/`**: Monitoria de Agents e saúde do sistema (`agent_doctor`).
 5. **`squads/bks-executive-board/`**: Orquestração central (CEO, CFO, CMO, COO simulators).
 6. **`squads/bks-growth-ops/`**: Tráfego pago, funil e engenharia de Landing Pages.

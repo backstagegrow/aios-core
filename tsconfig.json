@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["ES2022"],
     "strict": true,
     "esModuleInterop": true,
@@ -12,6 +13,7 @@
     "allowJs": true,
     "checkJs": false,
     "noEmit": true,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": [

@@ -1,0 +1,110 @@
+{
+    "_meta_doc": "Editorial light — white/light bg, editorial photography style, low text density.",
+    "_meta_version": "1.0.0",
+    "1": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Positive Prompt",
+            "aios_param": "style_direction"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "{{AIOS:style_direction}}, white background, editorial photography, airy, clean minimalist, high key lighting, magazine style"
+        }
+    },
+    "2": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Negative Prompt"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "dark, cluttered, low quality, watermark, text, busy background"
+        }
+    },
+    "3": {
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+            "title": "Base Model"
+        },
+        "inputs": {
+            "ckpt_name": "sd_xl_base_1.0.safetensors"
+        }
+    },
+    "4": {
+        "class_type": "KSampler",
+        "_meta": {
+            "title": "Sampler — Editorial"
+        },
+        "inputs": {
+            "model": [
+                "3",
+                0
+            ],
+            "positive": [
+                "1",
+                0
+            ],
+            "negative": [
+                "2",
+                0
+            ],
+            "latent_image": [
+                "5",
+                0
+            ],
+            "seed": 54321,
+            "steps": 28,
+            "cfg": 6.5,
+            "sampler_name": "euler",
+            "scheduler": "normal",
+            "denoise": 1.0
+        }
+    },
+    "5": {
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+            "title": "Canvas — 1:1 Square"
+        },
+        "inputs": {
+            "width": 1024,
+            "height": 1024,
+            "batch_size": 1
+        }
+    },
+    "6": {
+        "class_type": "VAEDecode",
+        "_meta": {
+            "title": "Decode"
+        },
+        "inputs": {
+            "samples": [
+                "4",
+                0
+            ],
+            "vae": [
+                "3",
+                2
+            ]
+        }
+    },
+    "7": {
+        "class_type": "SaveImage",
+        "_meta": {
+            "title": "Save"
+        },
+        "inputs": {
+            "images": [
+                "6",
+                0
+            ],
+            "filename_prefix": "aios_editorial"
+        }
+    }
+}

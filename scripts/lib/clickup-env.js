@@ -1,15 +1,5 @@
 /**
  * Centralized ClickUp API Key Loader
- *
- * ALL scripts that need ClickUp API access MUST use this module.
- * The API key is loaded from environment variable CLICKUP_API_KEY
- * defined in the project root .env file.
- *
- * Usage:
- *   const { API_KEY, clickupRequest } = require('./lib/clickup-env');
- *
- * @since 2026-03-01
- * @author Aria (architect) — Security Hardening Sprint
  */
 
 const path = require('path');
@@ -42,20 +32,12 @@ loadEnv();
 const API_KEY = process.env.CLICKUP_API_KEY;
 
 if (!API_KEY) {
-    console.error(
-        '❌ CLICKUP_API_KEY not found.\n' +
-        '   Set it in your .env file or as an environment variable.\n' +
-        '   See .env.example for reference.'
-    );
+    console.error('❌ CLICKUP_API_KEY not found.');
     process.exit(1);
 }
 
 /**
  * Reusable ClickUp HTTP request helper.
- * @param {'GET'|'POST'|'PUT'|'DELETE'} method
- * @param {string} apiPath - e.g. '/task/abc123'
- * @param {object} [body]
- * @returns {Promise<{status: number, data: any}>}
  */
 function clickupRequest(method, apiPath, body) {
     return new Promise((resolve, reject) => {
@@ -80,7 +62,15 @@ function clickupRequest(method, apiPath, body) {
                 } catch {
                     parsed = data;
                 }
-                resolve({ status: res.statusCode, data: parsed });
+
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    resolve(parsed);
+                } else {
+                    const err = new Error(`ClickUp API Error: ${res.statusCode}`);
+                    err.status = res.statusCode;
+                    err.data = parsed;
+                    reject(err);
+                }
             });
         });
 

@@ -13,7 +13,7 @@ describe('validate-aios-core-deps.js (INS-4.12)', () => {
     expect(fs.existsSync(VALIDATOR_PATH)).toBe(true);
   });
 
-  test('passes on current codebase (all deps declared)', () => {
+  testSpawnIntegration('passes on current codebase (all deps declared)', () => {
     const result = execSync(`node "${VALIDATOR_PATH}"`, {
       encoding: 'utf8',
       cwd: PROJECT_ROOT,

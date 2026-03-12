@@ -1,0 +1,132 @@
+{
+    "_meta_doc": "Starter workflow template for reference-based posts. Load this in ComfyUI and customize node IDs.",
+    "_meta_version": "1.0.0",
+    "_meta_aios": "To inject AIOS params, add _meta.aios_param to any KSampler/CLIPTextEncode node. See render.ts for the injection logic.",
+    "1": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Positive Prompt — Headline",
+            "aios_param": "headline"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "{{AIOS:headline}}"
+        }
+    },
+    "2": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Positive Prompt — Style Direction",
+            "aios_param": "style_direction"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "{{AIOS:style_direction}}, professional photography, high quality, sharp, 8k"
+        }
+    },
+    "3": {
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+            "title": "Negative Prompt"
+        },
+        "inputs": {
+            "clip": [
+                "4",
+                1
+            ],
+            "text": "text, watermark, blurry, low quality, nsfw, generic stock photo"
+        }
+    },
+    "4": {
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+            "title": "Base Model — Swap as needed"
+        },
+        "inputs": {
+            "ckpt_name": "sd_xl_base_1.0.safetensors"
+        }
+    },
+    "5": {
+        "class_type": "KSampler",
+        "_meta": {
+            "title": "Main Sampler"
+        },
+        "inputs": {
+            "model": [
+                "4",
+                0
+            ],
+            "positive": [
+                "1",
+                0
+            ],
+            "negative": [
+                "3",
+                0
+            ],
+            "latent_image": [
+                "6",
+                0
+            ],
+            "seed": 42,
+            "steps": 30,
+            "cfg": 7.5,
+            "sampler_name": "dpmpp_2m",
+            "scheduler": "karras",
+            "denoise": 1.0
+        }
+    },
+    "6": {
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+            "title": "Canvas Size — instagram-square (1:1)"
+        },
+        "inputs": {
+            "width": 1024,
+            "height": 1024,
+            "batch_size": 1
+        }
+    },
+    "7": {
+        "class_type": "VAEDecode",
+        "_meta": {
+            "title": "Decode to Image"
+        },
+        "inputs": {
+            "samples": [
+                "5",
+                0
+            ],
+            "vae": [
+                "4",
+                2
+            ]
+        }
+    },
+    "8": {
+        "class_type": "SaveImage",
+        "_meta": {
+            "title": "Save PNG Output"
+        },
+        "inputs": {
+            "images": [
+                "7",
+                0
+            ],
+            "filename_prefix": "aios_post"
+        }
+    },
+    "_aios_notes": {
+        "ip_adapter": "Add IPAdapterModelLoader + IPAdapterApply nodes after node 4 to inject reference_image",
+        "controlnet": "Add ControlNetLoader + ControlNetApply for structural guidance",
+        "upscale": "Add UltimateSDUpscale node after node 8 for final resolution bump",
+        "text_overlay": "For text overlays (headline/CTA on image), use a separate post-processing step outside ComfyUI (sharp.js, PIL, or canvas)",
+        "variations": "Duplicate the KSampler node with different seeds for 4 variations"
+    }
+}

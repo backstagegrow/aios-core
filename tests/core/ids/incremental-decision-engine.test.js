@@ -752,7 +752,7 @@ describe('IncrementalDecisionEngine', () => {
   // CLI integration test (Task 8.6)
   // ==============================================================
 
-  describe('CLI command integration', () => {
+  describeSpawnIntegration('CLI command integration', () => {
     const { execSync } = require('child_process');
     const cliPath = path.resolve(__dirname, '..', '..', '..', 'bin', 'aios-ids.js');
 

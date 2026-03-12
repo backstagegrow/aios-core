@@ -6,17 +6,17 @@ Aqui está a tabela completa com todos os seus agentes atuais e suas respectivas
 | **performance_campaign_architect** | Performance Campaign Architect |
 | **media_intelligence_spy** | Media Intelligence Spy |
 
-### ✍️ Squad: bks-copy-elite
+### ✍️ Squad: nexus-copy-elite
 | Agente | Funcionalidade (Role) |
 |---|---|
-| **copy_chief** | Elite Copy Director |
-| **brand_positioning_writer** | Brand Authority & Positioning Copywriter |
-| **conversion_copywriter** | Elite Conversion Copywriter |
-| **script_specialist** | Video & Audio Script Specialist |
-| **big_idea_engineer** | Big Idea & Positioning Architect |
-| **offer_architect** | Offer & Value Engineering Specialist |
-| **persuasion_optimizer** | Persuasion & Flow Optimizer |
-| **market_research_strategist** | Market Awareness & Sophistication Strategist |
+| **nexus_copy_chief** | Nexus Elite Copy Director |
+| **nexus_brand_positioning_writer** | Nexus Brand Authority & Positioning Copywriter |
+| **nexus_conversion_copywriter** | Nexus Elite Conversion Copywriter |
+| **nexus_script_specialist** | Nexus Script & VSL Specialist |
+| **nexus_big_idea_architect** | Nexus Big Idea & Positioning Architect |
+| **nexus_offer_specialist** | Nexus Offer & Value Engineering Specialist |
+| **nexus_persuasion_optimizer** | Nexus Persuasion & QA Optimizer |
+| **nexus_market_strategist** | Nexus Market Research Strategist |
 
 ### 🛠️ Squad: bks-devops
 | Agente | Funcionalidade (Role) |

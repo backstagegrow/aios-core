@@ -30,6 +30,8 @@ module.exports = [
       '**/.aios-core/_legacy-v4.31.0/**',
       '**/web-bundles/**',
       '**/*.min.js',
+      '**/geral/**',
+      '**/_tmp_fetch_ads.js',
       '**/aios-core/*.js',
       '**/templates/squad/**',
       // Squad template - ES modules with placeholder imports
@@ -159,6 +161,19 @@ module.exports = [
         URL: 'readonly',
         URLSearchParams: 'readonly',
       },
+    },
+  },
+
+  {
+    files: [
+      'apps/*/eslint.config.js',
+      'apps/*/vite.config.js',
+      'apps/*/tailwind.config.js',
+      'apps/*/postcss.config.js',
+    ],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
     },
   },
 

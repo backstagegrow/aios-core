@@ -13,7 +13,7 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-describe('Onboarding smoke flow (AIOS-DIFF-4.0.5)', () => {
+describeSpawnIntegration('Onboarding smoke flow (AIOS-DIFF-4.0.5)', () => {
   const repoRoot = path.resolve(__dirname, '..', '..');
   const cliBin = path.join(repoRoot, 'bin', 'aios.js');
   const greetingScript = path.join(

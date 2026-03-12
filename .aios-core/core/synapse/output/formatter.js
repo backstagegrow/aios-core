@@ -64,16 +64,21 @@ const LAYER_TO_SECTION = {
  * @param {object[]} globalResults - Results from global/context layers
  * @returns {string}
  */
-function formatContextBracket(bracket, contextPercent, globalResults) {
+function formatContextBracket(bracket, contextPercent, globalResults, options = {}) {
+  const globalRuleLimit = Number.isInteger(options.globalRuleLimit) ? options.globalRuleLimit : null;
   const lines = [`[CONTEXT BRACKET]\nCONTEXT BRACKET: [${bracket}] (${contextPercent.toFixed(1)}% remaining)`];
 
   // Include global/context rules if present
   for (const result of globalResults) {
     if (result && result.rules && result.rules.length > 0) {
       lines.push(`[${bracket}] CONTEXT RULES:`);
-      result.rules.forEach((rule, i) => {
+      const visibleRules = globalRuleLimit != null ? result.rules.slice(0, globalRuleLimit) : result.rules;
+      visibleRules.forEach((rule, i) => {
         lines.push(`  ${i + 1}. ${rule}`);
       });
+      if (globalRuleLimit != null && result.rules.length > globalRuleLimit) {
+        lines.push(`  ... ${result.rules.length - globalRuleLimit} more rule(s) omitted for budget`);
+      }
     }
   }
 
@@ -466,7 +471,7 @@ const SECTION_FORMATTERS = {
  * @param {boolean} showHandoffWarning - Whether to include handoff warning
  * @returns {string} Formatted <synapse-rules> XML string
  */
-function formatSynapseRules(results, bracket, contextPercent, session, devmode, metrics, tokenBudget, showHandoffWarning) {
+function formatSynapseRules(results, bracket, contextPercent, session, devmode, metrics, tokenBudget, showHandoffWarning, formatOptions = {}) {
   if (!results || results.length === 0) {
     return '';
   }
@@ -507,7 +512,7 @@ function formatSynapseRules(results, bracket, contextPercent, session, devmode, 
   const sectionIds = [];
 
   // CONTEXT BRACKET — always first
-  sections.push(formatContextBracket(bracket, contextPercent, globalResults));
+  sections.push(formatContextBracket(bracket, contextPercent, globalResults, formatOptions));
   sectionIds.push('CONTEXT_BRACKET');
 
   // Remaining sections in order (skip CONTEXT_BRACKET since already added)
@@ -539,7 +544,7 @@ function formatSynapseRules(results, bracket, contextPercent, session, devmode, 
   }
 
   // SUMMARY — always last
-  if (results.length > 0) {
+  if (results.length > 0 && formatOptions.includeSummary !== false) {
     sections.push(formatSummary(results, metrics || {}));
     sectionIds.push('SUMMARY');
   }

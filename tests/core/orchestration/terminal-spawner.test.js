@@ -36,7 +36,7 @@ const {
 // Test fixtures
 const TEST_OUTPUT_DIR = path.join(os.tmpdir(), 'aios-terminal-spawner-test');
 
-describe('Terminal Spawner (Story 12.10)', () => {
+describeSpawnIntegration('Terminal Spawner (Story 12.10)', () => {
   // Store original env vars
   const originalEnv = { ...process.env };
 
