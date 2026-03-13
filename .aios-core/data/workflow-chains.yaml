@@ -154,3 +154,109 @@ workflows:
         task: brownfield-create-epic.md
         output: Epic + stories ready for development
         condition: QA gate APPROVED
+
+  # 5. Site Creation — END-TO-END SITE BUILD (Uma / UX-Design-Expert)
+  - id: site-creation
+    name: Site Creation
+    description: End-to-end workflow from brand tokens to deployed pages
+    agent: "@ux-design-expert"
+    trigger: "*create-site {client-slug}"
+    workflow_file: .antigravity/workflows/site-creation.md
+    chain:
+      - step: 1
+        agent: "@ux-design-expert"
+        command: "*generate-manifest"
+        task: generate-project-manifest.md
+        output: project-manifest.yaml at project root
+        condition: New site project, or manifest not yet generated
+      - step: 2
+        agent: "@ux-design-expert"
+        command: "*load-brand-tokens {slug}"
+        task: load-brand-engine-tokens.md
+        output: Token snapshot in .state.yaml
+        condition: brand_engine_client set in manifest
+        alternatives:
+          - agent: "@ux-design-expert"
+            command: "*discover"
+            condition: No Brand Engine client (custom design system)
+      - step: 3
+        agent: "@ux-design-expert"
+        command: "*spec-page {name}"
+        task: spec-page.md
+        output: Approved page spec
+        condition: Page complexity score >= 9 (4+ sections, forms, integrations)
+      - step: 4
+        agent: "@ux-design-expert"
+        command: "*create-page {name}"
+        task: create-page.md
+        output: Complete page file
+        condition: Design system discovered, spec approved (if required)
+        alternatives:
+          - agent: "@ux-design-expert"
+            command: "*create-page {name}"
+            condition: Repeat for each page in site plan
+      - step: 5
+        agent: "@ux-design-expert"
+        command: "*deploy"
+        task: deploy.md
+        output: Site published to platform
+        condition: All pages created and validated
+        alternatives:
+          - agent: "@devops"
+            command: "*push"
+            condition: Platform uses git-connected auto-deploy (Cloudflare Pages)
+
+  # 5. Copy Creation Chain — COPY & ADS PRODUCTION
+  - id: copy-creation-chain
+    name: Copy Creation Chain
+    description: Unified entry point for all copy requests — social media, ads, sales pages, scripts
+    chain:
+      - step: 1
+        agent: "nexus-copy-elite/copy_router"
+        command: "route {copy-request}"
+        output: Classification + routed agent + clone council recommendation
+        condition: Any copy request received
+      - step: 2
+        agent: "nexus-copy-elite/clone_council"
+        command: "council {brief}"
+        output: Clone Council synthesis (2-3 experts + unified strategic directives)
+        condition: Router classification complete
+      - step: 3
+        agent: "nexus-copy-elite/market_strategist OR revenue-ops/organic_analyst"
+        command: "research {client-context}"
+        output: Market research + awareness level + hooks
+        condition: Council synthesis available
+        alternatives:
+          - agent: "nexus-copy-elite/market_strategist"
+            condition: B2B high-ticket, complex brief
+          - agent: "revenue-ops/organic_analyst"
+            condition: Existing organic content available for cross-reference
+      - step: 4
+        agent: "nexus-copy-elite/big_idea_architect"
+        command: "ideate {brief + council synthesis + research}"
+        output: Big Idea + hook angles
+        condition: Research complete
+        skip_if: ad_copy or social_post (lightweight — use angles from router instead)
+      - step: 5
+        agent: "routed-by-step-1"
+        command: "write {type}"
+        output: Final copy (ads/social/sales-page/script/email)
+        condition: Big Idea or Angle Strategy ready
+        variants:
+          ad_copy: "nexus-revenue-ops/paid_ads_copywriter"
+          social_post: "nexus-revenue-ops/social_media_copywriter"
+          sales_page: "nexus-conversion-architects/sales_page_copywriter"
+          email_sequence: "nexus-copy-elite/conversion_copywriter"
+          vsl_script: "nexus-copy-elite/script_specialist"
+          brand_copy: "nexus-copy-elite/brand_positioning_writer"
+          full_funnel: "nexus-copy-elite (full orchestration)"
+      - step: 6
+        agent: "nexus-copy-elite/persuasion_optimizer"
+        command: "qa {copy}"
+        output: Score (0-10) + APPROVED or revision request
+        condition: Copy draft complete
+        threshold: Score >= 8 required for approval
+        alternatives:
+          - agent: "nexus-copy-elite/persuasion_optimizer"
+            command: "qa-revision {copy + feedback}"
+            condition: Score < 8 — max 2 revision cycles

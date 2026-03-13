@@ -206,6 +206,16 @@ describe('IDE Config Generator', () => {
       // AntiGravity uses .antigravity/rules.md
       const configPath = path.join(testDir, '.antigravity', 'rules.md');
       expect(await fs.pathExists(configPath)).toBe(true);
+
+      const canonicalAgentsDir = path.join(testDir, '.antigravity', 'agents');
+      const workflowsDir = path.join(testDir, '.agent', 'workflows');
+      const configJsonPath = path.join(testDir, '.antigravity', 'antigravity.json');
+
+      expect(await fs.pathExists(canonicalAgentsDir)).toBe(true);
+      expect(await fs.pathExists(workflowsDir)).toBe(true);
+      expect(await fs.pathExists(configJsonPath)).toBe(true);
+      expect(await fs.pathExists(path.join(canonicalAgentsDir, 'qa.md'))).toBe(true);
+      expect(await fs.pathExists(path.join(workflowsDir, 'qa.md'))).toBe(true);
     });
 
     it('should render template with variables', async () => {

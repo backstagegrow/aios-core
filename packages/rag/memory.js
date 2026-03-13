@@ -17,16 +17,25 @@ const path = require('path');
 function getEnv() {
   const envPath = path.resolve(__dirname, '../../.env');
   const vars = {};
+  if (!fs.existsSync(envPath)) return vars;
   try {
     const content = fs.readFileSync(envPath, 'utf-8');
-    for (const line of content.split('\n')) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith('#')) continue;
-      const eq = trimmed.indexOf('=');
-      if (eq === -1) continue;
-      const key = trimmed.slice(0, eq).trim();
-      const value = trimmed.slice(eq + 1).trim();
-      vars[key] = value;
+    const lines = content.split(/\r?\n/);
+    for (const line of lines) {
+      const match = line.match(/^\s*([^#=\s]+)\s*=\s*(.*)$/);
+      if (match) {
+        const key = match[1];
+        let value = match[2].trim();
+        // Remove inline comments
+        if (value.includes(' #')) {
+          value = value.substring(0, value.indexOf(' #')).trim();
+        }
+        // Handle quotes
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.substring(1, value.length - 1);
+        }
+        vars[key] = value;
+      }
     }
   } catch (_error) {
     // Fall back to process.env.

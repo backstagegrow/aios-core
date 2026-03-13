@@ -153,8 +153,14 @@ class MetricsCollector {
         return true;
       } catch (error) {
         if (error.code === 'EEXIST') {
-          // Lock exists, check if stale (> 30s old)
+          // Lock exists, recover same-process or stale (> 30s old) locks
           try {
+            const lockOwner = await fs.readFile(this._lockFile, 'utf8');
+            if (lockOwner.trim() === String(process.pid)) {
+              await fs.unlink(this._lockFile);
+              continue;
+            }
+
             const stat = await fs.stat(this._lockFile);
             if (Date.now() - stat.mtimeMs > 30000) {
               await fs.unlink(this._lockFile);

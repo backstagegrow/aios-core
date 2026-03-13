@@ -1,0 +1,129 @@
+# =============================================================================
+# Client Briefing — GT House
+# =============================================================================
+# Synkra AIOS Client Briefing | Master Version (v1.2)
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "gth_001"
+  client_name: "GTHouse"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.2"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "GT House"
+  tagline: "A casa das grandes empresas."
+  mission: "Oferecer um ecossistema Plug-and-Play premium que une arquitetura impactante, versatilidade e conexão com a natureza para eventos corporativos impecáveis."
+  vision: "Ser o cenário definitivo para experiências corporativas únicas, onde a infraestrutura elimina a dor de cabeça e potencializa o conteúdo."
+  tone_of_voice:
+    - "Elegante"
+    - "Profissional"
+    - "Exclusivo"
+    - "Sofisticado"
+    - "Acolhedor"
+  personality_archetype: "The Ruler"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Eventos e Hospitalidade"
+  niche: "Espaço Exclusivo para Eventos Corporativos Premium"
+  business_model: "B2B"
+  pricing_tier: "ultra-premium"
+  main_services:
+    - "Locação de espaço (Térreo, Área Garden, Plenária Elevado)"
+    - "Ativações de marca e Lançamento de produtos"
+    - "Imersões e Treinamentos de equipe"
+    - "Ecossistema Plug-and-Play (AV, Streaming e infraestrutura técnica de ponta)"
+  geographic_focus: "Alto de Pinheiros, São Paulo, SP (Próximo ao Parque Villa Lobos)"
+
+# --- INFRASTRUCTURE & TECH --------------------------------------------------
+infrastructure:
+  areas:
+    terreo: "Área base para recepção ou atividades principais."
+    garden: "Conexão com a natureza, ombrelones, iluminação varal de luzes."
+    plenaria_elevado: "Pé-direito alto, estética industrial, janelas amplas, palcos elevados."
+  tech_capacity:
+    - "Transmissões ao vivo e Streaming (mixing de vídeo/áudio/luz in-house)"
+    - "Painéis de LED de Grande Formato (Stage branding dinâmico)"
+    - "Sonorização e Iluminação Profissional (Luz cênica e som distribuído)"
+  versatility:
+    - "Túneis e Entradas Imersivas (jornada de boas-vindas em LED)"
+    - "Mobiliário Adaptável (Auditório, Lounges ou Mesas de Networking)"
+    - "Design Contemporâneo (Containers azuis vs Áreas verdes)"
+
+# --- EXPERIENCE -------------------------------------------------------------
+experience:
+  gastronomy:
+    - "Coffee Breaks e Ilhas de Alimentação estruturadas"
+    - "Serviço de Bar e Coquetelaria para Happy Hours"
+    - "Degustação ao ar livre (Área Garden)"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Heads de Marketing e C-Level"
+    age_range: "35-55"
+    gender: "mixed"
+    occupation: "Diretores de Marketing, Heads de Eventos, Mentores e Palestrantes High-Ticket"
+    income: "high"
+    location: "São Paulo (Foco em polos corporativos)"
+  pain_points:
+    - "Dificuldade em encontrar espaços que fujam do 'clichê corporativo' frio"
+    - "Gestão de múltiplos fornecedores gerando estresse operacional"
+    - "Falta de conexão com a natureza em ambientes urbanos de SP"
+  desires:
+    - "Entrega '100% Palco, 0% Estresse' (Focar no conteúdo, não na operação)"
+    - "Ambiente que transmita autoridade e exclusividade instantânea"
+    - "Localização nobre com facilidade de acesso e estacionamento"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "A GT House é o primeiro ecossistema Plug-and-Play para eventos corporativos em SP que une arquitetura de impacto e natureza no coração do Alto de Pinheiros."
+  main_competitors:
+    - "Casa Petra"
+    - "Villaggio JK"
+  competitive_advantage: "Solução 'Turnkey' tecnológica que elimina a necessidade de 12 fornecedores."
+
+# --- COPY & SOCIAL PROOF ----------------------------------------------------
+copy:
+  key_messages:
+    - "Sua única preocupação é subir no palco."
+    - "A casa das grandes empresas."
+    - "Arquitetura, versatilidade e natureza no coração de SP."
+  proof_elements:
+    case_studies:
+      - "Educação: Summits (ex: Cruzeiro do Sul Virtual)"
+      - "Tech/Games: HyperX, KaBuM! (Branding imersivo)"
+      - "Lifestyle: Red Bull (Networking e Experiência)"
+      - "B2B: Fóruns de discussão e estratégias digitais"
+    social_proof_numbers: "Cases: Adidas, Red Bull, Stone, Heineken, KaBuM!"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Locação Full Experience"
+    price_range: "Tiers: R$25k-50k | R$50k-100k | R$100k-200k | +R$200k"
+    description: "Uso integral do espaço com suporte técnico e infraestrutura AV inclusa."
+  entry_offer:
+    name: "Visita Técnica Estratégica"
+    price_range: "Grátis"
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "instagram"
+    - "linkedin"
+    - "whatsapp"
+  primary_channel: "whatsapp"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Comunicação 'fria' ou meramente industrial"
+    - "Uso de imagens não-profissionais"
+  brand_restrictions:
+    - "Manter paleta Forest/Teal (#052F33) em todas as artes"
+  legal_notes: "Conformidade com LGPD para dados de orçamento."

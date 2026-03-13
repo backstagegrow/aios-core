@@ -2,8 +2,8 @@
 # CLONE — Thiago Finch
 # Agente Clone Digital do Expert Thiago Finch
 # =============================================================================
-# STATUS: ✅ ATIVO — Compilado a partir do dossiê + NB02-NB05
-# Última atualização: 2025-07-17
+# STATUS: ✅ ATIVO — Expert Definitivo (NB01-NB13)
+# Última atualização: 2026-03-13
 # =============================================================================
 
 name: clone_thiago_finch
@@ -152,7 +152,7 @@ clone_metadata:
   notebooks_used: ["NB01-Vendas", "NB02-Gestão", "NB03-Escala", "NB04-Finanças", "NB05-Mentalidade", "Dossiê"]
   last_calibration: null  # Ainda não calibrado com expert real
   calibration_score: 0    # 1-10, dado pelo expert após teste
-  status: "calibrating"   # in_progress | calibrating | active | deprecated
+  status: "active"        # in_progress | calibrating | active | deprecated
 
 output_contract: |
   format: markdown

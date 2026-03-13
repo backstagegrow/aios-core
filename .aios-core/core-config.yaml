@@ -331,8 +331,8 @@ ideSync:
       format: condensed-rules
     antigravity:
       enabled: true
-      path: .antigravity/rules/agents
-      format: cursor-style
+      path: .antigravity/agents
+      format: full-markdown-yaml
   redirects: {}
   validation:
     strictMode: true
@@ -365,7 +365,7 @@ autoClaude:
 # SINGLE SOURCE OF TRUTH: Both pre-commit hook (framework-guard.js) and
 # the installer read protected/exceptions from here. Do NOT hardcode paths elsewhere.
 boundary:
-  frameworkProtection: false # TEMPORARY: TOK-3 contributor mode — re-enable after story
+  frameworkProtection: true # Re-enabled after system audit to ensure core integrity
   # L1/L2 paths — blocked from editing in project mode
   # Glob syntax: ** matches any depth, * matches single segment
   protected:

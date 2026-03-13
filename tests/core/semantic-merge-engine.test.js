@@ -547,6 +547,42 @@ class MyClass:
       );
       expect(result).toBe('much more changed content here');
     });
+
+    test('handles AI resolution failure gracefully', async () => {
+      const engine = new SemanticMergeEngine({ rootPath: tmpDir });
+      engine.enableAI = true;
+
+      // Mock detector to return a conflict requiring AI
+      jest.spyOn(engine.detector, 'detectConflicts').mockReturnValue([{
+        filePath: 'src/complex.js',
+        mergeStrategy: MergeStrategy.AI_REQUIRED,
+        targets: ['x'],
+        changeTypes: [ChangeType.FUNCTION_MODIFIED, ChangeType.FUNCTION_MODIFIED],
+        tasksInvolved: ['t1', 't2'],
+      }]);
+
+      // Mock resolver to fail
+      jest.spyOn(engine.aiResolver, 'resolveConflict').mockResolvedValue({
+        decision: MergeDecision.FAILED,
+        confidence: 0.1,
+      });
+
+      const result = await engine.mergeFile('src/complex.js', 'const x = 1;', {
+        t1: { files: { 'src/complex.js': 'const x = 2;' } },
+        t2: { files: { 'src/complex.js': 'const x = 3;' } },
+      });
+
+      expect(result.decision).toBe(MergeDecision.FAILED);
+    });
+
+    test('supports Python semantic merging', async () => {
+      const engine = new SemanticMergeEngine({ rootPath: tmpDir });
+      const result = await engine.mergeFile('app.py', 'def main(): pass', {
+        t1: { files: { 'app.py': 'def main():\n    print("t1")' } },
+      });
+      expect(result.decision).toBe(MergeDecision.AUTO_MERGED);
+      expect(result.mergedContent).toContain('print("t1")');
+    });
   });
 
   // ── SemanticMergeEngine (Orchestrator) ─────────────────────────────────

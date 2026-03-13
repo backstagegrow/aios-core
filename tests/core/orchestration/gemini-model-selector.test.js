@@ -38,7 +38,7 @@ describe('GeminiModelSelector', () => {
     it('should have overrides for key agents', () => {
       // Keys no longer have @ prefix (normalized)
       expect(AGENT_OVERRIDES['architect']).toBe('pro');
-      expect(AGENT_OVERRIDES['qa']).toBe('flash');
+      expect(AGENT_OVERRIDES['qa']).toBe('pro');
       expect(AGENT_OVERRIDES['dev']).toBe('auto');
     });
   });
@@ -74,6 +74,37 @@ describe('GeminiModelSelector', () => {
       const result = selector.selectModel(task);
 
       expect(result.modelKey).toBe('pro');
+    });
+
+    it('should keep critical agents on pro even for short tasks', () => {
+      const task = { description: 'Review release checklist' };
+
+      const result = selector.selectModel(task, '@qa');
+
+      expect(result.modelKey).toBe('pro');
+    });
+  });
+
+  describe('assessCriticality', () => {
+    it('should mark critical reasoning tasks as critical', () => {
+      const task = {
+        type: 'review',
+        description: 'Security review for deployment pipeline',
+        acceptanceCriteria: ['one', 'two', 'three', 'four', 'five'],
+      };
+
+      const result = selector.assessCriticality(task, 'qa');
+
+      expect(result.level).toBe('critical');
+      expect(result.reasons.length).toBeGreaterThan(0);
+    });
+
+    it('should mark trivial tasks as low criticality', () => {
+      const task = { description: 'Fix typo in readme' };
+
+      const result = selector.assessCriticality(task, 'dev');
+
+      expect(result.level).toBe('low');
     });
   });
 

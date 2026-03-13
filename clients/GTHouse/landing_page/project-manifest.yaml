@@ -1,0 +1,119 @@
+# project-manifest.yaml — GT House
+# Gerado por: *generate-manifest via site-creation workflow
+# Atualizar manualmente quando o projeto mudar significativamente.
+
+project:
+  name: "GT House Landing Page"
+  slug: "gthouse-lp"
+  client: "house-gt"
+  type: "landing-page"
+  status: "active"
+
+framework:
+  type: "html-static"
+  version: null
+  language: "html"
+  router: "none"
+  styling: "mixed"                  # TailwindCDN via CDN + inline CSS vars
+  tailwind_version: "cdn"           # Carregado via CDN, não pacote npm
+
+tokens:
+  source: "inline-css-vars"         # CSS custom properties em :root no <head>
+  brand_engine_client: "house-gt"
+  colors:
+    background: "#F8FAFC"
+    primary: "#052F33"
+    primary_alt: "#0A3F44"
+    accent: "#1FA2D6"
+    accent_light: "#49B8E8"
+    bg_light: "#D7DEE2"
+    text_primary: "#0C3B40"
+    text_muted: "#6B7C86"
+    danger: "#EF4444"
+    success: "#34D399"
+    warning: "#FBBF24"
+  typography:
+    font_display: "Playfair Display"  # Headings h1/h2/h3/.font-display
+    font_body: "Inter"                # Body padrão
+    font_mono: null
+  spacing:
+    section_padding: "80px 32px"      # Padrão nas seções
+    card_padding: "32px"
+    max_width: "80rem"                # max-w-7xl (1280px)
+    navbar_height: "88px"
+  border_radius:
+    default: "8px"                    # rounded-xl ≈ 12px, mas scale é soft
+    pill: "9999px"                    # rounded-full (CTAs)
+    card: "16px"                      # rounded-2xl
+  shadows:
+    card: "0 4px 24px rgba(0,0,0,0.08)"
+    nav: "0 4px 30px rgba(0,0,0,0.03)"
+    accent: "0 8px 32px rgba(31,162,214,0.25)"
+  mode: "light"
+
+components:
+  directory: "inline"               # HTML estático — sem diretório de componentes
+  pattern: "inline-sections"        # Cada seção é um <section> autossuficiente
+  css_pattern: "mixed"              # CSS vars + Tailwind utility classes
+  glassmorphism:                    # Padrão de glass usado no projeto
+    glass_nav: "rgba(255,255,255,0.85) blur(12px)"
+    glass_dark: "rgba(10,63,68,0.7) blur(16px)"
+  animations:
+    trigger: "data-animate"         # Atributo HTML data-animate="{type}"
+    types: ["fade-up", "slide-left", "slide-right", "scale-in"]
+    observer: "IntersectionObserver"
+
+pages:
+  directory: "clients/GTHouse/landing_page"
+  routes:
+    - path: "/"
+      file: "index.html"
+      title: "GT House - Eventos Corporativos Premium em São Paulo"
+      status: "done"
+      sections: [navbar, hero, ambientes, diferenciais, localizacao, orcamento, footer]
+    - path: "/plenaria"
+      file: "plenaria.html"
+      title: "Plenária - GT House"
+      status: "done"
+    - path: "/garden"
+      file: "garden.html"
+      title: "Área Garden - GT House"
+      status: "done"
+    - path: "/terreo"
+      file: "terreo.html"
+      title: "Térreo - GT House"
+      status: "done"
+
+assets:
+  logos:
+    dark_bg: "../assets/logos/GT-House-Logo-branca (para fundos escuros) horizontal (2).png"
+    light_bg: "../assets/logos/GT-House-Logo-branca (para fundos claros) horizontal (1).png"
+  photos:
+    - "../assets/photos/Garden.JPEG"
+    - "../assets/photos/Plenaria.JPEG"
+    - "../assets/photos/Terreo.webp"
+    - "../assets/photos/mapa-0000.png.webp"
+  video:
+    - "../assets/Video/YTDown.com_YouTube_1008_Media_FA0ZapBjPJ0_001_1080p.mp4"
+
+conventions:
+  import_style: "relative"           # Paths relativos (../assets/)
+  section_header_pattern: "html-comments"  # <!-- Section Name -->
+  css_pattern: "css-vars + tailwind-cdn"
+  js_pattern: "vanilla"              # JavaScript vanilla, sem framework
+
+deploy:
+  platform: "cloudflare-pages"
+  domain: null                       # A definir
+  build_command: null                # HTML estático — sem build step
+  output_dir: "clients/GTHouse/landing_page"
+
+meta:
+  generated_at: "2026-03-13"
+  generated_by: "*create-site house-gt"
+  last_updated: "2026-03-13"
+  notes: |
+    Site HTML estático com TailwindCDN. Não usa React/Next.js.
+    Brand Engine source of truth para tokens de cor e tipografia.
+    Páginas existentes NÃO devem ser sobrescritas — apenas adicionadas novas.
+    CSS vars definidas no <head> de cada arquivo HTML seguindo o padrão :root {}.

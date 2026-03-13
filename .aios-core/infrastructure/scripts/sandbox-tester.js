@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+const { resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 let execa;
 try {
   execa = require('execa').execa;
@@ -446,14 +447,11 @@ class SandboxTester {
     const timeout = options.timeout || 30000;
 
     try {
-      // Split command into program and arguments
-      const parts = command.split(' ');
-      const program = parts[0];
-      const args = parts.slice(1);
+      const { command: program, args } = resolveCommandSpec(command);
 
       const { stdout } = await execa(program, args, {
         cwd,
-        shell: true,
+        shell: false,
         timeout,
         encoding: 'utf8',
         env: { ...process.env, CI: 'true', NODE_ENV: 'test' },

@@ -292,6 +292,21 @@ describe('MetricsCollector', () => {
     });
   });
 
+  describe('lock recovery', () => {
+    it('should recover a same-process stale lock before saving', async () => {
+      await fs.writeFile(`${TEST_METRICS_FILE}.lock`, String(process.pid), 'utf8');
+
+      await expect(
+        collector.recordRun(1, { passed: true, durationMs: 1000 }),
+      ).resolves.toEqual(
+        expect.objectContaining({
+          layer: 1,
+          passed: true,
+        }),
+      );
+    });
+  });
+
   describe('cleanup', () => {
     it('should remove records older than retention period', async () => {
       // Create collector with 1 day retention

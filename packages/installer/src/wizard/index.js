@@ -10,7 +10,6 @@
 const inquirer = require('inquirer');
 const path = require('path');
 const fse = require('fs-extra');
-const { execSync } = require('child_process');
 const { colors } = require('../utils/aios-colors');
 const {
   getLanguageQuestion,
@@ -585,11 +584,12 @@ async function runWizard(options = {}) {
           console.warn('   Run: cd .aios-core && npm install --production');
           answers.entityRegistryStatus = 'skipped-no-deps';
         } else {
-        // INS-4.12 AC2: Set NODE_PATH so spawned scripts resolve deps from .aios-core/node_modules/
+          // INS-4.12 AC2: Set NODE_PATH so spawned scripts resolve deps from .aios-core/node_modules/
           const parentNodeModules = path.join(process.cwd(), 'node_modules');
           const nodePath = [aiosCoreNodeModules, parentNodeModules].join(path.delimiter);
           const startMs = Date.now();
-          execSync(`node "${registryScript}"`, {
+          const { execFileSync } = require('child_process');
+          execFileSync('node', [registryScript], {
             cwd: process.cwd(),
             encoding: 'utf8',
             timeout: 30000,

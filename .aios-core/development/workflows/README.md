@@ -9,6 +9,7 @@ This directory contains workflow definitions for the Synkra AIOS framework. Work
 - **brownfield-fullstack.yaml** - Workflow for existing full-stack projects
 - **brownfield-service.yaml** - Workflow for existing service/backend projects
 - **brownfield-ui.yaml** - Workflow for existing UI/frontend projects
+- **corporate-events-sales-pipeline.yaml** - Strategy workflow for corporate event sales positioning, copy, acquisition, revenue and audit
 - **greenfield-fullstack.yaml** - Workflow for new full-stack projects
 - **greenfield-service.yaml** - Workflow for new service/backend projects
 - **greenfield-ui.yaml** - Workflow for new UI/frontend projects

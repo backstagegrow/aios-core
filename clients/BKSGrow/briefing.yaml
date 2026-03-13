@@ -1,0 +1,130 @@
+# =============================================================================
+# Client Briefing — BKS Grow
+# =============================================================================
+# Synkra AIOS Client Briefing | Master Version (Niche Focus: Events)
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "bks_001"
+  client_name: "BKSGrow"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.2"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "BKS Grow"
+  tagline: "Escale receita com método, não com achismo."
+  mission: "Ajudar fornecedores do setor de eventos corporativos a estruturar crescimento previsível através de posicionamento, processos e aquisição qualificada."
+  vision: "Ser a consultoria de referência absoluta em growth para o ecossistema de eventos corporativos no Brasil."
+  tone_of_voice:
+    - "Direto"
+    - "Estratégico"
+    - "Provocativo"
+    - "Educativo"
+  personality_archetype: "The Sage"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Consultoria Estratégica + Marketing B2B"
+  niche: "Empresas de Eventos Corporativos (Casas, Cenografia, Produtoras, AV)"
+  business_model: "B2B"
+  pricing_tier: "premium"
+  main_services:
+    - "Estruturação de Posicionamento e Oferta Premium"
+    - "Funis de Aquisição Qualificada e Tráfego Pago B2B"
+    - "Implementação de Processos Comerciais e CRM"
+    - "Diagnóstico de Growth e Revenue Audit"
+  geographic_focus: "Nacional (Base em São Paulo)"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Sócios e Diretores Comercial"
+    age_range: "35-50"
+    gender: "mixed"
+    occupation: "Donos de Casas de Eventos, CEOs de Cenografia, Heads de Produtoras"
+    income: "high (PME faturando R$500k - R$10M/ano)"
+    location: "Grandes polos de eventos (SP, RJ, Curitiba)"
+  pain_points:
+    - "Dependência total de indicação (Indicação não é estratégia)"
+    - "Agenda instável (Meses cheios vs Meses vazios)"
+    - "Marketing amador/genérico que não entende a complexidade do setor"
+    - "Preço sendo pressionado por falta de diferenciação"
+  desires:
+    - "Fluxo constante de oportunidades qualificadas (previsibilidade)"
+    - "Autoridade inquestionável no nicho de eventos"
+    - "Sair do operacional e focar na estratégia do negócio"
+    - "Segurança financeira para planejar meses à frente"
+  objections:
+    - "Marketing não funciona para o meu mercado tão específico"
+    - "Eu já tenho indicação, por que precisaria de marketing?"
+    - "Funil de vendas é coisa de curso online, não de eventos"
+  buying_triggers:
+    - "Queda inesperada na agenda de eventos"
+    - "Contratação de um novo Head Comercial sem manual de vendas"
+    - "Frustração com agências generalistas que não batem meta"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "Construímos o manual de crescimento previsível para empresas de eventos, transformando 'contatos aleatórios' em pipeline comercial sólido."
+  differentiators:
+    - "Foco EXCLUSIVO no setor de eventos (conhecimento profundo dos gatilhos do mercado)"
+    - "Combinação de Estratégia + Implementação Hands-on"
+    - "Metodologia que resolve o posicionamento ANTES de queimar dinheiro em anúncios"
+  main_competitors:
+    - "Agências de marketing digital generalistas"
+    - "Consultorias de vendas tradicionais"
+  competitive_advantage: "Somos os únicos que entendem que 'onde a marca pisa define o quanto ela vale' e aplicamos isso na escala do fornecedor."
+
+# --- COPY & MESSAGES --------------------------------------------------------
+copy:
+  key_messages:
+    - "Indicação não é estratégia de crescimento."
+    - "Se você depende de você para vender, você tem um emprego caro, não um negócio."
+    - "Pare de ser refém da agenda e comece a ser dono da demanda."
+  emotional_triggers:
+    - "Alívio (Previsibilidade de caixa)"
+    - "Autoridade (Posicionamento Premium)"
+    - "Controle (Dados vs Achismo)"
+  proof_elements:
+    testimonials_available: true
+    case_studies: true
+    social_proof_numbers: "Clientes com 100% de ocupação e reposicionamento premium realizado."
+  primary_cta: "Agende um Diagnóstico"
+  secondary_cta: "Veja nossos Cases"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Estruturação de Crescimento (Master Squad)"
+    price_range: "R$3.000 - R$12.000/mês"
+    description: "Mentoria e execução conjunta do ecossistema de aquisição B2B."
+  entry_offer:
+    name: "Revenue Audit & Diagnóstico"
+    price_range: "R$5.000 - R$10.000 (Onetime)"
+    description: "Raio-x completo do posicionamento e gargalos comerciais atuais."
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "linkedin"
+    - "instagram"
+    - "whatsapp"
+  primary_channel: "linkedin"
+  content_types:
+    - "Posts de insights data-driven"
+    - "Reels provocativos sobre amadorismo"
+    - "Frameworks acionáveis"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem de 'coach' motivacional genérico"
+    - "Promessas impossíveis (ex: lead a R$1,00 para evento de R$100k)"
+    - "Visual poluído ou 'cara de agência' padrão"
+  brand_restrictions:
+    - "Sempre peer-to-peer (CEO para CEO)"
+    - "Não aceitar clientes fora do setor de eventos (manutenção do foco)"
+  legal_notes: "Garantia de entrega da estrutura estratégica; resultados financeiros dependem da execução comercial do cliente."

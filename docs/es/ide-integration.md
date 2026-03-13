@@ -217,20 +217,32 @@ cat .github/copilot-instructions.md
 config_file: .antigravity/rules.md
 config_json: .antigravity/antigravity.json
 agent_folder: .agent/workflows
+canonical_agents: .antigravity/agents
 activation: workflow-based
-format: cursor-style
+format: workflow + full-markdown-yaml
 mcp_support: native (Google)
 special_features:
   - Google Cloud integration
   - Workflow system
   - Native Firebase tools
+  - Agentes canonicos en .antigravity/agents
 ```
 
 **Configuración:**
 
 1. AIOS crea el directorio `.antigravity/`
 2. Configura las credenciales de Google Cloud
-3. Los agentes se sincronizan como workflows
+3. Los agentes se sincronizan en:
+   - `.agent/workflows/*.md` para activacion
+   - `.antigravity/agents/*.md` como definiciones canonicas
+   - `.antigravity/rules.md` para reglas globales
+4. Validar integracion:
+
+```bash
+npm run sync:ide:antigravity
+npm run validate:antigravity-sync
+npm run validate:antigravity-integration
+```
 
 ---
 

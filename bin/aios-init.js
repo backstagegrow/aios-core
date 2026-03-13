@@ -29,6 +29,7 @@ const { promisify } = require('util');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const ora = require('ora'); // INS-2 Performance: Progress indicators (AC9)
+const { resolveCommandSpec } = require('../scripts/lib/command-utils');
 
 // INS-2 Performance: Promisified exec for async shell commands (AC7)
 const execAsync = promisify(exec);
@@ -42,8 +43,8 @@ const execAsync = promisify(exec);
  */
 function spawnAsync(command, options = {}) {
   return new Promise((resolve, reject) => {
-    const [cmd, ...args] = command.split(' ');
-    const child = spawn(cmd, args, { stdio: 'inherit', shell: true, ...options });
+    const { command: cmd, args } = resolveCommandSpec(command);
+    const child = spawn(cmd, args, { stdio: 'inherit', shell: false, ...options });
     child.on('close', (code) => {
       if (code === 0) {
         resolve();

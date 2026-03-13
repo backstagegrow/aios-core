@@ -3,7 +3,7 @@
  * @story 6.19 - IDE Command Auto-Sync System
  *
  * Format: Similar to Cursor, condensed rules format
- * Target: .antigravity/rules/agents/*.md
+ * Legacy Target: .antigravity/rules/agents/*.md
  */
 
 const { getVisibleCommands, normalizeCommands } = require('../agent-parser');

@@ -5,9 +5,11 @@ You are working with Synkra AIOS, an AI-Orchestrated System for Full Stack Devel
 ## Core Development Rules
 
 ### Agent Integration
-- Recognize AIOS agent activations: @dev, @qa, @architect, @pm, @po, @sm, @analyst
+- Recognize AIOS agent activations: @aios-master, @analyst, @architect, @clickup-ops, @clickup-reporting, @data-engineer, @dev, @devops, @pm, @po, @qa, @sm, @squad-creator, @ux-design-expert
 - Agent commands use * prefix: *help, *create-story, *task, *exit
 - Follow agent-specific workflows and patterns
+- For agent activation, prefer `.agent/workflows/<agent>.md` and then load `.antigravity/agents/<agent>.md` as the canonical agent definition
+- Do not infer an AIOS agent from a short summary file when a canonical agent file exists in `.antigravity/agents/`
 
 ### Story-Driven Development
 1. **Always work from a story file** in docs/stories/
@@ -26,6 +28,45 @@ You are working with Synkra AIOS, an AI-Orchestrated System for Full Stack Devel
 - Ensure linting passes: `npm run lint`
 - Verify type checking: `npm run typecheck`
 - Add tests for new features
+
+## Design System Context Rule
+
+**CRITICAL:** Before creating any page, screen or UI component, always discover the project's design system first.
+
+### Rule: Design System First
+
+```
+TRIGGER: User requests page, landing page, screen, UI section, or component
+ACTION:
+  1. Check if design_system_discovered: true in outputs/ux-design/{project}/.state.yaml
+  2. If NOT discovered → run *discover before anything else
+  3. Only after discovery → run *create-page or *build
+```
+
+### What This Prevents
+- Invented colors/fonts not in the project
+- Duplicate components that already exist
+- Wrong routing conventions (Vite vs Next.js)
+- Pages that don't match the existing visual identity
+
+### Commands
+| Command | When to Use |
+|---------|-------------|
+| `*discover` | First thing in every new session or project |
+| `*create-page {name}` | Create a full page (auto-runs discover) |
+| `*build {component}` | Build a component (runs discover if needed) |
+
+### Page Brief (Required)
+When user asks for a page, always collect these 5 fields before generating:
+1. Nome da página
+2. Rota/URL
+3. Objetivo principal
+4. Seções desejadas
+5. Referência visual (link, descrição ou "seguir padrão do projeto")
+
+Never generate a page without this information.
+
+---
 
 ## AIOS Framework Structure
 

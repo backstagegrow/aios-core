@@ -1,0 +1,141 @@
+# =============================================================================
+# Client Briefing Template — Synkra AIOS
+# =============================================================================
+# Template for comprehensive client briefing used by agents before any work.
+# Copy to: clients/{ClientName}/briefing.yaml
+# Fill all fields marked with {placeholder} or [FILL].
+# Remove optional sections if not applicable.
+#
+# NOTE: This template should ideally live at
+# .aios-core/development/templates/client-briefing-tmpl.yaml
+# but framework protection (boundary.frameworkProtection: true) blocks writes
+# to L2 paths. Move it there when running with frameworkProtection: false
+# or via the installer.
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "{client_id}"                    # From client_config.yaml (e.g., gth_001)
+  client_name: "{ClientName}"
+  status: draft                               # draft | active | archived
+  last_updated: "YYYY-MM-DD"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "{Brand Display Name}"
+  tagline: "{One-liner tagline}"              # Optional — short phrase for ads/headers
+  mission: "{Why the company exists}"
+  vision: "{Where it wants to be in 3-5 years}"
+  tone_of_voice:                              # List of 3-5 adjectives that define the voice
+    - "{adjective_1}"
+    - "{adjective_2}"
+    - "{adjective_3}"
+  personality_archetype: "{archetype}"        # e.g., The Sage, The Creator, The Ruler
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "{Industry/Segment}"               # e.g., Events, Consulting, Education
+  niche: "{Specific niche}"                   # e.g., Corporate Events, Growth Consulting
+  business_model: "{B2B|B2C|B2B2C}"
+  pricing_tier: "{budget|mid|premium|ultra-premium}"
+  main_services:
+    - "{service_1}"
+    - "{service_2}"
+    - "{service_3}"
+  geographic_focus: "{City, State, Country or Region}"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "{Persona Name}"                    # e.g., "Ricardo, the HR Director"
+    age_range: "{XX-YY}"
+    gender: "{any|male|female|mixed}"
+    occupation: "{Job title or role}"
+    income: "{Income range or tier}"
+    location: "{City/Region}"
+  pain_points:
+    - "{pain_1}"
+    - "{pain_2}"
+    - "{pain_3}"
+  desires:
+    - "{desire_1}"
+    - "{desire_2}"
+    - "{desire_3}"
+  objections:
+    - "{objection_1}"
+    - "{objection_2}"
+    - "{objection_3}"
+  buying_triggers:
+    - "{trigger_1}"
+    - "{trigger_2}"
+    - "{trigger_3}"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "{One sentence — what you deliver and why it matters}"
+  differentiators:
+    - "{differentiator_1}"
+    - "{differentiator_2}"
+    - "{differentiator_3}"
+  main_competitors:
+    - "{competitor_1}"
+    - "{competitor_2}"
+  competitive_advantage: "{What makes you win over competitors}"
+
+# --- COPY -------------------------------------------------------------------
+copy:
+  key_messages:                               # 3-5 ready-to-use phrases
+    - "{message_1}"
+    - "{message_2}"
+    - "{message_3}"
+  emotional_triggers:
+    - "{emotion_1}"
+    - "{emotion_2}"
+    - "{emotion_3}"
+  proof_elements:
+    testimonials_available: false
+    case_studies: false
+    certifications:
+      - "{certification_1}"                   # Remove if none
+    social_proof_numbers: "{e.g., +500 eventos, 98% satisfacao}"
+  primary_cta: "{Main call to action — e.g., Solicite um Orcamento}"
+  secondary_cta: "{Secondary CTA — e.g., Fale com um Consultor}"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "{Offer name}"
+    price_range: "{R$X - R$Y or 'sob consulta'}"
+    description: "{Brief description of what's included}"
+  entry_offer:                                # Optional — low-commitment first step
+    name: "{Entry offer name}"
+    price_range: "{R$X}"
+    description: "{Description}"
+  upsell:                                     # Optional — premium tier
+    name: "{Upsell name}"
+    price_range: "{R$X}"
+    description: "{Description}"
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "{channel_1}"                           # e.g., instagram, linkedin, google-ads, email
+    - "{channel_2}"
+  primary_channel: "{main channel}"
+  content_types:
+    - "{type_1}"                              # e.g., reels, carrossel, blog, video, webinar
+    - "{type_2}"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "{avoid_1}"                             # e.g., humor informal, gifs, emojis excessivos
+    - "{avoid_2}"
+  brand_restrictions:
+    - "{restriction_1}"                       # e.g., never use competitor names, no red color
+  legal_notes: "{Any legal/compliance notes — LGPD, disclaimers, etc.}"
+
+# USO: Este briefing deve ser carregado por agentes antes de qualquer trabalho neste cliente.
+# Agentes: copy-chief, nano-banana-generator, aios-dev, aios-ux
+# Comando: leia este arquivo como contexto antes de gerar copy, assets ou codigo para este cliente.

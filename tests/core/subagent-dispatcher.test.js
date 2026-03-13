@@ -95,6 +95,78 @@ describe('SubagentDispatcher', () => {
     });
   });
 
+  describe('provider and model guardrails', () => {
+    let sd;
+
+    beforeEach(() => {
+      sd = new SubagentDispatcher();
+    });
+
+    test('routes critical QA work to claude by default', () => {
+      const task = {
+        type: 'review',
+        description: 'Security review for release gate',
+      };
+
+      expect(sd.resolveProvider(task, '@qa')).toBe('claude');
+    });
+
+    test('keeps explicit gemini selection but upgrades critical work to pro model', () => {
+      const task = {
+        provider: 'gemini',
+        type: 'review',
+        description: 'Architecture review for migration plan',
+      };
+
+      const plan = sd.resolveExecutionPlan(task, '@qa');
+
+      expect(plan.provider).toBe('gemini');
+      expect(plan.model).toBe('gemini-2.0-pro');
+      expect(plan.modelSelection.modelKey).toBe('pro');
+    });
+
+    test('allows flash only for low-risk simple work', () => {
+      const task = {
+        provider: 'gemini',
+        description: 'Fix typo in readme',
+      };
+
+      const plan = sd.resolveExecutionPlan(task, '@dev');
+
+      expect(plan.provider).toBe('gemini');
+      expect(plan.model).toBe('gemini-2.0-flash');
+      expect(plan.modelSelection.modelKey).toBe('flash');
+    });
+
+    test('propagates selected Gemini model to provider execution', async () => {
+      const provider = {
+        name: 'gemini',
+        executeWithRetry: jest.fn().mockResolvedValue({
+          success: true,
+          output: 'ok',
+          metadata: { duration: 10, model: 'gemini-2.0-pro' },
+        }),
+      };
+      const task = {
+        id: 't1',
+        provider: 'gemini',
+        type: 'review',
+        description: 'Architecture review for release',
+      };
+      const plan = sd.resolveExecutionPlan(task, '@qa');
+
+      await sd.executeWithSingleProvider(provider, 'prompt', task, plan);
+
+      expect(provider.executeWithRetry).toHaveBeenCalledWith(
+        'prompt',
+        expect.objectContaining({
+          workingDir: expect.any(String),
+          model: 'gemini-2.0-pro',
+        }),
+      );
+    });
+  });
+
   // ── dispatch ──────────────────────────────────────────────────────────
 
   describe('dispatch', () => {
@@ -222,6 +294,17 @@ describe('SubagentDispatcher', () => {
 
       expect(prompt).toContain('avoid X');
       expect(prompt).toContain('Pattern A');
+    });
+
+    test('adds stronger quality guidance for critical work', () => {
+      const sd = new SubagentDispatcher();
+      const prompt = sd.buildPrompt('@qa', {
+        id: 't1',
+        type: 'review',
+        description: 'Security review for deployment flow',
+      }, {});
+
+      expect(prompt).toContain('Optimize for correctness, depth, and explicit tradeoffs');
     });
   });
 

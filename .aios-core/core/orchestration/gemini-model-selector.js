@@ -15,13 +15,13 @@ const MODELS = {
     id: 'gemini-2.0-flash',
     costPer1kTokens: 0.000125,
     maxTokens: 32000,
-    bestFor: ['simple', 'medium'],
+    bestFor: ['simple', 'low-risk'],
   },
   pro: {
     id: 'gemini-2.0-pro',
     costPer1kTokens: 0.00125,
     maxTokens: 128000,
-    bestFor: ['complex'],
+    bestFor: ['medium', 'complex', 'critical'],
   },
 };
 
@@ -32,16 +32,47 @@ const MODELS = {
 const AGENT_OVERRIDES = {
   architect: 'pro',
   analyst: 'pro',
-  qa: 'flash',
-  pm: 'flash',
+  qa: 'pro',
+  pm: 'pro',
+  po: 'pro',
+  'data-engineer': 'pro',
+  'ux-design-expert': 'pro',
   dev: 'auto',
-  devops: 'flash',
+  devops: 'pro',
 };
+
+const HIGH_REASONING_AGENTS = new Set([
+  'architect',
+  'analyst',
+  'qa',
+  'pm',
+  'po',
+  'devops',
+  'data-engineer',
+  'ux-design-expert',
+]);
+
+const CRITICAL_KEYWORDS = [
+  'architecture',
+  'security',
+  'audit',
+  'review',
+  'gate',
+  'plan',
+  'strategy',
+  'migration',
+  'incident',
+  'root cause',
+  'performance',
+  'seo',
+  'compliance',
+  'orchestration',
+];
 
 class GeminiModelSelector {
   constructor(config = {}) {
     this.classifier = new TaskComplexityClassifier();
-    this.defaultModel = config.defaultModel || 'flash';
+    this.defaultModel = config.defaultModel || 'pro';
     this.agentOverrides = { ...AGENT_OVERRIDES, ...config.agentOverrides };
     this.qualityFallback = config.qualityFallback !== false;
     this.minQualityScore = config.minQualityScore || 0.6;
@@ -73,17 +104,27 @@ class GeminiModelSelector {
 
     // Classify task complexity
     const complexity = this.classifier.classify(task);
+    const criticality = this.assessCriticality(task, normalizedAgentId);
 
     // Select based on complexity
     let model = this.defaultModel;
 
-    if (complexity.level === 'complex' || complexity.score > 0.7) {
+    if (criticality.level === 'critical') {
       model = 'pro';
-    } else if (complexity.level === 'simple' || complexity.score < 0.3) {
+    } else if (
+      criticality.level === 'low'
+      && complexity.level === 'simple'
+      && complexity.score < 0.3
+    ) {
       model = 'flash';
+    } else if (complexity.level === 'complex' || complexity.score > 0.55) {
+      model = 'pro';
     }
 
-    return this._buildSelection(model, 'complexity', complexity);
+    return this._buildSelection(model, 'complexity', {
+      complexity,
+      criticality,
+    });
   }
 
   /**
@@ -135,6 +176,56 @@ class GeminiModelSelector {
       total,
       flashRatio: total.count > 0 ? this.usage.flash.count / total.count : 0,
       costSavings: this._calculateCostSavings(),
+    };
+  }
+
+  assessCriticality(task = {}, agentId = null) {
+    const description = (task.description || '').toLowerCase();
+    const tags = (task.tags || []).map((tag) => String(tag).toLowerCase());
+    const type = String(task.type || '').toLowerCase();
+    const criteria = Array.isArray(task.acceptanceCriteria)
+      ? task.acceptanceCriteria
+      : task.acceptanceCriteria
+        ? [task.acceptanceCriteria]
+        : [];
+    const files = Array.isArray(task.files) ? task.files : [];
+
+    let score = 0;
+    const reasons = [];
+
+    if (agentId && HIGH_REASONING_AGENTS.has(agentId)) {
+      score += 3;
+      reasons.push(`high_reasoning_agent:${agentId}`);
+    }
+
+    if (type && ['security', 'architecture', 'review', 'planning', 'analysis'].includes(type)) {
+      score += 3;
+      reasons.push(`critical_type:${type}`);
+    }
+
+    for (const keyword of CRITICAL_KEYWORDS) {
+      if (description.includes(keyword) || tags.includes(keyword)) {
+        score += 1;
+        reasons.push(`keyword:${keyword}`);
+      }
+    }
+
+    if (criteria.length >= 5) {
+      score += 1;
+      reasons.push('many_acceptance_criteria');
+    }
+
+    if (files.length >= 4) {
+      score += 1;
+      reasons.push('multi_file_change');
+    }
+
+    const level = score >= 3 ? 'critical' : score === 0 ? 'low' : 'standard';
+
+    return {
+      level,
+      score,
+      reasons,
     };
   }
 

@@ -1,0 +1,94 @@
+# project-manifest.yaml — Alpha Business Academy Landing Page (HTML)
+# Gerado por: *create-site alpha
+# Projeto HTML estático — separado do lp/ (Next.js).
+
+project:
+  name: "Alpha Business Academy Landing Page"
+  slug: "alpha-lp-html"
+  client: "alpha"
+  type: "landing-page"
+  status: "active"
+
+framework:
+  type: "html-static"
+  version: null
+  language: "html"
+  router: "none"
+  styling: "mixed"                  # styles.css (CSS vars) + TailwindCDN
+  tailwind_version: "cdn"
+
+tokens:
+  source: "styles.css"
+  brand_engine_client: "alpha"
+  colors:
+    background: "#0A0A0A"
+    surface: "#141414"
+    surface_light: "#1E1E1E"
+    primary: "#C9A24A"
+    primary_hover: "#D4B66E"
+    text_primary: "#FAF9F6"
+    text_muted: "#9CA3AF"
+    border_subtle: "rgba(255, 255, 255, 0.08)"
+  typography:
+    font_display: "Inter"
+    font_body: "Inter"
+    font_mono: null
+    weight_black: 900
+  spacing:
+    section_padding: "6rem 0"           # --space-20
+    card_padding: "2rem"
+  border_radius:
+    sm: "0.125rem"
+    md: "0.375rem"
+    lg: "0.5rem"
+    xl: "1rem"
+  mode: "dark"
+
+components:
+  directory: "inline"
+  pattern: "inline-sections"
+  css_file: "styles.css"
+  animations:
+    trigger: "reveal"
+
+pages:
+  directory: "clients/AlphaBusinessAcademy/landing_page"
+  routes:
+    - path: "/"
+      file: "index.html"
+      title: "Alpha Business Academy"
+      status: "done"
+
+assets:
+  images:
+    directory: "assets/images"
+    files:
+      - "DE3A2507.jpg"
+      - "DSC00016.jpg"
+      - "DSC08333.jpg"
+      - "DSC08376.jpg"
+      - "DSC08386.jpg"
+      - "DSC08417.jpg"
+      - "DSC08448.jpg"
+    subdirs: ["Bastidores de Quem Já Passou Por Aqui", "event", "hero", "mentors"]
+
+conventions:
+  import_style: "relative"
+  css_pattern: "css-vars + tailwind-cdn"
+  css_file_required: true
+  js_pattern: "vanilla"
+
+deploy:
+  platform: "cloudflare-pages"
+  domain: null
+  build_command: null
+  output_dir: "clients/AlphaBusinessAcademy/landing_page"
+
+meta:
+  generated_at: "2026-03-13"
+  generated_by: "*create-site alpha"
+  last_updated: "2026-03-13"
+  notes: |
+    Projeto HTML estático SEPARADO do lp/ (Next.js).
+    Para o projeto Next.js, ver: clients/AlphaBusinessAcademy/lp/project-manifest.yaml
+    Páginas existentes NÃO devem ser sobrescritas.

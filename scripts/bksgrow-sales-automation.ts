@@ -1,50 +1,22 @@
 import { supabase } from '../src/db/supabase.ts';
 import { createAndSendCampaign } from '../packages/brand-engine/sales/brevo-client.ts';
-import { generateBrevoSequence } from '../packages/brand-engine/sales/content-generator.ts';
-import { callLLM } from '../src/llm/client.ts';
+import { generateBrevoSequence, detectSegment } from '../packages/brand-engine/sales/content-generator.ts';
+import { scoreLeadLLM } from '../packages/brand-engine/sales/lead-scorer.ts';
 import 'dotenv/config';
-
-// Advanced LLM filter to ensure quality and 100k+ revenue profile.
-async function isQualifiedB2BLeadLLM(lead: any): Promise<boolean> {
-    const name = lead.business_name.toLowerCase();
-    const badKeywords = ['lanchonete', 'padaria', 'barbearia', 'mercado', 'açougue', 'pizzaria', 'posto', 'oficina', 'doceria'];
-    if (badKeywords.some(kw => name.includes(kw))) {
-        return false;
-    }
-
-    const prompt = `Você é um qualificador de leads B2B implacável.
-O nosso ICP (Ideal Customer Profile) são Experts (Palestrantes, Treinadores Corporativos, Consultorias) ou Empresas de Eventos B2B (Produtoras, Cenografia) que aparentam maturidade e uma alta probabilidade de faturar mais de R$ 100.000 por mês.
-Analise o seguinte Lead:
-- Nome da Empresa: "${lead.business_name}"
-- Nicho Mapeado: "${lead.niche}"
-- URL do Maps: "${lead.google_maps_url}"
-- Website: "${lead.website}"
-
-O negócio parece ser um player sólido nesses mercados B2B ou um Expert relevante?
-Responda APENAS com "APPROVE" se for qualificado (perfil de 100k/mês+), ou "REJECT" se for um negócio local irrelevante, B2C, ou profissional sem maturidade empresarial.`;
-
-    try {
-        const response = await callLLM(prompt, { temperature: 0.1, model: 'gemini-2.5-flash' });
-        return response.includes('APPROVE');
-    } catch (e: any) {
-        console.error('[LLM Filter] API Error, defaulting to true:', e.message);
-        return true;
-    }
-}
 
 export async function runSalesAutomation() {
     console.log('[orchestrator] Starting sales automation cycle...');
 
     const now = new Date().toISOString();
 
-    // 1. Fetch leads that are "new" OR ready for step 2/3
+    // 1. Fetch leads that are "new" OR ready for next step, OR nurture leads ready for re-contact
     const { data: leads, error } = await supabase
         .from('sales_leads')
         .select('*')
         .eq('client_id', 'BKSGrow')
         .not('email', 'is', null)
         .neq('email', '')
-        .or(`status.eq.new,and(status.eq.email_sent,current_step.lt.3,next_contact_at.lte.${now})`);
+        .or(`status.eq.new,and(status.eq.email_sent,current_step.lt.3,next_contact_at.lte.${now}),and(status.eq.nurture,next_contact_at.lte.${now})`);
 
     if (error) {
         console.error('[orchestrator] Error fetching leads:', error.message);
@@ -65,46 +37,84 @@ export async function runSalesAutomation() {
 
             if (stepToSend > 3) continue;
 
-            // 1.5 Filter Lead (only on step 1)
-            if (stepToSend === 1) {
-                const isQualified = await isQualifiedB2BLeadLLM(lead);
-                if (!isQualified) {
-                    console.log(`[orchestrator] Lead ${lead.business_name} discarded by LLM filter.`);
-                    await supabase.from('sales_leads').update({ status: 'discarded' }).eq('id', lead.id);
+            // ── Step 1: Multi-dimensional scoring (only for new leads) ──────────
+            if (lead.status === 'new') {
+                const score = await scoreLeadLLM(lead);
+                console.log(`[orchestrator] Lead ${lead.business_name} scored: ${score.total} (${score.tier}) — ${score.reasoning}`);
+
+                if (score.tier === 'LOW') {
+                    await supabase.from('sales_leads').update({
+                        status: 'disqualified_low_score',
+                        lead_score: score.total,
+                        lead_tier: score.tier,
+                        score_breakdown: score.breakdown,
+                    }).eq('id', lead.id);
+                    console.log(`[orchestrator] Lead ${lead.business_name} disqualified (LOW score ${score.total})`);
                     continue;
+                }
+
+                if (score.tier === 'MEDIUM') {
+                    const nurtureDateAt = new Date();
+                    nurtureDateAt.setDate(nurtureDateAt.getDate() + 7);
+                    await supabase.from('sales_leads').update({
+                        status: 'nurture',
+                        lead_score: score.total,
+                        lead_tier: score.tier,
+                        score_breakdown: score.breakdown,
+                        next_contact_at: nurtureDateAt.toISOString(),
+                    }).eq('id', lead.id);
+                    console.log(`[orchestrator] Lead ${lead.business_name} moved to nurture (MEDIUM score ${score.total}), next contact: ${nurtureDateAt.toISOString()}`);
+                    // Still send S1 for MEDIUM — fall through
+                }
+
+                // Persist score for HIGH leads before sending S1
+                if (score.tier === 'HIGH') {
+                    await supabase.from('sales_leads').update({
+                        lead_score: score.total,
+                        lead_tier: score.tier,
+                        score_breakdown: score.breakdown,
+                    }).eq('id', lead.id);
                 }
             }
 
-            // 2. Generate strategic copy
-            const copy = generateBrevoSequence({ business_name: lead.business_name, niche: lead.niche }, stepToSend);
+            // ── Step 2: Detect segment ──────────────────────────────────────────
+            const segment = detectSegment(lead);
 
-            // 3. Create Campaign
-            const campaignName = `BKSGrow_Outreach_S${stepToSend}_${lead.id}_${Date.now()}`;
+            // ── Step 3: Generate strategic copy ────────────────────────────────
+            const copy = generateBrevoSequence(
+                { ...lead, segment },
+                stepToSend
+            );
+
+            // ── Step 4: Create & send Brevo campaign ───────────────────────────
+            const campaignName = `BKSGrow_Outreach_S${stepToSend}_${copy.ab_variant}_${lead.id}_${Date.now()}`;
             await createAndSendCampaign(campaignName, copy.subject, copy.html);
 
-            console.log(`[orchestrator] Lead ${lead.email} sequence step ${stepToSend} sent via Brevo.`);
+            console.log(`[orchestrator] Lead ${lead.email} step ${stepToSend} sent via Brevo (segment: ${segment}, variant: ${copy.ab_variant})`);
 
-            // Calculate next contact date
+            // ── Step 5: Calculate next contact date ────────────────────────────
             let nextContactAt: Date | null = new Date();
             let nextStatus = 'email_sent';
 
             if (stepToSend === 1) {
-                nextContactAt.setDate(nextContactAt.getDate() + 2); // Wait 2 days for email 2
+                nextContactAt.setDate(nextContactAt.getDate() + 2);
             } else if (stepToSend === 2) {
-                nextContactAt.setDate(nextContactAt.getDate() + 4); // Wait 4 days for email 3
+                nextContactAt.setDate(nextContactAt.getDate() + 4);
             } else {
-                nextContactAt = null; // No more emails
+                nextContactAt = null;
                 nextStatus = 'sequence_finished';
             }
 
-            // 4. Update Supabase
+            // ── Step 6: Update Supabase ────────────────────────────────────────
             const { error: updateError } = await supabase
                 .from('sales_leads')
                 .update({
                     status: nextStatus,
                     current_step: stepToSend,
                     last_contact_at: new Date().toISOString(),
-                    next_contact_at: nextContactAt ? nextContactAt.toISOString() : null
+                    next_contact_at: nextContactAt ? nextContactAt.toISOString() : null,
+                    ab_variant: copy.ab_variant,
+                    subject_used: copy.subject,
                 })
                 .eq('id', lead.id);
 

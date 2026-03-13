@@ -13,6 +13,7 @@
 
 const { spawn } = require('child_process');
 const { BaseLayer } = require('./base-layer');
+const { resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 /**
  * Layer 1: Pre-commit checks
@@ -288,11 +289,10 @@ class Layer1PreCommit extends BaseLayer {
   runCommand(command, timeout = 60000) {
     return new Promise((resolve, reject) => {
       const startTime = Date.now();
-      const [cmd, ...args] = command.split(' ');
+      const { command: cmd, args } = resolveCommandSpec(command);
 
-      // Use shell for npm commands on Windows
       const options = {
-        shell: true,
+        shell: false,
         cwd: process.cwd(),
         env: { ...process.env, FORCE_COLOR: '1' },
       };

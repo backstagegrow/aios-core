@@ -16,6 +16,10 @@ const { spawnSync } = require('child_process');
 const { getIDEConfig } = require('../config/ide-configs');
 const { validateProjectName } = require('./validators');
 const { getMergeStrategy, hasMergeStrategy } = require('../merger/index.js');
+const {
+  generateAntiGravityWorkflow: sharedGenerateAntiGravityWorkflow,
+  createAntiGravityConfigObject,
+} = require('../../../../.aios-core/infrastructure/scripts/ide-sync/antigravity-support');
 
 /**
  * Render template with variables
@@ -242,7 +246,7 @@ async function copyAgentFiles(projectRoot, agentFolder, ideConfig = null) {
     if (stat.isFile()) {
       if (isAntiGravity) {
         // For AntiGravity: create workflow activation files
-        const workflowContent = generateAntiGravityWorkflow(agentName);
+        const workflowContent = sharedGenerateAntiGravityWorkflow(agentName);
         const targetPath = path.join(targetDir, file);
         await fs.writeFile(targetPath, workflowContent, 'utf8');
         copiedFiles.push(targetPath);
@@ -323,6 +327,11 @@ async function copyClaudeRulesFolder(projectRoot) {
  * @returns {string} Workflow file content
  */
 function generateAntiGravityWorkflow(agentName) {
+  const workflow = sharedGenerateAntiGravityWorkflow(agentName);
+  if (workflow) {
+    return workflow;
+  }
+
   // Capitalize first letter for display
   const displayName = agentName.charAt(0).toUpperCase() + agentName.slice(1);
 
@@ -354,34 +363,11 @@ description: Ativa o agente ${displayName}
  */
 async function createAntiGravityConfigJson(projectRoot, ideConfig) {
   const configPath = path.join(projectRoot, ideConfig.specialConfig.configJsonPath);
-  const projectName = path.basename(projectRoot);
-
-  const config = {
-    version: '1.0',
-    project: projectName,
-    workspace: projectRoot.replace(/\\/g, '/'),
-    agents: {
-      enabled: true,
-      directory: ideConfig.specialConfig.agentsFolder,
-      default: 'aios-master',
-    },
-    rules: {
-      enabled: true,
-      file: ideConfig.configFile,
-    },
-    features: {
-      storyDrivenDevelopment: true,
-      agentActivation: true,
-      workflowAutomation: true,
-    },
-    paths: {
-      stories: 'docs/stories',
-      prd: 'docs/prd',
-      architecture: 'docs/architecture',
-      tasks: '.aios-core/tasks',
-      workflows: '.aios-core/workflows',
-    },
-  };
+  const config = createAntiGravityConfigObject(projectRoot, {
+    projectName: path.basename(projectRoot),
+    agentsDirectory: ideConfig.specialConfig.agentsFolder,
+    rulesFile: ideConfig.configFile,
+  });
 
   await fs.ensureDir(path.dirname(configPath));
   await fs.writeFile(configPath, JSON.stringify(config, null, 4), 'utf8');
@@ -1180,6 +1166,8 @@ module.exports = {
   copyGeminiHooksFolder,
   createGeminiSettings,
   linkGeminiExtension,
+  generateAntiGravityWorkflow,
+  createAntiGravityConfigJson,
   HOOK_EVENT_MAP,
   DEFAULT_HOOK_CONFIG,
 };

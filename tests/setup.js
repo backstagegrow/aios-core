@@ -12,6 +12,14 @@ if (process.env.SKIP_SPAWN_TESTS === undefined) {
   process.env.SKIP_SPAWN_TESTS = 'true';
 }
 
+if (process.env.SKIP_NETWORK_TESTS === undefined) {
+  process.env.SKIP_NETWORK_TESTS = 'true';
+}
+
+if (process.env.SKIP_CLICKUP_TESTS === undefined) {
+  process.env.SKIP_CLICKUP_TESTS = 'true';
+}
+
 jest.setTimeout(process.env.CI ? 30000 : 10000);
 
 const originalConsole = {
@@ -214,3 +222,17 @@ global.describeSpawnIntegration = process.env.SKIP_SPAWN_TESTS === 'true'
 global.testSpawnIntegration = process.env.SKIP_SPAWN_TESTS === 'true'
   ? test.skip
   : test;
+
+// Specialized Gating Helpers
+const isWindows = process.platform === 'win32';
+const hasNetwork = process.env.SKIP_NETWORK_TESTS !== 'true';
+const hasClickUp = process.env.SKIP_CLICKUP_TESTS !== 'true';
+
+global.describeIfWindows = isWindows ? describe : describe.skip;
+global.testIfWindows = isWindows ? test : test.skip;
+
+global.describeIfNetwork = hasNetwork ? describe : describe.skip;
+global.testIfNetwork = hasNetwork ? test : test.skip;
+
+global.describeIfClickUp = hasClickUp ? describe : describe.skip;
+global.testIfClickUp = hasClickUp ? test : test.skip;

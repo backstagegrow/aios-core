@@ -16,11 +16,12 @@
  * Based on Auto-Claude's merge system architecture.
  */
 
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const EventEmitter = require('events');
 const yaml = require('js-yaml');
+const { resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 // ============================================================================
 // TYPES & ENUMS
@@ -1173,7 +1174,12 @@ class CustomRulesLoader {
     if (!hookCommand) return true;
 
     try {
-      execSync(hookCommand, {
+      // Split the command string into command and arguments
+      const parts = hookCommand.split(/\s+/);
+      const command = parts[0];
+      const args = parts.slice(1);
+
+      execFileSync(command, args, {
         cwd: this.rootPath,
         encoding: 'utf8',
         env: {
@@ -1520,8 +1526,8 @@ class SemanticMergeEngine extends EventEmitter {
     const files = {};
 
     try {
-      // Get list of files
-      const fileList = execSync(`git ls-tree -r --name-only ${branch}`, {
+      // Get list
+      const fileList = execFileSync('git', ['ls-tree', '-r', '--name-only', branch], {
         cwd: this.rootPath,
         encoding: 'utf8',
       })
@@ -1531,7 +1537,7 @@ class SemanticMergeEngine extends EventEmitter {
       for (const filePath of fileList) {
         if (this.shouldProcessFile(filePath)) {
           try {
-            const content = execSync(`git show ${branch}:${filePath}`, {
+            const content = execFileSync('git', ['show', `${branch}:${filePath}`], {
               cwd: this.rootPath,
               encoding: 'utf8',
             });
@@ -1563,8 +1569,8 @@ class SemanticMergeEngine extends EventEmitter {
     const workDir = worktreePath || this.rootPath;
 
     try {
-      // Get modified files in this task
-      const diffOutput = execSync(`git diff --name-only ${branch || 'main'}...HEAD`, {
+      // Get modified files in this
+      const diffOutput = execFileSync('git', ['diff', '--name-only', `${branch || 'main'}...HEAD`], {
         cwd: workDir,
         encoding: 'utf8',
       }).trim();

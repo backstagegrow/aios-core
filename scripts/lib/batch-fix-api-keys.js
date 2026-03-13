@@ -16,12 +16,11 @@ const fs = require('fs');
 const path = require('path');
 
 const SCRIPTS_DIR = path.resolve(__dirname, '..');
-const HARDCODED_KEY = "pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA";
-
+const HARDCODED_KEY = process.env.CLICKUP_LEGACY_KEY || "REDACTED_KEY_PATTERN";
 // Pattern variations found in the codebase
 const PATTERNS = [
-    /const API_KEY\s*=\s*'pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA';?\s*\n?/g,
-    /const API_KEY\s*=\s*"pk_111906470_L5VDUBKWMGS3CGWAFMKE6TJ5QL3154JA";?\s*\n?/g,
+    new RegExp(`const API_KEY\\s*=\\s*'${HARDCODED_KEY}';?\\s*\\n?`, 'g'),
+    new RegExp(`const API_KEY\\s*=\\s*"${HARDCODED_KEY}";?\\s*\\n?`, 'g'),
 ];
 
 const REPLACEMENT_IMPORT = "const { API_KEY, clickupRequest } = require('./lib/clickup-env');\n";

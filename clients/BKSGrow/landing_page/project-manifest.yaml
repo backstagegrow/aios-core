@@ -1,0 +1,126 @@
+# project-manifest.yaml — BKS Grow
+# Gerado por: *create-site bks-grow via site-creation workflow
+# Atualizar manualmente quando o projeto mudar significativamente.
+
+project:
+  name: "BKS Grow Landing Page"
+  slug: "bksgrow-lp"
+  client: "bks-grow"
+  type: "landing-page"
+  status: "active"
+
+framework:
+  type: "html-static"
+  version: null
+  language: "html"
+  router: "none"
+  styling: "mixed"                  # styles.css (CSS vars) + TailwindCDN + Tailwind config inline
+  tailwind_version: "cdn"           # Configurado inline no <head> com tema customizado
+
+tokens:
+  source: "styles.css + tailwind-config-inline"
+  brand_engine_client: "bks-grow"
+  colors:
+    background: "#0A0A0A"
+    surface: "#1A1A1A"
+    card: "#151515"
+    card_hover: "#1f1f1f"
+    primary: "#84CC16"
+    primary_light: "#A3E635"
+    primary_dark: "#4D7C0F"
+    primary_glow: "rgba(132, 204, 22, 0.4)"
+    text_primary: "#FFFFFF"
+    text_muted: "#A1A1AA"
+    text_on_green: "#000000"
+    border_light: "rgba(255, 255, 255, 0.08)"
+    border_green: "rgba(132, 204, 22, 0.3)"
+  typography:
+    font_display: "Inter"             # Único font — Inter para tudo
+    font_body: "Inter"
+    font_mono: "JetBrains Mono"
+    weight_black: 900
+    weight_bold: 700
+    weight_semibold: 600
+  spacing:
+    section_padding: "96px 0"         # py-24 = 96px
+    card_padding: "24px"
+    max_width: "72rem"                 # max-w-6xl
+  border_radius:
+    sm: "8px"                          # --radius-sm
+    md: "12px"                         # --radius-md
+    lg: "20px"                         # --radius-lg
+    pill: "9999px"                     # rounded-full (CTAs)
+  effects:
+    glow_green: "0 0 30px rgba(132,204,22,0.3)"
+    glow_green_hover: "0 0 40px rgba(132,204,22,0.5)"
+  mode: "dark"
+
+components:
+  directory: "inline"
+  pattern: "inline-sections"
+  css_pattern: "css-vars + tailwind-cdn + styles.css"
+  css_file: "styles.css"
+  animations:
+    trigger: "reveal"                   # class="reveal" ativado por IntersectionObserver
+    webgl: true                         # Canvas 3D no Hero (Three.js ou similar)
+
+pages:
+  directory: "clients/BKSGrow/landing_page"
+  routes:
+    - path: "/"
+      file: "index.html"
+      title: "BKS Grow"
+      status: "done"
+      sections:
+        - header
+        - hero
+        - results-metrics
+        - solucoes
+        - metodo
+        - diferenciais
+        - faq
+        - contato
+        - footer
+
+assets:
+  logos:
+    primary: "assets/logos/Logo Backstage.svg"
+    variants:
+      - "assets/logos/Camada 2.svg"
+      - "assets/logos/Group 35.svg"
+      - "assets/logos/Group 36.svg"
+      - "assets/logos/Group 38.svg"
+  images:
+    directory: "assets/images"          # Ainda vazio (.gitkeep)
+
+builds:
+  directory: "builds/landing"
+  files:
+    - "index.html"                      # Build principal
+    - "index-lendaria.html"             # Variante Lendária
+
+conventions:
+  import_style: "relative"
+  section_header_pattern: "html-comments"   # <!-- Section Name -->
+  css_pattern: "css-vars + tailwind-cdn"
+  css_file_required: true                   # Sempre importar styles.css
+  js_pattern: "vanilla"
+  cta_style: "rounded-full text-black bg-green"
+
+deploy:
+  platform: "cloudflare-pages"
+  domain: null
+  build_command: null
+  output_dir: "clients/BKSGrow/landing_page"
+
+meta:
+  generated_at: "2026-03-13"
+  generated_by: "*create-site bks-grow"
+  last_updated: "2026-03-13"
+  notes: |
+    Site HTML estático com design dark + lime green.
+    Único font: Inter (sem display font separada).
+    CSS vars definidas em styles.css — SEMPRE importar este arquivo.
+    Tailwind customizado inline no head (green palette mapeada).
+    Canvas WebGL no Hero — não remover ao criar novas seções.
+    Páginas existentes NÃO devem ser sobrescritas — apenas adicionar novas.

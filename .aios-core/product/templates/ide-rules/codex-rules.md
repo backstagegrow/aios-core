@@ -17,8 +17,24 @@ Este arquivo define as instrucoes do projeto para o Codex CLI.
 - Rode `npm run lint`
 - Rode `npm run typecheck`
 - Rode `npm test`
+- Rode `npm run build` quando houver build relevante no workspace
 - Atualize checklist e file list da story antes de concluir
 <!-- AIOS-MANAGED-END: quality -->
+
+<!-- AIOS-MANAGED-START: decision-defaults -->
+## Decision Defaults
+
+- Classifique antes de agir: estado do projeto, complexidade, risco e executor correto.
+- Em mudancas substanciais, assuma fluxo story-driven sem perguntar quando o contexto ja estiver claro no repo.
+- Prefira regra explicita, playbook e fonte unica de verdade em vez de heuristica opaca.
+- Corrija causa raiz, alinhe docs/config/runtime/validacao e adicione teste de regressao para mudanca estrutural.
+- Para codigo, assuma fechamento com `lint`, `typecheck`, `test` e `build` quando aplicavel.
+- Para sites, comece por briefing, CTA, paginas e secoes; privilegie design intencional e evite layout generico.
+- Para conteudo, escreva buyer-first com beneficio, prova e CTA claros.
+- Escale ao usuario apenas quando a decisao mudar direcao de negocio, marca, pricing ou arquitetura de longo prazo.
+
+Fonte de referencia: `docs/plans/2026-03-13-user-decision-map.md`
+<!-- AIOS-MANAGED-END: decision-defaults -->
 
 <!-- AIOS-MANAGED-START: codebase -->
 ## Project Map

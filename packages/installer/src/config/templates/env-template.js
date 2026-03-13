@@ -111,6 +111,14 @@ GITHUB_TOKEN=${apiKeys.github || ''}
 # Get from: ClickUp Settings > Apps > API Token
 CLICKUP_API_KEY=${apiKeys.clickup || ''}
 
+# Meta Ads API (optional)
+# Use direct token or point to a shared source managed by another app/secret store
+META_ADS_ACCESS_TOKEN=
+META_ADS_ACCESS_TOKEN_FILE=
+META_ADS_ACCESS_TOKEN_COMMAND=
+META_AD_ACCOUNT_ID=
+META_GRAPH_API_VERSION=v19.0
+
 # --------------------------------------------
 # Automation & Workflows
 # --------------------------------------------
@@ -222,6 +230,14 @@ GITHUB_TOKEN=
 # ClickUp API (if using ClickUp integration)
 # Get from: ClickUp Settings > Apps > API Token
 CLICKUP_API_KEY=
+
+# Meta Ads API (optional)
+# Use direct token or point to a shared source managed by another app/secret store
+META_ADS_ACCESS_TOKEN=
+META_ADS_ACCESS_TOKEN_FILE=
+META_ADS_ACCESS_TOKEN_COMMAND=
+META_AD_ACCOUNT_ID=
+META_GRAPH_API_VERSION=v19.0
 
 # --------------------------------------------
 # Automation & Workflows

@@ -45,7 +45,7 @@ const DEFAULT_CONFIG = {
     dangerouslySkipPermissions: false,
   },
   gemini: {
-    model: 'gemini-2.0-flash',
+    model: 'gemini-2.0-pro',
     timeout: 300000,
     previewFeatures: true,
     jsonOutput: false,

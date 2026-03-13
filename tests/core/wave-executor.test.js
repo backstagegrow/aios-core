@@ -414,6 +414,17 @@ describe('WaveExecutor', () => {
 
       expect(mockRLM.executeWithRetry).toHaveBeenCalled();
     });
+
+    test('clears the timeout handle after task completion', async () => {
+      const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+      const mockTaskExec = createMockTaskExecutor({ success: true });
+      executor = new WaveExecutor({ taskExecutor: mockTaskExec, taskTimeout: 5000 });
+
+      const task = createMockTask({ id: 'clear-timeout-task' });
+      await executor.executeTaskWithTimeout(task, {});
+
+      expect(clearTimeoutSpy).toHaveBeenCalled();
+    });
   });
 
   // ─────────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,9 @@
+projectName: AIOS-Test-Project
+version: 1.0.0
+stack:
+  backend: nodejs
+  frontend: react
+  database: postgres
+pathway:
+  active: true
+  rules: []

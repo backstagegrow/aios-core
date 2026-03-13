@@ -35,7 +35,7 @@ AIOS supports multiple AI-powered development platforms. Choose the one that bes
 | Codex CLI | Limited | `/skills` then `aios-<agent-id>` | Limited (some checks need manual sync) | Run `npm run sync:ide:codex` and follow `/skills` flow |
 | Cursor | Limited | `@agent` + synced rules | Not available | Follow synced rules and run validators manually (`npm run validate:parity`) |
 | GitHub Copilot | Limited | chat modes + repo instructions | Not available | Use repo instructions and VS Code MCP config for context |
-| AntiGravity | Limited | workflow-driven activation | Not available | Use generated workflows and run validators manually |
+| AntiGravity | Limited | workflow-driven activation via `.agent/workflows` | Not available | Use generated workflows and run validators manually |
 
 Legend:
 - `Works`: fully recommended for new users in AIOS 4.2.11.
@@ -251,20 +251,32 @@ cat .github/copilot-instructions.md
 config_file: .antigravity/rules.md
 config_json: .antigravity/antigravity.json
 agent_folder: .agent/workflows
+canonical_agents: .antigravity/agents
 activation: workflow-based
-format: cursor-style
+format: workflow + full-markdown-yaml
 mcp_support: native (Google)
 special_features:
   - Google Cloud integration
   - Workflow system
   - Native Firebase tools
+  - Canonical AIOS agents in .antigravity/agents
 ```
 
 **Setup:**
 
 1. AIOS creates `.antigravity/` directory
 2. Configure Google Cloud credentials
-3. Agents synchronized as workflows
+3. Agents synchronized into:
+   - `.agent/workflows/*.md` for activation
+   - `.antigravity/agents/*.md` for canonical agent definitions
+   - `.antigravity/rules.md` for global rules
+4. Validate integration:
+
+```bash
+npm run sync:ide:antigravity
+npm run validate:antigravity-sync
+npm run validate:antigravity-integration
+```
 
 ---
 

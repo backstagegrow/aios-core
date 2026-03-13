@@ -4,12 +4,13 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const { spawnSync } = require('child_process');
 const { validateClaudeIntegration } = require('./validate-claude-integration');
 const { validateCodexIntegration } = require('./validate-codex-integration');
 const { validateGeminiIntegration } = require('./validate-gemini-integration');
+const { validateAntigravityIntegration } = require('./validate-antigravity-integration');
 const { validateCodexSkills } = require('./codex-skills-sync/validate');
 const { validatePaths } = require('./validate-paths');
+const { validateIdeTarget } = require('./ide-sync/index');
 
 function parseArgs(argv = process.argv.slice(2)) {
   const args = new Set(
@@ -26,17 +27,28 @@ function parseArgs(argv = process.argv.slice(2)) {
 }
 
 function runSyncValidate(ide, projectRoot) {
-  const script = path.join('.aios-core', 'infrastructure', 'scripts', 'ide-sync', 'index.js');
-  const result = spawnSync('node', [script, 'validate', '--ide', ide, '--strict'], {
-    cwd: projectRoot,
-    encoding: 'utf8',
-  });
-  return {
-    ok: result.status === 0,
-    errors: result.status === 0 ? [] : [`Sync validation failed for ${ide}`],
-    warnings: [],
-    raw: result.stdout || result.stderr || '',
-  };
+  try {
+    const result = validateIdeTarget(projectRoot, ide);
+    const errors = [];
+
+    if (!result.summary.pass) {
+      errors.push(`Sync validation failed for ${ide}`);
+    }
+
+    return {
+      ok: result.summary.pass,
+      errors,
+      warnings: [],
+      raw: '',
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      errors: [`Sync validation failed for ${ide}: ${error.message}`],
+      warnings: [],
+      raw: '',
+    };
+  }
 }
 
 function getDefaultContractPath(projectRoot = process.cwd()) {
@@ -222,6 +234,7 @@ function runParityValidation(options = {}, deps = {}) {
   const runClaudeIntegration = deps.validateClaudeIntegration || validateClaudeIntegration;
   const runCodexIntegration = deps.validateCodexIntegration || validateCodexIntegration;
   const runGeminiIntegration = deps.validateGeminiIntegration || validateGeminiIntegration;
+  const runAntigravityIntegration = deps.validateAntigravityIntegration || validateAntigravityIntegration;
   const runCodexSkills = deps.validateCodexSkills || validateCodexSkills;
   const runPaths = deps.validatePaths || validatePaths;
   const resolvedContractPath = options.contractPath
@@ -243,6 +256,7 @@ function runParityValidation(options = {}, deps = {}) {
     { id: 'cursor-sync', exec: () => runSync('cursor', projectRoot) },
     { id: 'github-copilot-sync', exec: () => runSync('github-copilot', projectRoot) },
     { id: 'antigravity-sync', exec: () => runSync('antigravity', projectRoot) },
+    { id: 'antigravity-integration', exec: () => runAntigravityIntegration({ projectRoot }) },
     { id: 'codex-skills', exec: () => runCodexSkills({ projectRoot, strict: true, quiet: true }) },
     { id: 'paths', exec: () => runPaths({ projectRoot }) },
   ];

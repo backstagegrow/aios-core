@@ -8,20 +8,25 @@
             "primary": "./brand/logo.svg"
         },
         "colors": {
-            "brandPrimary": "#1A1A1A",
-            "brandSecondary": "#FFFFFF",
-            "brandAccent": "#C9A24A",
-            "danger": "#FF4D4D",
-            "success": "#00C853",
-            "warning": "#FFB300"
+            "brandPrimary": "#052F33",
+            "brandPrimaryAlt": "#0A3F44",
+            "brandAccent": "#1FA2D6",
+            "brandAccentLight": "#49B8E8",
+            "brandBackground": "#F8FAFC",
+            "brandBgLight": "#D7DEE2",
+            "textDark": "#0C3B40",
+            "textSecondary": "#6B7C86",
+            "danger": "#EF4444",
+            "success": "#34D399",
+            "warning": "#FBBF24"
         },
         "typography": {
             "fontHeading": "Playfair Display",
-            "fontBody": "Montserrat",
-            "fontMono": "Courier New"
+            "fontBody": "Inter",
+            "fontMono": "JetBrains Mono"
         },
         "shape": {
-            "radiusScale": "sharp"
+            "radiusScale": "soft"
         },
         "mode": "light"
     }

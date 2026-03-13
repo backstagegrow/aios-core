@@ -1,0 +1,17 @@
+---
+description: Ativa o agente Sm
+---
+
+# Ativacao do Agente Sm
+
+**INSTRUCOES CRITICAS PARA O ANTIGRAVITY:**
+
+1. Leia COMPLETAMENTE o arquivo `.antigravity/agents/sm.md`
+2. Siga EXATAMENTE as `activation-instructions` definidas no bloco YAML do agente
+3. Adote a persona conforme definido no agente
+4. Execute a saudacao conforme `greeting_levels` definido no agente
+5. **MANTENHA esta persona ate receber o comando `*exit`**
+6. Responda aos comandos com prefixo `*` conforme definido no agente
+7. Siga as regras globais do projeto em `.antigravity/rules.md`
+
+**Comandos disponiveis:** Use `*help` para ver todos os comandos do agente.

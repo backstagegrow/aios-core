@@ -48,13 +48,23 @@ jest.mock('../../.aios-core/core/execution/build-state-manager', () => ({
   BuildStateManager: jest.fn().mockImplementation(() => ({ ...mockStateInstance })),
 }));
 
-// Mock optional dependencies to not load
-jest.mock('../../.aios-core/infrastructure/scripts/recovery-tracker', () => {
-  throw new Error('not available');
-});
+// Stateful Mocks for optional dependencies
+let mockWorktreeInstance = null;
 jest.mock('../../.aios-core/infrastructure/scripts/worktree-manager', () => {
-  throw new Error('not available');
+  return jest.fn().mockImplementation(() => mockWorktreeInstance);
 });
+
+let mockRecoveryInstance = null;
+jest.mock('../../.aios-core/infrastructure/scripts/recovery-tracker', () => ({
+  RecoveryTracker: jest.fn().mockImplementation(() => mockRecoveryInstance),
+}));
+
+// Mock child_process for all tests
+const mockExecFileSync = jest.fn();
+jest.mock('child_process', () => ({
+  execFileSync: (cmd, args, opts) => mockExecFileSync(cmd, args, opts),
+  spawn: jest.fn(),
+}));
 
 const {
   AutonomousBuildLoop,
@@ -101,6 +111,10 @@ describe('AutonomousBuildLoop', () => {
   beforeEach(() => {
     tmpDir = createTempDir('abl-test-');
     jest.clearAllMocks();
+    mockRecoveryInstance = {
+      startAttempt: jest.fn(),
+      completeAttempt: jest.fn(),
+    };
     // Reset mock state
     mockStateInstance._state.metrics.totalSubtasks = 0;
     mockStateInstance._state.checkpoints = [];
@@ -112,6 +126,7 @@ describe('AutonomousBuildLoop', () => {
   });
 
   afterEach(() => {
+    mockRecoveryInstance = null;
     cleanupTempDir(tmpDir);
   });
 
@@ -603,6 +618,80 @@ describe('AutonomousBuildLoop', () => {
       const loop = createLoop();
       loop.stop();
       expect(loop.isRunning).toBe(false);
+    });
+  });
+
+  // ── runVerification ─────────────────────────────────────────────────────
+
+  describe('runVerification()', () => {
+    let loop;
+
+    beforeEach(() => {
+      loop = createLoop({ verificationEnabled: true });
+      mockExecFileSync.mockReset();
+    });
+
+    test('succeeds for command type verification', async () => {
+      const subtask = {
+        id: 'v1',
+        verification: { type: 'command', command: 'echo success' },
+      };
+      const result = await loop.runVerification(subtask);
+      expect(result.success).toBe(true);
+      expect(mockExecFileSync).toHaveBeenCalled();
+    });
+
+    test('fails if verification command throws', async () => {
+      mockExecFileSync.mockImplementation(() => {
+        throw new Error('Command failed');
+      });
+
+      const subtask = {
+        id: 'v1',
+        verification: { type: 'command', command: 'false' },
+      };
+      const result = await loop.runVerification(subtask);
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Command failed');
+    });
+
+    test('handles test type verification', async () => {
+      const subtask = {
+        id: 'v1',
+        verification: { type: 'test', testCommand: 'npm run test:fast' },
+      };
+      const result = await loop.runVerification(subtask);
+      expect(result.success).toBe(true);
+    });
+  });
+
+  // ── Worktree Integration ───────────────────────────────────────────────
+
+  describe('Worktree Integration (Story 8.2)', () => {
+    beforeEach(() => {
+      mockWorktreeInstance = {
+        create: jest.fn().mockResolvedValue({ path: '/tmp/wt' }),
+        remove: jest.fn().mockResolvedValue(true),
+        get: jest.fn().mockResolvedValue(null),
+      };
+    });
+
+    afterEach(() => {
+      mockWorktreeInstance = null;
+    });
+
+    test('creates and removes worktree if enabled', async () => {
+      const loop = createLoop({
+        useWorktree: true,
+        worktreeCleanup: true,
+        worktreeManager: mockWorktreeInstance,
+      });
+      const plan = createTestPlan(1);
+
+      await loop.run('story-wt', { plan, rootPath: tmpDir });
+
+      expect(mockWorktreeInstance.create).toHaveBeenCalledWith('story-wt');
+      expect(mockWorktreeInstance.remove).toHaveBeenCalledWith('story-wt');
     });
   });
 

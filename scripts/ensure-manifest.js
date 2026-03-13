@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 const { validateManifest } = require('./validate-manifest');
 const { generateManifest, writeManifest } = require('./generate-install-manifest');
 
 function getStagedFiles() {
   try {
-    const output = execSync('git diff --cached --name-only', { encoding: 'utf8' }).trim();
+    const output = execFileSync('git', ['diff', '--cached', '--name-only'], { encoding: 'utf8' }).trim();
     if (!output) return [];
     return output.split('\n').map((line) => line.trim()).filter(Boolean);
   } catch (_error) {
@@ -40,7 +40,7 @@ async function main() {
   console.log('🔄 manifest: outdated, regenerating...');
   const manifest = await generateManifest();
   await writeManifest(manifest);
-  execSync('git add .aios-core/install-manifest.yaml', { stdio: 'inherit' });
+  execFileSync('git', ['add', '.aios-core/install-manifest.yaml'], { stdio: 'inherit' });
   console.log('✅ manifest: regenerated and staged');
 }
 

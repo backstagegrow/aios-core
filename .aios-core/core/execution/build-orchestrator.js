@@ -22,12 +22,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const { spawn, execSync } = require('child_process');
+const { spawn, execFileSync } = require('child_process');
 const { EventEmitter } = require('events');
 
 // Import components
 const { AutonomousBuildLoop, BuildEvent } = require('./autonomous-build-loop');
 const { BuildStateManager: _BuildStateManager } = require('./build-state-manager');
+const { resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 // Epic 10: Parallel Execution Components (optional - loaded dynamically when needed)
 // These are available for future parallel execution features but not used in current pipeline
@@ -509,21 +510,18 @@ The subtask is complete only when verification passes.
         '--print', // Non-interactive mode
         '--dangerously-skip-permissions', // Allow file writes
       ];
+      const claudeCommand = process.platform === 'win32' ? 'claude.cmd' : 'claude';
 
       if (config.claudeModel) {
         args.push('--model', config.claudeModel);
       }
 
-      // Escape prompt for shell
-      const escapedPrompt = prompt.replace(/'/g, "'\\''");
-
-      const fullCommand = `echo '${escapedPrompt}' | claude ${args.join(' ')}`;
-
       this.log(`Running Claude CLI in ${workDir}`, 'debug');
 
-      const child = spawn('sh', ['-c', fullCommand], {
+      const child = spawn(claudeCommand, args, {
         cwd: workDir,
         env: { ...process.env },
+        stdio: ['pipe', 'pipe', 'pipe'],
         timeout: config.subtaskTimeout,
       });
 
@@ -555,6 +553,9 @@ The subtask is complete only when verification passes.
       child.on('error', (error) => {
         reject(error);
       });
+
+      child.stdin.write(prompt);
+      child.stdin.end();
     });
   }
 
@@ -579,7 +580,9 @@ The subtask is complete only when verification passes.
       if (!output.includes('verification passed') && !output.includes('✓')) {
         // Try running verification ourselves
         try {
-          execSync(verifyCmd, {
+          const { execFileSync } = require('child_process');
+          const { command, args } = resolveCommandSpec(verifyCmd);
+          execFileSync(command, args, {
             cwd: this.rootPath,
             timeout: 30000,
             stdio: 'pipe',
@@ -633,7 +636,9 @@ The subtask is complete only when verification passes.
       // Run linting
       this.log('Running lint...', 'info');
       try {
-        execSync('npm run lint', { cwd: workDir, stdio: 'pipe', timeout: 60000 });
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['run', 'lint'], { cwd: workDir, stdio: 'pipe', timeout: 60000 });
       } catch (_e) {
         this.log('Lint warnings (non-blocking)', 'warn');
       }
@@ -641,7 +646,9 @@ The subtask is complete only when verification passes.
       // Run tests
       this.log('Running tests...', 'info');
       try {
-        execSync('npm test -- --passWithNoTests', { cwd: workDir, stdio: 'pipe', timeout: 120000 });
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['test', '--', '--passWithNoTests'], { cwd: workDir, stdio: 'pipe', timeout: 120000 });
       } catch (e) {
         throw new Error(`Tests failed: ${e.message}`);
       }
@@ -649,7 +656,9 @@ The subtask is complete only when verification passes.
       // Run typecheck if available
       this.log('Running typecheck...', 'info');
       try {
-        execSync('npm run typecheck', { cwd: workDir, stdio: 'pipe', timeout: 60000 });
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['run', 'typecheck'], { cwd: workDir, stdio: 'pipe', timeout: 60000 });
       } catch {
         // TypeCheck not available or failed (non-blocking)
       }

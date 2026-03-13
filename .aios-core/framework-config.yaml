@@ -141,8 +141,8 @@ ide_sync_system:
       format: "condensed-rules"
     antigravity:
       enabled: true
-      path: ".antigravity/rules/agents"
-      format: "cursor-style"
+      path: ".antigravity/agents"
+      format: "full-markdown-yaml"
   redirects: {}
   validation:
     strict_mode: true

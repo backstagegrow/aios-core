@@ -1,0 +1,156 @@
+# =============================================================================
+# Client Briefing — Espaco Network Constru
+# =============================================================================
+# Synkra AIOS Client Briefing | Template: client-briefing-tmpl.yaml
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "enc_001"
+  client_name: "EspacoNetworkConstru"
+  status: draft
+  last_updated: "2026-03-13"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "Espaco Network Constru"
+  tagline: "Onde o setor da construcao se conecta e faz negocios"
+  mission: "Criar o ponto de encontro definitivo para profissionais do setor construtivo e imobiliario fazerem networking de alto valor e gerarem negocios reais"
+  vision: "Ser o principal hub de networking e eventos do setor de construcao e mercado imobiliario de Sao Paulo"
+  tone_of_voice:
+    - premium
+    - conectivo
+    - profissional
+    - setorial
+    - acessivel
+  personality_archetype: "The Connector"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Eventos e Networking"
+  niche: "Espaco de eventos e networking para o setor de construcao civil e mercado imobiliario"
+  business_model: "B2B"
+  pricing_tier: "premium"
+  main_services:
+    - "Eventos de networking setorial"
+    - "Locacao de espaco para eventos corporativos"
+    - "Encontros tematicos do setor construtivo"
+    - "Lancamentos imobiliarios e showrooms"
+    - "Palestras e paineis com especialistas do setor"
+  geographic_focus: "Alphaville, Barueri, SP (Grande Sao Paulo)"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Carlos, o Engenheiro-Empreendedor"
+    age_range: "35-55"
+    gender: "mixed"
+    occupation: "Engenheiro Civil / Arquiteto / Diretor de Incorporadora / Fornecedor da Construcao"
+    income: "R$15.000-R$50.000/mes"
+    location: "Alphaville, Barueri e Grande Sao Paulo"
+  pain_points:
+    - "Dificuldade de fazer networking qualificado no setor (feiras sao massivas e impessoais)"
+    - "Falta de espaco dedicado ao setor construtivo para eventos menores e mais focados"
+    - "Necessidade de gerar leads e parcerias no setor sem depender so de licitacoes"
+    - "Eventos genericos nao atraem o publico certo do setor"
+    - "Pouca visibilidade para fornecedores que atendem nichos da construcao"
+  desires:
+    - "Acesso a um grupo qualificado de profissionais do setor"
+    - "Oportunidades reais de negocio (nao so troca de cartao)"
+    - "Espaco sofisticado que represente bem a empresa em eventos"
+    - "Conteudo relevante e atualizado sobre o mercado construtivo"
+    - "Relacionamento de longo prazo com parceiros estrategicos"
+  objections:
+    - "Ja participo de associacoes do setor (SECOVI, SINDUSCON)"
+    - "Alphaville e longe para quem esta em SP capital"
+    - "Nao sei se o publico certo vai estar la"
+  buying_triggers:
+    - "Lancamento de novo empreendimento ou produto para construcao"
+    - "Busca ativa por fornecedores ou parceiros no setor"
+    - "Indicacao de colega do setor que participou de evento"
+    - "Necessidade de se posicionar como referencia na regiao de Alphaville"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "Espaco Network Constru e o hub de networking premium em Alphaville onde profissionais da construcao civil e mercado imobiliario se conectam, geram negocios e fortalecem o setor."
+  differentiators:
+    - "Foco exclusivo no setor de construcao civil e mercado imobiliario"
+    - "Localizacao estrategica em Alphaville (polo empresarial da Grande SP)"
+    - "Curadoria de participantes para garantir networking qualificado"
+    - "Espaco premium projetado para eventos de alto padrao"
+  main_competitors:
+    - "Feiras do setor (Feicon, ExpoRevestir)"
+    - "Associacoes setoriais (SECOVI, SINDUSCON)"
+    - "Espacos de eventos genericos na regiao"
+  competitive_advantage: "Unico espaco dedicado 100% ao setor construtivo com curadoria de networking — nao e feira massiva nem associacao burocratica, e encontro de negocios real"
+
+# --- COPY -------------------------------------------------------------------
+copy:
+  key_messages:
+    - "O setor da construcao se encontra aqui"
+    - "Networking que gera contrato, nao so cartao de visita"
+    - "Em Alphaville, o ponto de conexao do mercado construtivo"
+    - "Eventos feitos por quem entende o setor, para quem vive o setor"
+    - "Construa parcerias tao solidas quanto seus projetos"
+  emotional_triggers:
+    - "Pertencimento a um grupo seleto do setor"
+    - "Oportunidade de negocio que pode mudar o trimestre"
+    - "Credibilidade de estar em um ambiente premium"
+    - "FOMO — nao ficar de fora onde os decisores se encontram"
+  proof_elements:
+    testimonials_available: false
+    case_studies: false
+    certifications: []
+    social_proof_numbers: "Profissionais do setor construtivo conectados em eventos"
+  primary_cta: "Participe do proximo evento"
+  secondary_cta: "Reserve o espaco para seu evento"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Locacao de Espaco para Evento Setorial"
+    price_range: "sob consulta"
+    description: "Espaco premium em Alphaville para eventos corporativos do setor construtivo e imobiliario, com infraestrutura completa"
+  entry_offer:
+    name: "Ingresso para Evento de Networking"
+    price_range: "R$150 - R$500"
+    description: "Participacao em encontro tematico com networking estruturado e conteudo setorial"
+  upsell:
+    name: "Patrocinio de Evento"
+    price_range: "R$5.000 - R$20.000"
+    description: "Cota de patrocinio com exposicao de marca, palestra e acesso VIP ao networking"
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - instagram
+    - linkedin
+    - whatsapp-groups
+    - email-marketing
+    - indicacao-setorial
+  primary_channel: "linkedin"
+  content_types:
+    - "fotos e recaps de eventos"
+    - "conteudo sobre mercado construtivo"
+    - "entrevistas com profissionais do setor"
+    - "anuncios de proximos eventos"
+    - "posts de parceiros e patrocinadores"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem muito informal ou giriasa"
+    - "Conteudo generico sem relevancia setorial"
+    - "Imagens de banco que nao representem o setor"
+    - "Promessas de resultado sem base"
+    - "Tom de vendas agressivo"
+  brand_restrictions:
+    - "Sempre contextualizar conteudo para o setor construtivo/imobiliario"
+    - "Manter equilibrio entre premium e acessivel (nao elitista)"
+    - "Fotos reais de eventos e do espaco"
+  legal_notes: "LGPD para captacao de dados em eventos. Contratos de locacao com seguro de responsabilidade civil."
+
+# USO: Este briefing deve ser carregado por agentes antes de qualquer trabalho neste cliente.
+# Agentes: copy-chief, nano-banana-generator, aios-dev, aios-ux
+# Comando: leia este arquivo como contexto antes de gerar copy, assets ou codigo para este cliente.

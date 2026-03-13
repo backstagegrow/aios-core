@@ -1,0 +1,128 @@
+# =============================================================================
+# Client Briefing — spHaus
+# =============================================================================
+# Synkra AIOS Client Briefing | Master Version
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "sph_001"
+  client_name: "spHaus"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "spHaus"
+  tagline: "O ambiente é a extensão da alma da marca."
+  mission: "Integrar arquitetura premiada, tecnologia imersiva e flexibilidade estrutural para criar experiências sensoriais únicas que unem o físico ao digital."
+  vision: "Ser o ecossistema criativo definitivo onde marcas inovadoras encontram o palco ideal para lançamentos memoráveis."
+  tone_of_voice:
+    - "Inovador"
+    - "Sensorial"
+    - "Premium"
+    - "Autoral"
+    - "Tecnológico"
+  personality_archetype: "The Creator"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Experiências Imersivas e Arquitetura"
+  niche: "Espaço para eventos high-end e lançamentos sensoriais"
+  business_model: "B2B"
+  pricing_tier: "premium"
+  main_services:
+    - "Locação de espaço autoral (theSpace)"
+    - "Experiências imersivas com projeção 360/3D"
+    - "Lançamentos de produtos sensoriais"
+    - "Ecossistema criativo para Marcas Globais"
+  geographic_focus: "Polo Criativo, São Paulo, SP"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Heads de Inovação e Marketing Global"
+    age_range: "30-50"
+    gender: "mixed"
+    occupation: "Brand Managers, Diretores Criativos, Heads de Live Marketing"
+    income: "high"
+    location: "São Paulo / Nacional"
+  pain_points:
+    - "Espaços comuns que não traduzem o valor de inovação da marca"
+    - "Medo de realizar eventos esquecíveis ou invisíveis no mercado"
+    - "Dificuldade em explicar conceitos complexos sem o apoio de tecnologia visual"
+  desires:
+    - "Gerar buzz espontâneo e conteúdo altamente instagramável"
+    - "Público totalmente imerso na mensagem da marca através dos sentidos"
+    - "Diferenciação absoluta em relação aos eventos tradicionais"
+  objections:
+    - "Tecnologia imersiva é vista apenas como 'perfumaria' ou custo extra"
+    - "Crença de que a arquitetura do espaço não influencia diretamente no ROI/Vendas"
+  buying_triggers:
+    - "Lançamento de produtos disruptivos (Tech, Cosméticos, Automotive)"
+    - "Necessidade de reposicionamento para o público premium"
+    - "Busca por um ambiente que reflita a 'alma' da marca"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "A spHaus une arquitetura autoral premiada com tecnologia de ponta para transformar eventos em experiências sensoriais impossíveis de ignorar."
+  differentiators:
+    - "Espaço exclusivo 'theSpace' com total flexibilidade"
+    - "Infraestrutura nativa para projeção 360 e imersão 3D"
+    - "Arquitetura que induz o comportamento e o foco do convidado"
+  main_competitors:
+    - "Espaços de eventos de luxo tradicionais"
+    - "Estúdios de filmagem/produção adaptados"
+  competitive_advantage: "Ecossistema pronto que elimina a invisibilidade da marca através do poder do sensorial."
+
+# --- COPY & MESSAGES --------------------------------------------------------
+copy:
+  key_messages:
+    - "O ambiente é a extensão da alma da marca."
+    - "Integre arquitetura autoral com tecnologia de ponta."
+    - "Não apenas um evento, uma imersão real."
+  emotional_triggers:
+    - "Inovação (Liderança no mercado)"
+    - "Foco (Engajamento sensorial recorde)"
+    - "Exclusividade (Polo criativo em SP)"
+  proof_elements:
+    case_studies:
+      - "Cases Acer"
+      - "Cases Vichy"
+    social_proof_numbers: "Arquitetura premiada e suporte a marcas globais."
+  primary_cta: "Solicite um Diagnóstico Sensorial"
+  secondary_cta: "Conheça theSpace"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Experiência 360 Full Imersion"
+    price_range: "R$30.000 - R$100.000+"
+    description: "Locação completa de theSpace com configuração tecnológica imersiva inclusa."
+  entry_offer:
+    name: "Visita Sensorial Guiada"
+    price_range: "Grátis"
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "instagram"
+    - "linkedin"
+    - "whatsapp"
+  primary_channel: "instagram"
+  content_types:
+    - "Reels Sensoriais (Som + Projeção)"
+    - "Carrossel de Projetos autorais"
+    - "Bastidores técnicos da montagem 360"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem de marketing genérico/clichê"
+    - "Fotos amadoras que escondam a beleza arquitetônica"
+    - "Promessas meramente estéticas sem base estratégica"
+  brand_restrictions:
+    - "Manter o tom de voz inovador e autoral"
+    - "Sempre mostrar a integração entre o físico e o digital"
+  legal_notes: "Direitos de imagem para conteúdos gerados em theSpace; conformidade com normas técnicas de SP."

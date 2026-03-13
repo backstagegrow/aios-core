@@ -152,8 +152,9 @@ special_features:
 config_file: .antigravity/rules.md
 config_json: .antigravity/antigravity.json
 agent_folder: .agent/workflows
+canonical_agents: .antigravity/agents
 activation: workflow-based
-format: cursor-style
+format: workflow + full-markdown-yaml
 mcp_support: native (Google)
 special_features:
   - Integración con Google Cloud

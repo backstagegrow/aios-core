@@ -1,0 +1,117 @@
+# .state.yaml — Alpha Business Academy LP (Next.js)
+# NÃO commitar — já está no .gitignore
+
+design_system_discovered: true
+manifest_loaded: true
+brand_engine_client: "alpha"
+brand_engine_tokens_loaded: true
+
+tokens:
+  source: "brand-engine:alpha + tokens/tokens.css"
+  colors:
+    background: "#0A0A0A"
+    surface: "#141414"
+    surface_light: "#1E1E1E"
+    primary: "#C9A24A"
+    primary_hover: "#D4B66E"
+    primary_dark: "#A6843A"
+    text_primary: "#FAF9F6"
+    text_muted: "#9CA3AF"
+    danger: "#EF4444"
+    success: "#22C55E"
+    warning: "#F59E0B"
+  typography:
+    font_display: "Inter"
+    font_body: "Inter"
+    font_mono: "ui-monospace"
+  border_radius:
+    scale: "hard"
+    default: "0.375rem"
+    small: "0.125rem"
+    large: "0.5rem"
+    xl: "0.75rem"
+    full: "9999px"
+  mode: "dark"
+
+framework: "nextjs"
+
+components:
+  directory: "app/components"
+  atoms:
+    - "ui/Button"
+    - "ui/Card"
+    - "ui/Input"
+    - "ui/Dropdown"
+    - "ui/Modal"
+    - "ui/ApplicationModal"
+    - "ui/ScrollReveal"
+  molecules: []
+  organisms:
+    - "sections/Hero"
+    - "sections/PainCards"
+    - "sections/Speakers"
+    - "sections/Pillars"
+    - "sections/PhotoGallery"
+    - "sections/SocialProof"
+    - "sections/EventDetails"
+    - "sections/Qualification"
+    - "sections/ApplicationForm"
+    - "sections/FAQ"
+    - "sections/Transition"
+    - "layout/Footer"
+
+pages:
+  directory: "app"
+  existing:
+    - route: "/"
+      file: "app/page.tsx"
+      status: "done"
+    - route: "/login"
+      file: "app/(auth)/login/page.tsx"
+      status: "done"
+    - route: "/dashboard"
+      file: "app/(auth)/dashboard/page.tsx"
+      status: "done"
+    - route: "/design-system"
+      file: "app/design-system/page.tsx"
+      status: "done"
+    - route: "/sites/[site]"
+      file: "app/sites/[site]/page.tsx"
+      status: "done"
+
+workflow:
+  current: "site-creation"
+  current_step: "summary"
+  pages_planned:
+    - name: "Home"
+      route: "/"
+      file: "app/page.tsx"
+    - name: "Login"
+      route: "/login"
+      file: "app/(auth)/login/page.tsx"
+    - name: "Dashboard"
+      route: "/dashboard"
+      file: "app/(auth)/dashboard/page.tsx"
+    - name: "Design System"
+      route: "/design-system"
+      file: "app/design-system/page.tsx"
+    - name: "Sites [site]"
+      route: "/sites/[site]"
+      file: "app/sites/[site]/page.tsx"
+  pages_created:
+    - "app/page.tsx"
+    - "app/(auth)/login/page.tsx"
+    - "app/(auth)/dashboard/page.tsx"
+    - "app/design-system/page.tsx"
+    - "app/sites/[site]/page.tsx"
+
+meta:
+  state_version: "1.0"
+  initialized_at: "2026-03-13"
+  last_updated: "2026-03-13"
+  session_agent: "ux-design-expert"
+  note: |
+    14 componentes já existem — sempre consultar antes de criar novos.
+    Tokens em 2 camadas: tokens.css → globals.css.
+    Sem Tailwind — não usar classes utilitárias.
+    Import style: absoluto com @/ prefix.

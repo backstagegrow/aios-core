@@ -31,6 +31,10 @@ const claudeCodeTransformer = require('./transformers/claude-code');
 const cursorTransformer = require('./transformers/cursor');
 const antigravityTransformer = require('./transformers/antigravity');
 const githubCopilotTransformer = require('./transformers/github-copilot');
+const {
+  generateAntiGravityWorkflow,
+  createAntiGravityConfigObject,
+} = require('./antigravity-support');
 
 // ANSI colors for output
 const colors = {
@@ -84,8 +88,8 @@ function loadConfig(projectRoot) {
       },
       antigravity: {
         enabled: true,
-        path: '.antigravity/rules/agents',
-        format: 'cursor-style',
+        path: '.antigravity/agents',
+        format: 'full-markdown-yaml',
       },
     },
     redirects: {
@@ -131,6 +135,135 @@ function getTransformer(format) {
   };
 
   return transformers[format] || claudeCodeTransformer;
+}
+
+function getValidAgents(agents) {
+  return agents.filter((agent) => !(agent.error && (agent.error === 'Failed to parse YAML' || agent.error === 'No YAML block found')));
+}
+
+function buildAntigravityExtraConfigs(agents, projectRoot) {
+  const validAgents = getValidAgents(agents);
+  const workflowsDir = path.join(projectRoot, '.agent', 'workflows');
+  const antigravityDir = path.join(projectRoot, '.antigravity');
+  const configObject = createAntiGravityConfigObject(projectRoot);
+
+  return {
+    'antigravity-workflows': {
+      expectedFiles: validAgents.map((agent) => ({
+        filename: agent.filename,
+        content: generateAntiGravityWorkflow(agent.id),
+      })),
+      targetDir: workflowsDir,
+    },
+    'antigravity-config': {
+      expectedFiles: [
+        {
+          filename: 'antigravity.json',
+          content: `${JSON.stringify(configObject, null, 4)}\n`,
+        },
+      ],
+      targetDir: antigravityDir,
+    },
+  };
+}
+
+function syncAntigravityExtras(agents, projectRoot, options) {
+  const extraConfigs = buildAntigravityExtraConfigs(agents, projectRoot);
+  const writtenFiles = [];
+
+  for (const config of Object.values(extraConfigs)) {
+    if (!options.dryRun) {
+      fs.ensureDirSync(config.targetDir);
+    }
+
+    for (const expected of config.expectedFiles) {
+      const targetPath = path.join(config.targetDir, expected.filename);
+
+      if (!options.dryRun) {
+        fs.writeFileSync(targetPath, expected.content, 'utf8');
+      }
+
+      writtenFiles.push({
+        filename: expected.filename,
+        path: targetPath,
+        content: expected.content,
+      });
+    }
+  }
+
+  return writtenFiles;
+}
+
+function buildValidationConfigs(projectRoot, config, agents, options = {}) {
+  const ideConfigs = {};
+  let targetIdes = Object.entries(config.targets).filter(([, ideConfig]) => ideConfig.enabled);
+
+  if (options.ide) {
+    targetIdes = targetIdes.filter(([name]) => name === options.ide);
+    if (targetIdes.length === 0) {
+      throw new Error(`IDE '${options.ide}' not found in config`);
+    }
+  }
+
+  for (const [ideName, ideConfig] of targetIdes) {
+    const transformer = getTransformer(ideConfig.format);
+    const expectedFiles = [];
+
+    for (const agent of agents) {
+      if (agent.error) continue;
+
+      try {
+        const content = transformer.transform(agent);
+        const filename = transformer.getFilename(agent);
+        expectedFiles.push({ filename, content });
+      } catch {
+        // Skip agents that fail to transform
+      }
+    }
+
+    const redirects = generateAllRedirects(
+      config.redirects,
+      path.join(projectRoot, ideConfig.path),
+      ideConfig.format
+    );
+
+    for (const redirect of redirects) {
+      expectedFiles.push({
+        filename: redirect.filename,
+        content: redirect.content,
+      });
+    }
+
+    ideConfigs[ideName] = {
+      expectedFiles,
+      targetDir: path.join(projectRoot, ideConfig.path),
+    };
+
+    if (ideName === 'antigravity') {
+      Object.assign(ideConfigs, buildAntigravityExtraConfigs(agents, projectRoot));
+    }
+
+    if (ideName === 'gemini') {
+      const commandFiles = buildGeminiCommandFiles(agents).map((entry) => ({
+        filename: entry.filename,
+        content: entry.content,
+      }));
+      ideConfigs['gemini-commands'] = {
+        expectedFiles: commandFiles,
+        targetDir: path.join(projectRoot, '.gemini', 'commands'),
+      };
+    }
+  }
+
+  return ideConfigs;
+}
+
+function validateIdeTarget(projectRoot, ideName = null) {
+  const config = loadConfig(projectRoot);
+  const agentsDir = path.join(projectRoot, config.source);
+  const agents = parseAllAgents(agentsDir);
+  const ideConfigs = buildValidationConfigs(projectRoot, config, agents, { ide: ideName });
+  return validateAllIdes(ideConfigs, config.redirects);
 }
 
 /**
@@ -265,6 +398,12 @@ async function commandSync(options) {
 
     const result = syncIde(agents, ideConfig, ideName, projectRoot, options);
 
+    if (ideName === 'antigravity') {
+      result.extraArtifacts = syncAntigravityExtras(agents, projectRoot, options);
+    } else {
+      result.extraArtifacts = [];
+    }
+
     // Gemini CLI: also sync slash launcher command files (.gemini/commands/*.toml)
     if (ideName === 'gemini') {
       const geminiCommands = syncGeminiCommands(agents, projectRoot, options);
@@ -285,6 +424,7 @@ async function commandSync(options) {
 
     const agentCount = result.files.length;
     const commandCount = (result.commandFiles || []).length;
+    const extraCount = (result.extraArtifacts || []).length;
     const redirectCount = redirectResult.written.length;
     const errorCount = result.errors.length;
 
@@ -295,7 +435,7 @@ async function commandSync(options) {
       }
 
       console.log(
-        `   ${status} ${agentCount} agents${commandCount > 0 ? `, ${commandCount} commands` : ''}, ${redirectCount} redirects${errorCount > 0 ? `, ${errorCount} errors` : ''}`
+        `   ${status} ${agentCount} agents${extraCount > 0 ? `, ${extraCount} antiGravity extras` : ''}${commandCount > 0 ? `, ${commandCount} commands` : ''}, ${redirectCount} redirects${errorCount > 0 ? `, ${errorCount} errors` : ''}`
       );
 
       if (options.verbose && result.errors.length > 0) {
@@ -347,74 +487,13 @@ async function commandValidate(options) {
   console.log(`${colors.bright}${colors.blue}🔍 IDE Sync Validation${colors.reset}`);
   console.log('');
 
-  // Parse all agents
-  const agentsDir = path.join(projectRoot, config.source);
-  const agents = parseAllAgents(agentsDir);
-
-  // Build expected files for each IDE
-  const ideConfigs = {};
-  let targetIdes = Object.entries(config.targets).filter(([, ideConfig]) => ideConfig.enabled);
-
-  // Filter IDEs if --ide flag specified
-  if (options.ide) {
-    targetIdes = targetIdes.filter(([name]) => name === options.ide);
-    if (targetIdes.length === 0) {
-      console.error(`${colors.red}Error: IDE '${options.ide}' not found in config${colors.reset}`);
-      process.exit(1);
-    }
+  let results;
+  try {
+    results = validateIdeTarget(projectRoot, options.ide);
+  } catch (error) {
+    console.error(`${colors.red}Error: ${error.message}${colors.reset}`);
+    process.exit(1);
   }
-
-  for (const [ideName, ideConfig] of targetIdes) {
-
-    const transformer = getTransformer(ideConfig.format);
-    const expectedFiles = [];
-
-    for (const agent of agents) {
-      if (agent.error) continue;
-
-      try {
-        const content = transformer.transform(agent);
-        const filename = transformer.getFilename(agent);
-        expectedFiles.push({ filename, content });
-      } catch (error) {
-        // Skip agents that fail to transform
-      }
-    }
-
-    // Add redirect files
-    const redirects = generateAllRedirects(
-      config.redirects,
-      path.join(projectRoot, ideConfig.path),
-      ideConfig.format
-    );
-
-    for (const redirect of redirects) {
-      expectedFiles.push({
-        filename: redirect.filename,
-        content: redirect.content,
-      });
-    }
-
-    ideConfigs[ideName] = {
-      expectedFiles,
-      targetDir: path.join(projectRoot, ideConfig.path),
-    };
-
-    // Gemini CLI command launcher files are synced under .gemini/commands/*.toml
-    if (ideName === 'gemini') {
-      const commandFiles = buildGeminiCommandFiles(agents).map((entry) => ({
-        filename: entry.filename,
-        content: entry.content,
-      }));
-      ideConfigs['gemini-commands'] = {
-        expectedFiles: commandFiles,
-        targetDir: path.join(projectRoot, '.gemini', 'commands'),
-      };
-    }
-  }
-
-  // Validate
-  const results = validateAllIdes(ideConfigs, config.redirects);
 
   // Output report
   const report = formatValidationReport(results, options.verbose);
@@ -534,7 +613,11 @@ if (require.main === module) {
 module.exports = {
   loadConfig,
   getTransformer,
+  buildAntigravityExtraConfigs,
+  buildValidationConfigs,
+  syncAntigravityExtras,
   syncIde,
+  validateIdeTarget,
   commandSync,
   commandValidate,
 };

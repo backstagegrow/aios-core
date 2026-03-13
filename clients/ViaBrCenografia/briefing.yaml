@@ -1,0 +1,129 @@
+# =============================================================================
+# Client Briefing — Via BR Cenografia
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "vbc_001"
+  client_name: "ViaBrCenografia"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "Via BR Cenografia"
+  tagline: "Transformando visões em realidade."
+  mission: "Transformar presença física em memória afetiva de marca através de cenografia estratégica que materializa conceitos em estruturas de alto impacto."
+  vision: "Onde a marca pisa define o quanto ela vale: consolidar-se como o maior legado visual global em experiências de marca."
+  tone_of_voice:
+    - "Estratégico"
+    - "Impactante"
+    - "Sólido"
+    - "Especialista"
+    - "Memorável"
+  personality_archetype: "The Creator"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Cenografia"
+  niche: "Cenografia Corporativa, Estandes Personalizados e Experiências de Marca"
+  business_model: "B2B"
+  pricing_tier: "premium"
+  main_services:
+    - "Cenografia Corporativa Sob Medida (feiras, convenções, ativações)"
+    - "Estandes Personalizados (foco em engajamento e ROI)"
+    - "Projetos Especiais (soluções únicas de impacto visual)"
+    - "Produção Técnica (execução a partir de projetos 3D/Arquitetura)"
+  geographic_focus: "Global (Brasil: SP/RJ; Europa: Portugal/Sintra; EUA: Flórida)"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Decisores de Marketing e Eventos"
+    age_range: "30-55"
+    gender: "mixed"
+    occupation: "Diretores de Marketing, Gerentes de Eventos, Brand Managers, Donos de Agências de Live Marketing"
+    income: "high"
+    location: "Nacional e Internacional"
+  pain_points:
+    - "Estandes genéricos que passam despercebidos em feiras competitivas"
+    - "Fornecedores que falham em execução técnica ou cumprimento de prazos"
+    - "Alto investimento em eventos com baixo retorno de impacto ou memória de marca"
+  desires:
+    - "Gerar buzz espontâneo e compartilhamento orgânico nas redes sociais"
+    - "Autoridade visual instantânea para a marca no ambiente físico"
+    - "Entrega 'chave na mão' (turnkey) com execução impecável e sem estresse"
+  objections:
+    - "Cenografia estratégica é um luxo desnecessário frente a opções mais baratas"
+    - "O público não percebe a diferença entre um estande comum e um estratégico"
+  buying_triggers:
+    - "Lançamento de grandes produtos ou reposicionamento de marca"
+    - "Participação em feiras globais de alto nível (setor Premium/B2B)"
+    - "Falhas anteriores com fornecedores de baixo padrão"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "Criamos um legado visual impossível de ignorar, unindo 35 anos de expertise técnica à psicologia de consumo e logística global."
+  differentiators:
+    - "Mais de 30 anos de mercado (fundada em 1994)"
+    - "Estrutura logística própria em 3 continentes (BRA, EUR, USA)"
+    - "Metodologia autoral baseada em Imersão Estratégica e Visualização 3D real"
+  main_competitors:
+    - "Grandes agências de cenografia premium e montadoras internacionais"
+  competitive_advantage: "Capacidade de entrega global com o mesmo padrão rigoroso e foco em ROI mensurável para o cliente."
+
+# --- COPY -------------------------------------------------------------------
+copy:
+  key_messages:
+    - "Onde a marca pisa define o quanto ela vale."
+    - "Legado visual impossível de ignorar."
+    - "Cenografia estratégica: Design, Logística e Psicologia de Consumo."
+  emotional_triggers:
+    - "Segurança (35 anos de mercado)"
+    - "Impacto (Cenografia icônica)"
+    - "Exclusividade (Projetos do zero)"
+  proof_elements:
+    testimonials_available: true
+    case_studies: true
+    certifications:
+      - "Estrutura Victor 360 (Europa)"
+    social_proof_numbers: "+30 anos, Bases em 3 continentes, Cases: Heineken, Bauducco, Brazil Games"
+  primary_cta: "Solicite um Orçamento"
+  secondary_cta: "Fale com um Especialista"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Cenografia Corporativa Full Strategy"
+    price_range: "Sob consulta (High-end)"
+    description: "Projeto completo do conceito à montagem, com visualização 3D e logística global inclusa."
+  entry_offer:
+    name: "Produção Técnica a partir de 3D"
+    price_range: "Sob consulta"
+    description: "Execução rigorosa de projetos já desenvolvidos por agências ou arquitetos parceiros."
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "instagram"
+    - "whatsapp"
+    - "linkedin"
+    - "site"
+    - "email"
+  primary_channel: "whatsapp"
+  content_types:
+    - "reels (montagem/time-lapse)"
+    - "carrossel (cases de sucesso)"
+    - "site (propostas personalizadas)"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Cenografia genérica/sem propósito"
+    - "Estética sem funcionalidade estratégica"
+    - "Falta de fidelidade entre 3D e entrega real"
+  brand_restrictions:
+    - "Não utilizar nomes de competidores"
+    - "Manter o rigor técnico 'sem surpresas' na entrega"
+  legal_notes: "Projetos em conformidade com normas técnicas globais e LGPD para dados de contato."

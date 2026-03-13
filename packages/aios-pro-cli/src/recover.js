@@ -13,6 +13,7 @@
  */
 
 const readline = require('readline');
+const { PassThrough } = require('stream');
 
 const RECOVERY_URL = 'https://aios-license-server.vercel.app/reset-password';
 
@@ -34,12 +35,17 @@ function maskEmail(email) {
 
 /**
  * Prompt user for email input via readline
+ * @param {{input?: import('stream').Readable, output?: import('stream').Writable}} [options]
  * @returns {Promise<string>}
  */
-function promptEmail() {
+function promptEmail(options = {}) {
+  const input =
+    options.input || (process.env.NODE_ENV === 'test' ? new PassThrough() : process.stdin);
+  const output =
+    options.output || (process.env.NODE_ENV === 'test' ? new PassThrough() : process.stdout);
   const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
+    input,
+    output,
   });
 
   return new Promise((resolve) => {

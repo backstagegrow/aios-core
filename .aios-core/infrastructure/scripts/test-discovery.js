@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { EventEmitter } = require('events');
 const { execSync, spawn } = require('child_process');
+const { resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 /**
  * Test framework configurations
@@ -652,28 +653,34 @@ class CoverageAnalyzer {
 
     // Check Jest coverage config
     const jestConfig = this.readConfig(['jest.config.js', 'jest.config.ts', 'jest.config.json']);
-    if (jestConfig) {
-      if (jestConfig.collectCoverage || jestConfig.coverageThreshold) {
+    const jestCoverage = this.extractCoverageConfig(jestConfig);
+    if (jestCoverage) {
+      if (jestCoverage.collectCoverage || jestCoverage.coverageThreshold) {
         result.enabled = true;
         result.tool = 'jest';
         result.threshold =
-          jestConfig.coverageThreshold?.global?.branches ||
-          jestConfig.coverageThreshold?.global?.lines;
-        result.include = jestConfig.collectCoverageFrom || [];
-        result.exclude = jestConfig.coveragePathIgnorePatterns || [];
-        result.reportFormats = jestConfig.coverageReporters || ['text', 'lcov'];
+          jestCoverage.coverageThreshold?.global?.branches ||
+          jestCoverage.coverageThreshold?.global?.lines;
+        result.include = jestCoverage.collectCoverageFrom || [];
+        result.exclude = jestCoverage.coveragePathIgnorePatterns || [];
+        result.reportFormats = jestCoverage.coverageReporters || ['text', 'lcov'];
       }
     }
 
     // Check nyc config (for Mocha)
     const nycConfig = this.readConfig(['.nycrc', '.nycrc.json', 'nyc.config.js']);
-    if (nycConfig) {
+    const nycCoverage = this.extractCoverageConfig(nycConfig);
+    if (nycCoverage) {
       result.enabled = true;
       result.tool = 'nyc';
-      result.threshold = nycConfig.branches || nycConfig.lines;
-      result.include = nycConfig.include || [];
-      result.exclude = nycConfig.exclude || [];
-      result.reportFormats = nycConfig.reporter || ['text', 'lcov'];
+      result.threshold =
+        nycCoverage.branches ||
+        nycCoverage.lines ||
+        nycCoverage.coverageThreshold?.global?.branches ||
+        nycCoverage.coverageThreshold?.global?.lines;
+      result.include = nycCoverage.include || [];
+      result.exclude = nycCoverage.exclude || [];
+      result.reportFormats = nycCoverage.reporter || ['text', 'lcov'];
     }
 
     // Check pytest coverage
@@ -681,7 +688,8 @@ class CoverageAnalyzer {
     if (
       pytestConfig &&
       (pytestConfig.addopts?.includes('--cov') ||
-        pytestConfig.tool?.pytest?.ini_options?.addopts?.includes('--cov'))
+        pytestConfig.tool?.pytest?.ini_options?.addopts?.includes('--cov') ||
+        pytestConfig.raw?.includes('--cov'))
     ) {
       result.enabled = true;
       result.tool = 'pytest-cov';
@@ -715,25 +723,57 @@ class CoverageAnalyzer {
           return JSON.parse(content);
         }
 
-        if (file.endsWith('.js') || file.endsWith('.ts')) {
-          // Extract object from module.exports
-          const match = content.match(/module\.exports\s*=\s*(\{[\s\S]*\})/);
-          if (match) {
-            try {
-              // eslint-disable-next-line no-eval
-              return eval('(' + match[1] + ')');
-            } catch {
-              return {};
-            }
-          }
-        }
-
         return { raw: content };
       } catch {
         continue;
       }
     }
     return null;
+  }
+
+  extractCoverageConfig(config) {
+    if (!config) return null;
+
+    if (!config.raw) {
+      return config;
+    }
+
+    const content = config.raw;
+    const branches = this.extractNumber(content, 'branches');
+    const lines = this.extractNumber(content, 'lines');
+
+    return {
+      collectCoverage: /collectCoverage\s*:\s*true/.test(content),
+      coverageThreshold:
+        branches !== null || lines !== null
+          ? {
+            global: {
+              ...(branches !== null ? { branches } : {}),
+              ...(lines !== null ? { lines } : {}),
+            },
+          }
+          : null,
+      collectCoverageFrom: this.extractStringArray(content, 'collectCoverageFrom'),
+      coveragePathIgnorePatterns: this.extractStringArray(content, 'coveragePathIgnorePatterns'),
+      coverageReporters: this.extractStringArray(content, 'coverageReporters'),
+      include: this.extractStringArray(content, 'include'),
+      exclude: this.extractStringArray(content, 'exclude'),
+      reporter: this.extractStringArray(content, 'reporter'),
+      branches,
+      lines,
+    };
+  }
+
+  extractNumber(content, key) {
+    const match = content.match(new RegExp(`${key}\\s*:\\s*(\\d+)`));
+    return match ? parseInt(match[1], 10) : null;
+  }
+
+  extractStringArray(content, key) {
+    const match = content.match(new RegExp(`${key}\\s*:\\s*\\[([\\s\\S]*?)\\]`));
+    if (!match) return [];
+
+    return [...match[1].matchAll(/['"`]([^'"`]+)['"`]/g)].map((item) => item[1]);
   }
 }
 
@@ -842,7 +882,7 @@ class TestRunner extends EventEmitter {
   execute(args, options = {}) {
     return new Promise((resolve, reject) => {
       const command = this.framework.runCommand;
-      const [cmd, ...cmdArgs] = command.split(' ');
+      const { command: cmd, args: cmdArgs } = resolveCommandSpec(command);
       const fullArgs = [...cmdArgs, ...args];
 
       this.emit('run:start', { command, args: fullArgs });
@@ -853,7 +893,7 @@ class TestRunner extends EventEmitter {
 
       this.process = spawn(cmd, fullArgs, {
         cwd: this.rootPath,
-        shell: true,
+        shell: false,
         env: {
           ...process.env,
           FORCE_COLOR: '1',
@@ -1155,7 +1195,7 @@ class TestDiscovery extends EventEmitter {
    */
   async getChangedFiles(baseBranch = 'main') {
     try {
-      const output = execSync(`git diff --name-only ${baseBranch}...HEAD`, {
+      const output = execFileSync('git', ['diff', '--name-only', `${baseBranch}...HEAD`], {
         cwd: this.rootPath,
         encoding: 'utf8',
       });

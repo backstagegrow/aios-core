@@ -16,13 +16,13 @@ ai_providers:
   # Task-based routing
   # Route specific task types to preferred providers
   routing:
-    # Simple tasks - use cheaper/faster provider
-    simple_tasks: gemini       # Code formatting, simple refactors
+    # Simple tasks - Gemini is allowed, but model guardrails should still apply
+    simple_tasks: gemini       # Formatting, low-risk refactors
 
     # Complex tasks - use more capable provider
     complex_tasks: claude      # Architecture, security reviews
 
-    # Documentation - high volume, speed matters
+    # Documentation - Gemini can be used, but not for critical review tasks
     documentation: gemini
 
     # Code generation - balance of speed and quality
@@ -54,7 +54,7 @@ claude:
 # Gemini CLI Configuration
 gemini:
   # Model to use
-  model: gemini-2.0-flash     # Options: gemini-2.0-flash, gemini-2.0-pro
+  model: gemini-2.0-pro       # Safe default. Use Flash only behind guardrails.
 
   # Execution timeout (ms)
   timeout: 300000             # 5 minutes
@@ -72,7 +72,7 @@ gemini:
 # Automatic selection between Flash and Pro based on task complexity
 model_switching:
   enabled: false              # Enable when Story 16 is complete
-  default_model: gemini-2.0-flash
+  default_model: gemini-2.0-pro
   complexity_threshold:
     simple: 0.3               # < 0.3 = Flash
     medium: 0.7               # 0.3-0.7 = Flash

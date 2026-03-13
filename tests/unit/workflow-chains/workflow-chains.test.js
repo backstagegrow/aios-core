@@ -37,8 +37,8 @@ describe('Workflow Chains (Story WIS-16)', () => {
       expect(Array.isArray(chainsData.workflows)).toBe(true);
     });
 
-    test('has exactly 4 workflows', () => {
-      expect(chainsData.workflows).toHaveLength(4);
+    test('has exactly 5 workflows', () => {
+      expect(chainsData.workflows).toHaveLength(5);
     });
 
     test('each workflow has required fields: id, name, chain[]', () => {
@@ -101,7 +101,7 @@ describe('Workflow Chains (Story WIS-16)', () => {
     });
   });
 
-  describe('4 workflows mapped correctly (AC2)', () => {
+  describe('5 workflows mapped correctly (AC2)', () => {
     test('SDC workflow: sm → po → dev → qa → devops', () => {
       const sdc = chainsData.workflows.find((w) => w.id === 'sdc');
       expect(sdc).toBeDefined();
@@ -133,6 +133,27 @@ describe('Workflow Chains (Story WIS-16)', () => {
       expect(bf.chain.map((s) => s.agent)).toEqual([
         '@architect', '@data-engineer', '@ux-design-expert', '@qa', '@pm',
       ]);
+    });
+
+    test('Site Creation workflow: ux owns all core steps with deploy alternative', () => {
+      const siteCreation = chainsData.workflows.find((w) => w.id === 'site-creation');
+      expect(siteCreation).toBeDefined();
+      expect(siteCreation.trigger).toBe('*create-site {client-slug}');
+      expect(siteCreation.chain.map((s) => s.agent)).toEqual([
+        '@ux-design-expert',
+        '@ux-design-expert',
+        '@ux-design-expert',
+        '@ux-design-expert',
+        '@ux-design-expert',
+      ]);
+      expect(siteCreation.chain[4].alternatives).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            agent: '@devops',
+            command: '*push',
+          }),
+        ]),
+      );
     });
   });
 

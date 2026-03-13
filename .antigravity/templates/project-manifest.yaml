@@ -1,0 +1,72 @@
+# project-manifest.yaml
+# Coloque este arquivo na raiz de cada app/projeto.
+# Permite que agentes carreguem contexto do projeto sem descoberta manual.
+# Gerado por: *generate-manifest | Atualizado manualmente conforme necessário.
+
+project:
+  name: "{Project Name}"          # Ex: portfolio-porto, brand-console, alpha-lp
+  slug: "{project-slug}"          # Ex: portfolio-porto
+  client: "{client-name}"         # Ex: erick-sena, alpha, house-gt (ou "internal")
+  type: "{type}"                  # portfolio | landing-page | dashboard | app | site
+  status: "{active|maintenance|archived}"
+
+framework:
+  type: "{vite-react|nextjs|astro|other}"
+  version: "{version}"            # Ex: 19 (React), 14 (Next.js)
+  language: "{jsx|tsx}"
+  router: "{react-router-v6|nextjs-app|nextjs-pages|none}"
+  styling: "{tailwind|css-modules|styled-components|inline}"
+  tailwind_version: "{v3|v4|none}"
+
+tokens:
+  source: "{file-path}"           # Ex: tailwind.config.js, src/styles/tokens.yaml
+  brand_engine_client: "{slug}"   # Ex: alpha, house-gt (ou null)
+  colors:
+    background: "{#hex}"
+    primary: "{#hex}"
+    accent: "{#hex}"
+    text_primary: "{#hex}"
+    text_muted: "{rgba}"
+  typography:
+    font_display: "{font-name}"   # Ex: Playfair Display, Montserrat
+    font_body: "{font-name}"      # Ex: Inter, DM Sans
+    font_mono: "{font-name}"      # Ex: JetBrains Mono (ou null)
+  spacing:
+    section_padding: "{value}"    # Ex: 80px 32px
+    card_padding: "{value}"       # Ex: 32px
+  border_radius:
+    default: "{value}"            # Ex: 12px
+    pill: "{value}"               # Ex: 100px
+
+components:
+  directory: "{src/components}"
+  atoms:    []                    # Ex: [Button, Input, Badge]
+  molecules: []                   # Ex: [Card, FormField, ServiceCard]
+  organisms: []                   # Ex: [Header, Footer, Hero]
+  templates: []                   # Ex: [PageLayout, DashboardLayout]
+
+pages:
+  directory: "{src/pages|app}"
+  routes:
+    - path: "/"
+      file: "{src/pages/Home.jsx}"
+      title: "{Page Title}"
+    # Adicionar demais rotas aqui
+
+conventions:
+  import_style: "{relative|absolute}"   # absolute = @/ prefix
+  component_naming: "{PascalCase}"
+  file_naming: "{PascalCase|kebab-case}"
+  section_header_pattern: "{// 01 — LABEL|none}"
+  css_pattern: "{inline-styles|tailwind|mixed}"
+
+deploy:
+  platform: "{cloudflare-pages|vercel|netlify|other}"
+  domain: "{domain or null}"
+  build_command: "{npm run build}"
+  output_dir: "{dist}"
+
+meta:
+  generated_at: "{ISO date}"
+  generated_by: "*generate-manifest"
+  last_updated: "{ISO date}"

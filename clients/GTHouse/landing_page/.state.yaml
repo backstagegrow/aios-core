@@ -1,0 +1,100 @@
+# .state.yaml — GT House Landing Page
+# Gerado por: *create-site house-gt
+# NÃO commitar — adicionar ao .gitignore
+# Usado pelos agentes para retomar contexto sem re-descoberta manual.
+
+design_system_discovered: true
+manifest_loaded: true
+brand_engine_client: "house-gt"
+brand_engine_tokens_loaded: true
+
+tokens:
+  source: "brand-engine:house-gt + inline-css-vars"
+  colors:
+    background: "#F8FAFC"
+    primary: "#052F33"
+    primary_alt: "#0A3F44"
+    accent: "#1FA2D6"
+    accent_light: "#49B8E8"
+    bg_light: "#D7DEE2"
+    text_primary: "#0C3B40"
+    text_muted: "#6B7C86"
+    danger: "#EF4444"
+    success: "#34D399"
+    warning: "#FBBF24"
+  typography:
+    font_display: "Playfair Display"
+    font_body: "Inter"
+    font_mono: null
+  spacing:
+    section_padding: "80px 32px"
+    card_padding: "32px"
+    max_width: "80rem"
+    navbar_height: "88px"
+  border_radius:
+    scale: "soft"
+    default: "12px"
+    small: "8px"
+    large: "16px"
+    pill: "9999px"
+  mode: "light"
+
+framework: "html-static"
+
+components:
+  directory: "inline"
+  atoms: []
+  molecules: []
+  organisms:
+    - "navbar (glass-nav)"
+    - "hero-section"
+    - "ambientes-section"
+    - "diferenciais-section"
+    - "localizacao-section"
+    - "orcamento-form"
+    - "footer"
+
+pages:
+  directory: "clients/GTHouse/landing_page"
+  existing:
+    - route: "/"
+      file: "index.html"
+      status: "done"
+    - route: "/plenaria"
+      file: "plenaria.html"
+      status: "done"
+    - route: "/garden"
+      file: "garden.html"
+      status: "done"
+    - route: "/terreo"
+      file: "terreo.html"
+      status: "done"
+
+workflow:
+  current: "site-creation"
+  current_step: "summary"
+  pages_planned:
+    - name: "Home"
+      route: "/"
+      file: "index.html"
+    - name: "Plenária"
+      route: "/plenaria"
+      file: "plenaria.html"
+    - name: "Garden"
+      route: "/garden"
+      file: "garden.html"
+    - name: "Térreo"
+      route: "/terreo"
+      file: "terreo.html"
+  pages_created:
+    - "index.html"
+    - "plenaria.html"
+    - "garden.html"
+    - "terreo.html"
+
+meta:
+  state_version: "1.0"
+  initialized_at: "2026-03-13"
+  last_updated: "2026-03-13"
+  session_agent: "ux-design-expert"
+  note: "Páginas existentes preservadas. Novos agentes devem consultar este arquivo antes de criar qualquer nova página."

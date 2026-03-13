@@ -1,0 +1,135 @@
+# =============================================================================
+# Client Briefing — Alpha Business Academy
+# =============================================================================
+# Synkra AIOS Client Briefing | Master Version (v1.1 - Real Data Validated)
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "aba_001"
+  client_name: "AlphaBusinessAcademy"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.1"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "Alpha Business Academy"
+  tagline: "O caminho do dono que quer escalar de verdade."
+  mission: "Transformar donos de negócios presos no operacional em líderes de empresas lucrativas através de método, mentoria e o Tripé da Excelência Empresarial™."
+  vision: "Ser a principal academia de negócios high-ticket para o ecossistema de Food Service e PME no Brasil."
+  tone_of_voice:
+    - "Direto"
+    - "Adulto"
+    - "Provocativo"
+    - "Responsável"
+    - "Elite"
+  personality_archetype: "The Magician"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Educação e Mentoria Empresarial"
+  niche: "Empresários em Operação (Foco: Food Service e Franquias)"
+  business_model: "B2C / B2B"
+  pricing_tier: "ultra-premium"
+  main_services:
+    - "Imersão Presencial (O Caminho do Dono)"
+    - "Mentoria Alpha Master (High-Ticket: R$35k)"
+    - "Comunidade Alpha Mastermind"
+    - "Diagnóstico de Governança e Expansão"
+  geographic_focus: "São Paulo, SP (Presencial no Morumbi Office Tower) — Alcance Nacional"
+
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "Tripé da Excelência Empresarial™"
+  pillars:
+    - "Receita/Vendas: Pipeline previsível e proposta clara."
+    - "Escala/Expansão: Crescimento com estrutura (Pessoas, Processos, ROI)."
+    - "Pessoas/Autonomia: Operação sem apagões (Saindo do gargalo)."
+    - "Margem/Lucro: Mentalidade de CEO para proteção de caixa."
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Dono de Negócio Alimentício (ou PME em escala)"
+    age_range: "28-54"
+    gender: "mixed"
+    occupation: "CEO de Franquias, Donos de Restaurantes/Cafeterias, Gestores de PME"
+    income: "high (Faturamento relevante + equipe formada)"
+    location: "São Paulo / Grande SP (Frequenta o Morumbi)"
+  pain_points:
+    - "Escravo da própria empresa (Tudo depende do dono)"
+    - "Fatumamento alto, mas lucro baixo ou desorganizado"
+    - "Dificuldade extrema em contratar, treinar e reter talentos (Turnover)"
+    - "Vendas por 'indicação aleatória' sem previsibilidade comercial"
+  desires:
+    - "Construir uma empresa que funcione sem a presença física do dono"
+    - "Liberdade de tempo e clareza nas prioridades estratégicas"
+    - "Pertencer a um grupo de 'gente séria' com mentalidade de escala"
+  objections:
+    - "Mentoria de R$35k é cara para o momento atual (Risco percebido)"
+    - "Já tentei coaching/cursos motivacionais e nada mudou na prática"
+  buying_triggers:
+    - "Perda de um funcionário chave ou 'apagão' operacional"
+    - "Frustração ao ver o negócio estagnado mesmo trabalhando 14h/dia"
+    - "Indicação direta de um dos +500 franqueados ou parceiros do Lucas Silva"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "A transição definitiva do empresário operacional para o dono de negócio com direção, ambiente de elite e decisão estratégica."
+  differentiators:
+    - "Mentores de Campo: Lucas Silva (Monster Dog/Ponto Alpha) e José Ricardo (+500 lojas)"
+    - "Foco em Food Service: Método validado no mercado real e não apenas teórico"
+    - "Filtro de Preço: O valor de R$35k garante um networking de altíssimo nível"
+  main_competitors:
+    - "G4 Educação"
+    - "Empresa Autogerenciável (EAG)"
+  competitive_advantage: "Proximidade real e mentoria 1:1 com quem escalou negócios de centenas de unidades."
+
+# --- COPY & MESSAGES --------------------------------------------------------
+copy:
+  key_messages:
+    - "Se tudo depende de você, você tem um emprego caro, não uma empresa."
+    - "Você não precisa de mais informação. Precisa de método e acompanhamento."
+    - "O caminho do dono é construir um negócio que prospera sem ele."
+  emotional_triggers:
+    - "Alívio (Sair do caos operacional)"
+    - "Status (Pertencer à Elite Alpha)"
+    - "Segurança (Caminho já trilhado por quem tem +500 lojas)"
+  proof_elements:
+    case_studies:
+      - "Expansão Monster Dog"
+      - "Rede Ponto Alpha Café"
+    social_proof_numbers: "+500 lojas no ecossistema dos mentores, imersões presenciais recorrentes."
+  primary_cta: "Aplique para a Próxima Imersão"
+  secondary_cta: "Fale com um Mentor Alpha"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Mentoria Alpha Master"
+    price_range: "R$35.000 (Individual/Coletiva)"
+    description: "Acompanhamento de 6 a 12 meses focado em Processos, Governança e Escala."
+  entry_offer:
+    name: "Imersão O Caminho do Dono"
+    price_range: "R$2.000 - R$5.000"
+    description: "2 dias presenciais no Morumbi Office Tower para tomada de decisões e estruturação tática."
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "instagram (@pontoacafe / @lucas.alpha)"
+    - "whatsapp (qualificação)"
+    - "meta-ads (conversão para aplicação)"
+  primary_channel: "instagram"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem motivacional vazia (coach genérico)"
+    - "Fotos de banco de imagem (Sempre usar fotos reais)"
+    - "Promessas de 'ganhos fáceis'"
+  brand_restrictions:
+    - "Paleta: Dark Mode (#0A0A0A) + Gold (#C9A24A)"
+    - "Tipografia: Inter (Obrigatória)"
+  legal_notes: "Processo seletivo obrigatório para mentoria high-ticket."

@@ -17,10 +17,11 @@
  *   help                Show help
  */
 
-const { execSync, spawnSync } = require('child_process');
+const { spawnSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const { recoverLicense } = require('../src/recover');
+const { normalizeExecutable, resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 const PRO_PACKAGE = '@aios-fullstack/pro';
 const VERSION = require('../package.json').version;
@@ -31,8 +32,9 @@ const command = args[0];
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 function run(cmd, options = {}) {
-  const result = spawnSync(cmd, {
-    shell: true,
+  const { command, args } = resolveCommandSpec(cmd);
+  const result = spawnSync(command, args, {
+    shell: false,
     stdio: 'inherit',
     cwd: process.cwd(),
     ...options,
@@ -52,17 +54,21 @@ function isProInstalled() {
 function findAiosCli() {
   // Check local node_modules first
   const localBin = path.join(process.cwd(), 'node_modules', '.bin', 'aios');
-  if (fs.existsSync(localBin) || fs.existsSync(localBin + '.cmd')) {
-    return 'npx aios';
+  if (fs.existsSync(localBin + '.cmd')) {
+    return { command: localBin + '.cmd', args: [] };
+  }
+  if (fs.existsSync(localBin)) {
+    return { command: localBin, args: [] };
   }
 
   // Check global
-  try {
-    execSync('aios --version', { stdio: 'pipe' });
-    return 'aios';
-  } catch {
+  const command = normalizeExecutable('aios');
+  const result = spawnSync(command, ['--version'], { stdio: 'pipe', shell: false });
+  if (result.error || result.status !== 0) {
     return null;
   }
+
+  return { command, args: [] };
 }
 
 function delegateToAios(subcommand) {
@@ -73,8 +79,8 @@ function delegateToAios(subcommand) {
     process.exit(1);
   }
 
-  const spawnArgs = ['pro', subcommand, ...args.slice(1)];
-  const result = spawnSync(aios, spawnArgs, { stdio: 'inherit' });
+  const spawnArgs = [...aios.args, 'pro', subcommand, ...args.slice(1)];
+  const result = spawnSync(aios.command, spawnArgs, { stdio: 'inherit', shell: false });
   process.exit(result.status ?? 0);
 }
 

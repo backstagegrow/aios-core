@@ -19,12 +19,26 @@ Siga `.aios-core/constitution.md` como fonte de verdade:
 3. Atualize checklist (`[ ]` -> `[x]`) e file list
 4. Execute quality gates antes de concluir
 
+## Decision Defaults
+
+- Classifique antes de agir: estado do projeto, complexidade, risco e executor correto.
+- Em mudancas substanciais, assuma fluxo story-driven sem perguntar quando o contexto do repo ja deixar o caminho claro.
+- Prefira regra explicita, playbook e fonte unica de verdade em vez de heuristica opaca.
+- Corrija causa raiz, alinhe docs/config/runtime/validacao e adicione teste de regressao para mudanca estrutural.
+- Para codigo, assuma fechamento com `npm run lint`, `npm run typecheck`, `npm test` e `npm run build` quando aplicavel.
+- Para sites, comece por briefing, CTA, paginas e secoes; privilegie design intencional e evite layout generico.
+- Para conteudo, escreva buyer-first com beneficio, prova e CTA claros.
+- Escale ao usuario apenas quando a decisao mudar direcao de negocio, marca, pricing ou arquitetura de longo prazo.
+
+Fonte de referencia: `docs/plans/2026-03-13-user-decision-map.md`
+
 ## Quality Gates
 
 ```bash
 npm run lint
 npm run typecheck
 npm test
+npm run build
 ```
 
 ## Estrutura Principal

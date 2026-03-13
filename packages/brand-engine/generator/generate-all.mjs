@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 const rootDir = process.cwd();
 const clientsDir = path.join(rootDir, "packages/brand-engine/clients");
@@ -21,10 +21,10 @@ for (const client of clients) {
     const clientPath = path.join("packages/brand-engine/clients", client);
     console.log(`Generating tokens for ${client}...`);
     try {
-        execSync(`node ${generatorPath} ${clientPath}`, { stdio: "inherit" });
+        execFileSync(process.execPath, [generatorPath, clientPath], { stdio: "inherit" });
     } catch (err) {
         console.error(`Failed to generate tokens for ${client}:`, err.message);
     }
 }
 
-console.log("✅ All client tokens generated.");
+console.log("All client tokens generated.");

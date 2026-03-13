@@ -20,6 +20,13 @@ try {
   AIProviderFactory = null;
 }
 
+let GeminiModelSelector;
+try {
+  ({ GeminiModelSelector } = require('../orchestration/gemini-model-selector'));
+} catch {
+  GeminiModelSelector = null;
+}
+
 // Import dependencies with fallbacks
 let MemoryQuery, GotchasMemory;
 try {
@@ -71,12 +78,19 @@ class SubagentDispatcher extends EventEmitter {
       // Tasks that benefit from Claude's deep reasoning
       '@architect': 'claude',
       '@analyst': 'claude',
+      '@qa': 'claude',
+      '@pm': 'claude',
+      '@po': 'claude',
+      '@devops': 'claude',
+      '@data-engineer': 'claude',
       security: 'claude',
+      architecture: 'claude',
+      review: 'claude',
+      planning: 'claude',
 
-      // Tasks that work well with Gemini's speed
+      // Tasks that can use Gemini safely with model guardrails
       '@dev': 'auto', // Use configured default
-      '@qa': 'gemini',
-      '@pm': 'gemini',
+      '@ux-design-expert': 'auto',
       documentation: 'gemini',
       formatting: 'gemini',
     };
@@ -86,6 +100,7 @@ class SubagentDispatcher extends EventEmitter {
 
     // Enable multi-provider features
     this.multiProviderEnabled = config.multiProviderEnabled !== false;
+    this.modelSelector = config.modelSelector || (GeminiModelSelector ? new GeminiModelSelector() : null);
 
     // Parallel execution mode
     this.parallelMode = config.parallelMode || 'fallback'; // fallback, race, consensus, best-of
@@ -115,9 +130,8 @@ class SubagentDispatcher extends EventEmitter {
   async dispatch(task, context = {}) {
     const agentId = this.resolveAgent(task);
     const startTime = Date.now();
-
-    // Resolve provider (Story GEMINI-INT.3)
-    const providerName = this.resolveProvider(task, agentId);
+    const executionPlan = this.resolveExecutionPlan(task, agentId);
+    const providerName = executionPlan.provider;
 
     // Create dispatch record
     const dispatchRecord = {
@@ -125,6 +139,7 @@ class SubagentDispatcher extends EventEmitter {
       taskId: task.id,
       agentId,
       provider: providerName,
+      model: executionPlan.model || null,
       startedAt: new Date().toISOString(),
       attempts: 0,
     };
@@ -142,7 +157,7 @@ class SubagentDispatcher extends EventEmitter {
       dispatchRecord.attempts = attempt;
 
       try {
-        const result = await this.spawnSubagent(agentId, task, enrichedContext);
+        const result = await this.spawnSubagent(agentId, task, enrichedContext, executionPlan);
 
         dispatchRecord.completedAt = new Date().toISOString();
         dispatchRecord.success = result.success;
@@ -249,25 +264,14 @@ class SubagentDispatcher extends EventEmitter {
    * @returns {string} - Provider name ('claude', 'gemini', or 'auto')
    */
   resolveProvider(task, agentId) {
-    // Check for explicit @gemini or @claude tag in task
-    if (task.provider) {
-      return task.provider.toLowerCase();
+    const explicitProvider = this.getExplicitProviderHint(task);
+    if (explicitProvider) {
+      return explicitProvider;
     }
 
-    // Check task tags for provider hints
-    if (task.tags && Array.isArray(task.tags)) {
-      if (task.tags.includes('@gemini') || task.tags.includes('gemini')) {
-        return 'gemini';
-      }
-      if (task.tags.includes('@claude') || task.tags.includes('claude')) {
-        return 'claude';
-      }
+    if (this.isCriticalTask(task, agentId)) {
+      return 'claude';
     }
-
-    // Check description for provider hints
-    const description = (task.description || '').toLowerCase();
-    if (description.includes('@gemini')) return 'gemini';
-    if (description.includes('@claude')) return 'claude';
 
     // Check agent mapping
     if (this.providerMapping[agentId]) {
@@ -283,6 +287,62 @@ class SubagentDispatcher extends EventEmitter {
 
     // Return default
     return this.defaultProvider;
+  }
+
+  resolveExecutionPlan(task, agentId) {
+    const provider = this.resolveProvider(task, agentId);
+    const modelOptions = this.resolveModelOptions(task, agentId, provider);
+
+    return {
+      provider,
+      ...modelOptions,
+    };
+  }
+
+  resolveModelOptions(task, agentId, provider) {
+    if (provider !== 'gemini' || !this.modelSelector) {
+      return {
+        model: null,
+        modelSelection: null,
+      };
+    }
+
+    const selection = this.modelSelector.selectModel(task, agentId);
+    return {
+      model: selection.model,
+      modelSelection: selection,
+    };
+  }
+
+  getExplicitProviderHint(task = {}) {
+    if (task.provider) {
+      return String(task.provider).toLowerCase();
+    }
+
+    if (task.tags && Array.isArray(task.tags)) {
+      if (task.tags.includes('@gemini') || task.tags.includes('gemini')) {
+        return 'gemini';
+      }
+      if (task.tags.includes('@claude') || task.tags.includes('claude')) {
+        return 'claude';
+      }
+    }
+
+    const description = (task.description || '').toLowerCase();
+    if (description.includes('@gemini')) return 'gemini';
+    if (description.includes('@claude')) return 'claude';
+
+    return null;
+  }
+
+  isCriticalTask(task, agentId) {
+    if (this.modelSelector?.assessCriticality) {
+      return this.modelSelector.assessCriticality(task, agentId?.replace(/^@/, '')).level === 'critical';
+    }
+
+    const text = `${task.description || ''} ${task.type || ''}`.toLowerCase();
+    return ['security', 'architecture', 'review', 'audit', 'plan'].some((keyword) =>
+      text.includes(keyword));
   }
 
   /**
@@ -390,16 +450,17 @@ class SubagentDispatcher extends EventEmitter {
    * @param {Object} context - Enriched context
    * @returns {Promise<Object>} - Execution result
    */
-  async spawnSubagent(agentId, task, context) {
+  async spawnSubagent(agentId, task, context, executionPlan = null) {
     // Build the prompt
     const prompt = this.buildPrompt(agentId, task, context);
 
     // Resolve provider
-    const providerName = this.resolveProvider(task, agentId);
+    const plan = executionPlan || this.resolveExecutionPlan(task, agentId);
+    const providerName = plan.provider;
 
     // Try to use AI Provider Factory if available
     if (this.multiProviderEnabled && AIProviderFactory) {
-      return this.executeWithProvider(prompt, providerName, task);
+      return this.executeWithProvider(prompt, providerName, task, agentId, plan);
     }
 
     // Fallback to direct Claude CLI
@@ -413,8 +474,9 @@ class SubagentDispatcher extends EventEmitter {
    * @param {Object} task - Original task for context
    * @returns {Promise<Object>} - Execution result
    */
-  async executeWithProvider(prompt, providerName, task) {
+  async executeWithProvider(prompt, providerName, task, agentId, executionPlan = null) {
     const startTime = Date.now();
+    const plan = executionPlan || this.resolveExecutionPlan(task, agentId);
 
     // Get primary provider
     const provider = this.getAIProvider(providerName);
@@ -437,7 +499,11 @@ class SubagentDispatcher extends EventEmitter {
 
       if (fallback && (await fallback.checkAvailability())) {
         this.log('using_fallback_provider', { original: providerName, fallback: fallbackName });
-        return this.executeWithSingleProvider(fallback, prompt, task);
+        const fallbackPlan = this.resolveExecutionPlan(
+          { ...task, provider: fallbackName },
+          agentId,
+        );
+        return this.executeWithSingleProvider(fallback, prompt, task, fallbackPlan);
       }
 
       // Last resort: legacy Claude
@@ -445,7 +511,7 @@ class SubagentDispatcher extends EventEmitter {
     }
 
     // Execute with selected provider
-    return this.executeWithSingleProvider(provider, prompt, task);
+    return this.executeWithSingleProvider(provider, prompt, task, plan);
   }
 
   /**
@@ -455,17 +521,24 @@ class SubagentDispatcher extends EventEmitter {
    * @param {Object} task - Original task
    * @returns {Promise<Object>} - Execution result
    */
-  async executeWithSingleProvider(provider, prompt, task) {
+  async executeWithSingleProvider(provider, prompt, task, executionPlan = null) {
     try {
-      const response = await provider.executeWithRetry(prompt, {
+      const options = {
         workingDir: this.rootPath,
-      });
+      };
+
+      if (executionPlan?.model) {
+        options.model = executionPlan.model;
+      }
+
+      const response = await provider.executeWithRetry(prompt, options);
 
       this.emit('provider_execution_complete', {
         provider: provider.name,
         taskId: task.id,
         success: response.success,
         duration: response.metadata?.duration,
+        model: response.metadata?.model || executionPlan?.model || null,
       });
 
       return {
@@ -473,6 +546,7 @@ class SubagentDispatcher extends EventEmitter {
         output: response.output,
         filesModified: this.extractModifiedFiles(response.output),
         provider: provider.name,
+        model: response.metadata?.model || executionPlan?.model || null,
         metadata: response.metadata,
       };
     } catch (error) {
@@ -592,6 +666,7 @@ class SubagentDispatcher extends EventEmitter {
    */
   buildPrompt(agentId, task, context) {
     let prompt = `You are ${agentId}, a specialized agent in the AIOS framework.\n\n`;
+    const qualityDirective = this.buildQualityDirective(agentId, task);
 
     prompt += '## Task\n';
     prompt += `**ID:** ${task.id}\n`;
@@ -637,8 +712,19 @@ class SubagentDispatcher extends EventEmitter {
     prompt += '2. Follow existing patterns in the codebase\n';
     prompt += '3. After completing, verify your changes work\n';
     prompt += '4. Respond with a summary of what you did\n';
+    if (qualityDirective) {
+      prompt += `5. ${qualityDirective}\n`;
+    }
 
     return prompt;
+  }
+
+  buildQualityDirective(agentId, task) {
+    if (this.isCriticalTask(task, agentId)) {
+      return 'Optimize for correctness, depth, and explicit tradeoffs over speed or brevity; do not give a shallow answer';
+    }
+
+    return 'Prefer correctness over speed and avoid claiming completion without evidence';
   }
 
   /**
@@ -649,10 +735,9 @@ class SubagentDispatcher extends EventEmitter {
   executeClaude(prompt) {
     return new Promise((resolve, reject) => {
       const args = ['--print', '--dangerously-skip-permissions'];
-      const escapedPrompt = prompt.replace(/'/g, "'\\''");
-      const fullCommand = `echo '${escapedPrompt}' | claude ${args.join(' ')}`;
+      const claudeCommand = process.platform === 'win32' ? 'claude.cmd' : 'claude';
 
-      const child = spawn('sh', ['-c', fullCommand], {
+      const child = spawn(claudeCommand, args, {
         cwd: this.rootPath,
         env: { ...process.env },
         stdio: ['pipe', 'pipe', 'pipe'],
@@ -684,6 +769,9 @@ class SubagentDispatcher extends EventEmitter {
       child.on('error', (error) => {
         reject(error);
       });
+
+      child.stdin.write(prompt);
+      child.stdin.end();
     });
   }
 

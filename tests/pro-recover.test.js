@@ -9,6 +9,7 @@
  */
 
 const readline = require('readline');
+const { PassThrough } = require('stream');
 const { maskEmail, openBrowser, promptEmail, recoverLicense, RECOVERY_URL, RECOVERY_MESSAGE } = require('../packages/aios-pro-cli/src/recover');
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -119,11 +120,13 @@ describe('promptEmail', () => {
   });
 
   test('passes correct options to createInterface', async () => {
+    const input = new PassThrough();
+    const output = new PassThrough();
     mockReadline('a@b.com');
-    await promptEmail();
+    await promptEmail({ input, output });
     expect(createInterfaceSpy).toHaveBeenCalledWith({
-      input: process.stdin,
-      output: process.stdout,
+      input,
+      output,
     });
   });
 });

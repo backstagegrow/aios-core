@@ -14,6 +14,7 @@ const { spawn } = require('child_process');
 const fs = require('fs').promises;
 const path = require('path');
 const { BaseLayer } = require('./base-layer');
+const { escapePosixShellArg, resolveCommandSpec } = require('../../../scripts/lib/command-utils');
 
 /**
  * Layer 2: PR Automation checks
@@ -97,9 +98,7 @@ class Layer2PRAutomation extends BaseLayer {
 
     try {
       // Check if CodeRabbit is available
-      const command =
-        this.coderabbit.command ||
-        "wsl bash -c 'cd ${PROJECT_ROOT} && ~/.local/bin/coderabbit --prompt-only -t uncommitted'";
+      const command = this.coderabbit.command || this.getDefaultCodeRabbitCommand();
 
       const result = await this.runCommand(command, timeout);
 
@@ -144,7 +143,11 @@ class Layer2PRAutomation extends BaseLayer {
       return coderabbitResult;
     } catch (error) {
       // CodeRabbit not installed or not accessible - graceful degradation
-      if (error.message.includes('not found') || error.message.includes('command not found')) {
+      if (
+        error.message.includes('not found') ||
+        error.message.includes('command not found') ||
+        error.message.includes('ENOENT')
+      ) {
         if (verbose) {
           console.log('  ⏭️ CodeRabbit: Skipped (not installed)');
         }
@@ -259,6 +262,24 @@ class Layer2PRAutomation extends BaseLayer {
     return [];
   }
 
+  getDefaultCodeRabbitCommand() {
+    if (process.platform === 'win32') {
+      return {
+        command: 'wsl',
+        args: [
+          'bash',
+          '-lc',
+          `cd ${escapePosixShellArg(process.cwd())} && ~/.local/bin/coderabbit --prompt-only -t uncommitted`,
+        ],
+      };
+    }
+
+    return {
+      command: 'coderabbit',
+      args: ['--prompt-only', '-t', 'uncommitted'],
+    };
+  }
+
   /**
    * Save review results to reports directory
    * @param {string} reportPath - Path to save report
@@ -285,14 +306,15 @@ class Layer2PRAutomation extends BaseLayer {
   runCommand(command, timeout = 60000) {
     return new Promise((resolve, reject) => {
       const startTime = Date.now();
+      const { command: cmd, args } = resolveCommandSpec(command);
 
       const options = {
-        shell: true,
+        shell: false,
         cwd: process.cwd(),
         env: { ...process.env },
       };
 
-      const child = spawn(command, [], options);
+      const child = spawn(cmd, args, options);
 
       let stdout = '';
       let stderr = '';

@@ -5,9 +5,11 @@ You are working with Synkra AIOS, an AI-Orchestrated System for Full Stack Devel
 ## Core Development Rules
 
 ### Agent Integration
-- Recognize AIOS agent activations: @dev, @qa, @architect, @pm, @po, @sm, @analyst
+- Recognize AIOS agent activations: @aios-master, @analyst, @architect, @clickup-ops, @clickup-reporting, @data-engineer, @dev, @devops, @pm, @po, @qa, @sm, @squad-creator, @ux-design-expert
 - Agent commands use * prefix: *help, *create-story, *task, *exit
 - Follow agent-specific workflows and patterns
+- For agent activation, prefer `.agent/workflows/<agent>.md` and then load `.antigravity/agents/<agent>.md` as the canonical agent definition
+- Do not infer an AIOS agent from a short summary file when a canonical agent file exists in `.antigravity/agents/`
 
 ### Story-Driven Development
 1. **Always work from a story file** in docs/stories/

@@ -1,0 +1,62 @@
+# .state.yaml — Alpha Business Academy Landing Page (HTML)
+# NÃO commitar — adicionar ao .gitignore
+
+design_system_discovered: true
+manifest_loaded: true
+brand_engine_client: "alpha"
+brand_engine_tokens_loaded: true
+
+tokens:
+  source: "brand-engine:alpha + styles.css"
+  colors:
+    background: "#0A0A0A"
+    surface: "#141414"
+    surface_light: "#1E1E1E"
+    primary: "#C9A24A"
+    primary_hover: "#D4B66E"
+    text_primary: "#FAF9F6"
+    text_muted: "#9CA3AF"
+    border_subtle: "rgba(255, 255, 255, 0.08)"
+  typography:
+    font_display: "Inter"
+    font_body: "Inter"
+    font_mono: null
+  border_radius:
+    scale: "hard"
+    default: "0.375rem"
+    small: "0.125rem"
+    large: "0.5rem"
+    xl: "1rem"
+  mode: "dark"
+
+framework: "html-static"
+
+components:
+  directory: "inline"
+  atoms: []
+  molecules: []
+  organisms: []
+
+pages:
+  directory: "clients/AlphaBusinessAcademy/landing_page"
+  existing:
+    - route: "/"
+      file: "index.html"
+      status: "done"
+
+workflow:
+  current: "site-creation"
+  current_step: "summary"
+  pages_planned:
+    - name: "Landing Page"
+      route: "/"
+      file: "index.html"
+  pages_created:
+    - "index.html"
+
+meta:
+  state_version: "1.0"
+  initialized_at: "2026-03-13"
+  last_updated: "2026-03-13"
+  session_agent: "ux-design-expert"
+  note: "Projeto HTML estático. Ver lp/ para o projeto Next.js ativo."

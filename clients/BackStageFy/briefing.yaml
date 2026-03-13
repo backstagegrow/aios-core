@@ -1,0 +1,128 @@
+# =============================================================================
+# Client Briefing — BackStageFy
+# =============================================================================
+# Synkra AIOS Client Briefing | Tech Strategy
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "bsf_001"
+  client_name: "BackStageFy"
+  status: active
+  last_updated: "2026-03-13"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "BackStageFy"
+  tagline: "O cérebro tecnológico da sua operação de eventos."
+  mission: "Entregar previsibilidade e escala para fornecedores de eventos através de automação inteligente e gestão baseada em dados."
+  vision: "Ser a plataforma SaaS líder em automação de vendas e atendimento para o setor de eventos corporativos."
+  tone_of_voice:
+    - "Tecnológico"
+    - "Eficiente"
+    - "Organizado"
+    - "Previsível"
+    - "Poderoso"
+  personality_archetype: "The Creator"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "SaaS / Tecnologia para Eventos"
+  niche: "Plataforma de Automação e Gestão (CRM + AI) para Fornecedores de Eventos"
+  business_model: "SaaS (B2B)"
+  pricing_tier: "mid-premium"
+  main_services:
+    - "WhatsApp Automation via API"
+    - "Agentes de IA Customizados (RAG)"
+    - "Editor de Funil de Vendas e Qualificação"
+    - "Pipeline Visual de Leads (CRM)"
+    - "Agenda Inteligente e Sincronizada"
+  geographic_focus: "Global / Base Digital"
+
+# --- TECHNOLOGY PILLARS -----------------------------------------------------
+tech:
+  unique_mechanism: "AI RAG específica para o nicho de Eventos Corporativos"
+  key_features:
+    - "Atendimento 24/7 sem alucinações (Base de Conhecimento RAG)"
+    - "Qualificação automática de leads no WhatsApp"
+    - "Gestão visual de pipeline (Novo -> Visita -> Proposta -> Comercial)"
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Sócios de Empresas de Eventos (Cenografia, Buffet, AV)"
+    age_range: "30-50"
+    gender: "mixed"
+    occupation: "CEOs, Diretores Comerciais, Heads de Operação"
+    income: "high (Foco em escalabilidade)"
+    location: "Brasil"
+  pain_points:
+    - "Dificuldade em gerir mensagens bagunçadas no WhatsApp"
+    - "Demora no atendimento gerando perda de leads qualificados"
+    - "Falta de padrão na comunicação e esquecimento de follow-ups"
+    - "Dependência do dono para responder orçamentos iniciais"
+  desires:
+    - "Previsibilidade total no pipeline de vendas"
+    - "Atendimento automático que realmente qualifica o lead"
+    - "Máquina de vendas organizada que funciona sem supervisão constante"
+  objections:
+    - "Ceticismo com IA ('A máquina vai errar a resposta para o meu cliente')"
+    - "Medo da tecnologia ser complexa demais para implementar"
+  buying_triggers:
+    - "Início de grandes campanhas de anúncios (aumento de volume de leads)"
+    - "Perda crítica de contrato por erro de atendimento"
+    - "Contratação da consultoria BKS Grow (BackStageFy como braço executor)"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "Transformamos o WhatsApp do fornecedor de eventos de uma bagunça de mensagens em uma máquina de vendas organizada e automatizada com inteligência artificial."
+  differentiators:
+    - "Integração nativa de IA (RAG) treinada no setor de eventos"
+    - "Foco total na jornada do fornecedor (saudação -> qualificação -> agendamento)"
+    - "Sincronização com a metodologia de crescimento da BKS Grow"
+  main_competitors:
+    - "CRMs genéricos (RD Station, HubSpot)"
+    - "Plataformas de automação de Chat (Typebot, ManyChat)"
+  competitive_advantage: "Especialização vertical extrema: a única que entende de Visita Técnica e Pipeline de Eventos corporativos de alto ticket."
+
+# --- COPY & MESSAGES --------------------------------------------------------
+copy:
+  key_messages:
+    - "Pare de perder leads por demora no WhatsApp."
+    - "IA treinada para vender o seu evento corporativo."
+    - "Atendimento 24/7 com a alma da sua marca."
+  emotional_triggers:
+    - "Alívio (Organização absoluta)"
+    - "Confiança (Atendimento de qualidade)"
+    - "Escalabilidade (Crescer sem contratar mais pessoas de suporte)"
+  proof_elements:
+    case_studies:
+      - "Ecossistema BKS Grow integration"
+    social_proof_numbers: "Backend tecnológico de dezenas de fornecedores premium."
+  primary_cta: "Solicite um Demo da IA"
+  secondary_cta: "Conhecer Plataforma"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Licença Pro + AI Agent"
+    price_range: "R$997 - R$4.997/mês"
+    description: "Acesso total à plataforma, automação de WhatsApp e 1 Agente de IA com RAG."
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "whatsapp"
+    - "site"
+    - "linkedin"
+  primary_channel: "whatsapp"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem tech-heavy demais (Falar de benefícios, não de código)"
+    - "Interface visual complexa ou poluída"
+  brand_restrictions:
+    - "Manter o rigor de dados (IA baseada no conhecimento do cliente)"
+  legal_notes: "Conformidade com LGPD para processamento de dados de leads e API Oficial do WhatsApp."

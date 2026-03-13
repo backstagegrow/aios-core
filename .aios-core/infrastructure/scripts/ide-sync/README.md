@@ -15,7 +15,8 @@ IDE Sync keeps agent definitions in `.aios-core/development/agents/` synchronize
 - `.gemini/commands/` (Gemini slash command launcher files)
 - `.github/agents/` (GitHub Copilot support files)
 - `.cursor/rules/agents/` (Cursor)
-- `.antigravity/rules/agents/` (Antigravity)
+- `.antigravity/agents/` (AntiGravity canonical agent files)
+- `.agent/workflows/` (AntiGravity activation workflows)
 
 For Codex `/skills` activators, use the dedicated skills sync:
 
@@ -122,6 +123,10 @@ ideSync:
       enabled: true
       path: .cursor/rules/agents
       format: condensed-rules
+    antigravity:
+      enabled: true
+      path: .antigravity/agents
+      format: full-markdown-yaml
     # ... other IDEs
   redirects:
     aios-developer: aios-master
@@ -139,7 +144,7 @@ Each IDE has a specific format for agent files:
 | Gemini CLI  | Full markdown with YAML | `.md`     |
 | GitHub Copilot | Full markdown with YAML | `.md`   |
 | Cursor      | Condensed rules         | `.md`     |
-| Antigravity | Cursor-style            | `.md`     |
+| AntiGravity | Full markdown with YAML | `.md`     |
 
 Platform-specific checks:
 

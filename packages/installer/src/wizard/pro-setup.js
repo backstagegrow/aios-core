@@ -1036,8 +1036,6 @@ async function stepInstallScaffold(targetDir, options = {}) {
 
   const path = require('path');
   const fs = require('fs');
-  const { execSync } = require('child_process');
-
   const proSourceDir = path.join(targetDir, 'node_modules', '@aios-fullstack', 'pro');
 
   // Step 2a: Ensure package.json exists (greenfield projects)
@@ -1046,7 +1044,9 @@ async function stepInstallScaffold(targetDir, options = {}) {
     const initSpinner = createSpinner(t('proInitPackageJson'));
     initSpinner.start();
     try {
-      execSync('npm init -y', { cwd: targetDir, stdio: 'pipe' });
+      const { execFileSync } = require('child_process');
+      const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+      execFileSync(npmCmd, ['init', '-y'], { cwd: targetDir, stdio: 'pipe' });
       initSpinner.succeed(t('proPackageJsonCreated'));
     } catch (err) {
       initSpinner.fail(t('proPackageJsonFailed'));
@@ -1059,7 +1059,9 @@ async function stepInstallScaffold(targetDir, options = {}) {
     const installSpinner = createSpinner(t('proInstallingPackage'));
     installSpinner.start();
     try {
-      execSync('npm install @aios-fullstack/pro', {
+      const { execFileSync } = require('child_process');
+      const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+      execFileSync(npmCmd, ['install', '@aios-fullstack/pro'], {
         cwd: targetDir,
         stdio: 'pipe',
         timeout: 120000,
@@ -1253,7 +1255,9 @@ async function runProWizard(options = {}) {
       const installSpinner = createSpinner(t('proInstallingPackage'));
       installSpinner.start();
       try {
-        execSync('npm install @aios-fullstack/pro', {
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['install', '@aios-fullstack/pro'], {
           cwd: targetDir,
           stdio: 'pipe',
           timeout: 120000,

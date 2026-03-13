@@ -112,8 +112,9 @@ function check(description, passed, detail) {
 }
 
 function getTarballContents() {
+  const { execFileSync } = require('child_process');
   try {
-    const output = execSync('npm pack --dry-run --json 2>&1', {
+    const output = execFileSync('npm', ['pack', '--dry-run', '--json'], {
       cwd: ROOT,
       encoding: 'utf8',
       timeout: 30000,
@@ -131,7 +132,7 @@ function getTarballContents() {
     // Fallback: parse text output from npm pack --dry-run
     verbose(`JSON parse failed, falling back to text output: ${parseError.message}`);
     try {
-      const output = execSync('npm pack --dry-run 2>&1', {
+      const output = execFileSync('npm', ['pack', '--dry-run'], {
         cwd: ROOT,
         encoding: 'utf8',
         timeout: 30000,

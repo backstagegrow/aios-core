@@ -1,0 +1,77 @@
+# .state.yaml — Antigravity Session State
+# Generated automatically by *discover and *generate-manifest.
+# Persists design system context across agent commands within a session.
+# Do NOT commit this file — add to .gitignore.
+
+project:
+  name: null
+  slug: null
+  client: null
+  type: null                        # portfolio | landing-page | site | app
+
+design_system_discovered: false     # set to true after *discover completes
+manifest_loaded: false              # set to true if project-manifest.yaml was found
+
+brand_engine_client: null           # slug (alpha | house-gt) or null
+brand_engine_tokens_loaded: false
+
+tokens:
+  source: null                      # "brand-engine:{slug}" | "tailwind" | "css-vars"
+  colors:
+    background: null
+    primary: null
+    secondary: null
+    accent: null
+    text_primary: null
+    text_muted: null
+    danger: null
+    success: null
+    warning: null
+  typography:
+    font_display: null
+    font_body: null
+    font_mono: null
+  spacing:
+    section_padding: null
+    card_padding: null
+  border_radius:
+    scale: null                     # soft | hard | sharp | pill
+    default: null
+    small: null
+    large: null
+  mode: null                        # dark | light
+
+framework:
+  type: null                        # vite-react | nextjs | astro | other
+  language: null                    # jsx | tsx
+  router: null
+  styling: null                     # tailwind | css-modules | inline
+  tailwind_version: null            # v3 | v4 | null
+
+components:
+  directory: null
+  atoms: []
+  molecules: []
+  organisms: []
+
+pages:
+  directory: null
+  existing: []                      # list of {route, file} discovered
+
+deploy:
+  platform: null                    # cloudflare-pages | vercel | netlify | other
+  domain: null
+  build_command: null
+  output_dir: null
+
+workflow:
+  current: null                     # active workflow (site-creation | etc.)
+  current_step: null                # current step ID
+  pages_planned: []                 # pages queued for creation
+  pages_created: []                 # pages already created this session
+
+meta:
+  state_version: "1.0"
+  initialized_at: null              # ISO timestamp
+  last_updated: null                # ISO timestamp
+  session_agent: null               # agent that initialized (ux-design-expert)
