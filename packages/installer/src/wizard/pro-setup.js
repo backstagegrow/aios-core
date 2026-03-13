@@ -1190,7 +1190,6 @@ async function stepInstallScaffold(targetDir, options = {}) {
 
   const path = require('path');
   const fs = require('fs');
-
   // Resolve pro source directory from multiple locations:
   // 1. Bundled in aios-core package (pro/ submodule — npx and local dev)
   // 2. @aios-fullstack/pro in node_modules (legacy brownfield)
@@ -1200,58 +1199,100 @@ async function stepInstallScaffold(targetDir, options = {}) {
   let proSourceDir;
   if (fs.existsSync(bundledProDir) && fs.existsSync(path.join(bundledProDir, 'squads'))) {
     proSourceDir = bundledProDir;
-  } else if (fs.existsSync(npmProDir)) {
-    proSourceDir = npmProDir;
   } else {
-    return {
-      success: false,
-      error: t('proPackageNotFound'),
-    };
-  }
+    proSourceDir = npmProDir;
 
-  // Step 2c: Scaffold pro content
-  const scaffolderModule = loadProScaffolder();
+    // Step 2a: Ensure package.json exists (greenfield projects)
+    const packageJsonPath = path.join(targetDir, 'package.json');
+    if (!fs.existsSync(packageJsonPath)) {
+      const initSpinner = createSpinner(t('proInitPackageJson'));
+      initSpinner.start();
+      try {
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['init', '-y'], { cwd: targetDir, stdio: 'pipe' });
+        initSpinner.succeed(t('proPackageJsonCreated'));
+      } catch (err) {
+        initSpinner.fail(t('proPackageJsonFailed'));
+        return { success: false, error: tf('proNpmInitFailed', { message: err.message }) };
+      }
+    }
 
-  if (!scaffolderModule) {
-    showWarning(t('proScaffolderNotAvailable'));
-    return { success: false, error: t('proScaffolderNotFound') };
-  }
-
-  const { scaffoldProContent } = scaffolderModule;
-
-  const spinner = createSpinner(t('proScaffolding'));
-  spinner.start();
-
-  try {
-    const scaffoldResult = await scaffoldProContent(targetDir, proSourceDir, {
-      onProgress: (progress) => {
-        spinner.text = tf('proScaffoldingProgress', { message: progress.message });
-      },
-      force: options.force || false,
-    });
-
-    if (scaffoldResult.success) {
-      spinner.succeed(tf('proContentInstalled', { count: scaffoldResult.copiedFiles.length }));
-
-      if (scaffoldResult.warnings.length > 0) {
-        for (const warning of scaffoldResult.warnings) {
-          showWarning(warning);
-        }
+    // Step 2b: Install @aios-fullstack/pro if not present
+    if (!fs.existsSync(proSourceDir)) {
+      const installSpinner = createSpinner(t('proInstallingPackage'));
+      installSpinner.start();
+      try {
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['install', '@aios-fullstack/pro'], {
+          cwd: targetDir,
+          stdio: 'pipe',
+          timeout: 120000,
+        });
+        installSpinner.succeed(t('proPackageInstalled'));
+      } catch (err) {
+        installSpinner.fail(t('proPackageInstallFailed'));
+        return {
+          success: false,
+          error: tf('proNpmInstallFailed', { message: err.message }),
+        };
       }
 
-      return { success: true, scaffoldResult };
+      // Validate installation
+      if (!fs.existsSync(proSourceDir)) {
+        return {
+          success: false,
+          error: t('proPackageNotFound'),
+        };
+      }
     }
-
-    spinner.fail(t('proScaffoldFailed'));
-    for (const error of scaffoldResult.errors) {
-      showError(error);
-    }
-
-    return { success: false, error: scaffoldResult.errors.join('; '), scaffoldResult };
-  } catch (error) {
-    spinner.fail(tf('proScaffoldError', { message: error.message }));
-    return { success: false, error: error.message };
   }
+}
+
+// Step 2c: Scaffold pro content
+const scaffolderModule = loadProScaffolder();
+
+if (!scaffolderModule) {
+  showWarning(t('proScaffolderNotAvailable'));
+  return { success: false, error: t('proScaffolderNotFound') };
+}
+
+const { scaffoldProContent } = scaffolderModule;
+
+const spinner = createSpinner(t('proScaffolding'));
+spinner.start();
+
+try {
+  const scaffoldResult = await scaffoldProContent(targetDir, proSourceDir, {
+    onProgress: (progress) => {
+      spinner.text = tf('proScaffoldingProgress', { message: progress.message });
+    },
+    force: options.force || false,
+  });
+
+  if (scaffoldResult.success) {
+    spinner.succeed(tf('proContentInstalled', { count: scaffoldResult.copiedFiles.length }));
+
+    if (scaffoldResult.warnings.length > 0) {
+      for (const warning of scaffoldResult.warnings) {
+        showWarning(warning);
+      }
+    }
+
+    return { success: true, scaffoldResult };
+  }
+
+  spinner.fail(t('proScaffoldFailed'));
+  for (const error of scaffoldResult.errors) {
+    showError(error);
+  }
+
+  return { success: false, error: scaffoldResult.errors.join('; '), scaffoldResult };
+} catch (error) {
+  spinner.fail(tf('proScaffoldError', { message: error.message }));
+  return { success: false, error: error.message };
+}
 }
 
 /**
@@ -1357,6 +1398,50 @@ async function runProWizard(options = {}) {
   // Show branding (skip in CI or quiet mode)
   if (!isCI && !options.quiet) {
     showProHeader();
+  }
+
+  // Pre-check: If license module is not available (brownfield upgrade from older version),
+  // install @aios-fullstack/pro first to get the license API, then proceed with gate.
+  if (!loadLicenseApi()) {
+    const fs = require('fs');
+    const path = require('path');
+    const { execSync } = require('child_process');
+
+    showInfo(t('proModuleBootstrap'));
+
+    // Ensure package.json exists
+    const packageJsonPath = path.join(targetDir, 'package.json');
+    if (!fs.existsSync(packageJsonPath)) {
+      execSync('npm init -y', { cwd: targetDir, stdio: 'pipe' });
+    }
+
+    // Install @aios-fullstack/pro to get license module
+    const proDir = path.join(targetDir, 'node_modules', '@aios-fullstack', 'pro');
+    if (!fs.existsSync(proDir)) {
+      const installSpinner = createSpinner(t('proInstallingPackage'));
+      installSpinner.start();
+      try {
+        const { execFileSync } = require('child_process');
+        const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+        execFileSync(npmCmd, ['install', '@aios-fullstack/pro'], {
+          cwd: targetDir,
+          stdio: 'pipe',
+          timeout: 120000,
+        });
+        installSpinner.succeed(t('proPackageInstalled'));
+      } catch (err) {
+        installSpinner.fail(t('proPackageInstallFailed'));
+        result.error = tf('proNpmInstallFailed', { message: err.message });
+        return result;
+      }
+    }
+
+    // Clear require cache so loadLicenseApi() picks up newly installed module
+    Object.keys(require.cache).forEach((key) => {
+      if (key.includes('license-api') || key.includes('@aios-fullstack')) {
+        delete require.cache[key];
+      }
+    });
   }
 
   // Step 1: License Gate (uses InlineLicenseClient if @aios-fullstack/pro not yet installed)
