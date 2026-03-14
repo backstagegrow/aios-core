@@ -121,8 +121,6 @@ export async function createWebhookRouter() {
     // Lazy import express to avoid hard dependency
     const { default: express } = await import('express');
     const router = express.Router();
-
-
     // Brevo webhook format
     router.post('/brevo', (req: any, res: any) => {
         const events: WebhookPayload[] = Array.isArray(req.body) ? req.body : [req.body];
