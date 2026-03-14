@@ -112,6 +112,7 @@ sample-project/*
 # Expansion Projects (separate from core AIOS-FULLSTACK)
 # These folders are from other projects and should NOT be in this repository
 .aios/                        # AIOS expansion project files
+!.aios/runtime-capabilities.json  # Exception: must be tracked (referenced by CLAUDE.md)
 .aios/project-status.yaml     # Project status cache (Story 6.1.2.4 - auto-generated)
 .cursor/                      # Cursor IDE project files
 aios-memory-layer-mvp/        # Separate memory layer project
@@ -140,6 +141,14 @@ lcov-report/
 # AIOS temporary build/analysis files
 .aios/reports/
 .aios/temp-*.js
+
+# AIOS Runtime Artifacts (AEV-2/4/6 — runtime, não versionado)
+# Nota: .aios/ já está ignorado acima. Entradas explícitas para clareza:
+.aios/handoffs/*.yaml
+.aios/handoffs/last-active-agent.json
+.aios/memory/*.json
+.aios/promotion-queue.json
+.aios/skills-registry.json
 
 # Build outputs (generated from source)
 aios-core/index.d.ts
@@ -221,7 +230,7 @@ test-sample-*.md
 *.tsbuildinfo
 
 # Runtime AIOS artifacts (explicit rules without inline comments)
-.aios/
+# NOTE: .aios/ blanket rule removed here (duplicate). Specific entries kept below.
 .aios/project-status.yaml
 .aios/notifications/
 .aios/sessions/

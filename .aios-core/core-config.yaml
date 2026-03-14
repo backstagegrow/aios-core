@@ -350,7 +350,12 @@ autoClaude:
     staleDays: 30
     branchPrefix: auto-claude/
   specPipeline:
-    enabled: false
+    enabled: true
+    routing:
+      thresholds:
+        simple: 8     # score <= 8 → SIMPLE (3 phases)
+        standard: 15  # score 9-15 → STANDARD (6 phases); >= 16 → COMPLEX
+    outputDir: docs/stories/{storyId}/spec
   execution:
     enabled: false
   qa:
@@ -386,3 +391,35 @@ boundary:
     - .aios-core/core/config/template-overrides.js
 
 # Memory Intelligence System (Epic MIS) configuration placeholder — MIS-2+
+
+# Agent Memory Dynamic System (AEV-4)
+agentMemory:
+  thresholds:
+    candidate:
+      observations: 3
+      confidence: 0.6
+    active:
+      observations: 5
+      confidence: 0.8
+    constitutional:
+      observations: 10
+      confidence: 0.95
+  promotionQueue: .aios/promotion-queue.json
+
+# Conclave Decision Engine (AEV-5)
+conclave:
+  enabled: true
+  autoTrigger:
+    onComplexityScore: 16           # Score mínimo para trigger automático (COMPLEX)
+    onArchitectHighDecision: true   # Trigger quando @architect marca HIGH
+  defaultProtocols:
+    antiPleasing: true
+    antiBiasing: true
+    totalBusinessContext: false
+  cloneSelection:
+    min: 2
+    max: 5
+
+# Clone Auto-Squad Deploy (AEV-6)
+cloneAutoSquad:
+  readinessThreshold: 70  # Score mínimo (0-100) para auto-deploy de squad

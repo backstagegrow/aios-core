@@ -1,0 +1,25 @@
+{
+  "name": "@aios/conclave-engine",
+  "version": "1.0.0",
+  "description": "AIOS Conclave Engine — multi-agent deliberation router and decision record formatter",
+  "main": "conclave-router.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "aios",
+    "conclave",
+    "multi-agent",
+    "deliberation",
+    "decision"
+  ],
+  "author": "AIOS Fullstack Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

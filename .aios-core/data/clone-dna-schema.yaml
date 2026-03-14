@@ -1,0 +1,365 @@
+# Clone DNA Schema
+# Define a estrutura padrão para extração e armazenamento de DNA de clones
+#
+# Version: 1.0.0
+# Created: 2026-03-14
+# Purpose: Padronizar o output do DNA Mapper em 5 camadas para garantir
+#          consistência no pipeline Mega Brain → DNA Mapper → Skill Generator → Conclave
+
+schema:
+  version: "1.0.0"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# METADATA — Identidade do clone
+# ─────────────────────────────────────────────────────────────────────────────
+metadata:
+  clone_id:
+    type: string
+    required: true
+    format: "kebab-case"
+    description: "Identificador único do clone (e.g., alex-hormozi, peter-drucker)"
+    example: "alex-hormozi"
+
+  full_name:
+    type: string
+    required: true
+    description: "Nome completo da pessoa clonada"
+
+  domain:
+    type: string
+    required: true
+    description: "Domínio de expertise primário"
+    example: "business-growth, copywriting, management, design"
+
+  era:
+    type: string
+    required: false
+    description: "Período de maior influência ou produção"
+    example: "2010-present, 1950-1974"
+
+  source_materials:
+    type: list
+    required: true
+    description: "Lista de fontes usadas na extração (livros, vídeos, podcasts, transcritos)"
+    items:
+      - title: string
+      - type: "book | video | podcast | transcript | article | interview"
+      - quality_score: "1-5"
+
+  readiness_score:
+    type: integer
+    required: false
+    range: "0-100"
+    description: "Score calculado pelo readiness-scorer.js. >= 70 = auto-deploy"
+
+  validation_status:
+    type: string
+    required: true
+    enum: ["Draft", "InReview", "Operational", "Deployed"]
+    description: "Status atual do clone no pipeline"
+
+  created_at:
+    type: string
+    format: "ISO-8601"
+    required: true
+
+  updated_at:
+    type: string
+    format: "ISO-8601"
+    required: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CAMADA 1: PHILOSOPHY — O que a pessoa acredita profundamente
+# ─────────────────────────────────────────────────────────────────────────────
+philosophy:
+  description: "Crenças fundamentais, valores e visão de mundo que guiam todas as decisões"
+  required: true
+  min_words: 200
+
+  fields:
+    core_beliefs:
+      type: list
+      required: true
+      min_items: 3
+      description: "Crenças centrais que nunca mudam"
+      example:
+        - "People don't buy products, they buy transformations"
+        - "Volume solves most business problems"
+
+    worldview:
+      type: string
+      required: true
+      description: "Como essa pessoa enxerga o mundo, negócios, pessoas e sucesso"
+
+    non_negotiables:
+      type: list
+      required: true
+      description: "Princípios que nunca são violados independente do contexto"
+
+    contrarian_views:
+      type: list
+      required: false
+      description: "Opiniões que vão contra o senso comum do domínio"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CAMADA 2: MENTAL MODEL — Como a pessoa pensa e processa informação
+# ─────────────────────────────────────────────────────────────────────────────
+mental_model:
+  description: "Estrutura cognitiva — como a pessoa analisa problemas e chega a conclusões"
+  required: true
+  min_words: 300
+
+  fields:
+    problem_diagnosis:
+      type: string
+      required: true
+      description: "Como identifica e categoriza problemas antes de agir"
+
+    decision_framework:
+      type: string
+      required: true
+      description: "Processo de tomada de decisão — critérios, pesos, sequência"
+
+    first_principles:
+      type: list
+      required: true
+      min_items: 2
+      description: "Verdades fundamentais das quais deriva raciocínio"
+
+    mental_shortcuts:
+      type: list
+      required: false
+      description: "Heurísticas e atalhos mentais usados com frequência"
+
+    blind_spots:
+      type: list
+      required: false
+      description: "Áreas onde o pensamento pode ser limitado ou enviesado"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CAMADA 3: HEURISTICS — Regras práticas de ouro
+# ─────────────────────────────────────────────────────────────────────────────
+heuristics:
+  description: "Regras práticas e princípios operacionais extraídos de experiência"
+  required: true
+  min_items: 5
+
+  fields:
+    rules_of_thumb:
+      type: list
+      required: true
+      min_items: 5
+      description: "Regras práticas usadas repetidamente"
+      item_schema:
+        rule: string
+        context: string  # Quando esta regra se aplica
+        source: string   # De onde vem (livro, fala, experiência)
+
+    anti_patterns:
+      type: list
+      required: true
+      min_items: 3
+      description: "O que essa pessoa NUNCA faria e por quê"
+
+    if_then_rules:
+      type: list
+      required: false
+      description: "Regras condicionais explícitas"
+      item_schema:
+        condition: string
+        action: string
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CAMADA 4: FRAMEWORKS — Modelos e sistemas proprietários
+# ─────────────────────────────────────────────────────────────────────────────
+frameworks:
+  description: "Frameworks, modelos e sistemas criados ou popularizados pela pessoa"
+  required: true
+  min_items: 1
+
+  fields:
+    proprietary_models:
+      type: list
+      required: true
+      min_items: 1
+      description: "Frameworks únicos criados ou adaptados pela pessoa"
+      item_schema:
+        name: string
+        description: string
+        steps:
+          type: list
+          items: string
+        when_to_use: string
+        source: string
+
+    borrowed_frameworks:
+      type: list
+      required: false
+      description: "Frameworks de terceiros que a pessoa usa e adapta"
+
+    anti_frameworks:
+      type: list
+      required: false
+      description: "Frameworks populares que a pessoa rejeita e por quê"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CAMADA 5: METHODOLOGY — Como executa na prática
+# ─────────────────────────────────────────────────────────────────────────────
+methodology:
+  description: "Processo de trabalho — como transforma conhecimento em resultado"
+  required: true
+  min_words: 200
+
+  fields:
+    execution_style:
+      type: string
+      required: true
+      description: "Como aborda a execução: top-down, iterativo, experimental, etc."
+
+    workflow_patterns:
+      type: list
+      required: true
+      min_items: 2
+      description: "Sequências típicas de trabalho usadas repetidamente"
+      item_schema:
+        name: string
+        steps: list
+        output: string
+
+    feedback_loops:
+      type: string
+      required: false
+      description: "Como usa feedback para iterar e melhorar"
+
+    quality_signals:
+      type: list
+      required: false
+      description: "Como sabe que o trabalho está bom — critérios de qualidade"
+
+    collaboration_style:
+      type: string
+      required: false
+      description: "Como trabalha com outros — delegação, revisão, comunicação"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VOICE DNA — Padrões de comunicação e linguagem
+# ─────────────────────────────────────────────────────────────────────────────
+voice_dna:
+  description: "Padrões de linguagem, tom, ritmo e estilo de comunicação"
+  required: true
+
+  fields:
+    tone:
+      type: string
+      required: true
+      description: "Tom geral da comunicação"
+      example: "direto, provocativo, empático, formal, casual"
+
+    vocabulary:
+      type: list
+      required: true
+      description: "Palavras e expressões características usadas com frequência"
+
+    sentence_patterns:
+      type: list
+      required: false
+      description: "Estruturas de frase típicas"
+
+    rhetorical_devices:
+      type: list
+      required: false
+      description: "Dispositivos retóricos favoritos (metáfora, analogia, história, dados)"
+
+    signature_phrases:
+      type: list
+      required: false
+      description: "Frases ou expressões únicas e reconhecíveis"
+
+    communication_rules:
+      type: list
+      required: false
+      description: "O que nunca diz ou sempre evita"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SKILLS — Output do Skill Generator
+# ─────────────────────────────────────────────────────────────────────────────
+skills:
+  description: "Skills operacionais geradas pelo Skill Generator a partir do DNA"
+  required: false
+  note: "Preenchido automaticamente pelo skill-generator.js após extração do DNA"
+
+  item_schema:
+    id: string
+    name: string
+    description: string
+    category: "analysis | strategy | execution | communication | review"
+    steps:
+      type: list
+      items: string
+    framework:
+      type: string
+      description: "Framework da Camada 4 usado nesta skill"
+    checklist:
+      type: list
+      items: string
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONCLAVE CONFIG — Configuração para participação em sessões Conclave
+# ─────────────────────────────────────────────────────────────────────────────
+conclave_config:
+  description: "Como este clone se comporta em sessões Conclave multi-perspectiva"
+  required: false
+
+  fields:
+    primary_lens:
+      type: string
+      required: true
+      description: "Perspectiva primária que traz para debates"
+
+    natural_disagreements:
+      type: list
+      required: false
+      description: "Tópicos onde tipicamente discorda de outros clones"
+
+    complementary_clones:
+      type: list
+      required: false
+      description: "Clones com quem funciona melhor em combinação"
+
+    anti_pleasing_triggers:
+      type: list
+      required: false
+      description: "Situações onde este clone ativamente desafia o consenso"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VALIDATION RULES
+# ─────────────────────────────────────────────────────────────────────────────
+validation:
+  required_sections:
+    - metadata
+    - philosophy
+    - mental_model
+    - heuristics
+    - frameworks
+    - methodology
+    - voice_dna
+
+  readiness_scoring:
+    dna_completeness:
+      weight: 30
+      criteria: "Todas as 5 camadas preenchidas com min_words respeitado"
+    skill_count:
+      weight: 20
+      criteria: "Número de skills geradas (máx 20pts com 10+ skills)"
+    profile_depth:
+      weight: 20
+      criteria: "Word count total do DNA (500+=10pts, 2500+=20pts)"
+    validation_status:
+      weight: 20
+      criteria: "Operational=15pts, Deployed=20pts, InReview=10pts"
+    source_quality:
+      weight: 10
+      criteria: "Qualidade e quantidade de fontes (rich sources = 10pts)"
+
+  auto_deploy_threshold: 70
+  note: "Clone com score >= 70 é elegível para squad auto-deploy via clone-tools/squad-generator.js"

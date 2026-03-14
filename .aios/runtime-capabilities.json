@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-03-14T15:25:31.671Z",
+  "generatedBy": "capability-detection.js",
+  "story": "TOK-2",
+  "methodology": {
+    "toolSearchLatency": "Managed internally by Claude Code — not programmatically measurable. Guidance-level enforcement via CLAUDE.md.",
+    "mcpCountUnit": "servers (not individual tools). TOK-1.5 baseline uses tool count (e.g., Apify = 7 tools = 1 server)."
+  },
+  "runtime": {
+    "toolSearch": {
+      "available": false,
+      "source": "cachedGrowthBookFeatures.tengu_mcp_tool_search",
+      "detectionMethod": "claude-json-feature-flag"
+    },
+    "deferLoading": {
+      "available": false,
+      "reason": "defer_loading is API-only (Python SDK). Not exposed in Claude Code CLI.",
+      "source": "ADR-7 / Codex CRITICO-1"
+    },
+    "dockerGateway": {
+      "available": false,
+      "configPath": null,
+      "detectionMethod": "filesystem-check"
+    }
+  },
+  "mcpServers": {
+    "project": [
+      {
+        "name": "filesystem-notebooklm",
+        "type": "command",
+        "scope": "project",
+        "source": ".mcp.json"
+      }
+    ],
+    "global": [],
+    "totalCount": 1,
+    "countUnit": "servers"
+  },
+  "toolRegistry": {
+    "available": true,
+    "totalTools": 35,
+    "tier1Count": 12,
+    "tier2Count": 17,
+    "tier3Count": 6,
+    "essential": [
+      {
+        "name": "nogic",
+        "scope": "project"
+      },
+      {
+        "name": "code-graph",
+        "scope": "project"
+      }
+    ],
+    "nonEssential": [
+      {
+        "name": "exa",
+        "scope": "global"
+      },
+      {
+        "name": "playwright",
+        "scope": "global"
+      },
+      {
+        "name": "apify",
+        "scope": "global"
+      }
+    ]
+  },
+  "strategy": {
+    "primary": "claudemd-guidance",
+    "description": "Neither Tool Search nor Docker Gateway available. Using CLAUDE.md guidance for tool selection priority.",
+    "fallbacks": []
+  },
+  "essentialServers": [
+    {
+      "name": "nogic",
+      "scope": "project"
+    },
+    {
+      "name": "code-graph",
+      "scope": "project"
+    }
+  ],
+  "nonEssentialServers": [
+    {
+      "name": "exa",
+      "scope": "global"
+    },
+    {
+      "name": "playwright",
+      "scope": "global"
+    },
+    {
+      "name": "apify",
+      "scope": "global"
+    }
+  ]
+}

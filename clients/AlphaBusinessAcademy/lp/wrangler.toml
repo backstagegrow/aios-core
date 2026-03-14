@@ -1,8 +1,0 @@
-name = "aiosbks"
-compatibility_date = "2026-03-04"
-compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
-
-[vars]
-NEXT_PUBLIC_SUPABASE_URL = "https://euiwcwkmsnriwclrazzp.supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY = "sb_publishable_ZvYYNIo_cS64MsD8uQtNCQ_sZnSL5Ok"

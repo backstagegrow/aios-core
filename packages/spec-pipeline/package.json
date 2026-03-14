@@ -1,0 +1,25 @@
+{
+  "name": "@aios/spec-pipeline",
+  "version": "1.0.0",
+  "description": "AIOS Spec Pipeline — complexity scorer and spec pipeline router for pre-implementation workflow",
+  "main": "spec-pipeline-router.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "aios",
+    "spec",
+    "pipeline",
+    "complexity",
+    "requirements"
+  ],
+  "author": "AIOS Fullstack Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

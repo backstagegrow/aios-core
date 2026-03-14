@@ -1,0 +1,25 @@
+{
+  "name": "@aios/clone-tools",
+  "version": "1.0.0",
+  "description": "AIOS Clone Tools — readiness scorer and squad generator for mind cloning pipeline",
+  "main": "readiness-scorer.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "aios",
+    "clone",
+    "squad",
+    "readiness",
+    "dna"
+  ],
+  "author": "AIOS Fullstack Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

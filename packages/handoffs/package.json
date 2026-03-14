@@ -1,0 +1,25 @@
+{
+  "name": "@aios/handoffs",
+  "version": "1.0.0",
+  "description": "AIOS Handoffs — agent handoff writer for context compaction between agent switches",
+  "main": "handoff-writer.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "aios",
+    "handoff",
+    "agent",
+    "context",
+    "compaction"
+  ],
+  "author": "AIOS Fullstack Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

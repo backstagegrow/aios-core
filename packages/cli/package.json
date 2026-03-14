@@ -1,0 +1,25 @@
+{
+  "name": "@aios/cli",
+  "version": "1.0.0",
+  "description": "AIOS CLI commands — clone, conclave, design-post and readiness pipelines",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "aios",
+    "cli",
+    "clone",
+    "conclave",
+    "commands"
+  ],
+  "author": "AIOS Fullstack Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
