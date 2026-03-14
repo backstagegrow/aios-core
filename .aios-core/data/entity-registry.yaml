@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.0
-  lastUpdated: '2026-03-12T20:14:51.453Z'
-  entityCount: 752
+  lastUpdated: '2026-03-13T23:36:22.733Z'
+  entityCount: 755
   checksumAlgorithm: sha256
   resolutionRate: 100
 entities:
@@ -5674,8 +5674,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:67c7e7d9257b961a4e09e6e99c48b208ece0f70baa8078c95aae05f1594115cd
-      lastVerified: '2026-03-11T10:49:31.688Z'
+      checksum: sha256:61ec7f91b2abd14018cd078b4fd45a38847eb3eec932ae31f967c5be1ea2f332
+      lastVerified: '2026-03-13T23:36:22.726Z'
     architecture-tmpl:
       path: .aios-core/product/templates/architecture-tmpl.yaml
       layer: L2
@@ -6605,14 +6605,7 @@ entities:
         - aios
         - development
       usedBy: []
-      dependencies:
-        - dev
-        - qa
-        - architect
-        - pm
-        - po
-        - sm
-        - analyst
+      dependencies: []
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -6620,8 +6613,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:e5be779c38724ae8511aff6bd72c5a618c329f5729d9b2ad310f867fa1831c8b
-      lastVerified: '2026-03-11T10:49:31.712Z'
+      checksum: sha256:1932bd035f86bcd45daef43bb22e9a7125725d9c62214d20db30967e8df2cb30
+      lastVerified: '2026-03-13T23:36:22.728Z'
     claude-rules:
       path: .aios-core/product/templates/ide-rules/claude-rules.md
       layer: L2
@@ -6669,18 +6662,7 @@ entities:
         - (codex
         - cli)
       usedBy: []
-      dependencies:
-        - architect
-        - dev
-        - qa
-        - pm
-        - po
-        - sm
-        - analyst
-        - devops
-        - data-engineer
-        - ux-design-expert
-        - aios-master
+      dependencies: []
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -6688,8 +6670,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:4ae3a5b04a3b4669da095dcdb9868c4bff352f82daa0e8da166516d69511368e
-      lastVerified: '2026-03-11T10:49:31.713Z'
+      checksum: sha256:9cea092e0bbe25bbcc4c7d44d189c746eb00beddcae0c6456803284ec8b28501
+      lastVerified: '2026-03-13T23:36:22.729Z'
     copilot-rules:
       path: .aios-core/product/templates/ide-rules/copilot-rules.md
       layer: L2
@@ -8415,8 +8397,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:527a788cbe650aa6b13d1101ebc16419489bfef20b2ee93042f6eb6a51e898e9
-      lastVerified: '2026-03-11T10:49:31.769Z'
+      checksum: sha256:aaf83bdf870fc9b876643677e07c178c77dc410a97744b0cd051251bc69edcc4
+      lastVerified: '2026-03-13T23:36:22.696Z'
     config-loader:
       path: .aios-core/core/config/config-loader.js
       layer: L1
@@ -8734,6 +8716,7 @@ entities:
         - build-state-manager
         - recovery-tracker
         - worktree-manager
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -8741,8 +8724,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:d93f58bbbdf2d7d92e12195d106b793638895e5b87ccd4f2cabd0ac9a822db45
-      lastVerified: '2026-03-11T10:49:31.777Z'
+      checksum: sha256:0be29b7b6da0eb425a213c82e82181408ac4f70fca3d20edf5ce1abb0c046e83
+      lastVerified: '2026-03-13T23:36:22.697Z'
     build-orchestrator:
       path: .aios-core/core/execution/build-orchestrator.js
       layer: L1
@@ -8757,6 +8740,7 @@ entities:
       dependencies:
         - autonomous-build-loop
         - build-state-manager
+        - command-utils
         - worktree-manager
         - gotchas-memory
       externalDeps: []
@@ -8766,8 +8750,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:123825dc7af75eeab03c78c593b36af2800189e7e4a07fe4a2e397b26c8aefdf
-      lastVerified: '2026-03-11T10:49:31.779Z'
+      checksum: sha256:4662ef227ae1d42efe40c14bf38b3cc497d5f2f6cc40505c073eadb4a764b5e0
+      lastVerified: '2026-03-13T23:36:22.699Z'
     build-state-manager:
       path: .aios-core/core/execution/build-state-manager.js
       layer: L1
@@ -8905,7 +8889,8 @@ entities:
         - engine
       usedBy:
         - active-modules.verify
-      dependencies: []
+      dependencies:
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -8913,8 +8898,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:548e79289ee4ccc00d43b91e1466989244ac609378b78df0839cea71ecbd03eb
-      lastVerified: '2026-03-11T10:49:31.783Z'
+      checksum: sha256:49283675e56e7b2528b1cdfb0cb167a9076e9107d5913fe8227d853645ba5387
+      lastVerified: '2026-03-13T23:36:22.700Z'
     subagent-dispatcher:
       path: .aios-core/core/execution/subagent-dispatcher.js
       layer: L1
@@ -8925,6 +8910,9 @@ entities:
         - dispatcher
       usedBy: []
       dependencies:
+        - ai-providers
+        - gemini-model-selector
+        - memory-query
         - gotchas-memory
       externalDeps: []
       plannedDeps:
@@ -8935,8 +8923,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:7bc03f948ccedfb03a6e4ab7fadb01ab0ea0d3d4dfd71b909cfe2ef3341d7281
-      lastVerified: '2026-03-11T10:49:31.784Z'
+      checksum: sha256:03a0097617c6d2db3b6f749d64412ea32f202ab894dfe46112a3388c31aefffe
+      lastVerified: '2026-03-13T23:36:22.702Z'
     wave-executor:
       path: .aios-core/core/execution/wave-executor.js
       layer: L1
@@ -8947,6 +8935,7 @@ entities:
         - executor
       usedBy: []
       dependencies:
+        - wave-analyzer
         - rate-limit-manager
       externalDeps: []
       plannedDeps:
@@ -8956,8 +8945,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:efac950179f09ef757a5d60539a63283c1fb6d6139df54ae7c73a25d996774fa
-      lastVerified: '2026-03-11T10:49:31.784Z'
+      checksum: sha256:d9bff7d59f5feb86ba1ebe832108b790a22c3c7e4bfa25ff91a70bf8586caf37
+      lastVerified: '2026-03-13T23:36:22.703Z'
     cli:
       path: .aios-core/core/graph-dashboard/cli.js
       layer: L1
@@ -9741,7 +9730,8 @@ entities:
         - gemini
         - model
         - selector
-      usedBy: []
+      usedBy:
+        - subagent-dispatcher
       dependencies:
         - task-complexity-classifier
       externalDeps: []
@@ -9751,8 +9741,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:2fe54c401ae60c0b5dc07f74c7a464992a0558b10c0b61f183c06943441d0d57
-      lastVerified: '2026-03-11T10:49:31.805Z'
+      checksum: sha256:8246f28498c7881d24c12d4f4179e0c02d2d6eef41f7b183c7b7a19c0e8dda5e
+      lastVerified: '2026-03-13T23:36:22.704Z'
     greenfield-handler:
       path: .aios-core/core/orchestration/greenfield-handler.js
       layer: L1
@@ -10213,6 +10203,7 @@ entities:
         - quality-gate-manager
       dependencies:
         - base-layer
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -10220,8 +10211,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:250b62740b473383e41b371bb59edddabd8a312f5f48a5a8e883e6196a48b8f3
-      lastVerified: '2026-03-11T10:49:31.818Z'
+      checksum: sha256:84f32e92899ec6ff80ad1dcdb2c9c10c248460176dbbad8f400782125457bf33
+      lastVerified: '2026-03-13T23:36:22.706Z'
     layer2-pr-automation:
       path: .aios-core/core/quality-gates/layer2-pr-automation.js
       layer: L1
@@ -10235,6 +10226,7 @@ entities:
         - quality-gate-manager
       dependencies:
         - base-layer
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -10242,8 +10234,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:af31e7ac60b74b52ee983d0fcff7457042eea553b6127538cab41eb94eaee8e0
-      lastVerified: '2026-03-11T10:49:31.819Z'
+      checksum: sha256:f58bec93d4a734bff1d60e49031941395b2c5631c403f86a8371fde5a55785a9
+      lastVerified: '2026-03-13T23:36:22.707Z'
     layer3-human-review:
       path: .aios-core/core/quality-gates/layer3-human-review.js
       layer: L1
@@ -10784,10 +10776,15 @@ entities:
       path: .aios-core/core/doctor/checks/core-config.js
       layer: L1
       type: module
-      purpose: Entity at .aios-core\core\doctor\checks\core-config.js
+      purpose: Core MCPs - no API keys required
       keywords:
         - core
         - config
+        - boundary
+        - mapping
+        - framework-project
+        - separation
+        - (epic
       usedBy: []
       dependencies: []
       externalDeps: []
@@ -10797,8 +10794,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:fbf07087b997250f1c00a2f698910f0689f82f4a3ddfcc007c084a81a784ef87
-      lastVerified: '2026-03-11T10:49:31.832Z'
+      checksum: sha256:5f70168da89bc37e4bf600027ce6902642a45ff71ae69a17a2be5dd3723b7378
+      lastVerified: '2026-03-13T23:36:22.693Z'
     entity-registry:
       path: .aios-core/core/doctor/checks/entity-registry.js
       layer: L1
@@ -12914,7 +12911,6 @@ entities:
         - run-workflow
         - sync-registry-intel
         - claude-rules
-        - codex-rules
       dependencies:
         - advanced-elicitation
         - analyze-framework
@@ -12993,9 +12989,7 @@ entities:
         - brownfield-risk-report-tmpl
         - design-story-tmpl
         - story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - entity-registry
         - brownfield-discovery
@@ -13055,9 +13049,7 @@ entities:
         - verify-subtask
         - design-story-tmpl
         - story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-compatibility-checklist
         - brownfield-discovery
@@ -13162,7 +13154,6 @@ entities:
         - validate-next-story
         - story-tmpl
         - claude-rules
-        - codex-rules
         - brownfield-discovery
       dependencies:
         - create-doc
@@ -13261,9 +13252,7 @@ entities:
         - verify-subtask
         - waves
         - story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-compatibility-checklist
         - brownfield-fullstack
@@ -13356,7 +13345,6 @@ entities:
         - validate-next-story
         - story-tmpl
         - claude-rules
-        - codex-rules
         - memory-audit-checklist
         - greenfield-fullstack
       dependencies:
@@ -13425,9 +13413,7 @@ entities:
         - command-rationalization-matrix
         - design-story-tmpl
         - story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-discovery
         - brownfield-fullstack
@@ -13488,9 +13474,7 @@ entities:
         - release-management
         - story-checkpoint
         - design-story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - memory-audit-checklist
         - brownfield-fullstack
@@ -13560,9 +13544,7 @@ entities:
         - validate-next-story
         - design-story-tmpl
         - story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-discovery
         - brownfield-fullstack
@@ -13625,9 +13607,7 @@ entities:
         - po-close-story
         - validate-next-story
         - design-story-tmpl
-        - antigravity-rules
         - claude-rules
-        - codex-rules
         - cursor-rules
         - brownfield-fullstack
         - brownfield-service
@@ -13710,7 +13690,6 @@ entities:
         - design-story-tmpl
         - story-tmpl
         - claude-rules
-        - codex-rules
         - brownfield-discovery
         - brownfield-ui
         - design-system-build-quality
@@ -13765,26 +13744,22 @@ entities:
       checksum: sha256:7f0fd6273685dc2d5104fb4cb8acbe7cf69cce3a7646907ad04c6d6efbe40970
       lastVerified: '2026-03-11T10:49:31.916Z'
     MEMORY:
-      path: .aios-core/development/agents/analyst/MEMORY.md
+      path: .aios-core/development/agents/ux-design-expert/MEMORY.md
       layer: L3
       type: agent
-      purpose: Analyst Agent Memory (Atlas)
+      purpose: Uma — UX-Design-Expert Memory
       keywords:
         - memory
-        - analyst
-        - agent
-        - (atlas)
+        - uma
+        - ux-design-expert
       usedBy: []
       dependencies: []
-      externalDeps: []
-      plannedDeps: []
-      lifecycle: orphan
       adaptability:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:eb2a3f733781f4094ffac4f52656d917c4cdf93ee1bdb26ea4c54728b8ba0b34
-      lastVerified: '2026-03-11T10:49:31.916Z'
+      checksum: sha256:20e31970c0f1030b86d24de72183340d04bb0948e8c252f2f2fb7b6c0327a8d6
+      lastVerified: '2026-03-13T23:36:22.711Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -14058,8 +14033,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:1fbf1625e267eedc315cf1e08e5827c250ddc6785fb2cb139e7702def9b66268
-      lastVerified: '2026-03-11T10:49:31.930Z'
+      checksum: sha256:6108dd8b68fff04a962828d5927f5fe64273e434bae12f641472133bdb32ebb7
+      lastVerified: '2026-03-13T23:36:22.709Z'
     workflow-patterns:
       path: .aios-core/data/workflow-patterns.yaml
       layer: L3
@@ -14596,6 +14571,24 @@ entities:
         extensionPoints: []
       checksum: sha256:91698470befba5aeb3444d6a34b44f041b2e7989e59f1ab93146bfcd001138e8
       lastVerified: '2026-03-11T10:49:31.955Z'
+    corporate-events-sales-pipeline:
+      path: .aios-core/development/workflows/corporate-events-sales-pipeline.yaml
+      layer: L2
+      type: workflow
+      purpose: '>-'
+      keywords:
+        - corporate
+        - events
+        - sales
+        - pipeline
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.4
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:d3ef3cd86350359dc6cc0bf602e0fb06cb40dbebc11bdb03c0c76db5a6179090
+      lastVerified: '2026-03-13T23:36:22.713Z'
   utils:
     output-formatter:
       path: .aios-core/core/utils/output-formatter.js
@@ -15088,8 +15081,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:4f55401fee7010d01545808ed6f6c40a91ce43180d405f93d5073480512d30d5
-      lastVerified: '2026-03-11T10:49:31.971Z'
+      checksum: sha256:8f9e8a7130df48314e7d57808a2c5f26edb1910d646a18e255bfb39021435752
+      lastVerified: '2026-03-13T23:36:22.714Z'
     config-loader:
       path: .aios-core/infrastructure/scripts/config-loader.js
       layer: L2
@@ -15721,8 +15714,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:cfe154d2e7bed2a94a5ed627d9c122e2ab5b53699054b1e31ce8741ba3c5d732
-      lastVerified: '2026-03-11T10:49:31.989Z'
+      checksum: sha256:10b7c4e03d3f0d608905a3b85e78eb6afb171035fd87179b93c5de2c97a1d063
+      lastVerified: '2026-03-13T23:36:22.719Z'
     project-status-loader:
       path: .aios-core/infrastructure/scripts/project-status-loader.js
       layer: L2
@@ -15885,7 +15878,8 @@ entities:
         - tester
       usedBy:
         - improve-self
-      dependencies: []
+      dependencies:
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -15893,8 +15887,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:019af2e23de70d7dacb49faf031ba0c1f5553ecebe52f361bab74bfca73ba609
-      lastVerified: '2026-03-11T10:49:31.994Z'
+      checksum: sha256:144567542471180259381be9cb9d791bdc91572f792da630127efbe8cd076be3
+      lastVerified: '2026-03-13T23:36:22.720Z'
     security-checker:
       path: .aios-core/infrastructure/scripts/security-checker.js
       layer: L2
@@ -16013,7 +16007,8 @@ entities:
         - verifier
       usedBy:
         - epic-4-executor
-      dependencies: []
+      dependencies:
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -16021,8 +16016,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:ceb0450fa12fa48f0255bb4565858eb1a97b28c30b98d36cb61d52d72e08b054
-      lastVerified: '2026-03-11T10:49:31.997Z'
+      checksum: sha256:d288f9fbc8d4da4b986caffa5a5ba1d8b56b331079d591de7bcfce7ccedcaa6e
+      lastVerified: '2026-03-13T23:36:22.721Z'
     template-engine:
       path: .aios-core/infrastructure/scripts/template-engine.js
       layer: L2
@@ -16074,7 +16069,8 @@ entities:
         - test
         - discovery
       usedBy: []
-      dependencies: []
+      dependencies:
+        - command-utils
       externalDeps: []
       plannedDeps: []
       lifecycle: orphan
@@ -16082,8 +16078,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:04038aa49ae515697084fcdacaf0ef8bc36029fc114f5a1206065d7928870449
-      lastVerified: '2026-03-11T10:49:31.999Z'
+      checksum: sha256:f84915aec9fd0e9fa4f61f5d0d6c50128d4470b919c980774a8816c231b419d9
+      lastVerified: '2026-03-13T23:36:22.723Z'
     test-generator:
       path: .aios-core/infrastructure/scripts/test-generator.js
       layer: L2
@@ -16345,8 +16341,10 @@ entities:
         - validate-claude-integration
         - validate-codex-integration
         - validate-gemini-integration
+        - validate-antigravity-integration
         - validate
         - validate-paths
+        - index
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -16354,8 +16352,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:527948d4a35a85c2f558b261f4b0a921d0482cab979e7dffe988b6fa11b7b2a1
-      lastVerified: '2026-03-11T10:49:32.006Z'
+      checksum: sha256:93117f9d0e3f43b7fffe93a5f9fdc44df926a48ac731ce600f1049ace8d46a88
+      lastVerified: '2026-03-13T23:36:22.725Z'
     validate-paths:
       path: .aios-core/infrastructure/scripts/validate-paths.js
       layer: L2
@@ -16473,12 +16471,9 @@ entities:
       path: .aios-core/infrastructure/scripts/codex-skills-sync/index.js
       layer: L2
       type: script
-      purpose: ${description}
+      purpose: Entity at .aios-core\infrastructure\scripts\ide-sync\index.js
       keywords:
         - index
-        - aios
-        - ${title}
-        - activator
       usedBy:
         - creation-helper
         - dev-helper
@@ -16486,9 +16481,18 @@ entities:
         - planning-helper
         - qa-helper
         - story-helper
+        - validate-parity
         - validate
       dependencies:
         - agent-parser
+        - redirect-generator
+        - validator
+        - gemini-commands
+        - claude-code
+        - cursor
+        - antigravity
+        - github-copilot
+        - antigravity-support
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -16496,8 +16500,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:9ea0726a9415dcf30c706d8116464026d973a18fb94644b0c2a9d15afb04e0e1
-      lastVerified: '2026-03-11T10:49:32.009Z'
+      checksum: sha256:ead67aab63fc4619f02df531b15abd96aba715f03c0055e81547e693e828a13a
+      lastVerified: '2026-03-13T23:36:22.717Z'
     validate:
       path: .aios-core/infrastructure/scripts/codex-skills-sync/validate.js
       layer: L2
@@ -16693,7 +16697,8 @@ entities:
       keywords:
         - gemini
         - commands
-      usedBy: []
+      usedBy:
+        - index
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -16713,6 +16718,7 @@ entities:
         - redirect
         - generator
       usedBy:
+        - index
         - validator
       dependencies: []
       externalDeps: []
@@ -16731,7 +16737,8 @@ entities:
       purpose: '{'
       keywords:
         - validator
-      usedBy: []
+      usedBy:
+        - index
       dependencies:
         - redirect-generator
       externalDeps: []
@@ -16771,7 +16778,8 @@ entities:
       purpose: Entity at .aios-core\infrastructure\scripts\ide-sync\transformers\antigravity.js
       keywords:
         - antigravity
-      usedBy: []
+      usedBy:
+        - index
       dependencies:
         - agent-parser
       externalDeps: []
@@ -16781,8 +16789,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:d8fe023ce70651e0d83151f9f90000d8ffb51ab260f246704c1616739a001622
-      lastVerified: '2026-03-11T10:49:32.016Z'
+      checksum: sha256:f80de71af3088de2aa417fc2328ce2d2c49b720d1963ce598c7dc8bb8aacad1b
+      lastVerified: '2026-03-13T23:36:22.718Z'
     claude-code:
       path: .aios-core/infrastructure/scripts/ide-sync/transformers/claude-code.js
       layer: L2
@@ -16791,7 +16799,8 @@ entities:
       keywords:
         - claude
         - code
-      usedBy: []
+      usedBy:
+        - index
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -16809,7 +16818,8 @@ entities:
       purpose: Entity at .aios-core\infrastructure\scripts\ide-sync\transformers\cursor.js
       keywords:
         - cursor
-      usedBy: []
+      usedBy:
+        - index
       dependencies:
         - agent-parser
       externalDeps: []
@@ -16829,7 +16839,8 @@ entities:
       keywords:
         - github
         - copilot
-      usedBy: []
+      usedBy:
+        - index
       dependencies:
         - agent-parser
       externalDeps: []
@@ -16841,6 +16852,46 @@ entities:
         extensionPoints: []
       checksum: sha256:25471b51a79d75008e4257bb495dd9c78deb2ca8b236f447064ae776d645d39c
       lastVerified: '2026-03-11T10:49:32.017Z'
+    antigravity-support:
+      path: .aios-core/infrastructure/scripts/ide-sync/antigravity-support.js
+      layer: L2
+      type: script
+      purpose: Ativa o agente ${displayName}
+      keywords:
+        - antigravity
+        - support
+        - ativacao
+        - agente
+        - ${displayname}
+      usedBy:
+        - index
+        - validate-antigravity-integration
+      dependencies: []
+      adaptability:
+        score: 0.7
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:60af56223a5e049b9718cdace2363a9cfbee57dae5bbd05fc913ebffe7584d87
+      lastVerified: '2026-03-13T23:36:22.715Z'
+    validate-antigravity-integration:
+      path: .aios-core/infrastructure/scripts/validate-antigravity-integration.js
+      layer: L2
+      type: script
+      purpose: Entity at .aios-core\infrastructure\scripts\validate-antigravity-integration.js
+      keywords:
+        - validate
+        - antigravity
+        - integration
+      usedBy:
+        - validate-parity
+      dependencies:
+        - antigravity-support
+      adaptability:
+        score: 0.7
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:b29265f89cedc55f6da1757dcb1d67eacf21b7c37374dc8fc2f07ed6248b052e
+      lastVerified: '2026-03-13T23:36:22.724Z'
   infra-tools:
     README:
       path: .aios-core/infrastructure/tools/README.md
