@@ -1,16 +1,16 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-14T18:00:00.000Z'
-  entityCount: 774
+  lastUpdated: '2026-03-14T21:16:24.941Z'
+  entityCount: 786
   checksumAlgorithm: sha256
   resolutionRate: 100
   changelog:
     - version: 1.0.1
       date: '2026-03-14'
       changes:
-        - "Adicionados 8 C-Level Chiefs (copy, cyber, data, design, legal, story, traffic, squad)"
-        - "Adicionada seção squads com 11 nexus squads"
-        - "Adicionado clone-dna-schema.yaml à seção data"
+        - Adicionados 8 C-Level Chiefs (copy, cyber, data, design, legal, story, traffic, squad)
+        - Adicionada seção squads com 11 nexus squads
+        - Adicionado clone-dna-schema.yaml à seção data
 entities:
   tasks:
     add-mcp:
@@ -4687,8 +4687,7 @@ entities:
         - creator
         - analyze
         - task
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-loader
         - squad-analyzer
@@ -4712,8 +4711,7 @@ entities:
         - creator
         - create
         - '*create-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-generator.js
         - squad-validator.js
@@ -4740,8 +4738,7 @@ entities:
         - creator
         - design
         - '*design-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-designer.js
       externalDeps: []
@@ -4765,8 +4762,7 @@ entities:
         - creator
         - download
         - '*download-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -4789,8 +4785,7 @@ entities:
         - creator
         - extend
         - task
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-loader
         - squad-extender
@@ -4816,8 +4811,7 @@ entities:
         - creator
         - list
         - '*list-squads'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-generator.js
       externalDeps: []
@@ -4840,8 +4834,7 @@ entities:
         - creator
         - migrate
         - '*migrate-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-migrator.js
         - squad-validator.js
@@ -4866,8 +4859,7 @@ entities:
         - creator
         - publish
         - '*publish-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -4912,8 +4904,7 @@ entities:
         - sync
         - synkra
         - '*sync-squad-synkra'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -4934,8 +4925,7 @@ entities:
         - creator
         - validate
         - '*validate-squad'
-      usedBy:
-        - squad-creator
+      usedBy: []
       dependencies:
         - squad-loader.js
         - squad-validator.js
@@ -10819,10 +10809,15 @@ entities:
       path: .aios-core/core/doctor/checks/core-config.js
       layer: L1
       type: module
-      purpose: Entity at .aios-core\core\doctor\checks\core-config.js
+      purpose: Core MCPs - no API keys required
       keywords:
         - core
         - config
+        - boundary
+        - mapping
+        - framework-project
+        - separation
+        - (epic
       usedBy: []
       dependencies: []
       externalDeps: []
@@ -10832,8 +10827,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:fbf07087b997250f1c00a2f698910f0689f82f4a3ddfcc007c084a81a784ef87
-      lastVerified: '2026-03-14T11:21:56.016Z'
+      checksum: sha256:45da89438db6576f99078843bccd7300bd25aacc54d1a6094f01d7106d8a7479
+      lastVerified: '2026-03-14T21:16:24.918Z'
     entity-registry:
       path: .aios-core/core/doctor/checks/entity-registry.js
       layer: L1
@@ -13686,18 +13681,7 @@ entities:
         - creator
         - squad-creator
       usedBy: []
-      dependencies:
-        - squad-creator-design
-        - squad-creator-create
-        - squad-creator-validate
-        - squad-creator-list
-        - squad-creator-migrate
-        - squad-creator-analyze
-        - squad-creator-extend
-        - squad-creator-download
-        - squad-creator-publish
-        - squad-creator-sync-synkra
-        - context7
+      dependencies: []
       externalDeps:
         - git
       plannedDeps:
@@ -13713,8 +13697,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:96a945827e15b25a6cd13eb01b423b6dfb0fa7be8256edc5cec47a6635231536
-      lastVerified: '2026-03-14T11:21:56.146Z'
+      checksum: sha256:294c184ba4cd89bee51aca8d6262640c02d187260cc9bf5b97e8133a4177104c
+      lastVerified: '2026-03-14T21:16:24.935Z'
     ux-design-expert:
       path: .aios-core/development/agents/ux-design-expert.md
       layer: L2
@@ -13808,6 +13792,144 @@ entities:
         extensionPoints: []
       checksum: sha256:eb2a3f733781f4094ffac4f52656d917c4cdf93ee1bdb26ea4c54728b8ba0b34
       lastVerified: '2026-03-14T11:21:56.148Z'
+    conselho-dos-sabios:
+      path: .aios-core/development/agents/conselho-dos-sabios.md
+      layer: L2
+      type: agent
+      purpose: Conversa direta com um sábio específico
+      keywords:
+        - conselho
+        - dos
+        - sabios
+        - conselho-dos-sabios
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:da766af2ad0b113231ca5035b0ae013b68f57e378522181172d33a86a9126924
+      lastVerified: '2026-03-14T21:16:24.927Z'
+    copy-chief:
+      path: .aios-core/development/agents/copy-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - copy
+        - chief
+        - copy-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:129f95e0049e4f72a39f6f58afcbcf199d9f559655987d3ae86f88d964f8ab79
+      lastVerified: '2026-03-14T21:16:24.929Z'
+    cyber-chief:
+      path: .aios-core/development/agents/cyber-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - cyber
+        - chief
+        - cyber-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:86657761bf14233faa42b2357dcf7b3ccf1d373cf86defabd4573776b4c4dc40
+      lastVerified: '2026-03-14T21:16:24.930Z'
+    data-chief:
+      path: .aios-core/development/agents/data-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - data
+        - chief
+        - data-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:1dc7ebbc74939c3c628ef17d23885d54a610f074c21f7b46b16baa88c05c7150
+      lastVerified: '2026-03-14T21:16:24.931Z'
+    design-chief:
+      path: .aios-core/development/agents/design-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - design
+        - chief
+        - design-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:b6bc6d9239097d511d54d97287a3516afd56fca25913dc227cca254417bb060e
+      lastVerified: '2026-03-14T21:16:24.932Z'
+    legal-chief:
+      path: .aios-core/development/agents/legal-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - legal
+        - chief
+        - legal-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:b2e73cf77063278a38167093271bd7e7d9731dd83cebec923609dabf24f01ab5
+      lastVerified: '2026-03-14T21:16:24.934Z'
+    story-chief:
+      path: .aios-core/development/agents/story-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - story
+        - chief
+        - story-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:0b871392a83fc2f6904006c44b56a3fb433dc804e93365720dafe330f97847f4
+      lastVerified: '2026-03-14T21:16:24.936Z'
+    traffic-masters-chief:
+      path: .aios-core/development/agents/traffic-masters-chief.md
+      layer: L2
+      type: agent
+      purpose: '''Show all available commands'''
+      keywords:
+        - traffic
+        - masters
+        - chief
+        - traffic-masters-chief
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.3
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:c5ec95afd9b2714eea2daed6a19b6211f8cf5aa1f62d1f6e264e610ffb3a1ce1
+      lastVerified: '2026-03-14T21:16:24.937Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -13930,7 +14052,8 @@ entities:
         - sales
         - chief
         - tier
-      usedBy: []
+      usedBy:
+        - nexus-copy-elite
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -13978,7 +14101,8 @@ entities:
         - clv
         - pmf
         - chief
-      usedBy: []
+      usedBy:
+        - nexus-data-analysis
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14001,7 +14125,8 @@ entities:
         - ux
         - visual
         - chief
-      usedBy: []
+      usedBy:
+        - nexus-multimodal-uiux
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14025,7 +14150,8 @@ entities:
         - contracts
         - brazil
         - chief
-      usedBy: []
+      usedBy:
+        - nexus-legal-team
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14073,7 +14199,8 @@ entities:
         - youtube
         - growth
         - chief
-      usedBy: []
+      usedBy:
+        - nexus-growth-command
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14308,7 +14435,9 @@ entities:
       path: squads/conselho-dos-sabios/squad.yaml
       layer: L4
       type: squad
-      purpose: Conselho Pessoal de Sábios — 9 conselheiros históricos e contemporâneos para jornada técnica, filosófica, espiritual e estratégica. Não é board executivo — é sabedoria multidimensional de vida.
+      purpose: >-
+        Conselho Pessoal de Sábios — 9 conselheiros históricos e contemporâneos para jornada técnica, filosófica,
+        espiritual e estratégica. Não é board executivo — é sabedoria multidimensional de vida.
       keywords:
         - sábios
         - conselho
@@ -14349,29 +14478,19 @@ entities:
       path: .aios-core/data/clone-dna-schema.yaml
       layer: L3
       type: data
-      purpose: Schema padrão para extração e armazenamento de DNA de clones em 5 camadas (philosophy, mental_model, heuristics, frameworks, methodology).
+      purpose: Padronizar o output do DNA Mapper em 5 camadas para garantir
       keywords:
         - clone
         - dna
         - schema
-        - mega-brain
-        - dna-mapper
-        - skill-generator
-        - conclave
-      usedBy:
-        - squad-chief
-        - squad
+      usedBy: []
       dependencies: []
-      externalDeps: []
-      plannedDeps: []
-      lifecycle: production
       adaptability:
-        score: 0.8
+        score: 0.5
         constraints: []
-        extensionPoints:
-          - voice-dna
-          - conclave-config
-      lastVerified: '2026-03-14T00:00:00.000Z'
+        extensionPoints: []
+      checksum: sha256:41d9d2aa60f1933106443eec599a260c50391d6b3a4e6a5bdd4ba067354beac5
+      lastVerified: '2026-03-14T21:16:24.923Z'
     agent-config-requirements:
       path: .aios-core/data/agent-config-requirements.yaml
       layer: L3
@@ -14726,6 +14845,44 @@ entities:
         extensionPoints: []
       checksum: sha256:1a7262912c8c8e264d307f0d38a1109bdb2b9bff9ea7d8855c768835201aa59b
       lastVerified: '2026-03-14T11:21:56.171Z'
+    INTEGRATION-GUIDE:
+      path: .aios-core/data/offer-architect-library/INTEGRATION-GUIDE.md
+      layer: L3
+      type: data
+      purpose: Integration Guide — Offer Architect Library
+      keywords:
+        - integration
+        - guide
+        - offer
+        - architect
+        - library
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.5
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:fcf773e8a201124867f63696b41d7232444a87aa900305a7ec5f1375c2100d8d
+      lastVerified: '2026-03-14T21:16:24.924Z'
+    QUICK-REFERENCE:
+      path: .aios-core/data/offer-architect-library/QUICK-REFERENCE.md
+      layer: L3
+      type: data
+      purpose: Quick Reference — Offer Architect Library
+      keywords:
+        - quick
+        - reference
+        - offer
+        - architect
+        - library
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.5
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:1e6f894390c358d5992b6c79dd32730fd526444aac045515c060cce0a3a442e2
+      lastVerified: '2026-03-14T21:16:24.926Z'
   workflows:
     auto-worktree:
       path: .aios-core/development/workflows/auto-worktree.yaml
@@ -17616,7 +17773,6 @@ entities:
         - po
         - qa
         - sm
-        - squad-creator
       dependencies: []
       externalDeps: []
       plannedDeps: []
