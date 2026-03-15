@@ -1,0 +1,61 @@
+{
+  "attachmentFolderPath": "attachments",
+  "baseFontSize": 16,
+  "baseFontSizeAction": false,
+  "boldMdcursor": false,
+  "clipboardManager": true,
+  "cssTheme": "",
+  "currentTheme": "obsidian",
+  "dailyNotesFormat": "YYYY-MM-DD",
+  "defaultViewMode": "preview",
+  "foldHeading": false,
+  "foldIndent": false,
+  "lineNumbers": false,
+  "markdown": {
+    "maxNestingLevel": 20
+  },
+  "mobileSyncInterval": 60,
+  "nativeMenus": true,
+  "newFileLocation": "root",
+  "newFileFolderPath": "research",
+  "newLinkFormat": "shortest",
+  "obsidianCacheSize": 10,
+  "pdfExportSettings": {
+    "includeCSSTheme": true,
+    "pageSize": "letter",
+    "margin": "1in",
+    "downscaleImageBelow": 1920
+  },
+  "promptDelete": true,
+  "propertyAutoDisplay": true,
+  "propertyColumns": {
+    "dataview": {
+      "count": 0,
+      "dataviewInline": true,
+      "expandedFolders": []
+    }
+  },
+  "ribbonMinWidth": 50,
+  "showFileExtensions": false,
+  "showFrontmatter": false,
+  "showLineNumber": false,
+  "showRibbon": true,
+  "showTabTitleIcon": false,
+  "smartIndentList": true,
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "en",
+    "pt"
+  ],
+  "strictLineBreaks": false,
+  "strictPropertyLineBreaks": false,
+  "tabSize": 2,
+  "trashInLogical": true,
+  "useMarkdownLinks": true,
+  "useTab": true,
+  "useThemeButtonBorders": false,
+  "vimMode": false,
+  "autoRunCommand": false,
+  "autosaveInterval": 25000,
+  "autosaveIntervalSeconds": 25
+}

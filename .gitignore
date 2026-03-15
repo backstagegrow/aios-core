@@ -378,3 +378,22 @@ build/
 .aios-core/local/
 .claude/settings.local.json
 .aios/install-log.txt
+
+# ============================================
+# OBSIDIAN VAULT (Research & Analysis)
+# ============================================
+# Obsidian local configuration (not synced)
+.obsidian-vault/.obsidian/cache/
+.obsidian-vault/.obsidian/plugins/
+.obsidian-vault/.obsidian/themes/
+.obsidian-vault/.obsidian/workspace*
+.obsidian-vault/.obsidian/daily-notes.json
+.obsidian-vault/.obsidian/templates.json
+.obsidian-vault/.trash/
+.obsidian-vault/attachments/
+
+# Keep .obsidian config files for vault setup
+!.obsidian-vault/
+!.obsidian-vault/.obsidian/
+!.obsidian-vault/.obsidian/app.json
+!.obsidian-vault/.obsidian/hotkeys.json
