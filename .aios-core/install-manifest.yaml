@@ -8,9 +8,9 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-03-14T21:17:19.996Z"
+generated_at: "2026-03-15T13:08:19.141Z"
 generator: scripts/generate-install-manifest.js
-file_count: 1135
+file_count: 1146
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -1324,6 +1324,50 @@ files:
     hash: sha256:f6b79ef8eb0c6724f59432a2f10a8f4a9b67b79ec0a74f13857fefe738b8f5b1
     type: data
     size: 597466
+  - path: data/offer-architect-library/OFFER-ARCHITECT-PLAYBOOK.md
+    hash: sha256:ed22417ec172844eca0f1e2f4e44a6a5d5ddeed231efc6f8dd8745923e8ec6b1
+    type: data
+    size: 7160
+  - path: data/offer-architect-library/offer-resources/flowcharts/Fluxograma de decisões em anúncios.webp
+    hash: sha256:05efdd15040b0526a5c3874ee2547931b7d6ee1c66e9ed8aa0f5d7fc6de5d422
+    type: data
+    size: 283530
+  - path: data/offer-architect-library/offer-resources/flowcharts/Formas de escalar um low ticket.webp
+    hash: sha256:e0b074365626c48e7eb3bb7a7aa80866e002532b1c34f965866c3f1e4477c088
+    type: data
+    size: 116448
+  - path: data/offer-architect-library/offer-resources/flowcharts/Formatos de Produtos.webp
+    hash: sha256:ec58f9802c0f083b0dc5985fa3839e3d3b1c32be40944f93ebdcf785945cf207
+    type: data
+    size: 191706
+  - path: data/offer-architect-library/offer-resources/flowcharts/Mapa de Planejamento de um Produto Digital.webp
+    hash: sha256:e7a06d3db1146f778e2dc83da87fad77c5183ebb10d0527d9f105757f5800459
+    type: data
+    size: 168592
+  - path: data/offer-architect-library/offer-resources/flowcharts/Otimização e escala do low ticket.webp
+    hash: sha256:a1ab0ebc46f4da1278dfd0a9858cf17160369f36433cbaed58d7ad6dae98a1e1
+    type: data
+    size: 213474
+  - path: data/offer-architect-library/offer-resources/guides/Funil de Vendas - D6D.pdf
+    hash: sha256:87964d2cc7978f85207d5948dcf4c643a2a8ac451f7bc774190e4e3a46195aa0
+    type: data
+    size: 747394
+  - path: data/offer-architect-library/offer-resources/guides/PRODUCT-CATEGORIES.md
+    hash: sha256:1c7b9edf87b4bfc51af8ca9987b25ffedb10fcf5a791690deb0569010468a704
+    type: data
+    size: 18910
+  - path: data/offer-architect-library/offer-resources/INDEX.md
+    hash: sha256:ee5098e1fe6aa9e0db57209b3e50b8bcb7339bf7fe86ccd6f0ab2a655f48ec7f
+    type: data
+    size: 7701
+  - path: data/offer-architect-library/offer-resources/metrics/Métricas do Lucro.pdf
+    hash: sha256:f2f6325e87aaecf320da87f3fd277ff545f1dfcfd518a9c3240baa34a0632335
+    type: data
+    size: 202375
+  - path: data/offer-architect-library/offer-resources/metrics/Métricas do Lucro.webp
+    hash: sha256:59c350e7fbb2e587278650dce0d2fbf0e2a5a377dcfc591d3de6ad331e0c90b6
+    type: data
+    size: 61212
   - path: data/offer-architect-library/QUICK-REFERENCE.md
     hash: sha256:1e6f894390c358d5992b6c79dd32730fd526444aac045515c060cce0a3a442e2
     type: data
