@@ -10,7 +10,7 @@
 
 # Estructura del Arbol de Codigo Fuente AIOS
 
-> 🌐 [EN](../../architecture/source-tree.md) | [PT](../../pt/architecture/source-tree.md) | **ES**
+> 🌐 [EN](../../architecture/source-tree.md) *(coming soon)* | [PT](../../pt/architecture/source-tree.md) | **ES**
 
 ---
 

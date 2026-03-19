@@ -1,6 +1,6 @@
 # README 社区部分 - aios-core
 
-> 🌐 [EN](../../en/community/README-community-snippet-core.md) | [PT](../../pt/community/README-community-snippet-core.md) | [ES](../../es/community/README-community-snippet-core.md) | **ZH**
+> 🌐 [EN](../../en/community/README-community-snippet-core.md) *(coming soon)* | [PT](../../pt/community/README-community-snippet-core.md) | [ES](../../es/community/README-community-snippet-core.md) | **ZH**
 
 > **用途:** 将此代码段复制到 `SynkraAI/aios-core` 仓库的 README.md 中。
 
@@ -47,8 +47,8 @@
 
 欢迎贡献！查看我们的：
 
-- 📖 [贡献指南](../../CONTRIBUTING.md)
-- 📜 [行为准则](../../CODE_OF_CONDUCT.md)
+- 📖 [贡献指南](../../CONTRIBUTING.md) *(coming soon)*
+- 📜 [行为准则](../../CODE_OF_CONDUCT.md) *(coming soon)*
 - 🏗️ [编码标准](../architecture/coding-standards.md)
 - 🏷️ [好的初始 Issue](https://github.com/SynkraAI/aios-core/labels/good-first-issue)
 

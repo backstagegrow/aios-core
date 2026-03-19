@@ -6,7 +6,7 @@
 
 # Guia de Otimização de Performance do Synkra AIOS
 
-> 🌐 [EN](../performance-tuning-guide.md) | **PT** | [ES](../es/performance-tuning-guide.md)
+> 🌐 [EN](../performance-tuning-guide.md) *(coming soon)* | **PT** | [ES](../es/performance-tuning-guide.md)
 
 ---
 

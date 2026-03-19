@@ -1207,7 +1207,7 @@ module.exports = {
 ## Documentacion Relacionada
 
 - [Guia de Quality Gates](./quality-gates.md) - Chequeos automatizados de calidad
-- [Arquitectura CI/CD](../../architecture/ci-cd.md) - Configuracion de pipeline
+- [Arquitectura CI/CD](../../architecture/ci-cd.md) *(coming soon)* - Configuracion de pipeline
 - [Guia de Contribucion](../../how-to-contribute-with-pull-requests.md) - Workflow de desarrollo
 
 ---

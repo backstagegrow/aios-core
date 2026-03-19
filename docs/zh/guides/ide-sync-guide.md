@@ -188,6 +188,6 @@ squad_aliases:
 
 ## 相关
 
-- [小队概览](./squads-overview.md)
+- [小队概览](./squads-overview.md) *(coming soon)*
 - [代理参考指南](../agent-reference-guide.md)
 - [AIOS架构](../core-architecture.md)

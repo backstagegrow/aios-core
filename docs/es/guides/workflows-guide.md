@@ -391,7 +391,7 @@ cat .aios-core/development/workflows/{name}.yaml
 
 ## Documentacion Relacionada
 
-- [Diagrama de Workflow HybridOps](./hybridOps/workflow-diagram.md) - Patrones de colaboracion humano-agent
+- [Diagrama de Workflow HybridOps](./hybridOps/workflow-diagram.md) *(coming soon)* - Patrones de colaboracion humano-agent
 - [Guia de Referencia de Agents](../agent-reference-guide.md) - Agents disponibles y sus capacidades
 - [Desarrollo Dirigido por Stories](./user-guide.md#story-driven-development) - El workflow de story
 

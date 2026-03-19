@@ -153,7 +153,7 @@ Each command has exactly one authoritative agent owner. When multiple agents mig
 | `*develop`     | @dev       | Use @dev for implementation     |
 | `*review`      | @qa        | Use @qa for code review         |
 
-See the [Command Authority Matrix](../architecture/command-authority-matrix.md) for the complete mapping.
+See the [Command Authority Matrix](../architecture/command-authority-matrix.md) *(coming soon)* for the complete mapping.
 
 ---
 
@@ -412,14 +412,14 @@ aios rebuild
 ### Learning Path
 
 1. **Quick Start** - Follow this guide to get up and running
-2. **Agent Reference** - Learn about each agent's capabilities: [Agent Reference Guide](../agent-reference-guide.md)
-3. **Architecture** - Understand the system: [Architecture Overview](../architecture/ARCHITECTURE-INDEX.md)
+2. **Agent Reference** - Learn about each agent's capabilities: [Agent Reference Guide](../agent-reference-guide.md) *(coming soon)*
+3. **Architecture** - Understand the system: [Architecture Overview](../architecture/ARCHITECTURE-INDEX.md) *(coming soon)*
 4. **Squads** - Extend functionality: [Squads Guide](./squads-guide.md)
 
 ### Advanced Topics
 
 - [Quality Gates Guide](./quality-gates.md)
-- [Multi-Repo Strategy](../architecture/multi-repo-strategy.md)
+- [Multi-Repo Strategy](../architecture/multi-repo-strategy.md) *(coming soon)*
 - [MCP Integration](./mcp-global-setup.md)
 - [IDE Integration](../ide-integration.md)
 
@@ -477,8 +477,8 @@ aios squads search {keyword}
 
 - [Getting Started](../getting-started.md)
 - [Installation Guide](../installation/README.md)
-- [Agent Reference Guide](../agent-reference-guide.md)
-- [Architecture Overview](../architecture/ARCHITECTURE-INDEX.md)
+- [Agent Reference Guide](../agent-reference-guide.md) *(coming soon)*
+- [Architecture Overview](../architecture/ARCHITECTURE-INDEX.md) *(coming soon)*
 - [Squads Guide](./squads-guide.md)
 - [Troubleshooting](../troubleshooting.md)
 

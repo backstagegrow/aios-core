@@ -96,4 +96,4 @@ Pregunte en GitHub Discussions o Discord.
 
 ---
 
-_Ver también: [Manual de la Comunidad](../../COMMUNITY.md) | [Guía de Contribución](../../CONTRIBUTING.md)_
+_Ver también: [Manual de la Comunidad](../../COMMUNITY.md) *(coming soon)* | [Guía de Contribución](../../CONTRIBUTING.md)_

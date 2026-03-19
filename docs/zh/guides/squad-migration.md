@@ -1,6 +1,6 @@
 # Squad迁移指南
 
-> **EN** | **ZH-CN** | [PT](../pt/guides/squad-migration.md) | [ES](../es/guides/squad-migration.md)
+> **EN** | **ZH-CN** | [PT](../pt/guides/squad-migration.md) *(coming soon)* | [ES](../es/guides/squad-migration.md) *(coming soon)*
 
 ---
 
@@ -327,9 +327,9 @@ console.log(result);
 
 ## 相关资源
 
-- [Squad开发指南](./squads-guide.md)
+- [Squad开发指南](./squads-guide.md) *(coming soon)*
 - [Squad贡献指南](./contributing-squads.md)
-- [@squad-creator Agent](../../.aios-core/development/agents/squad-creator.md)
+- [@squad-creator Agent](../../.aios-core/development/agents/squad-creator.md) *(coming soon)*
 
 ---
 

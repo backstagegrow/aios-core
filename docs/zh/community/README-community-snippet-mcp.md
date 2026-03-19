@@ -1,6 +1,6 @@
 # README 社区部分 - mcp-ecosystem
 
-> 🌐 [EN](../../en/community/README-community-snippet-mcp.md) | [PT](../../pt/community/README-community-snippet-mcp.md) | [ES](../../es/community/README-community-snippet-mcp.md) | **ZH**
+> 🌐 [EN](../../en/community/README-community-snippet-mcp.md) *(coming soon)* | [PT](../../pt/community/README-community-snippet-mcp.md) | [ES](../../es/community/README-community-snippet-mcp.md) | **ZH**
 
 > **用途:** 将此代码段复制到 `SynkraAI/mcp-ecosystem` 仓库的 README.md 中。
 
@@ -32,8 +32,8 @@
 ### 快速链接
 
 - [Docker MCP 工具包设置](../docker-mcp-setup.md)
-- [可用的预设](../../presets/)
-- [IDE 集成指南](../ide-integration.md)
+- [可用的预设](../../presets/) *(coming soon)*
+- [IDE 集成指南](../ide-integration.md) *(coming soon)*
 - [故障排除指南](../troubleshooting.md)
 
 ### 提议新的 MCP 服务器

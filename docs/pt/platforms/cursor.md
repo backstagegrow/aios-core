@@ -1,6 +1,6 @@
 # Guia AIOS para Cursor
 
-> 🌐 [EN](../../platforms/cursor.md) | **PT** | [ES](../../es/platforms/cursor.md)
+> 🌐 [EN](../../platforms/cursor.md) *(coming soon)* | **PT** | [ES](../../es/platforms/cursor.md)
 
 ---
 

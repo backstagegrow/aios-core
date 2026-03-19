@@ -525,21 +525,21 @@ agent:
 
 ### Arquivos Core
 
-- [Agente aios-master](.aios-core/development/agents/aios-master.md)
-- [Knowledge Base](.aios-core/development/data/aios-kb.md)
-- [Guia do Usuario](.aios-core/user-guide.md)
+- [Agente aios-master](.aios-core/development/agents/aios-master.md) *(coming soon)*
+- [Knowledge Base](.aios-core/development/data/aios-kb.md) *(coming soon)*
+- [Guia do Usuario](.aios-core/user-guide.md) *(coming soon)*
 
 ### Standards e Documentação
 
-- [AIOS Framework Master](.aios-core/docs/standards/AIOS-FRAMEWORK-MASTER.md)
-- [AIOS Livro de Ouro](.aios-core/docs/standards/AIOS-LIVRO-DE-OURO.md)
-- [Agent Personalization Standard](.aios-core/docs/standards/AGENT-PERSONALIZATION-STANDARD-V1.md)
+- [AIOS Framework Master](.aios-core/docs/standards/AIOS-FRAMEWORK-MASTER.md) *(coming soon)*
+- [AIOS Livro de Ouro](.aios-core/docs/standards/AIOS-LIVRO-DE-OURO.md) *(coming soon)*
+- [Agent Personalization Standard](.aios-core/docs/standards/AGENT-PERSONALIZATION-STANDARD-V1.md) *(coming soon)*
 
 ### Diretorio de Tasks
 
-- [Tasks Directory](.aios-core/development/tasks/)
-- [Templates Directory](.aios-core/development/templates/)
-- [Workflows Directory](.aios-core/development/workflows/)
+- [Tasks Directory](.aios-core/development/tasks/) *(coming soon)*
+- [Templates Directory](.aios-core/development/templates/) *(coming soon)*
+- [Workflows Directory](.aios-core/development/workflows/) *(coming soon)*
 
 ---
 

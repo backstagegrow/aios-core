@@ -744,7 +744,7 @@ export SYNKRA_API_TOKEN="sk_your_api_key"
 
 ## 相关资源
 
-- [Squads开发指南](../guides/squads-guide.md)
+- [Squads开发指南](../guides/squads-guide.md) *(coming soon)*
 - [贡献Squads](../guides/contributing-squads.md)
 - [@squad-creator代理](../../../.aios-core/development/agents/squad-creator.md)
 

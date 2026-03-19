@@ -1,6 +1,6 @@
 # Synkra AIOS Community
 
-> 🇧🇷 [Versão em Português](COMMUNITY-PT.md)
+> 🇧🇷 [Versão em Português](COMMUNITY-PT.md) *(coming soon)*
 
 Welcome to the Synkra AIOS community!
 
@@ -19,7 +19,7 @@ We're building the future of AI-orchestrated development together.
 
 1. Star the repository
 2. Read the [README](README.md)
-3. Set up your [development environment](CONTRIBUTING.md#getting-started)
+3. Set up your [development environment](CONTRIBUTING.md#getting-started) *(coming soon)*
 4. Introduce yourself in [Discussions](https://github.com/SynkraAI/aios-core/discussions)
 
 ### Find Your First Contribution
@@ -63,7 +63,7 @@ For bug reports and feature requests:
 4. Run tests (`npm test`)
 5. Submit a Pull Request
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) *(coming soon)* for detailed guidelines.
 
 ### Non-Code Contributions
 
@@ -84,7 +84,7 @@ Squads are specialized teams of AI agents that work together on specific domains
 - **ETL Squad** - Data collection and transformation
 - **Creator Squad** - Content generation
 
-See [docs/Squads.md](docs/Squads.md) for details on creating your own Squad.
+See [docs/Squads.md](docs/Squads.md) *(coming soon)* for details on creating your own Squad.
 
 ## Community Roles
 
@@ -136,7 +136,7 @@ For significant changes:
 
 ### Code of Conduct
 
-We follow the [Contributor Covenant](CODE_OF_CONDUCT.md). Please read and respect it.
+We follow the [Contributor Covenant](CODE_OF_CONDUCT.md) *(coming soon)*. Please read and respect it.
 
 Report violations to: conduct@SynkraAI.com
 
@@ -144,7 +144,7 @@ Report violations to: conduct@SynkraAI.com
 
 ### Stuck on something?
 
-1. Check the [Documentation](docs/)
+1. Check the [Documentation](docs/) *(coming soon)*
 2. Search [existing Discussions](https://github.com/SynkraAI/aios-core/discussions)
 3. Ask in Q&A Discussions
 4. Open a Troubleshooting discussion
@@ -158,7 +158,7 @@ Report violations to: conduct@SynkraAI.com
 
 1. Check if it exists in [Ideas](https://github.com/SynkraAI/aios-core/discussions/categories/ideas)
 2. If new, [share your idea](https://github.com/SynkraAI/aios-core/discussions/new?category=ideas)
-3. Read our [Feature Request Process](docs/FEATURE_PROCESS.md) for detailed guidelines
+3. Read our [Feature Request Process](docs/FEATURE_PROCESS.md) *(coming soon)* for detailed guidelines
 
 ## Project Roadmap
 
@@ -170,7 +170,7 @@ Want to know where AIOS is headed? Check out our public roadmap:
 The roadmap is updated monthly and reflects community input. You can influence our direction by:
 
 1. **Voting** on ideas in [Discussions](https://github.com/SynkraAI/aios-core/discussions/categories/ideas)
-2. **Proposing** new features via the [RFC process](/.github/RFC_TEMPLATE.md)
+2. **Proposing** new features via the [RFC process](/.github/RFC_TEMPLATE.md) *(coming soon)*
 3. **Contributing** directly to planned features
 
 > Roadmap items are plans, not commitments. Priorities may shift based on community needs and technical constraints.
@@ -180,19 +180,19 @@ The roadmap is updated monthly and reflects community input. You can influence o
 We have a structured process for proposing new features:
 
 1. **Quick Ideas** - Open a Discussion in the "Ideas" category
-2. **RFC Process** - For significant features, write an RFC using our [template](/.github/RFC_TEMPLATE.md)
+2. **RFC Process** - For significant features, write an RFC using our [template](/.github/RFC_TEMPLATE.md) *(coming soon)*
 3. **Community Voting** - Use :+1: reactions to show support
 4. **Implementation** - Approved ideas move to our backlog
 
-See [Feature Request Process](docs/FEATURE_PROCESS.md) for complete details.
+See [Feature Request Process](docs/FEATURE_PROCESS.md) *(coming soon)* for complete details.
 
 ## Resources
 
 ### Learning AIOS
 
-- [Getting Started Guide](docs/getting-started.md)
-- [Architecture Overview](docs/architecture.md)
-- [User Guide](.aios-core/user-guide.md)
+- [Getting Started Guide](docs/getting-started.md) *(coming soon)*
+- [Architecture Overview](docs/architecture.md) *(coming soon)*
+- [User Guide](.aios-core/user-guide.md) *(coming soon)*
 
 ### External Resources
 

@@ -1,6 +1,6 @@
 # Política de Seguridad
 
-> 🇧🇷 [Versão em Português](SECURITY-PT.md)
+> 🇧🇷 [Versão em Português](SECURITY-PT.md) *(coming soon)*
 
 ## Versiones Soportadas
 

@@ -1,6 +1,6 @@
 # Synkra AIOS 中文文档翻译计划
 
-> 🌐 [EN](../TRANSLATION-PLAN.md) | [PT](../pt/TRANSLATION-PLAN.md) | [ES](../es/TRANSLATION-PLAN.md) | **ZH**
+> 🌐 [EN](../TRANSLATION-PLAN.md) *(coming soon)* | [PT](../pt/TRANSLATION-PLAN.md) *(coming soon)* | [ES](../es/TRANSLATION-PLAN.md) *(coming soon)* | **ZH**
 
 ---
 
@@ -260,7 +260,7 @@
 
 # 文档标题
 
-> 🌐 [EN](../{path}) | [PT](../pt/{path}) | [ES](../es/{path}) | **ZH**
+> 🌐 [EN](../{path}) *(coming soon)* | [PT](../pt/{path}) *(coming soon)* | [ES](../es/{path}) *(coming soon)* | **ZH**
 
 ---
 ```

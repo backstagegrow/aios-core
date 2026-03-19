@@ -1,6 +1,6 @@
 # Squad贡献指南
 
-> **EN** | **ZH-CN** | [PT](../pt/guides/contributing-squads.md) | [ES](../es/guides/contributing-squads.md)
+> **EN** | **ZH-CN** | [PT](../pt/guides/contributing-squads.md) *(coming soon)* | [ES](../es/guides/contributing-squads.md) *(coming soon)*
 
 ---
 
@@ -241,7 +241,7 @@ export SYNKRA_API_TOKEN="your-token"
 
 ## 相关资源
 
-- [Squad开发指南](./squads-guide.md)
+- [Squad开发指南](./squads-guide.md) *(coming soon)*
 - [Squad迁移指南](./squad-migration.md)
 - [aios-squads Repository](https://github.com/SynkraAI/aios-squads)
 

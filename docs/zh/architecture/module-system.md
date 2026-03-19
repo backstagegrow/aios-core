@@ -2,7 +2,7 @@
 
 # AIOS 模块系统架构
 
-> 🌐 [EN](../../architecture/module-system.md) | [PT](../../pt/architecture/module-system.md) | [ES](../../es/architecture/module-system.md) | **ZH-CN**
+> 🌐 [EN](../../architecture/module-system.md) *(coming soon)* | [PT](../../pt/architecture/module-system.md) | [ES](../../es/architecture/module-system.md) | **ZH-CN**
 
 ---
 
@@ -365,7 +365,7 @@ aios migrate --from=2.0 --to=2.1
 aios migrate --validate
 ```
 
-详见 [迁移指南](../../migration/migration-guide.md) 了解详细说明。
+详见 [迁移指南](../../migration/migration-guide.md) *(coming soon)* 了解详细说明。
 
 ---
 
@@ -374,8 +374,8 @@ aios migrate --validate
 - [服务发现指南](../guides/service-discovery.md)
 - [质量门槛指南](../guides/quality-gates.md)
 - [全局 MCP 设置指南](../guides/mcp-global-setup.md)
-- [迁移指南](../../migration/migration-guide.md)
-- [ADR-002: 迁移地图](../../architecture/adr/ADR-002-migration-map.md)
+- [迁移指南](../../migration/migration-guide.md) *(coming soon)*
+- [ADR-002: 迁移地图](../../architecture/adr/ADR-002-migration-map.md) *(coming soon)*
 
 ---
 

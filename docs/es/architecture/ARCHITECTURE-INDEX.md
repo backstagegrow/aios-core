@@ -1,6 +1,6 @@
 # AIOS Architecture Documentation Index
 
-> 🌐 [EN](../../architecture/ARCHITECTURE-INDEX.md) | [PT](../../pt/architecture/ARCHITECTURE-INDEX.md) | **ES**
+> 🌐 [EN](../../architecture/ARCHITECTURE-INDEX.md) *(coming soon)* | [PT](../../pt/architecture/ARCHITECTURE-INDEX.md) | **ES**
 
 ---
 
@@ -41,7 +41,7 @@ docs/architecture/
 |----------|-------------|--------|
 | [High-Level Architecture](./high-level-architecture.md) | Overview of AIOS v4 architecture | ✅ Current |
 | [Module System](./module-system.md) | 4-module modular architecture | ✅ Current |
-| [Memory Layer](./memory-layer.md) | Memory system architecture | ✅ Current |
+| [Memory Layer](./memory-layer.md) *(coming soon)* | Memory system architecture | ✅ Current |
 
 ### MCP & Integrations
 

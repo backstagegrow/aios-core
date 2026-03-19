@@ -69,7 +69,7 @@ See [Squads Overview](./guides/squads-overview.md) for detailed examples and ide
 
 ### Template Rules
 
-Templates follow the [AIOS Document Template](../common/utils/aios-doc-template.md) specification using YAML format:
+Templates follow the [AIOS Document Template](../common/utils/aios-doc-template.md) *(coming soon)* specification using YAML format:
 
 1. **Structure**: Templates are defined in YAML with clear metadata, workflow configuration, and section hierarchy
 2. **Separation of Concerns**: Instructions for LLMs are in `instruction` fields, separate from content

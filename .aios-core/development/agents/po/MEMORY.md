@@ -40,6 +40,13 @@
 <!-- Patterns seen across 3+ agents — candidates for CLAUDE.md or .claude/rules/ -->
 <!-- Format: - **{pattern}** | Source: {agent} | Detected: {YYYY-MM-DD} -->
 
+## Historical — IDS Epic (2026-02-09)
+- Story sweet spot: 5-7 tasks, 6-10 hours; >8 tasks or >12h → evaluate split
+- Stories touching >3 agent definitions in one go are high-risk
+- Always verify file existence with Glob before referencing in story (epic INDEX may claim files that don't exist)
+- Always grep for actual method names — story pseudo-code may not match exact API signatures
+- IDS-5a depends ONLY on IDS-2 (DecisionEngine.analyze()), NOT IDS-4
+
 ## Archived
 <!-- Patterns no longer relevant — kept for history -->
 <!-- Format: - ~~{pattern}~~ | Archived: {YYYY-MM-DD} | Reason: {reason} -->

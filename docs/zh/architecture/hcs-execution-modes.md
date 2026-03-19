@@ -2,7 +2,7 @@
 
 # HCS 执行模式规范
 
-> 🌐 [EN](../../architecture/hcs-execution-modes.md) | [PT](../../pt/architecture/hcs-execution-modes.md) | **ZH**
+> 🌐 [EN](../../architecture/hcs-execution-modes.md) *(coming soon)* | [PT](../../pt/architecture/hcs-execution-modes.md) | **ZH**
 
 ---
 

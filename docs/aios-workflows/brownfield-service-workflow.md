@@ -795,9 +795,9 @@ Os handoff prompts facilitam a transição entre agentes:
 
 ### Documentação Relacionada
 
-- [AIOS Knowledge Base](../../../.aios-core/data/aios-kb.md) - Base de conhecimento do framework
-- [Technical Preferences](../../../.aios-core/development/data/technical-preferences.md) - Preferências técnicas do projeto
-- [IDE Development Workflow](../../../.aios-core/data/aios-kb.md#IDE-Development-Workflow) - Fluxo de desenvolvimento no IDE
+- [AIOS Knowledge Base](../../../.aios-core/data/aios-kb.md) *(coming soon)* - Base de conhecimento do framework
+- [Technical Preferences](../../../.aios-core/development/data/technical-preferences.md) *(coming soon)* - Preferências técnicas do projeto
+- [IDE Development Workflow](../../../.aios-core/data/aios-kb.md#IDE-Development-Workflow) *(coming soon)* - Fluxo de desenvolvimento no IDE
 
 ---
 

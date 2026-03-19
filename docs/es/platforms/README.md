@@ -6,7 +6,7 @@
 
 # Guías de Plataformas
 
-> 🌐 [EN](../../platforms/README.md) | **ES**
+> 🌐 [EN](../../platforms/README.md) *(coming soon)* | **ES**
 
 ---
 
@@ -55,11 +55,11 @@ flowchart TD
 
 | Prioridad | Plataforma         | Guía                                                                                                               | Descripción                                 |
 | :-------: | ------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
-|  ⭐⭐⭐   | **Claude Code**    | [EN](../../platforms/claude-code.md) \| [PT](../../pt/platforms/claude-code.md) \| [ES](./claude-code.md)          | CLI oficial de Anthropic - **Recomendado**  |
-|  ⭐⭐⭐   | **Cursor**         | [EN](../../platforms/cursor.md) \| [PT](../../pt/platforms/cursor.md) \| [ES](./cursor.md)                         | Editor de código AI-first con Composer      |
-|    ⭐     | **GitHub Copilot** | [EN](../../platforms/github-copilot.md) \| [PT](../../pt/platforms/github-copilot.md) \| [ES](./github-copilot.md) | Programador par IA de GitHub                |
-|   ⭐⭐    | **AntiGravity**    | [EN](../../platforms/antigravity.md) \| [PT](../../pt/platforms/antigravity.md) \| [ES](./antigravity.md)          | Plataforma de desarrollo agéntico de Google |
-|    ⭐     | **Gemini CLI**     | [EN](../../platforms/gemini-cli.md) \| [PT](../../pt/platforms/gemini-cli.md) \| [ES](./gemini-cli.md)             | Asistente CLI de Google AI                  |
+|  ⭐⭐⭐   | **Claude Code**    | [EN](../../platforms/claude-code.md) *(coming soon)* \| [PT](../../pt/platforms/claude-code.md) \| [ES](./claude-code.md)          | CLI oficial de Anthropic - **Recomendado**  |
+|  ⭐⭐⭐   | **Cursor**         | [EN](../../platforms/cursor.md) *(coming soon)* \| [PT](../../pt/platforms/cursor.md) \| [ES](./cursor.md)                         | Editor de código AI-first con Composer      |
+|    ⭐     | **GitHub Copilot** | [EN](../../platforms/github-copilot.md) *(coming soon)* \| [PT](../../pt/platforms/github-copilot.md) \| [ES](./github-copilot.md) | Programador par IA de GitHub                |
+|   ⭐⭐    | **AntiGravity**    | [EN](../../platforms/antigravity.md) *(coming soon)* \| [PT](../../pt/platforms/antigravity.md) \| [ES](./antigravity.md)          | Plataforma de desarrollo agéntico de Google |
+|    ⭐     | **Gemini CLI**     | [EN](../../platforms/gemini-cli.md) *(coming soon)* \| [PT](../../pt/platforms/gemini-cli.md) \| [ES](./gemini-cli.md)             | Asistente CLI de Google AI                  |
 
 ### Especificaciones Técnicas
 

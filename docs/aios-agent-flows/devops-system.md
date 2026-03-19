@@ -577,8 +577,8 @@ npm audit --ignore-advisories=ADVISORY_ID
 ### Documentacao AIOS
 
 - [Regras de Uso MCP](../../.claude/rules/mcp-usage.md)
-- [Operacoes N8N](../../.claude/rules/n8n-operations.md)
-- [Estrutura de Documentacao](../../.claude/rules/documentation-structure.md)
+- [Operacoes N8N](../../.claude/rules/n8n-operations.md) *(coming soon)*
+- [Estrutura de Documentacao](../../.claude/rules/documentation-structure.md) *(coming soon)*
 
 ### Documentacao Externa
 
@@ -591,11 +591,11 @@ npm audit --ignore-advisories=ADVISORY_ID
 
 | Task | Descrição |
 |------|-----------|
-| [Pre-Push Quality Gate](.aios-core/development/tasks/github-devops-pre-push-quality-gate.md) | Validacao antes do push |
-| [Version Management](.aios-core/development/tasks/github-devops-version-management.md) | Gerenciamento de versoes |
-| [CI/CD Configuration](.aios-core/development/tasks/ci-cd-configuration.md) | Configuracao de pipelines |
-| [Release Management](.aios-core/development/tasks/release-management.md) | Gerenciamento de releases |
-| [Environment Bootstrap](.aios-core/development/tasks/environment-bootstrap.md) | Bootstrap de ambientes |
+| [Pre-Push Quality Gate](.aios-core/development/tasks/github-devops-pre-push-quality-gate.md) *(coming soon)* | Validacao antes do push |
+| [Version Management](.aios-core/development/tasks/github-devops-version-management.md) *(coming soon)* | Gerenciamento de versoes |
+| [CI/CD Configuration](.aios-core/development/tasks/ci-cd-configuration.md) *(coming soon)* | Configuracao de pipelines |
+| [Release Management](.aios-core/development/tasks/release-management.md) *(coming soon)* | Gerenciamento de releases |
+| [Environment Bootstrap](.aios-core/development/tasks/environment-bootstrap.md) *(coming soon)* | Bootstrap de ambientes |
 
 ---
 

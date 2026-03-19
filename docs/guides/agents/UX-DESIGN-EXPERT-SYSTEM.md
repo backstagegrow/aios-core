@@ -779,22 +779,22 @@ flowchart BT
 
 ### Arquivos de Task
 
-- [ux-user-research.md](../../.aios-core/development/tasks/ux-user-research.md)
-- [ux-create-wireframe.md](../../.aios-core/development/tasks/ux-create-wireframe.md)
-- [audit-codebase.md](../../.aios-core/development/tasks/audit-codebase.md)
-- [consolidate-patterns.md](../../.aios-core/development/tasks/consolidate-patterns.md)
-- [extract-tokens.md](../../.aios-core/development/tasks/extract-tokens.md)
-- [build-component.md](../../.aios-core/development/tasks/build-component.md)
-- [calculate-roi.md](../../.aios-core/development/tasks/calculate-roi.md)
+- [ux-user-research.md](../../.aios-core/development/tasks/ux-user-research.md) *(coming soon)*
+- [ux-create-wireframe.md](../../.aios-core/development/tasks/ux-create-wireframe.md) *(coming soon)*
+- [audit-codebase.md](../../.aios-core/development/tasks/audit-codebase.md) *(coming soon)*
+- [consolidate-patterns.md](../../.aios-core/development/tasks/consolidate-patterns.md) *(coming soon)*
+- [extract-tokens.md](../../.aios-core/development/tasks/extract-tokens.md) *(coming soon)*
+- [build-component.md](../../.aios-core/development/tasks/build-component.md) *(coming soon)*
+- [calculate-roi.md](../../.aios-core/development/tasks/calculate-roi.md) *(coming soon)*
 
 ### Arquivos de Workflow
 
-- [design-system-build-quality.yaml](../../.aios-core/development/workflows/design-system-build-quality.yaml)
-- [brownfield-ui.yaml](../../.aios-core/development/workflows/brownfield-ui.yaml)
+- [design-system-build-quality.yaml](../../.aios-core/development/workflows/design-system-build-quality.yaml) *(coming soon)*
+- [brownfield-ui.yaml](../../.aios-core/development/workflows/brownfield-ui.yaml) *(coming soon)*
 
 ### Definicao do Agente
 
-- [ux-design-expert.md](../../.aios-core/development/agents/ux-design-expert.md)
+- [ux-design-expert.md](../../.aios-core/development/agents/ux-design-expert.md) *(coming soon)*
 
 ### Recursos Externos
 

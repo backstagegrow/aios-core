@@ -1,6 +1,6 @@
 # Security Policy
 
-> 🇧🇷 [Versão em Português](SECURITY-PT.md)
+> 🇧🇷 [Versão em Português](SECURITY-PT.md) *(coming soon)*
 
 ## Supported Versions
 

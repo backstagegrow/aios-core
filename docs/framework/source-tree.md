@@ -869,7 +869,7 @@ Runtime state is persisted in `.aios/`:
 
 - [Coding Standards](./coding-standards.md)
 - [Tech Stack](./tech-stack.md)
-- [ADE Architecture](../architecture/ade-architecture.md) _(planned)_
+- [ADE Architecture](../architecture/ade-architecture.md) *(coming soon)* _(planned)_
 
 ---
 

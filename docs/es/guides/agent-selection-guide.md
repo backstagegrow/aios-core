@@ -288,7 +288,7 @@
 ## Documentación Completa
 
 - **[Guía Completa del ADE](./ade-guide.md)** - Tutorial completo del Autonomous Development Engine
-- **[Matriz de Responsabilidad de Agentes](../../architecture/agent-responsibility-matrix.md)** - Definiciones completas de límites
+- **[Matriz de Responsabilidad de Agentes](../../architecture/agent-responsibility-matrix.md) *(coming soon)*** - Definiciones completas de límites
 
 ---
 

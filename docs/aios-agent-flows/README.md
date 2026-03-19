@@ -172,7 +172,7 @@ flowchart TB
 | Meta-Agent Commands | [docs/meta-agent-commands.md](../meta-agent-commands.md) | Referência rápida |
 | Workflows Guide | [docs/guides/workflows-guide.md](../guides/workflows-guide.md) | Guia de workflows |
 | AIOS Workflows | [docs/aios-workflows/](../aios-workflows/) | Detalhamento de workflows |
-| Architecture | [docs/architecture/](../architecture/) | Arquitetura técnica |
+| Architecture | [docs/architecture/](../architecture/) *(coming soon)* | Arquitetura técnica |
 
 ---
 

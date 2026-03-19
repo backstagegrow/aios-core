@@ -71,11 +71,11 @@ Tem uma nova ideia? Abra uma [Discussão de Ideia](https://github.com/SynkraAI/a
 
 ### 3. Escreva um RFC
 
-Para features significativas que precisam de design detalhado, [submeta um RFC](/.github/RFC_TEMPLATE.md) seguindo nosso processo estruturado.
+Para features significativas que precisam de design detalhado, [submeta um RFC](/.github/RFC_TEMPLATE.md) *(coming soon)* seguindo nosso processo estruturado.
 
 ### 4. Contribua Diretamente
 
-Encontrou algo que quer implementar? Veja nosso [Guia de Contribuição](CONTRIBUTING-PT.md) e [Processo de Features](docs/FEATURE_PROCESS.md).
+Encontrou algo que quer implementar? Veja nosso [Guia de Contribuição](CONTRIBUTING-PT.md) *(coming soon)* e [Processo de Features](docs/FEATURE_PROCESS.md) *(coming soon)*.
 
 ## Changelog
 

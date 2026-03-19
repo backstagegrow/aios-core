@@ -56,7 +56,7 @@ agent:
   id: squad-creator
   title: Squad Creator
   icon: '🏗️'
-  aliases: ['craft']
+  aliases: ['craft', 'squad']
   whenToUse: 'Use to create, validate, publish and manage squads'
   customization:
 

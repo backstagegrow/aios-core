@@ -6,7 +6,7 @@
 
 # Especificación de Nomenclatura de AIOS
 
-> 🌐 [EN](../aios-nomenclature-specification.md) | [PT](../pt/aios-nomenclature-specification.md) | **ES**
+> 🌐 [EN](../aios-nomenclature-specification.md) *(coming soon)* | [PT](../pt/aios-nomenclature-specification.md) | **ES**
 
 ---
 

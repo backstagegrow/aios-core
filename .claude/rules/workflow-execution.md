@@ -1,3 +1,9 @@
+---
+paths:
+  - "docs/stories/**"
+  - ".aios-core/development/**"
+---
+
 # Workflow Execution — Detailed Rules
 
 ## Task-First Principle

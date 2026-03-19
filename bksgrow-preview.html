@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKS Grow | Transformamos Fornecedores de Eventos em Máquinas de Vendas Previsíveis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* BKS OFFICIAL TOKENS */
+            --brand: #84CC16;
+            --brand-glow: rgba(132, 204, 22, 0.4);
+            --bg: #030406;
+            --surface: #0a0c10;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        .highlight {
+            color: var(--brand);
+        }
+
+        .kicker {
+            font-family: 'Outfit';
+            font-size: 0.85rem;
+            letter-spacing: 0.5rem;
+            color: var(--brand);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 800;
+            opacity: 0.8;
+        }
+
+        .btn-bks {
+            background: var(--brand);
+            color: #000;
+            padding: 2rem 5rem;
+            font-family: 'Outfit';
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 40px rgba(132, 204, 22, 0.3);
+        }
+
+        .btn-bks:hover {
+            background: #fff;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 80px var(--brand-glow);
+        }
+
+        /* THE 100VH SECTIONS */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--glass-border);
+            padding: 5rem 0;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2rem 0;
+            background: rgba(3, 4, 6, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a.active {
+            opacity: 1;
+            color: var(--brand);
+        }
+
+        /* 1. HERO */
+        .hero h1 {
+            font-family: 'Outfit';
+            font-size: clamp(3rem, 10vw, 7rem);
+            line-height: 0.9;
+            font-weight: 900;
+            letter-spacing: -4px;
+            margin-bottom: 3.5rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .hero p {
+            max-width: 800px;
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            opacity: 0.4;
+            margin: 0 auto 5rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        /* 2. STATS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat-card h2 {
+            font-family: 'Outfit';
+            font-size: 5rem;
+            color: var(--brand);
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card p {
+            opacity: 0.5;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* 3. MECHANISM CIRCLE */
+        .circle-wrap {
+            width: 550px;
+            height: 550px;
+            border: 2px dashed rgba(132, 204, 22, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .circle-inner {
+            width: 220px;
+            height: 220px;
+            background: var(--brand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit';
+            font-weight: 900;
+            color: #000;
+            font-size: 1.4rem;
+            box-shadow: 0 0 100px var(--brand-glow);
+        }
+
+        .circle-label {
+            position: absolute;
+            font-family: 'Outfit';
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            color: var(--brand);
+        }
+
+        /* 4. TRIADE */
+        .triade-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .triade-card {
+            padding: 5rem 4rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+        }
+
+        .triade-card h3 {
+            font-family: 'Outfit';
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .triade-card p {
+            opacity: 0.5;
+            font-size: 1.3rem;
+        }
+
+        /* 5. SOLUTIONS GRID */
+        .sol-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .sol-item {
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            background: var(--surface);
+            border-radius: 4px;
+        }
+
+        .sol-item h4 {
+            font-family: 'Outfit';
+            color: var(--brand);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* 6. COMPARISON */
+        .comp-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            gap: 4px;
+            background: var(--glass-border);
+        }
+
+        .comp-col {
+            padding: 8rem 6rem;
+            background: var(--bg);
+        }
+
+        .comp-col h3 {
+            font-family: 'Outfit';
+            font-size: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .comp-list {
+            list-style: none;
+        }
+
+        .comp-list li {
+            margin-bottom: 2.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .comp-list.bad {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .comp-list.good {
+            color: #fff;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 12rem 0;
+            border-top: 1px solid var(--glass-border);
+            background: #000;
+        }
+
+        .footer-logo {
+            font-family: 'Outfit';
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--brand);
+            margin-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-content">
+            <div style="font-family: 'Outfit'; font-weight: 900; font-size: 1.6rem; color: var(--brand);">BKS GROW</div>
+            <ul class="nav-links">
+                <li><a href="#solucao">SOLUÇÃO</a></li>
+                <li><a href="#metodo">MÉTODO</a></li>
+                <li><a href="#valor">VALOR</a></li>
+                <li><a href="#contato" style="color: var(--brand); opacity: 1;">CONTATO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 1. HERO (TRANSCRIÇÃO 100% FIEL) -->
+    <section id="home">
+        <div class="container">
+            <span class="kicker" style="text-align: center;">Estratégia B2B para Eventos</span>
+            <h1>TRANSFORMAMOS <br><span class="highlight">FORNECEDORES</span> DE<br>EVENTOS EM MÁQUINAS<br>DE VENDAS
+                PREVISÍVEIS.</h1>
+            <p>
+                Sua única preocupação deve ser subir no palco. <br>A demanda pela sua empresa é nossa responsabilidade.
+            </p>
+            <div style="text-align: center;">
+                <a href="#contato" class="btn-bks">Quero Escalar Meu Negócio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PONTOS CEGOS (PÁGINA CHEIA) -->
+    <section>
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 10rem;">
+                <span class="kicker">Diagnóstico Operacional</span>
+                <h2 style="font-family: 'Outfit'; font-size: 5rem; font-weight: 900;">IDENTIFICAMOS OS <span
+                        class="highlight">PONTOS CEGOS</span> DA SUA OPERAÇÃO.</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h2>47%</h2>
+                    <p>Aumento em Leads B2B</p>
+                </div>
+                <div class="stat-card">
+                    <h2>180d</h2>
+                    <p>Previsibilidade de Agenda</p>
+                </div>
+                <div class="stat-card">
+                    <h2>Zero</h2>
+                    <p>Dependência de Indicações</p>
+                </div>
+                <div class="stat-card">
+                    <h2>100%</h2>
+                    <p>Foco no Setor de Eventos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MECANISMO CIRCULAR (PÁGINA CHEIA) -->
+    <section id="metodo">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <span class="kicker">Metodologia BKS Core</span>
+            <h2 style="font-family: 'Outfit'; font-size: 5rem; font-weight: 900; margin-bottom: 5rem;">DESCONSTRUINDO O
+                <span class="highlight">AMADORISMO.</span></h2>
+            <div class="circle-wrap">
+                <div class="circle-inner">BKS CORE</div>
+                <div class="circle-label" style="top: -40px;">AUTORIDADE</div>
+                <div class="circle-label" style="right: -120px;">DEMANDA</div>
+                <div class="circle-label" style="bottom: -40px;">LUCRO</div>
+                <div class="circle-label" style="left: -120px;">ESCALA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. A TRÍADE (PÁGINA CHEIA) -->
+    <section>
+        <div class="container">
+            <div class="triade-grid">
+                <div class="triade-card">
+                    <span style="font-size: 4rem; font-weight: 900; color: var(--brand); opacity: 0.2;">01</span>
+                    <h3>Posicionamento</h3>
+                    <p>Ajustamos sua autoridade visual e narrativa para o mercado High-Ticket das grandes marcas.</p>
+                </div>
+                <div class="triade-card">
+                    <span style="font-size: 4rem; font-weight: 900; color: var(--brand); opacity: 0.2;">02</span>
+                    <h3>Processo</h3>
+                    <p>Instalamos o manual de vendas que funciona sem o dono, criando previsibilidade comercial.</p>
+                </div>
+                <div class="triade-card">
+                    <span style="font-size: 4rem; font-weight: 900; color: var(--brand); opacity: 0.2;">03</span>
+                    <h3>Infraestrutura</h3>
+                    <p>Tecnologia e funis de atração data-driven que colocam sua oferta para quem decide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. NOSSAS SOLUÇÕES (GRID PRINT 100%) -->
+    <section id="solucao">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 8rem;">
+                <span class="kicker">O que entregamos</span>
+                <h2 style="font-family: 'Outfit'; font-size: 5rem; font-weight: 900;">NOSSAS <span
+                        class="highlight">SOLUÇÕES.</span></h2>
+            </div>
+            <div class="sol-matrix">
+                <div class="sol-item">
+                    <h4>Cenografia</h4>
+                    <p style="opacity: 0.4;">Projetos de alto impacto com pipeline de vendas ativos.</p>
+                </div>
+                <div class="sol-item">
+                    <h4>Casas de Eventos</h4>
+                    <p style="opacity: 0.4;">Ocupação máxima e previsibilidade de agenda anual.</p>
+                </div>
+                <div class="sol-item">
+                    <h4>Produtoras</h4>
+                    <p style="opacity: 0.4;">Posicionamento premium para atrair eventos corporativos.</p>
+                </div>
+                <div class="sol-item">
+                    <h4>Montadoras</h4>
+                    <p style="opacity: 0.4;">Estrutura comercial focada em conversão e grandes editais.</p>
+                </div>
+                <div class="sol-item">
+                    <h4>Tecnologia / AV</h4>
+                    <p style="opacity: 0.4;">Diferenciação técnica e funis de qualificação de leads.</p>
+                </div>
+                <div class="sol-item">
+                    <h4>Branding Digital</h4>
+                    <p style="opacity: 0.4;">Paredão de autoridade para o setor de entretenimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COMPARATIVO (FIDELIDADE TOTAL) -->
+    <section>
+        <div class="container">
+            <div class="comp-wrap">
+                <div class="comp-col">
+                    <h3 style="color: #ff4b2b;">Atrasado & Tradicional</h3>
+                    <ul class="comp-list bad">
+                        <li>✕ Ficar esperando o telefone tocar</li>
+                        <li>✕ Equipe comercial reativa</li>
+                        <li>✕ O dono é o maior vendedor</li>
+                        <li>✕ Briga por centavos no orçamento</li>
+                    </ul>
+                </div>
+                <div class="comp-col"
+                    style="border-left: 2px solid var(--brand); background: rgba(132, 204, 22, 0.02);">
+                    <h3 style="color: var(--brand);">Método BKS Grow</h3>
+                    <ul class="comp-list good">
+                        <li>✓ Controle total da demanda (24h/dia)</li>
+                        <li>✓ Pipeline previsível e automatizado</li>
+                        <li>✓ Manual de vendas que escala sem o dono</li>
+                        <li>✓ Posicionamento que preserva a margem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA FINAL -->
+    <section id="contato">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-family: 'Outfit'; font-size: 8vw; font-weight: 900; margin-bottom: 5rem;">VAMOS <span
+                    class="highlight">ESCALAR?</span></h2>
+            <a href="#" class="btn-bks">Solicitar Consultoria de Elite</a>
+            <p style="margin-top: 5rem; opacity: 0.3; letter-spacing: 3px;">INTEGRADO COM BKS CORE OPERATIONS</p>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER INSTITUCIONAL -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">BKS GROW</div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4rem; text-align: left;">
+                <div style="opacity: 0.3;">
+                    Acelerando o setor de eventos com inteligência de dados e processos outlier.
+                </div>
+                <div>
+                    <h5 style="color: var(--brand); margin-bottom: 1.5rem;">Explore</h5>
+                    <p style="opacity: 0.5;">Soluções</p>
+                    <p style="opacity: 0.5;">Cases</p>
+                </div>
+                <div>
+                    <h5 style="color: var(--brand); margin-bottom: 1.5rem;">Social</h5>
+                    <p style="opacity: 0.5;">Instagram</p>
+                    <p style="opacity: 0.5;">LinkedIn</p>
+                </div>
+                <div>
+                    <h5 style="color: var(--brand); margin-bottom: 1.5rem;">Legal</h5>
+                    <p style="opacity: 0.5;">Privacidade</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

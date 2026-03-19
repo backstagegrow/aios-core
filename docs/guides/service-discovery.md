@@ -510,7 +510,7 @@ await registry.load(true);
 
 ## Related Documentation
 
-- [Module System Architecture](../architecture/module-system.md)
+- [Module System Architecture](../architecture/module-system.md) *(coming soon)*
 - [Quality Gates Guide](./quality-gates.md)
 
 ---

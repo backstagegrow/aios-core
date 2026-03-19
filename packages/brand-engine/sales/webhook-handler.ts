@@ -117,11 +117,11 @@ export function getHighEngagementLeads(minScore = 25): LeadEngagement[] {
 
 // --- Express router factory ------------------------------------------------
 
-export function createWebhookRouter() {
+export async function createWebhookRouter() {
     // Lazy import express to avoid hard dependency
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const express = require('express');
+    const { default: express } = await import('express');
     const router = express.Router();
+
 
     // Brevo webhook format
     router.post('/brevo', (req: any, res: any) => {

@@ -2,7 +2,7 @@
 
 # HCS 检查规范
 
-> 🌐 [EN](../../architecture/hcs-check-specifications.md) | [PT](../../pt/architecture/hcs-check-specifications.md) | **ZH**
+> 🌐 [EN](../../architecture/hcs-check-specifications.md) *(coming soon)* | [PT](../../pt/architecture/hcs-check-specifications.md) | **ZH**
 
 ---
 

@@ -1,6 +1,6 @@
 # Squad 示例
 
-> **EN** | [PT](../../pt/guides/squad-examples/README.md) | [ES](../../es/guides/squad-examples/README.md) | **ZH**
+> **EN** | [PT](../../pt/guides/squad-examples/README.md) *(coming soon)* | [ES](../../es/guides/squad-examples/README.md) *(coming soon)* | **ZH**
 
 ---
 
@@ -45,9 +45,9 @@ code my-squad/agents/my-agent.yaml
 
 ## 创建你自己的
 
-1. 从 [Squad 模板](../../../templates/squad/) 开始
+1. 从 [Squad 模板](../../../templates/squad/) *(coming soon)* 开始
 2. 参考这些示例以了解模式
-3. 按照 [Squads 指南](../squads-guide.md) 进行
+3. 按照 [Squads 指南](../squads-guide.md) *(coming soon)* 进行
 
 ## 贡献示例
 
@@ -56,7 +56,7 @@ code my-squad/agents/my-agent.yaml
 1. 在此目录中创建你的示例
 2. 添加清晰的注释解释该模式
 3. 使用描述更新此 README
-4. 按照 [CONTRIBUTING.md](../../../CONTRIBUTING.md) 提交 PR
+4. 按照 [CONTRIBUTING.md](../../../CONTRIBUTING.md) *(coming soon)* 提交 PR
 
 ---
 

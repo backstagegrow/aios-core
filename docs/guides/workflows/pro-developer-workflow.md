@@ -232,5 +232,5 @@ git submodule update pro
 
 ## Reference
 
-- [ADR-PRO-001: Repository Strategy](../../architecture/adr/adr-pro-001-repository-strategy.md)
-- [Story PRO-5: Repository Bootstrap](../../stories/epics/epic-pro-aios-pro-architecture/story-pro-5-repo-bootstrap.md)
+- [ADR-PRO-001: Repository Strategy](../../architecture/adr/adr-pro-001-repository-strategy.md) *(coming soon)*
+- [Story PRO-5: Repository Bootstrap](../../stories/epics/epic-pro-aios-pro-architecture/story-pro-5-repo-bootstrap.md) *(coming soon)*

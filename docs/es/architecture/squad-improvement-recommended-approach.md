@@ -2,7 +2,7 @@
 
 # Enfoque Recomendado: Sistema de Mejora de Squads
 
-> 🌐 [EN](../../architecture/squad-improvement-recommended-approach.md) | [PT](../../pt/architecture/squad-improvement-recommended-approach.md) | **ES**
+> 🌐 [EN](../../architecture/squad-improvement-recommended-approach.md) *(coming soon)* | [PT](../../pt/architecture/squad-improvement-recommended-approach.md) | **ES**
 
 ---
 

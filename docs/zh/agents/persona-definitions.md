@@ -2,7 +2,7 @@
 
 # AIOS 代理角色定义
 
-> 🌐 [EN](../../agents/persona-definitions.md) | [PT](../../pt/agents/persona-definitions.md) | [ES](../../es/agents/persona-definitions.md) | **ZH**
+> 🌐 [EN](../../agents/persona-definitions.md) *(coming soon)* | [PT](../../pt/agents/persona-definitions.md) | [ES](../../es/agents/persona-definitions.md) | **ZH**
 
 **版本:** 1.0
 **创建日期:** 2025-01-14

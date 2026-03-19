@@ -5,6 +5,11 @@ import { scoreLeadLLM } from '../packages/brand-engine/sales/lead-scorer.ts';
 import 'dotenv/config';
 
 export async function runSalesAutomation() {
+    if (process.env.BREVO_PAUSED === 'true') {
+        console.warn('[orchestrator] BREVO_PAUSED=true — automação pausada. Nenhum email enviado.');
+        return;
+    }
+
     console.log('[orchestrator] Starting sales automation cycle...');
 
     const now = new Date().toISOString();

@@ -10,7 +10,7 @@
 
 # Stack Tecnologico AIOS
 
-> 🌐 [EN](../../architecture/tech-stack.md) | [PT](../../pt/architecture/tech-stack.md) | **ES**
+> 🌐 [EN](../../architecture/tech-stack.md) *(coming soon)* | [PT](../../pt/architecture/tech-stack.md) | **ES**
 
 ---
 

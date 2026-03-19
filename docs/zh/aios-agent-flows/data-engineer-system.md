@@ -378,22 +378,22 @@ supabase/
 
 ### @data-engineer任务
 
-- [db-domain-modeling.md](.aios-core/development/tasks/db-domain-modeling.md)
-- [setup-database.md](.aios-core/development/tasks/setup-database.md)
-- [db-apply-migration.md](.aios-core/development/tasks/db-apply-migration.md)
-- [security-audit.md](.aios-core/development/tasks/security-audit.md)
-- [analyze-performance.md](.aios-core/development/tasks/analyze-performance.md)
-- [db-snapshot.md](.aios-core/development/tasks/db-snapshot.md)
-- [db-rollback.md](.aios-core/development/tasks/db-rollback.md)
-- [db-bootstrap.md](.aios-core/development/tasks/db-bootstrap.md)
+- [db-domain-modeling.md](.aios-core/development/tasks/db-domain-modeling.md) *(coming soon)*
+- [setup-database.md](.aios-core/development/tasks/setup-database.md) *(coming soon)*
+- [db-apply-migration.md](.aios-core/development/tasks/db-apply-migration.md) *(coming soon)*
+- [security-audit.md](.aios-core/development/tasks/security-audit.md) *(coming soon)*
+- [analyze-performance.md](.aios-core/development/tasks/analyze-performance.md) *(coming soon)*
+- [db-snapshot.md](.aios-core/development/tasks/db-snapshot.md) *(coming soon)*
+- [db-rollback.md](.aios-core/development/tasks/db-rollback.md) *(coming soon)*
+- [db-bootstrap.md](.aios-core/development/tasks/db-bootstrap.md) *(coming soon)*
 
 ### 代理
 
-- [data-engineer.md](.aios-core/development/agents/data-engineer.md)
+- [data-engineer.md](.aios-core/development/agents/data-engineer.md) *(coming soon)*
 
 ### 工作流
 
-- [brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml)
+- [brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml) *(coming soon)*
 
 ---
 

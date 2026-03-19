@@ -1,6 +1,6 @@
 # 多仓库策略
 
-> **ZH** | [EN](../architecture/multi-repo-strategy.md) | [PT](../pt/architecture/multi-repo-strategy.md)
+> **ZH** | [EN](../architecture/multi-repo-strategy.md) | [PT](../pt/architecture/multi-repo-strategy.md) *(coming soon)*
 
 ---
 
@@ -230,7 +230,7 @@ aios-squads → 依赖于 → aios-core
 
 - [高级架构](./high-level-architecture.md)
 - [模块系统](./module-system.md)
-- [Squad 指南](../guides/squads-guide.md)
+- [Squad 指南](../guides/squads-guide.md) *(coming soon)*
 
 ---
 

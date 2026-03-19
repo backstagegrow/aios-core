@@ -6,7 +6,7 @@
 
 # Synkra AIOS 安装文档
 
-> 🌐 [EN](../../installation/README.md) | [PT](../pt/installation/README.md) | [ES](../es/installation/README.md) | **ZH**
+> 🌐 [EN](../../installation/README.md) | [PT](../pt/installation/README.md) *(coming soon)* | [ES](../es/installation/README.md) *(coming soon)* | **ZH**
 
 **版本：** 2.1.0
 **最后更新：** 2025-01-24
@@ -33,7 +33,7 @@
 
 | 文档                                        | 描述                   | 受众       |
 | ------------------------------------------- | ---------------------- | ---------- |
-| [快速入门 (v4)](./v4-quick-start.md)        | 新用户快速设置         | 初学者     |
+| [快速入门 (v4)](./v4-quick-start.md) *(coming soon)*        | 新用户快速设置         | 初学者     |
 | [故障排除](./troubleshooting.md)            | 常见问题及解决方案     | 所有用户   |
 | [常见问题](./faq.md)                        | 常见问题解答           | 所有用户   |
 

@@ -1,6 +1,6 @@
 # AIOS Roadmap
 
-> 🇧🇷 [Versão em Português](ROADMAP-PT.md)
+> 🇧🇷 [Versão em Português](ROADMAP-PT.md) *(coming soon)*
 
 This document outlines the planned development direction for AIOS.
 
@@ -89,11 +89,11 @@ Have a new idea? Open an [Idea Discussion](https://github.com/SynkraAI/aios-core
 
 ### 3. Write an RFC
 
-For significant features that need detailed design, [submit an RFC](/.github/RFC_TEMPLATE.md) following our structured process.
+For significant features that need detailed design, [submit an RFC](/.github/RFC_TEMPLATE.md) *(coming soon)* following our structured process.
 
 ### 4. Contribute Directly
 
-Found something you want to implement? Check our [Contributing Guide](CONTRIBUTING.md) and [Feature Process](docs/FEATURE_PROCESS.md).
+Found something you want to implement? Check our [Contributing Guide](CONTRIBUTING.md) *(coming soon)* and [Feature Process](docs/FEATURE_PROCESS.md) *(coming soon)*.
 
 ## Changelog
 

@@ -90,4 +90,4 @@ Ask in GitHub Discussions or Discord.
 
 ---
 
-_See also: [Community Handbook](../COMMUNITY.md) | [Contributing Guide](../CONTRIBUTING.md)_
+_See also: [Community Handbook](../COMMUNITY.md) *(coming soon)* | [Contributing Guide](../CONTRIBUTING.md)_

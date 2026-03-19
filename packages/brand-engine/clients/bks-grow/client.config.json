@@ -17,6 +17,8 @@
             "brandPrimary": "#84CC16",
             "brandPrimaryLight": "#A3E635",
             "brandPrimaryDark": "#4D7C0F",
+            "brandSecondary": "#1A1A1A",
+            "brandAccent": "#A3E635",
             "brandGlow": "rgba(132, 204, 22, 0.4)",
             "brandBackground": "#0A0A0A",
             "brandSurface": "#1A1A1A",

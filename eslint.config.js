@@ -1,14 +1,15 @@
 // @ts-check
-const js = require('@eslint/js');
-const tsPlugin = require('@typescript-eslint/eslint-plugin');
-const tsParser = require('@typescript-eslint/parser');
+import js from '@eslint/js';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
 /**
  * AIOS Framework ESLint Configuration
  * ESLint v9 flat config format
  * @type {import('eslint').Linter.Config[]}
  */
-module.exports = [
+export default [
+
   // Recommended JavaScript rules
   js.configs.recommended,
 
@@ -74,14 +75,13 @@ module.exports = [
     ],
   },
 
-  // JavaScript files configuration
+  // Base configuration for all JavaScript files (Legacy CommonJS by default)
   {
     files: ['**/*.js', '**/*.cjs'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'commonjs',
       globals: {
-        // Node.js globals
         __dirname: 'readonly',
         __filename: 'readonly',
         exports: 'writable',
@@ -96,13 +96,11 @@ module.exports = [
         clearInterval: 'readonly',
         setImmediate: 'readonly',
         global: 'readonly',
-        // Node.js 18+ globals
         fetch: 'readonly',
         AbortController: 'readonly',
         URL: 'readonly',
         URLSearchParams: 'readonly',
         structuredClone: 'readonly',
-        // Jest globals
         describe: 'readonly',
         it: 'readonly',
         test: 'readonly',
@@ -115,31 +113,17 @@ module.exports = [
       },
     },
     rules: {
-      // Error prevention
-      'no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-        },
-      ],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
       'no-undef': 'error',
-      'no-console': 'off', // We need console for CLI tool
-
-      // Code style
+      'no-console': 'off',
       semi: ['error', 'always'],
       quotes: ['warn', 'single', { avoidEscape: true }],
       indent: ['warn', 2, { SwitchCase: 1 }],
       'comma-dangle': ['warn', 'always-multiline'],
-
-      // Best practices
       eqeqeq: ['error', 'always', { null: 'ignore' }],
       'no-var': 'error',
       'prefer-const': 'warn',
       'no-throw-literal': 'error',
-
-      // Relaxed rules for legacy code (TODO: fix and re-enable as errors)
       'no-case-declarations': 'warn',
       'no-useless-escape': 'warn',
       'no-control-regex': 'warn',
@@ -147,6 +131,59 @@ module.exports = [
       'no-empty': 'warn',
     },
   },
+
+  // Modern JavaScript configuration (ESM for apps, packages, and explicit modules)
+  {
+    files: [
+      'apps/**/*.js',
+      'packages/**/*.js',
+      'experts/**/*.js',
+      'eslint.config.js',
+      '**/*.mjs'
+    ],
+    // Exclude packages known to be CommonJS
+    ignores: [
+      'packages/cli/**/*.js'
+    ],
+    languageOptions: {
+      sourceType: 'module',
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        Buffer: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
+        // Still allow some shared globals
+        fetch: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        test: 'readonly',
+        expect: 'readonly',
+      },
+    },
+  },
+
+  // App-specific browser environment
+  {
+    files: ['apps/**/*.js'],
+    languageOptions: {
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        location: 'readonly',
+        history: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+      },
+    },
+  },
+
+
+
+
 
   // ESM JavaScript files (.mjs)
   {

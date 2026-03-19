@@ -6,7 +6,7 @@
 
 # Variáveis de Ambiente
 
-> 🌐 [EN](../ENVIRONMENT.md) | **PT** | [ES](../es/ENVIRONMENT.md)
+> 🌐 [EN](../ENVIRONMENT.md) *(coming soon)* | **PT** | [ES](../es/ENVIRONMENT.md)
 
 ---
 

@@ -399,9 +399,9 @@ cat .aios-core/development/workflows/{name}.yaml
 
 ## 相关文档
 
-- [HybridOps工作流图](./hybridOps/workflow-diagram.md) - 人工代理协作模式
+- [HybridOps工作流图](./hybridOps/workflow-diagram.md) *(coming soon)* - 人工代理协作模式
 - [代理参考指南](../agent-reference-guide.md) - 可用代理及其能力
-- [故事驱动开发](./user-guide.md#story-driven-development) - 故事工作流
+- [故事驱动开发](./user-guide.md#story-driven-development) *(coming soon)* - 故事工作流
 
 ---
 

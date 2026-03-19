@@ -1,6 +1,6 @@
 # 代理配置使用审计
 
-> [EN](../../architecture/agent-config-audit.md) | [PT](../../pt/architecture/agent-config-audit.md) | [ES](../../es/architecture/agent-config-audit.md) | **ZH**
+> [EN](../../architecture/agent-config-audit.md) *(coming soon)* | [PT](../../pt/architecture/agent-config-audit.md) | [ES](../../es/architecture/agent-config-audit.md) | **ZH**
 
 ---
 

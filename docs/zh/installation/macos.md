@@ -6,7 +6,7 @@
 
 # Synkra AIOS macOS 安装指南
 
-> 🌐 [EN](../../installation/macos.md) | [PT](../pt/installation/macos.md) | [ES](../es/installation/macos.md) | **ZH**
+> 🌐 [EN](../../installation/macos.md) | [PT](../pt/installation/macos.md) *(coming soon)* | [ES](../es/installation/macos.md) *(coming soon)* | **ZH**
 
 ## 前置要求
 
@@ -169,7 +169,7 @@ npx github:SynkraAI/aios-core install
 
 1. 配置您的 IDE（参见上面的 IDE 特定设置）
 2. 在 AI Agent 中运行 `*help` 查看可用命令
-3. 从[用户指南](../guides/user-guide.md)开始
+3. 从[用户指南](../guides/user-guide.md) *(coming soon)*开始
 4. 加入我们的 [Discord 社区](https://discord.gg/gk8jAdXWmj) 获取帮助
 
 ## 系统要求
@@ -182,6 +182,6 @@ npx github:SynkraAI/aios-core install
 ## 其他资源
 
 - [主 README](../../README.md)
-- [用户指南](../guides/user-guide.md)
+- [用户指南](../guides/user-guide.md) *(coming soon)*
 - [故障排除指南](../troubleshooting.md)
 - [Discord 社区](https://discord.gg/gk8jAdXWmj)

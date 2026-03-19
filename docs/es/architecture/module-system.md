@@ -2,7 +2,7 @@
 
 # Arquitectura del Sistema de Módulos AIOS
 
-> 🌐 [EN](../../architecture/module-system.md) | [PT](../../pt/architecture/module-system.md) | **ES**
+> 🌐 [EN](../../architecture/module-system.md) *(coming soon)* | [PT](../../pt/architecture/module-system.md) | **ES**
 
 ---
 
@@ -365,7 +365,7 @@ aios migrate --from=2.0 --to=2.1
 aios migrate --validate
 ```
 
-Ver [Guía de Migración](../../migration/migration-guide.md) para instrucciones detalladas.
+Ver [Guía de Migración](../../migration/migration-guide.md) *(coming soon)* para instrucciones detalladas.
 
 ---
 
@@ -374,8 +374,8 @@ Ver [Guía de Migración](../../migration/migration-guide.md) para instrucciones
 - [Guía de Service Discovery](../guides/service-discovery.md)
 - [Guía de Quality Gates](../guides/quality-gates.md)
 - [Guía de Setup Global MCP](../guides/mcp-global-setup.md)
-- [Guía de Migración](../../migration/migration-guide.md)
-- [ADR-002: Mapa de Migración](../../architecture/adr/ADR-002-migration-map.md)
+- [Guía de Migración](../../migration/migration-guide.md) *(coming soon)*
+- [ADR-002: Mapa de Migración](../../architecture/adr/ADR-002-migration-map.md) *(coming soon)*
 
 ---
 

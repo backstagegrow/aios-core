@@ -1,6 +1,6 @@
 # 对 Synkra AIOS 做出贡献
 
-> **[葡萄牙語版本](../CONTRIBUTING-PT.md)**
+> **[葡萄牙語版本](../CONTRIBUTING-PT.md) *(coming soon)***
 
 欢迎来到 AIOS！感谢您对贡献的兴趣。本指南将帮助您了解我们的开发工作流程、贡献流程以及如何提交更改。
 
@@ -318,8 +318,8 @@ tasks:
 
 ### Squad 资源
 
-- [Squads 指南](../docs/guides/squads-guide.md) - 完整文档
-- [Squad 模板](../templates/squad/) - 从工作模板开始
+- [Squads 指南](../docs/guides/squads-guide.md) *(coming soon)* - 完整文档
+- [Squad 模板](../templates/squad/) *(coming soon)* - 从工作模板开始
 - [Squad 讨论](https://github.com/SynkraAI/aios-core/discussions/categories/ideas) - 分享想法
 
 ---
@@ -500,7 +500,7 @@ git push --force-with-lease
 
 ### Q: 我可以用葡萄牙语贡献吗？
 
-**A:** 是的！我们接受葡萄牙语的 PR。见 [CONTRIBUTING-PT.md](../CONTRIBUTING-PT.md)。
+**A:** 是的！我们接受葡萄牙语的 PR。见 [CONTRIBUTING-PT.md](../CONTRIBUTING-PT.md) *(coming soon)*。
 
 ### Q: 我如何成为维护者？
 
@@ -532,7 +532,7 @@ gh pr checks  # 查看 PR 检查状态
 
 ## 使用 Pro
 
-AIOS 使用 Open Core 模型，带有私人 `pro/` git 子模块（见 [ADR-PRO-001](../docs/architecture/adr/adr-pro-001-repository-strategy.md)）。
+AIOS 使用 Open Core 模型，带有私人 `pro/` git 子模块（见 [ADR-PRO-001](../docs/architecture/adr/adr-pro-001-repository-strategy.md) *(coming soon)*）。
 
 ### 对于开源贡献者
 
@@ -565,15 +565,15 @@ git submodule update --init pro
 aios setup --pro
 ```
 
-有关完整的开发者工作流程指南，见 [Pro 开发者工作流程](../docs/guides/workflows/pro-developer-workflow.md)。
+有关完整的开发者工作流程指南，见 [Pro 开发者工作流程](../docs/guides/workflows/pro-developer-workflow.md) *(coming soon)*。
 
 ---
 
 ## 其他资源
 
 - [社区指南](../COMMUNITY.md) - 如何参与
-- [Squads 指南](../docs/guides/squads-guide.md) - 创建代理团队
-- [架构](../docs/architecture/) - 系统设计
+- [Squads 指南](../docs/guides/squads-guide.md) *(coming soon)* - 创建代理团队
+- [架构](../docs/architecture/) *(coming soon)* - 系统设计
 - [路线图](../ROADMAP.md) - 项目方向
 
 ---

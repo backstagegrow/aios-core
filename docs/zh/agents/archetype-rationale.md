@@ -2,7 +2,7 @@
 
 # AIOS 代理原型原理
 
-> 🌐 [EN](../../agents/archetype-rationale.md) | [PT](../../pt/agents/archetype-rationale.md) | [ES](../../es/agents/archetype-rationale.md) | **ZH**
+> 🌐 [EN](../../agents/archetype-rationale.md) *(coming soon)* | [PT](../../pt/agents/archetype-rationale.md) | [ES](../../es/agents/archetype-rationale.md) | **ZH**
 
 **版本:** 1.0
 **创建日期:** 2025-01-14

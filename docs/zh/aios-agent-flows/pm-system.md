@@ -695,15 +695,15 @@ flowchart LR
 
 ## 参考
 
-- [代理定义：pm.md](.aios-core/development/agents/pm.md)
-- [任务：create-doc.md](.aios-core/development/tasks/create-doc.md)
-- [任务：brownfield-create-epic.md](.aios-core/development/tasks/brownfield-create-epic.md)
-- [任务：correct-course.md](.aios-core/development/tasks/correct-course.md)
-- [模板：prd-tmpl.yaml](.aios-core/product/templates/prd-tmpl.yaml)
-- [模板：brownfield-prd-tmpl.yaml](.aios-core/product/templates/brownfield-prd-tmpl.yaml)
-- [检查清单：pm-checklist.md](.aios-core/product/checklists/pm-checklist.md)
-- [检查清单：change-checklist.md](.aios-core/product/checklists/change-checklist.md)
-- [工作流：brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml)
+- [代理定义：pm.md](.aios-core/development/agents/pm.md) *(coming soon)*
+- [任务：create-doc.md](.aios-core/development/tasks/create-doc.md) *(coming soon)*
+- [任务：brownfield-create-epic.md](.aios-core/development/tasks/brownfield-create-epic.md) *(coming soon)*
+- [任务：correct-course.md](.aios-core/development/tasks/correct-course.md) *(coming soon)*
+- [模板：prd-tmpl.yaml](.aios-core/product/templates/prd-tmpl.yaml) *(coming soon)*
+- [模板：brownfield-prd-tmpl.yaml](.aios-core/product/templates/brownfield-prd-tmpl.yaml) *(coming soon)*
+- [检查清单：pm-checklist.md](.aios-core/product/checklists/pm-checklist.md) *(coming soon)*
+- [检查清单：change-checklist.md](.aios-core/product/checklists/change-checklist.md) *(coming soon)*
+- [工作流：brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml) *(coming soon)*
 
 ---
 

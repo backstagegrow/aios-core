@@ -2,7 +2,7 @@
 
 # Estrutura da Árvore de Código AIOS
 
-> 🌐 [EN](../../architecture/source-tree.md) | **PT** | [ES](../../es/architecture/source-tree.md)
+> 🌐 [EN](../../architecture/source-tree.md) *(coming soon)* | **PT** | [ES](../../es/architecture/source-tree.md)
 
 ---
 

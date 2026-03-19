@@ -2,7 +2,7 @@
 
 # MCP System Global - Diagramas de Arquitectura
 
-> 🌐 [EN](../../architecture/mcp-system-diagrams.md) | [PT](../../pt/architecture/mcp-system-diagrams.md) | **ES**
+> 🌐 [EN](../../architecture/mcp-system-diagrams.md) *(coming soon)* | [PT](../../pt/architecture/mcp-system-diagrams.md) | **ES**
 
 ---
 

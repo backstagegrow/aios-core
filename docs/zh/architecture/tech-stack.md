@@ -2,7 +2,7 @@
 
 # AIOS 技术栈
 
-> 🌐 [EN](../../architecture/tech-stack.md) | [PT](../../pt/architecture/tech-stack.md) | **ZH** | [ES](../../es/architecture/tech-stack.md)
+> 🌐 [EN](../../architecture/tech-stack.md) *(coming soon)* | [PT](../../pt/architecture/tech-stack.md) | **ZH** | [ES](../../es/architecture/tech-stack.md)
 
 ---
 

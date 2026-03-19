@@ -977,8 +977,8 @@ strategy:
 
 ## 参考
 
-- **AIOS 验证器：** [.aios-core/utils/aios-validator.js](../.aios-core/utils/aios-validator.js)
-- **CI 工作流：** [.github/workflows/ci.yml](../.github/workflows/ci.yml)
+- **AIOS 验证器：** [.aios-core/utils/aios-validator.js](../.aios-core/utils/aios-validator.js) *(coming soon)*
+- **CI 工作流：** [.github/workflows/ci.yml](../.github/workflows/ci.yml) *(coming soon)*
 
 ---
 

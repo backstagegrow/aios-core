@@ -2,7 +2,7 @@
 
 **Last updated:** 2025-12-08
 
-> 🇧🇷 [Versão em Português](PRIVACY-PT.md)
+> 🇧🇷 [Versão em Português](PRIVACY-PT.md) *(coming soon)*
 
 ## Overview
 
@@ -114,7 +114,7 @@ For privacy concerns or questions:
 
 We will update this policy as needed. Changes will be:
 
-- Documented in the [CHANGELOG](CHANGELOG.md)
+- Documented in the [CHANGELOG](CHANGELOG.md) *(coming soon)*
 - Reflected in the "Last updated" date above
 - Announced in major releases if significant
 

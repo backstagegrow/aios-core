@@ -288,7 +288,7 @@ Retries < 3? → @dev tenta com variação
 ## Documentação Completa
 
 - **[Guia Completo do ADE](./ade-guide.md)** - Tutorial completo do Autonomous Development Engine
-- **[Matriz de Responsabilidade de Agentes](../../architecture/agent-responsibility-matrix.md)** - Definições completas de limites
+- **[Matriz de Responsabilidade de Agentes](../../architecture/agent-responsibility-matrix.md) *(coming soon)*** - Definições completas de limites
 
 ---
 

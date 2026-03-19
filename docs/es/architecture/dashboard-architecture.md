@@ -5,7 +5,7 @@
 > **Estado:** Producción
 > **Autor:** @architect (Aria)
 
-> **ES** | [EN](../architecture/dashboard-architecture.md) | [PT](../pt/architecture/dashboard-architecture.md)
+> **ES** | [EN](../architecture/dashboard-architecture.md) | [PT](../pt/architecture/dashboard-architecture.md) *(coming soon)*
 
 ---
 

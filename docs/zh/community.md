@@ -1,6 +1,6 @@
 # Synkra AIOS 社区
 
-> 🇧🇷 [葡萄牙語版本](../COMMUNITY-PT.md)
+> 🇧🇷 [葡萄牙語版本](../COMMUNITY-PT.md) *(coming soon)*
 
 欢迎来到 Synkra AIOS 社区！
 
@@ -19,7 +19,7 @@
 
 1. 给仓库加星标
 2. 阅读 [README](../README.md)
-3. 设置您的 [开发环境](../CONTRIBUTING.md#getting-started)
+3. 设置您的 [开发环境](../CONTRIBUTING.md#getting-started) *(coming soon)*
 4. 在 [讨论](https://github.com/SynkraAI/aios-core/discussions) 中介绍自己
 
 ### 寻找您的第一个贡献
@@ -63,7 +63,7 @@
 4. 运行测试（`npm test`）
 5. 提交 Pull Request
 
-详见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
+详见 [CONTRIBUTING.md](../CONTRIBUTING.md) *(coming soon)*。
 
 ### 非代码贡献
 
@@ -84,7 +84,7 @@ Squads 是在特定领域协作工作的专业 AI 代理团队：
 - **ETL Squad** - 数据收集和转换
 - **Creator Squad** - 内容生成
 
-详见 [docs/Squads.md](../docs/Squads.md)。
+详见 [docs/Squads.md](../docs/Squads.md) *(coming soon)*。
 
 ## 社区角色
 
@@ -136,7 +136,7 @@ Squads 是在特定领域协作工作的专业 AI 代理团队：
 
 ### 行为准则
 
-我们遵循 [贡献者契约](../CODE_OF_CONDUCT.md)。请阅读并尊重它。
+我们遵循 [贡献者契约](../CODE_OF_CONDUCT.md) *(coming soon)*。请阅读并尊重它。
 
 报告违反行为至：conduct@SynkraAI.com
 
@@ -158,7 +158,7 @@ Squads 是在特定领域协作工作的专业 AI 代理团队：
 
 1. 在 [想法](https://github.com/SynkraAI/aios-core/discussions/categories/ideas) 中检查是否存在
 2. 如果是新的，[分享您的想法](https://github.com/SynkraAI/aios-core/discussions/new?category=ideas)
-3. 阅读我们的 [功能请求流程](../docs/FEATURE_PROCESS.md) 了解详细指南
+3. 阅读我们的 [功能请求流程](../docs/FEATURE_PROCESS.md) *(coming soon)* 了解详细指南
 
 ## 项目路线图
 
@@ -170,7 +170,7 @@ Squads 是在特定领域协作工作的专业 AI 代理团队：
 路线图每月更新并反映社区意见。您可以通过以下方式影响我们的方向：
 
 1. **投票**支持 [讨论](https://github.com/SynkraAI/aios-core/discussions/categories/ideas) 中的想法
-2. **通过 [RFC 流程](/../.github/RFC_TEMPLATE.md) 提议新功能**
+2. **通过 [RFC 流程](/../.github/RFC_TEMPLATE.md) *(coming soon)* 提议新功能**
 3. **直接贡献**到计划功能
 
 > 路线图项目是计划，不是承诺。优先级可能会根据社区需求和技术限制而改变。
@@ -180,19 +180,19 @@ Squads 是在特定领域协作工作的专业 AI 代理团队：
 我们有一个结构化的流程来提议新功能：
 
 1. **快速想法** - 在"想法"类别中打开讨论
-2. **RFC 流程** - 对于重大功能，使用我们的 [模板](/../.github/RFC_TEMPLATE.md) 编写 RFC
+2. **RFC 流程** - 对于重大功能，使用我们的 [模板](/../.github/RFC_TEMPLATE.md) *(coming soon)* 编写 RFC
 3. **社区投票** - 使用 :+1: 反应表示支持
 4. **实施** - 批准的想法进入我们的待办事项
 
-详见 [功能请求流程](../docs/FEATURE_PROCESS.md)。
+详见 [功能请求流程](../docs/FEATURE_PROCESS.md) *(coming soon)*。
 
 ## 资源
 
 ### 学习 AIOS
 
-- [入门指南](../docs/getting-started.md)
-- [架构概览](../docs/architecture.md)
-- [用户指南](../.aios-core/user-guide.md)
+- [入门指南](../docs/getting-started.md) *(coming soon)*
+- [架构概览](../docs/architecture.md) *(coming soon)*
+- [用户指南](../.aios-core/user-guide.md) *(coming soon)*
 
 ### 外部资源
 

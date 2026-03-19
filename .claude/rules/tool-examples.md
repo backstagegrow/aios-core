@@ -1,3 +1,11 @@
+---
+paths:
+  - "packages/**"
+  - "bin/**"
+  - "tests/**"
+  - ".aios-core/**"
+---
+
 # Tool Input Examples — Selection Guidance
 
 ## Purpose

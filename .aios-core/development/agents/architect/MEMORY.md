@@ -34,6 +34,15 @@
 <!-- Patterns seen across 3+ agents — candidates for CLAUDE.md or .claude/rules/ -->
 <!-- Format: - **{pattern}** | Source: {agent} | Detected: {YYYY-MM-DD} -->
 
+## Historical — EPIC-ACT (2026-02-06)
+- UAP: single entry for all 12 agents; 5-way parallel load → 3-phase sequential → GreetingBuilder
+- Timeout: 150ms per-loader, 200ms total, fallback greeting on failure
+- generate-greeting.js: thin wrapper around UnifiedActivationPipeline (backward compat)
+- PermissionMode reads from `.aios/config.yaml`, NOT `.aios-core/core-config.yaml`
+- GreetingPreferenceManager reads from `.aios-core/core-config.yaml` (agentIdentity.greeting.preference)
+- `*yolo` cycles PermissionMode; does NOT change greeting preference
+- 255 tests EPIC-ACT Wave 1+2, 0 regressions
+
 ## Archived
 <!-- Patterns no longer relevant — kept for history -->
 <!-- Format: - ~~{pattern}~~ | Archived: {YYYY-MM-DD} | Reason: {reason} -->

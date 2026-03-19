@@ -529,26 +529,26 @@ O @dev deve **HALT** e perguntar ao usuario quando:
 ## Referencias
 
 ### Tasks do @dev
-- [dev-develop-story.md](.aios-core/development/tasks/dev-develop-story.md)
-- [dev-improve-code-quality.md](.aios-core/development/tasks/dev-improve-code-quality.md)
-- [dev-optimize-performance.md](.aios-core/development/tasks/dev-optimize-performance.md)
-- [dev-suggest-refactoring.md](.aios-core/development/tasks/dev-suggest-refactoring.md)
-- [dev-backlog-debt.md](.aios-core/development/tasks/dev-backlog-debt.md)
-- [apply-qa-fixes.md](.aios-core/development/tasks/apply-qa-fixes.md)
+- [dev-develop-story.md](.aios-core/development/tasks/dev-develop-story.md) *(coming soon)*
+- [dev-improve-code-quality.md](.aios-core/development/tasks/dev-improve-code-quality.md) *(coming soon)*
+- [dev-optimize-performance.md](.aios-core/development/tasks/dev-optimize-performance.md) *(coming soon)*
+- [dev-suggest-refactoring.md](.aios-core/development/tasks/dev-suggest-refactoring.md) *(coming soon)*
+- [dev-backlog-debt.md](.aios-core/development/tasks/dev-backlog-debt.md) *(coming soon)*
+- [apply-qa-fixes.md](.aios-core/development/tasks/apply-qa-fixes.md) *(coming soon)*
 
 ### Checklists
-- [story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md)
-- [pre-push-checklist.md](.aios-core/product/checklists/pre-push-checklist.md)
+- [story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md) *(coming soon)*
+- [pre-push-checklist.md](.aios-core/product/checklists/pre-push-checklist.md) *(coming soon)*
 
 ### Agente
-- [dev.md](.aios-core/development/agents/dev.md)
+- [dev.md](.aios-core/development/agents/dev.md) *(coming soon)*
 
 ### Workflows
-- [brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml)
-- [greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
+- [brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml) *(coming soon)*
+- [greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
 
 ### Relacionados
-- [BACKLOG-MANAGEMENT-SYSTEM.md](../BACKLOG-MANAGEMENT-SYSTEM.md)
+- [BACKLOG-MANAGEMENT-SYSTEM.md](../BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ---
 

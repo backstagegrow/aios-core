@@ -2,7 +2,7 @@
 
 # AIOS 编码标准
 
-> 🌐 [EN](../../architecture/coding-standards.md) | [PT](../../pt/architecture/coding-standards.md) | **ZH**
+> 🌐 [EN](../../architecture/coding-standards.md) *(coming soon)* | [PT](../../pt/architecture/coding-standards.md) | **ZH**
 
 ---
 

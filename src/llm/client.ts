@@ -2,11 +2,7 @@
  * AIOS LLM Client
  * 
  * Unified interface for calling LLM providers.
- * Reads from .env: AIOS_DEFAULT_MODEL, ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_GENERATIVE_AI_API_KEY
- * 
- * Usage:
- *   import { callLLM } from '../../../src/llm/client.js'
- *   const result = await callLLM("Your prompt here")
+ * Reads from .env: AIOS_DEFAULT_MODEL, ANTHROPIC_API_KEY, OPENAI_API_KEY, GOOGLE_GENERATIVE_AI_API_KEY, OPENROUTER_API_KEY
  */
 
 import 'dotenv/config'
@@ -26,22 +22,25 @@ export type LLMOptions = {
     system?: string
 }
 
-type AnthropicResponse = {
+type LLMResponse = {
     content?: Array<{ text?: string }>
-}
-
-type OpenAIResponse = {
     choices?: Array<{ message?: { content?: string } }>
-}
-
-type GoogleResponse = {
     candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>
 }
 
-// ─── Routing ──────────────────────────────────────────────────────────────────
+// ─── Constants ───────────────────────────────────────────────────────────────
 
 const DEFAULT_MODEL = process.env.AIOS_DEFAULT_MODEL ?? 'gpt-4o-mini'
 const LLM_DEBUG_ENABLED = process.env.AIOS_DEBUG === 'true' || process.env.AIOS_LLM_DEBUG === 'true'
+
+// ─── Model Mapping (Recommended) ──────────────────────────────────────────────
+
+export const FREE_MODELS = {
+    ORCHESTRATOR: "minimax/minimax-m2.5:free",
+    CODER: "qwen/qwen3-next-80b-a3b-instruct:free",
+    ANALYST: "stepfun/step-3.5-flash:free",
+    GEMINI_FLASH: "gemini-1.5-flash"
+}
 
 function debugLog(message: string): void {
     if (LLM_DEBUG_ENABLED) {
@@ -50,7 +49,8 @@ function debugLog(message: string): void {
 }
 
 /** Detect provider from model string */
-function detectProvider(model: string): 'anthropic' | 'openai' | 'google' {
+function detectProvider(model: string): 'anthropic' | 'openai' | 'google' | 'openrouter' {
+    if (model.includes(':free') || model.startsWith('minimax/') || model.startsWith('qwen/') || model.startsWith('stepfun/')) return 'openrouter'
     if (model.startsWith('claude')) return 'anthropic'
     if (model.startsWith('gemini')) return 'google'
     return 'openai'
@@ -64,12 +64,57 @@ export async function callLLM(prompt: string, opts: LLMOptions = {}): Promise<st
 
     debugLog(`[llm] Calling ${provider} / ${model}`)
 
-    switch (provider) {
-        case 'anthropic': return callAnthropic(prompt, model, opts)
-        case 'google': return callGoogle(prompt, model, opts)
-        case 'openai': return callOpenAI(prompt, model, opts)
-        default: throw new Error(`[llm] Unknown provider for model: ${model}`)
+    try {
+        switch (provider) {
+            case 'anthropic': return await callAnthropic(prompt, model, opts)
+            case 'google': return await callGoogle(prompt, model, opts)
+            case 'openrouter': return await callOpenRouter(prompt, model, opts)
+            case 'openai': return await callOpenAI(prompt, model, opts)
+            default: throw new Error(`[llm] Unknown provider for model: ${model}`)
+        }
+    } catch (error) {
+        console.error(`[llm] Error calling ${provider}:`, error)
+        // Auto-fallback to OpenRouter if configured and not already calling it
+        if (provider !== 'openrouter' && process.env.OPENROUTER_API_KEY) {
+            debugLog(`[llm] Attempting fallback to OpenRouter...`)
+            return await callOpenRouter(prompt, FREE_MODELS.ORCHESTRATOR, opts)
+        }
+        throw error
     }
+}
+
+// ─── OpenRouter (OpenAI Compatible) ───────────────────────────────────────────
+
+async function callOpenRouter(prompt: string, model: string, opts: LLMOptions): Promise<string> {
+    const API_KEY = process.env.OPENROUTER_API_KEY
+    if (!API_KEY) throw new Error('[llm] Missing OPENROUTER_API_KEY in .env')
+
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': 'https://aios-core.internal', // Optional for OpenRouter
+            'X-Title': 'AIOS Core',
+        },
+        body: JSON.stringify({
+            model,
+            max_tokens: opts.max_tokens ?? 1024,
+            temperature: opts.temperature ?? 0.3,
+            messages: [
+                ...(opts.system ? [{ role: 'system', content: opts.system }] : []),
+                { role: 'user', content: prompt }
+            ],
+        }),
+    })
+
+    if (!res.ok) {
+        const err = await res.text()
+        throw new Error(`[llm] OpenRouter API error ${res.status}: ${err}`)
+    }
+
+    const json = await res.json() as LLMResponse
+    return json.choices?.[0]?.message?.content ?? ''
 }
 
 // ─── Anthropic ────────────────────────────────────────────────────────────────
@@ -78,7 +123,7 @@ async function callAnthropic(prompt: string, model: string, opts: LLMOptions): P
     const API_KEY = process.env.ANTHROPIC_API_KEY
     if (!API_KEY) throw new Error('[llm] Missing ANTHROPIC_API_KEY in .env')
 
-    const content: unknown[] = opts.vision && opts.image_url
+    const content: any[] = opts.vision && opts.image_url
         ? [
             { type: 'image', source: { type: 'url', url: opts.image_url } },
             { type: 'text', text: prompt },
@@ -106,7 +151,7 @@ async function callAnthropic(prompt: string, model: string, opts: LLMOptions): P
         throw new Error(`[llm] Anthropic API error ${res.status}: ${err}`)
     }
 
-    const json = await res.json() as AnthropicResponse
+    const json = await res.json() as LLMResponse
     return json.content?.[0]?.text ?? ''
 }
 
@@ -116,13 +161,6 @@ async function callOpenAI(prompt: string, model: string, opts: LLMOptions): Prom
     const API_KEY = process.env.OPENAI_API_KEY
     if (!API_KEY) throw new Error('[llm] Missing OPENAI_API_KEY in .env')
 
-    const content: unknown[] = opts.vision && opts.image_url
-        ? [
-            { type: 'text', text: prompt },
-            { type: 'image_url', image_url: { url: opts.image_url } },
-        ]
-        : [{ type: 'text', text: prompt }]
-
     const res = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -130,12 +168,12 @@ async function callOpenAI(prompt: string, model: string, opts: LLMOptions): Prom
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            model: model || 'gpt-4o',
+            model,
             max_tokens: opts.max_tokens ?? 1024,
             temperature: opts.temperature ?? 0.3,
             messages: [
                 ...(opts.system ? [{ role: 'system', content: opts.system }] : []),
-                { role: 'user', content }
+                { role: 'user', content: prompt }
             ],
         }),
     })
@@ -145,7 +183,7 @@ async function callOpenAI(prompt: string, model: string, opts: LLMOptions): Prom
         throw new Error(`[llm] OpenAI API error ${res.status}: ${err}`)
     }
 
-    const json = await res.json() as OpenAIResponse
+    const json = await res.json() as LLMResponse
     return json.choices?.[0]?.message?.content ?? ''
 }
 
@@ -155,25 +193,16 @@ async function callGoogle(prompt: string, model: string, opts: LLMOptions): Prom
     const API_KEY = process.env.GOOGLE_GENERATIVE_AI_API_KEY
     if (!API_KEY) throw new Error('[llm] Missing GOOGLE_GENERATIVE_AI_API_KEY in .env')
 
-    const parts: unknown[] = []
-    if (opts.vision && opts.image_url) {
-        // Gemini vision accepts inline or URL (file API for large)
-        parts.push({ text: prompt })
-        parts.push({ inlineData: { mimeType: 'image/jpeg', data: opts.image_url } })
-    } else {
-        parts.push({ text: prompt })
-    }
-
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`
 
     const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            contents: [{ role: 'user', parts }],
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
             system_instruction: opts.system ? { parts: [{ text: opts.system }] } : undefined,
             generationConfig: {
-                maxOutputTokens: opts.max_tokens ?? 1024,
+                maxOutputTokens: opts.max_tokens ?? 1014,
                 temperature: opts.temperature ?? 0.3,
             },
         }),
@@ -184,6 +213,6 @@ async function callGoogle(prompt: string, model: string, opts: LLMOptions): Prom
         throw new Error(`[llm] Google API error ${res.status}: ${err}`)
     }
 
-    const json = await res.json() as GoogleResponse
+    const json = await res.json() as LLMResponse
     return json.candidates?.[0]?.content?.parts?.[0]?.text ?? ''
 }

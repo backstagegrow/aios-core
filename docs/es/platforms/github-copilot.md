@@ -2,7 +2,7 @@
 
 # Guía de AIOS para GitHub Copilot
 
-> 🌐 [EN](../../platforms/github-copilot.md) | [PT](../../pt/platforms/github-copilot.md) | **ES**
+> 🌐 [EN](../../platforms/github-copilot.md) *(coming soon)* | [PT](../../pt/platforms/github-copilot.md) | **ES**
 
 ---
 

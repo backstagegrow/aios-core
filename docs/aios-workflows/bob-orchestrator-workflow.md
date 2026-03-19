@@ -1454,7 +1454,7 @@ rm .aios/.session-state.yaml
 - [Story Development Cycle](./story-development-cycle-workflow.md)
 - [Brownfield Discovery](./brownfield-discovery-workflow.md)
 - [Spec Pipeline](./spec-pipeline-workflow.md)
-- [PRD AIOS v2 Bob](../prd/aios-v2-bob/)
+- [PRD AIOS v2 Bob](../prd/aios-v2-bob/) *(coming soon)*
 
 ### Stories Relacionadas (Epic 12)
 

@@ -965,9 +965,9 @@ flowchart TB
 
 ### 10.3 相关文档
 
-- [工作流 YAML 指南](../workflows-yaml-guide.md)
-- [AIOS 文档索引](../AIOS-DOCUMENTATION-INDEX.md)
-- [待办项管理系统](../BACKLOG-MANAGEMENT-SYSTEM.md)
+- [工作流 YAML 指南](../workflows-yaml-guide.md) *(coming soon)*
+- [AIOS 文档索引](../AIOS-DOCUMENTATION-INDEX.md) *(coming soon)*
+- [待办项管理系统](../BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ### 10.4 快速命令
 

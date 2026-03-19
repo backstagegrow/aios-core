@@ -2,7 +2,7 @@
 
 # CI/CD 架构
 
-> 🌐 [EN](../../architecture/ci-cd.md) | [PT](../../pt/architecture/ci-cd.md) | **ZH** | [ES](../../es/architecture/ci-cd.md)
+> 🌐 [EN](../../architecture/ci-cd.md) *(coming soon)* | [PT](../../pt/architecture/ci-cd.md) | **ZH** | [ES](../../es/architecture/ci-cd.md)
 
 ---
 

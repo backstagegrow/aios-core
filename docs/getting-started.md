@@ -227,9 +227,9 @@ When you first activate an AIOS agent in an existing project:
 
 ### Resources
 
-- **[Working in the Brownfield Guide](.aios-core/working-in-the-brownfield.md)** - Complete brownfield documentation
-- **[Compatibility Checklist](.aios-core/development/checklists/brownfield-compatibility-checklist.md)** - Pre/post migration checks
-- **[Risk Report Template](.aios-core/product/templates/brownfield-risk-report-tmpl.yaml)** - Phase-by-phase risk assessment
+- **[Working in the Brownfield Guide](.aios-core/working-in-the-brownfield.md) *(coming soon)*** - Complete brownfield documentation
+- **[Compatibility Checklist](.aios-core/development/checklists/brownfield-compatibility-checklist.md) *(coming soon)*** - Pre/post migration checks
+- **[Risk Report Template](.aios-core/product/templates/brownfield-risk-report-tmpl.yaml) *(coming soon)*** - Phase-by-phase risk assessment
 
 ---
 
@@ -302,7 +302,7 @@ npm run validate:parity
 
 - **[User Guide](./guides/user-guide.md)** - Complete workflow from planning to delivery
 - **[IDE Integration](./ide-integration.md)** - Detailed setup per IDE
-- **[Architecture](./architecture/ARCHITECTURE-INDEX.md)** - Technical deep dive
+- **[Architecture](./architecture/ARCHITECTURE-INDEX.md) *(coming soon)*** - Technical deep dive
 - **[Squads Guide](./guides/squads-guide.md)** - Extend AIOS to any domain
 - **[Troubleshooting](./troubleshooting.md)** - Common issues and solutions
 

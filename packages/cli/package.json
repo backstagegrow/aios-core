@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AIOS CLI commands — clone, conclave, design-post and readiness pipelines",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage"

@@ -1,6 +1,6 @@
 # AIOS MCP全局设置指南
 
-> **EN** | **ZH-CN** | [PT](../pt/guides/mcp-global-setup.md) | [ES](../es/guides/mcp-global-setup.md)
+> **EN** | **ZH-CN** | [PT](../pt/guides/mcp-global-setup.md) *(coming soon)* | [ES](../es/guides/mcp-global-setup.md) *(coming soon)*
 
 ---
 

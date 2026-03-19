@@ -2,7 +2,7 @@
 
 # 工具集成指南
 
-> 🌐 [EN](../../architecture/utility-integration-guide.md) | [PT](../../pt/architecture/utility-integration-guide.md) | **ZH** | [ES](../../es/architecture/utility-integration-guide.md)
+> 🌐 [EN](../../architecture/utility-integration-guide.md) *(coming soon)* | [PT](../../pt/architecture/utility-integration-guide.md) | **ZH** | [ES](../../es/architecture/utility-integration-guide.md)
 
 ---
 

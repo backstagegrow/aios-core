@@ -15,8 +15,18 @@ Mostre a lista de agentes abaixo em formato numerado, explicando em 1 linha quan
 10. /aios-sm - Scrum Master (Use for user story creation from PRD, story validation and completeness checking, acceptance criteria definition, story…)
 11. /aios-squad-creator - Squad Creator (Use to create, validate, publish and manage squads)
 12. /aios-ux-design-expert - UX/UI Designer & Design System Architect (Complete design workflow - user research, wireframes, design systems, token extraction, component building, and quality…)
-13. /aios-clickup-ops - ClickUp Operations Specialist (Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync)
-14. /aios-clickup-reporting - ClickUp Reporting Specialist (Use for cross-folder ClickUp audits, management KPI summaries, and publishing reports to ClickUp Docs)
+13. /aios-OFFER-ARCHITECT-STRATEGIC-MEMORY - Offer Architect Strategic Memory (Use para construção de ofertas, funis D6D e validação financeira de lançamentos)
+14. /aios-clickup-ops - ClickUp Operations Specialist (Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync)
+15. /aios-clickup-reporting - ClickUp Reporting Specialist (Use for cross-folder ClickUp audits, management KPI summaries, and publishing reports to ClickUp Docs)
+16. /aios-conselho-dos-sabios - Conselho Pessoal dos Sábios (Use para questões de vida, propósito, decisões difíceis, autoconhecimento, espiritualidade, filosofia e clareza técnica…)
+17. /aios-copy-chief - Copy Chief — Master Copywriter Orchestrator (Use for all copywriting, persuasion, landing pages, emails, VSL, ads, and sales copy)
+18. /aios-cyber-chief - Cyber Chief — Cybersecurity Orchestrator (Use for security assessments, pentesting, threat hunting, AppSec reviews, and compliance)
+19. /aios-data-chief - Data Chief — Analytics & Metrics Orchestrator (Use for metrics strategy, analytics frameworks, KPIs, cohort analysis, and data intelligence)
+20. /aios-design-chief - Design Chief — Design & Brand Orchestrator (Use for brand identity, design systems, visual direction, UX strategy, and creative direction)
+21. /aios-legal-chief - Legal Chief — Legal & Compliance Orchestrator (Use for contracts, compliance, LGPD/GDPR, startup legal, tax, labor law, and risk assessment)
+22. /aios-product-team-content-generation - Gerador de Conteúdo do Time de Produto (Use para criação automatizada de eBooks (Obsidian) e Carrosséis (Canva))
+23. /aios-story-chief - Story Chief — Narrative & Storytelling Orchestrator (Use for brand narratives, pitch decks, case studies, origin stories, content strategy, and keynotes)
+24. /aios-traffic-masters-chief - Traffic Masters Chief — Paid Traffic & Growth Orchestrator (Use for paid traffic strategy, Meta/Google/YouTube ads, funnel optimization, and scaling)
 
 No final, peça para o usuário escolher um número ou digitar o comando direto.
 """

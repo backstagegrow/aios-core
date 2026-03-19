@@ -184,5 +184,5 @@ Check that the IDE is enabled in `active_ides` section.
 ## Related
 
 - [Squads Overview](./squads-overview.md)
-- [Agent Reference](../agent-reference-guide.md)
+- [Agent Reference](../agent-reference-guide.md) *(coming soon)*
 - [AIOS Architecture](../core-architecture.md)

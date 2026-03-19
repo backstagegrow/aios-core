@@ -678,31 +678,31 @@ Ative @github-devops para operacoes de push:
 
 ### Tasks Core
 
-- [architect-analyze-impact.md](.aios-core/development/tasks/architect-analyze-impact.md)
-- [document-project.md](.aios-core/development/tasks/document-project.md)
-- [create-doc.md](.aios-core/development/tasks/create-doc.md)
-- [execute-checklist.md](.aios-core/development/tasks/execute-checklist.md)
-- [spec-assess-complexity.md](.aios-core/development/tasks/spec-assess-complexity.md)
+- [architect-analyze-impact.md](.aios-core/development/tasks/architect-analyze-impact.md) *(coming soon)*
+- [document-project.md](.aios-core/development/tasks/document-project.md) *(coming soon)*
+- [create-doc.md](.aios-core/development/tasks/create-doc.md) *(coming soon)*
+- [execute-checklist.md](.aios-core/development/tasks/execute-checklist.md) *(coming soon)*
+- [spec-assess-complexity.md](.aios-core/development/tasks/spec-assess-complexity.md) *(coming soon)*
 
 ### Templates de Arquitetura
 
-- [fullstack-architecture-tmpl.yaml](.aios-core/product/templates/fullstack-architecture-tmpl.yaml)
-- [architecture-tmpl.yaml](.aios-core/product/templates/architecture-tmpl.yaml)
-- [front-end-architecture-tmpl.yaml](.aios-core/product/templates/front-end-architecture-tmpl.yaml)
-- [brownfield-architecture-tmpl.yaml](.aios-core/product/templates/brownfield-architecture-tmpl.yaml)
+- [fullstack-architecture-tmpl.yaml](.aios-core/product/templates/fullstack-architecture-tmpl.yaml) *(coming soon)*
+- [architecture-tmpl.yaml](.aios-core/product/templates/architecture-tmpl.yaml) *(coming soon)*
+- [front-end-architecture-tmpl.yaml](.aios-core/product/templates/front-end-architecture-tmpl.yaml) *(coming soon)*
+- [brownfield-architecture-tmpl.yaml](.aios-core/product/templates/brownfield-architecture-tmpl.yaml) *(coming soon)*
 
 ### Workflows Relacionados
 
-- [greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
-- [brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml)
-- [spec-pipeline.yaml](.aios-core/development/workflows/spec-pipeline.yaml)
+- [greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
+- [brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml) *(coming soon)*
+- [spec-pipeline.yaml](.aios-core/development/workflows/spec-pipeline.yaml) *(coming soon)*
 
 ### Agentes Colaboradores
 
-- [@db-sage](.aios-core/development/agents/db-sage.md) - Arquitetura de dados
-- [@ux-design-expert](.aios-core/development/agents/ux-design-expert.md) - Arquitetura frontend
-- [@pm](.aios-core/development/agents/pm.md) - Requisitos e PRD
-- [@devops](.aios-core/development/agents/devops.md) - Git push e infraestrutura
+- [@db-sage](.aios-core/development/agents/db-sage.md) *(coming soon)* - Arquitetura de dados
+- [@ux-design-expert](.aios-core/development/agents/ux-design-expert.md) *(coming soon)* - Arquitetura frontend
+- [@pm](.aios-core/development/agents/pm.md) *(coming soon)* - Requisitos e PRD
+- [@devops](.aios-core/development/agents/devops.md) *(coming soon)* - Git push e infraestrutura
 
 ---
 

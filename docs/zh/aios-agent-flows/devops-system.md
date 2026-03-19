@@ -582,9 +582,9 @@ npm audit --ignore-advisories=ADVISORY_ID
 
 ### AIOS 文档
 
-- [MCP 使用规则](../../.claude/rules/mcp-usage.md)
-- [N8N 操作](../../.claude/rules/n8n-operations.md)
-- [文档结构](../../.claude/rules/documentation-structure.md)
+- [MCP 使用规则](../../.claude/rules/mcp-usage.md) *(coming soon)*
+- [N8N 操作](../../.claude/rules/n8n-operations.md) *(coming soon)*
+- [文档结构](../../.claude/rules/documentation-structure.md) *(coming soon)*
 
 ### 外部文档
 
@@ -597,11 +597,11 @@ npm audit --ignore-advisories=ADVISORY_ID
 
 | 任务 | 描述 |
 |------|-----------|
-| [推送前质量门禁](.aios-core/development/tasks/github-devops-pre-push-quality-gate.md) | 推送前验证 |
-| [版本管理](.aios-core/development/tasks/github-devops-version-management.md) | 版本管理 |
-| [CI/CD 配置](.aios-core/development/tasks/ci-cd-configuration.md) | 管道配置 |
-| [发布管理](.aios-core/development/tasks/release-management.md) | 发布管理 |
-| [环境引导](.aios-core/development/tasks/environment-bootstrap.md) | 环境引导 |
+| [推送前质量门禁](.aios-core/development/tasks/github-devops-pre-push-quality-gate.md) *(coming soon)* | 推送前验证 |
+| [版本管理](.aios-core/development/tasks/github-devops-version-management.md) *(coming soon)* | 版本管理 |
+| [CI/CD 配置](.aios-core/development/tasks/ci-cd-configuration.md) *(coming soon)* | 管道配置 |
+| [发布管理](.aios-core/development/tasks/release-management.md) *(coming soon)* | 发布管理 |
+| [环境引导](.aios-core/development/tasks/environment-bootstrap.md) *(coming soon)* | 环境引导 |
 
 ---
 

@@ -15,7 +15,7 @@ Escopo auditado: `experts/alex_hormozi`, `charlie_munger`, `chris_do`, `depesh_m
 - `Draft`: 1 clone
 - `Profile-only`: 0 clones
 - Principal risco: coexistencia de dois schemas incompatíveis no catalogo historico.
-- Principal evidencia tecnica: [finch-agent.ts](/d:/001Gravity/aios-core/src/llm/finch-agent.ts#L19) le `data.system_prompt`, o que so funciona com clones no schema completo.
+- Principal evidencia tecnica: [finch-agent.ts](/d:/001Gravity/aios-core/src/llm/finch-agent.ts#L19) *(coming soon)* le `data.system_prompt`, o que so funciona com clones no schema completo.
 
 ## Matriz
 
@@ -39,12 +39,12 @@ Escopo auditado: `experts/alex_hormozi`, `charlie_munger`, `chris_do`, `depesh_m
 
 ## Evidencias-base
 
-- Template atual do schema completo: [clone_agent.yaml](/d:/001Gravity/aios-core/experts/_templates/clone_agent.yaml#L10)
-- Exemplo de schema completo draft: [clone_lucas_silva.yaml](/d:/001Gravity/aios-core/experts/lucas_silva/clone_lucas_silva.yaml#L1)
-- Exemplo de schema completo operacional: [clone_thiago_finch.yaml](/d:/001Gravity/aios-core/experts/thiago_finch/clone_thiago_finch.yaml#L9)
-- Exemplo adicional operacional: [clone_todd_brown.yaml](/d:/001Gravity/aios-core/experts/todd_brown/clone_todd_brown.yaml#L9)
-- Consumidor atual que exige `system_prompt`: [finch-agent.ts](/d:/001Gravity/aios-core/src/llm/finch-agent.ts#L22)
-- Integracao de DNA com squad ativo: [persuasion_maestro.yaml](/d:/001Gravity/aios-core/squads/nexus-copy-elite/persuasion_maestro.yaml#L9)
+- Template atual do schema completo: [clone_agent.yaml](/d:/001Gravity/aios-core/experts/_templates/clone_agent.yaml#L10) *(coming soon)*
+- Exemplo de schema completo draft: [clone_lucas_silva.yaml](/d:/001Gravity/aios-core/experts/lucas_silva/clone_lucas_silva.yaml#L1) *(coming soon)*
+- Exemplo de schema completo operacional: [clone_thiago_finch.yaml](/d:/001Gravity/aios-core/experts/thiago_finch/clone_thiago_finch.yaml#L9) *(coming soon)*
+- Exemplo adicional operacional: [clone_todd_brown.yaml](/d:/001Gravity/aios-core/experts/todd_brown/clone_todd_brown.yaml#L9) *(coming soon)*
+- Consumidor atual que exige `system_prompt`: [finch-agent.ts](/d:/001Gravity/aios-core/src/llm/finch-agent.ts#L22) *(coming soon)*
+- Integracao de DNA com squad ativo: [persuasion_maestro.yaml](/d:/001Gravity/aios-core/squads/nexus-copy-elite/persuasion_maestro.yaml#L9) *(coming soon)*
 
 ## Plano de fechamento
 

@@ -73,7 +73,7 @@ Synkra AIOS 的所有重要变更都将记录在此文件中。
 - **文档**：
   - [ADE 完整指南](guides/ade-guide.md) - 完整教程
   - [Epic 1-7 交接文档](architecture/) - 技术交接（ADE-EPIC-1 至 ADE-EPIC-7）
-  - [代理变更](architecture/ADE-AGENT-CHANGES.md) - 所有代理修改及能力矩阵
+  - [代理变更](architecture/ADE-AGENT-CHANGES.md) *(coming soon)* - 所有代理修改及能力矩阵
 
 ### 变更
 

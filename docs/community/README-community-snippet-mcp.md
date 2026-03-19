@@ -32,7 +32,7 @@ For discussions, questions, and community interaction, visit our central hub:
 ### Quick Links
 
 - [Docker MCP Toolkit Setup](../docker-mcp-setup.md)
-- [Available Presets](../../presets/)
+- [Available Presets](../../presets/) *(coming soon)*
 - [IDE Integration Guide](../ide-integration.md)
 - [Troubleshooting Guide](../troubleshooting.md)
 

@@ -15,10 +15,20 @@ Análises de mercado, competidores, produtos e tendências.
 - [[research/competitor-intel|Competitor Intelligence]]
 - [[research/product-validation|Product Validation]]
 - [[research/trend-analysis|Trend Analysis]]
+- [[research/ThiagoFinch-DNA|Thiago Finch DNA]]
+- [[research/AlexHormozi-DNA|Alex Hormozi DNA]]
+- [[research/CharlieMunger-DNA|Charlie Munger DNA]]
+- [[research/ChrisDo-DNA|Chris Do DNA]]
+- [[research/EliGoldratt-DNA|Eli Goldratt DNA]]
+- [[research/EugeneSchwartz-DNA|Eugene Schwartz DNA]]
+- [[research/MartyNeumeier-DNA|Marty Neumeier DNA]]
+- [[research/RobertMcKee-DNA|Robert McKee DNA]]
+- [[research/RussellBrunson-DNA|Russell Brunson DNA]]
 
 ### Discoveries
 Insights estruturados e descobertas durante execução de projetos.
 - [[discoveries/aba-insights|AlphaBusinessAcademy Insights]]
+- [[discoveries/BKSGrow-ad-copies-march-2026|BKSGrow Ads Março 2026]]
 - [[discoveries/client-patterns|Client Patterns]]
 - [[discoveries/offer-learnings|Offer Learnings]]
 
@@ -26,7 +36,13 @@ Insights estruturados e descobertas durante execução de projetos.
 Análises profundas de ofertas, clientes, estratégias.
 - [[analysis/offer-breakdown|Offer Breakdown Templates]]
 - [[analysis/client-profiles|Client Profiles]]
-- [[analysis/strategy-analysis|Strategy Analysis]]
+- [[analysis/BKSGrow-strategy|BKS Grow Growth Engine]]
+- [[analysis/AlphaBusinessAcademy-analysis|Alpha Business Academy Analysis]]
+- [[analysis/BackStageFy-analysis|BackStageFy Analysis]]
+- [[analysis/GTHouse-analysis|GT House Analysis]]
+- [[analysis/spHaus-analysis|spHaus Analysis]]
+- [[analysis/ViaBrCenografia-analysis|Via BR Cenografia Analysis]]
+- [[analysis/EspacoNetworkConstru-analysis|Espaço Network Analysis]]
 
 ### Templates
 Templates reutilizáveis para research e documentação.
@@ -42,7 +58,8 @@ Templates reutilizáveis para research e documentação.
 |----------|-----------|-----------|
 | **Offer Architect Library** | 12MB de templates, modelos, briefings | 2026-03-14 |
 | **Research Guide** | Como estruturar research para agentes | 2026-03-15 |
-| **Discovery Protocol** | Padrão para documentar descobertas | 2026-03-15 |
+| **Client Profiles & Analysis** | Sincronização total de perfis de clientes | 2026-03-18 |
+| **Expert DNA Master Gallery** | Galeria completa de mestres (Finch, Hormozi, Munger, etc) | 2026-03-18 |
 
 ---
 
@@ -175,4 +192,4 @@ Para usar com **Claude API/NotebookLM:**
 
 **Mantido por:** AIOS Research Squad
 **Sync:** Git + Local Obsidian
-**Last Updated:** 2026-03-15
+**Last Updated:** 2026-03-18

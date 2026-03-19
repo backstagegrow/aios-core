@@ -1,6 +1,6 @@
 # 贡献者契约行为准则
 
-> 🇧🇷 [葡萄牙語版本](../CODE_OF_CONDUCT-PT.md)
+> 🇧🇷 [葡萄牙語版本](../CODE_OF_CONDUCT-PT.md) *(coming soon)*
 
 ## 我们的承诺
 

@@ -1,5 +1,9 @@
 ---
-paths: **/*
+paths:
+  - ".mcp.json"
+  - ".claude/**"
+  - ".aios-core/infrastructure/**"
+  - ".aios-core/data/tool-registry.yaml"
 ---
 
 # MCP Server Usage Rules - AIOS Architecture

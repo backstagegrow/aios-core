@@ -1,6 +1,6 @@
 # Hoja de Ruta de AIOS
 
-> 🇧🇷 [Versão em Português](ROADMAP-PT.md)
+> 🇧🇷 [Versão em Português](ROADMAP-PT.md) *(coming soon)*
 
 Este documento describe la dirección de desarrollo planificada para AIOS.
 
@@ -71,11 +71,11 @@ Reacciona con :+1: en [Ideas en Discussions](https://github.com/SynkraAI/aios-co
 
 ### 3. Escribe un RFC
 
-Para características significativas que necesitan un diseño detallado, [envía un RFC](/.github/RFC_TEMPLATE.md) siguiendo nuestro proceso estructurado.
+Para características significativas que necesitan un diseño detallado, [envía un RFC](/.github/RFC_TEMPLATE.md) *(coming soon)* siguiendo nuestro proceso estructurado.
 
 ### 4. Contribuye Directamente
 
-¿Encontraste algo que quieres implementar? Consulta nuestra [Guía de Contribución](CONTRIBUTING.md) y [Proceso de Características](docs/FEATURE_PROCESS.md).
+¿Encontraste algo que quieres implementar? Consulta nuestra [Guía de Contribución](CONTRIBUTING.md) *(coming soon)* y [Proceso de Características](docs/FEATURE_PROCESS.md) *(coming soon)*.
 
 ## Registro de Cambios
 

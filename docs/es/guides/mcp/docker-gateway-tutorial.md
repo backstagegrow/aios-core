@@ -1,6 +1,6 @@
 # Tutorial de Docker Gateway MCP
 
-> **ES** | [PT](../../pt/guides/mcp/docker-gateway-tutorial.md)
+> **ES** | [PT](../../pt/guides/mcp/docker-gateway-tutorial.md) *(coming soon)*
 
 ---
 

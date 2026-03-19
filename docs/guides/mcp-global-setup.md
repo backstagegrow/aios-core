@@ -688,8 +688,8 @@ Create `.mcp.json` in project root to override global settings:
 - [Docker Gateway Tutorial](./mcp/docker-gateway-tutorial.md)
 - [Desktop Commander MCP Guide](./mcp/desktop-commander.md)
 - [Docker MCP Setup](../docker-mcp-setup.md)
-- [Module System Architecture](../architecture/module-system.md)
-- [MCP Architecture Diagrams](../architecture/mcp-system-diagrams.md)
+- [Module System Architecture](../architecture/module-system.md) *(coming soon)*
+- [MCP Architecture Diagrams](../architecture/mcp-system-diagrams.md) *(coming soon)*
 
 ---
 

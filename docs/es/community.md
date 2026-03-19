@@ -1,6 +1,6 @@
 # Comunidad de Synkra AIOS
 
-> 🇧🇷 [Versão em Português](COMMUNITY-PT.md)
+> 🇧🇷 [Versão em Português](COMMUNITY-PT.md) *(coming soon)*
 
 ¡Bienvenido a la comunidad de Synkra AIOS!
 
@@ -19,7 +19,7 @@ Estamos construyendo juntos el futuro del desarrollo orquestado por IA.
 
 1. Dale una estrella al repositorio
 2. Lee el [README](README.md)
-3. Configura tu [entorno de desarrollo](CONTRIBUTING.md#getting-started)
+3. Configura tu [entorno de desarrollo](CONTRIBUTING.md#getting-started) *(coming soon)*
 4. Preséntate en [Discussions](https://github.com/SynkraAI/aios-core/discussions)
 
 ### Encuentra tu Primera Contribución
@@ -63,7 +63,7 @@ Para reportes de bugs y solicitudes de características:
 4. Ejecuta las pruebas (`npm test`)
 5. Envía un Pull Request
 
-Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para guías detalladas.
+Consulta [CONTRIBUTING.md](CONTRIBUTING.md) *(coming soon)* para guías detalladas.
 
 ### Contribuciones sin Código
 
@@ -84,7 +84,7 @@ Los Squads son equipos especializados de agentes de IA que trabajan juntos en do
 - **ETL Squad** - Recolección y transformación de datos
 - **Creator Squad** - Generación de contenido
 
-Consulta [docs/Squads.md](docs/Squads.md) para detalles sobre cómo crear tu propio Squad.
+Consulta [docs/Squads.md](docs/Squads.md) *(coming soon)* para detalles sobre cómo crear tu propio Squad.
 
 ## Roles de la Comunidad
 
@@ -136,7 +136,7 @@ Para cambios significativos:
 
 ### Código de Conducta
 
-Seguimos el [Contributor Covenant](CODE_OF_CONDUCT.md). Por favor léelo y respétalo.
+Seguimos el [Contributor Covenant](CODE_OF_CONDUCT.md) *(coming soon)*. Por favor léelo y respétalo.
 
 Reporta violaciones a: conduct@SynkraAI.com
 
@@ -144,7 +144,7 @@ Reporta violaciones a: conduct@SynkraAI.com
 
 ### ¿Atascado en algo?
 
-1. Revisa la [Documentación](docs/)
+1. Revisa la [Documentación](docs/) *(coming soon)*
 2. Busca en [Discussions existentes](https://github.com/SynkraAI/aios-core/discussions)
 3. Pregunta en Q&A Discussions
 4. Abre una discusión de Troubleshooting
@@ -158,7 +158,7 @@ Reporta violaciones a: conduct@SynkraAI.com
 
 1. Verifica si existe en [Ideas](https://github.com/SynkraAI/aios-core/discussions/categories/ideas)
 2. Si es nueva, [comparte tu idea](https://github.com/SynkraAI/aios-core/discussions/new?category=ideas)
-3. Lee nuestro [Proceso de Solicitud de Características](docs/FEATURE_PROCESS.md) para guías detalladas
+3. Lee nuestro [Proceso de Solicitud de Características](docs/FEATURE_PROCESS.md) *(coming soon)* para guías detalladas
 
 ## Hoja de Ruta del Proyecto
 
@@ -170,7 +170,7 @@ Reporta violaciones a: conduct@SynkraAI.com
 La hoja de ruta se actualiza mensualmente y refleja la opinión de la comunidad. Puedes influir en nuestra dirección mediante:
 
 1. **Votando** en ideas en [Discussions](https://github.com/SynkraAI/aios-core/discussions/categories/ideas)
-2. **Proponiendo** nuevas características a través del [proceso RFC](/.github/RFC_TEMPLATE.md)
+2. **Proponiendo** nuevas características a través del [proceso RFC](/.github/RFC_TEMPLATE.md) *(coming soon)*
 3. **Contribuyendo** directamente a características planificadas
 
 > Los elementos de la hoja de ruta son planes, no compromisos. Las prioridades pueden cambiar según las necesidades de la comunidad y las restricciones técnicas.
@@ -180,19 +180,19 @@ La hoja de ruta se actualiza mensualmente y refleja la opinión de la comunidad.
 Tenemos un proceso estructurado para proponer nuevas características:
 
 1. **Ideas Rápidas** - Abre una Discussion en la categoría "Ideas"
-2. **Proceso RFC** - Para características significativas, escribe un RFC usando nuestra [plantilla](/.github/RFC_TEMPLATE.md)
+2. **Proceso RFC** - Para características significativas, escribe un RFC usando nuestra [plantilla](/.github/RFC_TEMPLATE.md) *(coming soon)*
 3. **Votación de la Comunidad** - Usa reacciones :+1: para mostrar apoyo
 4. **Implementación** - Las ideas aprobadas pasan a nuestro backlog
 
-Consulta [Proceso de Solicitud de Características](docs/FEATURE_PROCESS.md) para detalles completos.
+Consulta [Proceso de Solicitud de Características](docs/FEATURE_PROCESS.md) *(coming soon)* para detalles completos.
 
 ## Recursos
 
 ### Aprendiendo AIOS
 
-- [Guía de Inicio](docs/getting-started.md)
-- [Visión General de Arquitectura](docs/architecture.md)
-- [Guía de Usuario](.aios-core/user-guide.md)
+- [Guía de Inicio](docs/getting-started.md) *(coming soon)*
+- [Visión General de Arquitectura](docs/architecture.md) *(coming soon)*
+- [Guía de Usuario](.aios-core/user-guide.md) *(coming soon)*
 
 ### Recursos Externos
 

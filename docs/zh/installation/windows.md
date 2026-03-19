@@ -2,7 +2,7 @@
 
 # Synkra AIOS Windows 安装指南
 
-> 🌐 [EN](../../installation/windows.md) | [PT](../pt/installation/windows.md) | [ES](../es/installation/windows.md)
+> 🌐 [EN](../../installation/windows.md) | [PT](../pt/installation/windows.md) *(coming soon)* | [ES](../es/installation/windows.md) *(coming soon)*
 
 ---
 

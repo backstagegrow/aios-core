@@ -1,6 +1,6 @@
 # Guia AIOS para AntiGravity
 
-> 🌐 [EN](../../platforms/antigravity.md) | **PT** | [ES](../../es/platforms/antigravity.md)
+> 🌐 [EN](../../platforms/antigravity.md) *(coming soon)* | **PT** | [ES](../../es/platforms/antigravity.md)
 
 ---
 

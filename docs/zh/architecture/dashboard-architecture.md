@@ -7,7 +7,7 @@
 
 ---
 
-> [EN](../../architecture/dashboard-architecture.md) | [PT](../../pt/architecture/dashboard-architecture.md) | [ES](../../es/architecture/dashboard-architecture.md) | **ZH**
+> [EN](../../architecture/dashboard-architecture.md) *(coming soon)* | [PT](../../pt/architecture/dashboard-architecture.md) | [ES](../../es/architecture/dashboard-architecture.md) | **ZH**
 
 ---
 

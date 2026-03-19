@@ -1,10 +1,11 @@
 {
   "name": "aios-core",
   "version": "4.4.6",
+  "type": "module",
   "description": "Synkra AIOS: AI-Orchestrated System for Full Stack Development - Core Framework",
   "bin": {
-    "aios": "bin/aios.js",
-    "aios-core": "bin/aios.js",
+    "aios": "bin/aios.cjs",
+    "aios-core": "bin/aios.cjs",
     "aios-minimal": "bin/aios-minimal.js",
     "aios-graph": "bin/aios-graph.js"
   },
@@ -53,6 +54,8 @@
     "release:test": "semantic-release --dry-run --no-ci || echo 'Config test complete - authentication errors are expected locally'",
     "generate:manifest": "node scripts/generate-install-manifest.js",
     "validate:manifest": "node scripts/validate-manifest.js",
+    "lint:fix": "eslint . --fix --cache --cache-location .eslintcache",
+    "validate:links": "node scripts/check-markdown-links.mjs",
     "validate:structure": "npm run validate:paths",
     "validate:agents": "node .aios-core/infrastructure/scripts/validate-agents.js",
     "sync:ide": "node .aios-core/infrastructure/scripts/ide-sync/index.js sync",
@@ -88,7 +91,10 @@
     "design-post:gthaus": "node --experimental-strip-types packages/brand-engine/design-post/index.ts --brand 'GT House'",
     "sales:scrape": "node --experimental-strip-types scripts/scrape-google-maps.ts",
     "sales:run": "node --experimental-strip-types scripts/bksgrow-sales-automation.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cleanup": "node scripts/cleanup-runtime.js",
+    "cleanup:dry-run": "node scripts/cleanup-runtime.js --dry-run",
+    "validate:integrity": "node scripts/validate-integrity.js"
   },
   "dependencies": {
     "@aios-fullstack/pro": "^0.2.0",

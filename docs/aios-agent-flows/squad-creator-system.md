@@ -661,14 +661,14 @@ flowchart LR
 
 ## Referencias
 
-- [Task: squad-creator-create.md](.aios-core/development/tasks/squad-creator-create.md)
-- [Task: squad-creator-validate.md](.aios-core/development/tasks/squad-creator-validate.md)
-- [Task: squad-creator-design.md](.aios-core/development/tasks/squad-creator-design.md)
-- [Script: squad-generator.js](.aios-core/development/scripts/squad/squad-generator.js)
-- [Script: squad-validator.js](.aios-core/development/scripts/squad/squad-validator.js)
-- [Schema: squad-schema.json](.aios-core/schemas/squad-schema.json)
-- [Agent: squad-creator.md](.aios-core/development/agents/squad-creator.md)
-- [Command: squad-creator.md](.claude/commands/AIOS/agents/squad-creator.md)
+- [Task: squad-creator-create.md](.aios-core/development/tasks/squad-creator-create.md) *(coming soon)*
+- [Task: squad-creator-validate.md](.aios-core/development/tasks/squad-creator-validate.md) *(coming soon)*
+- [Task: squad-creator-design.md](.aios-core/development/tasks/squad-creator-design.md) *(coming soon)*
+- [Script: squad-generator.js](.aios-core/development/scripts/squad/squad-generator.js) *(coming soon)*
+- [Script: squad-validator.js](.aios-core/development/scripts/squad/squad-validator.js) *(coming soon)*
+- [Schema: squad-schema.json](.aios-core/schemas/squad-schema.json) *(coming soon)*
+- [Agent: squad-creator.md](.aios-core/development/agents/squad-creator.md) *(coming soon)*
+- [Command: squad-creator.md](.claude/commands/AIOS/agents/squad-creator.md) *(coming soon)*
 
 ---
 

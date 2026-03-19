@@ -965,9 +965,9 @@ flowchart TB
 
 ### 10.3 Documentacao Relacionada
 
-- [Workflows YAML Guide](../workflows-yaml-guide.md)
-- [AIOS Documentation Index](../AIOS-DOCUMENTATION-INDEX.md)
-- [Backlog Management System](../BACKLOG-MANAGEMENT-SYSTEM.md)
+- [Workflows YAML Guide](../workflows-yaml-guide.md) *(coming soon)*
+- [AIOS Documentation Index](../AIOS-DOCUMENTATION-INDEX.md) *(coming soon)*
+- [Backlog Management System](../BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ### 10.4 Commands Rapidos
 

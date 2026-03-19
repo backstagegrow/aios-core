@@ -1,6 +1,6 @@
 # Guía de Integración de Herramientas de Agentes
 
-> **ES** | [EN](../architecture/agent-tool-integration-guide.md) | [PT](../pt/architecture/agent-tool-integration-guide.md)
+> **ES** | [EN](../architecture/agent-tool-integration-guide.md) | [PT](../pt/architecture/agent-tool-integration-guide.md) *(coming soon)*
 
 ---
 

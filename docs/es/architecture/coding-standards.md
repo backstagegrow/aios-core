@@ -10,7 +10,7 @@
 
 # Estandares de Codigo AIOS
 
-> 🌐 [EN](../../architecture/coding-standards.md) | [PT](../../pt/architecture/coding-standards.md) | **ES**
+> 🌐 [EN](../../architecture/coding-standards.md) *(coming soon)* | [PT](../../pt/architecture/coding-standards.md) | **ES**
 
 ---
 

@@ -228,7 +228,7 @@ flowchart TD
 |------|------|------|
 | 工作流指南 | [docs/guides/workflows-guide.md](../../guides/workflows-guide.md) | 一般指南 |
 | 代理流程 | [docs/aios-agent-flows/](../../aios-agent-flows/) | 代理详情 |
-| 代理参考 | [docs/agent-reference-guide.md](../../agent-reference-guide.md) | 快速参考 |
+| 代理参考 | [docs/agent-reference-guide.md](../../agent-reference-guide.md) *(coming soon)* | 快速参考 |
 
 ---
 

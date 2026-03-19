@@ -41,6 +41,30 @@
 - **Conventional commits format** | Source: dev, devops, analyst, sm, data-engineer, ux (6 agents) | Detected: 2026-02-22 | Status: Already in CLAUDE.md (Convencoes Git)
 - **kebab-case for files** | Source: dev, analyst, sm, data-engineer, ux (5 agents) | Detected: 2026-02-22 | Status: Already in CLAUDE.md (Padroes de Codigo)
 
+## Historical — Story Patterns (2026-02-19)
+
+### Greeting & Activation Pipeline (ACT-6, ACT-7)
+- `_safeBuildSection(fn)` wraps section builders with SECTION_TIMEOUT (150ms) + try/catch
+- Footer varies: new="*guide", existing="*help + *session-info", workflow="Focused on **{story}**"
+- When mocking `resolveConfig`, use `mockReturnValue` not `mockReturnValueOnce` if called multiple times
+- ACT-5 changes (lines 661-816 in greeting-builder.js) must NOT be touched
+
+### IDS Verification Gate Engine (IDS-5a)
+- `VerificationGate` at `.aios-core/core/ids/verification-gate.js` — Template Method pattern
+- `CircuitBreaker` at `.aios-core/core/ids/circuit-breaker.js` — 3-state (CLOSED/OPEN/HALF_OPEN)
+- G1(@pm)/G2(@sm): advisory; G3(@po): soft block; G4(@dev): informational
+- G3 needs `Boolean()` wrapper: `false || "string"` evaluates to string in JS
+
+### IDS Self-Healing Registry (IDS-4a)
+- `RegistryHealer` — 6 detection rules, 5 auto-healers
+- Registry entities: `registry.entities[category][entityId]` — need `buildEntityIndex()` to flatten
+- Healing backups: `.aios-core/data/registry-backups/healing/`
+
+### Jest Gotchas
+- `jest.clearAllMocks()` does NOT reset `mockImplementation()` — only clears call history
+- To reset: explicitly restore defaults in `beforeEach` or use `jest.restoreAllMocks()` (spyOn only)
+- `jest.mock()` path hoisting: cannot use `path.resolve()` in mock path (hoisted before `const path`)
+
 ## Archived
 <!-- Patterns no longer relevant — kept for history -->
 <!-- Format: - ~~{pattern}~~ | Archived: {YYYY-MM-DD} | Reason: {reason} -->

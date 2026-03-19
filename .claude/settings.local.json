@@ -10,7 +10,10 @@
       "Bash(git push:*)",
       "Bash(node -e:*)",
       "Bash(npx jest:*)",
-      "Bash(cmd.exe //c \"schtasks /query /tn AIOS-EmailScheduler /fo LIST\")"
+      "Bash(cmd.exe //c \"schtasks /query /tn AIOS-EmailScheduler /fo LIST\")",
+      "Bash(convert \"Portfolio 01.png\" -resize 1920x2400 -quality 80 -strip \"Portfolio_01_optimized.jpg\")",
+      "mcp__filesystem-notebooklm__list_directory",
+      "WebFetch(domain:oportal.app)"
     ]
   }
 }

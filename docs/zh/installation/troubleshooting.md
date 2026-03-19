@@ -2,7 +2,7 @@
 
 # Synkra AIOS 故障排除指南
 
-> 🌐 [EN](../../installation/troubleshooting.md) | [PT](../pt/installation/troubleshooting.md) | [ES](../es/installation/troubleshooting.md)
+> 🌐 [EN](../../installation/troubleshooting.md) | [PT](../pt/installation/troubleshooting.md) *(coming soon)* | [ES](../es/installation/troubleshooting.md) *(coming soon)*
 
 **版本:** 2.1.0
 **最后更新:** 2025-01-24

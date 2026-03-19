@@ -4,7 +4,7 @@
 > **最后更新:** 2026-01-29
 > **状态:** 官方框架标准
 >
-> [EN](../../architecture/ade-architecture.md) | [PT](../../pt/architecture/ade-architecture.md) | [ES](../../es/architecture/ade-architecture.md) | **ZH**
+> [EN](../../architecture/ade-architecture.md) *(coming soon)* | [PT](../../pt/architecture/ade-architecture.md) | [ES](../../es/architecture/ade-architecture.md) | **ZH**
 
 ---
 

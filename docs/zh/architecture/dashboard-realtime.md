@@ -1,6 +1,6 @@
 # AIOS Dashboard - 实时可观测性架构
 
-> [EN](../../architecture/dashboard-realtime.md) | [PT](../../pt/architecture/dashboard-realtime.md) | [ES](../../es/architecture/dashboard-realtime.md) | **ZH**
+> [EN](../../architecture/dashboard-realtime.md) *(coming soon)* | [PT](../../pt/architecture/dashboard-realtime.md) | [ES](../../es/architecture/dashboard-realtime.md) | **ZH**
 
 > **版本:** 1.0.0
 > **日期:** 2026-01-29

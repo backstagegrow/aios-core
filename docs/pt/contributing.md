@@ -317,8 +317,8 @@ tasks:
 
 ### Recursos para Squads
 
-- [Guia de Squads](docs/guides/squads-guide.md) - Documentacao completa
-- [Template de Squad](templates/squad/) - Comece de um template funcional
+- [Guia de Squads](docs/guides/squads-guide.md) *(coming soon)* - Documentacao completa
+- [Template de Squad](templates/squad/) *(coming soon)* - Comece de um template funcional
 - [Discussoes de Squads](https://github.com/SynkraAI/aios-core/discussions/categories/ideas) - Compartilhe ideias
 
 ---
@@ -525,16 +525,16 @@ Correcoes comuns:
 
 - **GitHub Issues:** [Abra uma issue](https://github.com/SynkraAI/aios-core/issues)
 - **Discussoes:** [Inicie uma discussao](https://github.com/SynkraAI/aios-core/discussions)
-- **Comunidade:** [COMMUNITY-PT.md](COMMUNITY-PT.md)
+- **Comunidade:** [COMMUNITY-PT.md](COMMUNITY-PT.md) *(coming soon)*
 
 ---
 
 ## Recursos Adicionais
 
-- [Guia da Comunidade](COMMUNITY-PT.md) - Como participar
-- [Guia de Squads](docs/guides/squads-guide.md) - Crie equipes de agents
-- [Arquitetura](docs/architecture/) - Design do sistema
-- [Roadmap](ROADMAP-PT.md) - Direcao do projeto
+- [Guia da Comunidade](COMMUNITY-PT.md) *(coming soon)* - Como participar
+- [Guia de Squads](docs/guides/squads-guide.md) *(coming soon)* - Crie equipes de agents
+- [Arquitetura](docs/architecture/) *(coming soon)* - Design do sistema
+- [Roadmap](ROADMAP-PT.md) *(coming soon)* - Direcao do projeto
 
 ---
 

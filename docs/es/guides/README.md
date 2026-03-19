@@ -58,7 +58,7 @@ Use el agente DevOps: `@devops` luego `*setup-mcp-docker`
 | --------------------------------------------------------------------------- | ------------------------------------------- | ------ | ------------------------------- |
 | **[Arquitectura del Sistema de Módulos](../architecture/module-system.md)** | Arquitectura modular v4.2 (4 módulos)       | 15 min | Arquitectos, Desarrolladores    |
 | **[Guía de Descubrimiento de Servicios](./service-discovery.md)**           | API de descubrimiento y registro de workers | 10 min | Desarrolladores                 |
-| **[Guía de Migración v2.0→v4.0.4](../../migration/migration-guide.md)**          | Instrucciones de migración paso a paso      | 20 min | Todos los usuarios actualizando |
+| **[Guía de Migración v2.0→v4.0.4](../../migration/migration-guide.md) *(coming soon)***          | Instrucciones de migración paso a paso      | 20 min | Todos los usuarios actualizando |
 
 ### Configuración del Sistema
 
@@ -83,7 +83,7 @@ Use el agente DevOps: `@devops` luego `*setup-mcp-docker`
 → [`service-discovery.md`](./service-discovery.md) (10 min)
 
 **...migrar de v2.0 a v4.0.4**
-→ [`migration-guide.md`](../../migration/migration-guide.md) (20 min)
+→ [`migration-guide.md`](../../migration/migration-guide.md) *(coming soon)* (20 min)
 
 **...configurar quality gates**
 → [`quality-gates.md`](./quality-gates.md) (15 min)

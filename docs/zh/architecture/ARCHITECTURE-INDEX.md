@@ -2,7 +2,7 @@
 
 # AIOS 架构文档索引
 
-> 🌐 [EN](../../architecture/ARCHITECTURE-INDEX.md) | [PT](../../pt/architecture/ARCHITECTURE-INDEX.md) | [ES](../../es/architecture/ARCHITECTURE-INDEX.md) | **ZH-CN**
+> 🌐 [EN](../../architecture/ARCHITECTURE-INDEX.md) *(coming soon)* | [PT](../../pt/architecture/ARCHITECTURE-INDEX.md) | [ES](../../es/architecture/ARCHITECTURE-INDEX.md) | **ZH-CN**
 
 ---
 
@@ -43,7 +43,7 @@ docs/architecture/
 |------|------|------|
 | [高级架构](./high-level-architecture.md) | AIOS v4 架构概览 | ✅ 当前版本 |
 | [模块系统](./module-system.md) | 4 模块模块化架构 | ✅ 当前版本 |
-| [内存层](./memory-layer.md) | 内存系统架构 | ✅ 当前版本 |
+| [内存层](./memory-layer.md) *(coming soon)* | 内存系统架构 | ✅ 当前版本 |
 
 ### MCP 和集成
 

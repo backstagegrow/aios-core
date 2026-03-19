@@ -2,7 +2,7 @@
 
 # Auditoría de Uso de Configuración de Agentes
 
-> 🌐 [EN](../../architecture/agent-config-audit.md) | [PT](../../pt/architecture/agent-config-audit.md) | **ES**
+> 🌐 [EN](../../architecture/agent-config-audit.md) *(coming soon)* | [PT](../../pt/architecture/agent-config-audit.md) | **ES**
 
 ---
 

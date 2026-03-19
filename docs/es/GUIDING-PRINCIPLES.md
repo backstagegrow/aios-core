@@ -75,7 +75,7 @@ Vea la [Visión General de Squads](../guides/squads-overview.md) para ejemplos d
 
 ### Reglas de Plantillas
 
-Las plantillas siguen la especificación de [Plantilla de Documento AIOS](../../common/utils/aios-doc-template.md) usando formato YAML:
+Las plantillas siguen la especificación de [Plantilla de Documento AIOS](../../common/utils/aios-doc-template.md) *(coming soon)* usando formato YAML:
 
 1. **Estructura**: Las plantillas se definen en YAML con metadatos claros, configuración de flujo de trabajo y jerarquía de secciones
 2. **Separación de Responsabilidades**: Las instrucciones para LLMs están en campos `instruction`, separadas del contenido

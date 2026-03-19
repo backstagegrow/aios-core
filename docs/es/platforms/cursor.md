@@ -2,7 +2,7 @@
 
 # Guía de AIOS para Cursor
 
-> 🌐 [EN](../../platforms/cursor.md) | [PT](../../pt/platforms/cursor.md) | **ES**
+> 🌐 [EN](../../platforms/cursor.md) *(coming soon)* | [PT](../../pt/platforms/cursor.md) | **ES**
 
 ---
 

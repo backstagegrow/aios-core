@@ -1,6 +1,6 @@
 # Estrategia Multi-Repositorio
 
-> **ES** | [EN](../../architecture/multi-repo-strategy.md) | [PT](../../pt/architecture/multi-repo-strategy.md)
+> **ES** | [EN](../../architecture/multi-repo-strategy.md) *(coming soon)* | [PT](../../pt/architecture/multi-repo-strategy.md)
 
 ---
 
@@ -382,7 +382,7 @@ npm publish --access public
 
 - [Arquitectura de Alto Nivel](./high-level-architecture.md)
 - [Sistema de Módulos](./module-system.md)
-- [Guía de Migración v2.0 a v4.0.4](../migration/migration-guide.md)
+- [Guía de Migración v2.0 a v4.0.4](../migration/migration-guide.md) *(coming soon)*
 - [Guía de Squads](../guides/squads-guide.md)
 
 ---

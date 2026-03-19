@@ -2,7 +2,7 @@
 
 # HybridOps PV 代理参考指南
 
-> 🌐 [EN](../agent-reference-guide.md) | [PT](../pt/agent-reference-guide.md) | [ES](../es/agent-reference-guide.md) | **ZH**
+> 🌐 [EN](../agent-reference-guide.md) *(coming soon)* | [PT](../pt/agent-reference-guide.md) | [ES](../es/agent-reference-guide.md) | **ZH**
 
 ---
 
@@ -547,8 +547,8 @@ const workflowContext = pvMind.getPhaseContext(<phase-number>);
 
 ## 相关文档
 
-- [工作流图](../guides/hybridOps/workflow-diagram.md) - 9 阶段工作流的可视化表示
-- [工作流 YAML](../guides/hybridOps/hybrid-ops-pv.yaml) - 工作流编排配置
+- [工作流图](../guides/hybridOps/workflow-diagram.md) *(coming soon)* - 9 阶段工作流的可视化表示
+- [工作流 YAML](../guides/hybridOps/hybrid-ops-pv.yaml) *(coming soon)* - 工作流编排配置
 
 ---
 

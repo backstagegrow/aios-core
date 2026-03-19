@@ -2,7 +2,7 @@
 
 # Matriz de Responsabilidad de Agentes - Mejoras Estratégicas Épica 3
 
-> 🌐 [EN](../../architecture/agent-responsibility-matrix.md) | [PT](../../pt/architecture/agent-responsibility-matrix.md) | **ES**
+> 🌐 [EN](../../architecture/agent-responsibility-matrix.md) *(coming soon)* | [PT](../../pt/architecture/agent-responsibility-matrix.md) | **ES**
 
 ---
 

@@ -101,7 +101,13 @@ async function loadAllAgents() {
       if (file.endsWith('.md') && !file.startsWith('_')) {
         const filePath = path.join(AGENTS_DIR, file);
         const content = await fs.readFile(filePath, 'utf-8');
-        const parsed = extractYamlFromMarkdown(content);
+        let parsed;
+        try {
+          parsed = extractYamlFromMarkdown(content);
+        } catch (err) {
+          console.error(`Error parsing YAML in ${file}: ${err.message}`);
+          continue;
+        }
 
         if (parsed?.agent) {
           agents.push({
@@ -200,6 +206,9 @@ function validateCommandUniqueness(agents) {
       } else if (cmd.name) {
         // Explicit format: { name: 'command', ... }
         cmdName = cmd.name;
+      } else if (cmd.key) {
+        // Shorthand format with key: { key: 'command', ... }
+        cmdName = cmd.key.split(' ')[0];
       } else if (typeof cmd === 'object') {
         // Shorthand format: { command: 'description' } - take first key
         const keys = Object.keys(cmd);

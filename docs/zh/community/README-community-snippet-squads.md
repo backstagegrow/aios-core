@@ -1,6 +1,6 @@
 # README 社区部分 - aios-squads
 
-> 🌐 [EN](../../en/community/README-community-snippet-squads.md) | [PT](../../pt/community/README-community-snippet-squads.md) | [ES](../../es/community/README-community-snippet-squads.md) | **ZH**
+> 🌐 [EN](../../en/community/README-community-snippet-squads.md) *(coming soon)* | [PT](../../pt/community/README-community-snippet-squads.md) | [ES](../../es/community/README-community-snippet-squads.md) | **ZH**
 
 > **用途:** 将此代码段复制到 `SynkraAI/aios-squads` 仓库的 README.md 中。
 

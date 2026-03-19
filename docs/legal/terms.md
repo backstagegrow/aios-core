@@ -2,7 +2,7 @@
 
 **Last updated:** 2025-12-08
 
-> 🇧🇷 [Versão em Português](TERMS-PT.md)
+> 🇧🇷 [Versão em Português](TERMS-PT.md) *(coming soon)*
 
 ## Acceptance of Terms
 
@@ -10,7 +10,7 @@ By using Synkra AIOS ("the Software"), you agree to be bound by these Terms of U
 
 ## License
 
-Synkra AIOS is released under the **MIT License**. See the [LICENSE](LICENSE) file for the full license text.
+Synkra AIOS is released under the **MIT License**. See the [LICENSE](LICENSE) *(coming soon)* file for the full license text.
 
 For licensing scope between open-source core and private modules, see:
 - [License Clarification (Core vs Pro)](./license-clarification.md)
@@ -72,9 +72,9 @@ By contributing to Synkra AIOS, you agree that:
 1. **License Grant:** Your contributions will be licensed under the same MIT License
 2. **Original Work:** Your contributions are your original work or you have the right to submit them
 3. **No Compensation:** Contributions are made voluntarily without expectation of payment
-4. **Code of Conduct:** You will follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+4. **Code of Conduct:** You will follow our [Code of Conduct](CODE_OF_CONDUCT.md) *(coming soon)*
 
-For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md) *(coming soon)*.
 
 ## Trademarks
 
@@ -137,7 +137,7 @@ Any disputes arising from these terms will be resolved through:
 We reserve the right to modify these terms at any time. Changes will be:
 
 - Effective immediately upon posting
-- Documented in the [CHANGELOG](CHANGELOG.md)
+- Documented in the [CHANGELOG](CHANGELOG.md) *(coming soon)*
 - Communicated through release notes
 
 Continued use of the Software after changes constitutes acceptance of the new terms.
@@ -148,7 +148,7 @@ If any provision of these terms is found to be unenforceable, the remaining prov
 
 ## Entire Agreement
 
-These Terms of Use, together with the [LICENSE](LICENSE), [Privacy Policy](PRIVACY.md), and [Code of Conduct](CODE_OF_CONDUCT.md), constitute the entire agreement between you and SynkraAI Inc. regarding use of Synkra AIOS.
+These Terms of Use, together with the [LICENSE](LICENSE) *(coming soon)*, [Privacy Policy](PRIVACY.md), and [Code of Conduct](CODE_OF_CONDUCT.md) *(coming soon)*, constitute the entire agreement between you and SynkraAI Inc. regarding use of Synkra AIOS.
 
 ## Contact
 

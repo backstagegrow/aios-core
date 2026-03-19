@@ -2,7 +2,7 @@
 
 # AIOS 代码树结构
 
-> 🌐 [EN](../../architecture/source-tree.md) | [PT](../../pt/architecture/source-tree.md) | **ZH**
+> 🌐 [EN](../../architecture/source-tree.md) *(coming soon)* | [PT](../../pt/architecture/source-tree.md) | **ZH**
 
 ---
 
@@ -361,7 +361,7 @@ docs/
 
 ## Squad 系统
 
-> **注意**: Squad 替代了 OSR-8 中已弃用的 "Squad" 系统。完整文档见 [Squad 指南](../guides/squads-guide.md)。
+> **注意**: Squad 替代了 OSR-8 中已弃用的 "Squad" 系统。完整文档见 [Squad 指南](../guides/squads-guide.md) *(coming soon)*。
 
 ### 概述
 

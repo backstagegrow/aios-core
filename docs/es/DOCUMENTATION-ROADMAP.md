@@ -6,7 +6,7 @@
 
 # Hoja de Ruta de Documentación de AIOS
 
-> 🌐 [EN](../DOCUMENTATION-ROADMAP.md) | [PT](../pt/DOCUMENTATION-ROADMAP.md) | **ES**
+> 🌐 [EN](../DOCUMENTATION-ROADMAP.md) *(coming soon)* | [PT](../pt/DOCUMENTATION-ROADMAP.md) | **ES**
 
 ---
 

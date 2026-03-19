@@ -49,7 +49,7 @@ We welcome contributions! Check out our:
 
 - 📖 [Contributing Guide](../../CONTRIBUTING.md)
 - 📜 [Code of Conduct](../../CODE_OF_CONDUCT.md)
-- 🏗️ [Coding Standards](../architecture/coding-standards.md)
+- 🏗️ [Coding Standards](../architecture/coding-standards.md) *(coming soon)*
 - 🏷️ [Good First Issues](https://github.com/SynkraAI/aios-core/labels/good-first-issue)
 
 ---

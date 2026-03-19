@@ -2,7 +2,7 @@
 
 # AIOS v4 高级架构
 
-> 🌐 [EN](../../architecture/high-level-architecture.md) | [PT](../../pt/architecture/high-level-architecture.md) | [ES](../../es/architecture/high-level-architecture.md) | **ZH-CN**
+> 🌐 [EN](../../architecture/high-level-architecture.md) *(coming soon)* | [PT](../../pt/architecture/high-level-architecture.md) | [ES](../../es/architecture/high-level-architecture.md) | **ZH-CN**
 
 ---
 

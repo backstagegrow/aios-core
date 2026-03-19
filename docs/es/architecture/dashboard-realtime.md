@@ -1,6 +1,6 @@
 # 🔴 AIOS Dashboard - Arquitectura de Observabilidad en Tiempo Real
 
-> **ES** | [EN](../architecture/dashboard-realtime.md) | [PT](../pt/architecture/dashboard-realtime.md)
+> **ES** | [EN](../architecture/dashboard-realtime.md) | [PT](../pt/architecture/dashboard-realtime.md) *(coming soon)*
 >
 > **Versión:** 1.0.0
 > **Fecha:** 2026-01-29

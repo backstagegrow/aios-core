@@ -3,7 +3,7 @@
 > **Versión:** 1.0
 > **Última Actualización:** 2026-01-29
 > **Estado:** Estándar Oficial del Framework
-> **ES** | [EN](../architecture/ade-architecture.md) | [PT](../pt/architecture/ade-architecture.md)
+> **ES** | [EN](../architecture/ade-architecture.md) | [PT](../pt/architecture/ade-architecture.md) *(coming soon)*
 
 ---
 

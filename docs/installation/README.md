@@ -89,7 +89,7 @@ npx aios-core install --force-upgrade
 
 - [Coding Standards](../framework/coding-standards.md)
 - [Tech Stack](../framework/tech-stack.md)
-- [Architecture](../architecture/)
+- [Architecture](../architecture/) *(coming soon)*
 - [Changelog](../CHANGELOG.md)
 
 ---

@@ -1,6 +1,6 @@
 # 代理选择指南
 
-> **EN** | [PT](../pt/guides/agent-selection-guide.md) | [ES](../es/guides/agent-selection-guide.md)
+> **EN** | [PT](../pt/guides/agent-selection-guide.md) *(coming soon)* | [ES](../es/guides/agent-selection-guide.md) *(coming soon)*
 
 ---
 

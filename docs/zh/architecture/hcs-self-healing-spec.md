@@ -2,7 +2,7 @@
 
 # HCS 自动恢复规范
 
-> 🌐 [EN](../../architecture/hcs-self-healing-spec.md) | [PT](../../pt/architecture/hcs-self-healing-spec.md) | **ZH**
+> 🌐 [EN](../../architecture/hcs-self-healing-spec.md) *(coming soon)* | [PT](../../pt/architecture/hcs-self-healing-spec.md) | **ZH**
 
 ---
 

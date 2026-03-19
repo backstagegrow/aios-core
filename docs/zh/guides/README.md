@@ -52,7 +52,7 @@ Synkra AIOS 系统指南的完整文档索引。
 | -------------------------------------------------------- | ------------------------------ | ------- | -------------------- |
 | **[模块系统架构](../architecture/module-system.md)**     | v4.2 模块化架构（4 个模块）    | 15分钟  | 架构师、开发人员      |
 | **[服务发现指南](./service-discovery.md)**               | 工作者发现和注册表 API         | 10分钟  | 开发人员             |
-| **[迁移指南 v2.0→v4.2](../migration/migration-guide.md)** | 分步迁移说明                   | 20分钟  | 所有升级用户         |
+| **[迁移指南 v2.0→v4.2](../migration/migration-guide.md) *(coming soon)*** | 分步迁移说明                   | 20分钟  | 所有升级用户         |
 
 ### 系统配置
 
@@ -77,7 +77,7 @@ Synkra AIOS 系统指南的完整文档索引。
 → [`service-discovery.md`](./service-discovery.md)（10分钟）
 
 **...从 v2.0 迁移到 v4.2**
-→ [`migration-guide.md`](../migration/migration-guide.md)（20分钟）
+→ [`migration-guide.md`](../migration/migration-guide.md) *(coming soon)*（20分钟）
 
 **...配置质量门控**
 → [`quality-gates.md`](./quality-gates.md)（15分钟）
@@ -112,7 +112,7 @@ Synkra AIOS 系统指南的完整文档索引。
 | [质量门控指南](./quality-gates.md)            | ~600 | 完整     |
 | [质量仪表板指南](./quality-dashboard.md)      | ~350 | 完整     |
 | [模板引擎 v2](./template-engine-v2.md)        | ~400 | 完整     |
-| [CodeRabbit 集成](./coderabbit/)             | ~1000| 完整     |
+| [CodeRabbit 集成](./coderabbit/) *(coming soon)*             | ~1000| 完整     |
 
 ---
 

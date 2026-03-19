@@ -629,27 +629,27 @@ template:
 
 ### 主要任务
 
-- [任务：facilitate-brainstorming-session.md](.aios-core/development/tasks/facilitate-brainstorming-session.md)
-- [任务：create-deep-research-prompt.md](.aios-core/development/tasks/create-deep-research-prompt.md)
-- [任务：advanced-elicitation.md](.aios-core/development/tasks/advanced-elicitation.md)
-- [任务：create-doc.md](.aios-core/development/tasks/create-doc.md)
-- [任务：document-project.md](.aios-core/development/tasks/document-project.md)
+- [任务：facilitate-brainstorming-session.md](.aios-core/development/tasks/facilitate-brainstorming-session.md) *(coming soon)*
+- [任务：create-deep-research-prompt.md](.aios-core/development/tasks/create-deep-research-prompt.md) *(coming soon)*
+- [任务：advanced-elicitation.md](.aios-core/development/tasks/advanced-elicitation.md) *(coming soon)*
+- [任务：create-doc.md](.aios-core/development/tasks/create-doc.md) *(coming soon)*
+- [任务：document-project.md](.aios-core/development/tasks/document-project.md) *(coming soon)*
 
 ### 模板
 
-- [模板：project-brief-tmpl.yaml](.aios-core/product/templates/project-brief-tmpl.yaml)
-- [模板：market-research-tmpl.yaml](.aios-core/product/templates/market-research-tmpl.yaml)
-- [模板：competitor-analysis-tmpl.yaml](.aios-core/product/templates/competitor-analysis-tmpl.yaml)
-- [模板：brainstorming-output-tmpl.yaml](.aios-core/product/templates/brainstorming-output-tmpl.yaml)
+- [模板：project-brief-tmpl.yaml](.aios-core/product/templates/project-brief-tmpl.yaml) *(coming soon)*
+- [模板：market-research-tmpl.yaml](.aios-core/product/templates/market-research-tmpl.yaml) *(coming soon)*
+- [模板：competitor-analysis-tmpl.yaml](.aios-core/product/templates/competitor-analysis-tmpl.yaml) *(coming soon)*
+- [模板：brainstorming-output-tmpl.yaml](.aios-core/product/templates/brainstorming-output-tmpl.yaml) *(coming soon)*
 
 ### 工作流
 
-- [工作流：greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
-- [工作流：brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml)
+- [工作流：greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
+- [工作流：brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml) *(coming soon)*
 
 ### 代理
 
-- [代理：analyst.md](.aios-core/development/agents/analyst.md)
+- [代理：analyst.md](.aios-core/development/agents/analyst.md) *(coming soon)*
 
 ---
 

@@ -667,14 +667,14 @@ flowchart LR
 
 ## 参考
 
-- [任务：squad-creator-create.md](.aios-core/development/tasks/squad-creator-create.md)
-- [任务：squad-creator-validate.md](.aios-core/development/tasks/squad-creator-validate.md)
-- [任务：squad-creator-design.md](.aios-core/development/tasks/squad-creator-design.md)
-- [脚本：squad-generator.js](.aios-core/development/scripts/squad/squad-generator.js)
-- [脚本：squad-validator.js](.aios-core/development/scripts/squad/squad-validator.js)
-- [Schema：squad-schema.json](.aios-core/schemas/squad-schema.json)
-- [代理：squad-creator.md](.aios-core/development/agents/squad-creator.md)
-- [命令：squad-creator.md](.claude/commands/AIOS/agents/squad-creator.md)
+- [任务：squad-creator-create.md](.aios-core/development/tasks/squad-creator-create.md) *(coming soon)*
+- [任务：squad-creator-validate.md](.aios-core/development/tasks/squad-creator-validate.md) *(coming soon)*
+- [任务：squad-creator-design.md](.aios-core/development/tasks/squad-creator-design.md) *(coming soon)*
+- [脚本：squad-generator.js](.aios-core/development/scripts/squad/squad-generator.js) *(coming soon)*
+- [脚本：squad-validator.js](.aios-core/development/scripts/squad/squad-validator.js) *(coming soon)*
+- [Schema：squad-schema.json](.aios-core/schemas/squad-schema.json) *(coming soon)*
+- [代理：squad-creator.md](.aios-core/development/agents/squad-creator.md) *(coming soon)*
+- [命令：squad-creator.md](.claude/commands/AIOS/agents/squad-creator.md) *(coming soon)*
 
 ---
 

@@ -399,8 +399,8 @@ For complete documentation for each workflow, including detailed step-by-step gu
 
 ## Related Documentation
 
-- [HybridOps Workflow Diagram](./hybridOps/workflow-diagram.md) - Human-agent collaboration patterns
-- [Agent Reference Guide](../agent-reference-guide.md) - Available agents and their capabilities
+- [HybridOps Workflow Diagram](./hybridOps/workflow-diagram.md) *(coming soon)* - Human-agent collaboration patterns
+- [Agent Reference Guide](../agent-reference-guide.md) *(coming soon)* - Available agents and their capabilities
 - [Story-Driven Development](./user-guide.md#story-driven-development) - The story workflow
 
 ---

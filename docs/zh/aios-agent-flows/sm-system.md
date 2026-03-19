@@ -450,26 +450,26 @@ dependencies:
 ## 参考
 
 ### 代理文件
-- [代理：sm.md](.aios-core/development/agents/sm.md)
-- [任务：create-next-story.md](.aios-core/development/tasks/create-next-story.md)
-- [任务：execute-checklist.md](.aios-core/development/tasks/execute-checklist.md)
-- [任务：correct-course.md](.aios-core/development/tasks/correct-course.md)
+- [代理：sm.md](.aios-core/development/agents/sm.md) *(coming soon)*
+- [任务：create-next-story.md](.aios-core/development/tasks/create-next-story.md) *(coming soon)*
+- [任务：execute-checklist.md](.aios-core/development/tasks/execute-checklist.md) *(coming soon)*
+- [任务：correct-course.md](.aios-core/development/tasks/correct-course.md) *(coming soon)*
 
 ### 检查清单
-- [检查清单：story-draft-checklist.md](.aios-core/product/checklists/story-draft-checklist.md)
-- [检查清单：story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md)
-- [检查清单：change-checklist.md](.aios-core/product/checklists/change-checklist.md)
+- [检查清单：story-draft-checklist.md](.aios-core/product/checklists/story-draft-checklist.md) *(coming soon)*
+- [检查清单：story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md) *(coming soon)*
+- [检查清单：change-checklist.md](.aios-core/product/checklists/change-checklist.md) *(coming soon)*
 
 ### 工作流
-- [工作流：story-development-cycle.yaml](.aios-core/development/workflows/story-development-cycle.yaml)
-- [工作流：greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
-- [工作流：brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml)
+- [工作流：story-development-cycle.yaml](.aios-core/development/workflows/story-development-cycle.yaml) *(coming soon)*
+- [工作流：greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
+- [工作流：brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml) *(coming soon)*
 
 ### 配置
-- [核心配置](../.aios-core/core-config.yaml)
+- [核心配置](../.aios-core/core-config.yaml) *(coming soon)*
 
 ### 相关文档
-- [待办管理系统](../BACKLOG-MANAGEMENT-SYSTEM.md)
+- [待办管理系统](../BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ---
 

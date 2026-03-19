@@ -2,7 +2,7 @@
 
 # Arquitetura de Alto Nível do AIOS v4
 
-> 🌐 [EN](../../architecture/high-level-architecture.md) | **PT** | [ES](../../es/architecture/high-level-architecture.md)
+> 🌐 [EN](../../architecture/high-level-architecture.md) *(coming soon)* | **PT** | [ES](../../es/architecture/high-level-architecture.md)
 
 ---
 

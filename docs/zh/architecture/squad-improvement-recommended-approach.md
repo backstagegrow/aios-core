@@ -2,7 +2,7 @@
 
 # 推荐方案：Squad 改进系统
 
-> [EN](../../architecture/squad-improvement-recommended-approach.md) | [PT](../../pt/architecture/squad-improvement-recommended-approach.md) | [ES](../../es/architecture/squad-improvement-recommended-approach.md) | **ZH**
+> [EN](../../architecture/squad-improvement-recommended-approach.md) *(coming soon)* | [PT](../../pt/architecture/squad-improvement-recommended-approach.md) | [ES](../../es/architecture/squad-improvement-recommended-approach.md) | **ZH**
 
 ---
 

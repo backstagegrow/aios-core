@@ -444,26 +444,26 @@ dependencies:
 ## Referencias
 
 ### Arquivos do Agente
-- [Agent: sm.md](.aios-core/development/agents/sm.md)
-- [Task: create-next-story.md](.aios-core/development/tasks/create-next-story.md)
-- [Task: execute-checklist.md](.aios-core/development/tasks/execute-checklist.md)
-- [Task: correct-course.md](.aios-core/development/tasks/correct-course.md)
+- [Agent: sm.md](.aios-core/development/agents/sm.md) *(coming soon)*
+- [Task: create-next-story.md](.aios-core/development/tasks/create-next-story.md) *(coming soon)*
+- [Task: execute-checklist.md](.aios-core/development/tasks/execute-checklist.md) *(coming soon)*
+- [Task: correct-course.md](.aios-core/development/tasks/correct-course.md) *(coming soon)*
 
 ### Checklists
-- [Checklist: story-draft-checklist.md](.aios-core/product/checklists/story-draft-checklist.md)
-- [Checklist: story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md)
-- [Checklist: change-checklist.md](.aios-core/product/checklists/change-checklist.md)
+- [Checklist: story-draft-checklist.md](.aios-core/product/checklists/story-draft-checklist.md) *(coming soon)*
+- [Checklist: story-dod-checklist.md](.aios-core/product/checklists/story-dod-checklist.md) *(coming soon)*
+- [Checklist: change-checklist.md](.aios-core/product/checklists/change-checklist.md) *(coming soon)*
 
 ### Workflows
-- [Workflow: story-development-cycle.yaml](.aios-core/development/workflows/story-development-cycle.yaml)
-- [Workflow: greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
-- [Workflow: brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml)
+- [Workflow: story-development-cycle.yaml](.aios-core/development/workflows/story-development-cycle.yaml) *(coming soon)*
+- [Workflow: greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
+- [Workflow: brownfield-fullstack.yaml](.aios-core/development/workflows/brownfield-fullstack.yaml) *(coming soon)*
 
 ### Configuracao
-- [Core Config](../.aios-core/core-config.yaml)
+- [Core Config](../.aios-core/core-config.yaml) *(coming soon)*
 
 ### Documentacao Relacionada
-- [Backlog Management System](../BACKLOG-MANAGEMENT-SYSTEM.md)
+- [Backlog Management System](../BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ---
 

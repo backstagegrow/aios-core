@@ -2,7 +2,7 @@
 
 # 代理责任矩阵 - Epic 3 战略改进
 
-> 🌐 [EN](../../architecture/agent-responsibility-matrix.md) | [PT](../../pt/architecture/agent-responsibility-matrix.md) | **ZH**
+> 🌐 [EN](../../architecture/agent-responsibility-matrix.md) *(coming soon)* | [PT](../../pt/architecture/agent-responsibility-matrix.md) | **ZH**
 
 ---
 

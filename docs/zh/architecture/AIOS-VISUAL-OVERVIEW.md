@@ -582,11 +582,11 @@ AIOS 在具有不可协商原则的 **正式宪法** 下运行:
 
 | 文档 | 内容 |
 |-----------|----------|
-| [EXECUTOR-DECISION-TREE.md](../../.aios-core/docs/standards/EXECUTOR-DECISION-TREE.md) | 带示例和成本效益分析的详细决策树 |
-| [SYNAPSE-FLOWCHARTS.md](SYNAPSE/SYNAPSE-FLOWCHARTS.md) | SYNAPSE 上下文引擎的 12 个流程图 |
-| [Constitution](../../.aios-core/constitution.md) | 框架的不可协商原则 |
-| [User Guide](../../.aios-core/user-guide.md) | AIOS 使用完整指南 |
-| [Squads Guide](../guides/squads-guide.md) | 如何创建和管理小队 |
+| [EXECUTOR-DECISION-TREE.md](../../.aios-core/docs/standards/EXECUTOR-DECISION-TREE.md) *(coming soon)* | 带示例和成本效益分析的详细决策树 |
+| [SYNAPSE-FLOWCHARTS.md](SYNAPSE/SYNAPSE-FLOWCHARTS.md) *(coming soon)* | SYNAPSE 上下文引擎的 12 个流程图 |
+| [Constitution](../../.aios-core/constitution.md) *(coming soon)* | 框架的不可协商原则 |
+| [User Guide](../../.aios-core/user-guide.md) *(coming soon)* | AIOS 使用完整指南 |
+| [Squads Guide](../guides/squads-guide.md) *(coming soon)* | 如何创建和管理小队 |
 
 ---
 

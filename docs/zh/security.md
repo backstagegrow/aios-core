@@ -1,6 +1,6 @@
 # 安全政策
 
-> 🇧🇷 [葡萄牙語版本](../SECURITY-PT.md)
+> 🇧🇷 [葡萄牙語版本](../SECURITY-PT.md) *(coming soon)*
 
 ## 支持的版本
 

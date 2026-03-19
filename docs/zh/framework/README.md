@@ -87,7 +87,7 @@
 
 - **架构概述**: [`docs/architecture/`](../architecture/)
 - **安装指南**: [`docs/installation/`](../installation/)
-- **平台指南**: [`docs/platforms/`](../platforms/)
+- **平台指南**: [`docs/platforms/`](../platforms/) *(coming soon)*
 - **架构决策**: `docs/decisions/` *(即将推出)*
 - **Epic 规划**: `docs/epics/` *(即将推出)*
 

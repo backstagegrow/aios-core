@@ -906,8 +906,8 @@ flowchart TD
 
 ### 相关文档
 
-- [AIOS 知识库](.aios-core/data/aios-kb.md) - 中央知识库
-- [棕地工作流](./BROWNFIELD-WORKFLOW.md) - 现有项目工作流 (如可用)
+- [AIOS 知识库](.aios-core/data/aios-kb.md) *(coming soon)* - 中央知识库
+- [棕地工作流](./BROWNFIELD-WORKFLOW.md) *(coming soon)* - 现有项目工作流 (如可用)
 
 ---
 

@@ -37,6 +37,16 @@
 <!-- Patterns seen across 3+ agents — candidates for CLAUDE.md or .claude/rules/ -->
 <!-- Format: - **{pattern}** | Source: {agent} | Detected: {YYYY-MM-DD} -->
 
+## Historical — IDS Module Patterns (2026-02-10)
+- Test fixtures: `tests/core/ids/fixtures/` (valid-registry.yaml, empty-registry.yaml)
+- Full IDS regression: 359 tests, 8 suites
+- Circuit breaker defaults: failure_threshold=5, success_threshold=3, reset_timeout_ms=60000
+- Shared utilities (computeChecksum, extractKeywords) in `populate-entity-registry.js` — do NOT duplicate
+- Registry write: `yaml.dump(data, { lineWidth: 120, noRefs: true, sortKeys: false })`
+- Audit logs: JSONL format, 5MB rotation cap, non-blocking failures
+- RegistryLoader: `_findById`, `_getAllEntities`, `_ensureLoaded` are underscore "internal" but used by FrameworkGovernor
+- Gates ONLY use `IncrementalDecisionEngine.analyze()` — never private methods
+
 ## Archived
 <!-- Patterns no longer relevant — kept for history -->
 <!-- Format: - ~~{pattern}~~ | Archived: {YYYY-MM-DD} | Reason: {reason} -->

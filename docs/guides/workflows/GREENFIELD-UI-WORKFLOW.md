@@ -906,8 +906,8 @@ flowchart TD
 
 ### Documentacao Relacionada
 
-- [AIOS Knowledge Base](.aios-core/data/aios-kb.md) - Base de conhecimento central
-- [Brownfield Workflow](./BROWNFIELD-WORKFLOW.md) - Workflow para projetos existentes (se disponivel)
+- [AIOS Knowledge Base](.aios-core/data/aios-kb.md) *(coming soon)* - Base de conhecimento central
+- [Brownfield Workflow](./BROWNFIELD-WORKFLOW.md) *(coming soon)* - Workflow para projetos existentes (se disponivel)
 
 ---
 

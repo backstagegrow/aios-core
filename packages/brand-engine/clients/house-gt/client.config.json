@@ -10,6 +10,7 @@
         "colors": {
             "brandPrimary": "#052F33",
             "brandPrimaryAlt": "#0A3F44",
+            "brandSecondary": "#F8FAFC",
             "brandAccent": "#1FA2D6",
             "brandAccentLight": "#49B8E8",
             "brandBackground": "#F8FAFC",

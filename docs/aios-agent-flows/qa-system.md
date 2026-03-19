@@ -600,28 +600,28 @@ wsl bash -c '~/.local/bin/coderabbit --version'
 
 ### Tasks Core
 
-- [qa-gate.md](/.aios-core/development/tasks/qa-gate.md)
-- [qa-review-story.md](/.aios-core/development/tasks/qa-review-story.md)
-- [qa-test-design.md](/.aios-core/development/tasks/qa-test-design.md)
-- [qa-risk-profile.md](/.aios-core/development/tasks/qa-risk-profile.md)
-- [qa-nfr-assess.md](/.aios-core/development/tasks/qa-nfr-assess.md)
-- [qa-trace-requirements.md](/.aios-core/development/tasks/qa-trace-requirements.md)
+- [qa-gate.md](/.aios-core/development/tasks/qa-gate.md) *(coming soon)*
+- [qa-review-story.md](/.aios-core/development/tasks/qa-review-story.md) *(coming soon)*
+- [qa-test-design.md](/.aios-core/development/tasks/qa-test-design.md) *(coming soon)*
+- [qa-risk-profile.md](/.aios-core/development/tasks/qa-risk-profile.md) *(coming soon)*
+- [qa-nfr-assess.md](/.aios-core/development/tasks/qa-nfr-assess.md) *(coming soon)*
+- [qa-trace-requirements.md](/.aios-core/development/tasks/qa-trace-requirements.md) *(coming soon)*
 
 ### Workflows
 
-- [qa-loop.yaml](/.aios-core/development/workflows/qa-loop.yaml)
+- [qa-loop.yaml](/.aios-core/development/workflows/qa-loop.yaml) *(coming soon)*
 
 ### Teams
 
-- [team-qa-focused.yaml](/.aios-core/development/agent-teams/team-qa-focused.yaml)
+- [team-qa-focused.yaml](/.aios-core/development/agent-teams/team-qa-focused.yaml) *(coming soon)*
 
 ### Agente
 
-- [qa.md](/.aios-core/development/agents/qa.md)
+- [qa.md](/.aios-core/development/agents/qa.md) *(coming soon)*
 
 ### Documentos Relacionados
 
-- [BACKLOG-MANAGEMENT-SYSTEM.md](/docs/guides/BACKLOG-MANAGEMENT-SYSTEM.md)
+- [BACKLOG-MANAGEMENT-SYSTEM.md](/docs/guides/BACKLOG-MANAGEMENT-SYSTEM.md) *(coming soon)*
 
 ---
 

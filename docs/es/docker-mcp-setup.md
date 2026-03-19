@@ -419,7 +419,7 @@ Solo usar docker-gateway cuando:
 - [Guía MCP Desktop Commander](./guides/mcp/desktop-commander.md)
 - [Guía de Configuración Global MCP](./guides/mcp-global-setup.md)
 - [Diagramas de Arquitectura MCP](./architecture/mcp-system-diagrams.md)
-- [Agente DevOps](../.aios-core/development/agents/devops.md)
+- [Agente DevOps](../.aios-core/development/agents/devops.md) *(coming soon)*
 
 ---
 

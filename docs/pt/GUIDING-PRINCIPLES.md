@@ -75,7 +75,7 @@ Veja o [Visão Geral de Squads](../guides/squads-overview.md) para exemplos deta
 
 ### Regras de Templates
 
-Templates seguem a especificação do [AIOS Document Template](../../common/utils/aios-doc-template.md) usando formato YAML:
+Templates seguem a especificação do [AIOS Document Template](../../common/utils/aios-doc-template.md) *(coming soon)* usando formato YAML:
 
 1. **Estrutura**: Templates são definidos em YAML com metadados claros, configuração de workflow e hierarquia de seções
 2. **Separação de Responsabilidades**: Instruções para LLMs estão em campos `instruction`, separadas do conteúdo

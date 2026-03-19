@@ -1,5 +1,15 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/sessionstart.mjs"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
@@ -7,6 +17,14 @@
             "type": "command",
             "command": "node \"${CLAUDE_PROJECT_DIR:-.}/.claude/hooks/synapse-engine.cjs\"",
             "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/userpromptsubmit.mjs"
           }
         ]
       }
@@ -21,6 +39,70 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      },
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/pretooluse.mjs"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/posttooluse.mjs"
+          }
+        ]
       }
     ],
     "PreCompact": [
@@ -30,6 +112,14 @@
             "type": "command",
             "command": "node \"${CLAUDE_PROJECT_DIR:-.}/.claude/hooks/precompact-session-digest.cjs\"",
             "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node C:/Users/User/AppData/Roaming/npm/node_modules/context-mode/hooks/precompact.mjs"
           }
         ]
       }

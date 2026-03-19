@@ -2,7 +2,7 @@
 
 # Synkra AIOS 常见问题
 
-> 🌐 [EN](../../installation/faq.md) | [PT](../pt/installation/faq.md) | [ES](../es/installation/faq.md)
+> 🌐 [EN](../../installation/faq.md) | [PT](../pt/installation/faq.md) *(coming soon)* | [ES](../es/installation/faq.md) *(coming soon)*
 
 **版本:** 2.1.0
 **最后更新:** 2025-01-24

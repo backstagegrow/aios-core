@@ -2,7 +2,7 @@
 
 # 项目分析：Squad 改进系统
 
-> [EN](../../architecture/squad-improvement-analysis.md) | [PT](../../pt/architecture/squad-improvement-analysis.md) | [ES](../../es/architecture/squad-improvement-analysis.md) | **ZH**
+> [EN](../../architecture/squad-improvement-analysis.md) *(coming soon)* | [PT](../../pt/architecture/squad-improvement-analysis.md) | [ES](../../es/architecture/squad-improvement-analysis.md) | **ZH**
 
 ---
 

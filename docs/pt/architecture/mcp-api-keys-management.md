@@ -1,6 +1,6 @@
 # Gerenciamento de Chaves de API MCP
 
-> 🌐 [EN](../../architecture/mcp-api-keys-management.md) | **PT** | [ES](../../es/architecture/mcp-api-keys-management.md)
+> 🌐 [EN](../../architecture/mcp-api-keys-management.md) *(coming soon)* | **PT** | [ES](../../es/architecture/mcp-api-keys-management.md)
 
 ---
 

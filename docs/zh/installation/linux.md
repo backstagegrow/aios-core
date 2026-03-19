@@ -2,7 +2,7 @@
 
 # Synkra AIOS Linux 安装指南
 
-> 🌐 [EN](../../installation/linux.md) | [PT](../pt/installation/linux.md) | [ES](../es/installation/linux.md)
+> 🌐 [EN](../../installation/linux.md) | [PT](../pt/installation/linux.md) *(coming soon)* | [ES](../es/installation/linux.md) *(coming soon)*
 
 ---
 

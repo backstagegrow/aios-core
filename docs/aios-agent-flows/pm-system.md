@@ -689,15 +689,15 @@ flowchart LR
 
 ## Referencias
 
-- [Agent Definition: pm.md](.aios-core/development/agents/pm.md)
-- [Task: create-doc.md](.aios-core/development/tasks/create-doc.md)
-- [Task: brownfield-create-epic.md](.aios-core/development/tasks/brownfield-create-epic.md)
-- [Task: correct-course.md](.aios-core/development/tasks/correct-course.md)
-- [Template: prd-tmpl.yaml](.aios-core/product/templates/prd-tmpl.yaml)
-- [Template: brownfield-prd-tmpl.yaml](.aios-core/product/templates/brownfield-prd-tmpl.yaml)
-- [Checklist: pm-checklist.md](.aios-core/product/checklists/pm-checklist.md)
-- [Checklist: change-checklist.md](.aios-core/product/checklists/change-checklist.md)
-- [Workflow: brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml)
+- [Agent Definition: pm.md](.aios-core/development/agents/pm.md) *(coming soon)*
+- [Task: create-doc.md](.aios-core/development/tasks/create-doc.md) *(coming soon)*
+- [Task: brownfield-create-epic.md](.aios-core/development/tasks/brownfield-create-epic.md) *(coming soon)*
+- [Task: correct-course.md](.aios-core/development/tasks/correct-course.md) *(coming soon)*
+- [Template: prd-tmpl.yaml](.aios-core/product/templates/prd-tmpl.yaml) *(coming soon)*
+- [Template: brownfield-prd-tmpl.yaml](.aios-core/product/templates/brownfield-prd-tmpl.yaml) *(coming soon)*
+- [Checklist: pm-checklist.md](.aios-core/product/checklists/pm-checklist.md) *(coming soon)*
+- [Checklist: change-checklist.md](.aios-core/product/checklists/change-checklist.md) *(coming soon)*
+- [Workflow: brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml) *(coming soon)*
 
 ---
 

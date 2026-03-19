@@ -2,7 +2,7 @@
 
 # Investigación de Flujo de Trabajo de Contribución Externa
 
-> 🌐 [EN](../../architecture/contribution-workflow-research.md) | [PT](../../pt/architecture/contribution-workflow-research.md) | **ES**
+> 🌐 [EN](../../architecture/contribution-workflow-research.md) *(coming soon)* | [PT](../../pt/architecture/contribution-workflow-research.md) | **ES**
 
 ---
 

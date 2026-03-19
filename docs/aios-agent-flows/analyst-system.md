@@ -623,27 +623,27 @@ template:
 
 ### Tasks Principais
 
-- [Task: facilitate-brainstorming-session.md](.aios-core/development/tasks/facilitate-brainstorming-session.md)
-- [Task: create-deep-research-prompt.md](.aios-core/development/tasks/create-deep-research-prompt.md)
-- [Task: advanced-elicitation.md](.aios-core/development/tasks/advanced-elicitation.md)
-- [Task: create-doc.md](.aios-core/development/tasks/create-doc.md)
-- [Task: document-project.md](.aios-core/development/tasks/document-project.md)
+- [Task: facilitate-brainstorming-session.md](.aios-core/development/tasks/facilitate-brainstorming-session.md) *(coming soon)*
+- [Task: create-deep-research-prompt.md](.aios-core/development/tasks/create-deep-research-prompt.md) *(coming soon)*
+- [Task: advanced-elicitation.md](.aios-core/development/tasks/advanced-elicitation.md) *(coming soon)*
+- [Task: create-doc.md](.aios-core/development/tasks/create-doc.md) *(coming soon)*
+- [Task: document-project.md](.aios-core/development/tasks/document-project.md) *(coming soon)*
 
 ### Templates
 
-- [Template: project-brief-tmpl.yaml](.aios-core/product/templates/project-brief-tmpl.yaml)
-- [Template: market-research-tmpl.yaml](.aios-core/product/templates/market-research-tmpl.yaml)
-- [Template: competitor-analysis-tmpl.yaml](.aios-core/product/templates/competitor-analysis-tmpl.yaml)
-- [Template: brainstorming-output-tmpl.yaml](.aios-core/product/templates/brainstorming-output-tmpl.yaml)
+- [Template: project-brief-tmpl.yaml](.aios-core/product/templates/project-brief-tmpl.yaml) *(coming soon)*
+- [Template: market-research-tmpl.yaml](.aios-core/product/templates/market-research-tmpl.yaml) *(coming soon)*
+- [Template: competitor-analysis-tmpl.yaml](.aios-core/product/templates/competitor-analysis-tmpl.yaml) *(coming soon)*
+- [Template: brainstorming-output-tmpl.yaml](.aios-core/product/templates/brainstorming-output-tmpl.yaml) *(coming soon)*
 
 ### Workflows
 
-- [Workflow: greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml)
-- [Workflow: brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml)
+- [Workflow: greenfield-fullstack.yaml](.aios-core/development/workflows/greenfield-fullstack.yaml) *(coming soon)*
+- [Workflow: brownfield-discovery.yaml](.aios-core/development/workflows/brownfield-discovery.yaml) *(coming soon)*
 
 ### Agente
 
-- [Agent: analyst.md](.aios-core/development/agents/analyst.md)
+- [Agent: analyst.md](.aios-core/development/agents/analyst.md) *(coming soon)*
 
 ---
 

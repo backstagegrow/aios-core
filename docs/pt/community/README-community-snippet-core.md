@@ -49,7 +49,7 @@ Contribuições são bem-vindas! Confira:
 
 - [Guia de Contribuição](../../../CONTRIBUTING.md)
 - [Código de Conduta](../../../CODE_OF_CONDUCT.md)
-- [Padrões de Código](../../architecture/coding-standards.md)
+- [Padrões de Código](../../architecture/coding-standards.md) *(coming soon)*
 - [Good First Issues](https://github.com/SynkraAI/aios-core/labels/good-first-issue)
 
 ---

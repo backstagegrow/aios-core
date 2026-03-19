@@ -1,6 +1,6 @@
 # AIOS安全加固指南
 
-> **EN** | [PT](../pt/guides/security-hardening.md) | [ES](../es/guides/security-hardening.md)
+> **EN** | [PT](../pt/guides/security-hardening.md) *(coming soon)* | [ES](../es/guides/security-hardening.md) *(coming soon)*
 
 ---
 

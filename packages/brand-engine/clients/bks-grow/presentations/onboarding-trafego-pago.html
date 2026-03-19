@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding — Tráfego Pago | BKS Grow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green: #84CC16;
+      --green-light: #A3E635;
+      --green-dark: #4D7C0F;
+      --bg: #0A0A0A;
+      --surface: #1A1A1A;
+      --card: #151515;
+      --card-hover: #1f1f1f;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-green: rgba(132, 204, 22, 0.3);
+      --glow: 0 0 30px rgba(132, 204, 22, 0.3);
+      --text: #FFFFFF;
+      --muted: #A1A1AA;
+      --danger: #EF4444;
+      --success: #22C55E;
+      --warning: #F59E0B;
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-title {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-progress {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .progress-bar {
+      width: 120px;
+      height: 3px;
+      background: var(--surface);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    /* ── SLIDES ── */
+    .slides {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      height: 100vh;
+      padding: 72px 64px 48px;
+      overflow-y: auto;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .h2 {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .h3 {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .body {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .accent {
+      color: var(--green);
+    }
+
+    .highlight {
+      background: rgba(132, 204, 22, 0.12);
+      border: 1px solid var(--border-green);
+      border-radius: var(--r-sm);
+      padding: 2px 8px;
+      font-size: 13px;
+      color: var(--green-light);
+      font-weight: 500;
+    }
+
+    /* ── COMPONENTS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+    }
+
+    .card.green-border {
+      border-color: var(--border-green);
+      box-shadow: var(--glow);
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .phase-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .phase-card:hover {
+      border-color: var(--border-green);
+    }
+
+    .phase-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .phase-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .phase-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .phase-badge {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: rgba(132, 204, 22, 0.1);
+      color: var(--green);
+      border: 1px solid var(--border-green);
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .checklist li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border: 1.5px solid var(--border-green);
+      border-radius: 5px;
+      margin-top: 2px;
+      background: rgba(132, 204, 22, 0.06);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .icon-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .icon-card .ic-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(132, 204, 22, 0.12);
+      border: 1px solid var(--border-green);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .icon-card .ic-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .icon-card .ic-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .table-custom th {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-green);
+    }
+
+    .table-custom td {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .table-custom tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-custom td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .funnel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .funnel-layer {
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .funnel-layer.top {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .funnel-layer.mid {
+      background: rgba(132, 204, 22, 0.07);
+      border: 1px solid var(--border-green);
+    }
+
+    .funnel-layer.bot {
+      background: rgba(132, 204, 22, 0.15);
+      border: 1px solid rgba(132, 204, 22, 0.5);
+      box-shadow: var(--glow);
+    }
+
+    .funnel-layer .fl-label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .funnel-layer .fl-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .funnel-layer .fl-pct {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .budget-bar {
+      display: flex;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      height: 48px;
+      margin-top: 20px;
+    }
+
+    .bb-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      gap: 6px;
+    }
+
+    .bb-seg.bot {
+      background: var(--green);
+      color: #000;
+      flex: 7;
+    }
+
+    .bb-seg.mid {
+      background: rgba(132, 204, 22, 0.4);
+      color: #fff;
+      flex: 2;
+    }
+
+    .bb-seg.top {
+      background: rgba(132, 204, 22, 0.15);
+      color: var(--muted);
+      flex: 1;
+      border: 1px solid var(--border-green);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 24px;
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 24px;
+      position: relative;
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .tl-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      min-width: 32px;
+    }
+
+    .tl-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(132, 204, 22, 0.12);
+      border: 2px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .tl-line {
+      flex: 1;
+      width: 2px;
+      background: var(--border);
+      margin-top: 0;
+    }
+
+    .tl-item:last-child .tl-line {
+      display: none;
+    }
+
+    .tl-content {
+      padding-top: 4px;
+    }
+
+    .tl-phase {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .tl-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .tl-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── CONTROLS ── */
+    .controls {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 100;
+    }
+
+    .btn {
+      height: 40px;
+      padding: 0 20px;
+      border-radius: 99px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+      box-shadow: var(--glow);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    .slide-counter {
+      font-size: 13px;
+      color: var(--muted);
+      min-width: 48px;
+      text-align: center;
+    }
+
+    /* ── SLIDE-SPECIFIC LAYOUTS ── */
+    .cover-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+    }
+
+    .cover-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 99px;
+      margin: 28px 0;
+    }
+
+    .cover-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .slide-header {
+      margin-bottom: 28px;
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #F59E0B;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .metric-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .metric-card {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      text-align: center;
+    }
+
+    .metric-card .mv {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .metric-card .ml {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* scrollbar */
+    .slide::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .slide::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .slide::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 99px;
+    }
+
+    /* keyboard hint */
+    .kbd-hint {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .kbd {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">BKS Grow</span>
+    <span class="nav-title">Onboarding — Tráfego Pago</span>
+    <div class="nav-progress">
+      <span id="nav-counter">1 / 10</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width:10%"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="slides">
+
+    <!-- ── SLIDE 1: CAPA ── -->
+    <div class="slide active" id="slide-1">
+      <div class="cover-content">
+        <div class="eyebrow">Processo de Onboarding</div>
+        <h1 class="h1">Tráfego<br><span class="accent">Pago</span></h1>
+        <div class="cover-divider"></div>
+        <p class="body" style="max-width:480px">Do primeiro briefing ao monitoramento contínuo — o processo completo
+          para entregar resultados desde o dia um.</p>
+        <div class="cover-tags" style="margin-top: 28px">
+          <span class="tag">Meta Ads</span>
+          <span class="tag">Google Ads</span>
+          <span class="tag">6 Etapas</span>
+          <span class="tag">Setup Completo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 2: VISÃO GERAL ── -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div class="eyebrow">Visão Geral</div>
+        <h2 class="h2">As <span class="accent">6 Fases</span> do Onboarding</h2>
+      </div>
+      <div class="phase-grid">
+        <div class="phase-card">
+          <div class="phase-num">FASE 0</div>
+          <div class="phase-title">Alinhamento</div>
+          <div class="phase-sub">Briefing estratégico — metas, público e histórico de vendas</div>
+          <span class="phase-badge">Eu + Cliente</span>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">FASE 1</div>
+          <div class="phase-title">Insumos</div>
+          <div class="phase-sub">Coleta de logos, fotos, vídeos e dados fiscais</div>
+          <span class="phase-badge">Cliente</span>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">FASE 2</div>
+          <div class="phase-title">Conexão</div>
+          <div class="phase-sub">Call técnica para liberar BM, contas e páginas</div>
+          <span class="phase-badge">Eu + Cliente</span>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">FASE 3</div>
+          <div class="phase-title">Infraestrutura</div>
+          <div class="phase-sub">Pixels, API de Conversão, GTM, GA4 e domínio</div>
+          <span class="phase-badge">Interno</span>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">FASE 4</div>
+          <div class="phase-title">Estratégia</div>
+          <div class="phase-sub">Plano de mídia, públicos, criativos e budget</div>
+          <span class="phase-badge">Interno</span>
+        </div>
+        <div class="phase-card" style="border-color:var(--border-green); box-shadow:var(--glow)">
+          <div class="phase-num">FASE 5</div>
+          <div class="phase-title">Aprovação + Go-Live</div>
+          <div class="phase-sub">Reunião pré-go-live, subida das campanhas e monitoramento</div>
+          <span class="phase-badge">Eu + Cliente</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 3: BRIEFING ── -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 1</div>
+        <h2 class="h2">Reunião de <span class="accent">Briefing</span> e Diagnóstico</h2>
+        <p class="body" style="margin-top:8px">Objetivo: Coletar inteligência de negócio e alinhar a dinâmica de
+          trabalho.</p>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h3 class="h3" style="margin-bottom:16px">Checklist de Levantamento</h3>
+          <ul class="checklist">
+            <li><strong style="color:var(--text)">Histórico&nbsp;</strong>— O que já foi investido? Melhor e pior
+              resultado até hoje?</li>
+            <li><strong style="color:var(--text)">Oferta&nbsp;</strong>— Qual o carro-chefe? Diferencial competitivo ou
+              promoção ativa?</li>
+            <li><strong style="color:var(--text)">Público&nbsp;</strong>— Quem é a persona e quais dores o produto
+              resolve?</li>
+            <li><strong style="color:var(--text)">Logística&nbsp;</strong>— Para onde vai o lead? WhatsApp, LP, Direct?
+              Quem atende?</li>
+            <li><strong style="color:var(--text)">Metas&nbsp;</strong>— O que é sucesso em 30 dias? (ex: 50 vendas, 200
+              leads)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="h3" style="margin-bottom:16px">Kit de Sobrevivência</h3>
+          <p class="body" style="margin-bottom:16px;font-size:13px">Definir repositório oficial (Drive ou Dropbox) e
+            solicitar na reunião:</p>
+          <ul class="checklist">
+            <li>Logos em vetor/PNG, manual da marca e fontes</li>
+            <li>Fotos do produto/serviço e vídeos brutos para criativos</li>
+            <li>CNPJ, endereço e cartão para faturamento</li>
+          </ul>
+          <div class="warning-box" style="margin-top:16px">
+            ⚠️ <span>Dados fiscais são <strong>essenciais</strong> para a Verificação do Anunciante. Sem eles, o setup
+              trava.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 4: ACESSOS ── -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 2</div>
+        <h2 class="h2">Call de <span class="accent">Acessos</span> e Governança</h2>
+        <p class="body" style="margin-top:8px">Objetivo: Garantir propriedade dos ativos e acesso total da agência.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="h3" style="margin-bottom:14px">Durante a Call</h3>
+          <ul class="checklist">
+            <li>Verificar regularização do perfil do Facebook (evitar bloqueios imediatos)</li>
+            <li>Business Suite — adicionar como Admin ou criar na hora com e-mail corporativo</li>
+            <li>Vincular Página do Facebook ao Instagram e à BM</li>
+            <li>Verificar conta de anúncios — saldo, cartão e status ativo</li>
+            <li>Confirmar WhatsApp Business vinculado à conta de anúncios</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="h3" style="margin-bottom:14px">Após a Call (Interno)</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">1</div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Meta</div>
+                <div class="tl-title">Pixels / Datasets + API de Conversão</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">2</div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Google</div>
+                <div class="tl-title">GA4 + Google Tag Manager</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">3</div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Domínio</div>
+                <div class="tl-title">Verificação do domínio na BM</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">4</div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Organização</div>
+                <div class="tl-title">Nomear ativos com padrão de nomenclatura</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 5: INFRAESTRUTURA ── -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 3</div>
+        <h2 class="h2">Infraestrutura de <span class="accent">Dados</span> e Rastreamento</h2>
+        <p class="body" style="margin-top:8px">Objetivo: Fazer as plataformas saberem quem converteu e otimizarem as
+          campanhas.</p>
+      </div>
+      <div class="three-col">
+        <div class="icon-card">
+          <div class="ic-icon">📡</div>
+          <div class="ic-title">Pixel + API de Conversão</div>
+          <div class="ic-body">Criar Dataset na BM, instalar via GTM ou integração nativa (Nuvemshop, Shopify, Hotmart).
+            CAPI envia dados diretamente do servidor, contornando bloqueios do iOS 14+.</div>
+        </div>
+        <div class="icon-card">
+          <div class="ic-icon">🔒</div>
+          <div class="ic-title">Verificação de Domínio</div>
+          <div class="ic-body">Adicionar código TXT no DNS do site. Vital para entrega dos anúncios. Configurar Eventos
+            Agregados com prioridade: Compra &gt; Cadastro &gt; Clique.</div>
+        </div>
+        <div class="icon-card">
+          <div class="ic-icon">📊</div>
+          <div class="ic-title">GA4 + GTM + Google Ads</div>
+          <div class="ic-body">Criar container GTM, instalar no site. Criar propriedade GA4 com fluxo de dados e sinais
+            do Google. Vincular Google Ads + GA4 para conversões no painel.</div>
+        </div>
+      </div>
+      <table class="table-custom" style="margin-top:24px">
+        <thead>
+          <tr>
+            <th>Subfase</th>
+            <th>O que faço</th>
+            <th>Status para o Cliente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3.1 Rastreio Meta</td>
+            <td>Instalar Pixel + API de Conversão no site/página</td>
+            <td>"Configurando a inteligência do Facebook/Instagram."</td>
+          </tr>
+          <tr>
+            <td>3.2 Domínio</td>
+            <td>Verificar propriedade do site na BM do cliente</td>
+            <td>"Blindando sua conta contra bloqueios e perda de dados."</td>
+          </tr>
+          <tr>
+            <td>3.3 Google Setup</td>
+            <td>Instalar GTM e configurar GA4 para medir acessos</td>
+            <td>"Preparando o mapa de calor e jornada do usuário."</td>
+          </tr>
+          <tr>
+            <td>3.4 Teste de Fogo</td>
+            <td>Simular conversões — verificar se o Pixel está disparando</td>
+            <td>"Testes de qualidade finalizados."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── SLIDE 6: FUNIL ── -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 4 — Estratégia</div>
+        <h2 class="h2">Funil de <span class="accent">Vendas</span></h2>
+        <p class="body" style="margin-top:8px">A jornada do usuário desde o desconhecimento até a conversão.</p>
+      </div>
+      <div class="funnel">
+        <div class="funnel-layer top">
+          <div>
+            <div class="fl-label">🟡 Topo de Funil — Atração</div>
+            <div class="fl-sub">Pessoas que não conhecem a marca &nbsp;·&nbsp; Foco: Alcance e Visualização de Vídeo
+            </div>
+          </div>
+          <div class="fl-pct" style="color:#F59E0B">10%</div>
+        </div>
+        <div class="funnel-layer mid">
+          <div>
+            <div class="fl-label">🟢 Meio de Funil — Consideração</div>
+            <div class="fl-sub">Já interagiram com a marca &nbsp;·&nbsp; Foco: Tráfego para site e Engajamento</div>
+          </div>
+          <div class="fl-pct" style="color:#A3E635">20%</div>
+        </div>
+        <div class="funnel-layer bot">
+          <div>
+            <div class="fl-label">⚡ Fundo de Funil — Conversão</div>
+            <div class="fl-sub">Prontos para comprar / chamar no WhatsApp &nbsp;·&nbsp; Foco: Vendas e Leads</div>
+          </div>
+          <div class="fl-pct">70%</div>
+        </div>
+      </div>
+      <div style="margin-top:24px">
+        <h3 class="h3" style="margin-bottom:16px">Tipos de Público</h3>
+        <div class="three-col" style="margin-top:0">
+          <div class="icon-card">
+            <div class="ic-icon">🔥</div>
+            <div class="ic-title">Públicos Quentes</div>
+            <div class="ic-body">Retargeting — visitou o site, segue no Instagram, lista de clientes (LTV)</div>
+          </div>
+          <div class="icon-card">
+            <div class="ic-icon">🪞</div>
+            <div class="ic-title">Lookalike</div>
+            <div class="ic-body">Semelhantes a quem já compra — baseado em comportamento real dos clientes</div>
+          </div>
+          <div class="icon-card">
+            <div class="ic-icon">❄️</div>
+            <div class="ic-title">Públicos Frios</div>
+            <div class="ic-body">Interesses e comportamentos mapeados no briefing inicial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 7: BUDGET ── -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 4 — Plano de Mídia</div>
+        <h2 class="h2">Distribuição de <span class="accent">Verba</span></h2>
+        <p class="body" style="margin-top:8px">Exemplo com R$ 3.000/mês — modelo replicável para qualquer budget.</p>
+      </div>
+      <div class="budget-bar">
+        <div class="bb-seg bot">⚡ Fundo 70% &nbsp;·&nbsp; R$ 2.100</div>
+        <div class="bb-seg mid">🟢 Meio 20% &nbsp;·&nbsp; R$ 600</div>
+        <div class="bb-seg top">🟡 Topo 10%</div>
+      </div>
+      <div class="metric-row" style="margin-top:24px">
+        <div class="metric-card">
+          <div class="mv">R$ 2.100</div>
+          <div class="ml">Conversão direta (Fundo)</div>
+        </div>
+        <div class="metric-card">
+          <div class="mv">R$ 600</div>
+          <div class="ml">Gerar desejo / audiência (Meio)</div>
+        </div>
+        <div class="metric-card">
+          <div class="mv">R$ 300</div>
+          <div class="ml">Alcance / Marca (Topo)</div>
+        </div>
+      </div>
+      <div style="margin-top:28px">
+        <h3 class="h3" style="margin-bottom:14px">Estratégia de Criativos</h3>
+        <div class="three-col" style="margin-top:0">
+          <div class="icon-card">
+            <div class="ic-icon">🎬</div>
+            <div class="ic-title">Reels</div>
+            <div class="ic-body">Atração — ângulo na dor do cliente, benefício exclusivo ou preço</div>
+          </div>
+          <div class="icon-card">
+            <div class="ic-icon">🎠</div>
+            <div class="ic-title">Carrossel</div>
+            <div class="ic-body">Explicar o produto em detalhes e mostrar diferenciais competitivos</div>
+          </div>
+          <div class="icon-card">
+            <div class="ic-icon">⭐</div>
+            <div class="ic-title">Estático</div>
+            <div class="ic-body">Prova social — depoimentos, resultados e autoridade de marca</div>
+          </div>
+        </div>
+      </div>
+      <table class="table-custom" style="margin-top:20px">
+        <thead>
+          <tr>
+            <th>Subfase</th>
+            <th>Atividade</th>
+            <th>Entregável para o Cliente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4.1 Plano de Mídia</td>
+            <td>Cálculo de investimento por canal e público</td>
+            <td>Planilha de Projeção de Investimento</td>
+          </tr>
+          <tr>
+            <td>4.2 Mapa de Públicos</td>
+            <td>Criação das audiências dentro das plataformas</td>
+            <td>Definição de quem vamos impactar</td>
+          </tr>
+          <tr>
+            <td>4.3 Roteiro de Criativos</td>
+            <td>Briefing dos anúncios (textos e ideias de vídeos)</td>
+            <td>Documento de Copys e Referências Visuais</td>
+          </tr>
+          <tr>
+            <td>4.4 Reunião de Aprovação</td>
+            <td>Call rápida para alinhar a estratégia final</td>
+            <td>OK do cliente para subir as campanhas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── SLIDE 8: GO-LIVE ── -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 5</div>
+        <h2 class="h2">Go-Live e <span class="accent">Monitoramento</span> Inicial</h2>
+        <p class="body" style="margin-top:8px">Objetivo: Tirar as campanhas do papel e garantir que tudo está rodando
+          sem erros técnicos.</p>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h3 class="h3" style="margin-bottom:16px">Setup Final das Campanhas</h3>
+          <ul class="checklist">
+            <li>Estruturação seguindo nomenclatura: <code
+                style="font-size:11px;background:var(--surface);padding:2px 6px;border-radius:4px;color:var(--green)">[CONV]-[FB/IG]-[PUBLICO]-[CRIATIVO_01]</code>
+            </li>
+            <li>Revisar e testar todos os links de destino com UTMs para GA4</li>
+            <li>Agendar início às 00:00 para aproveitar o orçamento diário completo</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:var(--border-green)">
+          <h3 class="h3" style="margin-bottom:16px">⏳ Período de Aprendizado — 7 dias</h3>
+          <p class="body" style="font-size:14px">Nos primeiros <strong style="color:var(--green)">7 dias</strong> a
+            plataforma está "aprendendo". Evite alterações bruscas — isso reseta o algoritmo.</p>
+          <ul class="checklist" style="margin-top:16px">
+            <li>Avisar o cliente antecipadamente sobre este período</li>
+            <li>Nas primeiras 24h: verificar aprovação dos anúncios</li>
+            <li>Confirmar que o orçamento está sendo consumido corretamente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 9: OTIMIZAÇÃO ── -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <div class="eyebrow">Etapa 6</div>
+        <h2 class="h2">Otimização e <span class="accent">Reporte</span> de Performance</h2>
+        <p class="body" style="margin-top:8px">Objetivo: Cortar o que não funciona e escalar o que traz lucro.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3 class="h3" style="margin-bottom:16px">Dashboard — Métricas Principais</h3>
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <div class="card" style="padding:14px 18px; display:flex; align-items:center; gap:16px">
+              <span style="font-size:20px; font-weight:800; color:var(--green); min-width:60px">CTR</span>
+              <span style="font-size:13px; color:var(--muted)">Taxa de clique — indica relevância do criativo</span>
+            </div>
+            <div class="card" style="padding:14px 18px; display:flex; align-items:center; gap:16px">
+              <span style="font-size:20px; font-weight:800; color:var(--green); min-width:60px">CPC</span>
+              <span style="font-size:13px; color:var(--muted)">Custo por clique — eficiência de investimento</span>
+            </div>
+            <div class="card"
+              style="padding:14px 18px; display:flex; align-items:center; gap:16px; border-color:var(--border-green); box-shadow:var(--glow)">
+              <span style="font-size:20px; font-weight:800; color:var(--green); min-width:60px">ROAS</span>
+              <span style="font-size:13px; color:var(--muted)">Retorno sobre o investimento em anúncios</span>
+            </div>
+            <div class="card" style="padding:14px 18px; display:flex; align-items:center; gap:16px">
+              <span style="font-size:20px; font-weight:800; color:var(--green); min-width:60px">CPA</span>
+              <span style="font-size:13px; color:var(--muted)">Custo por aquisição — custo de cada conversão</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="h3" style="margin-bottom:16px">Ciclo de Otimização</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">A/B</div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Semanal</div>
+                <div class="tl-title">Teste de Criativos</div>
+                <div class="tl-body">Testar novas imagens e textos para substituir os de baixa performance</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">📈</div>
+                <div class="tl-line"></div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Quinzenal</div>
+                <div class="tl-title">Escala Gradual</div>
+                <div class="tl-body">Campanhas que performam bem: aumentar orçamento 15-20% por vez para preservar o
+                  aprendizado</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-left">
+                <div class="tl-dot">📋</div>
+              </div>
+              <div class="tl-content">
+                <div class="tl-phase">Mensal</div>
+                <div class="tl-title">Reporte via Looker Studio</div>
+                <div class="tl-body">Painel em tempo real — eliminar pergunta "como estão as vendas?"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 10: FECHAMENTO ── -->
+    <div class="slide" id="slide-10">
+      <div class="cover-content" style="max-width:800px; justify-content:center">
+        <div class="eyebrow">Resumo do Processo</div>
+        <h2 class="h2">Do Briefing ao <span class="accent">Resultado</span></h2>
+        <div class="cover-divider"></div>
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Etapa</th>
+              <th>Responsável</th>
+              <th>Entregável</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>Briefing e Diagnóstico</td>
+              <td>Eu + Cliente</td>
+              <td>Inteligência de negócio + Kit de Ativos</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Coleta de Insumos</td>
+              <td>Cliente</td>
+              <td>Pasta no Drive com todos os materiais</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Call de Acessos</td>
+              <td>Eu + Cliente</td>
+              <td>BM, Contas e Páginas liberadas</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Infraestrutura de Dados</td>
+              <td>Interno</td>
+              <td>Pixel, CAPI, GA4, GTM configurados</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Estratégia + Plano de Mídia</td>
+              <td>Interno</td>
+              <td>Planilha, Audiências e Copys</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Aprovação + Go-Live</td>
+              <td>Eu + Cliente</td>
+              <td>Campanhas no ar</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Otimização Contínua</td>
+              <td>Interno</td>
+              <td>Dashboard Looker Studio + Relatórios</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /slides -->
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <button class="btn btn-secondary" id="btn-prev" disabled onclick="navigate(-1)">← Anterior</button>
+    <span class="slide-counter" id="slide-counter">1 / 10</span>
+    <button class="btn btn-primary" id="btn-next" onclick="navigate(1)">Próximo →</button>
+  </div>
+
+  <div class="kbd-hint">
+    <span class="kbd">←</span><span class="kbd">→</span> navegar
+  </div>
+
+  <script>
+    const TOTAL = 10;
+    let current = 1;
+
+    function goTo(n) {
+      document.getElementById('slide-' + current).classList.remove('active');
+      current = n;
+      document.getElementById('slide-' + current).classList.add('active');
+      document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
+      document.getElementById('nav-counter').textContent = current + ' / ' + TOTAL;
+      document.getElementById('progress-fill').style.width = (current / TOTAL * 100) + '%';
+      document.getElementById('btn-prev').disabled = current === 1;
+      document.getElementById('btn-next').disabled = current === TOTAL;
+      document.getElementById('btn-next').textContent = current === TOTAL ? 'Fim' : 'Próximo →';
+    }
+
+    function navigate(dir) {
+      const next = current + dir;
+      if (next >= 1 && next <= TOTAL) goTo(next);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') navigate(1);
+      if (e.key === 'ArrowLeft') navigate(-1);
+    });
+  </script>
+</body>
+
+</html>

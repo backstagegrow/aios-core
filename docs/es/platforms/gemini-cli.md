@@ -2,7 +2,7 @@
 
 # Guía de AIOS para Gemini CLI
 
-> 🌐 [EN](../../platforms/gemini-cli.md) | [PT](../../pt/platforms/gemini-cli.md) | **ES**
+> 🌐 [EN](../../platforms/gemini-cli.md) *(coming soon)* | [PT](../../pt/platforms/gemini-cli.md) | **ES**
 
 ---
 

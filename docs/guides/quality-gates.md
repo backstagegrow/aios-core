@@ -600,7 +600,7 @@ verbose:
 
 ## Related Documentation
 
-- [Module System Architecture](../architecture/module-system.md)
+- [Module System Architecture](../architecture/module-system.md) *(coming soon)*
 - [Service Discovery Guide](./service-discovery.md)
 
 ---

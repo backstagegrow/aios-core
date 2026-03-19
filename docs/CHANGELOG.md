@@ -65,8 +65,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Documentation**:
   - [ADE Complete Guide](guides/ade-guide.md) - Full tutorial
-  - [Epic 1-7 Handoffs](architecture/) - Technical handoffs (ADE-EPIC-1 through ADE-EPIC-7)
-  - [Agent Changes](architecture/ADE-AGENT-CHANGES.md) - All agent modifications with capability matrix
+  - [Epic 1-7 Handoffs](architecture/) *(coming soon)* - Technical handoffs (ADE-EPIC-1 through ADE-EPIC-7)
+  - [Agent Changes](architecture/ADE-AGENT-CHANGES.md) *(coming soon)* - All agent modifications with capability matrix
 
 ### Changed
 

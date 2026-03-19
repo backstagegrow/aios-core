@@ -9,8 +9,8 @@
 **版本:** 2.1 (目标状态 — Core/Pro 分离)
 **最后更新:** 2026-02-09
 **作者:** @architect (Aria)
-**Epic:** [MIS — 记忆智能系统](../stories/epics/epic-memory-intelligence-system/EPIC-MIS-INDEX.md)
-**基于:** [MIS-1 调研](../stories/epics/epic-memory-intelligence-system/story-mis-1-investigation.md)
+**Epic:** [MIS — 记忆智能系统](../stories/epics/epic-memory-intelligence-system/EPIC-MIS-INDEX.md) *(coming soon)*
+**基于:** [MIS-1 调研](../stories/epics/epic-memory-intelligence-system/story-mis-1-investigation.md) *(coming soon)*
 **当前文档:** [MEMORY-SYSTEM.md](MEMORY-SYSTEM.md) (当前状态 v1.0)
 **标签:** memory, intelligence, session-digest, progressive-retrieval, self-learning, attention-routing, core-pro-split
 
@@ -1065,14 +1065,14 @@ gantt
 | 资源 | 路径 |
 |---------|---------|
 | 当前状态 (v1.0) | [MEMORY-SYSTEM.md](MEMORY-SYSTEM.md) |
-| Epic MIS 索引 | [EPIC-MIS-INDEX.md](../stories/epics/epic-memory-intelligence-system/EPIC-MIS-INDEX.md) |
-| MIS-1 调研 | [story-mis-1-investigation.md](../stories/epics/epic-memory-intelligence-system/story-mis-1-investigation.md) |
-| MIS-2 死代码清理 | [story-mis-2-dead-code-cleanup.md](../stories/epics/epic-memory-intelligence-system/story-mis-2-dead-code-cleanup.md) |
-| Epic PRO 架构 | [EPIC-PRO-INDEX.md](../stories/epics/epic-pro-aios-pro-architecture/EPIC-PRO-INDEX.md) |
-| ADR-PRO-001 仓库策略 | [adr-pro-001-repository-strategy.md](../architecture/adr/adr-pro-001-repository-strategy.md) |
-| ADR-PRO-003 Feature Gating | [adr-pro-003-feature-gating-licensing.md](../architecture/adr/adr-pro-003-feature-gating-licensing.md) |
-| Pro Detector | [bin/utils/pro-detector.js](../../bin/utils/pro-detector.js) |
-| Feature Registry | [pro/feature-registry.yaml](../../pro/feature-registry.yaml) |
+| Epic MIS 索引 | [EPIC-MIS-INDEX.md](../stories/epics/epic-memory-intelligence-system/EPIC-MIS-INDEX.md) *(coming soon)* |
+| MIS-1 调研 | [story-mis-1-investigation.md](../stories/epics/epic-memory-intelligence-system/story-mis-1-investigation.md) *(coming soon)* |
+| MIS-2 死代码清理 | [story-mis-2-dead-code-cleanup.md](../stories/epics/epic-memory-intelligence-system/story-mis-2-dead-code-cleanup.md) *(coming soon)* |
+| Epic PRO 架构 | [EPIC-PRO-INDEX.md](../stories/epics/epic-pro-aios-pro-architecture/EPIC-PRO-INDEX.md) *(coming soon)* |
+| ADR-PRO-001 仓库策略 | [adr-pro-001-repository-strategy.md](../architecture/adr/adr-pro-001-repository-strategy.md) *(coming soon)* |
+| ADR-PRO-003 Feature Gating | [adr-pro-003-feature-gating-licensing.md](../architecture/adr/adr-pro-003-feature-gating-licensing.md) *(coming soon)* |
+| Pro Detector | [bin/utils/pro-detector.js](../../bin/utils/pro-detector.js) *(coming soon)* |
+| Feature Registry | [pro/feature-registry.yaml](../../pro/feature-registry.yaml) *(coming soon)* |
 
 ---
 

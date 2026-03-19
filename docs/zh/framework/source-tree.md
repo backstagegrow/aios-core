@@ -386,7 +386,7 @@ docs/
 
 ## Squads 系统
 
-> **注意:** Squads 在 OSR-8 中取代了旧的"Squads"系统。完整文档请参见 [Squads 指南](../guides/squads-guide.md)。
+> **注意:** Squads 在 OSR-8 中取代了旧的"Squads"系统。完整文档请参见 [Squads 指南](../guides/squads-guide.md) *(coming soon)*。
 
 ### 概述
 

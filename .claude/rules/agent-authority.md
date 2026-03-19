@@ -1,3 +1,11 @@
+---
+paths:
+  - ".aios-core/development/agents/**"
+  - ".claude/**"
+  - "docs/stories/**"
+  - ".aios-core/development/tasks/**"
+---
+
 # Agent Authority — Detailed Rules
 
 ## Delegation Matrix

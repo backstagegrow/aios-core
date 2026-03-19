@@ -796,7 +796,7 @@ graph TD
 ### 相关文档
 
 - [AIOS知识库](../../../.aios-core/data/aios-kb.md) - 框架知识库
-- [技术偏好](../../../.aios-core/development/data/technical-preferences.md) - 项目技术偏好
+- [技术偏好](../../../.aios-core/development/data/technical-preferences.md) *(coming soon)* - 项目技术偏好
 - [IDE开发工作流](../../../.aios-core/data/aios-kb.md#IDE-Development-Workflow) - IDE开发流程
 
 ---

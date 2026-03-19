@@ -2,7 +2,7 @@
 
 # 外部贡献工作流研究
 
-> 🌐 [EN](../../architecture/contribution-workflow-research.md) | [PT](../../pt/architecture/contribution-workflow-research.md) | **ZH**
+> 🌐 [EN](../../architecture/contribution-workflow-research.md) *(coming soon)* | [PT](../../pt/architecture/contribution-workflow-research.md) | **ZH**
 
 ---
 

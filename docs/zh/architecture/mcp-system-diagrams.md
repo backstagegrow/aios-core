@@ -2,7 +2,7 @@
 
 # 全局 MCP 系统 - 架构图
 
-> 🌐 [EN](../../architecture/mcp-system-diagrams.md) | [PT](../../pt/architecture/mcp-system-diagrams.md) | **ZH** | [ES](../../es/architecture/mcp-system-diagrams.md)
+> 🌐 [EN](../../architecture/mcp-system-diagrams.md) *(coming soon)* | [PT](../../pt/architecture/mcp-system-diagrams.md) | **ZH** | [ES](../../es/architecture/mcp-system-diagrams.md)
 
 ---
 

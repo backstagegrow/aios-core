@@ -2,7 +2,7 @@
 
 # Arquitectura CI/CD
 
-> 🌐 [EN](../../architecture/ci-cd.md) | [PT](../../pt/architecture/ci-cd.md) | **ES**
+> 🌐 [EN](../../architecture/ci-cd.md) *(coming soon)* | [PT](../../pt/architecture/ci-cd.md) | **ES**
 
 ---
 

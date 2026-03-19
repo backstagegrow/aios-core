@@ -1,6 +1,6 @@
 # Guia AIOS para Claude Code
 
-> 🌐 [EN](../../platforms/claude-code.md) | **PT** | [ES](../../es/platforms/claude-code.md)
+> 🌐 [EN](../../platforms/claude-code.md) *(coming soon)* | **PT** | [ES](../../es/platforms/claude-code.md)
 
 ---
 

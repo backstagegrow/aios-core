@@ -2,7 +2,7 @@
 
 # Padrões de Codificação AIOS
 
-> 🌐 [EN](../../architecture/coding-standards.md) | **PT** | [ES](../../es/architecture/coding-standards.md)
+> 🌐 [EN](../../architecture/coding-standards.md) *(coming soon)* | **PT** | [ES](../../es/architecture/coding-standards.md)
 
 ---
 

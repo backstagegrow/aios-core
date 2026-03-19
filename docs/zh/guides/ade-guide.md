@@ -128,7 +128,7 @@
 
 - `*execute-subtask` - 执行子任务
 
-**文档:** [ADE-EPIC4-HANDOFF.md](../architecture/ADE-EPIC4-HANDOFF.md)
+**文档:** [ADE-EPIC4-HANDOFF.md](../architecture/ADE-EPIC4-HANDOFF.md) *(coming soon)*
 
 ---
 
@@ -147,7 +147,7 @@
 - `*track-attempt` - 记录尝试
 - `*rollback` - 回滚到之前状态
 
-**文档:** [ADE-EPIC5-HANDOFF.md](../architecture/ADE-EPIC5-HANDOFF.md)
+**文档:** [ADE-EPIC5-HANDOFF.md](../architecture/ADE-EPIC5-HANDOFF.md) *(coming soon)*
 
 ---
 
@@ -178,7 +178,7 @@
 
 - `*apply-qa-fix` - 应用QA修复
 
-**文档:** [ADE-EPIC6-HANDOFF.md](../architecture/ADE-EPIC6-HANDOFF.md)
+**文档:** [ADE-EPIC6-HANDOFF.md](../architecture/ADE-EPIC6-HANDOFF.md) *(coming soon)*
 
 ---
 
@@ -206,7 +206,7 @@
 
 - `*extract-patterns` - 从代码提取模式
 
-**文档:** [ADE-EPIC7-HANDOFF.md](../architecture/ADE-EPIC7-HANDOFF.md)
+**文档:** [ADE-EPIC7-HANDOFF.md](../architecture/ADE-EPIC7-HANDOFF.md) *(coming soon)*
 
 ---
 
@@ -432,14 +432,14 @@ cat docs/stories/STORY-42/spec-critique.json
 ## 相关文档
 
 - [ADE架构切换](../architecture/ADE-ARCHITECT-HANDOFF.md) - 总体概览
-- [ADE Agent更改](../architecture/ADE-AGENT-CHANGES.md) - 所有Agent更改及能力矩阵
+- [ADE Agent更改](../architecture/ADE-AGENT-CHANGES.md) *(coming soon)* - 所有Agent更改及能力矩阵
 - [Epic 1 - Worktree管理器](../architecture/ADE-EPIC1-HANDOFF.md)
 - [Epic 2 - 迁移V2→V3](../architecture/ADE-EPIC2-HANDOFF.md)
 - [Epic 3 - Spec管道](../architecture/ADE-EPIC3-HANDOFF.md)
-- [Epic 4 - 执行引擎](../architecture/ADE-EPIC4-HANDOFF.md)
-- [Epic 5 - 恢复系统](../architecture/ADE-EPIC5-HANDOFF.md)
-- [Epic 6 - QA演进](../architecture/ADE-EPIC6-HANDOFF.md)
-- [Epic 7 - 内存层](../architecture/ADE-EPIC7-HANDOFF.md)
+- [Epic 4 - 执行引擎](../architecture/ADE-EPIC4-HANDOFF.md) *(coming soon)*
+- [Epic 5 - 恢复系统](../architecture/ADE-EPIC5-HANDOFF.md) *(coming soon)*
+- [Epic 6 - QA演进](../architecture/ADE-EPIC6-HANDOFF.md) *(coming soon)*
+- [Epic 7 - 内存层](../architecture/ADE-EPIC7-HANDOFF.md) *(coming soon)*
 
 ---
 

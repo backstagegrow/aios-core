@@ -137,7 +137,7 @@ git push origin fix/typo-in-readme
 
 - 🐛 使用[错误报告模板](https://github.com/SynkraAIinc/@synkra/aios-core/issues/new?template=bug_report.md)报告错误
 - 💡 使用[功能请求模板](https://github.com/SynkraAIinc/@synkra/aios-core/issues/new?template=feature_request.md)建议功能
-- 📖 阅读完整的[贡献指南](../CONTRIBUTING.md)
+- 📖 阅读完整的[贡献指南](../CONTRIBUTING.md) *(coming soon)*
 
 ## 示例：好 vs 坏 PR
 

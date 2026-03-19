@@ -1,3 +1,9 @@
+---
+paths:
+  - ".aios-core/development/agents/**"
+  - ".claude/**"
+---
+
 # Agent Handoff Protocol — Context Compaction
 
 ## Purpose

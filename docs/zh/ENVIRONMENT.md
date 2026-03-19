@@ -2,7 +2,7 @@
 
 # 环境变量
 
-> 🌐 [EN](../ENVIRONMENT.md) | [PT](../pt/ENVIRONMENT.md) | [ES](../es/ENVIRONMENT.md) | **ZH**
+> 🌐 [EN](../ENVIRONMENT.md) *(coming soon)* | [PT](../pt/ENVIRONMENT.md) | [ES](../es/ENVIRONMENT.md) | **ZH**
 
 ---
 

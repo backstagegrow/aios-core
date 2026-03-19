@@ -1,6 +1,6 @@
 # 项目状态功能 - 用户指南
 
-> **EN** | **ZH-CN** | [PT](../pt/guides/project-status-feature.md) | [ES](../es/guides/project-status-feature.md)
+> **EN** | **ZH-CN** | [PT](../pt/guides/project-status-feature.md) *(coming soon)* | [ES](../es/guides/project-status-feature.md) *(coming soon)*
 
 ---
 

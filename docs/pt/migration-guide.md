@@ -6,7 +6,7 @@
 
 # Guia de Atualização do Synkra AIOS
 
-> 🌐 [EN](../migration-guide.md) | **PT** | [ES](../es/migration-guide.md)
+> 🌐 [EN](../migration-guide.md) *(coming soon)* | **PT** | [ES](../es/migration-guide.md)
 
 ---
 

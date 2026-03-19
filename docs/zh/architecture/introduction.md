@@ -2,7 +2,7 @@
 
 # 介绍
 
-> 🌐 [EN](../../architecture/introduction.md) | [PT](../../pt/architecture/introduction.md) | [ES](../../es/architecture/introduction.md) | **ZH-CN**
+> 🌐 [EN](../../architecture/introduction.md) *(coming soon)* | [PT](../../pt/architecture/introduction.md) | [ES](../../es/architecture/introduction.md) | **ZH-CN**
 
 ---
 

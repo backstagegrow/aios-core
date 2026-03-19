@@ -2,7 +2,7 @@
 
 # 代理工具集成指南
 
-> **ZH** | [EN](../architecture/agent-tool-integration-guide.md) | [PT](../pt/architecture/agent-tool-integration-guide.md)
+> **ZH** | [EN](../architecture/agent-tool-integration-guide.md) | [PT](../pt/architecture/agent-tool-integration-guide.md) *(coming soon)*
 
 ---
 

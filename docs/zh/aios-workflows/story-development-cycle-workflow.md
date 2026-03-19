@@ -826,9 +826,9 @@ cat docs/stories/{story-file}.md | grep "status:"
 
 ### 附加文档
 
-- [工作流 YAML 指南](../workflows-yaml-guide.md)
-- [Squad 用户指南](../squads-user-guide.md)
-- [优先化框架](../PRIORITIZATION-FRAMEWORK.md)
+- [工作流 YAML 指南](../workflows-yaml-guide.md) *(coming soon)*
+- [Squad 用户指南](../squads-user-guide.md) *(coming soon)*
+- [优先化框架](../PRIORITIZATION-FRAMEWORK.md) *(coming soon)*
 
 ---
 

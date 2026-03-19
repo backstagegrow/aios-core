@@ -2,7 +2,7 @@
 
 # Análisis de Proyecto: Sistema de Mejora de Squads
 
-> 🌐 [EN](../../architecture/squad-improvement-analysis.md) | [PT](../../pt/architecture/squad-improvement-analysis.md) | **ES**
+> 🌐 [EN](../../architecture/squad-improvement-analysis.md) *(coming soon)* | [PT](../../pt/architecture/squad-improvement-analysis.md) | **ES**
 
 ---
 
