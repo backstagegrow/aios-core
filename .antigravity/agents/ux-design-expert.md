@@ -9,18 +9,9 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 IDE-FILE-RESOLUTION:
   - FOR LATER USE ONLY - NOT FOR ACTIVATION, when executing commands that reference dependencies
-  - TWO resolution paths (check in this order):
-    1. PROJECT EXTENSIONS (.antigravity/) — check FIRST for these files:
-       site-creation.md             → .antigravity/workflows/site-creation.md
-       discover-design-system.md    → .antigravity/tasks/discover-design-system.md
-       create-page.md               → .antigravity/tasks/create-page.md
-       spec-page.md                 → .antigravity/tasks/spec-page.md
-       generate-project-manifest.md → .antigravity/tasks/generate-project-manifest.md
-       load-brand-engine-tokens.md  → .antigravity/tasks/load-brand-engine-tokens.md
-       deploy.md                    → .antigravity/tasks/deploy.md
-       write-copy.md               → .antigravity/tasks/write-copy.md
-    2. FRAMEWORK TASKS (.aios-core/development/) — fallback for all others
-       Example: audit-codebase.md → .aios-core/development/tasks/audit-codebase.md
+  - Dependencies map to .aios-core/development/{type}/{name}
+  - type=folder (tasks|templates|checklists|data|workflows|etc...), name=file-name
+  - Example: audit-codebase.md → .aios-core/development/tasks/audit-codebase.md
   - IMPORTANT: Only load these files when user requests specific command execution
 
 REQUEST-RESOLUTION:
@@ -116,6 +107,7 @@ agent:
     COMMAND-TO-TASK MAPPING (TOKEN OPTIMIZATION):
     Use DIRECT Read() with exact paths. NO Search/Grep.
 
+<<<<<<< HEAD
     Phase 0 Commands (PRE-CREATION — always run before page/component work):
     *create-site       → Read(".antigravity/workflows/site-creation.md")
     *discover          → Read(".antigravity/tasks/discover-design-system.md")
@@ -132,6 +124,8 @@ agent:
     NOTE: *create-page auto-runs *discover first. Never skip this step.
     NOTE: *spec-page should run before *create-page for complex pages (4+ sections, forms, integrations).
     NOTE: *generate-manifest runs once per project to persist context across sessions.
+=======
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
     Phase 1 Commands:
     *research        → Read(".aios-core/development/tasks/ux-user-research.md")
     *wireframe       → Read(".aios-core/development/tasks/ux-create-wireframe.md")
@@ -213,6 +207,7 @@ core_principles:
 # All commands require * prefix when used (e.g., *help)
 # Commands organized by 5 phases for clarity
 commands:
+<<<<<<< HEAD
   # === PHASE 0: DESIGN SYSTEM CONTEXT (run before any page/component work) ===
   create-site {client-slug}: 'Full site creation workflow: manifest → brand tokens → spec → pages → deploy'
   discover: 'Auto-discover design system tokens, components and pages in the project'
@@ -224,6 +219,8 @@ commands:
   refine-copy {section}: 'Rewrite a single already-generated section without touching others'
   generate-manifest: 'Generate project-manifest.yaml to persist design context across sessions'
   load-brand-tokens {slug}: 'Load brand tokens from packages/brand-engine/clients/{slug}/'
+=======
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
   # === PHASE 1: UX RESEARCH & DESIGN ===
   research: 'Conduct user research and needs analysis'
   wireframe {fidelity}: 'Create wireframes and interaction flows'
@@ -265,9 +262,6 @@ commands:
 
 dependencies:
   tasks:
-    # Phase 0: Design System Context (2 tasks) — NEW
-    - .antigravity/tasks/discover-design-system.md
-    - .antigravity/tasks/create-page.md
     # Phase 1: UX Research & Design (4 tasks)
     - ux-user-research.md
     - ux-create-wireframe.md

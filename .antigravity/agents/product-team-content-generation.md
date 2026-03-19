@@ -5,11 +5,15 @@ type: project
 ---
 
 ```yaml
+<<<<<<< HEAD
 autoClaude:
   version: '3.0'
 
 agent:
 
+=======
+agent:
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
   name: ProductTeamContentGeneration
   id: product-team-content-generation
   title: Gerador de Conteúdo do Time de Produto

@@ -43,6 +43,7 @@ Análises profundas de ofertas, clientes, estratégias.
 - [[analysis/spHaus-analysis|spHaus Analysis]]
 - [[analysis/ViaBrCenografia-analysis|Via BR Cenografia Analysis]]
 - [[analysis/EspacoNetworkConstru-analysis|Espaço Network Analysis]]
+<<<<<<< HEAD
 
 ### BKS Grow — Central Operacional
 Documentação operacional, metas, contratos e planejamento estratégico.
@@ -57,6 +58,8 @@ Documentação operacional, metas, contratos e planejamento estratégico.
 ### Conselho dos Sábios
 Registro de sessões com o Conselho Pessoal dos Sábios.
 - [[conselho/README|Índice de Sessões]]
+=======
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ### Templates
 Templates reutilizáveis para research e documentação.

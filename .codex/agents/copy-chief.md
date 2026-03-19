@@ -134,7 +134,7 @@ commands:
 
 squad:
   tier_0_diagnosis:
-    framework: Hopkins Triggers + Schwartz Awareness Levels + Kotler''s CCDVTP & STP
+    framework: Hopkins Triggers + Schwartz Awareness Levels + Kotler's CCDVTP & STP
     always_run: true
     before: all executions
   tier_1_execution:

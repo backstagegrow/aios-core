@@ -5,12 +5,22 @@
 
 ## Visão Geral do Sistema
 
+<<<<<<< HEAD
 O Clone Intelligence System possui **16 clones ativos** em 4 estados distintos:
+=======
+O Clone Intelligence System possui **14 clones ativos** em 4 estados distintos:
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 | Grupo | Clones | Critério |
 |-------|--------|----------|
 | **MASTER** | Thiago Finch, Chris Do, Eli Goldratt, Robert McKee, Russell Brunson, Charlie Munger, Eugene Schwartz, Marty Neumeier | Score ≥ 95 |
+<<<<<<< HEAD
 | **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia, **Raiam Santos** | Score 99 (calibrado 2026-03-27) |
+=======
+| **CALIBRAÇÃO EXECUTADA** | Alex Hormozi | Score 95 (calibrado 2026-03-19) |
+| **MASTER_READY** | Tallis Gomes | Score 95 (calibrado 2026-03-19) |
+| **SUB-CALIBRADO** | Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia | Score 2-10 |
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ---
 
@@ -92,6 +102,7 @@ Para um clone atingir MASTER_READY, ele precisa:
 
 ---
 
+<<<<<<< HEAD
 ### 4. Kasim Aslam ✅ MASTER_READY
 **Score atual:** ~~10~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
 **Score alvo:** 97-99 (via notebooks NB02-NB04)
@@ -108,6 +119,22 @@ Para um clone atingir MASTER_READY, ele precisa:
 - [ ] Criar **NB02**: Google Ads avançado (PMax, campanhas, scripts)
 - [ ] Criar **NB03**: Agency business model e Pareto Talent
 - [ ] Criar **NB04**: AEO e Answer Engine Optimization deep-dive
+=======
+### 4. Kasim Aslam
+**Score atual:** 10 → efetivo ~20
+**Score alvo:** 95
+**Prazo sugerido:** 2-3 semanas
+
+**Situação:** DNA rico (7 frameworks, 7 cases, AEO, PMax), mas 1 notebook com 7 fontes. Alto potencial.
+
+**Ações:**
+- [ ] Criar **NB02**: Google Ads avançado (PMax, campanhas, scripts)
+- [ ] Criar **NB03**: Agency business model e Pareto Talent
+- [ ] Criar **NB04**: AEO e Answer Engine Optimization deep-dive
+- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [ ] Executar calibration_questions
+- [ ] Roundtable com Tom Breeze (YouTube + Google = tráfego pago integrado)
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ---
 
@@ -146,6 +173,7 @@ Para um clone atingir MASTER_READY, ele precisa:
 
 ---
 
+<<<<<<< HEAD
 ### 7. Depesh Mandalia ✅ MASTER_READY
 **Score atual:** ~~6~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
 **Score alvo:** 97-99 (via notebooks NB02-NB04)
@@ -162,12 +190,29 @@ Para um clone atingir MASTER_READY, ele precisa:
 - [ ] Criar **NB02**: Meta Ads advanced (iOS14+, Advantage+, escala)
 - [ ] Criar **NB03**: AC-4 completo com casos de auditoria reais
 - [ ] Criar **NB04**: CRO e landing page optimization (conexão com funil)
+=======
+### 7. Depesh Mandalia
+**Score atual:** 6 → efetivo ~14
+**Score alvo:** 95
+**Prazo sugerido:** 2-3 semanas
+
+**Situação:** BPM Method bem estruturado, 4 cases sólidos. Padrão igual aos outros sub-calibrados: 1 notebook, 8 fontes.
+
+**Ações:**
+- [ ] Criar **NB02**: Meta Ads advanced (iOS14+, Advantage+, escala)
+- [ ] Criar **NB03**: AC-4 completo com casos de auditoria reais
+- [ ] Criar **NB04**: CRO e landing page optimization (conexão com funil)
+- [ ] Expandir seção de cases (Lost My Name já está ótimo, precisa de 3-4 mais)
+- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [ ] Roundtable com Tom Breeze (Meta → YouTube handoff strategy)
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ---
 
 ## Roadmap Consolidado
 
 ```
+<<<<<<< HEAD
 ✅ FASE DNA — CONCLUÍDA (2026-03-19 + 2026-03-27)
 ├── ✅ Hormozi: MASTER_READY (score 95)
 ├── ✅ Tallis Gomes: MASTER_READY (score 95)
@@ -185,6 +230,30 @@ PRÓXIMA FASE — NOTEBOOKS (2026-03-26+)
 
 SCORECARD ATUAL: 16/16 clones MASTER_READY ✅
 (8 MASTER originais + 8 calibrados)
+=======
+SEMANA 1 (2026-03-19 a 2026-03-26)
+├── ✅ Hormozi: Calibrado (MASTER_READY)
+├── ✅ Tallis: Calibrado (STRUCTURAL_READY → caminho para MASTER)
+├── Iniciar NB02-NB04 para Tallis Gomes
+└── Iniciar NB02 para Todd Brown + Kasim Aslam
+
+SEMANA 2 (2026-03-27 a 2026-04-02)
+├── Tallis: adicionar NB03-NB04, upgrade 3.0.0
+├── Todd Brown: completar notebooks, executar calibration
+├── Kasim Aslam: completar notebooks, executar calibration
+└── Roundtable Session 6 (Hormozi + Tom Breeze + Depesh)
+
+SEMANA 3 (2026-04-03 a 2026-04-09)
+├── Stefan Georgi: NB02-NB05 + calibration
+├── Tom Breeze: NB02-NB04 + calibration
+├── Depesh Mandalia: NB02-NB04 + calibration
+└── Tallis: validação final → MASTER_READY (score 95)
+
+SEMANA 4 (2026-04-10 a 2026-04-16)
+├── Roundtable Session 7: todos os Masters
+├── Consolidar cross-learnings pendentes
+└── Scorecard final: Meta → 14/14 MASTER_READY
+>>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 ```
 
 ---
