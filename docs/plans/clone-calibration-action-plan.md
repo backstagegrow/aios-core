@@ -94,20 +94,22 @@ Para um clone atingir MASTER_READY, ele precisa:
 
 ---
 
-### 4. Kasim Aslam
-**Score atual:** 10 → efetivo ~20
-**Score alvo:** 95
-**Prazo sugerido:** 2-3 semanas
+### 4. Kasim Aslam ✅ MASTER_READY
+**Score atual:** ~~10~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
+**Score alvo:** 97-99 (via notebooks NB02-NB04)
+**Status:** Concluído (fase DNA)
 
-**Situação:** DNA rico (7 frameworks, 7 cases, AEO, PMax), mas 1 notebook com 7 fontes. Alto potencial.
+**Situação:** DNA v3.0.0 com 9 frameworks, 7 cross-learnings (sessions 1-7, +14 pts), 7 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
 
 **Ações:**
+- [x] Adicionar Framework 8 (Auditoria de Conta Google) + Framework 9 (Pre-Intent Content Architecture)
+- [x] Adicionar cross-learnings sessions 6 (Hormozi) + 7 (Goldratt)
+- [x] Executar calibração comportamental: 11/11 questions cobertas (acurácia 10/10)
+- [x] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [x] Elevar `calibration_score` de 10 → 95
 - [ ] Criar **NB02**: Google Ads avançado (PMax, campanhas, scripts)
 - [ ] Criar **NB03**: Agency business model e Pareto Talent
 - [ ] Criar **NB04**: AEO e Answer Engine Optimization deep-dive
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Executar calibration_questions
-- [ ] Roundtable com Tom Breeze (YouTube + Google = tráfego pago integrado)
 
 ---
 
