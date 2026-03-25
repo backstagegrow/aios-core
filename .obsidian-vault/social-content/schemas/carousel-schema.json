@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "Schema mínimo para geração de carousel — modelo só gera este JSON (~400 tokens)",
+  "type": "object",
+  "required": ["meta", "slides"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["topic", "pillar", "filename"],
+      "properties": {
+        "topic": { "type": "string", "description": "Tema central do carousel" },
+        "pillar": { "type": "string", "description": "Pilar de conteúdo (1-5)" },
+        "filename": { "type": "string", "description": "slug do arquivo ex: indicacao-nao-e-estrategia" },
+        "caption": { "type": "string", "description": "Caption completo para Instagram (com emojis e hashtags)" },
+        "hashtags": { "type": "string" }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["num", "type", "content"],
+        "properties": {
+          "num": { "type": "integer" },
+          "type": { "enum": ["cover", "problem", "data", "turn", "method", "cta"] },
+          "content": {
+            "type": "object",
+            "description": "Campos variam por type — ver exemplos abaixo"
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "meta": {
+        "topic": "Depender de indicação não é estratégia",
+        "pillar": "método e processo (anti-indicação)",
+        "filename": "indicacao-nao-e-estrategia",
+        "caption": "Seu negócio sobrevive de sorte ou de sistema?\n\nIndicação é ótima quando acontece. O problema é quando ela é o ÚNICO canal...\n\n→ Diagnóstico gratuito no link da bio.\n\n#buffet #casadeeventos #marketingdigital #bksgrow #trafegopago",
+        "hashtags": "#buffet #casadeeventos #marketingdigital #bksgrow #trafegopago"
+      },
+      "slides": [
+        {
+          "num": 1,
+          "type": "cover",
+          "content": {
+            "tag": "Marketing Digital · BKS Grow",
+            "overline": "O erro que todo dono de negócio comete",
+            "title_lines": ["Depender de", "indicação não", "é estratégia."],
+            "title_accent": "É sorte.",
+            "subtitle": "E negócio não pode depender de sorte para crescer.",
+            "bg_word": "SORTE"
+          }
+        },
+        {
+          "num": 2,
+          "type": "problem",
+          "content": {
+            "eyebrow": "O problema",
+            "title": "Você reconhece algum desses cenários?",
+            "pains": [
+              { "icon": "📉", "label": "Mês bom, mês ruim — sem previsibilidade", "desc": "O faturamento oscila. Quando indicações param, a receita some." },
+              { "icon": "📲", "label": "Posta nas redes, mas ninguém compra", "desc": "Investe tempo em conteúdo, acumula likes, mas não converte." },
+              { "icon": "🔄", "label": "Depende das mesmas pessoas de sempre", "desc": "Os mesmos 5 clientes indicando os mesmos perfis. Zero crescimento." }
+            ],
+            "bridge": "Se você se identificou com pelo menos 1 desses... o próximo slide é para você."
+          }
+        },
+        {
+          "num": 3,
+          "type": "data",
+          "content": {
+            "eyebrow": "A realidade",
+            "title": "Os números não mentem",
+            "stats": [
+              { "value": "73%", "label": "das PMEs fecham em 5 anos", "desc": "Por falta de aquisição consistente de novos clientes" },
+              { "value": "8×", "label": "mais barato reter", "desc": "Mas você precisa ter clientes para reter" },
+              { "value": "R$ 0", "label": "de faturamento previsível sem sistema de aquisição", "desc": "Indicação é canal passivo. Negócio saudável precisa de canal ativo." }
+            ],
+            "quote": "\"Quem não tem sistema de aquisição, tem reza. E reza não paga boleto.\""
+          }
+        },
+        {
+          "num": 4,
+          "type": "turn",
+          "content": {
+            "eyebrow": "A virada",
+            "title": "Indicação vs. Sistema",
+            "vs": [
+              { "bad": "Resultado imprevisível todo mês", "good": "Meta de novos clientes todo mês" },
+              { "bad": "Não sabe de onde vem o cliente", "good": "Sabe exatamente qual canal converte" },
+              { "bad": "Crescimento limitado pela rede", "good": "Escala sem depender de ninguém" },
+              { "bad": "Preço negociado na pressão", "good": "Cliente chega pronto pra comprar" }
+            ],
+            "closing": "A diferença não é sorte. É método."
+          }
+        },
+        {
+          "num": 5,
+          "type": "method",
+          "content": {
+            "eyebrow": "Nosso método",
+            "title": "Como a BKS Grow resolve isso",
+            "steps": [
+              { "num": "01", "label": "Diagnóstico do negócio", "desc": "Mapeamos canais, ticket médio e onde está travando a aquisição hoje.", "highlight": true },
+              { "num": "02", "label": "Estratégia de tráfego pago", "desc": "Meta Ads + Google Ads calibrados para o seu público. Sem desperdício." },
+              { "num": "03", "label": "Conteúdo que converte", "desc": "Gestão de redes com copy persuasiva e identidade visual premium." },
+              { "num": "04", "label": "Otimização contínua", "desc": "Acompanhamos os números semanalmente e ajustamos até bater a meta." }
+            ],
+            "result": "+40% de novos clientes em 90 dias com método BKS."
+          }
+        },
+        {
+          "num": 6,
+          "type": "cta",
+          "content": {
+            "tag": "Próximo passo",
+            "overline": "Chega de torcer para o telefone tocar.",
+            "title_lines": ["Vamos construir"],
+            "title_accent": "seu sistema",
+            "title_end": "de clientes.",
+            "body": "Diagnóstico gratuito — entendemos seu negócio, mapeamos os gargalos e mostramos onde o dinheiro está sendo deixado na mesa.",
+            "cta_text": "QUERO MEU DIAGNÓSTICO ↗",
+            "handle": "@bksgrow",
+            "bg_glyph": "→"
+          }
+        }
+      ]
+    }
+  ]
+}

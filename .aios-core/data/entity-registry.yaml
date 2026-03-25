@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-19T19:05:39.877Z'
-  entityCount: 791
+  lastUpdated: '2026-03-25T11:30:37.084Z'
+  entityCount: 792
   checksumAlgorithm: sha256
   resolutionRate: 100
   changelog:
@@ -13619,7 +13619,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:5d2eebbcf85737bf04c470d5ef2167601197a549509dbccc732c82f74a4f4623
-      lastVerified: '2026-03-19T19:05:39.870Z'
+      lastVerified: '2026-03-25T11:30:37.048Z'
     conselho-dos-sabios:
       path: .aios-core/development/agents/conselho-dos-sabios.md
       layer: L2
@@ -13637,7 +13637,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:5ac320a22f5ac2a3850b04a9906742270e5bc90d4c9cc0a9c7a786508b8ac890
-      lastVerified: '2026-03-19T19:05:39.865Z'
+      lastVerified: '2026-03-25T11:30:36.986Z'
     copy-chief:
       path: .aios-core/development/agents/copy-chief.md
       layer: L2
@@ -13775,7 +13775,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:2732d18bb076285a150348521ab44da64849a1328e78c9c28aa9f49556403945
-      lastVerified: '2026-03-19T19:05:39.862Z'
+      lastVerified: '2026-03-25T11:30:36.937Z'
     product-team-content-generation:
       path: .aios-core/development/agents/product-team-content-generation.md
       layer: L2
@@ -13798,7 +13798,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:e64f0d8706bae5be0917a6c43bb8d47f0bbb8ec0d27c283ada1facd79f215026
-      lastVerified: '2026-03-19T19:05:39.869Z'
+      lastVerified: '2026-03-25T11:30:37.033Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -14105,6 +14105,33 @@ entities:
           - clone-pipeline
       lastVerified: '2026-03-14T00:00:00.000Z'
   squads:
+    social-content-squad:
+      path: squads/social-content-squad/squad.yaml
+      layer: L4
+      type: squad
+      purpose: Squad para geração de posts Instagram — copy + visual spec para Canva/Figma. Um post por vez com client profile.
+      keywords:
+        - instagram
+        - social-media
+        - content
+        - copy
+        - visual
+        - canva
+        - figma
+        - posts
+      agents:
+        - content-planner
+        - copy-specialist
+        - visual-director
+        - post-assembler
+      version: 1.0.0
+      usedBy: []
+      dependencies:
+        - nexus-copy-elite
+        - nexus-multimodal-uiux
+      externalDeps: []
+      lifecycle: active
+      lastVerified: '2026-03-23T00:00:00.000Z'
     nexus-copy-elite:
       path: squads/nexus-copy-elite/squad.yaml
       layer: L4
@@ -14117,7 +14144,8 @@ entities:
         - nexus
       orchestrator: nexus_copy_chief
       version: 2.0.0
-      usedBy: []
+      usedBy:
+        - social-content-squad
       dependencies:
         - copy-chief
       externalDeps: []
@@ -14237,7 +14265,8 @@ entities:
         - multimodal
         - nexus
       orchestrator: uiux_coordinator
-      usedBy: []
+      usedBy:
+        - social-content-squad
       dependencies:
         - design-chief
       externalDeps: []
@@ -16807,7 +16836,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:b68f810561ae5041850fe2b6b79fcf41f93057eb0f665cedf44cf49ccc331fc8
-      lastVerified: '2026-03-19T19:05:39.872Z'
+      lastVerified: '2026-03-25T11:30:37.079Z'
     validate-antigravity-integration:
       path: .aios-core/infrastructure/scripts/validate-antigravity-integration.js
       layer: L2

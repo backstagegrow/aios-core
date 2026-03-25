@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstagefy — AI Concierge | BKS Grow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #84CC16;
+      --green-light: #A3E635;
+      --green-dark: #4D7C0F;
+      --bg: #0A0A0A;
+      --surface: #1A1A1A;
+      --card: #151515;
+      --border: rgba(255,255,255,0.08);
+      --border-green: rgba(132,204,22,0.3);
+      --glow: 0 0 30px rgba(132,204,22,0.3);
+      --text: #FFFFFF;
+      --muted: #A1A1AA;
+      --danger: #EF4444;
+      --success: #22C55E;
+      --warning: #F59E0B;
+      --blue: #3B82F6;
+      --purple: #8B5CF6;
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 20px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow: hidden; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 56px;
+      background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; z-index: 100;
+    }
+    .nav-logo { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-title { font-size: 13px; color: var(--muted); }
+    .nav-progress { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .progress-bar { width: 120px; height: 3px; background: var(--surface); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s ease; }
+    .nav-arrows { display: flex; gap: 8px; }
+    .arrow-btn {
+      width: 32px; height: 32px; border-radius: var(--r-sm); border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted); cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.2s;
+    }
+    .arrow-btn:hover { border-color: var(--green); color: var(--green); }
+
+    .slides { height: 100vh; overflow: hidden; }
+    .slide { display: none; height: 100vh; padding: 72px 64px 48px; overflow-y: auto; animation: fadeIn 0.4s ease; flex-direction: column; }
+    .slide.active { display: flex; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .slide::-webkit-scrollbar { width: 4px; }
+    .slide::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .h1 { font-size: 52px; font-weight: 800; line-height: 1.05; }
+    .h2 { font-size: 34px; font-weight: 700; line-height: 1.2; }
+    .body { font-size: 15px; color: var(--muted); line-height: 1.65; }
+    .accent { color: var(--green); }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; }
+    .card.green-border { border-color: var(--border-green); box-shadow: var(--glow); }
+    .card.blue-border { border-color: rgba(59,130,246,0.3); box-shadow: 0 0 30px rgba(59,130,246,0.15); }
+    .card.purple-border { border-color: rgba(139,92,246,0.3); box-shadow: 0 0 30px rgba(139,92,246,0.15); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+
+    .tbl { width: 100%; border-collapse: collapse; }
+    .tbl th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .tbl td { padding: 11px 14px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--muted); vertical-align: top; }
+    .tbl td:first-child { color: var(--text); font-weight: 500; }
+    .tbl tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .mod-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+    .mod-icon { width: 36px; height: 36px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    .mod-icon.green { background: rgba(132,204,22,0.12); }
+    .mod-icon.blue { background: rgba(59,130,246,0.12); }
+    .mod-icon.purple { background: rgba(139,92,246,0.12); }
+    .mod-icon.orange { background: rgba(249,115,22,0.12); }
+    .mod-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+    .mod-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .step { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); margin-bottom: 8px; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: #000; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    .phase-row { display: flex; align-items: flex-start; gap: 18px; padding: 14px 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); margin-bottom: 8px; }
+    .phase-badge { padding: 3px 12px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+    .phase-done { background: rgba(34,197,94,0.15); color: #86EFAC; border: 1px solid rgba(34,197,94,0.3); }
+    .phase-progress { background: rgba(245,158,11,0.15); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
+    .phase-plan { background: rgba(139,92,246,0.15); color: #C4B5FD; border: 1px solid rgba(139,92,246,0.3); }
+    .phase-future { background: rgba(161,161,170,0.1); color: var(--muted); border: 1px solid var(--border); }
+
+    .badge-red { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; padding: 2px 7px; font-size: 11px; color: #FCA5A5; font-weight: 600; display: inline-block; }
+    .badge-warn { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); border-radius: 6px; padding: 2px 7px; font-size: 11px; color: #FCD34D; font-weight: 600; display: inline-block; }
+    .badge-green { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); border-radius: 6px; padding: 2px 7px; font-size: 11px; color: #86EFAC; font-weight: 600; display: inline-block; }
+
+    .cover-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(132,204,22,0.08); border: 1px solid var(--border-green); border-radius: 99px; padding: 6px 16px; font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 28px; width: fit-content; }
+    .cover-kpis { display: flex; gap: 40px; margin-top: 40px; }
+    .cover-kpi-val { font-size: 28px; font-weight: 800; color: var(--green); }
+    .cover-kpi-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .section-header { margin-bottom: 24px; }
+    .stack-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md); padding: 13px 16px; }
+    .stack-layer { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .stack-tech { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">Backstagefy</div>
+  <div class="nav-title">AI Concierge — Visão do Produto</div>
+  <div class="nav-progress">
+    <span id="slide-counter">1 / 8</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:12.5%"></div></div>
+    <div class="nav-arrows">
+      <button class="arrow-btn" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="arrow-btn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+  </div>
+</nav>
+
+<div class="slides">
+
+  <!-- SLIDE 1: CAPA -->
+  <div class="slide active" id="slide-1">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+      <div class="cover-tag">🤖 AI Concierge · SaaS</div>
+      <div class="eyebrow">Backstagefy</div>
+      <h1 class="h1">Concierge Digital<br><span class="accent">para Eventos</span><br>& Espaços</h1>
+      <p class="body" style="max-width:560px;margin-top:20px;">
+        Plataforma SaaS que usa IA integrada ao WhatsApp para qualificar leads, agendar visitas automaticamente e impulsionar vendas — operando como um concierge digital 24/7.
+      </p>
+      <div class="cover-kpis">
+        <div><div class="cover-kpi-val">12</div><div class="cover-kpi-lbl">Módulos ativos</div></div>
+        <div><div class="cover-kpi-val">4</div><div class="cover-kpi-lbl">Fases concluídas</div></div>
+        <div><div class="cover-kpi-val">5+</div><div class="cover-kpi-lbl">Plataformas de venda</div></div>
+        <div><div class="cover-kpi-val">Multi</div><div class="cover-kpi-lbl">Tenant isolado</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: STACK -->
+  <div class="slide" id="slide-2">
+    <div class="section-header">
+      <div class="eyebrow">Arquitetura</div>
+      <h2 class="h2">Stack & <span class="accent">Multi-Tenant</span></h2>
+      <p class="body">Cada cliente opera em um tenant isolado — agentes, leads, funis e configurações completamente separados.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:20px;">
+      <div class="stack-item"><div class="stack-layer">Frontend</div><div class="stack-tech">React + TypeScript + Vite</div></div>
+      <div class="stack-item"><div class="stack-layer">UI/UX</div><div class="stack-tech">Tailwind CSS + Framer Motion</div></div>
+      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-tech">Recharts</div></div>
+      <div class="stack-item"><div class="stack-layer">Backend</div><div class="stack-tech">Supabase (Auth · DB · Storage · Edge)</div></div>
+      <div class="stack-item"><div class="stack-layer">Inteligência Artificial</div><div class="stack-tech">GPT — modelos configuráveis por agente</div></div>
+      <div class="stack-item"><div class="stack-layer">WhatsApp</div><div class="stack-tech">UAZAPI</div></div>
+      <div class="stack-item"><div class="stack-layer">Calendário</div><div class="stack-tech">Google Calendar (OAuth 2.0)</div></div>
+      <div class="stack-item"><div class="stack-layer">Vendas</div><div class="stack-tech">Hotmart · Kiwify · Sympla · Blinket · Eventin</div></div>
+      <div class="stack-item"><div class="stack-layer">Em breve</div><div class="stack-tech">Instagram Direct · Telegram · Webchat</div></div>
+    </div>
+    <div class="card green-border">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:12px;">Arquitetura Multi-Tenant</div>
+      <p class="body" style="font-size:14px;">Cada empresa contratante tem seu próprio ambiente isolado com agentes, base de conhecimento, leads e configurações independentes. Um cliente nunca enxerga os dados de outro.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: MÓDULOS -->
+  <div class="slide" id="slide-3">
+    <div class="section-header">
+      <div class="eyebrow">Produto</div>
+      <h2 class="h2">Módulos <span class="accent">Implementados</span></h2>
+      <p class="body">12 módulos prontos — da landing page ao dashboard de vendas multi-plataforma.</p>
+    </div>
+    <div class="grid-3" style="gap:10px;">
+      <div class="mod-card"><div class="mod-icon green">🌐</div><div><div class="mod-name">Landing Page</div><div class="mod-desc">Vídeo hero, seções de features, CTAs e efeito Matrix</div></div></div>
+      <div class="mod-card"><div class="mod-icon blue">🔐</div><div><div class="mod-name">Autenticação</div><div class="mod-desc">Login Supabase Auth, redirecionamento inteligente por role</div></div></div>
+      <div class="mod-card"><div class="mod-icon purple">🚀</div><div><div class="mod-name">Onboarding 3 Etapas</div><div class="mod-desc">Info da empresa → Nome do agente → Prompt base</div></div></div>
+      <div class="mod-card"><div class="mod-icon orange">📊</div><div><div class="mod-name">Dashboard</div><div class="mod-desc">KPIs, gráficos de performance e métricas de engajamento</div></div></div>
+      <div class="mod-card"><div class="mod-icon green">🔥</div><div><div class="mod-name">Pipeline de Leads</div><div class="mod-desc">Kanban 4 colunas, drag-and-drop, temperatura Hot/Warm/Cold, badges VIP</div></div></div>
+      <div class="mod-card"><div class="mod-icon blue">🤖</div><div><div class="mod-name">Agentes IA</div><div class="mod-desc">Múltiplos agentes, controle de modelo, temperatura, prompt e canal</div></div></div>
+      <div class="mod-card"><div class="mod-icon purple">🧠</div><div><div class="mod-name">Base de Conhecimento</div><div class="mod-desc">4 categorias (Empresa · FAQs · Docs · Mídias) + barra de progresso para desbloquear funil</div></div></div>
+      <div class="mod-card"><div class="mod-icon orange">⚡</div><div><div class="mod-name">Funnel Builder</div><div class="mod-desc">Timeline visual, 7 tipos de etapa, drag-and-drop, geração e otimização com IA</div></div></div>
+      <div class="mod-card"><div class="mod-icon green">💬</div><div><div class="mod-name">WhatsApp & Canais</div><div class="mod-desc">QR Code, whitelist/blacklist, handover humano, 6 comportamentos neurais</div></div></div>
+      <div class="mod-card"><div class="mod-icon blue">📅</div><div><div class="mod-name">Agendamentos</div><div class="mod-desc">Calendário mensal, múltiplos tipos, disponibilidade, Google Calendar OAuth</div></div></div>
+      <div class="mod-card"><div class="mod-icon purple">🖼️</div><div><div class="mod-name">Galeria de Mídia</div><div class="mod-desc">Upload categorizado, descrição para IA, toggle destaque, imagem/vídeo/PDF</div></div></div>
+      <div class="mod-card"><div class="mod-icon orange">💰</div><div><div class="mod-name">Dashboard de Vendas</div><div class="mod-desc">Multi-plataforma (5+), KPIs, gráficos de tendência, métodos de pagamento</div></div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: JORNADA PRIMEIRO ACESSO -->
+  <div class="slide" id="slide-4">
+    <div class="section-header">
+      <div class="eyebrow">Fluxo de Uso</div>
+      <h2 class="h2">Jornada do <span class="accent">Cliente</span></h2>
+    </div>
+    <div class="grid-2" style="align-items:start;">
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:12px;">Primeiro Acesso</div>
+        <div class="step"><div class="step-num">1</div><div><div style="font-size:13px;font-weight:600;">Landing Page</div><div class="mod-desc">Clica em "Começar Agora" → tela de cadastro</div></div></div>
+        <div class="step"><div class="step-num">2</div><div><div style="font-size:13px;font-weight:600;">Cadastro</div><div class="mod-desc">Email + senha via Supabase Auth</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div style="font-size:13px;font-weight:600;">Onboarding</div><div class="mod-desc">Nome da empresa → nome do agente → prompt base</div></div></div>
+        <div class="step" style="margin-bottom:0"><div class="step-num">4</div><div><div style="font-size:13px;font-weight:600;">Dashboard</div><div class="mod-desc">Pronto para usar — ambiente criado automaticamente</div></div></div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#93C5FD;margin-bottom:12px;">Operação Diária</div>
+        <div class="step"><div class="step-num">1</div><div><div style="font-size:13px;font-weight:600;">Abre Dashboard</div><div class="mod-desc">Verifica KPIs e métricas do dia</div></div></div>
+        <div class="step"><div class="step-num">2</div><div><div style="font-size:13px;font-weight:600;">Pipeline de Leads</div><div class="mod-desc">Arrasta leads entre colunas, classifica temperatura</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><div style="font-size:13px;font-weight:600;">Agendamento</div><div class="mod-desc">Lead com visita marcada → verifica no calendário</div></div></div>
+        <div class="step" style="margin-bottom:0"><div class="step-num">4</div><div><div style="font-size:13px;font-weight:600;">Conversão</div><div class="mod-desc">Lead fechado → aparece no Dashboard de Vendas</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: CHECKLIST CONFIGURAÇÃO INICIAL -->
+  <div class="slide" id="slide-5">
+    <div class="section-header">
+      <div class="eyebrow">Setup do Cliente</div>
+      <h2 class="h2">Checklist de <span class="accent">Configuração Inicial</span></h2>
+      <p class="body">Em menos de 1 hora o cliente pode estar com o concierge operacional.</p>
+    </div>
+    <table class="tbl">
+      <thead><tr><th>#</th><th>Ação</th><th>Módulo</th><th>Prioridade</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Preencher informações da empresa</td><td>Base de Conhecimento</td><td><span class="badge-red">Crítico</span></td></tr>
+        <tr><td>2</td><td>Adicionar FAQs, documentos e mídias</td><td>Base de Conhecimento</td><td><span class="badge-red">Crítico</span></td></tr>
+        <tr><td>3</td><td>Conectar WhatsApp via QR Code</td><td>WhatsApp & Canais</td><td><span class="badge-red">Crítico</span></td></tr>
+        <tr><td>4</td><td>Desativar whitelist para Go Live</td><td>WhatsApp & Canais</td><td><span class="badge-red">Crítico</span></td></tr>
+        <tr><td>5</td><td>Ajustar prompt e modelo do agente</td><td>Agentes IA</td><td><span class="badge-warn">Importante</span></td></tr>
+        <tr><td>6</td><td>Configurar whitelist para testes</td><td>WhatsApp & Canais</td><td><span class="badge-warn">Importante</span></td></tr>
+        <tr><td>7</td><td>Definir horários de disponibilidade</td><td>Agendamentos</td><td><span class="badge-warn">Importante</span></td></tr>
+        <tr><td>8</td><td>Gerar Funil com IA (desbloqueado após KB)</td><td>Funnel Builder</td><td><span class="badge-warn">Importante</span></td></tr>
+        <tr><td>9</td><td>Conectar Google Calendar</td><td>Agendamentos</td><td><span class="badge-green">Opcional</span></td></tr>
+        <tr><td>10</td><td>Subir fotos e vídeos na Galeria</td><td>Galeria de Mídia</td><td><span class="badge-green">Opcional</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SLIDE 6: ROADMAP -->
+  <div class="slide" id="slide-6">
+    <div class="section-header">
+      <div class="eyebrow">Evolução do Produto</div>
+      <h2 class="h2">Roadmap — <span class="accent">Fases</span></h2>
+    </div>
+    <div>
+      <div class="phase-row">
+        <span class="phase-badge phase-done">Fase 0</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Infraestrutura Base</div><div class="mod-desc">Vite + React + TypeScript · Supabase · Design System · Auth · Multi-tenancy</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-done">Fase 1</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Core do Produto</div><div class="mod-desc">Landing Page · Onboarding · Base de Conhecimento · Agentes IA · WhatsApp via UAZAPI</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-done">Fase 2</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Gestão Comercial</div><div class="mod-desc">Pipeline Kanban · Funnel Builder com IA · Otimizador de Prompts · Agendamentos · Google Calendar · Galeria</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-done">Fase 3</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Analytics & Vendas</div><div class="mod-desc">Dashboard KPIs · Ticket Dashboard multi-plataforma · Hotmart · Kiwify · Sympla · Blinket · Eventin</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-progress">Fase 4</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Expansão de Canais <span style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);border-radius:6px;padding:2px 7px;font-size:11px;color:#FCD34D;font-weight:600;margin-left:8px;">Em andamento</span></div><div class="mod-desc">🔜 Instagram Direct (Meta API) · 🔜 Telegram Bot · 🔜 Webchat Widget embeddable</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-plan">Fase 5</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Marketing & Tráfego</div><div class="mod-desc">Google Ads · Meta Ads · Dashboard de performance de anúncios</div></div>
+      </div>
+      <div class="phase-row">
+        <span class="phase-badge phase-future">Fase 6</span>
+        <div><div style="font-size:13px;font-weight:600;margin-bottom:3px;">Escala & Enterprise</div><div class="mod-desc">White-label · API pública · Relatórios PDF/Excel · Multi-agente por canal · Dashboard de ROI unificado</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: DIFERENCIAIS -->
+  <div class="slide" id="slide-7">
+    <div class="section-header">
+      <div class="eyebrow">Por que o Backstagefy?</div>
+      <h2 class="h2">Diferenciais <span class="accent">Competitivos</span></h2>
+    </div>
+    <div class="grid-3" style="gap:12px;">
+      <div class="card green-border">
+        <div style="font-size:20px;margin-bottom:8px;">🤖</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">IA Conversacional 24/7</div>
+        <div class="mod-desc">Agente que fala como humano, qualifica leads e agenda visitas automaticamente — sem gestor online</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:8px;">⚡</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Funil Gerado por IA</div>
+        <div class="mod-desc">Analisa a Base de Conhecimento e cria funil personalizado automaticamente para o negócio</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:8px;">✍️</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Otimizador de Prompts</div>
+        <div class="mod-desc">IA melhora automaticamente as instruções de cada etapa do funil para maximizar conversão</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:8px;">🔒</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Multi-Tenant Isolado</div>
+        <div class="mod-desc">Cada cliente tem ambiente completamente separado — dados, agentes e funis nunca se cruzam</div>
+      </div>
+      <div class="card">
+        <div style="font-size:20px;margin-bottom:8px;">🔥</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Pipeline Visual</div>
+        <div class="mod-desc">Kanban com drag-and-drop, temperatura de lead (Hot/Warm/Cold) e badges VIP em um único painel</div>
+      </div>
+      <div class="card green-border">
+        <div style="font-size:20px;margin-bottom:8px;">📅</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Agendamento Inteligente</div>
+        <div class="mod-desc">IA agenda visitas respeitando horários configurados, com sincronização automática no Google Calendar</div>
+      </div>
+      <div class="card" style="grid-column:span 3;">
+        <div style="font-size:20px;margin-bottom:8px;">💰</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:6px;">Multi-Plataforma de Vendas</div>
+        <div class="mod-desc">Centraliza dados de Hotmart, Kiwify, Sympla, Blinket e Eventin em um único dashboard de receita</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: MÉTRICAS + PRÓXIMOS PASSOS -->
+  <div class="slide" id="slide-8">
+    <div class="section-header">
+      <div class="eyebrow">Performance & Evolução</div>
+      <h2 class="h2">Métricas & <span class="accent">Próximos Passos</span></h2>
+    </div>
+    <div class="grid-2" style="align-items:start;">
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:12px;">KPIs que acompanhamos</div>
+        <table class="tbl">
+          <thead><tr><th>Métrica</th><th>Fonte</th></tr></thead>
+          <tbody>
+            <tr><td>Leads capturados/mês</td><td>Pipeline de Leads</td></tr>
+            <tr><td>Taxa de qualificação (frio → quente)</td><td>Pipeline</td></tr>
+            <tr><td>Visitas agendadas pela IA vs. humanas</td><td>Agendamentos</td></tr>
+            <tr><td>Conversão lead → venda</td><td>Ticket Dashboard</td></tr>
+            <tr><td>Tempo médio de resposta do agente</td><td>WhatsApp logs</td></tr>
+            <tr><td>KB preenchida (%)</td><td>Barra de progresso</td></tr>
+            <tr><td>Receita por plataforma</td><td>Ticket Dashboard</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#93C5FD;margin-bottom:12px;">Fase 4 — Em andamento</div>
+        <div class="step"><div style="width:8px;height:8px;border-radius:50%;background:var(--warning);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Instagram Direct via Meta API</div></div>
+        <div class="step"><div style="width:8px;height:8px;border-radius:50%;background:var(--warning);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Telegram Bot</div></div>
+        <div class="step" style="margin-bottom:18px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--warning);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Webchat Widget embeddable</div></div>
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#C4B5FD;margin-bottom:12px;">Fase 5 — Planejado</div>
+        <div class="step"><div style="width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Google Ads integration</div></div>
+        <div class="step"><div style="width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Meta Ads integration</div></div>
+        <div class="step" style="margin-bottom:0;"><div style="width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;margin-top:4px;"></div><div class="mod-desc">Dashboard de performance de anúncios</div></div>
+      </div>
+    </div>
+    <div class="card green-border" style="margin-top:20px;text-align:center;padding:20px;">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--green);margin-bottom:6px;">Status Atual</div>
+      <div style="font-size:20px;font-weight:800;margin-bottom:6px;">Fases 0–3 concluídas · Fase 4 em andamento</div>
+      <div class="body" style="font-size:13px;">Produto operacional — IA conversacional, pipeline, agendamentos, funil e vendas multi-plataforma ativos.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let current = 1;
+  const total = 8;
+  function goTo(n) {
+    document.getElementById('slide-' + current).classList.remove('active');
+    current = Math.max(1, Math.min(total, n));
+    document.getElementById('slide-' + current).classList.add('active');
+    document.getElementById('slide-counter').textContent = current + ' / ' + total;
+    document.getElementById('progress-fill').style.width = (current / total * 100) + '%';
+  }
+  function changeSlide(dir) { goTo(current + dir); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+</script>
+</body>
+</html>

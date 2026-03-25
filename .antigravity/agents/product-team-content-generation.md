@@ -5,7 +5,11 @@ type: project
 ---
 
 ```yaml
+autoClaude:
+  version: '3.0'
+
 agent:
+
   name: ProductTeamContentGeneration
   id: product-team-content-generation
   title: Gerador de Conteúdo do Time de Produto

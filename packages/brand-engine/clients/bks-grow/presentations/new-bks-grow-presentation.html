@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKS GROW — Aceleradora de Eventos</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@200;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bks-green: #84CC16;
+            --bks-green-glow: rgba(132, 204, 22, 0.4);
+            --bg-black: #050505;
+            --card-surface: rgba(20, 20, 20, 0.85);
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(132, 204, 22, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(132, 204, 22, 0.08) 0%, transparent 40%);
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 8%;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h4 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--bks-green);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 2vw, 1.6rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.4;
+            max-width: 1000px;
+        }
+
+        .accent {
+            color: var(--bks-green);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-surface);
+            padding: 2.5rem;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--bks-green);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(132, 204, 22, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .card h4 {
+            color: var(--bks-green);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .list-items li b {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .list-items li::before {
+            content: '✓';
+            color: var(--bks-green);
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        .blitz-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border-left: 4px solid var(--bks-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .blitz-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: rgba(132, 204, 22, 0.3);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: rgba(132, 204, 22, 0.1);
+            border: 1px solid var(--bks-green);
+            color: var(--bks-green);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .quick-win-badge {
+            background: var(--bks-green);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .logo-section {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .logo-placeholder {
+            width: 100%;
+            max-width: 200px;
+            opacity: 0.8;
+            filter: grayscale(1) brightness(2);
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--bg-black) !important;
+            }
+
+            /* A4 Landscape is ~ 1122x793 px, mas configurando 1920x1080 no Playwright */
+            html,
+            body {
+                width: 1920px;
+                height: auto;
+            }
+
+            section {
+                width: 1920px;
+                height: 1080px;
+                min-height: 1080px;
+                page-break-after: always;
+                page-break-inside: avoid;
+                overflow: hidden !important;
+                border-bottom: none !important;
+                padding: 100px 10% !important;
+            }
+
+            .grid {
+                gap: 2.5rem;
+                /* Ajuste para o espaçamento tela cheia */
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 5%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .blitz-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDE 1 -->
+    <section id="slide-1">
+        <div class="container">
+            <div class="tag">O Gancho</div>
+            <h1>Acelerando <span class="accent">Gigantes</span>,<br>Consolidando Experts.</h1>
+            <h3>Estratégia, Operação e Autoridade no mercado de eventos brasileiros.</h3>
+            <p style="font-size: 1.5rem; font-weight: 600; color: #fff;">A única aceleração que paga a própria
+                conta.<br>Do contrato ao primeiro lead em 72h.</p>
+        </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section id="slide-2">
+        <div class="container">
+            <div class="tag">A Identidade</div>
+            <h2>O braço <span class="accent">estratégico e operacional</span><br>da sua empresa de eventos.</h2>
+            <h3>Somos muito mais que uma agência. A BKS Grow é uma solução corporativa nativa do setor de eventos. Nós
+                ajudamos parceiros a venderem mais, de maneira mais previsível e escalável, unindo métricas frias de
+                Growth Marketing à percepção de valor do Branding Revenue.</h3>
+
+            <div class="grid">
+                <div class="card" style="border-color: var(--bks-green);">
+                    <h4>Nosso diferencial é inimitável</h4>
+                    <p style="line-height: 1.6; color: var(--text-muted); font-size: 1.1rem;">Somos a única ACELERADORA
+                        comandada por pessoas que vivem diariamente o backstage e o palco de eventos corporativos de
+                        alto nível. Nossa autoridade vem da trincheira, não da teoria.</p>
+                </div>
+                <div class="card">
+                    <h4>A Promessa</h4>
+                    <p style="line-height: 1.6; color: var(--text-muted); font-size: 1.1rem;">Vivemos a sua realidade
+                        diariamente. Você terá um parceiro que fala a sua língua e a língua dos seus clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section id="slide-3">
+        <div class="container">
+            <div class="tag">Os 4 C's</div>
+            <h2>A Metodologia dos <span class="accent">4 C's</span></h2>
+            <h3>O caminho estratégico adaptável a cada ticket e modelo de negócio.</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>CAPTA</h4>
+                    <p>Atraímos o olhar do seu ICP (Ideal Customer Profile) com precisão cirúrgica. Sem desperdício de
+                        verba em curiosos.</p>
+                </div>
+                <div class="card">
+                    <h4>CONFIA</h4>
+                    <p>Construímos autoridade e desejo através de comunicações estratégicas. Transformamos um
+                        "desconhecido" em fã.</p>
+                </div>
+                <div class="card">
+                    <h4>CAPITALIZA</h4>
+                    <p>Foco em conversão. Transformamos a atenção gerada em oportunidades reais de fechamento e dinheiro
+                        no caixa.</p>
+                </div>
+                <div class="card">
+                    <h4>CONSERVA</h4>
+                    <p>LTV é o jogo. Criamos a base para que seu cliente compre novamente ou indique sua marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section id="slide-4" style="text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 4.5rem; margin-bottom: 2rem;">ARSENAL DE <span class="accent">SOLUÇÕES</span> BKS</h2>
+            <h3 style="margin: 0 auto; font-size: 2rem;">Conheça todos os motores que conectamos à sua empresa para
+                gerar resultados de elite.</h3>
+        </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section id="slide-5">
+        <div class="container">
+            <h2>Tráfego Pago <span class="accent">& Growth</span></h2>
+            <h3>Gestão implacável dos seus anúncios no Google, Meta e LinkedIn Ads.</h3>
+            <ul class="list-items" style="max-width: 900px;">
+                <li><b>Pipeline de Atenção:</b> Atraia o cliente ideal com alto poder de compra direto para o seu funil
+                    de vendas.</li>
+                <li><b>Combustível Comercial:</b> Abasteça seu time de atendimento diariamente com oportunidades reais
+                    de venda (Leads MQL).</li>
+                <li><b>Lucro Sob Controle:</b> Tenha previsibilidade absoluta e mensure o retorno sobre cada real
+                    investido (ROAS).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section id="slide-6">
+        <div class="container">
+            <h2>Landing Pages <span class="accent">& Sites</span></h2>
+            <h3>O destino perfeito para o seu tráfego. Um vendedor que não dorme.</h3>
+            <ul class="list-items" style="max-width: 900px;">
+                <li><b>Design Outlier:</b> Páginas projetadas não apenas para serem bonitas, mas construídas com
+                    arquitetura de conversão.</li>
+                <li><b>Direto ao Ponto:</b> Carregamento rápido, copy focada em persuasão e CTAs (Call to Actions) que
+                    transformam cliques em cadastro.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 7 -->
+    <section id="slide-7">
+        <div class="container">
+            <h2>Criativos Estratégicos & <span class="accent">Branding Revenue</span></h2>
+            <h3>O design que vende. Elevando sua percepção de valor para fechar tickets mais altos.</h3>
+            <ul class="list-items" style="max-width: 900px;">
+                <li><b>Packs de Guerra para Ads:</b> Imagens e vídeos desenhados com gatilhos psicológicos para
+                    interromper o padrão de navegação do seu cliente (Scroll stopper).</li>
+                <li><b>Branding Revenue:</b> Design que cria "Premiumização". Estruturamos sua marca para que o seu
+                    ticket de R$ 50k pareça barato perto da valorização gerada.</li>
+                <li><b>Social & Reels:</b> Edição dinâmica e roteiros focados em retenção de atenção.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 8 -->
+    <section id="slide-8">
+        <div class="container">
+            <h2>Gestão de <span class="accent">CRM</span></h2>
+            <h3>Domine o relacionamento com o seu cliente e não deixe dinheiro na mesa.</h3>
+            <ul class="list-items" style="max-width: 900px;">
+                <li><b>Visibilidade Total:</b> Enxergue todo o seu funil de vendas em um só lugar.</li>
+                <li><b>Conexão Perpétua:</b> Automatize fluxos de nutrição, mantenha a marca viva na mente do cliente e
+                    reduza o ciclo de vendas.</li>
+                <li><b>Mineração de Ouro (LTV):</b> Crie réguas automatizadas para campanhas de upsell, downsell e
+                    cross-sell na sua própria base.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 9 -->
+    <section id="slide-9">
+        <div class="container">
+            <h2>Dashboards em <span class="accent">Tempo Real</span></h2>
+            <h3>A intuição quebra negócios. Os dados constroem impérios.</h3>
+            <ul class="list-items" style="max-width: 900px;">
+                <li><b>Controle Absoluto:</b> Gerencie os principais indicadores da sua empresa (CAC, ROAS, Taxa de
+                    Conversão) em uma tela única.</li>
+                <li><b>Decisão Executiva:</b> Transforme dados brutos (cliques e impressões) em insights de negócios
+                    para diretores.</li>
+                <li><b>Acesso Omnichannel:</b> Desenvolvido exclusivamente para você acompanhar a máquina operando de
+                    qualquer dispositivo, a qualquer momento.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SLIDE 10 -->
+    <section id="slide-10">
+        <div class="container">
+            <h2>Entendemos sua <span class="accent">Dimensão</span></h2>
+            <h3>Operações personalizadas desenhadas para o seu modelo de entrega.</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>Experts e Palestrantes</h4>
+                    <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">Transformamos seu
+                        conhecimento em autoridade absoluta para dominar palcos e aumentar convites.</p>
+                </div>
+                <div class="card">
+                    <h4>Empresas de Eventos</h4>
+                    <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">A Máquina de escala. Se você
+                        tem braço para entregar, nós injetamos o volume de leads qualificados.</p>
+                </div>
+                <div class="card">
+                    <h4>Projetos High-End (+R$ 50k)</h4>
+                    <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">Foco em Reconhecimento
+                        Corporativo, Posicionamento B2B e redução de CAC de longo prazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 11 -->
+    <section id="slide-11">
+        <div class="container">
+            <h2>Metodologia Blitz de <span class="accent">3 Atos</span></h2>
+            <h3>Entrega Contínua. Sem Esperas Intermináveis.</h3>
+            <div class="blitz-item">
+                <div class="blitz-number">01</div>
+                <div>
+                    <div class="quick-win-badge">Dias 1 a 3</div>
+                    <h4>ATO 01: Onboarding e Quick Win</h4>
+                    <p style="font-size:1.1rem;">Auditoria rápida, setup técnico sem fricção e primeira campanha de
+                        guerrilha no ar em até 72h.</p>
+                </div>
+            </div>
+            <div class="blitz-item">
+                <div class="blitz-number">02</div>
+                <div>
+                    <div class="quick-win-badge">Semanas 1 a 4</div>
+                    <h4>ATO 02: Implementação e Escala</h4>
+                    <p style="font-size:1.1rem;">Diferente do mercado, não esperamos 5 semanas. Enquanto a 1ª vitória
+                        roda, estruturamos seu Funil Completo (LPs, CRM e novos Criativos).</p>
+                </div>
+            </div>
+            <div class="blitz-item">
+                <div class="blitz-number">03</div>
+                <div>
+                    <div class="quick-win-badge">Sempre</div>
+                    <h4>ATO 03: Governança e Otimização</h4>
+                    <p style="font-size:1.1rem;">Um DRI (Dono da Conta) dedicado ao seu negócio monitorando diariamente
+                        as métricas que impactam seu lucro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 12 -->
+    <section id="slide-12">
+        <div class="container">
+            <h2>Parceiros de Crescimento. <span class="accent">Não fornecedores.</span></h2>
+            <h3>Escolha o plano estratégico exato para o seu momento de mercado:</h3>
+
+            <div class="grid">
+                <!-- TRAÇÃO -->
+                <div class="card">
+                    <h4>TRAÇÃO</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">O motor de partida.
+                        Foco puro em Tráfego, Ads e Conversão direta.</p>
+                    <ul class="list-items" style="flex-grow: 1;">
+                        <li>Gestão Meta & Google Ads</li>
+                        <li><b>10</b> Criativos para Ads</li>
+                        <li><b>00</b> Criativos de Social</li>
+                    </ul>
+                </div>
+
+                <!-- GROW -->
+                <div class="card" style="border-color: var(--bks-green); box-shadow: 0 0 40px var(--bks-green-glow);">
+                    <div class="quick-win-badge">MAIS BUSCADO</div>
+                    <h4>GROW</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">Máquina completa de
+                        4C's, englobando anúncios, social media, LPs e CRM.</p>
+                    <ul class="list-items" style="flex-grow: 1;">
+                        <li><b>15</b> Criativos para Ads</li>
+                        <li><b>08</b> Criativos de Social Media</li>
+                    </ul>
+                </div>
+
+                <!-- ELITE -->
+                <div class="card">
+                    <h4>ELITE</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">Full Service para
+                        High-End. Atuação C-Level, Branding impecável e ativos ilimitados.</p>
+                    <ul class="list-items" style="flex-grow: 1;">
+                        <li>Consultoria Quinzenal</li>
+                        <li>Criativos de Ads e Social <b>ILIMITADOS</b></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 3rem; padding: 2rem; background: rgba(132, 204, 22, 0.05); border: 1px dashed var(--bks-green); border-radius: 20px; text-align: center;">
+                <h4 style="color: var(--bks-green); margin-bottom: 10px;">A Garantia Skin in the Game:</h4>
+                <p style="font-size: 1.2rem;">Velocidade é nossa única métrica de vaidade. Se não geramos o primeiro
+                    movimento real em 72h após o setup, nossa entrega inicial falhou e nossa equipe trabalha de graça
+                    até resolver.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

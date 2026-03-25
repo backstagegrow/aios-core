@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grains, Fruits & More — BFT Foods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#006d30;--primary-container:#58b46c;--primary-fixed:#b7f4b0;--surface:#f9f9fc;--surface-low:#f3f3f6;--surface-container:#ededf0;--on-surface:#1a1c1e;--inverse-surface:#2f3133;--inverse-alt:#252729;--inverse-on:#f0f0f3;--font-d:'Manrope',sans-serif;--font-b:'Inter',sans-serif;--r-full:9999px;--r-xl:.75rem;--r-2xl:1.25rem;--r-3xl:2rem;--grad:linear-gradient(150deg,#006d30 0%,#58b46c 100%);--sh:0 10px 40px rgba(0,0,0,.06);--shf:0 20px 60px rgba(0,0,0,.12);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:var(--font-b);background:var(--surface);color:var(--on-surface);-webkit-font-smoothing:antialiased;overflow-x:hidden;}a{text-decoration:none;color:inherit;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}.reveal.visible{opacity:1;transform:none;}
+    .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(47,49,51,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);}
+    .nav-back{display:flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:600;color:rgba(240,240,243,.65);transition:color .2s;}.nav-back:hover{color:var(--primary-container);}
+    .nav-logo{font-family:var(--font-d);font-weight:800;font-size:1.2rem;color:var(--inverse-on);letter-spacing:-.02em;display:flex;align-items:center;gap:.4rem;}
+    .nav-logo-dot{width:7px;height:7px;background:var(--primary-fixed);border-radius:50%;}
+    .btn-cta{background:#006d30;background-image:var(--grad);color:#ffffff!important;-webkit-text-fill-color:#ffffff;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.6rem 1.3rem;border-radius:var(--r-full);border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;box-shadow:0 4px 16px rgba(0,109,48,.35);transition:opacity .2s,transform .2s;}.btn-cta:hover{opacity:.88;transform:translateY(-1px);}
+    .hero{min-height:70vh;background:var(--inverse-surface);padding:120px 5vw 80px;position:relative;overflow:hidden;display:flex;align-items:center;}
+    .hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(0,109,48,.14) 0%,transparent 65%),url('https://images.unsplash.com/photo-1536304993881-ff86e0c9b846?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat;opacity:.2;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(47,49,51,.95) 40%,rgba(47,49,51,.5) 100%);}
+    .hero-content{position:relative;z-index:2;max-width:620px;}
+    .product-cat-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--primary-container);margin-bottom:1.25rem;}
+    .product-cat-badge span{width:6px;height:6px;background:var(--primary-container);border-radius:50%;}
+    .hero-title{font-family:var(--font-d);font-size:clamp(2.8rem,5vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--inverse-on);margin-bottom:1.25rem;}
+    .hero-title .accent{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-desc{font-size:1rem;line-height:1.65;color:rgba(240,240,243,.58);max-width:500px;margin-bottom:2rem;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .chip{font-size:.75rem;font-weight:600;padding:.35rem .8rem;border-radius:var(--r-full);background:rgba(88,180,108,.15);color:var(--primary-container);border:1px solid rgba(88,180,108,.25);}
+    .products-section{padding:6rem 5vw;background:var(--surface);}
+    .section-inner{max-width:1200px;margin:0 auto;}
+    .section-header{margin-bottom:3rem;}
+    .section-label{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--primary);display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;}
+    .section-label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--primary);}
+    .section-title{font-family:var(--font-d);font-size:1.75rem;font-weight:800;letter-spacing:-.025em;color:var(--on-surface);}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    .product-card{background:var(--surface);border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s;}.product-card:hover{transform:translateY(-6px);box-shadow:var(--shf);}
+    .product-img{height:200px;background:linear-gradient(135deg,#1e3a1e 0%,#112211 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}.product-card:hover .product-img img{transform:scale(1.05);}
+    .product-img-ph{display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+    .product-img-ph span{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.2);}
+    .product-body{padding:1.5rem;}
+    .product-name{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--on-surface);margin-bottom:.4rem;}
+    .product-desc{font-size:.85rem;line-height:1.6;color:rgba(26,28,30,.55);margin-bottom:1rem;}
+    .product-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+    .tag{font-size:.72rem;padding:.25rem .6rem;border-radius:var(--r-full);background:var(--surface-container);color:rgba(26,28,30,.5);}
+    .specs-section{padding:5rem 5vw;background:var(--surface-low);}
+    .specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px;margin:2.5rem auto 0;}
+    .spec-row{background:var(--surface);border-radius:var(--r-xl);padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--sh);}
+    .spec-key{font-size:.82rem;font-weight:500;color:rgba(26,28,30,.5);}
+    .spec-val{font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--on-surface);}
+    .cta-banner{background:var(--inverse-surface);padding:5rem 5vw;text-align:center;position:relative;overflow:hidden;}
+    .cta-banner-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(0,109,48,.1) 0%,transparent 65%);}
+    .cta-inner{position:relative;z-index:2;max-width:560px;margin:0 auto;}
+    .cta-title{font-family:var(--font-d);font-size:2rem;font-weight:800;letter-spacing:-.025em;color:var(--inverse-on);margin-bottom:1rem;}
+    .cta-desc{font-size:.95rem;line-height:1.65;color:rgba(240,240,243,.52);margin-bottom:2rem;}
+    .footer{background:var(--inverse-alt);padding:2.5rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.06);}
+    .footer-copy{font-size:.82rem;color:rgba(240,240,243,.3);}
+    @media(max-width:768px){.products-grid{grid-template-columns:1fr;}.specs-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="../bftfoods-landing.html" class="nav-back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back</a>
+    <div class="nav-logo"><span class="nav-logo-dot"></span>BFT Foods</div>
+    <a href="../bftfoods-landing.html#contact" class="btn-cta">Request Quote<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div><div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="product-cat-badge reveal"><span></span>Commodities & Produce</div>
+      <h1 class="hero-title reveal delay-1">Grains, Fruits<br><span class="accent">& More</span></h1>
+      <p class="hero-desc reveal delay-2">Beyond animal proteins, BFT Foods trades a wide range of agricultural commodities — corn, soy, sugar, fruits, and vegetables — from certified South American and global producers.</p>
+      <div class="hero-chips reveal delay-3">
+        <span class="chip">Non-GMO Available</span><span class="chip">Organic Options</span><span class="chip">Bulk Cargo</span><span class="chip">HACCP</span><span class="chip">Certified Origins</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label reveal">Product Range</div>
+        <h2 class="section-title reveal delay-1">Agricultural Commodities & Produce</h2>
+      </div>
+      <div class="products-grid">
+        <div class="product-card reveal delay-1">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Corn Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Corn (Maize)</div><div class="product-desc">Yellow #2 and white corn for feed and food industries. Bulk and containerized. Brazilian and Argentine origins with phytosanitary certificates.</div><div class="product-tags"><span class="tag">Yellow #2</span><span class="tag">Feed Grade</span><span class="tag">Bulk</span><span class="tag">Brazil/Argentina</span></div></div>
+        </div>
+        <div class="product-card reveal delay-2">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Soybean Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Soybean & Soy Products</div><div class="product-desc">Soybeans, soy meal, and soy oil from South America. Non-GMO options available. Key ingredient for animal feed and food processing industries globally.</div><div class="product-tags"><span class="tag">Soybeans</span><span class="tag">Soy Meal</span><span class="tag">Non-GMO</span><span class="tag">Feed</span></div></div>
+        </div>
+        <div class="product-card reveal delay-3">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Sugar Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Sugar (ICUMSA 45 & 150)</div><div class="product-desc">Refined white sugar ICUMSA 45 and raw sugar ICUMSA 150 from certified Brazilian mills. Bulk and bagged. Direct from mills with competitive pricing.</div><div class="product-tags"><span class="tag">ICUMSA 45</span><span class="tag">ICUMSA 150</span><span class="tag">Bulk/Bags</span><span class="tag">Brazil</span></div></div>
+        </div>
+        <div class="product-card reveal delay-1">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Tropical Fruits Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Tropical Fruits</div><div class="product-desc">Fresh mango, papaya, pineapple, and passion fruit from Brazilian producers. Frozen IQF purees and concentrates also available for food processing.</div><div class="product-tags"><span class="tag">Fresh</span><span class="tag">Frozen IQF</span><span class="tag">Purees</span><span class="tag">Concentrates</span></div></div>
+        </div>
+        <div class="product-card reveal delay-2">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Vegetables Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Frozen Vegetables</div><div class="product-desc">IQF frozen vegetables including peas, corn kernels, mixed vegetables, and broccoli. Processed in certified plants with international food safety standards.</div><div class="product-tags"><span class="tag">IQF</span><span class="tag">Peas</span><span class="tag">Mixed Veg</span><span class="tag">Retail</span></div></div>
+        </div>
+        <div class="product-card reveal delay-3">
+          <div class="product-img"><div class="product-img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg><span>Pork Photo</span></div></div>
+          <div class="product-body"><div class="product-name">Pork Cuts</div><div class="product-desc">Frozen pork cuts including bellies, shoulder, and trimmings. Brazilian pork from certified plants with export authorization to major markets.</div><div class="product-tags"><span class="tag">Belly</span><span class="tag">Shoulder</span><span class="tag">Trimmings</span><span class="tag">Frozen</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="specs-section">
+    <div class="section-inner">
+      <div class="section-header" style="text-align:center;max-width:560px;margin:0 auto 1rem;">
+        <div class="section-label reveal" style="justify-content:center;">Specifications</div>
+        <h2 class="section-title reveal delay-1">Agricultural commodity standards</h2>
+      </div>
+      <div class="specs-grid">
+        <div class="spec-row reveal delay-1"><span class="spec-key">Grains Transport</span><span class="spec-val">Bulk vessel & containers</span></div>
+        <div class="spec-row reveal delay-2"><span class="spec-key">Certifications</span><span class="spec-val">Phytosanitary, HACCP, organic</span></div>
+        <div class="spec-row reveal delay-3"><span class="spec-key">Origins</span><span class="spec-val">Brazil, Argentina, Uruguay</span></div>
+        <div class="spec-row reveal delay-4"><span class="spec-key">Frozen Cargo</span><span class="spec-val">-18°C Reefer containers</span></div>
+        <div class="spec-row reveal delay-1"><span class="spec-key">Min. Order</span><span class="spec-val">1 x 20' or 1 lot bulk</span></div>
+        <div class="spec-row reveal delay-2"><span class="spec-key">Incoterms</span><span class="spec-val">FOB, CIF, CFR, DDP</span></div>
+        <div class="spec-row reveal delay-3"><span class="spec-key">Non-GMO</span><span class="spec-val">Available for corn & soy</span></div>
+        <div class="spec-row reveal delay-4"><span class="spec-key">QC Inspection</span><span class="spec-val">Pre-shipment by own QC team</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="cta-inner">
+      <h2 class="cta-title reveal">Need a custom sourcing solution?</h2>
+      <p class="cta-desc reveal delay-1">Describe your product, volume, and destination. We will identify the best source and provide a competitive offer within 24 business hours.</p>
+      <a href="../bftfoods-landing.html#contact" class="btn-cta reveal delay-2" style="display:inline-flex;font-size:.9rem;padding:.85rem 2rem;">Request a Quote<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-copy">© 2025 BFT Foods — export@bftfoods.com</span>
+    <span class="footer-copy">+55 43 99612-4667 · +1 786 352-8499 · +971 50 4841-580</span>
+  </footer>
+  <script>
+    const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>

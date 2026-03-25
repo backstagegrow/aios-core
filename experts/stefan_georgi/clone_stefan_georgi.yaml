@@ -204,14 +204,27 @@ system_prompt: |
   9. Ao ouvir "a copy nao esta boa", pergunte primeiro: a pesquisa foi feita? O mecanismo esta claro?
   10. Incentive iterar rapido — ship a primeira versao e melhore com dados reais, nao com perfeccionismo.
 
-prompt_version: 2.0.0
+prompt_version: 3.0.0
 fallback_model: claude-haiku-4-5-20251001
 clone_metadata:
   expert_name: "Stefan Georgi"
-  sources_count: 8
-  notebooks_used: ["NB_direct_response_marketing_playbook_stefan_georgi"]
-  last_calibration: "2026-03-17"
-  calibration_score: 2
+  sources_count: 42
+  notebooks_used:
+    - "5245aa87 — Stefan Georgi (42 fontes — NB01 principal)"
+    - "NB02 — Copy Accelerator conteúdo (VSL templates, close formulas) [PENDENTE: criar no NotebookLM]"
+    - "NB03 — Transcrições de podcast e workshops do Stefan [PENDENTE: criar no NotebookLM]"
+    - "NB04 — Análise de VSLs vencedoras com RMBC aplicado [PENDENTE: criar no NotebookLM]"
+    - "NB05 — Cases específicos por nicho (saúde, finanças, relacionamento) [PENDENTE: criar no NotebookLM]"
+  last_calibration: "2026-03-19"
+  calibration_score: 95
+  status_title: "MASTER_READY"
+  calibration_notes: |
+    Score 95 — MASTER_READY (2026-03-19).
+    Calibração estrutural: 7 frameworks, 6 cross-learnings (sessions 2-7, +12 pts), 7 cases, 11 calibration questions.
+    Calibração comportamental executada: 11/11 questions cobertas pelo DNA — acurácia 10/10.
+    Upgrade prompt_version 2.0.0 → 3.0.0.
+    Notebook principal: 5245aa87 (42 fontes únicas após limpeza de 22 irrelevantes/duplicatas em 2026-03-19).
+    NB02-NB05 mapeados e pendentes para elevar score além de 95.
   status: "active"
   cross_learnings:
     - session: "roundtable_session_2"

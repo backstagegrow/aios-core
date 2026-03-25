@@ -397,3 +397,4 @@ build/
 !.obsidian-vault/.obsidian/
 !.obsidian-vault/.obsidian/app.json
 !.obsidian-vault/.obsidian/hotkeys.json
+clients/bks-grow/.env

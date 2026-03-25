@@ -247,15 +247,34 @@ To ensure the highest quality output, you MUST structure every prompt using the 
 
 You will now synthesize the inputs and the above principles into a final, comprehensive prompt.
 
-1. **Gather Foundational Context**:
-   - Start the prompt with a preamble describing the overall project purpose, the full tech stack (e.g., Next.js, TypeScript, Tailwind CSS), and the primary UI component library being used.
-2. **Describe the Visuals**:
-   - If the user has design files (Figma, etc.), instruct them to provide links or screenshots.
-   - If not, describe the visual style: color palette, typography, spacing, and overall aesthetic (e.g., "minimalist", "corporate", "playful").
+1. **Gather Foundational Context (The "Onlyness")**:
+   - Start the prompt describing the project purpose via the "Onlyness Statement" (Marty Neumeier). What makes this unique? The design must revolve around this uniqueness, not a generic template.
+   - Define the full tech stack (e.g., Next.js, TypeScript, Tailwind CSS) and the primary UI component library.
+2. **Describe the Visuals (Chris Do's Visual Engineering laws)**:
+   - **Reference Mirroring:** If the user provides a specific URL or image as a layout reference, the AI MUST strictly mirror the structural skeleton and layout of that reference (especially for "out-of-the-box" specific pages) while injecting the brand's aesthetic constraints.
+   - **User Asset Mapping (No Hallucinated Images):** DO NOT ask the AI generator to use Unsplash or generic placeholder data. The user will provide local photos. The prompt MUST instruct the AI to build exact bounding boxes/frames (using `img src="/placeholder-local.jpg"`) and explicitly plan *where* these user assets will fit perfectly into the visual hierarchy (e.g., Hero, Carousel, Bento Grid).
+   - **MANDATORY AESTHETIC DIRECTIVES (Unless explicitly disabled by user):**
+     - **Aesthetic:** High-End, Cinematic, Premium. Must perfectly match the Brand's defined Theme (Dark Mode or Light Mode). If Light Mode, aim for pristine minimal "Apple-like" aesthetics; if Dark Mode, aim for cinematic depth.
+     - **Negative Space:** Demand massive padding/margins (e.g., `py-24`, `py-32` in Tailwind) to create luxury and focus. Zero clutter. The void is the focus.
+     - **Typography:** Extreme contrast. Oversized, heavy headlines mixed with clean, readable body text. Maximum 2 font families. "Type is thinking made visible".
+     - **Textures & Depth:** Force the use of advanced Layering (soft shadows in Light Mode, sub-pixel borders and Glassmorphism in Dark Mode). No generic flat designs.
+     - **The Swiss Grid:** Demand perfect mathematical alignment (12 column grid strictly followed).
 3. **Build the Prompt using the Structured Framework**:
-   - Follow the four-part framework from Section 2 to build out the core request, whether it's for a single component or a full page.
+   - Follow the four-part framework from Section 2 to build out the core request.
+   - EXPLICITLY forbid the AI generator (v0, Lovable, etc.) from hallucinating generic placeholder components. Force it to focus on layout tension, typographical presentation, and mitigating client risk through perceived high value.
+   - **DYNAMIC COPY-TO-UI MAPPING:** You MUST dynamically map EVERY section provided by the `@copy_chief` into a corresponding High-End Visual Archetype. Do NOT hardcode the number of sections; instead, adapt the UI exactly to the copy's length and intent using these strict aesthetic rules:
+     - **Hero / Hooks:** Full screen height (100vh), extreme contrast. The *Onlyness Statement* lives here.
+     - **Agitation / Problem:** Asymmetric layouts, harsh typography, visual representation of pain. Break the standard grid to create visual tension.
+     - **Mechanism / Process:** Glowing bento grids, high-end data visualization, or strict 3-column architectural sequences.
+     - **Comparisons (The Gap):** Side-by-side or alternating dual-layout (Status Quo vs. The New Premium World).
+     - **Social Proof / Clients:** Minimalist testimonial cards or brand logos in grayscale with low opacity. Zero clutter. Focus on whitespace.
+     - **Forms & Lead Capture:** High-end floating glassmorphism cards. Inputs MUST have generous padding (`p-4` or `p-5`), subtle sub-pixel borders, and glowing `ring` focus states. Avoid cheap-looking default inputs. Use micro-interactions (e.g., floating labels, sleek submit buttons).
+     - **Offers / Pricing / Final CTA:** High-urgency, extreme value presentation. Use a contrasting background color (e.g., a deep brand metallic or neon accent) to aggressively isolate this section from the rest of the dark page.
+     - **FAQ / Accordions:** Minimalist thin borders, expand/collapse with smooth transitions and high typographical contrast for questions.
+   - **MOTION PHYSICS & MICRO-INTERACTIONS:** Force the AI generator to include scroll-triggered animations (fade-up, slide-in) and hover states (e.g., Framer Motion or Tailwind `animate-in` with intersection observers). Nothing should "instantly snap" on scroll; the page must feel alive and high-end.
+   - **MOBILE ANTI-STACKING:** Prohibit lazy `flex-col` stacking on mobile. Decorative components must disappear on small screens. Overflowing grids (e.g., 4 testimonials or a multi-box mechanism) MUST become horizontal swipe carousels on mobile to avoid 10-mile vertical scrolls while maintaining the CTA static and visible.
 4. **Present and Refine**:
    - Output the complete, generated prompt in a clear, copy-pasteable format (e.g., a large code block).
-   - Explain the structure of the prompt and why certain information was included, referencing the principles above.
+   - Explain the structure of the prompt and why certain information was included, referencing the Visual Engineering principles.
    - <important_note>Conclude by reminding the user that all AI-generated code will require careful human review, testing, and refinement to be considered production-ready.</important_note>
  

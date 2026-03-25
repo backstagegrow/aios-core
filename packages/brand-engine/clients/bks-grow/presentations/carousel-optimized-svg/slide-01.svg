@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs>
+    <linearGradient id="leftLine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#84CC16"/>
+      <stop offset="100%" stop-color="#84CC16" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#0A0A0A" stroke="none" stroke-width="1" opacity="1"/>
+  <rect x="0" y="0" width="4" height="1350" rx="0" fill="url(#leftLine)"/>
+  <text x="-20" y="1330" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="300" font-weight="900" fill="#84CC16" opacity="0.04">SORTE</text>
+  <text x="64" y="96" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#84CC16" text-anchor="start" opacity="1" letter-spacing="">Marketing Digital · BKS Grow</text>
+  <text x="64" y="580" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#A1A1AA" text-anchor="start" opacity="1" letter-spacing="">O erro que todo dono de negócio comete</text>
+  <text x="64" y="660" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1" letter-spacing="">Depender de</text>
+<text x="64" y="752" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1" letter-spacing="">indicação não</text>
+<text x="64" y="844" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1" letter-spacing="">é estratégia.</text>
+  <text x="64" y="936" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="76" font-weight="900" fill="#84CC16" text-anchor="start" opacity="1" letter-spacing="">É sorte.</text>
+  <text x="64" y="1016" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="500" fill="#A1A1AA" text-anchor="start" opacity="1" letter-spacing="">E negócio não pode depender de sorte para crescer.</text>
+  <text x="64" y="1270" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#FFFFFF" text-anchor="start" opacity="0.3" letter-spacing="">Arraste para continuar  →</text>
+  
+  <text x="1016" y="96" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="end" opacity="0.2" letter-spacing="">01 / 06</text>
+  <text x="1016" y="1306" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#84CC16" text-anchor="end" opacity="0.5" letter-spacing="">bksgrow.com.br</text></svg>

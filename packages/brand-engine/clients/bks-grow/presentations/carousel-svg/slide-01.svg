@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <linearGradient id="leftLine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#84CC16"/>
+      <stop offset="100%" stop-color="#84CC16" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D0D0D"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="url(#bgGrad)" stroke="none" stroke-width="1" opacity="1"/>
+  <!-- Left accent line -->
+  <rect x="0" y="0" width="4" height="1350" rx="0" fill="url(#leftLine)" stroke="none" stroke-width="1" opacity="1"/>
+  <!-- BG word faded -->
+  <text x="-20" y="1330" font-family="Inter, Arial, sans-serif" font-size="320" font-weight="900" fill="#84CC16" opacity="0.04" letter-spacing="-16">SORTE</text>
+  <!-- Top tag -->
+  <text x="64" y="96" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="700" fill="#84CC16" text-anchor="start" opacity="1">Marketing Digital · BKS Grow</text>
+  <!-- Overline -->
+  <text x="64" y="580" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="500" fill="#A1A1AA" text-anchor="start" opacity="1">O erro que todo dono de negócio comete</text>
+  <!-- Main title -->
+  <text x="64" y="660" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1">Depender de</text>
+  <text x="64" y="750" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1">indicação não</text>
+  <text x="64" y="840" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" text-anchor="start" opacity="1">é estratégia.</text>
+  <text x="64" y="930" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="900" fill="#84CC16" text-anchor="start" opacity="1">É sorte.</text>
+  <!-- Subtitle -->
+  <text x="64" y="1010" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="400" fill="#A1A1AA" text-anchor="start" opacity="1">E negócio não pode depender</text>
+  <text x="64" y="1042" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="start" opacity="1">de sorte para crescer.</text>
+  <!-- Swipe hint -->
+  <text x="64" y="1270" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" font-weight="500" fill="#FFFFFF" text-anchor="start" opacity="0.3">Arraste para continuar  →</text>
+  <!-- Slide num -->
+  <text x="1016" y="96" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="end" opacity="0.2">01 / 06</text>
+  <!-- Logo -->
+  <text x="1016" y="1306" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="700" fill="#84CC16" text-anchor="end" opacity="0.5">bksgrow.com.br</text>
+</svg>

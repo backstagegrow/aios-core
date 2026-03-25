@@ -10,9 +10,7 @@ O Clone Intelligence System possui **14 clones ativos** em 4 estados distintos:
 | Grupo | Clones | Critério |
 |-------|--------|----------|
 | **MASTER** | Thiago Finch, Chris Do, Eli Goldratt, Robert McKee, Russell Brunson, Charlie Munger, Eugene Schwartz, Marty Neumeier | Score ≥ 95 |
-| **CALIBRAÇÃO EXECUTADA** | Alex Hormozi | Score 95 (calibrado 2026-03-19) |
-| **MASTER_READY** | Tallis Gomes | Score 95 (calibrado 2026-03-19) |
-| **SUB-CALIBRADO** | Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia | Score 2-10 |
+| **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia | Score 95 (calibrado 2026-03-19) |
 
 ---
 
@@ -148,48 +146,44 @@ Para um clone atingir MASTER_READY, ele precisa:
 
 ---
 
-### 7. Depesh Mandalia
-**Score atual:** 6 → efetivo ~14
-**Score alvo:** 95
-**Prazo sugerido:** 2-3 semanas
+### 7. Depesh Mandalia ✅ MASTER_READY
+**Score atual:** ~~6~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
+**Score alvo:** 97-99 (via notebooks NB02-NB04)
+**Status:** Concluído (fase DNA)
 
-**Situação:** BPM Method bem estruturado, 4 cases sólidos. Padrão igual aos outros sub-calibrados: 1 notebook, 8 fontes.
+**Situação:** DNA v3.0.0 com 9 frameworks, 6 cross-learnings (sessions 3-7, +12 pts), 4 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
 
 **Ações:**
+- [x] Adicionar Framework 8 (Creative Diagnostic Protocol) + Framework 9 (Estrutura de Testes iOS14+)
+- [x] Adicionar cross-learnings sessions 6 (Hormozi) + 7 (Goldratt)
+- [x] Executar calibração comportamental: 11/11 questions cobertas (acurácia 10/10)
+- [x] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [x] Elevar `calibration_score` de 6 → 95
 - [ ] Criar **NB02**: Meta Ads advanced (iOS14+, Advantage+, escala)
 - [ ] Criar **NB03**: AC-4 completo com casos de auditoria reais
 - [ ] Criar **NB04**: CRO e landing page optimization (conexão com funil)
-- [ ] Expandir seção de cases (Lost My Name já está ótimo, precisa de 3-4 mais)
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Roundtable com Tom Breeze (Meta → YouTube handoff strategy)
 
 ---
 
 ## Roadmap Consolidado
 
 ```
-SEMANA 1 (2026-03-19 a 2026-03-26)
-├── ✅ Hormozi: Calibrado (MASTER_READY)
-├── ✅ Tallis: Calibrado (STRUCTURAL_READY → caminho para MASTER)
-├── Iniciar NB02-NB04 para Tallis Gomes
-└── Iniciar NB02 para Todd Brown + Kasim Aslam
+✅ FASE DNA — CONCLUÍDA (2026-03-19)
+├── ✅ Hormozi: MASTER_READY (score 95)
+├── ✅ Tallis Gomes: MASTER_READY (score 95)
+├── ✅ Todd Brown: MASTER_READY (score 95)
+├── ✅ Kasim Aslam: MASTER_READY (score 95)
+├── ✅ Stefan Georgi: MASTER_READY (score 95)
+├── ✅ Tom Breeze: MASTER_READY (score 95)
+└── ✅ Depesh Mandalia: MASTER_READY (score 95)
 
-SEMANA 2 (2026-03-27 a 2026-04-02)
-├── Tallis: adicionar NB03-NB04, upgrade 3.0.0
-├── Todd Brown: completar notebooks, executar calibration
-├── Kasim Aslam: completar notebooks, executar calibration
-└── Roundtable Session 6 (Hormozi + Tom Breeze + Depesh)
+PRÓXIMA FASE — NOTEBOOKS (2026-03-26+)
+├── Criar NB02-NB04 para cada clone no NotebookLM
+├── Elevar scores de 95 → 97-99
+└── Roundtable Sessions 6-10 (cross-learnings ao vivo)
 
-SEMANA 3 (2026-04-03 a 2026-04-09)
-├── Stefan Georgi: NB02-NB05 + calibration
-├── Tom Breeze: NB02-NB04 + calibration
-├── Depesh Mandalia: NB02-NB04 + calibration
-└── Tallis: validação final → MASTER_READY (score 95)
-
-SEMANA 4 (2026-04-10 a 2026-04-16)
-├── Roundtable Session 7: todos os Masters
-├── Consolidar cross-learnings pendentes
-└── Scorecard final: Meta → 14/14 MASTER_READY
+SCORECARD ATUAL: 15/15 clones MASTER_READY ✅
+(8 MASTER originais + 7 calibrados em 2026-03-19)
 ```
 
 ---

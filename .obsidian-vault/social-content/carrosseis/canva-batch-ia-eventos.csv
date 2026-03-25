@@ -1,0 +1,52 @@
+carrossel,tema,slide,tipo,headline,corpo,cta
+1,O que muda quando voce para de operar e comeca a orquestrar,1,cover,Voce opera o seu negocio. Ou o seu negocio opera voce?,,
+1,O que muda quando voce para de operar e comeca a orquestrar,2,body,O produtor que opera tudo,"Responde orcamento. Fecha contrato. Coordena fornecedor. Faz pos-venda. Quando e que ele pensa estrategia?",
+1,O que muda quando voce para de operar e comeca a orquestrar,3,body,O produtor que orquestra,"Tem sistemas respondendo. Tem IA triando. Tem processo rodando. Ele decide. O sistema executa.",
+1,O que muda quando voce para de operar e comeca a orquestrar,4,body,O que muda na pratica,"Orcamento → automacao. Briefing → agente. Follow-up → fluxo. Voce → estrategia.",
+1,O que muda quando voce para de operar e comeca a orquestrar,5,cta,Isso e o que a gente constroi na BKS Grow,Motor de aquisicao B2B para quem quer parar de depender de indicacao.,Link na bio
+2,IA nao substitui o produtor — ela elimina o amador,1,cover,IA nao vai tirar seu emprego no setor de eventos.,Mas o produtor que usa IA vai.,
+2,IA nao substitui o produtor — ela elimina o amador,2,body,O que a IA ja faz no setor,"Triagem de lead. Proposta inicial. Briefing. Contrato. Pos-evento. Tudo isso ja existe. Ja esta sendo usado.",
+2,IA nao substitui o produtor — ela elimina o amador,3,body,O que ela nao faz,"Leitura do cliente. Tomada de decisao sob pressao. Relacionamento de longo prazo. Isso ainda e humano.",
+2,IA nao substitui o produtor — ela elimina o amador,4,body,A divisao que esta acontecendo agora,"Quem domina IA usa ela pra escalar. Quem ignora fica fazendo manual o que ja tem sistema.",
+2,IA nao substitui o produtor — ela elimina o amador,5,cta,Qual lado voce esta?,A BKS Grow constroi o motor. Voce foca no que e seu.,Diagnostico gratuito — link na bio
+3,Como construo o backstage digital de um evento,1,cover,Antes de qualquer evento tem um sistema inteiro rodando por tras.,Esse e o meu backstage digital.,
+3,Como construo o backstage digital de um evento,2,body,Antes do evento,"Briefing via agente de IA. Proposta gerada com dados historicos. CRM atualizado automaticamente.",
+3,Como construo o backstage digital de um evento,3,body,Durante a operacao,"Checklist automatizado. Comunicacao centralizada. Nenhuma informacao se perde.",
+3,Como construo o backstage digital de um evento,4,body,Depois do evento,"Pesquisa de satisfacao disparada automaticamente. Dados de recorrencia identificados. Pipeline de recontratacao ativo.",
+3,Como construo o backstage digital de um evento,5,cta,Isso nao e ficcao cientifica.,E o que a BKS Grow implementa em operacoes de eventos hoje.,Link na bio
+4,A proposta que eu montava em 3 dias agora sai em 40 minutos,1,cover,Montar uma proposta comercial levava 3 dias do meu tempo.,Hoje leva 40 minutos. Veja o que mudou.,
+4,A proposta que eu montava em 3 dias agora sai em 40 minutos,2,body,O que eu fazia antes,"Coletava informacoes no WhatsApp. Montava planilha. Calculava manualmente. Revisava. Enviava PDF.",
+4,A proposta que eu montava em 3 dias agora sai em 40 minutos,3,body,O que o sistema faz agora,"Agente coleta o briefing. Dados historicos alimentam a precificacao. Draft gerado. Eu reviso e aprovo.",
+4,A proposta que eu montava em 3 dias agora sai em 40 minutos,4,body,O que ainda e meu,"A decisao final. O relacionamento. A leitura do cliente. O que nao tem sistema que substitua.",
+4,A proposta que eu montava em 3 dias agora sai em 40 minutos,5,cta,Esse processo existe. E pode ser implementado.,E o que a BKS Grow constroi para operacoes de eventos.,Link na bio
+5,Quanto tempo eu recuperei automatizando com IA,1,cover,Quanto tempo voce perde todo mes em tarefas que um sistema poderia fazer?,Eu medi o meu.,
+5,Quanto tempo eu recuperei automatizando com IA,2,body,Orcamentos e propostas,"Antes: ~12h/mes. Depois: ~3h/mes. Recuperado: 9 horas.",
+5,Quanto tempo eu recuperei automatizando com IA,3,body,Follow-up com leads,"Antes: ~8h/mes. Depois: automatico. Recuperado: 8 horas.",
+5,Quanto tempo eu recuperei automatizando com IA,4,body,Briefing e alinhamento com cliente,"Antes: ~6h/mes. Depois: agente faz a triagem. Recuperado: 4 horas.",
+5,Quanto tempo eu recuperei automatizando com IA,5,body,Total recuperado: ~21 horas/mes,"Nao terceirizei. Nao contratei. Construi sistemas.",
+5,Quanto tempo eu recuperei automatizando com IA,6,cta,Quer mapear onde voce perde tempo?,A BKS Grow faz esse diagnostico.,Link na bio
+6,O setor de eventos ainda vive de indicacao. IA muda isso.,1,cover,90% dos buffets e casas de eventos dependem de indicacao para fechar.,Isso nao e estrategia. E risco.,
+6,O setor de eventos ainda vive de indicacao. IA muda isso.,2,body,O problema da indicacao,"Voce nao controla o volume. Nao controla a qualidade do lead. Nao controla o timing. Depende de outros.",
+6,O setor de eventos ainda vive de indicacao. IA muda isso.,3,body,O que IA muda nessa equacao,"Automacao de prospeccao. Qualificacao de lead sem esforco humano. Follow-up inteligente. Previsibilidade de pipeline.",
+6,O setor de eventos ainda vive de indicacao. IA muda isso.,4,body,O que ainda nao muda,"A relacao e humana. A decisao de fechar e humana. A IA estrutura. Voce converte.",
+6,O setor de eventos ainda vive de indicacao. IA muda isso.,5,cta,Da indicacao para o motor preditivo.,E isso que a BKS Grow constroi.,Diagnostico gratuito — link na bio
+7,Eu criei um agente que faz o pre-briefing do cliente,1,cover,Criei um agente de IA que faz o pre-briefing do cliente antes da reuniao.,Nenhuma pergunta obvia na call. So o que importa.,
+7,Eu criei um agente que faz o pre-briefing do cliente,2,body,Como funcionava antes,"Cliente entrava na call. Eu passava 20 minutos coletando informacoes basicas. So depois vinha a conversa real.",
+7,Eu criei um agente que faz o pre-briefing do cliente,3,body,Como funciona agora,"Antes da reuniao o agente coleta: tipo de evento, data, numero de convidados, orcamento estimado, expectativas.",
+7,Eu criei um agente que faz o pre-briefing do cliente,4,body,O que isso muda na pratica,"Reuniao comeca no ponto certo. Proposta sai mais rapida. Cliente percebe profissionalismo diferente.",
+7,Eu criei um agente que faz o pre-briefing do cliente,5,cta,Esse agente foi construido para operacoes reais de eventos.,A BKS Grow implementa isso na sua operacao.,Link na bio
+8,3 usos de IA em eventos que ninguem esta usando ainda,1,cover,3 usos de IA no setor de eventos que ainda sao raros — mas nao deveriam ser.,,
+8,3 usos de IA em eventos que ninguem esta usando ainda,2,body,1. Precificacao preditiva,"IA que analisa historico de eventos por data, perfil de cliente e sazonalidade para sugerir o preco certo — nao o preco chutado.",
+8,3 usos de IA em eventos que ninguem esta usando ainda,3,body,2. Analise de demanda por data,"Cruzamento de dados internos com calendario de eventos regionais para identificar janelas de alta procura com antecedencia.",
+8,3 usos de IA em eventos que ninguem esta usando ainda,4,body,3. Automacao de contrato personalizado,"Contrato gerado automaticamente a partir do briefing. Clausulas ajustadas por tipo de evento. Zero retrabalho juridico operacional.",
+8,3 usos de IA em eventos que ninguem esta usando ainda,5,cta,Tudo isso ja existe. A maioria ainda nao usa.,A BKS Grow implementa esses sistemas em operacoes de eventos.,Link na bio
+9,O dado que o setor de eventos ignora — e a IA ja le,1,cover,Toda operacao de eventos gera dados. Quase ninguem le.,A IA le. E transforma em vantagem.,
+9,O dado que o setor de eventos ignora — e a IA ja le,2,body,Que dados?,"Taxa de fechamento por tipo de evento. Ticket medio por perfil de cliente. Tempo medio entre contato e contrato. Churn por sazonalidade.",
+9,O dado que o setor de eventos ignora — e a IA ja le,3,body,O que a maioria faz com isso,"Nada. Fica na planilha. Fica no WhatsApp. Fica na memoria do dono.",
+9,O dado que o setor de eventos ignora — e a IA ja le,4,body,O que da pra fazer com IA,"Identificar o perfil de cliente que fecha mais rapido. Priorizar abordagem. Ajustar proposta. Prever receita.",
+9,O dado que o setor de eventos ignora — e a IA ja le,5,cta,Dado sem sistema e ruido. Com sistema e decisao.,A BKS Grow transforma operacao em inteligencia.,Link na bio
+10,Por que eu documentei cada processo antes de automatizar qualquer coisa,1,cover,Antes de automatizar qualquer coisa eu documentei tudo.,A ordem importa mais do que a ferramenta.,
+10,Por que eu documentei cada processo antes de automatizar qualquer coisa,2,body,O erro que vejo repetir,"Contratar IA sem entender o processo. Automatizar o caos. O resultado: caos mais rapido.",
+10,Por que eu documentei cada processo antes de automatizar qualquer coisa,3,body,A sequencia certa,"1. Mapeia o processo. 2. Elimina o que nao deveria existir. 3. Documenta o que sobrou. 4. Ai sim, automatiza.",
+10,Por que eu documentei cada processo antes de automatizar qualquer coisa,4,body,O que a documentacao revelou na minha operacao,"Etapas repetidas. Informacoes coletadas duas vezes. Decisoes que poderiam ser regras. Tudo isso virou sistema.",
+10,Por que eu documentei cada processo antes de automatizar qualquer coisa,5,cta,IA nao resolve processo ruim. Ela amplifica.,A BKS Grow comeca pelo diagnostico. Nao pela ferramenta.,Diagnostico gratuito — link na bio

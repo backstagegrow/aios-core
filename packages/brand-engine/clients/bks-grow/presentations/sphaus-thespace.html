@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>spHAUS | TheSpace — O Espaço</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container": "#201f1f",
+          "on-primary": "#412d00",
+          "tertiary-fixed-dim": "#c8c6c5",
+          "on-secondary-fixed-variant": "#454747",
+          "secondary-container": "#454747",
+          "secondary-fixed": "#e2e2e2",
+          "surface": "#131313",
+          "surface-container-highest": "#353534",
+          "on-secondary-fixed": "#1a1c1c",
+          "tertiary-fixed": "#e5e2e1",
+          "on-tertiary-fixed": "#1c1b1b",
+          "surface-container-lowest": "#0e0e0e",
+          "on-surface": "#e5e2e1",
+          "on-surface-variant": "#d1c5b4",
+          "secondary-fixed-dim": "#c6c6c7",
+          "outline": "#9a8f80",
+          "surface-container-high": "#2a2a2a",
+          "primary-fixed-dim": "#e9c176",
+          "on-error": "#690005",
+          "inverse-on-surface": "#313030",
+          "surface-variant": "#353534",
+          "tertiary-container": "#a7a5a5",
+          "on-tertiary": "#313030",
+          "on-secondary": "#2f3131",
+          "on-primary-container": "#4e3700",
+          "error": "#ffb4ab",
+          "on-primary-fixed-variant": "#5d4201",
+          "outline-variant": "#4e4639",
+          "background": "#131313",
+          "surface-tint": "#e9c176",
+          "surface-bright": "#3a3939",
+          "on-secondary-container": "#b4b5b5",
+          "surface-dim": "#131313",
+          "tertiary": "#c8c6c5",
+          "on-tertiary-container": "#3b3b3b",
+          "error-container": "#93000a",
+          "primary": "#e9c176",
+          "surface-container-low": "#1c1b1b",
+          "inverse-surface": "#e5e2e1",
+          "on-primary-fixed": "#261900",
+          "inverse-primary": "#775a19",
+          "on-background": "#e5e2e1",
+          "secondary": "#c6c6c7",
+          "primary-fixed": "#ffdea5",
+          "on-error-container": "#ffdad6",
+          "primary-container": "#c5a059",
+          "on-tertiary-fixed-variant": "#474746"
+        },
+        fontFamily: {
+          "headline": ["Inter"],
+          "body": ["Manrope"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-nav {
+    background: rgba(19, 19, 19, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .brushed-gold-gradient {
+    background: linear-gradient(135deg, #e9c176 0%, #c5a059 100%);
+  }
+  .gold-line {
+    background: linear-gradient(90deg, transparent 0%, #c5a059 50%, transparent 100%);
+  }
+  .room-card:hover .room-overlay {
+    opacity: 1;
+  }
+  .room-overlay {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .stat-counter {
+    font-variant-numeric: tabular-nums;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .tech-badge {
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    background: rgba(197, 160, 89, 0.04);
+  }
+</style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-container/30">
+
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_1px_0_rgba(197,160,89,0.1)]">
+  <div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+    <a href="backstagefy-personal-portfolio.html" class="font-headline font-bold text-xl tracking-tighter text-[#E5E2E1]">spHAUS</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="font-headline font-semibold tracking-tight uppercase text-[0.75rem] text-[#E5E2E1]/80 hover:text-[#C5A059] transition-colors" href="backstagefy-personal-portfolio.html">Sobre</a>
+      <a class="font-headline font-semibold tracking-tight uppercase text-[0.75rem] text-[#E5E2E1]/80 hover:text-[#C5A059] transition-colors" href="#">Localização</a>
+      <a class="font-headline font-semibold tracking-tight uppercase text-[0.75rem] text-[#E5E2E1]/80 hover:text-[#C5A059] transition-colors" href="#">Contato</a>
+      <a class="font-headline font-semibold tracking-tight uppercase text-[0.75rem] text-[#C5A059] border-b border-[#C5A059]/30 pb-1" href="#">TheSpace</a>
+    </div>
+    <button class="brushed-gold-gradient text-on-primary-fixed font-headline font-bold tracking-tight uppercase text-[0.75rem] px-6 py-2.5 rounded-lg hover:scale-[1.02] active:scale-95 transition-all duration-200">
+      AGENDAR VISITA
+    </button>
+  </div>
+</nav>
+
+<!-- Hero — Imersivo -->
+<section class="relative min-h-screen w-full flex flex-col items-center justify-end pb-24 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img
+      class="w-full h-full object-cover brightness-[0.35]"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdI53oMXLUnTKDmbnQo3k4XaUX0Nn-fsgGHVryJYSDUwhVsMZcn80wdbiB1-YWw5xt0yJ7rAaI9CRSEz_oPoklE5qT4nPNFrFhcI6q0zhFEcbJHRuVPY3BZGqyKUDATJdYMgy0xOitHe3VpiyQtIraq-izwINIu8oZnCEcVDFvdwoFDZcLcS2Ns8bDOOrh61XtuFIVUwR2VKIetYHb6_7sjAoR60gauGK2mcml7O_pTp5_Ge3Vyx8r6wYIjSARwSgXEomfKvsPe6I"
+      data-alt="spHAUS main event hall aerial view"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+  </div>
+
+  <!-- Floating breadcrumb -->
+  <div class="absolute top-28 left-8 z-10 flex items-center gap-2 text-on-surface-variant/50 text-xs font-headline tracking-widest uppercase">
+    <span>spHAUS</span>
+    <span class="material-symbols-outlined text-sm">chevron_right</span>
+    <span class="text-primary-container">TheSpace</span>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-8 w-full">
+    <div class="max-w-3xl">
+      <span class="inline-block font-headline text-primary tracking-[0.35em] uppercase text-[0.7rem] mb-6 font-semibold">TheSpace — O Espaço</span>
+      <h1 class="font-headline font-bold text-5xl md:text-7xl tracking-tight leading-[1.05] mb-8">
+        Não é apenas um <br/>espaço. É o <span class="text-primary italic font-light">cenário</span> <br/>da sua narrativa.
+      </h1>
+      <p class="font-body text-lg text-on-surface-variant/80 max-w-xl font-light leading-relaxed mb-10">
+        1.200m² de arquitetura industrial reconvertida no coração de Vila Olímpia. Cada detalhe foi pensado para desaparecer — e deixar a sua marca em primeiro plano.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button class="brushed-gold-gradient text-on-primary-fixed font-headline font-bold tracking-[0.15em] uppercase text-sm px-8 py-4 rounded-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl">
+          AGENDAR VISITA GUIADA
+        </button>
+        <button class="border border-outline-variant/30 text-on-surface font-headline font-semibold tracking-wide uppercase text-sm px-8 py-4 rounded-lg hover:border-primary-container/50 hover:text-primary transition-all duration-300">
+          VER PLANT BAIXA
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick stats bar -->
+    <div class="mt-20 pt-8 border-t border-outline-variant/15 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <div class="text-3xl font-headline font-bold text-primary stat-counter">1.200<span class="text-sm font-light text-on-surface/40 ml-1">m²</span></div>
+        <div class="text-xs font-headline tracking-widest uppercase text-on-surface-variant/60 mt-1">Área total</div>
+      </div>
+      <div>
+        <div class="text-3xl font-headline font-bold text-primary stat-counter">7<span class="text-sm font-light text-on-surface/40 ml-1">amb.</span></div>
+        <div class="text-xs font-headline tracking-widest uppercase text-on-surface-variant/60 mt-1">Ambientes</div>
+      </div>
+      <div>
+        <div class="text-3xl font-headline font-bold text-primary stat-counter">350<span class="text-sm font-light text-on-surface/40 ml-1">pax</span></div>
+        <div class="text-xs font-headline tracking-widest uppercase text-on-surface-variant/60 mt-1">Capacidade máx.</div>
+      </div>
+      <div>
+        <div class="text-3xl font-headline font-bold text-primary stat-counter">8<span class="text-sm font-light text-on-surface/40 ml-1">m</span></div>
+        <div class="text-xs font-headline tracking-widest uppercase text-on-surface-variant/60 mt-1">Pé-direito</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A Filosofia do Espaço -->
+<section class="py-28 bg-surface-container-lowest">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <div>
+        <span class="block font-headline text-primary-container tracking-[0.3em] uppercase text-[0.7rem] mb-6">Nossa Filosofia</span>
+        <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight leading-[1.1] mb-8">
+          O espaço que <br/><span class="text-primary italic font-light">some</span> quando <br/>você precisa.
+        </h2>
+        <p class="font-body text-on-surface-variant font-light leading-relaxed mb-6">
+          A maioria dos espaços de evento compete com a sua marca. Nós fomos projetados para potencializá-la. Nossa paleta neutra, nossa iluminação adaptável e nossa acústica calibrada existem por uma única razão: colocar a sua identidade no centro.
+        </p>
+        <p class="font-body text-on-surface-variant font-light leading-relaxed">
+          Seja um lançamento global da Samsung ou um jantar íntimo para investidores — a spHAUS se reconfigura completamente. Não há "formato padrão" aqui. Há o <em class="text-on-surface not-italic font-normal">seu</em> formato.
+        </p>
+
+        <div class="mt-10 space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="w-1 h-12 brushed-gold-gradient rounded-full flex-shrink-0 mt-1"></div>
+            <div>
+              <div class="font-headline font-semibold text-sm text-on-surface mb-1">Arquitetura Neutra por Design</div>
+              <div class="font-body text-sm text-on-surface-variant font-light">Concreto aparente, aço e madeira natural. Materiais que nunca datam.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-1 h-12 brushed-gold-gradient rounded-full flex-shrink-0 mt-1"></div>
+            <div>
+              <div class="font-headline font-semibold text-sm text-on-surface mb-1">Iluminação Programável</div>
+              <div class="font-body text-sm text-on-surface-variant font-light">Sistema DALI com 256 cenas pré-configuradas. Da luz fria corporativa ao ambiente lounge.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-1 h-12 brushed-gold-gradient rounded-full flex-shrink-0 mt-1"></div>
+            <div>
+              <div class="font-headline font-semibold text-sm text-on-surface mb-1">Acústica Tratada</div>
+              <div class="font-body text-sm text-on-surface-variant font-light">Painéis absorventes ocultos. Perfeito para fala, música ao vivo e transmissões.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagem lateral com detalhe -->
+      <div class="relative">
+        <div class="aspect-[3/4] bg-surface-container-high rounded-xl overflow-hidden">
+          <img
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuALBCjBBswCkA2IqojhjrtLmRN4p4LYz2VJmUwqu3XNosuTfCyN-nxHYzMhRXbpQ00_5xuXfdryHy7vX5qtFJuLSzRP_os6f7JhcAX7TKv7kPDhLNfiiSooXouGGbMDSuO7PYPToqEjsO_ZrnGUPN3i4aKIYp3xScl2oEuA0cUfMfIkysVf31gl0vIyTkKzNSxNu-l1BtyPxmkp7BJBA1MDf8_LRPJZTegHPbCiVqqwEmv5cpvLcsJ5FE1Ep4T5wlHmM3Abq-m9OLM"
+            data-alt="spHAUS interior detail — materials and lighting"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+        </div>
+        <!-- Tag flutuante -->
+        <div class="absolute bottom-8 left-8 right-8 bg-surface-container/90 backdrop-blur-sm rounded-xl p-5 border border-outline-variant/10">
+          <div class="text-xs font-headline tracking-widest uppercase text-primary-container mb-1">Iluminação DALI</div>
+          <div class="text-sm font-body text-on-surface font-light">256 cenas de iluminação pré-programadas. Uma para cada momento da sua história.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Os Ambientes -->
+<section class="py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-20">
+      <span class="block font-headline text-primary-container tracking-[0.3em] uppercase text-[0.7rem] mb-4">Planta & Ambientes</span>
+      <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight mb-4">Sete ambientes. <br/>Infinitas configurações.</h2>
+      <div class="w-32 h-px gold-line mx-auto mt-6"></div>
+    </div>
+
+    <!-- Grid de ambientes -->
+    <div class="space-y-6">
+
+      <!-- Ambiente 1 — Grande Salão (destaque) -->
+      <div class="room-card relative overflow-hidden rounded-xl h-[380px] group cursor-pointer">
+        <img
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-50"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdI53oMXLUnTKDmbnQo3k4XaUX0Nn-fsgGHVryJYSDUwhVsMZcn80wdbiB1-YWw5xt0yJ7rAaI9CRSEz_oPoklE5qT4nPNFrFhcI6q0zhFEcbJHRuVPY3BZGqyKUDATJdYMgy0xOitHe3VpiyQtIraq-izwINIu8oZnCEcVDFvdwoFDZcLcS2Ns8bDOOrh61XtuFIVUwR2VKIetYHb6_7sjAoR60gauGK2mcml7O_pTp5_Ge3Vyx8r6wYIjSARwSgXEomfKvsPe6I"
+          data-alt="Grande Salão spHAUS"
+        />
+        <!-- Info sempre visível -->
+        <div class="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="px-12 max-w-2xl">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-primary-container font-headline text-[0.65rem] tracking-[0.35em] uppercase">Ambiente Principal</span>
+              <span class="w-8 h-px bg-primary-container/40"></span>
+              <span class="text-primary-container font-headline text-[0.65rem] tracking-[0.35em] uppercase">700m²</span>
+            </div>
+            <h3 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-4">O Grande Salão</h3>
+            <p class="font-body font-light text-on-surface-variant text-base leading-relaxed max-w-lg">
+              O coração da spHAUS. Pé-direito de 8 metros, vigas de aço expostas e um vão livre de 700m² sem pilares — tela em branco para os maiores eventos de São Paulo.
+            </p>
+            <!-- Configs -->
+            <div class="room-overlay mt-6 flex flex-wrap gap-3">
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-4 py-2 rounded-full">Coquetel 350 pax</span>
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-4 py-2 rounded-full">Jantar 180 pax</span>
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-4 py-2 rounded-full">Auditório 220 pax</span>
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-4 py-2 rounded-full">Teatro 280 pax</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid 2 ambientes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Lounge VIP -->
+        <div class="room-card relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
+          <img
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-40"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDheJcwl8B2qOZ5QQ32GIIUaQ77_CAsZH3wVV6AtnYK6QHIYpBbkqS_HW79q8xqc0NT46aAPclseEFe--rg4QkG_Y9uj_QnE6LxtX46DOVbjyb-v15-nn4dWXGkV54LLn6agtKTCCqc1vS-QVKHHVg7GFqL2Hupbi_7irkfCXFonw35RRHvxBSplVqbP07cjTrgSj36h_i0LlOd4zD38WsNd8zbYwS8rtIq6CHsjeKo_smAauULnWPg8PSnh3U0n-ZOFPgBpY7n7D8"
+            data-alt="Lounge VIP spHAUS"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-headline font-bold text-2xl">Lounge VIP</h3>
+              <span class="text-primary-container font-headline text-xs tracking-widest uppercase">120m²</span>
+            </div>
+            <p class="font-body font-light text-on-surface-variant text-sm">Área exclusiva para recepção de convidados premium. Acesso independente, bar privativo e concierge dedicado.</p>
+            <div class="room-overlay mt-4 flex gap-2">
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-3 py-1.5 rounded-full">Até 40 pax</span>
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-3 py-1.5 rounded-full">Bar privativo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estúdio de Criação -->
+        <div class="room-card relative overflow-hidden rounded-xl h-[280px] group cursor-pointer">
+          <img
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 brightness-40"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOW8BawWgdrmUXPObX4NXpiY4mKG0k9ujtqt7xB_OltByM3EO8fZEQvRBupL1dSYafzyy7BRnVNOsdD7c7iE3gvrggfrNH7NR8fASw84m9deavocMwgDlWQZq56tXEk4NiV4Zu95zcQMpT4xPURzmOMc-rBJ2UFnSlk2BDl6fpo_KiDNkKifJfniQvEqQkO8b10WdQp7yIeBXRbY9jhM3fSWnAyfGf8UV-1xpEBY8QE-nL2faxg998qAI2VmNM5Blpyax-mjk94qE"
+            data-alt="Estúdio de Conteúdo spHAUS"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-headline font-bold text-2xl">Estúdio de Conteúdo</h3>
+              <span class="text-primary-container font-headline text-xs tracking-widest uppercase">80m²</span>
+            </div>
+            <p class="font-body font-light text-on-surface-variant text-sm">Iluminação Bowens, fundo infinito e isolamento acústico. Para produções fotográficas, lives e entrevistas durante o evento.</p>
+            <div class="room-overlay mt-4 flex gap-2">
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-3 py-1.5 rounded-full">Live streaming</span>
+              <span class="tech-badge text-primary-container font-headline text-xs tracking-widest uppercase px-3 py-1.5 rounded-full">Isolamento 42dB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid 3 ambientes menores -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:border-primary-container/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-3xl text-primary mb-5 block">groups_3</span>
+          <div class="flex items-end justify-between mb-3">
+            <h3 class="font-headline font-bold text-xl">Sala Board</h3>
+            <span class="text-primary-container font-headline text-xs tracking-widest">40m²</span>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed">Reuniões executivas durante o evento. Mesa para 14 pessoas, videoconferência 4K, linha dedicada de 1Gbps.</p>
+          <div class="mt-5 pt-5 border-t border-outline-variant/10 text-xs font-headline tracking-widest uppercase text-on-surface-variant/40">14 pax · Acesso direto ao salão</div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:border-primary-container/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-3xl text-primary mb-5 block">spa</span>
+          <div class="flex items-end justify-between mb-3">
+            <h3 class="font-headline font-bold text-xl">Green Room</h3>
+            <span class="text-primary-container font-headline text-xs tracking-widest">35m²</span>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed">Camarim privativo para palestrantes e artistas. Espelho full-body, banheiro suite, frigobar curado e acesso ao palco sem exposição.</p>
+          <div class="mt-5 pt-5 border-t border-outline-variant/10 text-xs font-headline tracking-widest uppercase text-on-surface-variant/40">Acesso backstage · TV monitor cue</div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:border-primary-container/20 transition-all duration-300">
+          <span class="material-symbols-outlined text-3xl text-primary mb-5 block">local_cafe</span>
+          <div class="flex items-end justify-between mb-3">
+            <h3 class="font-headline font-bold text-xl">Terraço</h3>
+            <span class="text-primary-container font-headline text-xs tracking-widest">180m²</span>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed">Área descoberta com vista panorâmica para Vila Olímpia. Ideal para breaks, welcome drinks e ativações ao ar livre.</p>
+          <div class="mt-5 pt-5 border-t border-outline-variant/10 text-xs font-headline tracking-widest uppercase text-on-surface-variant/40">80 pax · Vista 360° · Cobogó</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Infraestrutura Tecnológica -->
+<section class="py-28 bg-surface-container-lowest">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <div class="sticky top-24">
+        <span class="block font-headline text-primary-container tracking-[0.3em] uppercase text-[0.7rem] mb-6">Tech & Infra</span>
+        <h2 class="font-headline font-bold text-4xl tracking-tight mb-8">
+          Infraestrutura digna de <span class="text-primary italic font-light">Silicon Valley.</span>
+        </h2>
+        <p class="font-body text-on-surface-variant font-light leading-relaxed mb-8">
+          A spHAUS foi desenhada para marcas tech-forward. Cada cabo foi planejado. Cada rack foi dimensionado. Para que você nunca precise pedir desculpas por uma falha de transmissão.
+        </p>
+        <div class="p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+          <div class="text-4xl font-headline font-bold text-primary mb-1 stat-counter">99.9%</div>
+          <div class="text-xs font-headline tracking-widest uppercase text-on-surface-variant/60">Uptime de conectividade — SLA garantido em contrato</div>
+        </div>
+      </div>
+
+      <!-- Cards de tech -->
+      <div class="space-y-4">
+
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined">router</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-base mb-1">Conectividade Dual ISP</h4>
+              <p class="font-body font-light text-sm text-on-surface-variant leading-relaxed">Dois links de fibra dedicada de 10Gbps com failover automático em &lt;30ms. Wi-Fi 6E em todas as zonas com densidade para 800+ dispositivos simultâneos.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">10Gbps Fibra</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Wi-Fi 6E</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">800+ devices</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined">display_external_input</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-base mb-1">Audiovisual Profissional</h4>
+              <p class="font-body font-light text-sm text-on-surface-variant leading-relaxed">Painel de LED modular P2.5 de 12m × 4m, projeção laser 4K, sistema de som Bose LineArray e mesa digital de 96 canais. Operador técnico incluso.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">LED P2.5</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Projeção 4K</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">LineArray Bose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined">videocam</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-base mb-1">Live Streaming Turn-Key</h4>
+              <p class="font-body font-light text-sm text-on-surface-variant leading-relaxed">Setup completo para transmissões ao vivo: 4 câmeras PTZ, switcher profissional, encoder 4K e uplink dedicado. Entregue ao seu canal sem terceiros.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">4× PTZ 4K</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Uplink dedicado</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Turn-key</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-base mb-1">Segurança & Controle de Acesso</h4>
+              <p class="font-body font-light text-sm text-on-surface-variant leading-relaxed">CFTV 4K com 32 câmeras, controle de acesso por QR Code ou biometria por ambiente e central de monitoramento 24h. NDA disponível para eventos confidenciais.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">CFTV 4K 32ch</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Biometria</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">NDA disponível</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 hover:border-primary-container/20 transition-all">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined">electric_bolt</span>
+            </div>
+            <div>
+              <h4 class="font-headline font-semibold text-base mb-1">Energia & Sustentabilidade</h4>
+              <p class="font-body font-light text-sm text-on-surface-variant leading-relaxed">Carga elétrica de 400kVA com gerador de emergência automático. Painéis solares suprem 40% do consumo. Certificação LEED Gold em processo.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">400kVA</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Gerador 100%</span>
+                <span class="tech-badge text-primary-container text-xs font-headline tracking-widest uppercase px-3 py-1 rounded-full">Solar 40%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Configurações do Espaço -->
+<section class="py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-20">
+      <span class="block font-headline text-primary-container tracking-[0.3em] uppercase text-[0.7rem] mb-4">Flexibilidade Total</span>
+      <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight">O mesmo espaço. <span class="text-primary italic font-light">Quatro histórias.</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Configuração 1 -->
+      <div class="relative bg-surface-container-low rounded-xl overflow-hidden group hover:bg-surface-container transition-all duration-500 border border-outline-variant/10 hover:border-primary-container/20">
+        <div class="p-10">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <div class="text-[0.65rem] font-headline tracking-[0.3em] uppercase text-primary-container mb-2">Configuração A</div>
+              <h3 class="font-headline font-bold text-2xl">Lançamento & Ativação</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-headline font-bold text-primary stat-counter">350</div>
+              <div class="text-xs text-on-surface/40 font-headline uppercase tracking-wider">pax</div>
+            </div>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed mb-8">
+            Palco central com LED wall de fundo, zona de coquetel nas laterais e pontos de ativação distribuídos. Fluxo de circulação estudado para maximizar engajamento com a marca.
+          </p>
+          <div class="border-t border-outline-variant/10 pt-6 grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">12m</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Palco</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">6h</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Montagem</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">40+</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Pontos elétricos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuração 2 -->
+      <div class="relative bg-surface-container-low rounded-xl overflow-hidden group hover:bg-surface-container transition-all duration-500 border border-outline-variant/10 hover:border-primary-container/20">
+        <div class="p-10">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <div class="text-[0.65rem] font-headline tracking-[0.3em] uppercase text-primary-container mb-2">Configuração B</div>
+              <h3 class="font-headline font-bold text-2xl">Conferência & Summit</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-headline font-bold text-primary stat-counter">220</div>
+              <div class="text-xs text-on-surface/40 font-headline uppercase tracking-wider">pax</div>
+            </div>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed mb-8">
+            Auditório com cadeiras plush, palco elevado com teleprompter, dois painéis de apoio laterais e zona de imprensa ao fundo. Cabine de tradução simultânea disponível.
+          </p>
+          <div class="border-t border-outline-variant/10 pt-6 grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">60cm</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Palco elevado</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">2ch</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Tradução simult.</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">4K</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Teleprompter</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuração 3 -->
+      <div class="relative bg-surface-container-low rounded-xl overflow-hidden group hover:bg-surface-container transition-all duration-500 border border-outline-variant/10 hover:border-primary-container/20">
+        <div class="p-10">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <div class="text-[0.65rem] font-headline tracking-[0.3em] uppercase text-primary-container mb-2">Configuração C</div>
+              <h3 class="font-headline font-bold text-2xl">Jantar Corporativo</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-headline font-bold text-primary stat-counter">180</div>
+              <div class="text-xs text-on-surface/40 font-headline uppercase tracking-wider">pax</div>
+            </div>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed mb-8">
+            Mesas redondas de 10 lugares com centro de flores (ou objeto de marca), iluminação cálida DALI, carpete hospitality e serviço emplatado em 3 tempos. Palco para banda ao vivo.
+          </p>
+          <div class="border-t border-outline-variant/10 pt-6 grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">18</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Mesas</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">3</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Tempos menu</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">Live</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Música ao vivo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuração 4 -->
+      <div class="relative bg-surface-container-low rounded-xl overflow-hidden group hover:bg-surface-container transition-all duration-500 border border-outline-variant/10 hover:border-primary-container/20">
+        <div class="p-10">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <div class="text-[0.65rem] font-headline tracking-[0.3em] uppercase text-primary-container mb-2">Configuração D</div>
+              <h3 class="font-headline font-bold text-2xl">Experiência Imersiva</h3>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-headline font-bold text-primary stat-counter">—</div>
+              <div class="text-xs text-on-surface/40 font-headline uppercase tracking-wider">custom</div>
+            </div>
+          </div>
+          <p class="font-body font-light text-on-surface-variant text-sm leading-relaxed mb-8">
+            Espaço transformado em ambiente imersivo — projection mapping 360°, instalações interativas e cenografia completa. Para marcas que querem redefinir o que "evento" significa.
+          </p>
+          <div class="border-t border-outline-variant/10 pt-6 grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">360°</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Projection mapping</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">Full</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Cenografia</div>
+            </div>
+            <div class="text-center">
+              <div class="text-lg font-headline font-bold text-on-surface">Custom</div>
+              <div class="text-[0.65rem] font-headline tracking-widest uppercase text-on-surface-variant/50 mt-1">Tudo sob medida</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials — Marcas que viveram -->
+<section class="py-28 bg-surface-container-lowest">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="text-center mb-20">
+      <h2 class="font-headline font-bold text-3xl tracking-tight">O que as marcas dizem</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="bg-surface-container rounded-xl p-8 border border-outline-variant/10">
+        <div class="flex gap-1 mb-6">
+          <span class="text-primary text-sm">★★★★★</span>
+        </div>
+        <p class="font-body font-light text-on-surface-variant leading-relaxed mb-8 text-sm italic">
+          "Fizemos o lançamento global do Galaxy S24 na spHAUS. A infraestrutura técnica superou qualquer venue que já usamos no mundo. O stream chegou a 2 milhões de viewers sem uma única queda."
+        </p>
+        <div class="border-t border-outline-variant/10 pt-6 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-headline font-bold text-sm text-primary">S</div>
+          <div>
+            <div class="font-headline font-semibold text-sm text-on-surface">Claudia Park</div>
+            <div class="text-xs text-on-surface-variant/60 font-body">Head of Events, Samsung Brasil</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container rounded-xl p-8 border border-outline-variant/10">
+        <div class="flex gap-1 mb-6">
+          <span class="text-primary text-sm">★★★★★</span>
+        </div>
+        <p class="font-body font-light text-on-surface-variant leading-relaxed mb-8 text-sm italic">
+          "O I/O Extended SP aconteceu na spHAUS pelo segundo ano consecutivo. A equipe entende o ritmo de eventos tech de alto perfil — eles antecipam o que você precisa antes de pedir."
+        </p>
+        <div class="border-t border-outline-variant/10 pt-6 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-headline font-bold text-sm text-primary">G</div>
+          <div>
+            <div class="font-headline font-semibold text-sm text-on-surface">Rafael Torres</div>
+            <div class="text-xs text-on-surface-variant/60 font-body">Google Developer Group SP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container rounded-xl p-8 border border-outline-variant/10">
+        <div class="flex gap-1 mb-6">
+          <span class="text-primary text-sm">★★★★★</span>
+        </div>
+        <p class="font-body font-light text-on-surface-variant leading-relaxed mb-8 text-sm italic">
+          "Usamos a spHAUS para o test drive privado do Defender 130. A atmosfera foi exatamente o que queríamos: premium sem ser convencional. Os convidados saíram impactados pelo espaço, não apenas pelo carro."
+        </p>
+        <div class="border-t border-outline-variant/10 pt-6 flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-headline font-bold text-sm text-primary">L</div>
+          <div>
+            <div class="font-headline font-semibold text-sm text-on-surface">Fernanda Watt</div>
+            <div class="text-xs text-on-surface-variant/60 font-body">Marketing Director, Land Rover Brasil</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA — Visita Guiada -->
+<section class="py-28 bg-surface relative overflow-hidden">
+  <div class="absolute inset-0 z-0 opacity-[0.04]">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary blur-[120px]"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <span class="inline-block font-headline text-primary tracking-[0.35em] uppercase text-[0.7rem] mb-6 font-semibold">Próximo Passo</span>
+    <h2 class="font-headline font-bold text-4xl md:text-6xl tracking-tight leading-[1.05] mb-8">
+      Veja com seus <br/>próprios olhos.
+    </h2>
+    <p class="font-body text-xl text-on-surface-variant/80 font-light max-w-2xl mx-auto leading-relaxed mb-12">
+      Nenhuma apresentação substitui a experiência de estar no espaço. Agende uma visita guiada gratuita com nossa equipe — em 45 minutos você terá o briefing completo para o seu evento.
+    </p>
+
+    <div class="flex flex-col md:flex-row gap-4 justify-center mb-16">
+      <button class="brushed-gold-gradient text-on-primary-fixed font-headline font-bold tracking-[0.2em] uppercase text-sm px-10 py-5 rounded-lg hover:scale-[1.02] active:scale-95 transition-all shadow-2xl">
+        AGENDAR VISITA GUIADA
+      </button>
+      <button class="border border-outline-variant/30 text-on-surface font-headline font-semibold tracking-wide uppercase text-sm px-10 py-5 rounded-lg hover:border-primary-container/50 hover:text-primary transition-all duration-300 flex items-center gap-2 justify-center">
+        <span class="material-symbols-outlined text-xl">download</span>
+        BAIXAR MEDIA KIT
+      </button>
+    </div>
+
+    <!-- Disponibilidade rápida -->
+    <div class="bg-surface-container rounded-xl p-6 border border-outline-variant/10 inline-flex items-center gap-6">
+      <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0"></div>
+      <div class="text-left">
+        <div class="font-headline font-semibold text-sm text-on-surface">Próxima disponibilidade</div>
+        <div class="text-xs font-body text-on-surface-variant/60 mt-0.5">Visitas de segunda a sexta, 9h às 18h — inclusive fora do horário mediante agendamento</div>
+      </div>
+      <div class="hidden md:block border-l border-outline-variant/20 pl-6">
+        <div class="font-headline font-bold text-primary">Amanhã</div>
+        <div class="text-xs font-body text-on-surface-variant/60">10h ou 14h30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#0E0E0E] w-full py-20 px-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="col-span-1 md:col-span-1">
+      <div class="font-headline font-bold text-2xl text-[#E5E2E1] mb-4">spHAUS</div>
+      <p class="font-body font-light text-[1rem] leading-relaxed text-[#E5E2E1]/60">
+        O epicentro de conexões e experiências premium em São Paulo. Onde marcas se tornam memórias.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <div class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all cursor-pointer">
+          <span class="material-symbols-outlined text-lg">share</span>
+        </div>
+        <div class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all cursor-pointer">
+          <span class="material-symbols-outlined text-lg">videocam</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-1">
+      <h4 class="text-[#C5A059] font-headline font-bold text-xs tracking-widest uppercase mb-6">Menu</h4>
+      <ul class="space-y-4">
+        <li><a class="font-body font-light text-[1rem] text-[#E5E2E1]/60 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 block" href="backstagefy-personal-portfolio.html">Sobre a spHAUS</a></li>
+        <li><a class="font-body font-light text-[1rem] text-[#E5E2E1]/60 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 block" href="#">Estrutura</a></li>
+        <li><a class="font-body font-light text-[1rem] text-[#E5E2E1]/60 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 block" href="#">Serviços</a></li>
+        <li><a class="font-body font-light text-[1rem] text-[#E5E2E1]/60 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 block" href="#">TheSpace</a></li>
+        <li><a class="font-body font-light text-[1rem] text-[#E5E2E1]/60 hover:text-[#C5A059] hover:translate-x-1 transition-all duration-300 block" href="#">Contato</a></li>
+      </ul>
+    </div>
+    <div class="col-span-1">
+      <h4 class="text-[#C5A059] font-headline font-bold text-xs tracking-widest uppercase mb-6">Localização</h4>
+      <p class="font-body font-light text-[1rem] leading-relaxed text-[#E5E2E1]/60">
+        Rua das Olimpíadas, 205<br/>
+        Vila Olímpia, São Paulo - SP<br/>
+        04551-000
+      </p>
+      <button class="mt-6 flex items-center gap-2 text-primary hover:gap-4 transition-all duration-300 text-sm font-headline">
+        <span>ABRIR NO WAZE</span>
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </button>
+    </div>
+    <div class="col-span-1">
+      <h4 class="text-[#C5A059] font-headline font-bold text-xs tracking-widest uppercase mb-6">Newsfeed</h4>
+      <p class="font-body font-light text-[0.8rem] text-[#E5E2E1]/40 mb-4">Assine para receber insights sobre eventos e tendências.</p>
+      <div class="flex">
+        <input class="bg-surface-container-high border-none rounded-l-lg text-sm w-full py-3 px-4 text-on-surface placeholder:text-on-surface-variant/30" placeholder="Seu e-mail" type="text"/>
+        <button class="bg-primary-container px-4 rounded-r-lg text-on-primary">
+          <span class="material-symbols-outlined">send</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="font-body font-light text-xs text-[#E5E2E1]/40">© 2024 spHAUS Experience Space. Todos os direitos reservados.</p>
+    <div class="flex gap-8">
+      <a class="font-body font-light text-xs text-[#E5E2E1]/40 hover:text-on-surface" href="#">Privacidade</a>
+      <a class="font-body font-light text-xs text-[#E5E2E1]/40 hover:text-on-surface" href="#">Termos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

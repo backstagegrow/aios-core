@@ -44,11 +44,26 @@ Análises profundas de ofertas, clientes, estratégias.
 - [[analysis/ViaBrCenografia-analysis|Via BR Cenografia Analysis]]
 - [[analysis/EspacoNetworkConstru-analysis|Espaço Network Analysis]]
 
+### BKS Grow — Central Operacional
+Documentação operacional, metas, contratos e planejamento estratégico.
+- [[bks-grow/HOME|Dashboard Central]]
+- [[bks-grow/metas/metas-2026|Metas & OKRs 2026]]
+- [[bks-grow/contratos/modelo-contrato-servicos|Modelo de Contrato]]
+- [[bks-grow/planejamento/planejamento-estrategico-2026|Planejamento Estratégico 2026]]
+- [[bks-grow/operacional/processos|Processos & SOPs]]
+- [[bks-grow/operacional/painel-clientes|Painel de Clientes]]
+- [[bks-grow/operacional/scripts-outbound|Scripts de Outbound]]
+
+### Conselho dos Sábios
+Registro de sessões com o Conselho Pessoal dos Sábios.
+- [[conselho/README|Índice de Sessões]]
+
 ### Templates
 Templates reutilizáveis para research e documentação.
 - [[templates/research-template|Research Template]]
 - [[templates/offer-analysis-template|Offer Analysis Template]]
 - [[templates/discovery-log|Discovery Log Template]]
+- [[templates/conselho-session-template|Conselho Session Template]]
 
 ---
 

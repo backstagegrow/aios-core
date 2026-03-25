@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "Schema mínimo para post único — modelo gera ~150 tokens",
+  "type": "object",
+  "required": ["meta", "slide"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["topic", "pillar", "filename", "caption"],
+      "properties": {
+        "topic":    { "type": "string" },
+        "pillar":   { "type": "string" },
+        "filename": { "type": "string" },
+        "caption":  { "type": "string" },
+        "hashtags": { "type": "string" }
+      }
+    },
+    "slide": {
+      "type": "object",
+      "required": ["type", "content"],
+      "properties": {
+        "type": { "enum": ["quote", "stat", "tip", "hook", "announcement"] },
+        "content": {
+          "type": "object",
+          "description": "Campos variam por type",
+          "properties": {
+            "eyebrow":   { "type": "string" },
+            "main_text": { "type": "string", "description": "Texto principal — máx 80 chars" },
+            "accent":    { "type": "string", "description": "Palavra ou frase em destaque (verde)" },
+            "sub_text":  { "type": "string", "description": "Texto secundário — máx 120 chars" },
+            "cta":       { "type": "string" },
+            "bg_word":   { "type": "string", "description": "Palavra grande de fundo (decorativa)" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,11 @@ date: 2026-03-15
 ---
 
 ```yaml
+autoClaude:
+  version: '3.0'
+
 agent:
+
   name: OfferArchitectStrategicMemory
   id: OFFER-ARCHITECT-STRATEGIC-MEMORY
   title: Offer Architect Strategic Memory
