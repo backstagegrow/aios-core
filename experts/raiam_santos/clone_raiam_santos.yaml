@@ -186,9 +186,9 @@ clone_metadata:
   sources_count: 17
   notebooks_used:
     - "NB01: DNA compilado — internet research + resumos de livros (Tier 1-2)"
-    - "[PENDING] NB02: Hackeando Tudo 2.0 e Ousadia — material Tier 0"
+    - "[DONE] NB02: NotebookLM 121 Fontes Tier 0 (Hackeando Tudo 2.0, Ousadia, Mastermind, Scripts)"
     - "[PENDING] NB03: Transcricoes YouTube + Pergunte ao Negao + The Raiam Show"
-    - "[PENDING] NB04: Mastermind Million e materiais de cursos Kobe Media"
+    - "[PENDING] NB04: Materiais de cursos adicionais"
   principal_frameworks: 12
   calibration_questions: 10
   cross_learnings: 3
