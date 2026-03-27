@@ -5,12 +5,12 @@
 
 ## Visão Geral do Sistema
 
-O Clone Intelligence System possui **14 clones ativos** em 4 estados distintos:
+O Clone Intelligence System possui **16 clones ativos** em 4 estados distintos:
 
 | Grupo | Clones | Critério |
 |-------|--------|----------|
 | **MASTER** | Thiago Finch, Chris Do, Eli Goldratt, Robert McKee, Russell Brunson, Charlie Munger, Eugene Schwartz, Marty Neumeier | Score ≥ 95 |
-| **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia | Score 95 (calibrado 2026-03-19) |
+| **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia, **Raiam Santos** | Score 95 (calibrado 2026-03-27) |
 
 ---
 
@@ -168,22 +168,23 @@ Para um clone atingir MASTER_READY, ele precisa:
 ## Roadmap Consolidado
 
 ```
-✅ FASE DNA — CONCLUÍDA (2026-03-19)
+✅ FASE DNA — CONCLUÍDA (2026-03-19 + 2026-03-27)
 ├── ✅ Hormozi: MASTER_READY (score 95)
 ├── ✅ Tallis Gomes: MASTER_READY (score 95)
 ├── ✅ Todd Brown: MASTER_READY (score 95)
 ├── ✅ Kasim Aslam: MASTER_READY (score 95)
 ├── ✅ Stefan Georgi: MASTER_READY (score 95)
 ├── ✅ Tom Breeze: MASTER_READY (score 95)
-└── ✅ Depesh Mandalia: MASTER_READY (score 95)
+├── ✅ Depesh Mandalia: MASTER_READY (score 95)
+└── ✅ Raiam Santos: MASTER_READY (score 95) — calibrado 2026-03-27
 
 PRÓXIMA FASE — NOTEBOOKS (2026-03-26+)
 ├── Criar NB02-NB04 para cada clone no NotebookLM
 ├── Elevar scores de 95 → 97-99
 └── Roundtable Sessions 6-10 (cross-learnings ao vivo)
 
-SCORECARD ATUAL: 15/15 clones MASTER_READY ✅
-(8 MASTER originais + 7 calibrados em 2026-03-19)
+SCORECARD ATUAL: 16/16 clones MASTER_READY ✅
+(8 MASTER originais + 8 calibrados)
 ```
 
 ---
