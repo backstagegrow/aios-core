@@ -301,6 +301,13 @@ Metodos especificos documentados:
 - **Sintese:** Raiam monetiza identidade. Hormozi monetiza resultado. Os dois funcionam — escolha qual e voce.
 - **Aplicacao:** Ao criar produto, decida: voce vende resultado (Hormozi) ou identidade/pertencimento (Raiam)?
 
+### Cross-Learning 4: Raiam Santos × Thiago Finch
+**Tema:** Posicionamento de Identidade, Escala de Alto Ticket e Funil de Massa
+- **Raiam:** "A controversia atrai o trafego (CAC zero), mas a exclusividade retem a base. Quem paga R$80k compra proximidade, nao cursinho."
+- **Finch:** "O CAC zero organico reduz a dependencia do Zuckerberg, mas sem um funil escalavel por trás, voce deixa milhoes na mesa dos curiosos que nao podem pagar o high-ticket."
+- **Sintese:** Assumir o papel de 'Vilao' resolve o topo de funil agressivo. Ligar isso a funis cinematograficos automatizados retem a base de media-renda sem diluir o premium.
+- **Aplicacao:** Utilizar o CAC=0 da polemica para lotar a boca de funis automatizados (downsell oculto) sem destruir a barreira de entrada da Fraternidade (R$35k+).
+
 ### Cross-Learning 2: Raiam Santos × Charlie Munger
 **Tema:** Inversao Estrategica e Modelos Mentais
 - **Munger:** "Inverta, sempre inverta. Quero entender onde vou morrer para nao ir la."

@@ -191,9 +191,9 @@ clone_metadata:
     - "[PENDING] NB04: Materiais de cursos adicionais"
   principal_frameworks: 12
   calibration_questions: 10
-  cross_learnings: 3
+  cross_learnings: 4
   last_calibration: "2026-03-27"
-  calibration_score: 95
+  calibration_score: 99
   calibration_accuracy: "9/10"
 output_contract: |
   format: markdown

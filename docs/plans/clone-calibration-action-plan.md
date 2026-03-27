@@ -10,7 +10,7 @@ O Clone Intelligence System possui **16 clones ativos** em 4 estados distintos:
 | Grupo | Clones | Critério |
 |-------|--------|----------|
 | **MASTER** | Thiago Finch, Chris Do, Eli Goldratt, Robert McKee, Russell Brunson, Charlie Munger, Eugene Schwartz, Marty Neumeier | Score ≥ 95 |
-| **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia, **Raiam Santos** | Score 95 (calibrado 2026-03-27) |
+| **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia, **Raiam Santos** | Score 99 (calibrado 2026-03-27) |
 
 ---
 
@@ -176,7 +176,7 @@ Para um clone atingir MASTER_READY, ele precisa:
 ├── ✅ Stefan Georgi: MASTER_READY (score 95)
 ├── ✅ Tom Breeze: MASTER_READY (score 95)
 ├── ✅ Depesh Mandalia: MASTER_READY (score 95)
-└── ✅ Raiam Santos: MASTER_READY (score 95) — calibrado 2026-03-27
+└── ✅ Raiam Santos: MASTER_READY (score 99) — calibrado 2026-03-27
 
 PRÓXIMA FASE — NOTEBOOKS (2026-03-26+)
 ├── Criar NB02-NB04 para cada clone no NotebookLM

@@ -4,7 +4,7 @@
   "createdAt": "2026-03-27T12:00:00.000Z",
   "updatedAt": "2026-03-27T16:00:00.000Z",
   "status": "MASTER_READY",
-  "calibration_score": 95,
+  "calibration_score": 99,
   "prompt_version": "3.0.0",
   "sources": [
     "internet-research",
