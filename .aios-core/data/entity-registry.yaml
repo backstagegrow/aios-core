@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-29T16:28:54.266Z'
-  entityCount: 797
+  lastUpdated: '2026-03-29T16:37:53.832Z'
+  entityCount: 798
   checksumAlgorithm: sha256
   resolutionRate: 100
   changelog:
@@ -5506,6 +5506,27 @@ entities:
         extensionPoints: []
       checksum: sha256:f128542695ae1bd358ab553fd777e41ead19c7af31bb97b31d89771f88960332
       lastVerified: '2026-03-14T11:21:55.765Z'
+    project-status:
+      path: .aios-core/development/tasks/project-status.md
+      layer: L2
+      type: task
+      purpose: >-
+        Display a comprehensive, **100% accurate** panorama of all epics and stories in the project. The status of each
+        story is read directly from its **source of truth** — the `## Status` field in each stor
+      keywords:
+        - project
+        - status
+        - 'task:'
+        - full
+        - panorama
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.8
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:3cb76eeb42b7e0b46a06ce0827bc68d2f507a7f4021174b1bd9e68d82463e5e6
+      lastVerified: '2026-03-29T16:34:54.554Z'
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -8320,8 +8341,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:6ee26fbb7837004a2d39270b861730acc148a62dc2f904f489d005f329fb82e4
-      lastVerified: '2026-03-14T11:21:55.925Z'
+      checksum: sha256:a20bb3437e632043e1d859448be6198d1b4fc5cb9137b8bd9fa5e6eb09d54294
+      lastVerified: '2026-03-29T16:37:53.823Z'
     config-resolver:
       path: .aios-core/core/config/config-resolver.js
       layer: L1
@@ -8672,8 +8693,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:e93b61dbef7f9be6b3c18d2fea08145954d8379f81a5fc148ff10dd4973f9ba1
-      lastVerified: '2026-03-14T11:21:55.935Z'
+      checksum: sha256:7e3c54370a7120ae79fc4356aff516f9f18f4ae7786b9ef38160d4e8eee9bc9d
+      lastVerified: '2026-03-29T16:37:53.827Z'
     context-injector:
       path: .aios-core/core/execution/context-injector.js
       layer: L1
@@ -10395,8 +10416,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-      checksum: sha256:9538e95d3dae99a28aa0f7486733276686bdd48307bac8554ef657bda96a3199
-      lastVerified: '2026-03-14T11:21:56.003Z'
+      checksum: sha256:f0aa527e4337c8873ecf9c4c8ab106c867c69ad8c226c4c56fcd42948585f4e5
+      lastVerified: '2026-03-29T16:37:53.829Z'
     creation-helper:
       path: .aios-core/core/code-intel/helpers/creation-helper.js
       layer: L1
