@@ -1,7 +1,7 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-25T11:47:24.994Z'
-  entityCount: 796
+  lastUpdated: '2026-03-29T16:28:54.266Z'
+  entityCount: 797
   checksumAlgorithm: sha256
   resolutionRate: 100
   changelog:
@@ -6648,6 +6648,21 @@ entities:
         extensionPoints: []
       checksum: sha256:c0621a46f2a37ec8c8cfe6b6b240eaf207738693c80199ead7c338d4223d15c2
       lastVerified: '2026-03-14T11:21:55.827Z'
+    elicitation:
+      path: .aios-core/product/templates/engine/elicitation.js
+      layer: L2
+      type: template
+      purpose: Entity at .aios-core\product\templates\engine\elicitation.js
+      keywords:
+        - elicitation
+      usedBy: []
+      dependencies: []
+      adaptability:
+        score: 0.5
+        constraints: []
+        extensionPoints: []
+      checksum: sha256:1994cc9ecca5c9073f399b369b3a5611bb225c836da5d6cfe6d38ea1b85fefac
+      lastVerified: '2026-03-29T16:28:54.263Z'
   scripts:
     activation-runtime:
       path: .aios-core/development/scripts/activation-runtime.js
@@ -16786,8 +16801,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-      checksum: sha256:d025d620641f2d36f4749197d0e5970e91ee65b9bee8996f68f6f239efe18f78
-      lastVerified: '2026-03-14T11:21:56.255Z'
+      checksum: sha256:638cea4bc3672c2561ce00760c7b8b68880d1c94bc5d534c99962a621421ca91
+      lastVerified: '2026-03-29T16:28:54.243Z'
     transaction-manager:
       path: .aios-core/infrastructure/scripts/transaction-manager.js
       layer: L2
