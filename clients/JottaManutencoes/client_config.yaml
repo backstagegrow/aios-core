@@ -1,0 +1,17 @@
+name: JottaManutencoes
+id: jmt_001
+status: active
+timezone: America/Sao_Paulo
+currency: BRL
+meta_ads:
+  pixel_id:
+  account_id:
+tracking:
+  use_utm: true
+  crm_integration: false
+tags:
+  - manutencao_industrial
+  - vale_do_aco
+  - joao_monlevade
+  - assistencia_tecnica_autorizada
+  - b2b_industrial

@@ -99,6 +99,7 @@
   },
   "dependencies": {
     "@aios-fullstack/pro": "^0.2.0",
+    "@anthropic-ai/sdk": "^0.80.0",
     "@clack/prompts": "^0.11.0",
     "@huggingface/inference": "^4.13.15",
     "@kayvan/markdown-tree-parser": "^1.5.0",

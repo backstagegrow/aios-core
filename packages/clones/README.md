@@ -96,6 +96,127 @@ const clone = { name: 'Alex Hormozi Clone', dnaProfile, skills };
 const decision = await runConclave('desafio estratégico', [clone]);
 ```
 
+## CLI Unificado
+
+O CLI unifica todos os modulos do sistema CLONES em dois comandos simples.
+
+### Instalacao
+
+Nenhuma instalacao adicional necessaria. O CLI usa os modulos existentes diretamente.
+
+Variaveis de ambiente (opcionais, via `.env` na raiz do projeto):
+```bash
+SERPER_API_KEY=sua-chave-serper    # Para Google Search via Serper
+GEMINI_API_KEY=sua-chave-gemini    # Para features com Gemini
+```
+
+### Criar Clone do Zero
+
+```bash
+# Pesquisa automatica + pipeline completo
+node packages/clones/cli/index.js create "Conrado Adolpho"
+
+# Com Serper API key para Google Search
+node packages/clones/cli/index.js create "Alex Hormozi" --serper-key=xxx
+```
+
+O comando `create`:
+1. Pesquisa o especialista na internet (Wikipedia, Google Search, Google Books)
+2. Processa cada fonte via Mega Brain (5 estagios)
+3. Extrai DNA mental via DNA Mapper (5 camadas)
+4. Gera skills executaveis via Skill Generator
+5. Salva profile em `packages/clones/profiles/{slug}.json`
+
+### Melhorar Clone Existente
+
+```bash
+# Adicionar fonte via URL
+node packages/clones/cli/index.js improve "Conrado Adolpho" --source="https://artigo.com/texto"
+
+# Adicionar fonte via arquivo local
+node packages/clones/cli/index.js improve "Conrado Adolpho" --source="caminho/arquivo.txt"
+```
+
+O comando `improve`:
+1. Carrega profile existente (se houver)
+2. Le a nova fonte via Content Reader
+3. Processa via Mega Brain
+4. Faz merge do dossier novo com o existente
+5. Re-extrai DNA e re-gera skills
+6. Salva profile atualizado
+
+### Output
+
+O profile e salvo em `packages/clones/profiles/{slug}.json` com a estrutura:
+
+```json
+{
+  "name": "Conrado Adolpho",
+  "slug": "conrado-adolpho",
+  "createdAt": "2026-03-25T...",
+  "updatedAt": "2026-03-25T...",
+  "sources": ["internet-research"],
+  "dossier": { "..." },
+  "dna": {
+    "philosophy": [],
+    "mentalModel": [],
+    "heuristics": [],
+    "frameworks": [],
+    "methodology": []
+  },
+  "skills": [{ "id": "", "name": "", "description": "", "steps": [] }],
+  "meta": { "totalChunks": 0, "totalSkills": 0 }
+}
+```
+
+## Chat Engine (`chat-engine/`)
+
+Motor de chat com streaming token-a-token, RAG via Pinecone, input multimodal (imagem) e deteccao de pedidos de geracao de imagem.
+
+```js
+const { chatWithClone, chatGeneric } = require('./chat-engine');
+
+// Chat com clone — streaming + RAG
+const result = await chatWithClone('conrado-adolpho', 'qual e o metodo 8Ps?', {
+  onToken: (token) => process.stdout.write(token),
+  onProgress: (msg) => console.log(msg),
+  history: [],           // mensagens anteriores
+  imageBase64: null,     // imagem em base64 para input multimodal
+});
+// result: { response, sources, images, tokensUsed }
+
+// Chat generico sem clone
+const generic = await chatGeneric(
+  'Voce e um assistente de marketing',
+  'como fazer um copy persuasivo?',
+  { onToken: (t) => process.stdout.write(t) }
+);
+```
+
+### CLI de Teste
+
+```bash
+# Chat com clone
+node packages/clones/chat-engine/cli.js chat "conrado-adolpho" "qual e o metodo 8Ps?"
+
+# Com imagem
+node packages/clones/chat-engine/cli.js chat "conrado-adolpho" "analise este criativo" --image="imagem.jpg"
+
+# Chat generico
+node packages/clones/chat-engine/cli.js generic "Voce e um assistente" "como fazer copy?"
+```
+
+### Sub-modulos
+
+| Modulo | Descricao |
+|--------|-----------|
+| `index.js` | Entry point — `chatWithClone()`, `chatGeneric()` |
+| `rag.js` | Busca Pinecone + formata contexto RAG |
+| `gemini.js` | Streaming wrapper com retry/backoff |
+| `image-detector.js` | Detecta triggers de imagem + gera via Gemini |
+| `history.js` | Converte historico para formato Gemini |
+| `cli.js` | CLI para teste manual |
+
 ## Stories
 
 - [CLONE-001](../../docs/stories/clone-system/story-clone-mega-brain-pipeline.md) — Mega Brain Pipeline

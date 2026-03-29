@@ -134,11 +134,36 @@ function stage2_chunkAndCanonicalize(content, metadata, chunkSize = 800) {
  * Categorias de insights e palavras-chave associadas para extração heurística.
  */
 const INSIGHT_KEYWORDS = {
-  philosophy: ['acredito', 'princípio', 'valor', 'crença', 'filosofia', 'propósito', 'missão', 'visão'],
-  mental_model: ['modelo', 'framework', 'sistema', 'estrutura', 'processo', 'método', 'abordagem', 'como eu penso'],
-  heuristic: ['regra', 'atalho', 'sempre', 'nunca', 'se...então', 'quando', 'heurística', 'padrão'],
-  framework: ['passo', 'etapa', 'fase', 'metodologia', 'processo', 'checklist', 'protocolo'],
-  methodology: ['implementar', 'executar', 'aplicar', 'passo a passo', 'prático', 'ação', 'resultado'],
+  philosophy: [
+    // PT
+    'acredito', 'princípio', 'valor', 'crença', 'filosofia', 'propósito', 'missão', 'visão',
+    // EN
+    'believe', 'principle', 'value', 'belief', 'philosophy', 'purpose', 'mission', 'vision', 'mindset',
+  ],
+  mental_model: [
+    // PT
+    'modelo', 'framework', 'sistema', 'estrutura', 'processo', 'método', 'abordagem', 'como eu penso',
+    // EN
+    'model', 'framework', 'system', 'structure', 'process', 'method', 'approach', 'thinking', 'strategy',
+  ],
+  heuristic: [
+    // PT
+    'regra', 'atalho', 'sempre', 'nunca', 'se...então', 'quando', 'heurística', 'padrão',
+    // EN
+    'rule', 'shortcut', 'always', 'never', 'if you', 'when you', 'heuristic', 'pattern', 'hack',
+  ],
+  framework: [
+    // PT
+    'passo', 'etapa', 'fase', 'metodologia', 'processo', 'checklist', 'protocolo',
+    // EN
+    'step', 'stage', 'phase', 'methodology', 'checklist', 'protocol', 'formula', 'blueprint',
+  ],
+  methodology: [
+    // PT
+    'implementar', 'executar', 'aplicar', 'passo a passo', 'prático', 'ação', 'resultado',
+    // EN
+    'implement', 'execute', 'apply', 'step by step', 'practical', 'action', 'result', 'how to', 'achieve',
+  ],
 };
 
 /**
@@ -154,7 +179,7 @@ function stage3_extractInsights(chunks) {
 
     for (const [category, keywords] of Object.entries(INSIGHT_KEYWORDS)) {
       const matchedKeywords = keywords.filter(kw => text.includes(kw));
-      if (matchedKeywords.length >= 2) {
+      if (matchedKeywords.length >= 1) {
         // Extrai a primeira frase do chunk como título
         const firstSentence = chunk.text.split(/[.!?]/)[0].trim().slice(0, 100);
 

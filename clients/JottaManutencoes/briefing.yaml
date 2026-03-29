@@ -1,0 +1,158 @@
+# =============================================================================
+# Client Briefing — Jotta Manutenções
+# =============================================================================
+# Fonte: https://www.jottamanutencoes.com.br (extraído em 2026-03-26)
+# =============================================================================
+
+# --- META -------------------------------------------------------------------
+meta:
+  client_id: "jmt_001"
+  client_name: "JottaManutencoes"
+  status: active
+  last_updated: "2026-03-26"
+  version: "1.0"
+
+# --- BRAND ------------------------------------------------------------------
+brand:
+  name: "Jotta Manutenções"
+  tagline: "Soluções inteligentes em serviços de manutenção industrial"
+  mission: "Oferecer soluções de manutenção de alta performance, atendendo os processos de grandes indústrias com excelência técnica."
+  vision: "Ser referência nacional em manutenção industrial especializada, expandindo o portfólio de assistências técnicas autorizadas."
+  tone_of_voice:
+    - "Técnico"
+    - "Confiável"
+    - "Direto"
+    - "Especialista"
+  personality_archetype: "The Expert"
+
+# --- BUSINESS ---------------------------------------------------------------
+business:
+  segment: "Manutenção Industrial"
+  niche: "Manutenção industrial de alta performance para grandes indústrias"
+  business_model: "B2B"
+  pricing_tier: "mid"
+  main_services:
+    - "Talhas elétricas — manutenção e reparo"
+    - "Lavadoras industriais — manutenção e assistência técnica"
+    - "Ferrovia — manutenção de equipamentos ferroviários"
+    - "Mecânica industrial"
+    - "Hidráulica industrial"
+    - "Pneumática industrial"
+    - "Elétrica industrial"
+  geographic_focus: "João Monlevade – MG (atendimento regional Minas Gerais)"
+  contact:
+    phone: "(31) 3851-1365"
+    whatsapp: "+5531986480098"
+    address: "Rua Sebastião Simão Almeida, 10 — Sion, João Monlevade – MG"
+    linkedin: "https://br.linkedin.com/company/jottamanutencoes"
+    website: "https://www.jottamanutencoes.com.br"
+
+# --- ASSISTÊNCIAS TÉCNICAS AUTORIZADAS --------------------------------------
+authorized_brands:
+  - Puma
+  - Marcon
+  - Makita
+  - Kärcher
+  - Ingersoll
+  - Bozza
+  - Bovenau
+  - Berg
+  - Bosch
+  - Branco
+  - Kito
+  - DeWalt
+  - Milwaukee
+  - Paletrans
+
+# --- ICP (Ideal Customer Profile) -------------------------------------------
+icp:
+  primary_persona:
+    name: "Ricardo, o Gerente de Manutenção"
+    age_range: "35-55"
+    gender: "male"
+    occupation: "Gerente de Manutenção / Engenheiro de Produção / Coordenador Industrial"
+    income: "Tomador de decisão em empresa industrial de médio/grande porte"
+    location: "Vale do Aço, Minas Gerais"
+  pain_points:
+    - "Equipamentos parados gerando perda de produção"
+    - "Dificuldade em encontrar técnicos especializados confiáveis na região"
+    - "Lead time longo de fornecedores sem alinhamento com a demanda"
+    - "Falta de assistência técnica autorizada para marcas premium (Makita, Bosch, Kärcher...)"
+    - "Custos altos com manutenção corretiva por falta de manutenção preventiva"
+  desires:
+    - "Minimizar tempo de parada de equipamentos (downtime)"
+    - "Ter um parceiro de manutenção ágil e confiável"
+    - "Garantia técnica nos reparos realizados"
+    - "Cobertura de múltiplos tipos de manutenção em um único fornecedor"
+  objections:
+    - "Já temos fornecedores de manutenção estabelecidos"
+    - "Precisamos de garantia de prazo de entrega (lead time)"
+    - "Distância da empresa pode afetar tempo de atendimento"
+  buying_triggers:
+    - "Equipamento crítico parado com urgência de reparo"
+    - "Insatisfação com fornecedor atual (prazo, qualidade)"
+    - "Necessidade de assistência técnica autorizada de marca específica"
+    - "Expansão da planta industrial"
+
+# --- POSITIONING ------------------------------------------------------------
+positioning:
+  value_proposition: "Manutenção industrial de alta performance com assistência técnica autorizada para 14 marcas líderes, garantindo lead time alinhado com a demanda do cliente."
+  differentiators:
+    - "Assistência técnica autorizada de 14 marcas premium (Bosch, Makita, Kärcher, DeWalt, Milwaukee...)"
+    - "Cobertura completa: mecânica, elétrica, hidráulica, pneumática, ferrovia e talhas"
+    - "Localização estratégica em João Monlevade — hub industrial do Vale do Aço"
+    - "Foco em lead time alinhado com a demanda do cliente"
+  main_competitors:
+    - "Oficinas mecânicas industriais regionais não autorizadas"
+    - "Distribuidores de equipamentos com pós-venda próprio"
+  competitive_advantage: "Única empresa na região com autorização técnica de múltiplas marcas líderes + cobertura multidisciplinar de manutenção industrial"
+
+# --- COPY -------------------------------------------------------------------
+copy:
+  key_messages:
+    - "Soluções inteligentes em manutenção industrial — quando seu equipamento para, nós colocamos de volta em operação."
+    - "Assistência técnica autorizada das marcas que você já usa na sua planta."
+    - "Lead time alinhado com a sua demanda. Sem surpresas, sem atrasos."
+    - "Uma empresa, todas as manutenções: mecânica, elétrica, hidráulica, pneumática."
+  emotional_triggers:
+    - "Segurança operacional"
+    - "Confiança técnica"
+    - "Agilidade no atendimento"
+  proof_elements:
+    testimonials_available: false
+    case_studies: true  # Newsletter menciona visitações de clientes e cases
+    certifications:
+      - "Assistência Técnica Autorizada Bosch"
+      - "Assistência Técnica Autorizada Makita"
+      - "Assistência Técnica Autorizada Kärcher"
+      - "Assistência Técnica Autorizada DeWalt"
+      - "Assistência Técnica Autorizada Milwaukee"
+    social_proof_numbers: "14+ marcas com assistência técnica autorizada"
+  primary_cta: "Solicitar Atendimento"
+  secondary_cta: "Ver Assistências Técnicas Autorizadas"
+
+# --- CHANNELS ---------------------------------------------------------------
+channels:
+  active_channels:
+    - "whatsapp"
+    - "linkedin"
+    - "website"
+  primary_channel: "whatsapp"
+  content_types:
+    - "cases de serviços realizados"
+    - "newsletter de visitações de clientes"
+    - "conteúdo técnico educativo"
+
+# --- CONSTRAINTS ------------------------------------------------------------
+constraints:
+  what_to_avoid:
+    - "Linguagem informal ou leviana sobre equipamentos industriais"
+    - "Promessas de prazo sem alinhamento com operação"
+    - "Conteúdo genérico não-técnico"
+  brand_restrictions:
+    - "Não utilizar nomes de concorrentes diretos"
+    - "Respeitar guidelines das marcas autorizadas ao mencionar parcerias"
+  legal_notes: "Assistências técnicas autorizadas devem ser mencionadas com precisão — não extrapolar marcas não autorizadas. LGPD aplicável para dados de clientes industriais."
+
+# USO: Este briefing deve ser carregado por agentes antes de qualquer trabalho neste cliente.
+# Agentes: copy-chief, nano-banana-generator, aios-dev, aios-ux

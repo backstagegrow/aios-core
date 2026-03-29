@@ -10,6 +10,7 @@
 | **BKS Grow** | `bks_001` | 🔵 Interno | Agência Growth | — | 📋 **Procedure** | [Acessar](BKSGrow/memory_strategy.md) |
 | **BackStageFy** | `bsf_001` | 🔵 Interno | Tech/SaaS | — | 🚀 **Rocket Science** | — |
 | **Alpha Business Academy** | `aba_001` | 🟡 Onboarding | Educação B2B | R$ 35.000,00 | 💼 **Gray Hair** | [Acessar](AlphaBusinessAcademy/memory_strategy.md) |
+| **Jotta Manutenções** | `jmt_001` | 🟢 Ativo | Manutenção Industrial | — | 📋 **Procedure** | [Acessar](JottaManutencoes/memory_strategy.md) |
 
 ---
 **Legenda:**
@@ -18,4 +19,4 @@
 🔵 **Interno**: Divisões da própria BKS.
 🔴 **Pausado**: Campanha ou contrato suspenso.
 
-*Última Auditoria do Board: 19/02/2026*
+*Última Auditoria do Board: 26/03/2026*

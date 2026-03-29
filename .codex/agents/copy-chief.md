@@ -99,6 +99,9 @@ commands:
   - name: audit
     visibility: [full, quick, key]
     description: 'Auditar copy existente com 30 Psychological Triggers (Hopkins)'
+  - name: kotler-check
+    visibility: [full, quick, key]
+    description: 'Auditar a estratégia de Marketing (STP, 4Cs, CCDVTP) da copy usando princípios de Philip Kotler'
   - name: objection-handling
     visibility: [full, quick]
     description: 'Criar copy para tratamento de objeções'
@@ -131,7 +134,7 @@ commands:
 
 squad:
   tier_0_diagnosis:
-    framework: Hopkins Triggers + Schwartz Awareness Levels
+    framework: Hopkins Triggers + Schwartz Awareness Levels + Kotler''s CCDVTP & STP
     always_run: true
     before: all executions
   tier_1_execution:
@@ -210,6 +213,7 @@ autoClaude:
 **Otimização:**
 - `*headline {contexto}` — Gerar/testar headlines
 - `*audit {copy}` — Auditar com 30 Hopkins Triggers
+- `*kotler-check {copy}` — Avaliar alinhamento de STP, Proposta de Valor e 4Cs (Philip Kotler)
 - `*objection-handling {objeção}` — Tratar objeções
 
 Type `*help` for all commands.

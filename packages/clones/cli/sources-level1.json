@@ -1,0 +1,73 @@
+{
+  "_instructions": "Adicione ou remova URLs por expert. Execute: node packages/clones/cli/batch-improve-urls.cjs",
+  "Alex Hormozi": [
+    "https://www.acquisition.com/training/leads",
+    "https://www.acquisition.com/training/sales",
+    "https://www.acquisition.com/about"
+  ],
+  "Charlie Munger": [
+    "https://fs.blog/mental-models/",
+    "https://fs.blog/charlie-munger-the-complete-investor/",
+    "https://www.csun.edu/~dgw61315/buffettisms.html"
+  ],
+  "Chris Do": [
+    "https://thefutur.com/blog",
+    "https://thefutur.com/about"
+  ],
+  "Depesh Mandalia": [
+    "https://smcommerce.com/blog"
+  ],
+  "Eli Goldratt": [
+    "https://www.toc-goldratt.com/en/about-toc",
+    "https://www.leanproduction.com/theory-of-constraints/"
+  ],
+  "Eugene Schwartz": [
+    "https://copywritingcourse.com/eugene-schwartz/",
+    "https://swiped.co/author/eugene-schwartz/"
+  ],
+  "Kasim Aslam": [
+    "https://solutions8.com/blog",
+    "https://solutions8.com/about"
+  ],
+  "Marty Neumeier": [
+    "https://www.martyneumeier.com/brand-gap",
+    "https://www.martyneumeier.com/zag"
+  ],
+  "Nassim Taleb": [
+    "https://fs.blog/nassim-taleb/",
+    "https://www.fooledbyrandomness.com/"
+  ],
+  "Robert McKee": [
+    "https://mckeestory.com/seminars/story/",
+    "https://mckeestory.com/about/"
+  ],
+  "Russell Brunson": [
+    "https://www.clickfunnels.com/blog/marketing-secrets",
+    "https://dotcomsecrets.com/"
+  ],
+  "Stefan Georgi": [
+    "https://stefangeorgi.com/blog/",
+    "https://stefangeorgi.com/rmbc-method/"
+  ],
+  "Tallis Gomes": [
+    "https://tallisgomes.com.br/"
+  ],
+  "Thiago Finch": [
+    "https://thiagofinch.com.br/"
+  ],
+  "Todd Brown": [
+    "https://toddbrownmarketing.com/blog/",
+    "https://toddbrownmarketing.com/e5/"
+  ],
+  "Tom Breeze": [
+    "https://viewability.co.uk/blog/",
+    "https://viewability.co.uk/about/"
+  ],
+  "Philip Kotler": [
+    "https://www.kotlerimpact.com/",
+    "https://www.kellogg.northwestern.edu/faculty/directory/kotler_philip.aspx",
+    "https://en.wikipedia.org/wiki/Philip_Kotler",
+    "https://www.marketing-schools.org/types-of-marketing/social-marketing/",
+    "https://hbr.org/search?term=philip+kotler"
+  ]
+}

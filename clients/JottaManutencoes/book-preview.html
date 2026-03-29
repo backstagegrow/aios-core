@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Preview — Jotta Manutenções</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --jotta-dark: #0d1117;
+      --jotta-darker: #080c10;
+      --jotta-steel: #1c2330;
+      --jotta-accent: #e8a020;
+      --jotta-accent2: #c47d10;
+      --jotta-red: #c0392b;
+      --jotta-white: #f0f4f8;
+      --jotta-gray: #8a9bb0;
+      --jotta-light: #dde4ed;
+      --jotta-border: #2a3547;
+    }
+
+    body {
+      background: #1a1a2e;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--jotta-white);
+    }
+
+    /* ── NAVEGAÇÃO DE PÁGINAS ── */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8, 12, 16, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--jotta-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 32px;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--jotta-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-pages {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid var(--jotta-border);
+      color: var(--jotta-gray);
+      padding: 4px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      background: var(--jotta-accent);
+      border-color: var(--jotta-accent);
+      color: var(--jotta-dark);
+      font-weight: 700;
+    }
+
+    /* ── CONTAINER DE PÁGINAS ── */
+    .book-container {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 32px 16px 64px;
+    }
+
+    /* ── PÁGINA BASE ── */
+    .page {
+      width: 794px;
+      min-height: 1123px;
+      background: var(--jotta-dark);
+      border: 1px solid var(--jotta-border);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+
+    .page.visible {
+      display: block;
+    }
+
+    /* Borda lateral accent */
+    .page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--jotta-accent), var(--jotta-accent2));
+    }
+
+    /* ── CAPA ── */
+    .cover {
+      background: var(--jotta-darker);
+      min-height: 1123px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover::before {
+      display: none;
+    }
+
+    .cover-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(232, 160, 32, 0.06) 0%, transparent 50%),
+        repeating-linear-gradient(0deg,
+          transparent,
+          transparent 60px,
+          rgba(255, 255, 255, 0.015) 60px,
+          rgba(255, 255, 255, 0.015) 61px),
+        repeating-linear-gradient(90deg,
+          transparent,
+          transparent 60px,
+          rgba(255, 255, 255, 0.015) 60px,
+          rgba(255, 255, 255, 0.015) 61px);
+    }
+
+    .cover-top-bar {
+      background: var(--jotta-accent);
+      height: 6px;
+      width: 100%;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 64px 72px;
+    }
+
+    .cover-tag {
+      display: inline-block;
+      border: 1px solid var(--jotta-accent);
+      color: var(--jotta-accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 48px;
+      width: fit-content;
+    }
+
+    .cover-logo-area {
+      margin-bottom: 16px;
+    }
+
+    .cover-logo-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--jotta-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .cover-logo-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--jotta-dark);
+    }
+
+    .cover-company {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--jotta-accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cover-title {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--jotta-white);
+      margin-bottom: 32px;
+    }
+
+    .cover-title span {
+      color: var(--jotta-accent);
+    }
+
+    .cover-divider {
+      width: 64px;
+      height: 3px;
+      background: var(--jotta-accent);
+      margin-bottom: 32px;
+    }
+
+    .cover-tagline {
+      font-size: 17px;
+      color: var(--jotta-gray);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 64px;
+    }
+
+    .cover-tagline strong {
+      color: var(--jotta-white);
+    }
+
+    .cover-badges {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .cover-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cover-badge-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--jotta-accent);
+      line-height: 1;
+    }
+
+    .cover-badge-label {
+      font-size: 11px;
+      color: var(--jotta-gray);
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cover-badge-sep {
+      width: 1px;
+      height: 40px;
+      background: var(--jotta-border);
+    }
+
+    .cover-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid var(--jotta-border);
+    }
+
+    .cover-contact {
+      font-size: 12px;
+      color: var(--jotta-gray);
+      line-height: 1.8;
+    }
+
+    .cover-contact strong {
+      color: var(--jotta-accent);
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .cover-year {
+      font-size: 11px;
+      color: var(--jotta-border);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    /* ── CABEÇALHO DE SEÇÃO ── */
+    .section-header {
+      background: var(--jotta-steel);
+      padding: 48px 56px 40px;
+      border-bottom: 2px solid var(--jotta-accent);
+      position: relative;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--jotta-accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--jotta-white);
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(--jotta-accent);
+    }
+
+    .section-subtitle {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--jotta-gray);
+      line-height: 1.6;
+    }
+
+    /* ── CONTEÚDO INTERNO ── */
+    .section-body {
+      padding: 48px 56px;
+    }
+
+    /* ── CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      border-left: 3px solid var(--jotta-accent);
+      padding: 24px;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(232, 160, 32, 0.12);
+      border: 1px solid rgba(232, 160, 32, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--jotta-white);
+      margin-bottom: 6px;
+    }
+
+    .card-text {
+      font-size: 12px;
+      color: var(--jotta-gray);
+      line-height: 1.6;
+    }
+
+    /* ── BRANDS GRID ── */
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .brand-card {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      padding: 18px 12px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .brand-card:hover {
+      border-color: var(--jotta-accent);
+    }
+
+    .brand-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--jotta-white);
+      letter-spacing: 1px;
+    }
+
+    .brand-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--jotta-accent);
+      color: var(--jotta-dark);
+      font-size: 8px;
+      font-weight: 800;
+      padding: 2px 5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── FLUXO ── */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .flow-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding-bottom: 24px;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 40px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: var(--jotta-border);
+    }
+
+    .flow-num {
+      width: 36px;
+      height: 36px;
+      background: var(--jotta-accent);
+      color: var(--jotta-dark);
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-content {
+      flex: 1;
+      padding-top: 6px;
+    }
+
+    .flow-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--jotta-white);
+      margin-bottom: 3px;
+    }
+
+    .flow-desc {
+      font-size: 12px;
+      color: var(--jotta-gray);
+      line-height: 1.5;
+    }
+
+    .flow-sla {
+      display: inline-block;
+      background: rgba(232, 160, 32, 0.1);
+      border: 1px solid rgba(232, 160, 32, 0.25);
+      color: var(--jotta-accent);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    /* ── STATS ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .stat-box {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--jotta-accent);
+      line-height: 1;
+    }
+
+    .stat-unit {
+      font-size: 14px;
+      color: var(--jotta-accent);
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--jotta-gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    /* ── PROOF BLOCK ── */
+    .proof-block {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      border-top: 3px solid var(--jotta-accent);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .proof-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .proof-icon {
+      font-size: 20px;
+    }
+
+    .proof-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--jotta-white);
+    }
+
+    .proof-text {
+      font-size: 12px;
+      color: var(--jotta-gray);
+      line-height: 1.6;
+    }
+
+    .proof-qr {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--jotta-border);
+    }
+
+    .qr-placeholder {
+      width: 64px;
+      height: 64px;
+      background: var(--jotta-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .qr-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      width: 56px;
+      height: 56px;
+    }
+
+    .qr-cell {
+      background: var(--jotta-dark);
+      border-radius: 1px;
+    }
+
+    .qr-cell.w {
+      background: transparent;
+    }
+
+    .qr-text {
+      font-size: 11px;
+      color: var(--jotta-gray);
+      line-height: 1.6;
+    }
+
+    .qr-text strong {
+      color: var(--jotta-accent);
+    }
+
+    /* ── SERVIÇOS ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .service-card {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(232, 160, 32, 0.1);
+      border: 1px solid rgba(232, 160, 32, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .service-content {}
+
+    .service-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--jotta-white);
+      margin-bottom: 5px;
+    }
+
+    .service-desc {
+      font-size: 11px;
+      color: var(--jotta-gray);
+      line-height: 1.5;
+    }
+
+    .service-brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .service-brand-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--jotta-accent);
+      border: 1px solid rgba(232, 160, 32, 0.3);
+      padding: 2px 6px;
+      text-transform: uppercase;
+    }
+
+    /* ── GARANTIA ── */
+    .guarantee-box {
+      background: linear-gradient(135deg, var(--jotta-steel) 0%, rgba(28, 35, 48, 0.5) 100%);
+      border: 1px solid var(--jotta-accent);
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .guarantee-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .guarantee-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--jotta-white);
+      margin-bottom: 8px;
+    }
+
+    .guarantee-subtitle {
+      font-size: 13px;
+      color: var(--jotta-gray);
+      margin-bottom: 24px;
+    }
+
+    .guarantee-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--jotta-light);
+    }
+
+    .g-check {
+      color: var(--jotta-accent);
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CTA PAGE ── */
+    .cta-page {
+      background: var(--jotta-darker);
+      display: flex;
+      flex-direction: column;
+      min-height: 1123px;
+    }
+
+    .cta-page::before {
+      display: none;
+    }
+
+    .cta-top-bar {
+      background: var(--jotta-accent);
+      height: 6px;
+    }
+
+    .cta-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 72px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(232, 160, 32, 0.06) 0%, transparent 70%);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-tag {
+      display: inline-block;
+      border: 1px solid var(--jotta-accent);
+      color: var(--jotta-accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+    }
+
+    .cta-title {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--jotta-white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .cta-title span {
+      color: var(--jotta-accent);
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: var(--jotta-gray);
+      margin-bottom: 56px;
+      line-height: 1.6;
+    }
+
+    .cta-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .cta-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .cta-contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--jotta-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .cta-contact-data {
+      text-align: left;
+    }
+
+    .cta-contact-label {
+      font-size: 10px;
+      color: var(--jotta-gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .cta-contact-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--jotta-white);
+    }
+
+    .cta-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--jotta-accent);
+      margin: 0 auto 32px;
+    }
+
+    .cta-closing {
+      font-size: 13px;
+      color: var(--jotta-gray);
+      line-height: 1.8;
+      font-style: italic;
+      max-width: 480px;
+    }
+
+    .cta-closing strong {
+      color: var(--jotta-white);
+      font-style: normal;
+    }
+
+    /* ── RODAPÉ DE PÁGINA ── */
+    .page-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--jotta-border);
+      background: var(--jotta-darker);
+    }
+
+    .footer-brand {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--jotta-accent);
+      text-transform: uppercase;
+    }
+
+    .footer-page {
+      font-size: 10px;
+      color: var(--jotta-gray);
+    }
+
+    .footer-logo {
+      font-size: 10px;
+      color: var(--jotta-gray);
+    }
+
+    /* ── LABEL DE PREVIEW ── */
+    .preview-label {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(232, 160, 32, 0.9);
+      color: var(--jotta-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      text-transform: uppercase;
+      z-index: 999;
+    }
+
+    /* ── FOTO PLACEHOLDER ── */
+    .photo-ph {
+      background: var(--jotta-steel);
+      border: 1px dashed var(--jotta-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--jotta-gray);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .photo-ph svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--jotta-gray);
+      opacity: 0.4;
+    }
+
+    /* ── CLIENTES ── */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .client-card {
+      background: var(--jotta-steel);
+      border: 1px solid var(--jotta-border);
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    .client-logo-ph {
+      height: 48px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed var(--jotta-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--jotta-gray);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .client-segment {
+      font-size: 10px;
+      color: var(--jotta-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .client-city {
+      font-size: 11px;
+      color: var(--jotta-gray);
+    }
+
+    .text-block {
+      background: var(--jotta-steel);
+      border-left: 3px solid var(--jotta-accent);
+      padding: 20px 24px;
+      font-size: 13px;
+      color: var(--jotta-light);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .text-block strong {
+      color: var(--jotta-accent);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .highlight-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--jotta-accent);
+      line-height: 1;
+    }
+
+    .highlight-label {
+      font-size: 12px;
+      color: var(--jotta-gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* responsive básico */
+    @media (max-width: 860px) {
+      .page {
+        width: 100%;
+        max-width: 794px;
+      }
+
+      .brands-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .clients-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav-bar">
+    <div class="nav-logo">📋 Book Preview — Jotta</div>
+    <div class="nav-pages">
+      <button class="nav-btn active" onclick="showPage(0,this)">Capa</button>
+      <button class="nav-btn" onclick="showPage(1,this)">Quem Somos</button>
+      <button class="nav-btn" onclick="showPage(2,this)">AT Autorizadas</button>
+      <button class="nav-btn" onclick="showPage(3,this)">Comprovações</button>
+      <button class="nav-btn" onclick="showPage(4,this)">Serviços</button>
+      <button class="nav-btn" onclick="showPage(5,this)">Clientes</button>
+      <button class="nav-btn" onclick="showPage(6,this)">Como Trabalhamos</button>
+      <button class="nav-btn" onclick="showPage(7,this)">Garantia</button>
+      <button class="nav-btn" onclick="showPage(8,this)">Contato</button>
+    </div>
+  </nav>
+
+  <div class="book-container">
+
+    <!-- ══════════════════ PÁGINA 1 — CAPA ══════════════════ -->
+    <div class="page cover visible" id="page-0">
+      <div class="cover-bg"></div>
+      <div class="cover-top-bar"></div>
+      <div class="cover-content">
+        <div class="cover-tag">Apresentação Comercial · 2026</div>
+        <div class="cover-logo-area">
+          <div class="cover-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+            </svg>
+          </div>
+          <div class="cover-company">Jotta Manutenções</div>
+        </div>
+        <div class="cover-title">
+          Soluções inteligentes<br>em <span>manutenção</span><br>industrial
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-tagline">
+          <strong>14 marcas autorizadas. Uma única empresa.</strong><br>
+          Da talha elétrica ao sistema hidráulico — mantemos sua planta<br>em operação com técnica, garantia e
+          documentação completa.
+        </div>
+        <div class="cover-badges">
+          <div class="cover-badge">
+            <div class="cover-badge-num">14</div>
+            <div class="cover-badge-label">Assistências<br>Autorizadas</div>
+          </div>
+          <div class="cover-badge-sep"></div>
+          <div class="cover-badge">
+            <div class="cover-badge-num">7</div>
+            <div class="cover-badge-label">Especialidades<br>Técnicas</div>
+          </div>
+          <div class="cover-badge-sep"></div>
+          <div class="cover-badge">
+            <div class="cover-badge-num">ART</div>
+            <div class="cover-badge-label">Em todos os<br>serviços</div>
+          </div>
+        </div>
+        <div class="cover-footer">
+          <div class="cover-contact">
+            <strong>Contato</strong>
+            (31) 3851-1365 · (31) 98648-0098<br>
+            Sion · João Monlevade – MG<br>
+            jottamanutencoes.com.br
+          </div>
+          <div class="cover-year">2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 2 — QUEM SOMOS ══════════════════ -->
+    <div class="page" id="page-1">
+      <div class="section-header">
+        <div class="section-num">02 · Quem Somos</div>
+        <div class="section-title">Tradição técnica a serviço<br>da <span>continuidade industrial</span></div>
+        <div class="section-subtitle">Anos de experiência mantendo indústrias do Vale do Aço em plena operação.</div>
+      </div>
+      <div class="section-body">
+        <div class="text-block">
+          A Jotta Manutenções nasceu com um propósito claro: <strong>ser a empresa que você chama quando não pode correr
+            riscos</strong>.<br><br>
+          Sabemos que cada minuto da sua planta parada custa milhares de reais. Por isso, nós não vendemos apenas
+          reparos, garantimos a continuidade da sua operação. Fundamos no coração do Vale do Aço uma estrutura baseada
+          em três pilares inegociáveis: <strong>competência técnica</strong>, <strong>agilidade de atendimento</strong>
+          e <strong>transparência com o cliente</strong>.
+        </div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="highlight-num">★</div>
+            <div class="highlight-label">Anos de<br>Mercado</div>
+          </div>
+          <div class="stat-box">
+            <div class="highlight-num">★</div>
+            <div class="highlight-label">Técnicos<br>Especializados</div>
+          </div>
+          <div class="stat-box">
+            <div class="highlight-num">14</div>
+            <div class="highlight-label">Marcas<br>Autorizadas</div>
+          </div>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">⚙️</div>
+            <div class="card-title">Competência Técnica</div>
+            <div class="card-text">Equipe treinada e certificada pelos fabricantes. Cada técnico atua na sua
+              especialidade — sem generalistas onde se exige especialistas.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">Agilidade de Atendimento</div>
+            <div class="card-text">Sabemos que equipamento parado é prejuízo. Nosso fluxo foi desenhado para minimizar o
+              tempo entre o chamado e a solução.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <div class="card-title">Documentação Completa</div>
+            <div class="card-text">ART, relatório técnico e vídeo de teste em cada serviço. Você recebe evidências do
+              que foi feito — não apenas a palavra do técnico.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🏭</div>
+            <div class="card-title">Estrutura Própria</div>
+            <div class="card-text">Instalações equipadas em João Monlevade com oficina especializada, ferramental
+              moderno e área de testes.</div>
+          </div>
+        </div>
+        <div class="photo-ph" style="height:200px;border-radius:0;">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+          FOTO DA EQUIPE / INSTALAÇÕES
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">02</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 3 — AT AUTORIZADAS ══════════════════ -->
+    <div class="page" id="page-2">
+      <div class="section-header">
+        <div class="section-num">04 · Autoridade Técnica</div>
+        <div class="section-title">Assistências Técnicas<br><span>Autorizadas Oficiais</span></div>
+        <div class="section-subtitle">Somos a empresa com autorização oficial de 14 fabricantes líderes — com garantia
+          do próprio fabricante.</div>
+      </div>
+      <div class="section-body">
+        <div class="text-block">
+          Não somos apenas uma oficina. Cada autorização técnica representa um <strong>compromisso contratual com o
+            fabricante</strong> — treinamento certificado, acesso a peças originais e obrigação de seguir protocolos
+          oficiais de reparo.<br><br>
+          Quando você traz um equipamento Bosch, Makita ou Milwaukee para a Jotta, o reparo tem <strong>garantia do
+            próprio fabricante</strong>.
+        </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">BOSCH</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">MAKITA</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">KÄRCHER</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">DEWALT</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">MILWAUKEE</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">KITO</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">PALETRANS</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">INGERSOLL</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">PUMA</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">MARCON</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">BERG</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">BOVENAU</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">BOZZA</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-badge">AT</div>
+            <div class="brand-name">BRANCO</div>
+          </div>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🏷️</div>
+            <div class="card-title">Peças Originais</div>
+            <div class="card-text">Acesso direto ao estoque de peças originais dos fabricantes autorizados — sem
+              adaptações ou equivalentes genéricos.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">✅</div>
+            <div class="card-title">Garantia do Fabricante</div>
+            <div class="card-text">Reparos em equipamentos com AT autorizada mantêm a garantia do fabricante — diferente
+              de oficinas não autorizadas.</div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">04</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 4 — COMPROVAÇÕES ══════════════════ -->
+    <div class="page" id="page-3">
+      <div class="section-header">
+        <div class="section-num">05 · Comprovações Técnicas</div>
+        <div class="section-title">Não pedimos que <span>confie<br>na nossa palavra</span></div>
+        <div class="section-subtitle">ART + Relatório Técnico + Vídeo de Teste. Cada serviço gera evidências
+          documentadas e rastreáveis.</div>
+      </div>
+      <div class="section-body">
+        <div class="proof-block">
+          <div class="proof-header">
+            <div class="proof-icon">📄</div>
+            <div class="proof-title">Relatório Técnico com ART (Anotação de Responsabilidade Técnica)</div>
+          </div>
+          <div class="proof-text">
+            Todo serviço realizado pela Jotta gera um laudo técnico completo com ART assinada pelo responsável técnico.
+            A documentação inclui diagnóstico, peças substituídas, procedimentos aplicados e assinatura com registro
+            profissional.
+          </div>
+          <div class="proof-qr">
+            <div class="qr-placeholder">
+              <div class="qr-grid">
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell w"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+                <div class="qr-cell"></div>
+              </div>
+            </div>
+            <div class="qr-text">
+              <strong>📹 Assista ao vídeo de teste</strong><br>
+              Escaneie o QR code para ver o equipamento<br>funcionando após o reparo. Transparência total.
+            </div>
+          </div>
+        </div>
+        <div class="proof-block">
+          <div class="proof-header">
+            <div class="proof-icon">🤝</div>
+            <div class="proof-title">Cartas de Capacidade Técnica</div>
+          </div>
+          <div class="proof-text">
+            Nossos clientes emitem cartas formais atestando a qualidade dos serviços prestados. Documentos com CNPJ e
+            assinatura responsável — não são depoimentos anônimos.
+          </div>
+          <div class="photo-ph" style="height:120px;margin-top:16px;">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z" />
+            </svg>
+            EXEMPLOS DE CARTAS (inserir após coleta)
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">05</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 5 — SERVIÇOS ══════════════════ -->
+    <div class="page" id="page-4">
+      <div class="section-header">
+        <div class="section-num">06 · Portfólio de Serviços</div>
+        <div class="section-title">Uma empresa, <span>todas<br>as manutenções</span></div>
+        <div class="section-subtitle">Cobertura multidisciplinar em um único fornecedor — sem necessidade de gerenciar
+          múltiplos contratos.</div>
+      </div>
+      <div class="section-body">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <div class="service-content">
+              <div class="service-name">Talhas Elétricas</div>
+              <div class="service-desc">Manutenção, revisão e reparo de talhas de corrente e polipastos elétricos
+                industriais.</div>
+              <div class="service-brands"><span class="service-brand-tag">KITO</span><span
+                  class="service-brand-tag">PALETRANS</span></div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">💧</div>
+            <div class="service-content">
+              <div class="service-name">Lavadoras Industriais</div>
+              <div class="service-desc">Assistência técnica em lavadoras de alta pressão e lavadoras de peças
+                industriais.</div>
+              <div class="service-brands"><span class="service-brand-tag">KÄRCHER</span><span
+                  class="service-brand-tag">BOVENAU</span></div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛤️</div>
+            <div class="service-content">
+              <div class="service-name">Ferrovia</div>
+              <div class="service-desc">Manutenção especializada em equipamentos e componentes ferroviários industriais.
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <div class="service-content">
+              <div class="service-name">Mecânica Industrial</div>
+              <div class="service-desc">Redutores, caixas de câmbio, rolamentos, eixos e componentes mecânicos em geral.
+              </div>
+              <div class="service-brands"><span class="service-brand-tag">INGERSOLL</span><span
+                  class="service-brand-tag">PUMA</span></div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <div class="service-content">
+              <div class="service-name">Hidráulica Industrial</div>
+              <div class="service-desc">Cilindros, bombas hidráulicas, válvulas e sistemas de alta pressão industrial.
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">💨</div>
+            <div class="service-content">
+              <div class="service-name">Pneumática Industrial</div>
+              <div class="service-desc">Compressores, atuadores, válvulas pneumáticas e sistemas de ar comprimido.</div>
+              <div class="service-brands"><span class="service-brand-tag">MARCON</span><span
+                  class="service-brand-tag">BERG</span></div>
+            </div>
+          </div>
+          <div class="service-card" style="grid-column:1/-1;">
+            <div class="service-icon">⚡</div>
+            <div class="service-content">
+              <div class="service-name">Elétrica Industrial</div>
+              <div class="service-desc">Instalações elétricas industriais, motores, painéis e ferramentas elétricas das
+                principais marcas do mercado.</div>
+              <div class="service-brands">
+                <span class="service-brand-tag">BOSCH</span>
+                <span class="service-brand-tag">DEWALT</span>
+                <span class="service-brand-tag">MILWAUKEE</span>
+                <span class="service-brand-tag">MAKITA</span>
+                <span class="service-brand-tag">BRANCO</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">06</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 6 — CLIENTES ══════════════════ -->
+    <div class="page" id="page-5">
+      <div class="section-header">
+        <div class="section-num">07 · Clientes Atendidos</div>
+        <div class="section-title">Empresas que não podem <span>parar<br>confiam na Jotta</span></div>
+        <div class="section-subtitle">Indústrias de diferentes segmentos — todas com uma exigência em comum: precisão
+          técnica e zero tolerância para retrabalho.</div>
+      </div>
+      <div class="section-body">
+        <div class="clients-grid">
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Siderurgia</div>
+            <div class="client-city">Vale do Aço – MG</div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Ferrovia</div>
+            <div class="client-city">João Monlevade – MG</div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Mineração</div>
+            <div class="client-city">Vale do Aço – MG</div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Manufatura</div>
+            <div class="client-city">Ipatinga – MG</div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Construção Industrial</div>
+            <div class="client-city">Coronel Fabriciano – MG</div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-ph">LOGO CLIENTE</div>
+            <div class="client-segment">Logística Industrial</div>
+            <div class="client-city">Timóteo – MG</div>
+          </div>
+        </div>
+        <div class="text-block" style="font-style:italic; font-size:12px;">
+          ★ Logos e nomes de clientes inseridos após autorização formal. Clientes sem autorização de divulgação são
+          representados por segmento e localidade.
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">07</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 7 — COMO TRABALHAMOS ══════════════════ -->
+    <div class="page" id="page-6">
+      <div class="section-header">
+        <div class="section-num">08 · Como Trabalhamos</div>
+        <div class="section-title">Do chamado à entrega —<br><span>sem surpresas</span></div>
+        <div class="section-subtitle">Um processo claro, documentado e rastreável do início ao fim. Você sabe exatamente
+          o que está acontecendo com seu equipamento.</div>
+      </div>
+      <div class="section-body">
+        <div class="two-col">
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-num">01</div>
+              <div class="flow-content">
+                <div class="flow-label">Solicitação</div>
+                <div class="flow-desc">Atendimento via WhatsApp ou telefone com resposta imediata em horário comercial.
+                </div>
+                <span class="flow-sla">até 2h</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">02</div>
+              <div class="flow-content">
+                <div class="flow-label">Diagnóstico</div>
+                <div class="flow-desc">Técnico especialista avalia o equipamento e identifica o problema com precisão.
+                </div>
+                <span class="flow-sla">até 24h</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">03</div>
+              <div class="flow-content">
+                <div class="flow-label">Orçamento</div>
+                <div class="flow-desc">Orçamento detalhado com peças, mão de obra e prazo de entrega — sem surpresas no
+                  final.</div>
+                <span class="flow-sla">detalhado</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">04</div>
+              <div class="flow-content">
+                <div class="flow-label">Execução</div>
+                <div class="flow-desc">Serviço realizado com registro fotográfico e técnico em cada etapa do reparo.
+                </div>
+                <span class="flow-sla">conforme prazo</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-num">05</div>
+              <div class="flow-content">
+                <div class="flow-label">Teste</div>
+                <div class="flow-desc">Equipamento testado após reparo. Funcionamento filmado e vinculado a QR code.
+                </div>
+                <span class="flow-sla">com vídeo</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">06</div>
+              <div class="flow-content">
+                <div class="flow-label">Documentação</div>
+                <div class="flow-desc">ART emitida, relatório técnico completo preparado e arquivado com
+                  rastreabilidade.</div>
+                <span class="flow-sla">ART + laudo</span>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">07</div>
+              <div class="flow-content">
+                <div class="flow-label">Entrega</div>
+                <div class="flow-desc">Equipamento devolvido com garantia formal documentada e QR code de acesso ao
+                  vídeo de teste.</div>
+                <span class="flow-sla">com garantia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-block">
+          <strong>Sistema de Gestão de Processos</strong><br>
+          Utilizamos sistema de controle de ordens de serviço que garante rastreabilidade completa de cada equipamento —
+          do recebimento à entrega.
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">08</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 8 — GARANTIA ══════════════════ -->
+    <div class="page" id="page-7">
+      <div class="section-header">
+        <div class="section-num">10 · Garantia Técnica</div>
+        <div class="section-title">Nosso trabalho tem <span>garantia</span>.<br>Formal. Documentada.</div>
+        <div class="section-subtitle">Sem letra miúda. Sem burocracia. Se o serviço falhar dentro da garantia,
+          resolvemos sem custo.</div>
+      </div>
+      <div class="section-body">
+        <div class="guarantee-box">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-title">Garantia Jotta</div>
+          <div class="guarantee-subtitle">Todo serviço documentado. Todo reparo garantido.</div>
+          <div class="guarantee-items">
+            <div class="guarantee-item"><span class="g-check">→</span> Garantia em mão de obra conforme tipo de serviço
+            </div>
+            <div class="guarantee-item"><span class="g-check">→</span> Garantia do fabricante nas peças originais
+              aplicadas (AT autorizadas)</div>
+            <div class="guarantee-item"><span class="g-check">→</span> Retorno do equipamento sem custo em caso de falha
+              coberta</div>
+            <div class="guarantee-item"><span class="g-check">→</span> Garantia registrada no relatório técnico entregue
+              ao cliente</div>
+            <div class="guarantee-item"><span class="g-check">→</span> Acionamento via WhatsApp com resposta em até 24
+              horas úteis</div>
+          </div>
+        </div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-title">Como Acionar</div>
+            <div class="card-text">Envie mensagem no WhatsApp (31) 98648-0098 com o número da sua OS. Nossa equipe
+              retorna em até 24 horas úteis.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📄</div>
+            <div class="card-title">Garantia Documentada</div>
+            <div class="card-text">As condições de garantia constam no relatório técnico entregue junto com o
+              equipamento. Você tem o documento em mãos.</div>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <div class="footer-brand">Jotta Manutenções</div>
+        <div class="footer-page">10</div>
+        <div class="footer-logo">BKS Grow</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ PÁGINA 9 — CTA ══════════════════ -->
+    <div class="page cta-page" id="page-8">
+      <div class="cta-top-bar"></div>
+      <div class="cta-content">
+        <div class="cta-bg"></div>
+        <div class="cta-inner">
+          <div class="cta-tag">Diagnóstico sem Risco</div>
+          <div class="cta-title">Solicite um Diagnóstico<br><span>Rápido</span> de Risco</div>
+          <div class="cta-sub">Envie uma mensagem agora com o equipamento que está gargalando sua produção.<br>Se não
+            formos a melhor solução para o seu caso, indicaremos quem é. <strong>O risco é nosso.</strong></div>
+          <div class="cta-contacts">
+            <div class="cta-contact-row">
+              <div class="cta-contact-icon">📱</div>
+              <div class="cta-contact-data">
+                <div class="cta-contact-label">WhatsApp</div>
+                <div class="cta-contact-value">(31) 98648-0098</div>
+              </div>
+            </div>
+            <div class="cta-contact-row">
+              <div class="cta-contact-icon">📞</div>
+              <div class="cta-contact-data">
+                <div class="cta-contact-label">Telefone</div>
+                <div class="cta-contact-value">(31) 3851-1365</div>
+              </div>
+            </div>
+            <div class="cta-contact-row">
+              <div class="cta-contact-icon">📍</div>
+              <div class="cta-contact-data">
+                <div class="cta-contact-label">Endereço</div>
+                <div class="cta-contact-value">Sion · João Monlevade – MG</div>
+              </div>
+            </div>
+            <div class="cta-contact-row">
+              <div class="cta-contact-icon">🌐</div>
+              <div class="cta-contact-data">
+                <div class="cta-contact-label">Site</div>
+                <div class="cta-contact-value">jottamanutencoes.com.br</div>
+              </div>
+            </div>
+          </div>
+          <div class="cta-divider"></div>
+          <div class="cta-closing">
+            "A Jotta foi construída para um propósito simples:<br>
+            <strong>quando seu equipamento para, nós colocamos de volta em operação.</strong><br>
+            Com técnica. Com garantia. Com documentação."
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="preview-label">Preview · v1.0</div>
+
+  <script>
+    function showPage(idx, btn) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('page-' + idx).classList.add('visible');
+      btn.classList.add('active');
+      window.scrollTo({ top: 56, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>

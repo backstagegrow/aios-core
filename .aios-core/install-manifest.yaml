@@ -8,9 +8,9 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-03-15T13:08:19.141Z"
+generated_at: "2026-03-29T16:12:21.806Z"
 generator: scripts/generate-install-manifest.js
-file_count: 1146
+file_count: 1155
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -787,7 +787,7 @@ files:
   - path: core/mcp/tool-router.js
     hash: sha256:7217a4855df8b804a2524872ba6dc394df93ac0d2bf2bbf99c7ed730776cb0cc
     type: core
-    size: 2310
+    size: 2300
   - path: core/memory/__tests__/active-modules.verify.js
     hash: sha256:70f2689446adb1dc72faf2bd2c26c2d142814d4be30fee4f0e58b9163095a400
     type: core
@@ -1235,11 +1235,11 @@ files:
   - path: data/control-center/agent-invocation-log.jsonl
     hash: sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
     type: data
-    size: 1
+    size: 2
   - path: data/control-center/execution-messages.jsonl
     hash: sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
     type: data
-    size: 1
+    size: 2
   - path: data/control-center/execution-sessions.json
     hash: sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570
     type: data
@@ -1247,15 +1247,15 @@ files:
   - path: data/control-center/human-decision-log.jsonl
     hash: sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
     type: data
-    size: 1
+    size: 2
   - path: data/control-center/session-context.json
     hash: sha256:1c3d656afccb3013601084a8c6893b69d9c20e1a547449d69efdefbb0c2ce4ad
     type: data
     size: 131
   - path: data/entity-registry.yaml
-    hash: sha256:d2278687d86371f38456cf23d1cfa121a1026287155e1689679cfd4ea9e2ec23
+    hash: sha256:ef96bf176f771c1e2ede3485af951ad0280897990f8920e130b76c826c821788
     type: data
-    size: 547828
+    size: 546404
   - path: data/learned-patterns.yaml
     hash: sha256:24ac0b160615583a0ff783d3da8af80b7f94191575d6db2054ec8e10a3f945dc
     type: data
@@ -1396,6 +1396,14 @@ files:
     hash: sha256:5ebd3d8e003f14341e5e5a6e4725b02fa67f846738e717325112998f8f1f7b12
     type: template
     size: 52446
+  - path: data/registry-backups/healing/heal-1773607233445-d4a0ed35.yaml
+    hash: sha256:b4598c3920d7408ff6d1c146758b90f7cdf3377545c2234a354a8b6ba2caad39
+    type: data
+    size: 549558
+  - path: data/registry-backups/healing/heal-1773607257711-f836fb2e.yaml
+    hash: sha256:5145788c713d6f6a3cf3a7be1a0d61027d09277f47e9c19a8d85e87e6e95dd48
+    type: data
+    size: 546162
   - path: data/tech-presets/_template.md
     hash: sha256:1a7262912c8c8e264d307f0d38a1109bdb2b9bff9ea7d8855c768835201aa59b
     type: data
@@ -1493,9 +1501,9 @@ files:
     type: agent
     size: 20565
   - path: development/agents/architect/MEMORY.md
-    hash: sha256:8885804d07cd492fc6de3aeb11cfc15954d24ed81a31c4b1f048008f378f8b93
+    hash: sha256:5500ae3a7560e0609b2f06238a4bfeae5d003e2b4e23802cb12cebe83f019520
     type: agent
-    size: 1385
+    size: 1989
   - path: development/agents/clickup-ops.md
     hash: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
     type: agent
@@ -1505,21 +1513,29 @@ files:
     type: agent
     size: 3080
   - path: development/agents/conselho-dos-sabios.md
-    hash: sha256:da766af2ad0b113231ca5035b0ae013b68f57e378522181172d33a86a9126924
+    hash: sha256:5ac320a22f5ac2a3850b04a9906742270e5bc90d4c9cc0a9c7a786508b8ac890
     type: agent
-    size: 6451
+    size: 6481
+  - path: development/agents/content-planner.md
+    hash: sha256:9b943ff3a124b78b4a43de18b900b41791dfd9c36c9a00b556f05fc511a2073e
+    type: agent
+    size: 3403
   - path: development/agents/copy-chief.md
     hash: sha256:8abc3a5187a3fca2ffa28117e6fcb90caef398b2713fcbb79c65cf9d61b5b6db
     type: agent
-    size: 9113
+    size: 8880
+  - path: development/agents/copy-specialist.md
+    hash: sha256:f5654f037668b1205d28b20848592c4577dceb2b953780c58775443cf28dc45b
+    type: agent
+    size: 3759
   - path: development/agents/cyber-chief.md
     hash: sha256:6c9de51d28b4343f1f2aee4a3201aa84168f5231fc17359830e3e56b867c79a7
     type: agent
-    size: 7022
+    size: 6827
   - path: development/agents/data-chief.md
     hash: sha256:9c5f1bfeea2d3328d8e4e1989d0b44323f4b552aca36b44bdc8232ad7f19354f
     type: agent
-    size: 7001
+    size: 6817
   - path: development/agents/data-engineer.md
     hash: sha256:76c4cfc5d4c44cc25424cdcc0a541f86fc404e3869b9dcae40649b7d071579e1
     type: agent
@@ -1531,15 +1547,15 @@ files:
   - path: development/agents/design-chief.md
     hash: sha256:3cdc1c53d3e5b1539e42d85ca86b33b1a1dad40909816bfa358a802c06c487c6
     type: agent
-    size: 6980
+    size: 6796
   - path: development/agents/dev.md
     hash: sha256:1b5b64709eaa95a8870c5aa012d508c1ac48ed0ead2539d2cd85a9fed5b7c70e
     type: agent
     size: 24483
   - path: development/agents/dev/MEMORY.md
-    hash: sha256:84f197b1ade880b67657ac364267bd03ccc08e7cbfee75403187f4af68423134
+    hash: sha256:232d51b5b2efd7573bba94b54c4946cec1c9964811e22905722c156413fd013b
     type: agent
-    size: 2486
+    size: 3917
   - path: development/agents/devops.md
     hash: sha256:53fab4494aa260572c8f8e2e59c08f144762bb9447edb8a09438d3cd55f24cfa
     type: agent
@@ -1551,7 +1567,15 @@ files:
   - path: development/agents/legal-chief.md
     hash: sha256:ad68ed746090efffa30b6f60f991b4310846333ff3dbf57caee051332d27b084
     type: agent
-    size: 7891
+    size: 7695
+  - path: development/agents/MEMORY.md
+    hash: sha256:613a60c7abed758eab7ad0546e9ade7b7ebd2358ce369d33997a7c3f2af523ec
+    type: agent
+    size: 2217
+  - path: development/agents/OFFER-ARCHITECT-STRATEGIC-MEMORY.md
+    hash: sha256:2732d18bb076285a150348521ab44da64849a1328e78c9c28aa9f49556403945
+    type: agent
+    size: 7763
   - path: development/agents/pm.md
     hash: sha256:3d1eec3bb89642a9b6ad49b32f405fe1f88167cac07058071494eb652470f890
     type: agent
@@ -1565,17 +1589,25 @@ files:
     type: agent
     size: 14343
   - path: development/agents/po/MEMORY.md
-    hash: sha256:7505510d70568ad46bc3de65dcdd3514b479052c298ea9f83cd5debba7ab0841
+    hash: sha256:23e94121586911c83a649d6d450eacf8496e05c262e1ec7c0a70487a8e8d29e6
     type: agent
-    size: 1376
+    size: 1839
+  - path: development/agents/post-assembler.md
+    hash: sha256:62696c2dd86d587b77eb58aaced3f41e47c57191265eef96db391d60eaa940a8
+    type: agent
+    size: 4432
+  - path: development/agents/product-team-content-generation.md
+    hash: sha256:e64f0d8706bae5be0917a6c43bb8d47f0bbb8ec0d27c283ada1facd79f215026
+    type: agent
+    size: 5019
   - path: development/agents/qa.md
     hash: sha256:3312e0b7a962fa1c71128e304458d65becd1e8a2729415c631de3b0c1ba5dd65
     type: agent
     size: 18961
   - path: development/agents/qa/MEMORY.md
-    hash: sha256:eec482f057d09635940e9a46bdd6cbb677af12dc4deed64bf71196d551b93abf
+    hash: sha256:5d2eebbcf85737bf04c470d5ef2167601197a549509dbccc732c82f74a4f4623
     type: agent
-    size: 1367
+    size: 2108
   - path: development/agents/sm.md
     hash: sha256:45b75a8d411090036154feb6871624be7215fda92046f4c16c7e2146f0478628
     type: agent
@@ -1591,23 +1623,27 @@ files:
   - path: development/agents/story-chief.md
     hash: sha256:6e09691efe5cc91d8ce771aadb0ca76a8db7e67a1a109d1eb26e7244d2b8e08a
     type: agent
-    size: 7978
+    size: 7774
   - path: development/agents/traffic-masters-chief.md
     hash: sha256:e91dd434e3897cee87732863129a254a5c09fffed6b6650483434ead6e22b42d
     type: agent
-    size: 7572
+    size: 7381
   - path: development/agents/ux-design-expert.md
-    hash: sha256:7f0fd6273685dc2d5104fb4cb8acbe7cf69cce3a7646907ad04c6d6efbe40970
+    hash: sha256:7edda1401e9aa6e8e48fe1a6614d9e1869f9e7e7efeac109e1de9540e79e93f1
     type: agent
-    size: 20104
+    size: 21123
   - path: development/agents/ux-design-expert/MEMORY.md
     hash: sha256:aec0e94b7b925770263a241175fff3a3afbad05d30c4151e5dc30dbeae69475d
     type: agent
-    size: 2702
+    size: 2639
   - path: development/agents/ux/MEMORY.md
     hash: sha256:e177840efba9c8762891e9789a8252a647add9fb2423ef81618372b27c614d56
     type: agent
     size: 1073
+  - path: development/agents/visual-director.md
+    hash: sha256:f3af2a6130631acf39bd943ecbd06de06a84096cd62d121c14bc1660581938b3
+    type: agent
+    size: 4843
   - path: development/checklists/agent-quality-gate.md
     hash: sha256:04d1bf12dd4b0b3d10de04c1825efab742e6475087d3ac9d5c86ca7ff8ec9057
     type: checklist
@@ -2269,9 +2305,9 @@ files:
     type: task
     size: 13901
   - path: development/tasks/generate-ai-frontend-prompt.md
-    hash: sha256:0345d330c6b4b934ff576bd5ac79440f186f0622d1637d706806e99c8ede77fb
+    hash: sha256:0f630df4796cac74db3de3d20f2c4c05b1a8b1f1c786ea4a76687908d9154233
     type: task
-    size: 9355
+    size: 13291
   - path: development/tasks/generate-documentation.md
     hash: sha256:e09c34125a8540a48abe7f425df4a9873034fb0cef4ae7e2ead36216fd78655e
     type: task
@@ -3545,9 +3581,9 @@ files:
     type: script
     size: 18245
   - path: infrastructure/scripts/validate-agents.js
-    hash: sha256:fec0f03f6b5e5d47ece9a7347417a27959b972a6e5a54d527f954147805f2493
+    hash: sha256:b68f810561ae5041850fe2b6b79fcf41f93057eb0f665cedf44cf49ccc331fc8
     type: script
-    size: 17552
+    size: 17841
   - path: infrastructure/scripts/validate-antigravity-integration.js
     hash: sha256:b29265f89cedc55f6da1757dcb1d67eacf21b7c37374dc8fc2f07ed6248b052e
     type: script

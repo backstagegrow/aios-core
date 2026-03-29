@@ -7,7 +7,13 @@
     <title>BKS Grow | Engenharia de Receita para o Setor de Eventos</title>
     <meta name="description"
         content="Transformamos fornecedores de eventos em máquinas de vendas previsíveis. Tráfego, automação, IA e dados — tudo verticalizado para quem vive de lotar agenda." />
+    <meta property="og:title" content="BKS Grow — Engenharia de Receita para Eventos">
+    <meta property="og:description" content="Instalamos tráfego de precisão, IA com base proprietária e automação que fecha agenda sem você negociar cada orçamento.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -66,6 +72,7 @@
         .text-gradient {
             background: linear-gradient(135deg, #8eff71 0%, #2ff801 50%, #beffa8 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -98,6 +105,7 @@
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
+            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -110,6 +118,137 @@
             pointer-events: none;
             z-index: 1;
         }
+
+        /* ── MARQUEE ESTEIRA DE LOGOS ──────────────────── */
+        .marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: max-content;
+            animation: marquee-scroll 30s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.25);
+            text-transform: uppercase;
+            transition: color 0.3s, border-color 0.3s;
+            flex-shrink: 0;
+            cursor: default;
+        }
+
+        .logo-item:hover {
+            color: rgba(142, 255, 113, 0.6);
+            border-color: rgba(142, 255, 113, 0.15);
+        }
+
+        /* ── Float animation (hero badge, glows) ───────────────── */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-14px) scale(1.02); }
+        }
+
+        @keyframes shimmer-btn {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(142, 255, 113, 0.12), 0 0 120px rgba(142, 255, 113, 0.06); }
+            50% { box-shadow: 0 0 80px rgba(142, 255, 113, 0.22), 0 0 160px rgba(142, 255, 113, 0.12); }
+        }
+
+        .hero-badge {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-glow-orb {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .neon-glow {
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        /* ── Scroll indicator bounce ────────────────────────────── */
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(6px); opacity: 1; }
+        }
+
+        .scroll-indicator {
+            animation: bounce-down 2s ease-in-out infinite;
+            opacity: 0.4;
+        }
+
+        /* ── Spotlight / Radial Glow (JS-driven) ───────────────── */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(142, 255, 113, 0.06),
+                    transparent 40%);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-card>* {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -120,7 +259,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-white/5" id="nav">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex justify-between items-center">
-            <a href="#" class="text-xl font-black tracking-tighter text-primary uppercase">BKS Grow</a>
+            <a href="/" class="text-xl font-black tracking-tighter text-primary uppercase">BKS Grow</a>
             <div class="hidden md:flex gap-8 items-center">
                 <a class="text-on-surface-variant hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.15em]"
                     href="#problema">O Problema</a>
@@ -130,9 +269,11 @@
                     href="#metodo">Método</a>
                 <a class="text-on-surface-variant hover:text-white transition-colors text-xs font-semibold uppercase tracking-[0.15em]"
                     href="#fundadores">Quem Somos</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-semibold uppercase tracking-[0.15em]"
+                    href="blog.html">Insights</a>
                 <a href="#agendar"
-                    class="bg-primary text-on-primary-fixed px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-primary-container hover:scale-105 transition-all">Agendar
-                    Diagnóstico</a>
+                    class="bg-primary text-on-primary-fixed px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-primary-container hover:scale-105 transition-all">Diagnóstico
+                    Gratuito</a>
             </div>
             <!-- Mobile menu button -->
             <button class="md:hidden text-white"
@@ -146,9 +287,10 @@
             <a class="block text-on-surface-variant text-sm font-medium" href="#solucao">A Solução</a>
             <a class="block text-on-surface-variant text-sm font-medium" href="#metodo">Método</a>
             <a class="block text-on-surface-variant text-sm font-medium" href="#fundadores">Quem Somos</a>
+            <a class="block text-on-surface-variant text-sm font-medium" href="blog.html">Insights</a>
             <a href="#agendar"
-                class="block bg-primary text-on-primary-fixed px-6 py-3 rounded-full font-bold text-sm text-center">Agendar
-                Diagnóstico</a>
+                class="block bg-primary text-on-primary-fixed px-6 py-3 rounded-full font-bold text-sm text-center">Diagnóstico
+                Gratuito</a>
         </div>
     </nav>
 
@@ -159,74 +301,82 @@
         <!-- ═══════════════════════════════════════════ -->
         <section
             class="relative min-h-screen flex items-center px-6 lg:px-8 overflow-hidden hero-gradient noise-overlay">
+            <!-- Orbs flutuantes de fundo -->
+            <div class="hero-glow-orb absolute top-1/4 right-1/4 w-96 h-96 bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="hero-glow-orb absolute bottom-1/3 left-1/3 w-64 h-64 bg-primary/[0.03] rounded-full blur-[80px] pointer-events-none" style="animation-delay: -3s;"></div>
             <div class="relative z-10 max-w-6xl mx-auto w-full py-32">
                 <div class="max-w-4xl">
                     <span
-                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 text-primary text-[11px] font-bold tracking-[0.2em] mb-10 bg-primary/5 uppercase">
+                        class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 text-primary text-[11px] font-bold tracking-[0.2em] mb-10 bg-primary/5 uppercase">
                         <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                        Exclusivo para o Setor de Eventos
+                        Apenas para Fornecedores de Eventos · 3 Vagas/Mês
                     </span>
 
-                    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-[-0.04em] leading-[0.92] mb-8">
-                        Troque a incerteza da indicação por um sistema de <span class="text-gradient">crescimento
-                            previsível de +39%.</span>
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-[-0.04em] leading-[0.92] mb-8 relative">
+                        <span class="block overflow-hidden pb-2"><span class="inline-block h1-line">Seu Próximo Contrato
+                                Corporativo Não Vai Vir de Indicação.</span></span>
+                        <span class="block overflow-hidden"><span class="inline-block h1-line text-gradient">Vai Vir do
+                                Sistema.</span></span>
                     </h1>
 
-                    <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mb-14 leading-relaxed font-light">
-                        O setup completo de IA, tráfego e automação desenhado exclusivamente para o setor de eventos
-                        corporativos. Agenda lotada e processos blindados em menos de 45 dias.
+                    <p class="hero-sub text-lg md:text-xl text-on-surface-variant max-w-2xl mb-14 leading-relaxed font-light">
+                        A BKS Grow é a única consultoria verticalmente construída para o setor de eventos. Instalamos
+                        tráfego de precisão para decisores B2B, IA com base proprietária do setor e automação que fecha
+                        agenda sem você negociar cada orçamento.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-5 items-start">
+                    <div class="hero-ctas flex flex-col sm:flex-row gap-5 items-start">
                         <a href="#agendar"
                             class="group bg-primary text-on-primary-fixed px-10 py-5 rounded-full font-black text-base uppercase tracking-wider hover:scale-105 transition-all neon-glow inline-flex items-center gap-3">
-                            Quero Lotar Minha Agenda
+                            Agendar Revenue Audit Gratuito
                             <span
                                 class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
                         </a>
 
-                        <div
-                            class="flex items-center gap-4 px-5 py-4 rounded-full bg-white/[0.03] border border-white/[0.06]">
-                            <div class="flex -space-x-2">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/20 border-2 border-surface flex items-center justify-center text-[9px] font-bold text-primary">
-                                    LR</div>
-                                <div
-                                    class="w-8 h-8 rounded-full bg-primary/10 border-2 border-surface flex items-center justify-center text-[9px] font-bold text-primary/70">
-                                    ES</div>
-                            </div>
-                            <span class="text-sm text-on-surface-variant font-medium">Apenas <strong
-                                    class="text-white">3 vagas</strong> por mês</span>
+                        <a href="#metodo"
+                            class="group inline-flex items-center gap-3 px-8 py-5 rounded-full border border-white/10 text-on-surface-variant hover:text-white hover:border-primary/30 transition-all text-sm font-bold uppercase tracking-wider">
+                            Ver o Método
+                            <span class="material-symbols-outlined text-lg group-hover:translate-y-0.5 transition-transform">expand_more</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-10 flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/20 border-2 border-surface flex items-center justify-center text-[9px] font-bold text-primary">
+                                LR</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/10 border-2 border-surface flex items-center justify-center text-[9px] font-bold text-primary/70">
+                                ES</div>
                         </div>
+                        <span class="text-sm text-on-surface-variant font-medium">Apenas <strong
+                                class="text-white">3 vagas</strong> por mês</span>
                     </div>
                 </div>
             </div>
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 scroll-indicator">
+                <span class="text-[10px] text-on-surface-variant uppercase tracking-[0.2em]">Scroll</span>
+                <span class="material-symbols-outlined text-on-surface-variant text-xl">expand_more</span>
+            </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- SOCIAL PROOF BAR                            -->
-        <!-- ═══════════════════════════════════════════ -->
-        <section class="py-20 bg-surface-container-lowest border-y border-white/5">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center">
-                    <div>
-                        <span
-                            class="text-5xl md:text-6xl font-black text-primary-container tracking-tighter block mb-2">+39%</span>
-                        <p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest">Crescimento
-                            médio no 1º ciclo</p>
-                    </div>
-                    <div>
-                        <span
-                            class="text-5xl md:text-6xl font-black text-primary-container tracking-tighter block mb-2">R$0</span>
-                        <p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest">Se não
-                            entregarmos em 48h</p>
-                    </div>
-                    <div>
-                        <span
-                            class="text-5xl md:text-6xl font-black text-primary-container tracking-tighter block mb-2">24/7</span>
-                        <p class="text-on-surface-variant text-sm font-medium uppercase tracking-widest">IA qualificando
-                            seus leads</p>
-                    </div>
+
+        <!-- ═════════════════════════════════════════════ -->
+        <!-- LOGO MARQUEE (Clientes)                 -->
+        <!-- ═════════════════════════════════════════════ -->
+        <section class="py-16 border-b border-white/5 bg-surface overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-8 text-center">
+                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/40">Quem já opera com
+                    a BKS Grow</p>
+            </div>
+            <div class="marquee-wrapper relative">
+                <!-- Gradient fade nas bordas -->
+                <div class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-surface to-transparent z-10"></div>
+                <div class="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-surface to-transparent z-10"></div>
+                <div class="marquee-track flex gap-12 items-center" id="marquee-track">
+                    <!-- Os logos são renderizados pelo JS abaixo -->
                 </div>
             </div>
         </section>
@@ -284,12 +434,10 @@
                         <span class="text-primary text-[11px] font-bold tracking-[0.25em] uppercase mb-6 block">A
                             Solução</span>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-tight mb-8">
-                            Não somos uma agência. Somos a sua <span class="text-gradient">Engenharia de Receita.</span>
+                            Nascemos no backstage. Construímos a sua <span class="text-gradient">Engenharia de Receita.</span>
                         </h2>
                         <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
-                            A BKS Grow instala processos de elite verticalizados para o setor de eventos. Tráfego de
-                            alta precisão, IA com base de conhecimento proprietária e dashboards que entregam lucro
-                            real, não métricas de vaidade.
+                            Lucas e Erick operaram dentro do setor de eventos antes de construir a BKS Grow. Conhecem o ciclo de venda longo, o decisor corporativo e a sazonalidade que mata o caixa. O que instalamos foi pensado para essa realidade — não adaptado de outro mercado.
                         </p>
                         <div class="space-y-6">
                             <div class="flex gap-4 items-start">
@@ -383,41 +531,43 @@
                         <span
                             class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform block">brush</span>
                         <h3 class="text-sm lg:text-base font-bold">Branding</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Identidade que respira
-                            autoridade e luxo.</p>
+                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Posicionamento que impõe respeito antes da primeira palavra.</p>
                     </div>
                     <div
                         class="group p-6 lg:p-8 bg-surface-container hover:bg-surface-container-high transition-all border border-white/5 rounded-2xl text-center">
                         <span
                             class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform block">rocket_launch</span>
                         <h3 class="text-sm lg:text-base font-bold">Tráfego</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Anúncios de precisão para
-                            decisores B2B.</p>
+                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Anúncios que chegam no CEO e no Head de Marketing — não em todo mundo.</p>
                     </div>
                     <div
                         class="group p-6 lg:p-8 bg-surface-container hover:bg-surface-container-high transition-all border border-white/5 rounded-2xl text-center">
                         <span
                             class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform block">settings_input_component</span>
                         <h3 class="text-sm lg:text-base font-bold">Automação</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Processos que vendem enquanto
-                            você opera.</p>
+                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Follow-up automático. Nenhum lead some. Nenhuma proposta esquecida.</p>
                     </div>
                     <div
                         class="group p-6 lg:p-8 bg-surface-container hover:bg-surface-container-high transition-all border border-white/5 rounded-2xl text-center">
                         <span
                             class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform block">share</span>
                         <h3 class="text-sm lg:text-base font-bold">Social Media</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Posicionamento estratégico de
-                            autoridade.</p>
+                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Conteúdo que faz o decisor pensar em você antes de abrir o processo.</p>
                     </div>
                     <div
                         class="group p-6 lg:p-8 bg-surface-container hover:bg-surface-container-high transition-all border border-white/5 rounded-2xl text-center col-span-2 md:col-span-1">
                         <span
                             class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform block">psychology</span>
                         <h3 class="text-sm lg:text-base font-bold">IA & Dados</h3>
-                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">Inteligência artificial para
-                            escala acelerada.</p>
+                        <p class="text-xs text-on-surface-variant mt-2 hidden lg:block">CAC, LTV, conversão — tudo em tempo real. Escala por número, não por intuição.</p>
                     </div>
+                </div>
+                <div class="text-center mt-14">
+                    <a href="#agendar"
+                        class="group inline-flex items-center gap-3 bg-primary/10 border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-primary hover:text-on-primary-fixed transition-all">
+                        Quero esse ecossistema trabalhando por mim
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -434,41 +584,39 @@
                             Exclusiva</span>
                         <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Os 3 Atos do Crescimento</h2>
                     </div>
-                    <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Implementação em
-                        até 45 dias</span>
+                    <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Transparência total — sem "conte-me mais na call".</span>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div
-                        class="p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
+                        class="metodo-card p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
                         <span class="text-7xl font-black text-white/[0.04] block mb-4 leading-none">01</span>
                         <h3 class="text-xl font-bold mb-4">Revenue Audit</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Mapeamos cada hemorragia financeira
-                            do seu processo atual e desenhamos o plano de escala para os próximos 12 meses.</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Analisamos seu pipeline, suas fontes de lead e sua taxa de conversão. Você recebe um mapa claro do gargalo — onde a receita está vazando e o que mudar primeiro. Mesmo que não avance conosco.</p>
                         <div class="mt-6 pt-6 border-t border-white/5">
-                            <span class="text-primary text-xs font-bold uppercase tracking-widest">Fase: <strong
-                                    class="text-white">Diagnóstico</strong></span>
+                            <span class="text-primary text-xs font-bold uppercase tracking-widest">O ponto de partida de
+                                <strong class="text-white">tudo</strong></span>
                         </div>
                     </div>
                     <div
-                        class="p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
+                        class="metodo-card p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
                         <span class="text-7xl font-black text-white/[0.04] block mb-4 leading-none">02</span>
                         <h3 class="text-xl font-bold mb-4">Instalação da Máquina</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Construção dos ativos digitais,
-                            automações de WhatsApp, deploy da IA e campanhas de alta performance.</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Construímos os ativos, automatizamos o comercial, publicamos a IA e ativamos as campanhas. Setup completo em 15–30 dias. Nenhum pré-requisito da sua parte.</p>
                         <div class="mt-6 pt-6 border-t border-white/5">
-                            <span class="text-primary text-xs font-bold uppercase tracking-widest">Setup: <strong
-                                    class="text-white">15–30 dias</strong></span>
+                            <span class="text-primary text-xs font-bold uppercase tracking-widest">Execução: <strong
+                                    class="text-white">Zero dependência sua</strong></span>
                         </div>
                     </div>
                     <div
-                        class="p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
+                        class="metodo-card p-10 rounded-3xl bg-surface-container border border-white/5 hover:border-primary/20 transition-all">
                         <span class="text-7xl font-black text-white/[0.04] block mb-4 leading-none">03</span>
-                        <h3 class="text-xl font-bold mb-4">Soberania & Escala</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Ajuste fino de ROAS, otimização de
-                            script de vendas via dados e monitoramento de LTV para máxima rentabilidade.</p>
+                        <h3 class="text-xl font-bold mb-4">Soberania &amp; Escala</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">A máquina está no ar. Agora
+                            otimizamos ROAS, refinamos script de vendas por dados reais e construimos LTV para que cada
+                            cliente valha progressivamente mais.</p>
                         <div class="mt-6 pt-6 border-t border-white/5">
-                            <span class="text-primary text-xs font-bold uppercase tracking-widest">Ciclo: <strong
-                                    class="text-white">Contínuo</strong></span>
+                            <span class="text-primary text-xs font-bold uppercase tracking-widest">Modo: <strong
+                                    class="text-white">Operação contínua</strong></span>
                         </div>
                     </div>
                 </div>
@@ -548,19 +696,19 @@
                         <ul class="space-y-5">
                             <li class="flex gap-3 items-start text-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5"></span>
-                                <p>Posicionamento premium que justifica preços maiores.</p>
+                                <p>Ticket médio 30–40% acima do mercado local.</p>
                             </li>
                             <li class="flex gap-3 items-start text-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5"></span>
-                                <p>Máquina de vendas previsível: leads todo dia.</p>
+                                <p>Primeiras conversões entre os dias 25 e 45.</p>
                             </li>
                             <li class="flex gap-3 items-start text-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5"></span>
-                                <p>Agenda lotada com 6 meses de antecipação.</p>
+                                <p>Novos leads chegando sem você prospectar manualmente.</p>
                             </li>
                             <li class="flex gap-3 items-start text-sm">
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5"></span>
-                                <p>IA atendendo e qualificando 24/7.</p>
+                                <p>IA qualificando e agendando 24/7 — você fecha, não atende.</p>
                             </li>
                         </ul>
                     </div>
@@ -651,11 +799,113 @@
                 <span class="text-primary text-[11px] font-bold tracking-[0.25em] uppercase mb-8 block">Nossa
                     Visão</span>
                 <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-6">
-                    "Somos uma das poucas consultorias que entende as dores reais de quem produz eventos, porque <span
-                        class="text-primary italic">nascemos dentro do backstage.</span>"
+                    "Construímos a BKS Grow porque vivemos o problema. Ex-operadores do setor que entenderam que o mercado precisava de engenharia de receita — não de mais um pacote de <span
+                        class="text-primary italic">posts sem resultado.</span>"
                 </h2>
                 <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Falamos a língua do rider técnico, do
                     gerador, da iluminação e da logística pesada. Nosso KPI final não é like — é contrato assinado.</p>
+                <div class="mt-12">
+                    <a href="#fundadores"
+                        class="group inline-flex items-center gap-3 border border-primary/30 text-primary px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-primary hover:text-on-primary-fixed transition-all">
+                        Conheça os Fundadores
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- INSIGHTS / BLOG PREVIEW                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <section class="py-32 px-6 lg:px-8 bg-surface-container-lowest" id="insights">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                    <div>
+                        <span
+                            class="text-primary text-[11px] font-bold tracking-[0.25em] uppercase mb-6 block">Engenharia
+                            de Receita</span>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Insights <span
+                                class="text-gradient">BKS Grow</span></h2>
+                        <p class="text-on-surface-variant mt-3 max-w-lg">Manual de operações outlier para o setor de
+                            eventos. Onde o ROI encontra a estratégia B2B de elite.</p>
+                    </div>
+                    <a href="blog.html"
+                        class="shrink-0 text-xs font-bold uppercase tracking-[0.2em] text-primary hover:text-white transition-colors flex items-center gap-2">
+                        Ver todos os Insights
+                        <span class="material-symbols-outlined text-base">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Post 1 -->
+                    <article
+                        class="group flex flex-col bg-surface-container border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 transition-all hover:-translate-y-1 duration-300">
+                        <div class="h-48 bg-primary/[0.04] border-b border-white/5 flex items-end p-6 relative">
+                            <span
+                                class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Estratégia</span>
+                            <p class="text-[10px] text-on-surface-variant/50 font-mono uppercase tracking-widest">25 MAR
+                                2026</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3
+                                class="text-lg font-black leading-tight mb-4 group-hover:text-primary transition-colors">
+                                A Indicação Vai Matar Seu Negócio. Só que Devagar.</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed flex-1 mb-6">Boca a boca não é
+                                estratégia, é acidente. Empresas que vivem de indicação são as primeiras a entrar em
+                                colapso na baixa temporada. Aqui está a matemática que ninguém te mostra.</p>
+                            <a href="blog.html"
+                                class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
+                                Ler Artigo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article
+                        class="group flex flex-col bg-surface-container border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 transition-all hover:-translate-y-1 duration-300">
+                        <div class="h-48 bg-primary/[0.04] border-b border-white/5 flex items-end p-6 relative">
+                            <span
+                                class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Operações</span>
+                            <p class="text-[10px] text-on-surface-variant/50 font-mono uppercase tracking-widest">24 MAR
+                                2026</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3
+                                class="text-lg font-black leading-tight mb-4 group-hover:text-primary transition-colors">
+                                O Manual de Vendas que Funciona sem o Dono</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed flex-1 mb-6">Você é o maior
+                                gargalo da sua empresa. Enquanto você for o único vendedor, o teto do seu faturamento é
+                                o limite da sua energia. A solução não é contratar — é documentar e automatizar.</p>
+                            <a href="blog.html"
+                                class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
+                                Ler Artigo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article
+                        class="group flex flex-col bg-surface-container border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 transition-all hover:-translate-y-1 duration-300">
+                        <div class="h-48 bg-primary/[0.04] border-b border-white/5 flex items-end p-6 relative">
+                            <span
+                                class="absolute top-5 left-5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">Dados</span>
+                            <p class="text-[10px] text-on-surface-variant/50 font-mono uppercase tracking-widest">23 MAR
+                                2026</p>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3
+                                class="text-lg font-black leading-tight mb-4 group-hover:text-primary transition-colors">
+                                Agenda Cheia ≠ Agenda Lucrativa</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed flex-1 mb-6">O erro mais caro de
+                                casas de eventos: lotar o calendário com clientes errados. Aprenda a rejeitar volume e
+                                preservar margem — ou continue quebrando mesmo com o salão ocupado.</p>
+                            <a href="blog.html"
+                                class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-[0.15em] hover:gap-3 transition-all">
+                                Ler Artigo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -668,10 +918,8 @@
                     <div>
                         <span class="text-primary text-[11px] font-bold tracking-[0.25em] uppercase mb-6 block">Próximo
                             Passo</span>
-                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-tight mb-8">Sua próxima fase
-                            começa aqui.</h2>
-                        <p class="text-lg text-on-surface-variant mb-12 leading-relaxed">Solicite o Revenue Audit —
-                            nosso diagnóstico gratuito que mostra exatamente onde o seu dinheiro está vazando hoje.</p>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tighter leading-tight mb-8">Diagnóstico gratuito — 30 minutos que mudam a direção.</h2>
+                        <p class="text-lg text-on-surface-variant mb-12 leading-relaxed">Preencha o formulário. Analisamos sua operação antes da call e chegamos com o mapa completo do seu gargalo — sem slide genérico, sem pitch de venda.</p>
 
                         <div class="space-y-8">
                             <div class="flex items-start gap-5">
@@ -711,7 +959,7 @@
                     </div>
 
                     <div class="bg-surface-container-high p-8 lg:p-10 rounded-3xl border border-white/5 shadow-2xl">
-                        <h3 class="text-xl font-bold mb-8">Solicitar Revenue Audit (Grátis)</h3>
+                        <h3 class="text-xl font-bold mb-8">Agendar Revenue Audit Gratuito</h3>
                         <form class="space-y-5" id="lead-form">
                             <div class="space-y-2">
                                 <label
@@ -764,7 +1012,7 @@
                             </div>
                             <button type="submit"
                                 class="w-full bg-primary text-on-primary-fixed py-4 rounded-xl font-black uppercase tracking-wider hover:bg-primary-container transition-colors mt-2 text-sm">
-                                Solicitar Revenue Audit Gratuito
+                                Quero Meu Diagnóstico Gratuito
                             </button>
                             <p class="text-[9px] text-center text-on-surface-variant uppercase tracking-widest">Seus
                                 dados estão protegidos. Não compartilhamos com terceiros.</p>
@@ -839,9 +1087,7 @@
                                 class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform text-xl">expand_more</span>
                         </summary>
                         <p class="mt-4 text-on-surface-variant text-sm leading-relaxed">
-                            O investimento é personalizado de acordo com o porte e as necessidades da sua operação. O
-                            primeiro passo é o Revenue Audit gratuito, onde mapeamos o cenário e apresentamos a proposta
-                            adequada.
+                            O investimento é personalizado de acordo com o porte e as necessidades da sua operação. O primeiro passo é o Revenue Audit gratuito: você preenche o formulário, analisamos sua operação e chegamos na call com um diagnóstico real do seu cenário — só então apresentamos a proposta adequada.
                         </p>
                     </details>
                 </div>
@@ -858,10 +1104,9 @@
                 </div>
             </div>
             <div class="max-w-3xl mx-auto relative z-10">
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">Pronto para sair da
-                    loteria e instalar a sua Engenharia de Receita?</h2>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-tight">Sua agenda em 90 dias pode ser diferente desta.</h2>
                 <p class="text-lg text-on-surface-variant mb-12 max-w-xl mx-auto">
-                    As vagas para novos parceiros este mês são limitadas. Garanta seu diagnóstico agora — 100% gratuito.
+                    Não por sorte. Por processo. O próximo passo é uma conversa de 30 minutos onde analisamos seu pipeline e mostramos onde está o gargalo — sem compromisso. Apenas 3 vagas por mês.
                 </p>
                 <a href="#agendar"
                     class="inline-flex items-center gap-3 bg-primary text-on-primary-fixed px-12 py-6 rounded-full font-black text-lg uppercase tracking-wider hover:scale-105 transition-all neon-glow">
@@ -877,29 +1122,317 @@
     <!-- ═══════════════════════════════════════════ -->
     <footer class="bg-surface border-t border-white/5 py-16 px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-center md:text-left">
-                    <span class="text-xl font-black tracking-tighter text-white uppercase block mb-2">BKS Grow</span>
-                    <p class="text-on-surface-variant text-xs max-w-xs">Engenharia de Receita para o setor de eventos.
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-2">
+                    <span class="text-xl font-black tracking-tighter text-white uppercase block mb-3">BKS Grow</span>
+                    <p class="text-on-surface-variant text-xs max-w-xs leading-relaxed">Engenharia de Receita para o
+                        setor de eventos. Pipeline previsível, IA proprietária e posicionamento de elite.</p>
                 </div>
-                <div class="flex gap-6 flex-wrap justify-center">
-                    <a class="text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
-                        href="https://www.instagram.com/euericksena" target="_blank">Instagram</a>
-                    <a class="text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
-                        href="#" target="_blank">LinkedIn</a>
-                    <a class="text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
-                        href="#">Privacidade</a>
-                    <a class="text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
-                        href="#">Termos</a>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">Conteúdo</h5>
+                    <div class="space-y-3">
+                        <a href="blog.html"
+                            class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest">Insights</a>
+                        <a href="blog.html"
+                            class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest">Estratégia
+                            B2B</a>
+                        <a href="blog.html"
+                            class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest">Cases</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">Social & Legal</h5>
+                    <div class="space-y-3">
+                        <a class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
+                            href="https://www.instagram.com/euericksena" target="_blank" rel="noopener">Instagram</a>
+                        <a class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
+                            href="https://www.linkedin.com/company/bksgrow" target="_blank" rel="noopener">LinkedIn</a>
+                        <a class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
+                            href="#agendar">Privacidade</a>
+                        <a class="block text-on-surface-variant hover:text-primary transition-colors text-xs uppercase font-bold tracking-widest"
+                            href="#agendar">Termos</a>
+                    </div>
                 </div>
             </div>
-            <div class="mt-10 pt-10 border-t border-white/5 text-center">
+            <div class="pt-10 border-t border-white/5 text-center">
                 <p class="text-[10px] text-on-surface-variant/50 uppercase tracking-[0.2em]">© 2026 BKS Grow. Todos os
-                    direitos reservados.</p>
+                    direitos reservados. Engenharia de Receita para o Setor de Eventos.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════
+        // LOGO MARQUEE — Adicione/remova clientes aqui.
+        // Quando tiver logos reais, substitua o campo "name" por
+        // uma tag <img> e defina width/height no logo-item CSS.
+        // ═══════════════════════════════════════════════════════════
+        const clients = [
+            { name: "Produtora de Eventos" },
+            { name: "Casa de Eventos SP" },
+            { name: "Cenografia Corporativa" },
+            { name: "Buffet Premium" },
+            { name: "A/V & Tecnologia" },
+            { name: "Decoração Corporativa" },
+            { name: "Fotografia & Vídeo" },
+            { name: "Produtora de Eventos RJ" },
+            { name: "Espaço para Eventos" },
+            { name: "Fornecedor B2B" },
+            { name: "Iluminação & Palco" },
+            { name: "Estruturas & Tendas" },
+        ];
+
+        (function initMarquee() {
+            const track = document.getElementById('marquee-track');
+            if (!track) return;
+
+            // Duplica o array para criar o loop contínuo
+            const items = [...clients, ...clients];
+            track.innerHTML = items.map(c =>
+                `<div class="logo-item">${c.name}</div>`
+            ).join('');
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- GSAP + ScrollTrigger Animations                            -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ── Configurações globais ───────────────────────────────
+        const ease = "power3.out";
+        const dur = 0.9;
+
+        // ── Spotlight Effect (Mouse Tracking) — event delegation ─
+        document.querySelectorAll('.metodo-card, .bg-surface-container, .glass-card').forEach(card => {
+            card.classList.add('spotlight-card');
+        });
+
+        document.addEventListener('mousemove', e => {
+            const card = e.target.closest('.spotlight-card');
+            if (!card) return;
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+
+        // ── Botão Magnético (Micro-interação) — event delegation ─
+        document.addEventListener('mousemove', e => {
+            const btn = e.target.closest('a.neon-glow');
+            if (!btn) return;
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: "power2.out" });
+        });
+
+        document.addEventListener('mouseout', e => {
+            const btn = e.target.closest('a.neon-glow');
+            if (!btn || btn.contains(e.relatedTarget)) return;
+            gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.3)" });
+        });
+
+        // ── 1. HERO — Stagger de Anim ────────────────────────────
+        const heroTl = gsap.timeline({ defaults: { ease, duration: dur } });
+
+        heroTl
+            .from(".hero-badge", { opacity: 0, y: -16, duration: 0.6 })
+            .from(".h1-line", { opacity: 0, y: 80, skewY: 2, stagger: 0.15, duration: 0.9, ease: "power4.out" }, "-=0.3")
+            .from(".hero-sub", { opacity: 0, y: 24 }, "-=0.5")
+            .from(".hero-ctas > *", { opacity: 0, y: 20, stagger: 0.15 }, "-=0.6");
+
+        // Classes hero-badge, hero-sub e hero-ctas são definidas diretamente no HTML
+
+        // ── 2. Parallax nos orbs do hero ────────────────────────
+        gsap.utils.toArray(".hero-glow-orb").forEach((orb, i) => {
+            gsap.to(orb, {
+                scrollTrigger: { trigger: "body", start: "top top", end: "30% top", scrub: 1.5 },
+                y: i === 0 ? -80 : -40,
+                x: i === 0 ? 30 : -20,
+                ease: "none",
+            });
+        });
+
+        // ── 3. Fade-up genérico (com toggleActions) ─────────────
+        function fadeUpSection(selector, options = {}) {
+            gsap.utils.toArray(selector).forEach((el, i) => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse" // Permite animação de saída ao subir
+                    },
+                    opacity: 0,
+                    y: options.y ?? 40,
+                    duration: options.duration ?? 0.8,
+                    delay: (options.stagger ?? 0.1) * (i % (options.maxStagger ?? 4)),
+                    ease,
+                });
+            });
+        }
+
+        fadeUpSection("section > div > span.text-primary.text-\\[11px\\]", { y: 20, duration: 0.6, stagger: 0 });
+        fadeUpSection("section h2", { y: 40, stagger: 0 });
+
+        // ── 3b. Seção O Problema — cards ────────────────────────
+        gsap.utils.toArray("#problema .grid > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: i * 0.12,
+                ease,
+            });
+        });
+
+        // ── 3c. Seção A Solução — coluna esquerda ────────────────
+        gsap.utils.toArray("#solucao .space-y-6 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                x: -30,
+                duration: 0.7,
+                delay: i * 0.1,
+                ease,
+            });
+        });
+
+        // ── 3d. BackStageFy card — entra da direita ──────────────
+        gsap.from("#solucao .neon-glow-sm", {
+            scrollTrigger: { trigger: "#solucao .neon-glow-sm", start: "top 85%", toggleActions: "play none none reverse" },
+            opacity: 0,
+            x: 60,
+            duration: 1,
+            ease,
+        });
+
+        // ── 4. Cards dos serviços ───────────────────────────────
+        gsap.utils.toArray(".grid.grid-cols-2.md\\:grid-cols-5 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                y: 40,
+                scale: 0.95,
+                duration: 0.7,
+                delay: i * 0.08,
+                ease,
+            });
+        });
+
+        // ── 5. Cards do Método ──────────────────────────────────
+        gsap.utils.toArray(".metodo-card").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 80%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                x: i === 0 ? -40 : i === 2 ? 40 : 0,
+                y: i === 1 ? 30 : 0,
+                duration: 0.9,
+                delay: i * 0.12,
+                ease,
+            });
+        });
+
+        // ── 6. Funil 4C's ───────────────────────────────────────
+        gsap.utils.toArray("#metodo ~ section .space-y-3 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                y: -20,
+                duration: 0.7,
+                delay: i * 0.1,
+                ease,
+            });
+        });
+
+        // ── 6b. Diagnóstico de Mercado — colunas ────────────────
+        gsap.utils.toArray(".grid.md\\:grid-cols-2 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                x: i === 0 ? -40 : 40,
+                duration: 0.9,
+                delay: i * 0.1,
+                ease,
+            });
+        });
+
+        // ── 6c. Seção Fundadores — cards de foto ─────────────────
+        gsap.utils.toArray("#fundadores .grid.grid-cols-2 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                y: 60,
+                duration: 0.9,
+                delay: i * 0.15,
+                ease,
+            });
+        });
+
+        // ── 6d. Seção Fundadores — coluna direita ────────────────
+        gsap.utils.toArray("#fundadores .space-y-8 > *").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                x: 30,
+                duration: 0.7,
+                delay: i * 0.08,
+                ease,
+            });
+        });
+
+        // ── 6e. Seção Agendar — items e form ─────────────────────
+        gsap.utils.toArray("#agendar .space-y-8 > div").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                x: -30,
+                duration: 0.7,
+                delay: i * 0.1,
+                ease,
+            });
+        });
+
+        gsap.from("#agendar .bg-surface-container-high", {
+            scrollTrigger: { trigger: "#agendar .bg-surface-container-high", start: "top 85%", toggleActions: "play none none reverse" },
+            opacity: 0,
+            x: 40,
+            duration: 0.9,
+            ease,
+        });
+
+        // ── 7. Seção Insights ───────────────────────────────────
+        gsap.utils.toArray("#insights article").forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
+                opacity: 0,
+                y: 40,
+                duration: 0.8,
+                delay: i * 0.12,
+                ease,
+            });
+        });
+
+        // ── 8. FAQ details (slide) ──────────────────────────────
+        // Nota: evento 'toggle' em <details> não bubbles — listeners individuais necessários
+        document.querySelectorAll("details").forEach(det => {
+            det.addEventListener("toggle", () => {
+                const p = det.querySelector("p");
+                if (det.open && p) {
+                    gsap.fromTo(p,
+                        { opacity: 0, y: -10 },
+                        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+                    );
+                }
+            });
+        });
+
+        }); // DOMContentLoaded
+    </script>
 
 </body>
 

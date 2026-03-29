@@ -1,0 +1,1605 @@
+{
+  "generated_at": "2026-03-25T22:51:27.663Z",
+  "experts": {
+    "alex_hormozi": {
+      "slug": "alex-hormozi",
+      "questions": [
+        {
+          "question": "Minha oferta não converte. O problema está no copy, no preço ou no valor?",
+          "grade": "B",
+          "score": 0.586,
+          "label": "Bom",
+          "top_chunk_score": 0.626,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando você sabe que deve aumentar o preço e não dar desconto?",
+          "grade": "B",
+          "score": 0.5612,
+          "label": "Bom",
+          "top_chunk_score": 0.597,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como diagnosticar se a empresa tem problema de vendas ou de leads?",
+          "grade": "B",
+          "score": 0.5875999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.618,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que faz uma Grand Slam Offer sair do papel e virar category of one?",
+          "grade": "B",
+          "score": 0.5536000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.584,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando os ads travam, o que você olha antes de mexer nas campanhas?",
+          "grade": "B",
+          "score": 0.5526,
+          "label": "Bom",
+          "top_chunk_score": 0.574,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Tenho 3 negócios rodando em paralelo e nenhum está crescendo rápido. O que fazer?",
+          "grade": "B",
+          "score": 0.5838,
+          "label": "Bom",
+          "top_chunk_score": 0.619,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Meu time não entrega no padrão. Como você daria feedback sem destruir a moral?",
+          "grade": "B",
+          "score": 0.5367999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.59,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferença entre um problema de planilha e um problema de teste?",
+          "grade": "B",
+          "score": 0.5496,
+          "label": "Bom",
+          "top_chunk_score": 0.565,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como construir uma oferta de afiliados que escala sem time de vendas?",
+          "grade": "B",
+          "score": 0.6104,
+          "label": "Bom",
+          "top_chunk_score": 0.687,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando faz sentido testar uma nova plataforma de tráfego?",
+          "grade": "B",
+          "score": 0.5586,
+          "label": "Bom",
+          "top_chunk_score": 0.604,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual é a sequência certa para escalar: mais volume, otimizar ou testar algo novo?",
+          "grade": "B",
+          "score": 0.557,
+          "label": "Bom",
+          "top_chunk_score": 0.599,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como usar conteúdo gratuito para atrair parceiros de negócio, não apenas clientes?",
+          "grade": "B",
+          "score": 0.5916,
+          "label": "Bom",
+          "top_chunk_score": 0.623,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 12,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5690666666666667,
+      "overall_grade": "A"
+    },
+    "charlie_munger": {
+      "slug": "charlie-munger",
+      "questions": [
+        {
+          "question": "Como você desmontaria uma decisão que parece brilhante, mas pode matar a empresa?",
+          "grade": "B",
+          "score": 0.5762,
+          "label": "Bom",
+          "top_chunk_score": 0.625,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Que incentivo escondido você buscaria primeiro numa operação?",
+          "grade": "B",
+          "score": 0.5618,
+          "label": "Bom",
+          "top_chunk_score": 0.5710000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como reconhecer que estamos fora do nosso círculo de competência?",
+          "grade": "B",
+          "score": 0.6035999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.6509999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando paciência é a melhor decisão estratégica?",
+          "grade": "B",
+          "score": 0.5959999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.626,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que caracteriza um fosso econômico real versus uma fantasia?",
+          "grade": "C",
+          "score": 0.523,
+          "label": "Aceitável",
+          "top_chunk_score": 0.546,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o Lollapalooza effect explica crises financeiras?",
+          "grade": "B",
+          "score": 0.5674,
+          "label": "Bom",
+          "top_chunk_score": 0.58,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que a See's Candies foi a virada filosofica mais importante da Berkshire?",
+          "grade": "B",
+          "score": 0.593,
+          "label": "Bom",
+          "top_chunk_score": 0.606,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que o caso Alibaba te ensinou sobre seus próprios limites?",
+          "grade": "B",
+          "score": 0.594,
+          "label": "Bom",
+          "top_chunk_score": 0.632,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como aplicar o Teorema de Bayes em uma contratação?",
+          "grade": "B",
+          "score": 0.5556,
+          "label": "Bom",
+          "top_chunk_score": 0.5670000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual o perigo do 'homem com um martelo' em uma startup de tecnologia?",
+          "grade": "B",
+          "score": 0.5496,
+          "label": "Bom",
+          "top_chunk_score": 0.575,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 9,
+        "C": 1,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.57202,
+      "overall_grade": "A"
+    },
+    "chris_do": {
+      "slug": "chris-do",
+      "questions": [
+        {
+          "question": "Como você responderia a um cliente que diz 'seu preço está muito alto, o concorrente cobra menos'?",
+          "grade": "B",
+          "score": 0.5546,
+          "label": "Bom",
+          "top_chunk_score": 0.584,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como calcular e apresentar ROI de design ao vivo com o cliente sem parecer arrogante?",
+          "grade": "B",
+          "score": 0.5650000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.574,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que é o Authenticity Gap e como fechar a lacuna na marca pessoal de um criativo?",
+          "grade": "B",
+          "score": 0.6092,
+          "label": "Bom",
+          "top_chunk_score": 0.649,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando usar a técnica Double Down vs. a técnica Yin-Yang em uma objeção comercial?",
+          "grade": "B",
+          "score": 0.5634,
+          "label": "Bom",
+          "top_chunk_score": 0.594,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a Regra 9-1-1 evita que o conteúdo de um criativo pareça puramente comercial?",
+          "grade": "B",
+          "score": 0.5715999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.585,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como demitir educadamente um cliente ruim sem queimar o relacionamento?",
+          "grade": "B",
+          "score": 0.5857999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.596,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que o processo de Stylescapes reduz drasticamente as refações caras?",
+          "grade": "B",
+          "score": 0.544,
+          "label": "Bom",
+          "top_chunk_score": 0.563,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que faz uma landing page parecer premium ou barata em menos de 3 segundos?",
+          "grade": "B",
+          "score": 0.5738000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.5870000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a história de fuga do Vietnã conecta com a missão da The Futur?",
+          "grade": "B",
+          "score": 0.5671999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.588,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Se eu resolver o problema em 5 minutos, por que devo cobrar mais do que o designer que leva um mês?",
+          "grade": "B",
+          "score": 0.5902,
+          "label": "Bom",
+          "top_chunk_score": 0.613,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 10,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.57248,
+      "overall_grade": "A"
+    },
+    "depesh_mandalia": {
+      "slug": "depesh-mandalia",
+      "questions": [
+        {
+          "question": "Quando voce impediria uma conta de escalar mesmo com alguns anuncios ganhando?",
+          "grade": "B",
+          "score": 0.5978,
+          "label": "Bom",
+          "top_chunk_score": 0.611,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como voce usa AC-4 para diagnosticar uma conta de Meta Ads?",
+          "grade": "B",
+          "score": 0.5599999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.602,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferenca entre testar criativos e escalar criativos?",
+          "grade": "B",
+          "score": 0.5733999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.594,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como estruturar cold, warm e hot sem contaminar leitura?",
+          "grade": "B",
+          "score": 0.5396,
+          "label": "Bom",
+          "top_chunk_score": 0.564,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando voce usaria CBO, cost cap, minimum ROAS ou bid cap?",
+          "grade": "B",
+          "score": 0.562,
+          "label": "Bom",
+          "top_chunk_score": 0.58,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o Punisher Method funciona e quando aplicar?",
+          "grade": "B",
+          "score": 0.5713999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.6,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que o CTR alto sem conversao nao e necessariamente bom sinal?",
+          "grade": "B",
+          "score": 0.5538000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.56,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o case Lost My Name demonstra o BPM Method na pratica?",
+          "grade": "B",
+          "score": 0.574,
+          "label": "Bom",
+          "top_chunk_score": 0.59,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que um 'lazy marketer' faz que um profissional BPM nao faz?",
+          "grade": "B",
+          "score": 0.6002,
+          "label": "Bom",
+          "top_chunk_score": 0.612,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como usar o Creative Diagnostic Protocol para decidir se troca o criativo ou o publico?",
+          "grade": "B",
+          "score": 0.5778000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.5920000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como medir performance de campanha pos-iOS14 quando o Ads Manager diverge do GA4?",
+          "grade": "B",
+          "score": 0.6088000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.633,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 11,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5744363636363636,
+      "overall_grade": "A"
+    },
+    "eli_goldratt": {
+      "slug": "eli-goldratt",
+      "questions": [
+        {
+          "question": "Como você identificaria o gargalo real de uma operação em crescimento?",
+          "grade": "B",
+          "score": 0.644,
+          "label": "Bom",
+          "top_chunk_score": 0.6709999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando uma redução de custo é ilusão em vez de melhoria real?",
+          "grade": "B",
+          "score": 0.5833999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.61,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como subordinar um sistema inteiro a uma restrição sem criar caos?",
+          "grade": "B",
+          "score": 0.6073999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.637,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando excesso de capacidade fora do gargalo é uma virtude matemática?",
+          "grade": "B",
+          "score": 0.6176,
+          "label": "Bom",
+          "top_chunk_score": 0.648,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como você usaria Evaporating Cloud para resolver um conflito entre áreas?",
+          "grade": "B",
+          "score": 0.5486,
+          "label": "Bom",
+          "top_chunk_score": 0.568,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferença entre T, I e OE e por que a contabilidade de custos distorce os três?",
+          "grade": "B",
+          "score": 0.5782,
+          "label": "Bom",
+          "top_chunk_score": 0.615,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a analogia dos escoteiros explica o problema de otimização local?",
+          "grade": "B",
+          "score": 0.5836,
+          "label": "Bom",
+          "top_chunk_score": 0.601,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quais os sinais de que a restrição mudou e as antigas políticas precisam ser revisadas?",
+          "grade": "B",
+          "score": 0.5722,
+          "label": "Bom",
+          "top_chunk_score": 0.614,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que tecnologia sem mudança de políticas é 'necessária mas não suficiente'?",
+          "grade": "B",
+          "score": 0.5584,
+          "label": "Bom",
+          "top_chunk_score": 0.591,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a Síndrome do Estudante destrói o buffer de um projeto na Corrente Crítica?",
+          "grade": "B",
+          "score": 0.5462,
+          "label": "Bom",
+          "top_chunk_score": 0.561,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 10,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5839599999999999,
+      "overall_grade": "A"
+    },
+    "eugene_schwartz": {
+      "slug": "eugene-schwartz",
+      "questions": [
+        {
+          "question": "Como você define a headline correta para um mercado problem aware?",
+          "grade": "B",
+          "score": 0.5589999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.585,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando um mercado precisa de mecanismo único em vez de promessa maior?",
+          "grade": "B",
+          "score": 0.5504,
+          "label": "Bom",
+          "top_chunk_score": 0.589,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como você decide entre falar de produto, solução, problema ou identidade?",
+          "grade": "B",
+          "score": 0.5456,
+          "label": "Bom",
+          "top_chunk_score": 0.5670000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que faz uma copy parecer escrita em vez de montada?",
+          "grade": "B",
+          "score": 0.5674,
+          "label": "Bom",
+          "top_chunk_score": 0.5770000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como montar fascinations que forçam o prospect a comprar só para descobrir o segredo?",
+          "grade": "B",
+          "score": 0.5422,
+          "label": "Bom",
+          "top_chunk_score": 0.569,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como você usa o cérebro do chimpanzé na estrutura de um lead?",
+          "grade": "C",
+          "score": 0.531,
+          "label": "Aceitável",
+          "top_chunk_score": 0.544,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual é a diferença entre conectividade e criatividade no seu método?",
+          "grade": "B",
+          "score": 0.5664,
+          "label": "Bom",
+          "top_chunk_score": 0.594,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o ritmo de Joel Silver se aplica a uma carta de vendas longa?",
+          "grade": "B",
+          "score": 0.5401999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.5529999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como diagnosticar que um mercado mudou do Estágio 3 para o Estágio 4?",
+          "grade": "B",
+          "score": 0.5482,
+          "label": "Bom",
+          "top_chunk_score": 0.603,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que a eespecificidade de página (ex: Pag. 273) é mais letal que um adjetivo?",
+          "grade": "B",
+          "score": 0.55,
+          "label": "Bom",
+          "top_chunk_score": 0.5770000000000001,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 9,
+        "C": 1,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.55004,
+      "overall_grade": "A"
+    },
+    "kasim_aslam": {
+      "slug": "kasim-aslam",
+      "questions": [
+        {
+          "question": "Quando voce discordaria frontalmente de uma recomendacao do Google?",
+          "grade": "B",
+          "score": 0.5606,
+          "label": "Bom",
+          "top_chunk_score": 0.601,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como decidir se uma queda de eficiencia ainda justifica mais verba?",
+          "grade": "B",
+          "score": 0.5342,
+          "label": "Bom",
+          "top_chunk_score": 0.555,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como voce estrutura Performance Max para lead gen de alto ticket?",
+          "grade": "B",
+          "score": 0.5498,
+          "label": "Bom",
+          "top_chunk_score": 0.574,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que traffic first vem antes de product second?",
+          "grade": "B",
+          "score": 0.5356,
+          "label": "Bom",
+          "top_chunk_score": 0.56,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que e AEO e por que o Reddit e o ativo mais valioso nessa estrategia?",
+          "grade": "B",
+          "score": 0.5596,
+          "label": "Bom",
+          "top_chunk_score": 0.579,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a Formula de 4 Estagios protege o orcamento de uma conta nova?",
+          "grade": "C",
+          "score": 0.5268,
+          "label": "Aceitável",
+          "top_chunk_score": 0.542,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual e a diferenca entre ser um prompter e um promptee em gestao de trafego?",
+          "grade": "B",
+          "score": 0.5362,
+          "label": "Bom",
+          "top_chunk_score": 0.55,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a estrategia de ampulheta evita o erro de nichar cedo demais?",
+          "grade": "B",
+          "score": 0.5273999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.55,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que pagar 10% acima do teto de mercado e uma decisao de unit economics, nao de custo?",
+          "grade": "B",
+          "score": 0.532,
+          "label": "Bom",
+          "top_chunk_score": 0.557,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual e o primeiro passo numa auditoria de conta Google que nunca pode ser pulado?",
+          "grade": "B",
+          "score": 0.5558,
+          "label": "Bom",
+          "top_chunk_score": 0.58,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o pre-intent marketing reduz o CPA efetivo no longo prazo e por que a maioria ignora isso?",
+          "grade": "B",
+          "score": 0.5462,
+          "label": "Bom",
+          "top_chunk_score": 0.585,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 10,
+        "C": 1,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5422,
+      "overall_grade": "A"
+    },
+    "marty_neumeier": {
+      "slug": "marty-neumeier",
+      "questions": [
+        {
+          "question": "Como você identifica que uma marca ainda não encontrou seu zag?",
+          "grade": "B",
+          "score": 0.5946,
+          "label": "Bom",
+          "top_chunk_score": 0.621,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que torna uma onlyness statement realmente única e útil?",
+          "grade": "C",
+          "score": 0.53,
+          "label": "Aceitável",
+          "top_chunk_score": 0.5479999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando uma página parece bonita, mas genericamente bonita?",
+          "grade": "B",
+          "score": 0.5688,
+          "label": "Bom",
+          "top_chunk_score": 0.579,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como unir estratégia de negócio e execução criativa sem cair em slogan vazio?",
+          "grade": "B",
+          "score": 0.5918,
+          "label": "Bom",
+          "top_chunk_score": 0.603,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Que sinais mostram que estamos formando tribo em vez de apenas captar clique?",
+          "grade": "B",
+          "score": 0.569,
+          "label": "Bom",
+          "top_chunk_score": 0.574,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o Brand Commitment Matrix diagnostica desalinhamento entre empresa e cliente?",
+          "grade": "B",
+          "score": 0.6062000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.643,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que focus groups são o inimigo da diferenciação radical?",
+          "grade": "B",
+          "score": 0.5883999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.61,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que a Kodak fez de errado que a Apple fez certo na transição digital?",
+          "grade": "B",
+          "score": 0.5533999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.57,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como saber em qual degrau da Brand Ladder uma marca está?",
+          "grade": "B",
+          "score": 0.632,
+          "label": "Bom",
+          "top_chunk_score": 0.6709999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual o maior perigo de uma extensão de marca mal planejada?",
+          "grade": "B",
+          "score": 0.5731999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.584,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 9,
+        "C": 1,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5807399999999999,
+      "overall_grade": "A"
+    },
+    "nassim_taleb": {
+      "slug": "nassim-taleb",
+      "questions": [
+        {
+          "question": "Qual o maior erro que as startups cometem ao tentar escalar rápido?",
+          "grade": "B",
+          "score": 0.558,
+          "label": "Bom",
+          "top_chunk_score": 0.591,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que você diz que a maioria dos consultores de negócios são charlatães?",
+          "grade": "B",
+          "score": 0.5731999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.588,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como aplicar o Barbell Strategy em uma pequena empresa?",
+          "grade": "B",
+          "score": 0.5838,
+          "label": "Bom",
+          "top_chunk_score": 0.614,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que você diria para alguém que gasta fortunas em 'branding' antes de ter lucro?",
+          "grade": "B",
+          "score": 0.5650000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.602,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que estatísticas de faculdade não funcionam no mundo real dos negócios?",
+          "grade": "B",
+          "score": 0.6098,
+          "label": "Bom",
+          "top_chunk_score": 0.633,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a sua opinião sobre o Growth Hacking moderno?",
+          "grade": "B",
+          "score": 0.5942000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.622,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que é ser verdadeiramente racional em uma crise financeira?",
+          "grade": "B",
+          "score": 0.5878,
+          "label": "Bom",
+          "top_chunk_score": 0.608,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que você odeia tanto os economistas acadêmicos?",
+          "grade": "B",
+          "score": 0.586,
+          "label": "Bom",
+          "top_chunk_score": 0.599,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 8,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.582225,
+      "overall_grade": "A"
+    },
+    "robert_mckee": {
+      "slug": "robert-mckee",
+      "questions": [
+        {
+          "question": "Como você identifica que uma copy não tem história, apenas ruído?",
+          "grade": "B",
+          "score": 0.5542,
+          "label": "Bom",
+          "top_chunk_score": 0.573,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que torna um inciting incident forte em marketing digital?",
+          "grade": "B",
+          "score": 0.5266,
+          "label": "Bom",
+          "top_chunk_score": 0.551,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como descobrir a controlling idea de uma marca disruptiva?",
+          "grade": "B",
+          "score": 0.5658,
+          "label": "Bom",
+          "top_chunk_score": 0.578,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando um texto parece dramático, mas continua sendo apenas caracterização?",
+          "grade": "B",
+          "score": 0.5778,
+          "label": "Bom",
+          "top_chunk_score": 0.599,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como transformar features técnicas em reversões de valor narrativas?",
+          "grade": "B",
+          "score": 0.5918,
+          "label": "Bom",
+          "top_chunk_score": 0.611,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferença entre caracterização e verdadeiro personagem em um anúncio?",
+          "grade": "B",
+          "score": 0.5512,
+          "label": "Bom",
+          "top_chunk_score": 0.569,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que o subtexto é o que realmente vende o high-ticket?",
+          "grade": "B",
+          "score": 0.5704,
+          "label": "Bom",
+          "top_chunk_score": 0.593,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o Princípio da Limitação Criativa ajuda a criar um nicho imbatível?",
+          "grade": "B",
+          "score": 0.5784,
+          "label": "Bom",
+          "top_chunk_score": 0.606,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando um diálogo de vendas está on-the-nose e como injetar verdade nele?",
+          "grade": "B",
+          "score": 0.5528000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.573,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a crise (dilema) deve ser apresentada em uma VSL para gerar urgência real?",
+          "grade": "B",
+          "score": 0.5604,
+          "label": "Bom",
+          "top_chunk_score": 0.575,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 10,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.56294,
+      "overall_grade": "A"
+    },
+    "russell_brunson": {
+      "slug": "russell-brunson",
+      "questions": [
+        {
+          "question": "Como você monta a Value Ladder de um negócio que hoje só tem uma oferta de $997?",
+          "grade": "B",
+          "score": 0.6357999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.655,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que você faz quando uma campanha não converte: diagnostica o Hook, Story ou Offer primeiro?",
+          "grade": "B",
+          "score": 0.633,
+          "label": "Bom",
+          "top_chunk_score": 0.691,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como encontrar o Big Domino de uma oferta high-ticket B2B?",
+          "grade": "B",
+          "score": 0.5721999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.59,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando faz sentido usar Perfect Webinar em vez de uma página de vendas simples?",
+          "grade": "B",
+          "score": 0.6072,
+          "label": "Bom",
+          "top_chunk_score": 0.634,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como aplicar Dream 100 a um nicho muito específico com poucos influenciadores?",
+          "grade": "B",
+          "score": 0.5728,
+          "label": "Bom",
+          "top_chunk_score": 0.5820000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como a Epiphany Bridge diferencia uma copy que educa de uma copy que converte?",
+          "grade": "B",
+          "score": 0.5723999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.593,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como quebrar a crenca interna de alguém que acha que 'não é técnico o suficiente'?",
+          "grade": "B",
+          "score": 0.5744,
+          "label": "Bom",
+          "top_chunk_score": 0.586,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferença entre uma Nova Oportunidade e uma Improvement Offer?",
+          "grade": "B",
+          "score": 0.5578000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.5820000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que 'Who Not How' é o segredo para escalar um movimento?",
+          "grade": "B",
+          "score": 0.58,
+          "label": "Bom",
+          "top_chunk_score": 0.618,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como estruturar uma Soap Opera Sequence para leads de um e-book gratuito?",
+          "grade": "B",
+          "score": 0.6046,
+          "label": "Bom",
+          "top_chunk_score": 0.627,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 10,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.59102,
+      "overall_grade": "A"
+    },
+    "stefan_georgi": {
+      "slug": "stefan-georgi",
+      "questions": [
+        {
+          "question": "Quando voce sabe que o problema da copy esta na pesquisa e nao na redacao?",
+          "grade": "B",
+          "score": 0.6466,
+          "label": "Bom",
+          "top_chunk_score": 0.675,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como voce constroi um mecanismo de duas partes sem soar inventado?",
+          "grade": "B",
+          "score": 0.5406000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.564,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que nao pode faltar em uma VSL de 7 secoes?",
+          "grade": "B",
+          "score": 0.5624,
+          "label": "Bom",
+          "top_chunk_score": 0.5710000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como usar a linguagem do prospect sem virar caricatura?",
+          "grade": "B",
+          "score": 0.5692,
+          "label": "Bom",
+          "top_chunk_score": 0.575,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Se uma copy nao converte, o que voce audita primeiro?",
+          "grade": "B",
+          "score": 0.6007999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.624,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que escrever o Lead por ultimo e uma regra, nao uma opcao?",
+          "grade": "B",
+          "score": 0.583,
+          "label": "Bom",
+          "top_chunk_score": 0.588,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o Brief transforma pesquisa em copy sem ter que 'escrever do zero'?",
+          "grade": "A",
+          "score": 0.6539999999999999,
+          "label": "Excelente",
+          "top_chunk_score": 0.7140000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que torna um mecanismo viral — e por que a viralidade importa?",
+          "grade": "B",
+          "score": 0.5648,
+          "label": "Bom",
+          "top_chunk_score": 0.588,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o case do dispositivo anti-ronco ilustra o conceito de prova testavel?",
+          "grade": "B",
+          "score": 0.5474,
+          "label": "Bom",
+          "top_chunk_score": 0.575,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 1,
+        "B": 8,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5854222222222222,
+      "overall_grade": "A"
+    },
+    "tallis_gomes": {
+      "slug": "tallis-gomes",
+      "questions": [
+        {
+          "question": "Tenho uma ideia de negócio mas não sei se o mercado é grande o suficiente. Por onde começo?",
+          "grade": "B",
+          "score": 0.6184,
+          "label": "Bom",
+          "top_chunk_score": 0.633,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Meu MVP está feio e tenho vergonha de mostrar para clientes. O que você faria?",
+          "grade": "B",
+          "score": 0.561,
+          "label": "Bom",
+          "top_chunk_score": 0.59,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Minha equipe não entrega resultado. Devo dar mais prazo ou trocar as pessoas?",
+          "grade": "B",
+          "score": 0.5730000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.629,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Estou pensando em terceirizar o desenvolvimento do meu app. Boa ideia?",
+          "grade": "B",
+          "score": 0.5964,
+          "label": "Bom",
+          "top_chunk_score": 0.607,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferença entre decidir por dados e decidir por achismo na prática?",
+          "grade": "B",
+          "score": 0.5650000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.5820000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Meu sócio quer trabalhar de home office e eu quero presencial. Como resolver?",
+          "grade": "B",
+          "score": 0.5902000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.628,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Captei investimento e estou diluindo muito. Como evitar o erro que você cometeu na Easy Taxi?",
+          "grade": "B",
+          "score": 0.6023999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.622,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Estou com 3 negócios ao mesmo tempo e nenhum cresce. O que fazer?",
+          "grade": "B",
+          "score": 0.5982000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.64,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como construir cultura forte numa empresa que está crescendo muito rápido?",
+          "grade": "B",
+          "score": 0.5984,
+          "label": "Bom",
+          "top_chunk_score": 0.643,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Minha empresa foi cancelada nas redes sociais. Como aplicar o ACM?",
+          "grade": "B",
+          "score": 0.5844,
+          "label": "Bom",
+          "top_chunk_score": 0.606,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual o indicador mais importante para uma startup em estágio inicial?",
+          "grade": "B",
+          "score": 0.6014,
+          "label": "Bom",
+          "top_chunk_score": 0.624,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como sei a hora de pivotar vs insistir no modelo atual?",
+          "grade": "B",
+          "score": 0.5429999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.564,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 12,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5859833333333334,
+      "overall_grade": "A"
+    },
+    "thiago_finch": {
+      "slug": "thiago-finch",
+      "questions": [
+        {
+          "question": "Como você faria para sair do zero e começar a faturar online hoje?",
+          "grade": "B",
+          "score": 0.639,
+          "label": "Bom",
+          "top_chunk_score": 0.6559999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Meu custo por lead está alto demais, o que eu faço?",
+          "grade": "B",
+          "score": 0.5484,
+          "label": "Bom",
+          "top_chunk_score": 0.57,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Devo dar desconto para fechar mais vendas?",
+          "grade": "B",
+          "score": 0.5976,
+          "label": "Bom",
+          "top_chunk_score": 0.643,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual o momento certo de escalar meu negócio digital?",
+          "grade": "B",
+          "score": 0.5992,
+          "label": "Bom",
+          "top_chunk_score": 0.616,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como você monta um programa de afiliados do zero?",
+          "grade": "B",
+          "score": 0.5882,
+          "label": "Bom",
+          "top_chunk_score": 0.605,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual o maior erro que empreendedores digitais cometem?",
+          "grade": "B",
+          "score": 0.6364000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.662,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como você decide se deve investir mais em tráfego ou em conversão?",
+          "grade": "B",
+          "score": 0.5791999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.586,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que você faria diferente no início da sua carreira?",
+          "grade": "B",
+          "score": 0.5928000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.605,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual sua visão sobre IA no marketing digital hoje?",
+          "grade": "B",
+          "score": 0.6308,
+          "label": "Bom",
+          "top_chunk_score": 0.647,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como foi a estratégia por trás do lançamento de R$128 milhões?",
+          "grade": "B",
+          "score": 0.5902,
+          "label": "Bom",
+          "top_chunk_score": 0.612,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Explique o framework Black vs White para anúncios no Meta.",
+          "grade": "B",
+          "score": 0.5682,
+          "label": "Bom",
+          "top_chunk_score": 0.581,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como estruturar um funil do zero com R$5k de budget?",
+          "grade": "B",
+          "score": 0.6032,
+          "label": "Bom",
+          "top_chunk_score": 0.629,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O Ícaro de Carvalho te criticou pelo uso de IA de baixa qualidade. O que você responde?",
+          "grade": "B",
+          "score": 0.5544,
+          "label": "Bom",
+          "top_chunk_score": 0.5720000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Meu negócio é B2B com ticket de R$50k. Seus frameworks se aplicam?",
+          "grade": "B",
+          "score": 0.6015999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.611,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Você perdeu R$60k na TelexFree antes dos 18. Como isso moldou sua visão sobre risco?",
+          "grade": "B",
+          "score": 0.6052,
+          "label": "Bom",
+          "top_chunk_score": 0.612,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Me explique os 42 passos da VSL completos.",
+          "grade": "B",
+          "score": 0.5462,
+          "label": "Bom",
+          "top_chunk_score": 0.5539999999999999,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que é a Página Apollo e como aplicar?",
+          "grade": "C",
+          "score": 0.5262,
+          "label": "Aceitável",
+          "top_chunk_score": 0.534,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Me dê o Método dos 4 Sims com exemplos práticos.",
+          "grade": "B",
+          "score": 0.5666,
+          "label": "Bom",
+          "top_chunk_score": 0.583,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 17,
+        "C": 1,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5874111111111111,
+      "overall_grade": "A"
+    },
+    "todd_brown": {
+      "slug": "todd-brown",
+      "questions": [
+        {
+          "question": "Como voce identifica que o problema de conversao esta na Big Idea e nao no copy?",
+          "grade": "B",
+          "score": 0.5970000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.67,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a diferenca entre Mecanismo Real, Nao Falado e Transsubstanciado? Quando usar cada um?",
+          "grade": "B",
+          "score": 0.5464,
+          "label": "Bom",
+          "top_chunk_score": 0.565,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que o Funil Minimo Viavel deve ter exatamente 4 paginas no Evaluate?",
+          "grade": "B",
+          "score": 0.596,
+          "label": "Bom",
+          "top_chunk_score": 0.621,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que e o Mental Opt-Out e como o Espectro de Exposicao da Promessa previne ele?",
+          "grade": "B",
+          "score": 0.5436,
+          "label": "Bom",
+          "top_chunk_score": 0.589,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o caso P90X ilustra a diferenca entre promessa comum e Mecanismo Unico?",
+          "grade": "B",
+          "score": 0.5598,
+          "label": "Bom",
+          "top_chunk_score": 0.59,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando uma empresa deve operar em Nivel 3 de Agressao de Aquisicao?",
+          "grade": "B",
+          "score": 0.5606,
+          "label": "Bom",
+          "top_chunk_score": 0.5760000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como usar a Piramide de Consciencia do Prospecto para calibrar o angulo da mensagem?",
+          "grade": "B",
+          "score": 0.5492,
+          "label": "Bom",
+          "top_chunk_score": 0.584,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que testar a cor do botao e desperdicar tempo no Enhance?",
+          "grade": "B",
+          "score": 0.5502,
+          "label": "Bom",
+          "top_chunk_score": 0.5760000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o processo CUBA e os Beneficios FDE transformam uma copy do Evaluate para o Enhance?",
+          "grade": "B",
+          "score": 0.5738,
+          "label": "Bom",
+          "top_chunk_score": 0.619,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual a primeira coisa que voce audita quando uma campanha converte bem no warm mas falha no cold traffic?",
+          "grade": "B",
+          "score": 0.576,
+          "label": "Bom",
+          "top_chunk_score": 0.606,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como voce usa o CLV projetado a 90 dias para decidir quanto gastar no front-end sem quebrar o negocio?",
+          "grade": "B",
+          "score": 0.5556,
+          "label": "Bom",
+          "top_chunk_score": 0.574,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 11,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5643818181818182,
+      "overall_grade": "A"
+    },
+    "tom_breeze": {
+      "slug": "tom-breeze",
+      "questions": [
+        {
+          "question": "Como voce estrutura os primeiros 5 segundos de um YouTube ad frio para ativar o inconsciente?",
+          "grade": "B",
+          "score": 0.5686,
+          "label": "Bom",
+          "top_chunk_score": 0.6,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que alto CTR no YouTube pode ser sinal de problema e nao de sucesso?",
+          "grade": "B",
+          "score": 0.5704,
+          "label": "Bom",
+          "top_chunk_score": 0.616,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como os 3 niveis do Cascading Remarketing diferem em mensagem e duracao do video?",
+          "grade": "B",
+          "score": 0.5614000000000001,
+          "label": "Bom",
+          "top_chunk_score": 0.605,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como o case da Carmen Morin ilustra a diferenca entre o consciente e o inconsciente no video?",
+          "grade": "B",
+          "score": 0.5426,
+          "label": "Bom",
+          "top_chunk_score": 0.5820000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Quando usar Placement Targeting e quando usar TrueView for Action / Target CPA?",
+          "grade": "B",
+          "score": 0.5362,
+          "label": "Bom",
+          "top_chunk_score": 0.606,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Por que falar o preco no video reduz o CPM da campanha?",
+          "grade": "B",
+          "score": 0.5774,
+          "label": "Bom",
+          "top_chunk_score": 0.621,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Como aplicar a Estrutura de Tres Atos para criar tensao de identidade no CTA?",
+          "grade": "B",
+          "score": 0.5391999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.5660000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "Qual e o erro neurologico de comecar o video com logotipo e apresentacao?",
+          "grade": "B",
+          "score": 0.545,
+          "label": "Bom",
+          "top_chunk_score": 0.5710000000000001,
+          "chunks_retrieved": 5
+        },
+        {
+          "question": "O que e a Exit Strategy do remarketing em cascata e quando ativa-la?",
+          "grade": "B",
+          "score": 0.5561999999999999,
+          "label": "Bom",
+          "top_chunk_score": 0.5870000000000001,
+          "chunks_retrieved": 5
+        }
+      ],
+      "grades": {
+        "A": 0,
+        "B": 9,
+        "C": 0,
+        "D": 0,
+        "F": 0
+      },
+      "avg_score": 0.5552222222222222,
+      "overall_grade": "A"
+    }
+  },
+  "summary": {
+    "A": 1,
+    "B": 165,
+    "C": 5,
+    "D": 0,
+    "F": 0,
+    "total_questions": 171
+  }
+}
