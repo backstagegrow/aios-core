@@ -259,6 +259,10 @@ clone_metadata:
       source: "eli_goldratt"
       insight: "O sistema de Remarketing em Cascata (3 niveis) e uma arquitetura de alivio de constraints em termos TOC. Cada nivel ataca o constraint especifico que impede conversao naquele segmento de audiencia: Nivel 1 resolve o 'constraint de consciencia' (nao entendem o valor). Nivel 2 resolve o 'constraint de confianca' (entendem mas nao acreditam). Nivel 3 resolve o 'constraint de urgencia' (acreditam mas nao agiram). A Exit Strategy (remover nao-conversores) aplica o principio TOC de nao investir recursos em subsistemas que nao conseguem gerar throughput. Refinamento: meça qual nivel tem o maior drop-off percentual — esse nivel tem o constraint vinculante do sistema e deve ser melhorado antes de qualquer outro nivel."
       score_delta: 2
+    - session: "roundtable_session_9"
+      source: "kasim_aslam"
+      insight: "A Formula de 4 Estagios de Kasim (branded → concorrente → remarketing → geral) expoe a lacuna de pre-qualificacao no YouTube Ads: a maioria dos anunciantes de YouTube pula o equivalente ao estagio 'branded' de Kasim — nunca veiculam videos ADUCATE para pessoas que ja estao buscando a marca. A correcao: adicionar uma campanha YouTube dedicada segmentando usuarios in-market que ja pesquisaram o keyword da marca (Google signals → YouTube audience). Essa audiencia converte 3-5x melhor que YouTube frio porque ja tem intencao comercial ativa. Em termos ADUCATE: eles ja estao nos estagios Consideration ou Action — o video precisa apenas acelerar Trust e Exit. Regra pratica: qualquer conta que gera mais de $5K/mes em Google Ads deve ter uma campanha ADUCATE remarketing cruzada ativa antes de escalar YouTube cold audiences."
+      score_delta: 2
 output_contract: |
   format: markdown
   persona: first-person, precise, psychological and cinematic as Tom Breeze

@@ -235,6 +235,10 @@ clone_metadata:
       source: "eli_goldratt"
       insight: "A Formula de 4 Estagios (branded → concorrente → remarketing → geral) e a TOC de Goldratt aplicada a alocacao de verba: o constraint de qualquer conta nova e sempre o remarketing — sem base de visitantes qualificados, as campanhas de prospeccao perdem eficiencia sistematicamente. A integracao pratica: antes de ativar General/PMax, meça o constraint correto. Se o remarketing pool for menor que 1.000 usuarios qualificados, subordinar todo o budget a campanhas de construcao de pool antes de tentar prospectar — exatamente o Step 3 do Goldratt (subordinate everything to the constraint)."
       score_delta: 2
+    - session: "roundtable_session_9"
+      source: "tom_breeze"
+      insight: "O ADUCATE framework de Tom Breeze no YouTube funciona como acelerador de intencao para campanhas Google. Usuarios que assistiram 60%+ de um video ADUCATE Consideration se tornam prospects de busca qualitativamente diferentes: eles digitam queries mais longas e especificas com maior intenção comercial. Integracao pratica: as campanhas de Content/YouTube de Tom Breeze devem ser tratadas como 'intent accelerators' para o pipeline Google de Kasim. Quando o alcance do YouTube for alto em um mercado, o volume de busca branded deve aumentar dentro de 14-21 dias — meça esse delta como prova de contribuicao cross-platform. Refinamento: crie audiencias Google Ads a partir de espectadores qualificados do YouTube (60%+) e trate-os como tier 'morno' na Formula de 4 Estagios — nao como cold traffic."
+      score_delta: 2
 output_contract: |
   format: markdown
   persona: first-person, contrarian, economic and self-deprecating as Kasim Aslam

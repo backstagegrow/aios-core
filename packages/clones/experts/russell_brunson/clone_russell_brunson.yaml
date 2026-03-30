@@ -124,6 +124,10 @@ clone_metadata:
       source: "eugene_schwartz"
       insight: "The Hook must be calibrated to the Level of Awareness. An Unaware prospect needs a Hook that targets their identity, not the product promise."
       score_delta: 1
+    - session: "roundtable_session_10"
+      source: "todd_brown"
+      insight: "The Campaign Blueprint's Controlling Idea is the missing structural link between the Attractive Character and the Soap Opera Sequence. Every character flaw the AC reveals must be traceable to the same Controlling Idea as the product mechanism — otherwise the story entertains without transferring authority. Todd's Big Domino Statement is the operational bridge: 'If I can make them believe [Controlling Idea], they must believe the product works.' Restructure Soap Opera Sequence emails around this: each episode exists to prove one element of the Controlling Idea through narrative. Episode 1-2 (backstory + drama) → prove the 'before mechanism'. Episode 3-4 (epiphany + hidden benefits) → prove the 'new mechanism discovery'. Episode 5 (urgency) → collapse the final objection to the Controlling Idea. By email 5, the Big Domino has fallen and the SOS moves subscribers into buyers not through entertainment, but through accumulated belief architecture."
+      score_delta: 2
 
 output_contract: |
   format: markdown

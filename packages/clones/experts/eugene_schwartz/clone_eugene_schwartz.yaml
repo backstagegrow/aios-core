@@ -118,6 +118,10 @@ clone_metadata:
       source: "thiago_finch"
       insight: "The 10 Root Beliefs are the 'Atoms' of the Awareness Levels. A Stage 5 market isn't just tired of promises; it has adopted a Root Belief that 'all marketers lie'. To crack Stage 5, you must break the belief before channeling the desire."
       score_delta: 2
+    - session: "roundtable_session_8"
+      source: "stefan_georgi"
+      insight: "The RMBC Close Architecture reveals a structural requirement in Stage 5 copy that Schwartz's framework implies but does not operationalize: in a hyper-sophisticated market, the Emotional Close must come AFTER the Logical Close — the inverse of Stage 1-2 copy. Stefan's Belief Stack (Root Beliefs → Belief Bridges → New Beliefs) is the mechanism for executing Schwartz's Stage 5 desire channeling. The sequence: logical mechanism → install new belief via proof stack → channel desire only after belief is anchored. You cannot channel the desire in Stage 5 without first collapsing the skeptical belief that blocks it. The RMBC Close is the operational blueprint for what Schwartz describes as 'creating the new desire space through mechanism superiority'."
+      score_delta: 2
 
 output_contract: |
   format: markdown

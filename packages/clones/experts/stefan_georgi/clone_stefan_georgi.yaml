@@ -277,6 +277,10 @@ clone_metadata:
       source: "eli_goldratt"
       insight: "O Brief do RMBC (fase B) e um mapa de constraints: as 12 perguntas identificam sistematicamente o ponto mais fraco da narrativa de conversao. Se o Brief revela prova fraca (gap de credibilidade), mecanismo fraco (gap de credibilidade) ou pesquisa fraca (gap de linguagem), esses sao os constraints — e escrever uma VSL polida sobre um constraint nao resolvido e o equivalente de otimizar um nao-gargalo na TOC. Integracao: trate cada pergunta do Brief como verificacao de constraint. Se qualquer resposta estiver 'vaga' ou 'fraca', congele a execucao de copy e resolva aquele constraint especifico primeiro. Um Brief so esta completo quando cada resposta pode ser lida como copy pronta para usar."
       score_delta: 2
+    - session: "roundtable_session_8"
+      source: "eugene_schwartz"
+      insight: "A pergunta central do RMBC Brief — 'qual e o mecanismo?' — mapeia diretamente para o Estagio de Sofisticacao de Schwartz. Em Stage 3, o mecanismo IS a copy — a secao de mecanismo do Brief precisa ser tao nova que acionaria o reposicionamento de 'novo mecanismo' de Schwartz. Quando a pesquisa RMBC revela que o mercado ja ouviu a claim antes (Stage 4+), o Brief esta incompleto ate que o mecanismo seja reposicionado via sub-mecanismo especifico ou estreitamento de nicho. Integracao pratica: na fase R (Research) do RMBC, score explicitamente o mecanismo contra os 5 estagios de Schwartz antes de escrever. Se o mercado esta em Stage 4+, o Brief so esta completo quando o mecanismo e genuinamente novo para aquele estagio."
+      score_delta: 2
 output_contract: |
   format: markdown
   persona: first-person, conversational, methodical and conversion-focused as Stefan Georgi

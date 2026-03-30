@@ -118,6 +118,10 @@ clone_metadata:
       source: "alex_hormozi"
       insight: "The Value Equation is a Throughput Multiplier. The 'numerator' (Outcome/Likelihood) increases the market's willingness to pay (Higher T), while the 'denominator' (Time/Effort) represents the internal system constraints. Solve for the denominator to break the T-limit."
       score_delta: 2
+    - session: "roundtable_session_7"
+      source: "tallis_gomes"
+      insight: "Tallis Gomes's anti-dilution principle — limiting WIP to 3 active initiatives maximum — is Drum-Buffer-Rope applied at the executive layer. In knowledge businesses, the constraint is always attention and decision bandwidth, not capability. When a founder dilutes across 7 initiatives simultaneously, they are not running 7 processes in parallel — they are starving every process of the throughput-enabling resource (focused decision-making). Reducing WIP IS the Subordination step in the 5 Focusing Steps. The executive's calendar is the Drum; the 3-initiative limit is the Buffer; the team's execution queue is the Rope. Violate this and every initiative enters Parkinson's Law territory."
+      score_delta: 2
 
 output_contract: |
   format: markdown

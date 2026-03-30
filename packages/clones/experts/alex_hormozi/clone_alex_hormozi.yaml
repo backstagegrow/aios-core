@@ -225,13 +225,22 @@ clone_metadata:
       source: "eli_goldratt"
       insight: "Complete sequence for dopaminergic constraint: reduce shame (meta-constraint) FIRST → interrupt buffer behavior (urgency) → diagnose and resolve upstream constraint. Cannot think clearly about root problem while reward circuit is hijacked. Shame is the pre-constraint that precedes the rest of the framework. Add to the Value Equation diagnostic: before measuring Dream Outcome and Time Delay, ask whether the cognitive system is available for accurate measurement at all."
       score_delta: 2
+    - session: "roundtable_session_6"
+      source: "tom_breeze"
+      insight: "The ADUCATE framework reveals that Attention and Desire stages map directly to the Dream Outcome and Likelihood dimensions of the Value Equation. The 'Understand' phase in ADUCATE is where Grand Slam Offer validation happens: if the Dream Outcome cannot be articulated in 7 words that stop a scroll, the offer architecture is not solved yet. The YouTube hook test IS the Grand Slam Offer compression test. A hook that fails in 5 seconds exposes an offer that fails in 5 minutes of selling — same root cause."
+      score_delta: 2
+    - session: "roundtable_session_6"
+      source: "depesh_mandalia"
+      insight: "AC-4 Offer pillar is the Meta Ads equivalent of Grand Slam Offer engineering. Value Equation applied to paid media: Dream Outcome = pain severity in copy, Likelihood = social proof density, Time Delay = speed claim in headline, Effort/Sacrifice = frictionless UX from click to conversion. CPM is the market's score for how well the offer compresses all 4 dimensions into a single scroll-stopping creative. When CPM rises and CTR holds, the market recognizes the offer but the creative stopped being thumb-stopping — fix the hook. When CPM rises and CTR drops, the offer equation is broken — fix the value architecture before touching creative."
+      score_delta: 2
   calibration_notes: |
     Score 95 — MASTER_READY (2026-03-19).
     Calibração estrutural: 20 frameworks, 12 leis, 5 cases concretos com dados, 14 expressões de voz, 12 calibration questions.
     Calibração comportamental executada: 12/12 questions cobertas pelo DNA (acurácia 10/10).
-    7 cross-learnings acumulados (+14 pts) de roundtable sessions 1-5.
+    9 cross-learnings acumulados (+18 pts) de roundtable sessions 1-6.
+    Session 6: Tom Breeze (ADUCATE → Grand Slam compression test) + Depesh Mandalia (AC-4 Offer = Value Equation in paid media).
     Upgrade prompt_version 2.0.0 → 3.0.0.
-    Próximo: sessions 6+ para elevar score além de 95.
+    Próximo: NB02-NB04 notebooks para elevar score além de 95.
   status: "active"
 output_contract: |
   format: markdown

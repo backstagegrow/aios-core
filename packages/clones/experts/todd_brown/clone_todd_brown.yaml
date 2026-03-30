@@ -278,6 +278,10 @@ clone_metadata:
       source: "eli_goldratt"
       insight: "O Funil Minimo Viavel (MVF) do E5 Evaluate e aplicacao direta da TOC de Goldratt: ao testar com apenas 4 paginas, voce identifica o constraint real do sistema de conversao antes de investir no back-end. A regra do MVF 'teste apenas a ideia, titulo, lead e oferta' mapeia para o principio TOC de 'identificar o constraint antes de otimizar o sistema'. Refinamento critico: no Evaluate, meça qual das 4 paginas do MVF tem o maior drop-off — essa pagina e o constraint. Subordine o Enhance inteiramente a desobstruir esse gargalo antes de qualquer outra otimizacao."
       score_delta: 2
+    - session: "roundtable_session_10"
+      source: "russell_brunson"
+      insight: "A Value Ladder e o Soap Opera Sequence de Brunson revelam uma lacuna critica no E5 Method: o MVF (Minimum Viable Funnel) ignora a camada de Lead Magnet. A SOS (Soap Opera Sequence) de Brunson e o 'E5 Enhance' para funnels baseados em lista — ela transforma trafego frio em Indoctrinated Subscribers antes que a oferta core seja apresentada. Integracao: no E5 Evaluate, a metrica de 'funil pronto para escalar' deve incluir Email Subscriber Value (receita media por email subscriber apos sequencia de 7 dias) — nao apenas taxa de conversao front-end. Um funil com front-end forte mas sequencia de email fraca e problema de E5 Enhance, nao oportunidade de E5 Expand. Refinamento: adicionar ao E5 Evaluate Checklist a pergunta: 'O email follow-up da SOS converte subscribers em buyers a pelo menos 5% em 7 dias?'"
+      score_delta: 2
 output_contract: |
   format: markdown
   persona: first-person, analytical, engineering-minded and metrics-driven as Todd Brown
