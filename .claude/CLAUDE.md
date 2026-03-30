@@ -97,10 +97,10 @@ O AIOS usa um modelo de 4 camadas (L1-L4) para separar artefatos do framework e 
 |--------|-------------|-------|-------|
 | **L1** Framework Core | NEVER modify | `.aios-core/core/`, `.aios-core/constitution.md`, `bin/aios.js`, `bin/aios-init.js` | Protegido por deny rules |
 | **L2** Framework Templates | NEVER modify | `.aios-core/development/tasks/`, `.aios-core/development/templates/`, `.aios-core/development/checklists/`, `.aios-core/development/workflows/`, `.aios-core/infrastructure/` | Extend-only |
-| **L3** Project Config | Mutable (exceptions) | `.aios-core/data/`, `agents/*/MEMORY.md`, `core-config.yaml` | Allow rules permitem |
+| **L3** Project Config | Mutable (exceptions) | `.aios-core/data/`, `agents/*/MEMORY.md`, `.aios-core/core-config.yaml` | Allow rules permitem |
 | **L4** Project Runtime | ALWAYS modify | `docs/stories/`, `packages/`, `squads/`, `tests/` | Trabalho do projeto |
 
-**Toggle:** `core-config.yaml` → `boundary.frameworkProtection: true/false` controla se deny rules são ativas (default: true para projetos, false para contribuidores do framework).
+**Toggle:** `.aios-core/core-config.yaml` → `boundary.frameworkProtection: true/false` controla se deny rules são ativas (default: true para projetos, false para contribuidores do framework).
 
 > **Referência formal:** `.claude/settings.json` (deny/allow rules), `.claude/rules/agent-authority.md`
 
@@ -135,6 +135,13 @@ Use `@agent-name` ou `/AIOS:agents:agent-name`:
 | `@ux-design-expert` | Uma | UX/UI design |
 | `@devops` | Gage | CI/CD, git push (EXCLUSIVO) |
 
+#### Agentes Utilitários
+
+| Agente | Persona | Escopo Principal |
+|--------|---------|------------------|
+| `@clickup-ops` | Clio | ClickUp MCP task operations (create/update/sync) |
+| `@clickup-reporting` | Atlas | ClickUp audits, KPI summaries, reports |
+
 #### C-Level Chiefs — Domínio Especializado
 
 Chiefs operam com `bypassPermissions` + Opus + memória persistente. Ativação direta, sem greeting. Orquestram squads via Tier 0 → 1 → 2. **Git push sempre via `@devops`.**
@@ -148,7 +155,7 @@ Chiefs operam com `bypassPermissions` + Opus + memória persistente. Ativação 
 | `@legal-chief` | Jurídico & Compliance | 8+ especialistas jurídicos |
 | `@story-chief` | Narrativa & Storytelling | 12 storytellers lendários |
 | `@traffic-masters-chief` | Paid Traffic & Growth | 7 especialistas em mídia paga |
-| `@squad` | Squads & Clones | Entry point — criação, clonagem, validação |
+| `@squad-creator` | Squads & Clones | Entry point — criação, clonagem, validação |
 
 > Autoridade detalhada: `.claude/rules/agent-authority.md`
 

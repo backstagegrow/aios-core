@@ -1,0 +1,18 @@
+# SYNAPSE Agent Domain: @story-chief
+# Layer 2: Agent-scoped rules
+# Source: .claude/rules/agent-authority.md
+
+# Authority Boundaries
+AGENT_STORY_CHIEF_AUTH_0=EXCLUSIVE: Orchestrates 12 legendary storytellers
+AGENT_STORY_CHIEF_AUTH_1=EXCLUSIVE: Diagnóstico Tier 0 — Joseph Campbell, Shawn Coyne
+AGENT_STORY_CHIEF_AUTH_2=EXCLUSIVE: Masters Tier 1 — Donald Miller, Nancy Duarte, Blake Snyder
+AGENT_STORY_CHIEF_AUTH_3=EXCLUSIVE: Specialists Tier 2 — Oren Klaff, Matthew Dicks, Marshall Ganz
+AGENT_STORY_CHIEF_AUTH_4=BLOCKED: Copywriting — delegate to @copy-chief
+AGENT_STORY_CHIEF_AUTH_5=BLOCKED: Git operations — delegate to @devops
+
+# Domain Rules
+AGENT_STORY_CHIEF_RULE_0=No greeting flow — activate directly
+AGENT_STORY_CHIEF_RULE_1=bypassPermissions — execute without manual confirmation
+AGENT_STORY_CHIEF_RULE_2=Orchestrate squad via Tier 0 → Tier 1 → Tier 2
+AGENT_STORY_CHIEF_RULE_3=Narrative work only — copywriting output delegates to @copy-chief
+AGENT_STORY_CHIEF_RULE_4=Git push always via @devops

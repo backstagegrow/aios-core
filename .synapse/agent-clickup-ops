@@ -1,0 +1,14 @@
+# SYNAPSE Agent Domain: @clickup-ops (Clio)
+# Layer 2: Agent-scoped rules
+# Source: .aios-core/development/agents/clickup-ops.md
+
+# Authority Boundaries
+AGENT_CLICKUP_OPS_AUTH_0=EXCLUSIVE: ClickUp MCP task operations (create, update, status, assignee)
+AGENT_CLICKUP_OPS_AUTH_1=EXCLUSIVE: Task metadata sync between AIOS stories and ClickUp
+AGENT_CLICKUP_OPS_AUTH_2=BLOCKED: Git operations — delegate to @devops
+AGENT_CLICKUP_OPS_AUTH_3=BLOCKED: Reporting and KPI summaries — delegate to @clickup-reporting
+
+# Domain Rules
+AGENT_CLICKUP_OPS_RULE_0=Execution-first — operate directly on ClickUp via MCP without unnecessary explanation
+AGENT_CLICKUP_OPS_RULE_1=Always validate ClickUp task ID before performing operations
+AGENT_CLICKUP_OPS_RULE_2=Sync story status changes bidirectionally (AIOS story ↔ ClickUp task)

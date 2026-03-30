@@ -184,7 +184,7 @@ User Request
 | Scaling Tier 2 | Ralph Burns, Pedro Sobral |
 | Bloqueado para | Creative/copy (delegate to @copy-chief) |
 
-### @squad (Squad Architect) — Orquestração de Squads
+### @squad-creator (Squad Architect) — Orquestração de Squads
 
 | Autoridade | Detalhes |
 |-----------|---------|
@@ -283,7 +283,7 @@ ANY agent (incluindo Chiefs) → @devops *push
 
 ### Squad/Clone Creation Flow
 ```
-User → @squad *create-squad → oalanicolas (DNA) → pedro-valerio (workflow) → squad.yaml gerado
+User → @squad-creator *create-squad → oalanicolas (DNA) → pedro-valerio (workflow) → squad.yaml gerado
 ```
 
 ### C-Level Domain Flow
