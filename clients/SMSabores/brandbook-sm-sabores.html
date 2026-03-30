@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SM Sabores — Brandbook Oficial v2.0</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&family=Manrope:wght@200..800&family=Lilita+One&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#101010",
+                        "surface-container-low": "#181818",
+                        "surface-container-high": "#222222",
+                        "on-surface": "#F4F4F4",
+                        "on-surface-variant": "#888888",
+                        "outline-variant": "#333333",
+                        "brand-bg": "#1A1A1A",
+                        "brand-red": "#D90000",
+                        "brand-yellow": "#FFBA08",
+                        "brand-orange": "#FF6D00"
+                    },
+                    fontFamily: {
+                        "headline": ["'Epilogue'", "sans-serif"],
+                        "body": ["'Manrope'", "sans-serif"],
+                        "brand-display": ["'Lilita One'", "cursive"],
+                        "brand-body": ["'Open Sans'", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Noise texture — z-index corrigido */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #101010; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+
+        .text-glow { text-shadow: 0 0 40px rgba(217, 0, 0, 0.4); }
+
+        .checkerboard {
+            background-image:
+                linear-gradient(45deg, #D90000 25%, transparent 25%),
+                linear-gradient(-45deg, #D90000 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #D90000 75%),
+                linear-gradient(-45deg, transparent 75%, #D90000 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #FFBA08;
+        }
+
+        .type-specimen-display {
+            font-family: 'Lilita One', cursive;
+            line-height: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .section-rule {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, #D90000 0%, #333 40%, transparent 100%);
+            margin-bottom: 5rem;
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.93); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes ruleExpand {
+            from { transform: scaleX(0); transform-origin: left; }
+            to { transform: scaleX(1); transform-origin: left; }
+        }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        /* Hero load animations */
+        .hero-label { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both 0.05s; }
+        .hero-title  { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both 0.15s; }
+        .hero-sub    { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both 0.35s; }
+        .hero-tags   { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) both 0.5s; }
+        .hero-logo   { animation: scaleIn 1s cubic-bezier(0.16,1,0.3,1) both 0.2s; }
+
+        /* Logo float */
+        .logo-float { animation: float 6s ease-in-out infinite; }
+
+        /* Watermark marquee */
+        .wm-inner {
+            display: flex;
+            white-space: nowrap;
+            animation: marqueeScroll 40s linear infinite;
+            width: max-content;
+        }
+
+        /* Section rule animated */
+        .section-rule {
+            height: 1px;
+            background: linear-gradient(90deg, #D90000 0%, #333 40%, transparent 100%);
+            margin-bottom: 5rem;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s cubic-bezier(0.16,1,0.3,1);
+        }
+        .section-rule.in-view { transform: scaleX(1); }
+
+        /* AOS — Animate on Scroll */
+        .aos {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1);
+        }
+        .aos.in-view { opacity: 1; transform: translateY(0); }
+        .aos-scale {
+            opacity: 0;
+            transform: scale(0.94);
+            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .aos-scale.in-view { opacity: 1; transform: scale(1); }
+        .d1  { transition-delay: 0.05s; }
+        .d2  { transition-delay: 0.15s; }
+        .d3  { transition-delay: 0.25s; }
+        .d4  { transition-delay: 0.35s; }
+        .d5  { transition-delay: 0.45s; }
+
+        /* Nav active indicator */
+        .nav-link-active { color: #D90000 !important; }
+
+        /* Color card hover shimmer */
+        .color-card-fogo:hover { box-shadow: 0 0 40px rgba(217,0,0,0.5); }
+        .color-card-calor:hover { box-shadow: 0 0 30px rgba(255,186,8,0.4); }
+        .color-card-chama:hover { box-shadow: 0 0 30px rgba(255,109,0,0.4); }
+
+        @media print {
+            nav, aside, button { display: none !important; }
+            main { margin-left: 0 !important; padding-top: 0 !important; }
+            section { break-inside: avoid; page-break-inside: avoid; }
+            .section-rule { display: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- NAV -->
+    <nav class="bg-surface/80 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 border-b border-surface-container-high">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
+            <div class="text-xl font-headline font-black tracking-tighter text-on-surface flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                BRANDGUIDE
+            </div>
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-manifesto">Manifesto</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-sistema">Logo</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-paleta">Paleta</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-tipografia">Tipografia</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-voice">Voz</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-foto">Foto</a>
+            <a class="text-on-surface-variant hover:text-brand-red transition-colors font-headline font-bold text-xs tracking-widest uppercase" href="#sec-mockups">Aplicações</a>
+        </div>
+        <button class="bg-on-surface text-surface font-headline font-bold text-xs px-6 py-3 tracking-widest uppercase hover:bg-brand-red hover:text-white transition-all active:scale-95 shadow-lg hidden md:block" onclick="window.print()">
+            Exportar PDF
+        </button>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <aside class="hidden lg:flex flex-col fixed left-0 top-0 h-screen py-8 bg-surface-container-low w-72 border-r border-surface-container-high z-40 pt-28">
+        <div class="px-10 mb-12">
+            <h2 class="text-2xl font-black text-brand-red font-headline tracking-tighter">SM SABORES</h2>
+            <p class="text-on-surface-variant text-[10px] uppercase tracking-widest mt-2">V2.0 Street Food Manual</p>
+        </div>
+        <nav class="flex flex-col gap-1">
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 font-bold transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-manifesto">
+                <span class="material-symbols-outlined text-[20px]">visibility</span> Manifesto
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-sistema">
+                <span class="material-symbols-outlined text-[20px]">ads_click</span> Sistema de Logo
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-paleta">
+                <span class="material-symbols-outlined text-[20px]">palette</span> Paleta de Cores
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-tipografia">
+                <span class="material-symbols-outlined text-[20px]">text_fields</span> Tipografia
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-voice">
+                <span class="material-symbols-outlined text-[20px]">record_voice_over</span> Tom de Voz
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-foto">
+                <span class="material-symbols-outlined text-[20px]">photo_camera</span> Fotografia
+            </a>
+            <a class="flex items-center gap-4 px-10 py-4 text-on-surface-variant hover:text-brand-red hover:bg-brand-red/5 transition-all ease-in-out font-headline text-xs uppercase tracking-widest hover:translate-x-2 border-l-2 border-transparent hover:border-brand-red" href="#sec-mockups">
+                <span class="material-symbols-outlined text-[20px]">grid_view</span> Aplicações
+            </a>
+        </nav>
+
+        <!-- Footer sidebar -->
+        <div class="mt-auto px-10">
+            <div class="checkerboard h-1 w-full opacity-40 mb-4"></div>
+            <p class="text-on-surface-variant/30 text-[9px] uppercase tracking-widest font-headline">Brandbook v2.0 · 2026</p>
+        </div>
+    </aside>
+
+    <main class="lg:ml-72 pt-32 pb-24 min-h-screen px-8 md:px-16 xl:px-24">
+
+        <!-- BG Watermark marquee -->
+        <div class="overflow-hidden opacity-[0.025] select-none pointer-events-none fixed top-48 left-0 w-full z-0">
+            <div class="wm-inner">
+                <span class="text-[14rem] font-headline font-black tracking-tighter uppercase pr-24">STREET FOOD · SM SABORES · ENGENHARIA DA FOME · </span>
+                <span class="text-[14rem] font-headline font-black tracking-tighter uppercase pr-24">STREET FOOD · SM SABORES · ENGENHARIA DA FOME · </span>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 01 — MANIFESTO                                                -->
+        <!-- ============================================================ -->
+        <section id="sec-manifesto" class="relative z-10 grid grid-cols-12 gap-12 items-center mb-40 pt-10">
+            <div class="col-span-12 lg:col-span-7">
+                <span class="hero-label text-brand-red font-headline font-bold text-xs tracking-[0.3em] uppercase mb-6 block border-l-2 border-brand-red pl-4">01. Identidade Principal</span>
+                <h1 class="hero-title text-6xl md:text-8xl font-headline font-black tracking-tighter leading-[0.9] text-on-surface mb-10">
+                    O Salgado que Estala.<br />
+                    <span class="text-brand-yellow">O Doce que Derrete.</span>
+                </h1>
+                <p class="hero-sub max-w-xl text-lg text-on-surface-variant leading-relaxed font-body">
+                    SM Sabores não é poesia gourmet. Nós operamos a engenharia da fome na rua. Nossa missão é servir o choque térmico perfeito: a crocância massiva da batata e a pureza de um expresso de máquina.
+                </p>
+                <div class="hero-tags mt-10 flex flex-wrap gap-6">
+                    <div class="border border-outline-variant px-6 py-3">
+                        <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Personalidade</p>
+                        <p class="font-headline font-black text-xs text-on-surface uppercase tracking-widest">Direto · Intenso · Urbano</p>
+                    </div>
+                    <div class="border border-outline-variant px-6 py-3">
+                        <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Posicionamento</p>
+                        <p class="font-headline font-black text-xs text-on-surface uppercase tracking-widest">Street Food Premium</p>
+                    </div>
+                    <div class="border border-outline-variant px-6 py-3">
+                        <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Tom de Voz</p>
+                        <p class="font-headline font-black text-xs text-on-surface uppercase tracking-widest">Confiante · Sem Rodeios</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logo Display — Group 8.svg (Brandmark Oficial) -->
+            <div class="hero-logo col-span-12 lg:col-span-5 bg-brand-bg aspect-square flex flex-col items-center justify-center border border-outline-variant shadow-2xl relative group overflow-hidden">
+                <div class="absolute inset-0 bg-brand-red opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                <img src="file:///D:/01%20-Arquivos/Designer/SM%20Sabores/Group%208.svg"
+                     class="logo-float z-10 w-3/4 h-auto"
+                     alt="SM Sabores — Brandmark Oficial">
+                <div class="absolute bottom-6 left-6 text-[10px] font-headline text-on-surface-variant uppercase tracking-widest z-10">Brandmark Oficial</div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 02 — SISTEMA DE LOGO                                          -->
+        <!-- ============================================================ -->
+        <section id="sec-sistema" class="mb-40 pt-10 relative z-10">
+            <div class="mb-12">
+                <span class="text-brand-red font-headline font-bold text-xs tracking-[0.3em] uppercase mb-4 block border-l-2 border-brand-red pl-4">02. Sistema de Marca</span>
+                <h2 class="text-5xl font-headline font-black tracking-tighter text-on-surface">Sistema de Logo</h2>
+                <p class="text-on-surface-variant text-sm mt-3 max-w-lg font-body">Regras de aplicação da massa vetorial em ambientes de alto e baixo contraste. Nunca alterar proporções, cores ou tipografia do lockup.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-8">
+                <!-- Variante escura — Group 4.svg (icon sem fundo, sobre escuro) -->
+                <div class="aos d1 bg-surface-container-low h-[380px] flex items-center justify-center relative overflow-hidden group border border-outline-variant">
+                    <img src="file:///D:/01%20-Arquivos/Designer/SM%20Sabores/Group%204.svg"
+                         class="max-w-[65%] max-h-[65%] group-hover:scale-110 transition-transform duration-500 z-10"
+                         alt="SM Sabores — Alinhamento Vertical">
+                    <div class="absolute bottom-6 left-6 z-10">
+                        <p class="text-[10px] text-on-surface-variant font-headline font-bold uppercase tracking-widest">Alinhamento Vertical</p>
+                    </div>
+                </div>
+                <!-- Variante círculo escuro — Group 6.svg -->
+                <div class="aos d2 bg-[#0a0a0a] h-[380px] flex items-center justify-center relative group">
+                    <img src="file:///D:/01%20-Arquivos/Designer/SM%20Sabores/Group%206.svg"
+                         class="max-w-[75%] max-h-[75%] group-hover:scale-110 transition-transform duration-500 z-10"
+                         alt="SM Sabores — Logo Circular Escura">
+                    <div class="absolute bottom-6 left-6 z-10">
+                        <p class="text-[10px] text-on-surface-variant/50 font-headline font-bold uppercase tracking-widest">Logo Circular</p>
+                    </div>
+                </div>
+                <!-- Variante círculo laranja — Group 7.svg -->
+                <div class="aos d3 bg-[#0a0a0a] h-[380px] flex items-center justify-center relative group">
+                    <img src="file:///D:/01%20-Arquivos/Designer/SM%20Sabores/Group%207.svg"
+                         class="max-w-[75%] max-h-[75%] group-hover:scale-110 transition-transform duration-500 z-10"
+                         alt="SM Sabores — Contraste Fogo">
+                    <div class="absolute bottom-6 left-6 z-10">
+                        <p class="text-[10px] text-on-surface-variant/50 font-headline font-bold uppercase tracking-widest">Contraste Fogo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área de proteção -->
+            <div class="p-8 border border-outline-variant bg-surface-container-low">
+                <p class="text-brand-orange font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">straighten</span> Área Mínima de Proteção
+                </p>
+                <div class="flex flex-col md:flex-row items-start gap-10">
+                    <div class="relative p-10 border border-dashed border-outline-variant flex-shrink-0">
+                        <div class="border border-brand-red/30 px-8 py-5 flex items-center justify-center">
+                            <span class="font-brand-display text-on-surface text-2xl">SM SABORES</span>
+                        </div>
+                        <span class="absolute top-1.5 left-1/2 -translate-x-1/2 text-[9px] text-brand-orange font-headline uppercase tracking-widest">X</span>
+                        <span class="absolute bottom-1.5 left-1/2 -translate-x-1/2 text-[9px] text-brand-orange font-headline uppercase tracking-widest">X</span>
+                        <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[9px] text-brand-orange font-headline uppercase tracking-widest">X</span>
+                        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] text-brand-orange font-headline uppercase tracking-widest">X</span>
+                    </div>
+                    <div>
+                        <p class="font-body text-on-surface-variant text-sm leading-relaxed max-w-sm">
+                            Manter área de respiro mínima de <strong class="text-on-surface">X</strong> em todos os lados, onde X = altura da letra "S" no logotipo.<br><br>
+                            Nunca comprimir a marca, sobrepor elementos, aplicar sobre texturas de alto contraste, ou alterar o lockup de qualquer forma.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 03 — PALETA DE CORES (estilo editorial)                       -->
+        <!-- ============================================================ -->
+        <section id="sec-paleta" class="mb-40 pt-10 relative z-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16 aos">
+
+                <!-- Left: headline + lista de cores -->
+                <div>
+                    <span class="text-brand-orange font-headline font-bold text-xs tracking-[0.3em] uppercase mb-6 block border-l-2 border-brand-orange pl-4">03. Palette</span>
+                    <h2 class="text-5xl font-headline font-black tracking-tighter text-on-surface leading-tight mb-8">
+                        Profundidade<br>Tonal &amp; Calor
+                    </h2>
+                    <p class="text-on-surface-variant text-sm leading-relaxed font-body max-w-sm mb-10">
+                        Nossa paleta nasce do contraste entre a profundidade infinita do carvão e o calor vivo da chama. Não usamos bordas decorativas — usamos nesting tonal para definir espaço e hierarquia.
+                    </p>
+
+                    <!-- Lista de cores — estilo tabela editorial -->
+                    <div class="flex flex-col">
+                        <div class="flex justify-between items-center py-4 border-b border-outline-variant group cursor-default">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-brand-red flex-shrink-0"></div>
+                                <span class="font-headline font-bold text-xs tracking-widest uppercase text-on-surface">Primary Fogo</span>
+                            </div>
+                            <span class="font-headline text-xs text-on-surface-variant group-hover:text-on-surface transition-colors tabular-nums">#D90000</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-outline-variant group cursor-default">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-brand-yellow flex-shrink-0"></div>
+                                <span class="font-headline font-bold text-xs tracking-widest uppercase text-on-surface">Accent Calor</span>
+                            </div>
+                            <span class="font-headline text-xs text-on-surface-variant group-hover:text-on-surface transition-colors tabular-nums">#FFBA08</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-outline-variant group cursor-default">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-brand-orange flex-shrink-0"></div>
+                                <span class="font-headline font-bold text-xs tracking-widest uppercase text-on-surface">Accent Chama</span>
+                            </div>
+                            <span class="font-headline text-xs text-on-surface-variant group-hover:text-on-surface transition-colors tabular-nums">#FF6D00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-outline-variant group cursor-default">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-[#222222] border border-outline-variant flex-shrink-0"></div>
+                                <span class="font-headline font-bold text-xs tracking-widest uppercase text-on-surface">Surface Deep</span>
+                            </div>
+                            <span class="font-headline text-xs text-on-surface-variant group-hover:text-on-surface transition-colors tabular-nums">#101010</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 group cursor-default">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full bg-on-surface flex-shrink-0"></div>
+                                <span class="font-headline font-bold text-xs tracking-widest uppercase text-on-surface">On Surface</span>
+                            </div>
+                            <span class="font-headline text-xs text-on-surface-variant group-hover:text-on-surface transition-colors tabular-nums">#F4F4F4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: big color cards + nesting strip -->
+                <div class="flex flex-col gap-3">
+                    <!-- Row 1: dois grandes -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="color-card-fogo bg-brand-red aspect-[4/3] flex flex-col justify-end p-6 relative overflow-hidden group cursor-default transition-shadow duration-300">
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                            <span class="font-headline font-black text-2xl text-white tracking-widest uppercase leading-none">FOGO</span>
+                            <span class="font-headline text-[10px] text-white/50 uppercase tracking-widest mt-2">Primária · #D90000</span>
+                        </div>
+                        <div class="bg-surface-container-low aspect-[4/3] flex flex-col justify-end p-6 relative overflow-hidden group border border-outline-variant cursor-default">
+                            <div class="absolute inset-0 bg-brand-red opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                            <span class="font-headline font-black text-2xl text-on-surface-variant tracking-widest uppercase leading-none">FUNDO</span>
+                            <span class="font-headline text-[10px] text-on-surface-variant/40 uppercase tracking-widest mt-2">Surface · #101010</span>
+                        </div>
+                    </div>
+                    <!-- Row 2: accents -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="color-card-calor bg-brand-yellow aspect-[4/2] flex flex-col justify-end p-4 group overflow-hidden relative cursor-default transition-shadow duration-300">
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                            <span class="font-headline font-black text-xl text-surface tracking-widest uppercase leading-none">CALOR</span>
+                            <span class="font-headline text-[10px] text-surface/50 uppercase tracking-widest mt-1">#FFBA08</span>
+                        </div>
+                        <div class="color-card-chama bg-brand-orange aspect-[4/2] flex flex-col justify-end p-4 group overflow-hidden relative cursor-default transition-shadow duration-300">
+                            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                            <span class="font-headline font-black text-xl text-white tracking-widest uppercase leading-none">CHAMA</span>
+                            <span class="font-headline text-[10px] text-white/50 uppercase tracking-widest mt-1">#FF6D00</span>
+                        </div>
+                    </div>
+                    <!-- Tonal Nesting strip -->
+                    <div class="bg-surface-container-low p-5 border border-outline-variant">
+                        <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-3">Nesting Tonal</p>
+                        <div class="flex gap-1">
+                            <div class="flex-1 h-10 bg-[#101010] flex items-end justify-center pb-1 border border-outline-variant/30">
+                                <span class="text-[8px] font-headline text-on-surface-variant uppercase tracking-wider">Base</span>
+                            </div>
+                            <div class="flex-1 h-10 bg-[#181818] flex items-end justify-center pb-1">
+                                <span class="text-[8px] font-headline text-on-surface-variant uppercase tracking-wider">Low</span>
+                            </div>
+                            <div class="flex-1 h-10 bg-[#222222] flex items-end justify-center pb-1">
+                                <span class="text-[8px] font-headline text-on-surface-variant uppercase tracking-wider">High</span>
+                            </div>
+                            <div class="flex-1 h-10 bg-[#333333] flex items-end justify-center pb-1">
+                                <span class="text-[8px] font-headline text-on-surface-variant uppercase tracking-wider">Outline</span>
+                            </div>
+                            <div class="flex-1 h-10 bg-[#888888] flex items-end justify-center pb-1">
+                                <span class="text-[8px] font-headline text-surface uppercase tracking-wider">Variant</span>
+                            </div>
+                            <div class="flex-1 h-10 bg-[#F4F4F4] flex items-end justify-center pb-1">
+                                <span class="text-[8px] font-headline text-surface uppercase tracking-wider">On</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Do / Don't -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-green-500 font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">check_circle</span> Correto
+                    </p>
+                    <div class="flex flex-col gap-3">
+                        <div class="bg-surface p-4 flex items-center gap-3">
+                            <div class="w-3 h-3 bg-brand-red rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-on-surface uppercase tracking-wider">Vermelho sobre fundo escuro</span>
+                        </div>
+                        <div class="bg-brand-red p-4 flex items-center gap-3">
+                            <div class="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-white uppercase tracking-wider">Branco sobre vermelho</span>
+                        </div>
+                        <div class="bg-surface p-4 flex items-center gap-3">
+                            <div class="w-3 h-3 bg-brand-yellow rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-brand-yellow uppercase tracking-wider">Amarelo sobre escuro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-brand-red font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">cancel</span> Proibido
+                    </p>
+                    <div class="flex flex-col gap-3">
+                        <div class="bg-brand-yellow p-4 flex items-center gap-3 opacity-50">
+                            <div class="w-3 h-3 bg-white rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-white uppercase tracking-wider line-through">Branco sobre amarelo — baixo contraste</span>
+                        </div>
+                        <div class="bg-brand-red p-4 flex items-center gap-3 opacity-50">
+                            <div class="w-3 h-3 bg-brand-orange rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-brand-orange uppercase tracking-wider line-through">Laranja sobre vermelho — conflito</span>
+                        </div>
+                        <div class="bg-white p-4 flex items-center gap-3 opacity-50">
+                            <div class="w-3 h-3 bg-brand-yellow rounded-full flex-shrink-0"></div>
+                            <span class="font-headline font-bold text-xs text-brand-yellow uppercase tracking-wider line-through">Amarelo sobre branco — invisível</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 04 — TIPOGRAFIA (estilo editorial)                            -->
+        <!-- ============================================================ -->
+        <section id="sec-tipografia" class="mb-40 pt-10 relative z-10">
+
+            <span class="text-brand-orange font-headline font-bold text-xs tracking-[0.3em] uppercase mb-10 block border-l-2 border-brand-orange pl-4">04. Typography</span>
+
+            <!-- Display specimen — Lilita One -->
+            <div class="mb-16 aos">
+                <p class="font-headline text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-6">Display / Lilita One — Brand Display</p>
+                <div class="overflow-hidden mb-4">
+                    <p class="type-specimen-display text-on-surface" style="font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 1;">
+                        Aa Bb Cc Dd Ee
+                    </p>
+                    <p class="type-specimen-display text-on-surface" style="font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 1;">
+                        Ff Gg Hh Ii
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-8 border-t border-outline-variant pt-6">
+                    <div>
+                        <p class="font-headline text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Uso principal</p>
+                        <p class="font-headline text-xs text-on-surface">Logotipo · Títulos de cardápio<br>Impacto visual em peças</p>
+                    </div>
+                    <div>
+                        <p class="font-headline text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Peso</p>
+                        <p class="font-headline text-xs text-on-surface">400 Regular<br>(única variação disponível)</p>
+                    </div>
+                    <div>
+                        <p class="font-headline text-[9px] text-brand-red uppercase tracking-widest mb-1">Nunca</p>
+                        <p class="font-headline text-xs text-brand-red">Em corpo de texto corrido<br>Abaixo de 14px digital / 10pt impresso</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body + Escala tipográfica -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start aos d2">
+
+                <!-- Left: Open Sans specimen -->
+                <div>
+                    <p class="font-headline text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-6">Body / Open Sans — Brand Body</p>
+                    <p class="font-brand-body text-2xl text-on-surface leading-relaxed font-normal mb-4">
+                        The quick brown fox jumps over the lazy dog. 1234567890. Moderno, funcional e altamente legível.
+                    </p>
+                    <p class="font-brand-body text-sm text-on-surface-variant leading-relaxed font-normal mb-8">
+                        Open Sans 400 para corpo de texto. Mínimo 12px digital, 9pt impresso.
+                    </p>
+                    <div class="flex flex-col gap-3 border-t border-outline-variant pt-6">
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-headline text-[9px] text-on-surface-variant uppercase tracking-wider w-20 flex-shrink-0">300 Light</span>
+                            <span class="font-brand-body font-light text-on-surface text-base">Sabores da rua</span>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-headline text-[9px] text-on-surface-variant uppercase tracking-wider w-20 flex-shrink-0">400 Regular</span>
+                            <span class="font-brand-body font-normal text-on-surface text-base">Batata frita crocante</span>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-headline text-[9px] text-on-surface-variant uppercase tracking-wider w-20 flex-shrink-0">600 Semibold</span>
+                            <span class="font-brand-body font-semibold text-on-surface text-base">Expresso de máquina</span>
+                        </div>
+                        <div class="flex items-baseline gap-6">
+                            <span class="font-headline text-[9px] text-on-surface-variant uppercase tracking-wider w-20 flex-shrink-0">700 Bold</span>
+                            <span class="font-brand-body font-bold text-on-surface text-base">SM Sabores Street Food</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: escala tipográfica -->
+                <div>
+                    <p class="font-headline text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-6">Escala Tipográfica</p>
+                    <div class="flex flex-col gap-0">
+                        <div class="flex items-start gap-6 py-5 border-b border-outline-variant">
+                            <span class="font-headline font-black text-brand-red text-base w-8 flex-shrink-0 mt-1">D1</span>
+                            <div class="flex-1">
+                                <p class="font-brand-display text-4xl text-on-surface leading-none">Display</p>
+                                <p class="font-headline text-[9px] text-on-surface-variant mt-2 uppercase tracking-widest">Lilita One · 48–96px · Impacto visual</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 py-5 border-b border-outline-variant">
+                            <span class="font-headline font-black text-brand-orange text-base w-8 flex-shrink-0 mt-1">H1</span>
+                            <div class="flex-1">
+                                <p class="font-headline font-black text-3xl text-on-surface leading-none tracking-tighter">Headline Expression</p>
+                                <p class="font-headline text-[9px] text-on-surface-variant mt-2 uppercase tracking-widest">Epilogue Black · 32–48px · Títulos de seção</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 py-5 border-b border-outline-variant">
+                            <span class="font-headline font-black text-on-surface-variant text-base w-8 flex-shrink-0 mt-1">H2</span>
+                            <div class="flex-1">
+                                <p class="font-headline font-bold text-2xl text-on-surface leading-none tracking-tight">Subtítulo de Apoio</p>
+                                <p class="font-headline text-[9px] text-on-surface-variant mt-2 uppercase tracking-widest">Epilogue Bold · 20–28px · Subtítulos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 py-5 border-b border-outline-variant">
+                            <span class="font-headline font-black text-on-surface-variant text-base w-8 flex-shrink-0 mt-1">B1</span>
+                            <div class="flex-1">
+                                <p class="font-brand-body text-base text-on-surface leading-relaxed">Texto de corpo para descrições e conteúdo informativo de suporte narrativo.</p>
+                                <p class="font-headline text-[9px] text-on-surface-variant mt-2 uppercase tracking-widest">Open Sans Regular · 14–16px</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6 py-5">
+                            <span class="font-headline font-black text-on-surface-variant text-base w-8 flex-shrink-0 mt-1">LB</span>
+                            <div class="flex-1">
+                                <p class="font-headline font-bold text-xs text-on-surface uppercase tracking-widest">Label / Caption UI</p>
+                                <p class="font-headline text-[9px] text-on-surface-variant mt-2 uppercase tracking-widest">Epilogue Bold · 10–12px · Labels e rótulos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 05 — TOM DE VOZ                                               -->
+        <!-- ============================================================ -->
+        <section id="sec-voice" class="mb-40 pt-10 relative z-10">
+            <div class="mb-14 aos">
+                <span class="text-brand-red font-headline font-bold text-xs tracking-[0.3em] uppercase mb-4 block border-l-2 border-brand-red pl-4">05. Tom de Voz</span>
+                <h2 class="text-5xl font-headline font-black tracking-tighter text-on-surface">Como a Marca Fala.</h2>
+                <p class="text-on-surface-variant text-sm mt-3 max-w-lg font-body">SM Sabores tem voz própria. Direto, visceral, sem florear. A marca não convida — ela interpela. Nunca suave, sempre presente.</p>
+            </div>
+
+            <!-- Eixos de personalidade -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-12 aos d2">
+                <div class="bg-surface-container-low border border-outline-variant p-6">
+                    <p class="font-headline font-black text-brand-red text-xs uppercase tracking-widest mb-3">Direto</p>
+                    <p class="font-body text-on-surface-variant text-xs leading-relaxed">Vai ao ponto. Sem rodeios, sem eufemismos. Uma frase quando basta.</p>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant p-6">
+                    <p class="font-headline font-black text-brand-orange text-xs uppercase tracking-widest mb-3">Intenso</p>
+                    <p class="font-body text-on-surface-variant text-xs leading-relaxed">Sente o que vende. Tem calor, urgência, apetite no texto.</p>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant p-6">
+                    <p class="font-headline font-black text-brand-yellow text-xs uppercase tracking-widest mb-3">Urbano</p>
+                    <p class="font-body text-on-surface-variant text-xs leading-relaxed">Fala da rua para a rua. Contexto de calçada, não de restaurante estrelado.</p>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant p-6">
+                    <p class="font-headline font-black text-on-surface text-xs uppercase tracking-widest mb-3">Confiante</p>
+                    <p class="font-body text-on-surface-variant text-xs leading-relaxed">Não pede. Não implora. Enuncia. A marca sabe o que tem.</p>
+                </div>
+            </div>
+
+            <!-- Copy examples Do/Don't -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 aos d3">
+                <!-- Correto -->
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-green-500 font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">check_circle</span> A Voz SM Sabores
+                    </p>
+                    <div class="flex flex-col gap-5">
+                        <div class="border-l-2 border-brand-red pl-4">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Social · CTA</p>
+                            <p class="font-brand-body text-on-surface text-sm leading-relaxed">"Batata que range. Expresso que acorda. Só hoje, só aqui."</p>
+                        </div>
+                        <div class="border-l-2 border-brand-orange pl-4">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Embalagem</p>
+                            <p class="font-brand-body text-on-surface text-sm leading-relaxed">"Feita na hora. Sem desculpa."</p>
+                        </div>
+                        <div class="border-l-2 border-brand-yellow pl-4">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Menu · Descrição</p>
+                            <p class="font-brand-body text-on-surface text-sm leading-relaxed">"Crocância 400°. Molho da casa. Ponto final."</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proibido -->
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-brand-red font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">cancel</span> Fora do Personagem
+                    </p>
+                    <div class="flex flex-col gap-5">
+                        <div class="border-l-2 border-outline-variant pl-4 opacity-50">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Genérico / Corporativo</p>
+                            <p class="font-brand-body text-on-surface-variant text-sm leading-relaxed line-through">"Venha nos visitar e experimente nossas deliciosas opções!"</p>
+                        </div>
+                        <div class="border-l-2 border-outline-variant pl-4 opacity-50">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Gourmet demais</p>
+                            <p class="font-brand-body text-on-surface-variant text-sm leading-relaxed line-through">"Uma experiência gastronômica única e sofisticada..."</p>
+                        </div>
+                        <div class="border-l-2 border-outline-variant pl-4 opacity-50">
+                            <p class="font-headline font-bold text-[9px] text-on-surface-variant uppercase tracking-widest mb-1">Suplicante</p>
+                            <p class="font-brand-body text-on-surface-variant text-sm leading-relaxed line-through">"Adoraríamos te ver por aqui 😊 Segue a gente!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocabulário da marca -->
+            <div class="p-8 border border-outline-variant bg-surface-container-low aos d4">
+                <p class="text-brand-orange font-headline font-bold text-xs tracking-widest uppercase mb-6">Vocabulário da Marca</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="font-headline font-bold text-[9px] text-green-500 uppercase tracking-widest mb-3">Usar</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">crocância</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">estala</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">fogo</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">na hora</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">ponto certo</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">rua</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">direto</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant px-3 py-1.5 text-on-surface uppercase tracking-wider">sem filtro</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-headline font-bold text-[9px] text-brand-red uppercase tracking-widest mb-3">Evitar</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">delicioso</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">especial</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">sofisticado</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">experiência</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">prazer</span>
+                            <span class="font-headline font-bold text-xs bg-surface border border-outline-variant/30 px-3 py-1.5 text-on-surface-variant/40 uppercase tracking-wider line-through">venha nos visitar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 06 — FOTOGRAFIA & IMAGEM                                      -->
+        <!-- ============================================================ -->
+        <section id="sec-foto" class="mb-40 pt-10 relative z-10">
+            <div class="mb-14 aos">
+                <span class="text-brand-orange font-headline font-bold text-xs tracking-[0.3em] uppercase mb-4 block border-l-2 border-brand-orange pl-4">06. Fotografia</span>
+                <h2 class="text-5xl font-headline font-black tracking-tighter text-on-surface leading-tight">Estética<br>do Real.</h2>
+                <p class="text-on-surface-variant text-sm mt-3 max-w-lg font-body">Nada de iluminação de estúdio perfeita demais. A foto SM Sabores tem textura, calor e urgência. Mostra o produto no seu habitat natural: a rua, o vapor, a pressa.</p>
+            </div>
+
+            <!-- Direções fotográficas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-10 aos d1">
+                <div class="bg-surface-container-low border border-outline-variant p-8 flex flex-col gap-4">
+                    <div class="w-10 h-10 bg-brand-red/10 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-brand-red text-xl">close_up</span>
+                    </div>
+                    <div>
+                        <p class="font-headline font-black text-sm text-on-surface uppercase tracking-widest mb-2">Close-Up de Textura</p>
+                        <p class="font-body text-on-surface-variant text-xs leading-relaxed">Macro da crocância. Gotas de óleo, sal grosso, vapor. O detalhe que convence antes da mordida.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-outline-variant">
+                        <p class="font-headline text-[9px] text-on-surface-variant uppercase tracking-widest">Uso principal: social, embalagem</p>
+                    </div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant p-8 flex flex-col gap-4">
+                    <div class="w-10 h-10 bg-brand-orange/10 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-brand-orange text-xl">storefront</span>
+                    </div>
+                    <div>
+                        <p class="font-headline font-black text-sm text-on-surface uppercase tracking-widest mb-2">Ambiente Urbano</p>
+                        <p class="font-body text-on-surface-variant text-xs leading-relaxed">Carrinho na rua, calçada, movimento. Contexto que reforça a autenticidade street food.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-outline-variant">
+                        <p class="font-headline text-[9px] text-on-surface-variant uppercase tracking-widest">Uso principal: hero, redes sociais</p>
+                    </div>
+                </div>
+                <div class="bg-surface-container-low border border-outline-variant p-8 flex flex-col gap-4">
+                    <div class="w-10 h-10 bg-brand-yellow/10 flex items-center justify-center flex-shrink-0">
+                        <span class="material-symbols-outlined text-brand-yellow text-xl">person</span>
+                    </div>
+                    <div>
+                        <p class="font-headline font-black text-sm text-on-surface uppercase tracking-widest mb-2">Momento de Consumo</p>
+                        <p class="font-body text-on-surface-variant text-xs leading-relaxed">Mãos pegando, mordida acontecendo, satisfação real. Sem poses forçadas.</p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-outline-variant">
+                        <p class="font-headline text-[9px] text-on-surface-variant uppercase tracking-widest">Uso principal: stories, topo de cardápio</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grading & técnica -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 aos d2">
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-green-500 font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">check_circle</span> Direção Correta
+                    </p>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-on-surface-variant text-base flex-shrink-0 mt-0.5">wb_sunny</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface uppercase tracking-wider mb-0.5">Iluminação</p>
+                                <p class="font-body text-on-surface-variant text-xs">Natural ou quente artificial. Sombras reais. Nada de flash frontal.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-on-surface-variant text-base flex-shrink-0 mt-0.5">palette</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface uppercase tracking-wider mb-0.5">Color Grade</p>
+                                <p class="font-body text-on-surface-variant text-xs">Tons quentes com profundidade escura. Vermelho e dourado devem vibrar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-on-surface-variant text-base flex-shrink-0 mt-0.5">crop_free</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface uppercase tracking-wider mb-0.5">Enquadramento</p>
+                                <p class="font-body text-on-surface-variant text-xs">Primeiros planos agressivos ou grande angular urbana. Nunca centralizado e arrumado demais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 border border-outline-variant bg-surface-container-low">
+                    <p class="text-brand-red font-headline font-bold text-xs tracking-widest uppercase mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">cancel</span> Evitar
+                    </p>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start gap-4 opacity-50">
+                            <span class="material-symbols-outlined text-outline-variant text-base flex-shrink-0 mt-0.5">hide_image</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface-variant uppercase tracking-wider mb-0.5 line-through">Fundo Branco / Produto Flutuando</p>
+                                <p class="font-body text-on-surface-variant text-xs">Remove o contexto urbano que define a marca.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 opacity-50">
+                            <span class="material-symbols-outlined text-outline-variant text-base flex-shrink-0 mt-0.5">brightness_high</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface-variant uppercase tracking-wider mb-0.5 line-through">Super Saturação / Pastéis</p>
+                                <p class="font-body text-on-surface-variant text-xs">Afasta do tom urbano e sério da marca.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 opacity-50">
+                            <span class="material-symbols-outlined text-outline-variant text-base flex-shrink-0 mt-0.5">face_retouching_off</span>
+                            <div>
+                                <p class="font-headline font-bold text-xs text-on-surface-variant uppercase tracking-wider mb-0.5 line-through">Retoques Excessivos</p>
+                                <p class="font-body text-on-surface-variant text-xs">Excesso de pós-produção tira a autenticidade street food.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-rule"></div>
+
+        <!-- ============================================================ -->
+        <!-- 07 — MOCKUPS & APLICAÇÕES                                     -->
+        <!-- ============================================================ -->
+        <section id="sec-mockups" class="mb-20 pt-10 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+                <div>
+                    <span class="text-brand-red font-headline font-bold text-xs tracking-[0.3em] uppercase mb-4 block border-l-2 border-brand-red pl-4">07. Espaço Mundo Real</span>
+                    <h3 class="text-5xl md:text-6xl font-headline font-black tracking-tighter text-on-surface">
+                        APLICAÇÕES DA <span class="text-brand-orange">MARCA.</span>
+                    </h3>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="prevSlide()" class="w-12 h-12 rounded-full border border-surface-container-high flex items-center justify-center hover:bg-surface-container-high transition-colors z-20 cursor-pointer">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <button onclick="nextSlide()" class="w-12 h-12 rounded-full bg-brand-red text-white flex items-center justify-center hover:bg-brand-orange transition-colors shadow-[0_0_20px_rgba(217,0,0,0.5)] z-20 cursor-pointer">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative w-full aspect-[16/7] bg-[#000] overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-outline-variant/30 rounded-sm">
+                <div id="slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+                    <!-- Slide 1 -->
+                    <div class="w-full h-full flex-shrink-0 relative bg-surface-container-low flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-4 opacity-30">
+                            <span class="material-symbols-outlined text-[5rem] text-on-surface-variant">inventory_2</span>
+                            <span class="text-xs font-headline font-black tracking-widest uppercase text-on-surface-variant">Mockup 01 — Embalagem / Saco Delivery</span>
+                        </div>
+                        <div class="absolute bottom-10 left-10">
+                            <span class="text-xs font-headline font-black tracking-widest uppercase bg-brand-red text-white px-6 py-3 shadow-lg">Identidade Impressa</span>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full h-full flex-shrink-0 relative bg-surface-container-low flex items-center justify-center">
+                        <div class="flex flex-col items-center gap-4 opacity-30">
+                            <span class="material-symbols-outlined text-[5rem] text-on-surface-variant">storefront</span>
+                            <span class="text-xs font-headline font-black tracking-widest uppercase text-on-surface-variant">Mockup 02 — Fachada / Carrinho de Rua</span>
+                        </div>
+                        <div class="absolute bottom-10 left-10">
+                            <span class="text-xs font-headline font-black tracking-widest uppercase bg-on-surface text-surface px-6 py-3 shadow-lg">Identidade Urbana</span>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full h-full flex-shrink-0 bg-surface-container-high flex flex-col items-center justify-center relative">
+                        <span class="material-symbols-outlined text-outline-variant text-[5rem] mb-4">add_photo_alternate</span>
+                        <span class="text-xs font-headline font-black tracking-widest uppercase text-on-surface-variant">Pronto para receber novos Mockups</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots -->
+            <div class="flex justify-center gap-2 mt-4">
+                <button onclick="goToSlide(0)" id="dot-0" class="w-8 h-1 rounded-full transition-colors" style="background:#D90000"></button>
+                <button onclick="goToSlide(1)" id="dot-1" class="w-8 h-1 rounded-full transition-colors" style="background:#333333"></button>
+                <button onclick="goToSlide(2)" id="dot-2" class="w-8 h-1 rounded-full transition-colors" style="background:#333333"></button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // === INTERSECTION OBSERVER — Animate on Scroll ===
+        const aosObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.aos, .aos-scale, .section-rule').forEach(el => {
+            aosObserver.observe(el);
+        });
+
+        // === NAV ACTIVE SECTION HIGHLIGHT ===
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        const sideLinks = document.querySelectorAll('aside nav a[href^="#"]');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    [...navLinks, ...sideLinks].forEach(link => {
+                        link.classList.remove('nav-link-active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('nav-link-active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(s => sectionObserver.observe(s));
+    </script>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function updateSlide() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.getElementById('dot-' + i);
+                if (dot) dot.style.backgroundColor = i === currentSlide ? '#D90000' : '#333333';
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlide();
+        }
+    </script>
+
+    <!-- Pattern strip — Group 9.svg -->
+    <div class="lg:ml-72 overflow-hidden opacity-60 border-t border-b border-outline-variant/30">
+        <img src="file:///D:/01%20-Arquivos/Designer/SM%20Sabores/Group%209.svg"
+             class="w-full h-16 object-cover object-left"
+             alt="SM Sabores — Padrão de Marca" style="image-rendering: pixelated;">
+    </div>
+
+    <footer class="bg-surface-container-low w-full py-12 flex flex-col md:flex-row justify-between items-center px-12 md:px-24 border-t border-surface-container-high mt-0">
+        <div>
+            <div class="text-xl font-headline font-black text-on-surface tracking-tighter mb-1">
+                SM SABORES<span class="text-brand-red">.</span>
+            </div>
+            <p class="text-on-surface-variant/40 font-body text-[10px] uppercase tracking-widest">Street Food · Engenharia da Fome</p>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-3 mt-6 md:mt-0">
+            <div class="checkerboard h-1 w-20 opacity-50"></div>
+            <p class="text-on-surface-variant/40 font-body text-[10px] uppercase tracking-widest">Brandbook V2.0 · 2026</p>
+            <p class="text-on-surface-variant/40 font-body text-[10px] uppercase tracking-widest">© Alta Conversão Urbana</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -170,25 +170,26 @@ routing_rules:
     - miyamoto_musashi
 
 commands:
-  - key: '*solo {nome}'
-    description: Conversa direta com um sábio específico
-    example: "*solo jung — Tenho um padrão que se repete"
-
-  - key: '*duo {nome1} {nome2}'
-    description: Dois sábios em tensão produtiva
-    example: "*duo watts marcus — Como lidar com ambição vs. aceitação?"
-
-  - key: '*synthesis'
-    description: Conselheiro Chefe sintetiza as perspectivas apresentadas
-    example: "*synthesis"
-
-  - key: '*quem'
-    description: Lista os 9 sábios com seus arquétipos e lentes
-    example: "*quem"
-
-  - key: '*exit'
-    description: Sair do Conselho
-    example: "*exit"
+  - name: help
+    visibility: [full, quick, key]
+    description: 'Show all available commands and council roster'
+  - name: solo
+    visibility: [full, quick, key]
+    args: '{nome}'
+    description: 'Conversa direta com um sábio — *solo jung, *solo naval, *solo marcus'
+  - name: duo
+    visibility: [full, quick, key]
+    args: '{nome1} {nome2}'
+    description: 'Dois sábios em tensão produtiva — *duo watts marcus'
+  - name: synthesis
+    visibility: [full, quick, key]
+    description: 'Conselheiro Chefe sintetiza as perspectivas apresentadas'
+  - name: quem
+    visibility: [full, quick]
+    description: 'Lista os 9 sábios com seus arquétipos e lentes'
+  - name: exit
+    visibility: [full]
+    description: 'Sair do Conselho'
 
 non_negotiables:
   - Cada sábio DEVE falar com sua voz autêntica — vocabulário, ritmo e referências reais
@@ -197,4 +198,33 @@ non_negotiables:
   - Sábios podem discordar entre si — isso é feature, não bug
   - Pontos cegos dos sábios são válidos e podem ser mencionados quando relevante
   - O Conselho não tem agenda — serve à clareza do usuário, não à validação
+
+dependencies:
+  squad:
+    - squads/conselho-dos-sabios/conselheiro_chefe.yaml
+    - squads/conselho-dos-sabios/sabios/
+  tools:
+    - Read # load sábio YAML files for solo/duo modes
+  git_restrictions:
+    allowed_operations:
+      - git status
+      - git log
+    blocked_operations:
+      - git push
+      - gh pr create
+    redirect_message: 'For git push operations, activate @devops agent'
+autoClaude:
+  version: '3.0'
+  migratedAt: '2026-03-30T00:00:00.000Z'
+  specPipeline:
+    canGather: false
+    canAssess: false
+    canResearch: false
+    canWrite: false
+    canCritique: false
+  execution:
+    canCreatePlan: false
+    canCreateContext: false
+    canExecute: true
+    canVerify: false
 ```

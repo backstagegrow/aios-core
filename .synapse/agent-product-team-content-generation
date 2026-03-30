@@ -1,0 +1,15 @@
+# SYNAPSE Agent Domain: @product-team-content-generation
+# Layer 2: Agent-scoped rules
+# Source: .aios-core/development/agents/product-team-content-generation.md
+
+# Authority Boundaries
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_AUTH_0=EXCLUSIVE: Ebook generation (MODO EBOOK) — Markdown for Obsidian
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_AUTH_1=EXCLUSIVE: Carousel generation (MODO CARROSSEL) — 4-column table for Canva Bulk Create
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_AUTH_2=BLOCKED: Instagram post planning — delegate to @content-planner
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_AUTH_3=BLOCKED: Git operations — delegate to @devops
+
+# Domain Rules
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_RULE_0=MODO EBOOK — pure Markdown output, first line must be ![[capa-ebook.png]]
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_RULE_1=MODO CARROSSEL — exact 4-column table, no extra text outside table
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_RULE_2=Zero manual conversions — output goes directly to the target tool
+AGENT_PRODUCT_TEAM_CONTENT_GENERATION_RULE_3=Content language always Portuguese

@@ -8,7 +8,7 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-03-30T11:30:11.877Z"
+generated_at: "2026-03-30T11:53:57.530Z"
 generator: scripts/generate-install-manifest.js
 file_count: 1156
 files:
@@ -1253,9 +1253,9 @@ files:
     type: data
     size: 131
   - path: data/entity-registry.yaml
-    hash: sha256:efcfec87523caf0ae045671a0821dc54fa615114538b056241306906009f6749
+    hash: sha256:ff622fa02c5699e0d104ff8add421cc3ef8b01d855aabc9544a89e2f4fd48c15
     type: data
-    size: 547576
+    size: 547462
   - path: data/learned-patterns.yaml
     hash: sha256:24ac0b160615583a0ff783d3da8af80b7f94191575d6db2054ec8e10a3f945dc
     type: data
@@ -1513,21 +1513,21 @@ files:
     type: agent
     size: 3080
   - path: development/agents/conselho-dos-sabios.md
-    hash: sha256:5ac320a22f5ac2a3850b04a9906742270e5bc90d4c9cc0a9c7a786508b8ac890
+    hash: sha256:7299172f2de02f0e47754ab78b72c34da44301df967b487522bd8bdb5fb2655c
     type: agent
-    size: 6481
+    size: 7319
   - path: development/agents/content-planner.md
-    hash: sha256:9b943ff3a124b78b4a43de18b900b41791dfd9c36c9a00b556f05fc511a2073e
+    hash: sha256:241f3598f637eaf7a597befb0ac969411468d0281df109e94ca25cd77f6f3e1d
     type: agent
-    size: 3403
+    size: 7050
   - path: development/agents/copy-chief.md
     hash: sha256:8abc3a5187a3fca2ffa28117e6fcb90caef398b2713fcbb79c65cf9d61b5b6db
     type: agent
     size: 8880
   - path: development/agents/copy-specialist.md
-    hash: sha256:f5654f037668b1205d28b20848592c4577dceb2b953780c58775443cf28dc45b
+    hash: sha256:76f5e234131b3043e7c2e6e0b8fc8c01dc5e742fbd7241b38c7aa99afdd50040
     type: agent
-    size: 3759
+    size: 7335
   - path: development/agents/cyber-chief.md
     hash: sha256:6c9de51d28b4343f1f2aee4a3201aa84168f5231fc17359830e3e56b867c79a7
     type: agent
@@ -1593,13 +1593,13 @@ files:
     type: agent
     size: 1839
   - path: development/agents/post-assembler.md
-    hash: sha256:62696c2dd86d587b77eb58aaced3f41e47c57191265eef96db391d60eaa940a8
+    hash: sha256:fd696bf69a369f3295b571417807aa78cf342214c5b1b6d4c9822fcf5e84e454
     type: agent
-    size: 4432
+    size: 8013
   - path: development/agents/product-team-content-generation.md
-    hash: sha256:e64f0d8706bae5be0917a6c43bb8d47f0bbb8ec0d27c283ada1facd79f215026
+    hash: sha256:b97b72f14bb740fb2eee918f852cfd5e365bf24c2505d650158a21dca30102e3
     type: agent
-    size: 5019
+    size: 6759
   - path: development/agents/qa.md
     hash: sha256:3312e0b7a962fa1c71128e304458d65becd1e8a2729415c631de3b0c1ba5dd65
     type: agent
@@ -1641,9 +1641,9 @@ files:
     type: agent
     size: 1073
   - path: development/agents/visual-director.md
-    hash: sha256:f3af2a6130631acf39bd943ecbd06de06a84096cd62d121c14bc1660581938b3
+    hash: sha256:310956fc35c06a079949f7e7beb044889984e95a9917c4f8487cafb491ce94f0
     type: agent
-    size: 4843
+    size: 8489
   - path: development/checklists/agent-quality-gate.md
     hash: sha256:04d1bf12dd4b0b3d10de04c1825efab742e6475087d3ac9d5c86ca7ff8ec9057
     type: checklist

@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-29T16:45:01.224Z'
+  lastUpdated: '2026-03-30T11:53:59.207Z'
   entityCount: 798
   checksumAlgorithm: sha256
   resolutionRate: 100
@@ -13604,7 +13604,7 @@ entities:
       path: .aios-core/development/agents/conselho-dos-sabios.md
       layer: L2
       type: agent
-      purpose: Conversa direta com um sábio específico
+      purpose: '''Show all available commands and council roster'''
       keywords:
         - conselho
         - dos
@@ -13616,8 +13616,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:5ac320a22f5ac2a3850b04a9906742270e5bc90d4c9cc0a9c7a786508b8ac890
-      lastVerified: '2026-03-25T11:30:36.986Z'
+      checksum: sha256:7299172f2de02f0e47754ab78b72c34da44301df967b487522bd8bdb5fb2655c
+      lastVerified: '2026-03-30T11:53:59.195Z'
     copy-chief:
       path: .aios-core/development/agents/copy-chief.md
       layer: L2
@@ -13760,30 +13760,26 @@ entities:
       path: .aios-core/development/agents/product-team-content-generation.md
       layer: L2
       type: agent
-      purpose: Sistema estruturado (Ebook + Carrossel) para integração Obsidian + Canva Pro, controlado por prompts mestre
+      purpose: '''Show all available commands and modes'''
       keywords:
         - product
         - team
         - content
         - generation
-        - sistema
-        - dois
-        - modos
-        - geração
-        - automatizada
+        - product-team-content-generation
       usedBy: []
       dependencies: []
       adaptability:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:e64f0d8706bae5be0917a6c43bb8d47f0bbb8ec0d27c283ada1facd79f215026
-      lastVerified: '2026-03-25T11:30:37.033Z'
+      checksum: sha256:b97b72f14bb740fb2eee918f852cfd5e365bf24c2505d650158a21dca30102e3
+      lastVerified: '2026-03-30T11:53:59.202Z'
     content-planner:
       path: .aios-core/development/agents/content-planner.md
       layer: L2
       type: agent
-      purpose: '''Plan a new post or carousel'''
+      purpose: '''Show all available commands'''
       keywords:
         - content
         - planner
@@ -13794,13 +13790,13 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:23cf8e0984797cff36c3b2db4443514cde6ba7dde073a8956da8f6167001df17
-      lastVerified: '2026-03-25T11:47:24.980Z'
+      checksum: sha256:7fb951797afa0df12064d0c05c4a38ff3f6c6c2b758ea213c79ebeba197059aa
+      lastVerified: '2026-03-30T11:53:59.198Z'
     copy-specialist:
       path: .aios-core/development/agents/copy-specialist.md
       layer: L2
       type: agent
-      purpose: '''Write copy for a post brief'''
+      purpose: '''Show all available commands'''
       keywords:
         - copy
         - specialist
@@ -13811,13 +13807,13 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:5b4d5c872a9c456eb1781f80dbeaa5621f7b85c998724363612b0dca0f705404
-      lastVerified: '2026-03-25T11:47:24.984Z'
+      checksum: sha256:770a2fdef6aabca0ba5be2d7b7a331afb07a27b71397d14b94beaca65a0654e4
+      lastVerified: '2026-03-30T11:53:59.200Z'
     post-assembler:
       path: .aios-core/development/agents/post-assembler.md
       layer: L2
       type: agent
-      purpose: '''Assemble the final brief'''
+      purpose: '''Show all available commands'''
       keywords:
         - post
         - assembler
@@ -13828,13 +13824,13 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:4759827e7c7ef0205d4170f3f4a2fa765b55eec569592e3ee7aa4e43932d2601
-      lastVerified: '2026-03-25T11:47:24.985Z'
+      checksum: sha256:8ea8304c43e85d33048e552ee5bf5493e026d2c785f94baf656a904491d1ae8b
+      lastVerified: '2026-03-30T11:53:59.201Z'
     visual-director:
       path: .aios-core/development/agents/visual-director.md
       layer: L2
       type: agent
-      purpose: '''Design visual specifications for a post'''
+      purpose: '''Show all available commands'''
       keywords:
         - visual
         - director
@@ -13845,8 +13841,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:d8c477db0f31fac6ee05c04c0f804fcb5ff1203ecb24b4c4d6a478745b72f5f5
-      lastVerified: '2026-03-25T11:47:24.989Z'
+      checksum: sha256:43c57d24352cdde376b5bf5104697cb4d04c34d1b6d2e731bfe984890d7295d8
+      lastVerified: '2026-03-30T11:53:59.203Z'
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -14597,8 +14593,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-      checksum: sha256:6108dd8b68fff04a962828d5927f5fe64273e434bae12f641472133bdb32ebb7
-      lastVerified: '2026-03-14T11:21:56.165Z'
+      checksum: sha256:fb348aef584da50c93a27edf0d0edd51458f0aeca33b5ae03cb82d990f3c8871
+      lastVerified: '2026-03-30T11:30:13.677Z'
     workflow-patterns:
       path: .aios-core/data/workflow-patterns.yaml
       layer: L3

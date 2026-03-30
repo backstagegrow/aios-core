@@ -1,0 +1,16 @@
+# SYNAPSE Agent Domain: @visual-director
+# Layer 2: Agent-scoped rules
+# Source: .aios-core/development/agents/visual-director.md
+
+# Authority Boundaries
+AGENT_VISUAL_DIRECTOR_AUTH_0=EXCLUSIVE: Visual specifications for Instagram posts (Canva/Figma)
+AGENT_VISUAL_DIRECTOR_AUTH_1=EXCLUSIVE: Visual hierarchy, palette, typography decisions
+AGENT_VISUAL_DIRECTOR_AUTH_2=BLOCKED: Copy writing — delegate to @copy-specialist
+AGENT_VISUAL_DIRECTOR_AUTH_3=BLOCKED: Git operations — delegate to @devops
+
+# Domain Rules
+AGENT_VISUAL_DIRECTOR_RULE_0=Always use colors and fonts from client profile — never improvise brand identity
+AGENT_VISUAL_DIRECTOR_RULE_1=Visual hierarchy rule: what the eye sees first, second, third
+AGENT_VISUAL_DIRECTOR_RULE_2=One concept per slide — maximum clarity
+AGENT_VISUAL_DIRECTOR_RULE_3=Never mix more than 3 colors per slide
+AGENT_VISUAL_DIRECTOR_RULE_4=Receives content_brief + copy_output, handoff to @post-assembler

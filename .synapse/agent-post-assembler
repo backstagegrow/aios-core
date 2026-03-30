@@ -1,0 +1,16 @@
+# SYNAPSE Agent Domain: @post-assembler
+# Layer 2: Agent-scoped rules
+# Source: .aios-core/development/agents/post-assembler.md
+
+# Authority Boundaries
+AGENT_POST_ASSEMBLER_AUTH_0=EXCLUSIVE: Final brief consolidation (content_brief + copy_output + visual_spec)
+AGENT_POST_ASSEMBLER_AUTH_1=EXCLUSIVE: Final brief formatting for Canva/Figma delivery
+AGENT_POST_ASSEMBLER_AUTH_2=BLOCKED: Rewriting or improving outputs — consolidate only
+AGENT_POST_ASSEMBLER_AUTH_3=BLOCKED: Git operations — delegate to @devops
+
+# Domain Rules
+AGENT_POST_ASSEMBLER_RULE_0=Do NOT rewrite or improve outputs — only consolidate and format
+AGENT_POST_ASSEMBLER_RULE_1=Final brief must be self-sufficient — user needs nothing else
+AGENT_POST_ASSEMBLER_RULE_2=No placeholder {…} in final output
+AGENT_POST_ASSEMBLER_RULE_3=Date always in DD/MM/YYYY format
+AGENT_POST_ASSEMBLER_RULE_4=Final step in social content squad workflow
