@@ -1,0 +1,20 @@
+{
+    "niches": [
+        "beef",
+        "poultry",
+        "halal"
+    ],
+    "regions": [
+        "Dubai",
+        "China",
+        "Saudi Arabia",
+        "Brazil",
+        "USA"
+    ],
+    "triggers": [
+        "tariffs",
+        "import surge",
+        "trade agreement",
+        "record consumption"
+    ]
+}
