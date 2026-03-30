@@ -115,7 +115,7 @@ workflows:
       - step: 6
         agent: "@architect"
         command: "*plan"
-        task: architect-analyze-impact.md
+        task: plan-create-implementation.md
         output: implementation.yaml
         condition: Critique verdict is APPROVED
 

@@ -5,17 +5,19 @@
 
 ## Resumo Executivo
 
-| Categoria | Status | Issues |
-|-----------|--------|--------|
-| Agentes Core | 🟡 OK c/ gaps | 3 orphaned, naming inconsistency |
-| Chiefs | 🔴 GAP CRÍTICO | Não registrados no SYNAPSE |
-| Clones | 🔴 INACESSÍVEIS | `pro/` submodule vazio |
-| Squads | 🟡 Parcial | Duplicatas, nexus sem agents |
-| SYNAPSE | 🟡 Incompleto | Chiefs ausentes |
-| Workflows | 🟡 Referência quebrada | `.antigravity` path morto |
-| Story-Driven Dev | 🔴 VIOLAÇÃO | Zero active stories |
-| entity-registry | 🟡 Pending | Modified, não commitado |
-| Hooks/Config | 🟡 Recente fix | #582 resolveu hook errors |
+| Categoria | Status Inicial | Status Final | Ação |
+|-----------|---------------|-------------|------|
+| Agentes Core | 🟡 gaps | ✅ Resolvido | clickup-ops/reporting registrados; @squad-creator normalizado |
+| Chiefs | 🔴 GAP CRÍTICO | ✅ Resolvido | 8 domains SYNAPSE criados + manifest atualizado |
+| Clones | 🔴 INACESSÍVEIS | 🔴 Pendente manual | .gitmodules deletado — requer `git submodule add` |
+| Squads | 🟡 Parcial | 🟡 Documentado | Duplicatas são por design (standalone vs squad format) |
+| SYNAPSE | 🟡 Incompleto | ✅ Resolvido | 10 novos domains adicionados (8 chiefs + 2 utility) |
+| Workflows | 🟡 `.antigravity` | ✅ Falso positivo | Arquivo existe; corrigido spec-pipeline step 6 task |
+| Story-Driven Dev | 🔴 VIOLAÇÃO | 🔴 Pendente | Nenhuma active story — violação ativa da Constitution |
+| entity-registry | 🟡 Pending | ✅ Commitado | Sincronizado no commit d32da341 |
+| Hooks/Config | 🟡 Recente fix | ✅ OK | core-config.yaml path corrigido no CLAUDE.md |
+
+**Score:** 68/100 → **87/100**
 
 ---
 

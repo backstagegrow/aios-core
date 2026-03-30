@@ -8,7 +8,7 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-03-30T11:26:57.156Z"
+generated_at: "2026-03-30T11:30:11.877Z"
 generator: scripts/generate-install-manifest.js
 file_count: 1156
 files:
@@ -1453,9 +1453,9 @@ files:
     type: data
     size: 5755
   - path: data/workflow-chains.yaml
-    hash: sha256:6108dd8b68fff04a962828d5927f5fe64273e434bae12f641472133bdb32ebb7
+    hash: sha256:fb348aef584da50c93a27edf0d0edd51458f0aeca33b5ae03cb82d990f3c8871
     type: data
-    size: 9628
+    size: 9630
   - path: data/workflow-patterns.yaml
     hash: sha256:3c3625a5d9eb6eca6f33e3ac35d20fa377b44b061dc1dbf6b04116c6c5722834
     type: data
