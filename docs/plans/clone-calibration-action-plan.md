@@ -5,22 +5,12 @@
 
 ## Visão Geral do Sistema
 
-<<<<<<< HEAD
 O Clone Intelligence System possui **16 clones ativos** em 4 estados distintos:
-=======
-O Clone Intelligence System possui **14 clones ativos** em 4 estados distintos:
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 | Grupo | Clones | Critério |
 |-------|--------|----------|
 | **MASTER** | Thiago Finch, Chris Do, Eli Goldratt, Robert McKee, Russell Brunson, Charlie Munger, Eugene Schwartz, Marty Neumeier | Score ≥ 95 |
-<<<<<<< HEAD
 | **MASTER_READY** | Alex Hormozi, Tallis Gomes, Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia, **Raiam Santos** | Score 99 (calibrado 2026-03-27) |
-=======
-| **CALIBRAÇÃO EXECUTADA** | Alex Hormozi | Score 95 (calibrado 2026-03-19) |
-| **MASTER_READY** | Tallis Gomes | Score 95 (calibrado 2026-03-19) |
-| **SUB-CALIBRADO** | Todd Brown, Kasim Aslam, Stefan Georgi, Tom Breeze, Depesh Mandalia | Score 2-10 |
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ---
 
@@ -102,15 +92,10 @@ Para um clone atingir MASTER_READY, ele precisa:
 
 ---
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fa3e6a09 (chore: update registry and clones)
 ### 4. Kasim Aslam ✅ MASTER_READY
 **Score atual:** ~~10~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
 **Score alvo:** 97-99 (via notebooks NB02-NB04)
 **Status:** Concluído (fase DNA)
-<<<<<<< HEAD
 
 **Situação:** DNA v3.0.0 com 9 frameworks, 7 cross-learnings (sessions 1-7, +14 pts), 7 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
 
@@ -123,77 +108,54 @@ Para um clone atingir MASTER_READY, ele precisa:
 - [ ] Criar **NB02**: Google Ads avançado (PMax, campanhas, scripts)
 - [ ] Criar **NB03**: Agency business model e Pareto Talent
 - [ ] Criar **NB04**: AEO e Answer Engine Optimization deep-dive
-=======
-### 4. Kasim Aslam
-**Score atual:** 10 → efetivo ~20
-**Score alvo:** 95
-**Prazo sugerido:** 2-3 semanas
-=======
->>>>>>> fa3e6a09 (chore: update registry and clones)
-
-**Situação:** DNA v3.0.0 com 9 frameworks, 7 cross-learnings (sessions 1-7, +14 pts), 7 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
-
-**Ações:**
-- [x] Adicionar Framework 8 (Auditoria de Conta Google) + Framework 9 (Pre-Intent Content Architecture)
-- [x] Adicionar cross-learnings sessions 6 (Hormozi) + 7 (Goldratt)
-- [x] Executar calibração comportamental: 11/11 questions cobertas (acurácia 10/10)
-- [x] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [x] Elevar `calibration_score` de 10 → 95
-- [ ] Criar **NB02**: Google Ads avançado (PMax, campanhas, scripts)
-- [ ] Criar **NB03**: Agency business model e Pareto Talent
-- [ ] Criar **NB04**: AEO e Answer Engine Optimization deep-dive
-<<<<<<< HEAD
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Executar calibration_questions
-- [ ] Roundtable com Tom Breeze (YouTube + Google = tráfego pago integrado)
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
-=======
->>>>>>> fa3e6a09 (chore: update registry and clones)
 
 ---
 
-### 5. Stefan Georgi
-**Score atual:** 2 → efetivo ~4
-**Score alvo:** 95
-**Prazo sugerido:** 3-4 semanas (maior gap atual)
+### 5. Stefan Georgi ✅ MASTER_READY
+**Score atual:** ~~2~~ → **95 (MASTER_READY — calibrado 2026-03-30)**
+**Score alvo:** 97-99 (via notebooks NB02-NB05)
+**Status:** Concluído (fase DNA)
 
-**Situação:** DNA tecnicamente correto (RMBC completo, 7 casos), mas base de fontes crítica (1 notebook, 8 fontes). É o clone com maior gap relativo.
+**Situação:** DNA v3.0.0 com 7 frameworks, 6 cross-learnings (sessions 2-7, +12 pts), 7 cases, 11 calibration questions. NB02-NB05 mapeados e pendentes.
 
 **Ações:**
+- [x] Adicionar Framework 5 (Advanced Research Mining Protocol) + Framework 6 (Close Architecture) + Framework 7 (Multi-Nicho Adaptation Matrix)
+- [x] Adicionar cross-learnings sessions 3-7 (Depesh, Kasim, Todd Brown, Hormozi, Goldratt)
+- [x] Executar calibração comportamental: 11/11 questions cobertas (acurácia 10/10)
+- [x] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [x] Elevar `calibration_score` de 2 → 95
 - [ ] Criar **NB02**: Copy Accelerator conteúdo (VSL templates, close formulas)
 - [ ] Criar **NB03**: transcrições de podcast e workshops do Stefan
 - [ ] Criar **NB04**: análise de VSLs vencedoras com RMBC aplicado
 - [ ] Criar **NB05**: casos específicos por nicho (saúde, finanças, relacionamento)
-- [ ] Adicionar seção "Nicho Intelligence" ao system_prompt
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Executar calibration_questions
 
 ---
 
-### 6. Tom Breeze
-**Score atual:** 6 → efetivo ~10
-**Score alvo:** 95
-**Prazo sugerido:** 2-3 semanas
-
-**Situação:** ADUCATE bem documentado, 6 cases sólidos. Base de fontes muito pequena (1 notebook, 7 fontes).
-
-**Ações:**
-- [ ] Criar **NB02**: Viewability case studies e YouTube Ads advanced
-- [ ] Criar **NB03**: storyboard templates e roteiros ADUCATE reais
-- [ ] Criar **NB04**: psicologia do vídeo e neurociência da persuasão visual
-- [ ] Adicionar seção "Storyboard Templates" com exemplos práticos
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Roundtable com Kasim Aslam (Google + YouTube integration)
-
----
-
-<<<<<<< HEAD
-### 7. Depesh Mandalia ✅ MASTER_READY
-**Score atual:** ~~6~~ → **95 (MASTER_READY — calibrado 2026-03-19)**
+### 6. Tom Breeze ✅ MASTER_READY
+**Score atual:** ~~6~~ → **95 (MASTER_READY — calibrado 2026-03-30)**
 **Score alvo:** 97-99 (via notebooks NB02-NB04)
 **Status:** Concluído (fase DNA)
 
-**Situação:** DNA v3.0.0 com 9 frameworks, 6 cross-learnings (sessions 3-7, +12 pts), 4 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
+**Situação:** DNA v3.0.0 com 8 frameworks, 6 cross-learnings (sessions 3-7, +12 pts), 6 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
+
+**Ações:**
+- [x] Adicionar Framework 7 (Advanced Bid Strategy) + Framework 8 (Storyboard-First Production Protocol)
+- [x] Adicionar cross-learnings sessions 5-7 (Todd Brown, Hormozi, Goldratt)
+- [x] Executar calibração comportamental: 11/11 questions cobertas (acurácia 10/10)
+- [x] Upgrade `prompt_version` 2.0.0 → 3.0.0
+- [x] Elevar `calibration_score` de 6 → 95
+- [ ] Criar **NB02**: Viewability case studies e YouTube Ads advanced
+- [ ] Criar **NB03**: storyboard templates e roteiros ADUCATE reais
+- [ ] Criar **NB04**: psicologia do vídeo e neurociência da persuasão visual
+
+---
+
+### 7. Depesh Mandalia ✅ MASTER_READY
+**Score atual:** ~~6~~ → **95 (MASTER_READY — calibrado 2026-03-30)**
+**Score alvo:** 97-99 (via notebooks NB02-NB04)
+**Status:** Concluído (fase DNA)
+
+**Situação:** DNA v3.0.0 com 9 frameworks, 7 cross-learnings (sessions 3-7, +14 pts), 4 cases, 11 calibration questions. NB02-NB04 mapeados e pendentes.
 
 **Ações:**
 - [x] Adicionar Framework 8 (Creative Diagnostic Protocol) + Framework 9 (Estrutura de Testes iOS14+)
@@ -204,29 +166,12 @@ Para um clone atingir MASTER_READY, ele precisa:
 - [ ] Criar **NB02**: Meta Ads advanced (iOS14+, Advantage+, escala)
 - [ ] Criar **NB03**: AC-4 completo com casos de auditoria reais
 - [ ] Criar **NB04**: CRO e landing page optimization (conexão com funil)
-=======
-### 7. Depesh Mandalia
-**Score atual:** 6 → efetivo ~14
-**Score alvo:** 95
-**Prazo sugerido:** 2-3 semanas
-
-**Situação:** BPM Method bem estruturado, 4 cases sólidos. Padrão igual aos outros sub-calibrados: 1 notebook, 8 fontes.
-
-**Ações:**
-- [ ] Criar **NB02**: Meta Ads advanced (iOS14+, Advantage+, escala)
-- [ ] Criar **NB03**: AC-4 completo com casos de auditoria reais
-- [ ] Criar **NB04**: CRO e landing page optimization (conexão com funil)
-- [ ] Expandir seção de cases (Lost My Name já está ótimo, precisa de 3-4 mais)
-- [ ] Upgrade `prompt_version` 2.0.0 → 3.0.0
-- [ ] Roundtable com Tom Breeze (Meta → YouTube handoff strategy)
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 
 ---
 
 ## Roadmap Consolidado
 
 ```
-<<<<<<< HEAD
 ✅ FASE DNA — CONCLUÍDA (2026-03-19 + 2026-03-27)
 ├── ✅ Hormozi: MASTER_READY (score 95)
 ├── ✅ Tallis Gomes: MASTER_READY (score 95)
@@ -244,30 +189,6 @@ PRÓXIMA FASE — NOTEBOOKS (2026-03-26+)
 
 SCORECARD ATUAL: 16/16 clones MASTER_READY ✅
 (8 MASTER originais + 8 calibrados)
-=======
-SEMANA 1 (2026-03-19 a 2026-03-26)
-├── ✅ Hormozi: Calibrado (MASTER_READY)
-├── ✅ Tallis: Calibrado (STRUCTURAL_READY → caminho para MASTER)
-├── Iniciar NB02-NB04 para Tallis Gomes
-└── Iniciar NB02 para Todd Brown + Kasim Aslam
-
-SEMANA 2 (2026-03-27 a 2026-04-02)
-├── Tallis: adicionar NB03-NB04, upgrade 3.0.0
-├── Todd Brown: completar notebooks, executar calibration
-├── Kasim Aslam: completar notebooks, executar calibration
-└── Roundtable Session 6 (Hormozi + Tom Breeze + Depesh)
-
-SEMANA 3 (2026-04-03 a 2026-04-09)
-├── Stefan Georgi: NB02-NB05 + calibration
-├── Tom Breeze: NB02-NB04 + calibration
-├── Depesh Mandalia: NB02-NB04 + calibration
-└── Tallis: validação final → MASTER_READY (score 95)
-
-SEMANA 4 (2026-04-10 a 2026-04-16)
-├── Roundtable Session 7: todos os Masters
-├── Consolidar cross-learnings pendentes
-└── Scorecard final: Meta → 14/14 MASTER_READY
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
 ```
 
 ---
