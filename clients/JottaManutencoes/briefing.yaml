@@ -1,7 +1,7 @@
 # =============================================================================
 # Client Briefing — Jotta Manutenções
 # =============================================================================
-# Fonte: https://www.jottamanutencoes.com.br (extraído em 2026-03-26)
+# Synkra AIOS Client Briefing | Master Version 1.3
 # =============================================================================
 
 # --- META -------------------------------------------------------------------
@@ -9,8 +9,8 @@ meta:
   client_id: "jmt_001"
   client_name: "JottaManutencoes"
   status: active
-  last_updated: "2026-03-26"
-  version: "1.0"
+  last_updated: "2026-04-01"
+  version: "1.4"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -39,30 +39,23 @@ business:
     - "Hidráulica industrial"
     - "Pneumática industrial"
     - "Elétrica industrial"
+  key_clients:
+    - name: "Vale"
+      equipment: "Cilindros, bombas e macacos Catini"
+      drive_folder: "Link separado no Google Drive"
+    - name: "Usiminas"
+      drive_folder: "Link separado no Google Drive"
+    - name: "Caixa Econômica Federal"
+      notes: "Modelo de KPIs baseado nos indicadores exigidos pela Caixa"
   geographic_focus: "João Monlevade – MG (atendimento regional Minas Gerais)"
-  contact:
-    phone: "(31) 3851-1365"
-    whatsapp: "+5531986480098"
-    address: "Rua Sebastião Simão Almeida, 10 — Sion, João Monlevade – MG"
-    linkedin: "https://br.linkedin.com/company/jottamanutencoes"
-    website: "https://www.jottamanutencoes.com.br"
 
-# --- ASSISTÊNCIAS TÉCNICAS AUTORIZADAS --------------------------------------
-authorized_brands:
-  - Puma
-  - Marcon
-  - Makita
-  - Kärcher
-  - Ingersoll
-  - Bozza
-  - Bovenau
-  - Berg
-  - Bosch
-  - Branco
-  - Kito
-  - DeWalt
-  - Milwaukee
-  - Paletrans
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "Service-Demand Alignment (SDA)"
+  pillars:
+    - "Lead Time: Alinhamento rigoroso com o tempo de parada da planta"
+    - "Multi-disciplinaridade: Cobertura total em um único fornecedor"
+    - "Garantia Autorizada: Respaldo das marcas líderes"
 
 # --- ICP (Ideal Customer Profile) -------------------------------------------
 icp:
@@ -77,35 +70,29 @@ icp:
     - "Equipamentos parados gerando perda de produção"
     - "Dificuldade em encontrar técnicos especializados confiáveis na região"
     - "Lead time longo de fornecedores sem alinhamento com a demanda"
-    - "Falta de assistência técnica autorizada para marcas premium (Makita, Bosch, Kärcher...)"
-    - "Custos altos com manutenção corretiva por falta de manutenção preventiva"
+    - "Falta de assistência técnica autorizada para marcas premium"
   desires:
     - "Minimizar tempo de parada de equipamentos (downtime)"
     - "Ter um parceiro de manutenção ágil e confiável"
     - "Garantia técnica nos reparos realizados"
-    - "Cobertura de múltiplos tipos de manutenção em um único fornecedor"
   objections:
     - "Já temos fornecedores de manutenção estabelecidos"
-    - "Precisamos de garantia de prazo de entrega (lead time)"
-    - "Distância da empresa pode afetar tempo de atendimento"
+    - "Precisamos de garantia de prazo de entrega"
   buying_triggers:
     - "Equipamento crítico parado com urgência de reparo"
-    - "Insatisfação com fornecedor atual (prazo, qualidade)"
+    - "Insatisfação com fornecedor atual"
     - "Necessidade de assistência técnica autorizada de marca específica"
-    - "Expansão da planta industrial"
 
 # --- POSITIONING ------------------------------------------------------------
 positioning:
   value_proposition: "Manutenção industrial de alta performance com assistência técnica autorizada para 14 marcas líderes, garantindo lead time alinhado com a demanda do cliente."
   differentiators:
-    - "Assistência técnica autorizada de 14 marcas premium (Bosch, Makita, Kärcher, DeWalt, Milwaukee...)"
+    - "Assistência técnica autorizada de 14 marcas premium"
     - "Cobertura completa: mecânica, elétrica, hidráulica, pneumática, ferrovia e talhas"
-    - "Localização estratégica em João Monlevade — hub industrial do Vale do Aço"
-    - "Foco em lead time alinhado com a demanda do cliente"
+    - "Localização estratégica em João Monlevade"
   main_competitors:
     - "Oficinas mecânicas industriais regionais não autorizadas"
-    - "Distribuidores de equipamentos com pós-venda próprio"
-  competitive_advantage: "Única empresa na região com autorização técnica de múltiplas marcas líderes + cobertura multidisciplinar de manutenção industrial"
+  competitive_advantage: "Única empresa na região com autorização técnica de múltiplas marcas líderes + cobertura multidisciplinar"
 
 # --- COPY -------------------------------------------------------------------
 copy:
@@ -113,23 +100,36 @@ copy:
     - "Soluções inteligentes em manutenção industrial — quando seu equipamento para, nós colocamos de volta em operação."
     - "Assistência técnica autorizada das marcas que você já usa na sua planta."
     - "Lead time alinhado com a sua demanda. Sem surpresas, sem atrasos."
-    - "Uma empresa, todas as manutenções: mecânica, elétrica, hidráulica, pneumática."
   emotional_triggers:
     - "Segurança operacional"
     - "Confiança técnica"
     - "Agilidade no atendimento"
   proof_elements:
     testimonials_available: false
-    case_studies: true  # Newsletter menciona visitações de clientes e cases
+    case_studies:
+      - "Manutenções em Plantas de Mineração/Siderurgia local"
+      - "Cases de automação de lavadoras industriais"
+      - "Equipamentos Vale: cilindros, bombas e macacos Catini"
+      - "Atendimento Usiminas"
     certifications:
       - "Assistência Técnica Autorizada Bosch"
       - "Assistência Técnica Autorizada Makita"
       - "Assistência Técnica Autorizada Kärcher"
-      - "Assistência Técnica Autorizada DeWalt"
-      - "Assistência Técnica Autorizada Milwaukee"
     social_proof_numbers: "14+ marcas com assistência técnica autorizada"
-  primary_cta: "Solicitar Atendimento"
-  secondary_cta: "Ver Assistências Técnicas Autorizadas"
+    kpis:
+      accessibility: "100%"
+      first_response: "6 horas"
+      first_visit: "24 horas"
+      resolution_time: "48 horas"
+      equipment_efficiency: "95% (taxa de garantia acionada < 5%)"
+      notes: "KPIs baseados no modelo exigido pela Caixa Econômica Federal"
+
+# --- OFFERS -----------------------------------------------------------------
+offers:
+  main_offer:
+    name: "Manutenção Preventiva/Corretiva on-demand"
+    price_range: "Sob consulta"
+    description: "Atendimento técnico especializado com peças originais e garantia autorizada."
 
 # --- CHANNELS ---------------------------------------------------------------
 channels:
@@ -148,11 +148,181 @@ constraints:
   what_to_avoid:
     - "Linguagem informal ou leviana sobre equipamentos industriais"
     - "Promessas de prazo sem alinhamento com operação"
-    - "Conteúdo genérico não-técnico"
   brand_restrictions:
     - "Não utilizar nomes de concorrentes diretos"
-    - "Respeitar guidelines das marcas autorizadas ao mencionar parcerias"
-  legal_notes: "Assistências técnicas autorizadas devem ser mencionadas com precisão — não extrapolar marcas não autorizadas. LGPD aplicável para dados de clientes industriais."
+    - "Respeitar guidelines das marcas autorizadas"
+  legal_notes: "LGPD aplicável para dados de clientes industriais."
 
-# USO: Este briefing deve ser carregado por agentes antes de qualquer trabalho neste cliente.
-# Agentes: copy-chief, nano-banana-generator, aios-dev, aios-ux
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands:
+# --- BOOK / PORTFOLIO -----------------------------------------------------------
+book:
+  status: "em_producao"
+  format: "PDF personalizável"
+  structure:
+    - "Capa — autoridade técnica e informações principais"
+    - "Quem Somos — apresentação e fundamentos da Jotta Manutenções"
+    - "Assistências Técnicas — logos das marcas representadas (lista a filtrar de 14)"
+    - "Relatórios Técnicos + Vídeos — QR Code para Google Drive"
+    - "Serviços Oferecidos — hidráulica, elétrica, pneumática, industrial, ferrovia"
+    - "Portfólio de Clientes — logos dos principais clientes"
+    - "Fluxo de Trabalho — Solicitação → Diagnóstico → Orçamento → Execução → Teste → Documentação → Entrega"
+    - "Garantia Técnica — cobertura, acionamento via WhatsApp, documentação"
+    - "Infográfico de KPIs — tempos de resposta e indicadores de eficiência"
+  proposals:
+    - client: "Vale"
+      content: "Vídeos e relatórios específicos de cilindros, bombas e macacos Catini"
+    - client: "Usiminas"
+      content: "Vídeos e relatórios específicos do equipamento relevante"
+  pending_from_jotta:
+    - "Lista filtrada das 14 assistências técnicas (por importância) — prazo: semana 06/04"
+    - "Tempos de resposta específicos por etapa (diagnóstico, orçamento, execução)"
+    - "Fotos do equipamento Caixa"
+    - "Informações dos clientes Vale e Usiminas para personalização das propostas"
+    - "Logos dos principais clientes atendidos"
+
+# --- SOCIAL MEDIA INTELLIGENCE ------------------------------------------------
+# Scraping realizado em: 2026-04-04
+# Fontes: WebSearch (Instagram bloqueado para scraping direto, LinkedIn requer login)
+social_media_intelligence:
+
+  instagram:
+    handle: "@jotta.manutencoes"
+    url: "https://www.instagram.com/jotta.manutencoes/"
+    data_collected: "2026-04-04"
+    metrics:
+      followers: 234
+      following: 49
+      total_posts: 139
+    bio:
+      description: "Soluções inteligentes em serviços de manutenção em equipamentos: Hidráulicos, mecânicos e pneumáticos."
+      hashtag_brand: "#JUNTOSSOMOSJOTTA"
+      links: "Não confirmados via scraping direto (perfil requer acesso autenticado)"
+    tone_of_voice:
+      - "Técnico"
+      - "Industrial"
+      - "Focado em equipamentos e serviços"
+    recurring_themes:
+      - "Manutenção de equipamentos hidráulicos"
+      - "Manutenção mecânica"
+      - "Manutenção pneumática"
+      - "Equipamentos industriais"
+      - "Revitalização e customização de equipamentos"
+    services_mentioned:
+      - "Talhas elétricas"
+      - "Lavadoras industriais"
+      - "Equipamentos ferroviários"
+      - "Mecânica industrial"
+      - "Hidráulica industrial"
+      - "Pneumática industrial"
+      - "Elétrica industrial"
+    ctas_visible: "Não confirmados via scraping direto"
+    stories_highlights: "Não acessíveis sem autenticação"
+    scraping_notes: "Perfil é público mas Instagram bloqueia scraping automatizado. Dados de métricas obtidos via indexação do Google. Acesso manual recomendado para posts, destaques e CTAs."
+
+  linkedin:
+    url: "https://br.linkedin.com/company/jottamanutencoes"
+    data_collected: "2026-04-04"
+    company_description: >
+      A Jotta Manutenções oferece soluções em manutenção de alta performance, atendendo os processos
+      de grandes indústrias. A empresa atua tanto na manutenção da parte elétrica quanto da parte
+      mecânica de diversos tipos de equipamentos, sendo referência na revitalização e customização
+      de equipamentos. Fundada com o objetivo de prestar serviços para clientes de mineração,
+      indústrias siderúrgicas, ferroviárias, linhas de transmissão e prestadoras de serviços.
+    metrics:
+      employees_range: "21-50 funcionários"
+      followers: "Não disponível sem login"
+    location: "João Monlevade, MG, Brasil"
+    sector: "Manutenção e reparo de máquinas e equipamentos industriais"
+    cnae: "C-3314-7/99 (manutenção e reparação de outras máquinas e equipamentos para uso industrial)"
+    founded: "10/11/1994"
+    years_in_market: 31
+    administrators:
+      - "Rafaela Junea Leal Schoenenkorb"
+      - "Talles Henrique Prodigios Schoenenkorb"
+    services_listed:
+      - "Manutenção de talhas elétricas"
+      - "Manutenção de lavadoras industriais"
+      - "Manutenção de equipamentos ferroviários"
+      - "Serviços mecânicos"
+      - "Serviços hidráulicos"
+      - "Serviços pneumáticos"
+      - "Serviços elétricos"
+      - "Assistência técnica"
+    specialties:
+      - "Mineração"
+      - "Siderurgia"
+      - "Ferrovia"
+      - "Linhas de transmissão"
+      - "Prestadoras de serviços industriais"
+    recent_posts_found:
+      - activity_id: "7209646195646902273"
+        url: "https://pt.linkedin.com/posts/jottamanutencoes_jottamanutencoes-manutencao-equipamentos-activity-7209646195646902273-z7pI"
+        hashtags: ["#jottamanutencoes", "#manutencao", "#equipamentos"]
+        content_preview: "Post sobre manutenção e equipamentos (conteúdo completo requer login)"
+      - activity_id: "7201314157218959361"
+        url: "https://pt.linkedin.com/posts/jottamanutencoes_jottamanutencoes-manutencao-equipamentos-activity-7201314157218959361-A23X"
+        hashtags: ["#jottamanutencoes", "#manutencao", "#equipamentos"]
+        content_preview: "Post sobre manutenção e equipamentos (conteúdo completo requer login)"
+      - activity_id: "7241038077886971904"
+        url: "https://pt.linkedin.com/posts/jottamanutencoes_jottamanutencoes-manutencao-equipamentos-activity-7241038077886971904-OxEP"
+        hashtags: ["#jottamanutencoes", "#manutencao", "#equipamentos"]
+        content_preview: "Post sobre manutenção e equipamentos (conteúdo completo requer login)"
+    post_frequency_estimate: "Baixa (poucos posts indexados publicamente)"
+    scraping_notes: "LinkedIn requer autenticação para acesso completo. Dados parciais obtidos via indexação do Google. Acesso manual recomendado para seguidores, posts completos e dados de engajamento."
+
+  facebook:
+    url: "https://www.facebook.com/jottaltda/"
+    data_collected: "2026-04-04"
+    notes: >
+      Presença confirmada no Facebook. Empresa sediada em João Monlevade, MG. Foco em
+      manutenção elétrica e mecânica. Referência em revitalização e customização de
+      equipamentos industriais. Dados completos requerem acesso autenticado.
+
+  other_sources:
+    website: "https://www.jottamanutencoes.com.br/"
+    cnpj: "00.288.255/0001-00"
+    address: "Rua Sebastião Simão de Almeida, 10 – Sion, João Monlevade – MG, 35.931-209"
+    phone_reference: "(41) 3090-0222 (número encontrado vinculado à Jotta R. Engenharia em Curitiba — verificar se é o mesmo grupo)"
+    emails:
+      - "comercial01@jottamanutencoes.com.br"
+      - "comercial02@jottamanutencoes.com.br"
+    operating_hours: "Segunda a Quinta: 07h–17h | Sexta: 07h–16h"
+    business_directories:
+      - "https://www.econodata.com.br/consulta-empresa/00288255000100-jotta-manutencoes-ltda"
+      - "https://cnpj.biz/00288255000100"
+      - "https://www.solutudo.com.br/empresas/mg/joao-monlevade/instalacao-e-manutencao-de-maquinas/jotta-manutencoes-ltda-10020100"
+      - "https://www.signalhire.com/companies/jotta-manutencoes"
+
+# --- MEETINGS -------------------------------------------------------------------
+meetings:
+  last_meeting:
+    date: "2026-04-01"
+    participants: ["Thales", "Neide", "Erick Sena", "Elnatan Uriel"]
+    topic: "Estruturação do book/portfólio e propostas técnicas para Vale e Usiminas"
+  next_meetings:
+    - date: "2026-04-08"
+      day: "Terça-feira"
+      objective: "Finalizar formatação das 2 propostas técnicas (Vale e Usiminas)"
+      notes: "Horário a confirmar. Reunião do dia 9 movida para 8 (Elnatan e Bruna têm lançamento em BH)"
+    - date: "2026-04-08"
+      day: "Quarta-feira"
+      objective: "Apresentação do book finalizado"
+      notes: "Mesmo horário da reunião regular"
+
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands:
+  - Puma
+  - Marcon
+  - Makita
+  - Kärcher
+  - Ingersoll
+  - Bozza
+  - Bovenau
+  - Berg
+  - Bosch
+  - Branco
+  - Kito
+  - DeWalt
+  - Milwaukee
+  - Paletrans

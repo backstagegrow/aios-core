@@ -1,7 +1,7 @@
 # =============================================================================
 # Client Briefing — BKS Grow
 # =============================================================================
-# Synkra AIOS Client Briefing | Master Version (Niche Focus: Events)
+# Synkra AIOS Client Briefing | Master Version 1.3
 # =============================================================================
 
 # --- META -------------------------------------------------------------------
@@ -9,8 +9,8 @@ meta:
   client_id: "bks_001"
   client_name: "BKSGrow"
   status: active
-  last_updated: "2026-03-13"
-  version: "1.2"
+  last_updated: "2026-03-30"
+  version: "1.3"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -37,6 +37,14 @@ business:
     - "Implementação de Processos Comerciais e CRM"
     - "Diagnóstico de Growth e Revenue Audit"
   geographic_focus: "Nacional (Base em São Paulo)"
+
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "The Growth Manual for Events"
+  pillars:
+    - "Posicionamento: Diferenciação antes de anúncios"
+    - "Processos: Manual de vendas e CRM operante"
+    - "Aquisição: Funis high-ticket específicos para o nicho"
 
 # --- ICP (Ideal Customer Profile) -------------------------------------------
 icp:
@@ -70,7 +78,7 @@ icp:
 positioning:
   value_proposition: "Construímos o manual de crescimento previsível para empresas de eventos, transformando 'contatos aleatórios' em pipeline comercial sólido."
   differentiators:
-    - "Foco EXCLUSIVO no setor de eventos (conhecimento profundo dos gatilhos do mercado)"
+    - "Foco EXCLUSIVO no setor de eventos"
     - "Combinação de Estratégia + Implementação Hands-on"
     - "Metodologia que resolve o posicionamento ANTES de queimar dinheiro em anúncios"
   main_competitors:
@@ -90,10 +98,10 @@ copy:
     - "Controle (Dados vs Achismo)"
   proof_elements:
     testimonials_available: true
-    case_studies: true
-    social_proof_numbers: "Clientes com 100% de ocupação e reposicionamento premium realizado."
-  primary_cta: "Agende um Diagnóstico"
-  secondary_cta: "Veja nossos Cases"
+    case_studies:
+      - "Cases de Reposicionamento Premium"
+      - "Full capacity event spaces"
+    social_proof_numbers: "Clientes com 100% de ocupação e reposicionamento premium realizado"
 
 # --- OFFERS -----------------------------------------------------------------
 offers:
@@ -128,3 +136,6 @@ constraints:
     - "Sempre peer-to-peer (CEO para CEO)"
     - "Não aceitar clientes fora do setor de eventos (manutenção do foco)"
   legal_notes: "Garantia de entrega da estrutura estratégica; resultados financeiros dependem da execução comercial do cliente."
+
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands: []

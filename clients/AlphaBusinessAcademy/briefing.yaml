@@ -1,7 +1,7 @@
 # =============================================================================
 # Client Briefing — Alpha Business Academy
 # =============================================================================
-# Synkra AIOS Client Briefing | Master Version (v1.1 - Real Data Validated)
+# Synkra AIOS Client Briefing | Master Version 1.3
 # =============================================================================
 
 # --- META -------------------------------------------------------------------
@@ -9,8 +9,8 @@ meta:
   client_id: "aba_001"
   client_name: "AlphaBusinessAcademy"
   status: active
-  last_updated: "2026-03-13"
-  version: "1.1"
+  last_updated: "2026-03-30"
+  version: "1.3"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -78,9 +78,9 @@ icp:
 positioning:
   value_proposition: "A transição definitiva do empresário operacional para o dono de negócio com direção, ambiente de elite e decisão estratégica."
   differentiators:
-    - "Mentores de Campo: Lucas Silva (Monster Dog/Ponto Alpha) e José Ricardo (+500 lojas)"
-    - "Foco em Food Service: Método validado no mercado real e não apenas teórico"
-    - "Filtro de Preço: O valor de R$35k garante um networking de altíssimo nível"
+    - "Mentores de Campo: Lucas Silva e José Ricardo"
+    - "Foco em Food Service: Método validado no mercado real"
+    - "Filtro de Preço: networking de altíssimo nível"
   main_competitors:
     - "G4 Educação"
     - "Empresa Autogerenciável (EAG)"
@@ -97,14 +97,14 @@ copy:
     - "Status (Pertencer à Elite Alpha)"
     - "Segurança (Caminho já trilhado por quem tem +500 lojas)"
   proof_elements:
+    testimonials_available: true
     case_studies:
       - "Expansão Monster Dog"
       - "Rede Ponto Alpha Café"
-    social_proof_numbers: "+500 lojas no ecossistema dos mentores, imersões presenciais recorrentes."
-  primary_cta: "Aplique para a Próxima Imersão"
-  secondary_cta: "Fale com um Mentor Alpha"
+    social_proof_numbers: "+500 lojas no ecossistema dos mentores, imersões presenciais recorrentes"
 
 # --- OFFERS -----------------------------------------------------------------
+# Unit values confirmed as one-time mentorship/immersion
 offers:
   main_offer:
     name: "Mentoria Alpha Master"
@@ -113,7 +113,7 @@ offers:
   entry_offer:
     name: "Imersão O Caminho do Dono"
     price_range: "R$2.000 - R$5.000"
-    description: "2 dias presenciais no Morumbi Office Tower para tomada de decisões e estruturação tática."
+    description: "2 dias presenciais no Morumbi Office Tower."
 
 # --- CHANNELS ---------------------------------------------------------------
 channels:
@@ -133,3 +133,6 @@ constraints:
     - "Paleta: Dark Mode (#0A0A0A) + Gold (#C9A24A)"
     - "Tipografia: Inter (Obrigatória)"
   legal_notes: "Processo seletivo obrigatório para mentoria high-ticket."
+
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands: []

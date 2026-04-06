@@ -1,14 +1,16 @@
 # =============================================================================
 # Client Briefing — Via BR Cenografia
 # =============================================================================
+# Synkra AIOS Client Briefing | Master Version 1.3
+# =============================================================================
 
 # --- META -------------------------------------------------------------------
 meta:
   client_id: "vbc_001"
   client_name: "ViaBrCenografia"
   status: active
-  last_updated: "2026-03-13"
-  version: "1.0"
+  last_updated: "2026-03-30"
+  version: "1.3"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -36,6 +38,14 @@ business:
     - "Projetos Especiais (soluções únicas de impacto visual)"
     - "Produção Técnica (execução a partir de projetos 3D/Arquitetura)"
   geographic_focus: "Global (Brasil: SP/RJ; Europa: Portugal/Sintra; EUA: Flórida)"
+
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "Imersão Estratégica & Visualização 3D Real"
+  pillars:
+    - "Design: Psicologia de consumo aplicada ao espaço"
+    - "Logística: Estrutura própria em 3 continentes"
+    - "Impacto: Fidelidade absoluta entre projeto e entrega"
 
 # --- ICP (Ideal Customer Profile) -------------------------------------------
 icp:
@@ -85,10 +95,23 @@ copy:
     - "Exclusividade (Projetos do zero)"
   proof_elements:
     testimonials_available: true
-    case_studies: true
+    case_studies:
+      - "Heineken"
+      - "Coca-Cola"
+      - "Samsung"
+      - "Itaú"
+      - "Volkswagen"
+      - "Riot Games"
+      - "Brahma"
+      - "Sky"
+      - "M&M's"
+      - "Birkenstock"
+      - "Pirelli"
+      - "Garena"
+      - "Miss Universe 2011"
     certifications:
       - "Estrutura Victor 360 (Europa)"
-    social_proof_numbers: "+30 anos, Bases em 3 continentes, Cases: Heineken, Bauducco, Brazil Games"
+    social_proof_numbers: "+30 anos, Bases em 3 continentes, Portfólio de Marcas Globais"
   primary_cta: "Solicite um Orçamento"
   secondary_cta: "Fale com um Especialista"
 
@@ -127,3 +150,7 @@ constraints:
     - "Não utilizar nomes de competidores"
     - "Manter o rigor técnico 'sem surpresas' na entrega"
   legal_notes: "Projetos em conformidade com normas técnicas globais e LGPD para dados de contato."
+
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands:
+  - "Victor 360"

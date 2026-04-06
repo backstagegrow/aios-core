@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CLÍNICA VÉRTICE — Medicina Preventiva &amp; Longevidade</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          bg: "#080C12",
+          surface: "#0E1420",
+          border: "#1A2235",
+          copper: "#B87333",
+          "copper-light": "#D4956A",
+          snow: "#F0F2F5",
+          muted: "#7A8499",
+          teal: "#2A7A8A",
+        },
+        fontFamily: {
+          serif: ["DM Serif Display", "serif"],
+          sans: ["DM Sans", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  * { box-sizing: border-box; }
+  body { background:#080C12; color:#F0F2F5; font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+  .serif { font-family:'DM Serif Display',serif; }
+  .label { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#B87333; }
+  .no-scrollbar::-webkit-scrollbar { display:none; }
+  .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+  /* Placeholders */
+  .ph-hero { background: linear-gradient(135deg, #0E1420 0%, #1A2235 50%, #0E1420 100%); }
+  .ph-doctor { background: linear-gradient(160deg, #12181F 0%, #1C2530 40%, #0E1420 100%); }
+  .ph-clinic { background: linear-gradient(135deg, #0A0F14 0%, #1A2235 100%); }
+
+  /* Glass */
+  .glass { background:rgba(255,255,255,.04); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.08); }
+
+  /* Copper gradient button */
+  .btn-copper { background:linear-gradient(90deg,#B87333,#C8903F); color:#fff; font-weight:700; font-size:12px; letter-spacing:.16em; text-transform:uppercase; transition:filter .2s; }
+  .btn-copper:hover { filter:brightness(1.12); }
+
+  /* Scrollbar for carousels */
+  .carousel { display:flex; overflow-x:auto; gap:2rem; padding-bottom:1rem; scroll-snap-type:x mandatory; }
+  .carousel > * { scroll-snap-align:start; flex-shrink:0; }
+
+  /* Navbar scroll */
+  nav.scrolled { background:rgba(8,12,18,.92); backdrop-filter:blur(16px); border-bottom:1px solid #1A2235; }
+
+  /* Data viz dots */
+  .dot { width:10px; height:10px; border-radius:9999px; }
+
+  /* Progress bar */
+  .prog-track { background:#1A2235; height:3px; width:100%; }
+  .prog-fill  { background:#B87333; height:100%; box-shadow:0 0 8px rgba(184,115,51,.5); }
+
+  /* Card hover */
+  .card-hover { transition:border-color .4s, box-shadow .4s; }
+  .card-hover:hover { border-color:rgba(184,115,51,.35) !important; box-shadow:0 0 30px rgba(184,115,51,.07); }
+
+  /* Section label line */
+  .section-label::before { content:''; display:inline-block; width:24px; height:1px; background:#B87333; margin-right:10px; vertical-align:middle; }
+
+  /* Connecting line for steps */
+  .steps-line { position:relative; }
+  .steps-line::before { content:''; position:absolute; top:24px; left:calc(12.5% + 12px); right:calc(12.5% + 12px); height:1px; background:linear-gradient(90deg,#B87333,#1A2235,#1A2235,#B87333); opacity:.3; pointer-events:none; }
+
+  @media(max-width:768px) { .steps-line::before { display:none; } }
+
+  /* ── ANIMATIONS ── */
+  /* Scroll fade-up */
+  .reveal { opacity:0; transform:translateY(32px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:.1s; }
+  .reveal-delay-2 { transition-delay:.2s; }
+  .reveal-delay-3 { transition-delay:.3s; }
+  .reveal-delay-4 { transition-delay:.4s; }
+
+  /* Dot pop */
+  @keyframes dotPop {
+    0%   { transform:scale(0); opacity:0; }
+    70%  { transform:scale(1.3); opacity:1; }
+    100% { transform:scale(1); opacity:1; }
+  }
+  .dot { width:10px; height:10px; border-radius:9999px; transform:scale(0); opacity:0; }
+  .dots-animated .dot { animation:dotPop .4s cubic-bezier(.22,1,.36,1) forwards; }
+
+  /* Progress bar fill */
+  @keyframes progFill {
+    from { width:0%; }
+    to   { width:78%; }
+  }
+  .prog-fill { background:#B87333; height:100%; width:0%; box-shadow:0 0 8px rgba(184,115,51,.5); }
+  .prog-animated .prog-fill { animation:progFill 1.2s cubic-bezier(.22,1,.36,1) .6s forwards; }
+
+  /* Mini stat pop */
+  @keyframes statPop {
+    0%   { opacity:0; transform:scale(.85) translateY(8px); }
+    100% { opacity:1; transform:scale(1) translateY(0); }
+  }
+  .stat-box { opacity:0; }
+  .stats-animated .stat-box { animation:statPop .5s cubic-bezier(.22,1,.36,1) forwards; }
+  .stats-animated .stat-box:nth-child(1) { animation-delay:.8s; }
+  .stats-animated .stat-box:nth-child(2) { animation-delay:1s; }
+
+  /* Glow pulse on card */
+  @keyframes glowPulse {
+    0%, 100% { box-shadow:0 0 40px rgba(184,115,51,.06); }
+    50%       { box-shadow:0 0 60px rgba(184,115,51,.14); }
+  }
+  .viz-card { animation:glowPulse 3s ease-in-out 1.5s infinite; }
+
+  /* Scanning line */
+  @keyframes scanLine {
+    0%   { top:0%; opacity:.6; }
+    100% { top:100%; opacity:0; }
+  }
+  .scan-line {
+    position:absolute; left:0; right:0; height:1px;
+    background:linear-gradient(90deg, transparent, #B87333, transparent);
+    animation:scanLine 2.8s linear infinite;
+    pointer-events:none;
+  }
+
+  /* Counter number */
+  @keyframes countUp {
+    from { opacity:0; transform:translateY(8px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .count-anim { animation:countUp .6s ease forwards; }
+</style>
+</head>
+<body>
+
+<!-- ═══ STICKY NAVBAR ═══ -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div>
+      <span class="serif text-xl text-snow tracking-tight">VÉRTICE</span>
+      <span class="block text-[10px] uppercase tracking-[.3em] text-copper" style="margin-top:2px">MEDICINA PREVENTIVA</span>
+    </div>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#metodologia" class="text-muted hover:text-snow transition-colors text-sm">Metodologia</a>
+      <a href="#programas"   class="text-muted hover:text-snow transition-colors text-sm">Programas</a>
+      <a href="#resultados"  class="text-muted hover:text-snow transition-colors text-sm">Resultados</a>
+      <a href="#sobre"       class="text-muted hover:text-snow transition-colors text-sm">Dr. Rafael</a>
+      <button class="btn-copper px-6 py-2.5 text-[11px]">Avaliação Gratuita</button>
+    </div>
+    <button id="hamburger" class="md:hidden text-muted">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#080C12] border-t border-[#1A2235] px-6 pb-6 space-y-4">
+    <a href="#metodologia" class="block text-muted hover:text-snow py-2 text-sm">Metodologia</a>
+    <a href="#programas"   class="block text-muted hover:text-snow py-2 text-sm">Programas</a>
+    <a href="#resultados"  class="block text-muted hover:text-snow py-2 text-sm">Resultados</a>
+    <a href="#sobre"       class="block text-muted hover:text-snow py-2 text-sm">Dr. Rafael</a>
+    <button class="btn-copper block w-full px-6 py-3 text-center mt-2">Avaliação Gratuita</button>
+  </div>
+</nav>
+
+<!-- ═══ [S1] HERO ═══ -->
+<section class="min-h-screen flex items-center pt-24 px-6 relative overflow-hidden"
+  style="background:#080C12; background-image:radial-gradient(circle at 70% 25%, rgba(42,122,138,.08) 0%, transparent 55%)">
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
+
+    <!-- Left -->
+    <div class="md:col-span-7 space-y-8">
+      <span class="label section-label">Medicina Preventiva • São Paulo</span>
+      <h1 class="serif leading-[1.05]" style="font-size:clamp(48px,7vw,88px); color:#F0F2F5">
+        Seu corpo sabe<br>
+        o que vai acontecer.<br>
+        <span style="color:#B87333">Nós traduzimos.</span>
+      </h1>
+      <p class="text-muted leading-relaxed max-w-lg" style="font-size:18px">
+        147 biomarcadores. Análise genética completa. Um Protocolo de Longevidade construído exclusivamente para o seu organismo — não para uma média populacional.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button class="btn-copper px-8 py-4">Quero meu Protocolo de Longevidade</button>
+        <button class="px-8 py-4 text-sm font-semibold text-copper transition-colors hover:bg-copper/10"
+          style="border:1px solid #B87333; background:transparent; cursor:pointer">Ver como funciona →</button>
+      </div>
+      <!-- Data strip -->
+      <div class="flex flex-wrap gap-8 pt-6" style="border-top:1px solid #1A2235">
+        <div><span class="serif block text-snow" style="font-size:36px;color:#B87333">147</span><span class="text-[11px] uppercase tracking-widest text-muted">Biomarcadores</span></div>
+        <div><span class="serif block text-snow" style="font-size:36px;color:#B87333">23</span><span class="text-[11px] uppercase tracking-widest text-muted">Anos de experiência</span></div>
+        <div><span class="serif block text-snow" style="font-size:36px;color:#B87333">90</span><span class="text-[11px] uppercase tracking-widest text-muted">Dias por revisão</span></div>
+        <div><span class="serif block text-snow" style="font-size:36px;color:#B87333">100%</span><span class="text-[11px] uppercase tracking-widest text-muted">Individualizado</span></div>
+      </div>
+    </div>
+
+    <!-- Right — Data Viz Card -->
+    <div class="md:col-span-5">
+      <div id="viz-card" class="viz-card" style="background:#0E1420; border:1px solid #1A2235; padding:2rem; position:relative; overflow:hidden;">
+        <div class="scan-line" id="scan-line" style="opacity:0"></div>
+        <span class="label" style="font-size:10px; letter-spacing:.2em">Perfil Biométrico</span>
+        <!-- Dots grid -->
+        <div id="dots-grid" class="grid gap-3 my-6 dots-animated" style="grid-template-columns:repeat(4,auto); width:fit-content">
+          <div class="dot" style="background:#B87333;          animation-delay:.05s"></div>
+          <div class="dot" style="background:rgba(42,122,138,.6); animation-delay:.10s"></div>
+          <div class="dot" style="background:rgba(240,242,245,.1);animation-delay:.15s"></div>
+          <div class="dot" style="background:#B87333;          animation-delay:.20s"></div>
+          <div class="dot" style="background:rgba(42,122,138,.5); animation-delay:.25s"></div>
+          <div class="dot" style="background:rgba(240,242,245,.12);animation-delay:.30s"></div>
+          <div class="dot" style="background:#B87333;          animation-delay:.35s"></div>
+          <div class="dot" style="background:rgba(42,122,138,.4); animation-delay:.40s"></div>
+          <div class="dot" style="background:rgba(240,242,245,.08);animation-delay:.45s"></div>
+          <div class="dot" style="background:#B87333;          animation-delay:.50s"></div>
+          <div class="dot" style="background:rgba(42,122,138,.6); animation-delay:.55s"></div>
+          <div class="dot" style="background:rgba(240,242,245,.1);animation-delay:.60s"></div>
+        </div>
+        <p class="text-muted text-sm mt-2">147 biomarcadores analisados</p>
+        <div id="prog-wrap" class="prog-animated mt-6">
+          <p class="text-muted text-xs mb-2">Protocolo: <span id="prog-pct">0</span>% otimizado</p>
+          <div class="prog-track"><div class="prog-fill"></div></div>
+        </div>
+        <!-- Mini stats -->
+        <div id="stat-boxes" class="grid grid-cols-2 gap-4 mt-8 stats-animated">
+          <div class="stat-box" style="border:1px solid #1A2235; padding:1rem">
+            <span class="serif block text-copper" style="font-size:22px">-9</span>
+            <span class="text-[10px] uppercase tracking-wider text-muted">Anos Biol.</span>
+          </div>
+          <div class="stat-box" style="border:1px solid #1A2235; padding:1rem">
+            <span class="serif block text-copper" style="font-size:22px">A+</span>
+            <span class="text-[10px] uppercase tracking-wider text-muted">Genoma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S2] PROBLEMA ═══ -->
+<section style="padding:8rem 0; background:#0E1420">
+  <div class="max-w-6xl mx-auto px-6">
+    <span class="label section-label block mb-4">O Problema</span>
+    <h2 class="serif mb-16" style="font-size:clamp(36px,5vw,60px); max-width:760px; line-height:1.1">
+      A medicina convencional trata o passado.<br>
+      <span style="color:#B87333">Nós antecipamos o futuro.</span>
+    </h2>
+    <div class="grid md:grid-cols-2 gap-px" style="background:#1A2235">
+      <!-- Fail -->
+      <div style="background:#120C0C; border:1px solid #2A1515; padding:3rem">
+        <p class="text-sm font-semibold text-muted mb-6">❌ Medicina Convencional</p>
+        <ul class="space-y-5 text-muted text-sm leading-relaxed">
+          <li>— Exames básicos cobrindo 20–30 marcadores</li>
+          <li>— Valores de referência populacionais, não individuais</li>
+          <li>— Intervenção quando a doença já está instalada</li>
+          <li>— Protocolo genérico replicado para todos os pacientes</li>
+        </ul>
+      </div>
+      <!-- Win -->
+      <div style="background:#0A100A; border:1px solid rgba(184,115,51,.2); padding:3rem">
+        <p class="text-sm font-semibold mb-6" style="color:#B87333">✦ Clínica Vértice</p>
+        <ul class="space-y-5 text-snow text-sm leading-relaxed">
+          <li>✓ 147 biomarcadores cobrindo todos os sistemas do organismo</li>
+          <li>✓ Valores calibrados para o seu genoma específico</li>
+          <li>✓ Identificação de riscos 5–15 anos antes dos sintomas</li>
+          <li>✓ Protocolo único, revisado a cada 90 dias</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-snow/60 text-lg italic text-center mt-16 max-w-2xl mx-auto" style="font-family:'DM Serif Display',serif; line-height:1.6">
+      "Cada ano sem dados precisos é um ano de decisões tomadas às cegas sobre o bem mais valioso que você possui."
+    </p>
+  </div>
+</section>
+
+<!-- ═══ [S3] METODOLOGIA ═══ -->
+<section id="metodologia" style="padding:8rem 0; background:#080C12">
+  <div class="max-w-6xl mx-auto px-6">
+    <span class="label section-label block mb-4">Metodologia</span>
+    <h2 class="serif mb-24" style="font-size:clamp(36px,5vw,60px); line-height:1.1">Do mapeamento ao protocolo: 4 etapas.</h2>
+    <div class="grid md:grid-cols-4 gap-8 steps-line relative">
+
+      <!-- Step 01 -->
+      <div class="relative">
+        <span class="serif absolute -top-8 -left-2 select-none" style="font-size:96px; color:rgba(184,115,51,.1); line-height:1">01</span>
+        <div class="pt-16">
+          <svg class="mb-4" width="20" height="20" fill="none" stroke="#B87333" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          <h3 class="font-semibold text-snow mb-3" style="font-size:18px">Mapeamento Genético</h3>
+          <p class="text-muted text-sm leading-relaxed">Coleta de amostra de saliva. Análise de +500.000 variantes genéticas (SNPs) relevantes para metabolismo, inflamação, risco cardiovascular e longevidade.</p>
+        </div>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="relative">
+        <span class="serif absolute -top-8 -left-2 select-none" style="font-size:96px; color:rgba(184,115,51,.1); line-height:1">02</span>
+        <div class="pt-16">
+          <svg class="mb-4" width="20" height="20" fill="none" stroke="#B87333" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 3v11m0 0l-3-3m3 3l3-3M5 20h14"/></svg>
+          <h3 class="font-semibold text-snow mb-3" style="font-size:18px">Painel de 147 Biomarcadores</h3>
+          <p class="text-muted text-sm leading-relaxed">Coleta de sangue em jejum. Análise hormonal, metabólica, inflamatória, micronutricional e cardiovascular completa — não os 20 exames do check-up convencional.</p>
+        </div>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="relative">
+        <span class="serif absolute -top-8 -left-2 select-none" style="font-size:96px; color:rgba(184,115,51,.1); line-height:1">03</span>
+        <div class="pt-16">
+          <svg class="mb-4" width="20" height="20" fill="none" stroke="#B87333" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <h3 class="font-semibold text-snow mb-3" style="font-size:18px">Análise Integrativa</h3>
+          <p class="text-muted text-sm leading-relaxed">Dr. Rafael Mendes cruza dados genéticos, biomarcadores, histórico clínico e hábitos de vida. Cada resultado é interpretado em conjunto — nunca isoladamente.</p>
+        </div>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="relative">
+        <span class="serif absolute -top-8 -left-2 select-none" style="font-size:96px; color:rgba(184,115,51,.1); line-height:1">04</span>
+        <div class="pt-16">
+          <svg class="mb-4" width="20" height="20" fill="none" stroke="#B87333" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3 class="font-semibold text-snow mb-3" style="font-size:18px">Seu Protocolo Personalizado</h3>
+          <p class="text-muted text-sm leading-relaxed">Documento de 40–60 páginas: intervenções nutricionais, suplementação de precisão, exercício prescrito por zona metabólica, e revisão agendada em 90 dias.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-16">
+      <a href="#agendamento" class="px-10 py-4 text-sm font-semibold text-copper hover:bg-copper/10 transition-colors" style="border:1px solid #B87333">
+        Iniciar meu mapeamento →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S4] PROGRAMAS ═══ -->
+<section id="programas" style="padding:8rem 0; background:#0E1420; overflow:hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <span class="label section-label block mb-4">Programas</span>
+    <h2 class="serif mb-16" style="font-size:clamp(36px,5vw,60px); line-height:1.1">Cada protocolo, para cada sistema do corpo.</h2>
+    <!-- Desktop grid / Mobile carousel -->
+    <div class="carousel no-scrollbar md:grid md:grid-cols-3 gap-px" style="background:#1A2235">
+
+      <!-- 01 -->
+      <div class="card-hover min-w-[300px] md:min-w-0" style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:60px; color:rgba(184,115,51,.12); line-height:1">01</span>
+        <h3 class="font-semibold text-snow mb-3" style="font-size:20px">Longevidade Executiva</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Protocolo completo para profissionais de alta performance: genoma + 147 biomarcadores + plano de otimização de energia, cognição e resistência ao estresse.</p>
+        <div class="flex flex-wrap gap-2">
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Genoma</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">147 marcadores</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Alta performance</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="card-hover min-w-[300px] md:min-w-0" style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:60px; color:rgba(184,115,51,.12); line-height:1">02</span>
+        <h3 class="font-semibold text-snow mb-3" style="font-size:20px">Saúde Cardiovascular Avançada</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Mapeamento de risco coronariano com 10 anos de antecedência. Análise de lipídios avançados (LDL-P, Lp(a), ApoB), inflamação vascular e função endotelial.</p>
+        <div class="flex flex-wrap gap-2">
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Prevenção primária</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Cardio avançado</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="card-hover min-w-[300px] md:min-w-0" style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:60px; color:rgba(184,115,51,.12); line-height:1">03</span>
+        <h3 class="font-semibold text-snow mb-3" style="font-size:20px">Equilíbrio Hormonal</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Avaliação completa do eixo hormonal (tireoidiano, adrenal, reprodutivo). Protocolos de modulação naturais ou farmacológicos com base em dados do seu genoma.</p>
+        <div class="flex flex-wrap gap-2">
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Hormônios</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Metabolismo</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Energia</span>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="card-hover min-w-[300px] md:min-w-0" style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:60px; color:rgba(184,115,51,.12); line-height:1">04</span>
+        <h3 class="font-semibold text-snow mb-3" style="font-size:20px">Metabolismo &amp; Composição Corporal</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Além do peso na balança: análise de resistência insulínica, metabolismo basal por calorimetria, composição por DEXA e protocolo nutricional de precisão.</p>
+        <div class="flex flex-wrap gap-2">
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">DEXA</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Insulina</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Nutrição</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="card-hover min-w-[300px] md:min-w-0" style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:60px; color:rgba(184,115,51,.12); line-height:1">05</span>
+        <h3 class="font-semibold text-snow mb-3" style="font-size:20px">Medicina do Sono &amp; Cognição</h3>
+        <p class="text-muted text-sm leading-relaxed mb-6">Avaliação de arquitetura do sono, inflamação neurológica e biomarcadores cognitivos. Protocolo para otimização de memória, foco e proteção cerebral longo prazo.</p>
+        <div class="flex flex-wrap gap-2">
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Cognição</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Sono</span>
+          <span style="border:1px solid #1A2235; color:#7A8499; font-size:11px; padding:4px 12px">Neurologia</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S5] SOBRE O DR. RAFAEL ═══ -->
+<section id="sobre" style="background:#080C12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row">
+
+    <!-- Photo placeholder -->
+    <div class="md:w-5/12 relative overflow-hidden" style="min-height:560px">
+      <div class="ph-doctor absolute inset-0 flex items-end p-8">
+        <div style="border:1px solid rgba(184,115,51,.2); padding:1rem; background:rgba(8,12,18,.8)">
+          <span class="label text-[10px]">Dr. Rafael Mendes</span>
+          <p class="text-snow text-sm mt-1 serif">Medicina Preventiva & Longevidade</p>
+        </div>
+      </div>
+      <!-- Decorative grid overlay -->
+      <svg class="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+        <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#B87333" stroke-width=".5"/></pattern></defs>
+        <rect width="100%" height="100%" fill="url(#grid)"/>
+      </svg>
+    </div>
+
+    <!-- Text -->
+    <div class="md:w-7/12 px-8 md:px-16 py-16 flex flex-col justify-center">
+      <span class="label section-label block mb-4">Sobre o Especialista</span>
+      <h2 class="serif mb-8" style="font-size:clamp(32px,4vw,52px); line-height:1.1">Formação que vai além do consultório.</h2>
+      <p class="text-muted leading-relaxed mb-4 text-sm">
+        Dr. Rafael Mendes dedicou 23 anos ao estudo de uma única pergunta: por que algumas pessoas envelhecem bem e outras não? Formado pela FMUSP, com residência em Clínica Médica e especializações em Endocrinologia e Medicina Antienvelhecimento, tornou-se um dos poucos médicos brasileiros Fellow certificado pela A4M — a principal organização de medicina antienvelhecimento do mundo, sediada nos EUA.
+      </p>
+      <p class="text-muted leading-relaxed text-sm">
+        Sua abordagem rejeita protocolos genéricos. Para ele, tratar um ser humano com base em médias populacionais é o mesmo que calibrar um instrumento de precisão com uma régua de plástico.
+      </p>
+      <!-- Credentials grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-10">
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">CRM-SP</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">145.832</span>
+        </div>
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">Fellow</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">A4M — EUA</span>
+        </div>
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">FMUSP</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">Graduação + Residência</span>
+        </div>
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">23 anos</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">Medicina preventiva</span>
+        </div>
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">+2.800</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">Protocolos entregues</span>
+        </div>
+        <div style="background:#080C12; border:1px solid #1A2235; padding:1rem">
+          <span class="serif text-copper text-xl block">90 dias</span>
+          <span class="text-[10px] uppercase tracking-wider text-muted">Ciclo de revisão</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S6] RESULTADOS ═══ -->
+<section id="resultados" style="padding:8rem 0; background:#0E1420; overflow:hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <span class="label section-label block mb-4">Resultados</span>
+    <h2 class="serif mb-3" style="font-size:clamp(36px,5vw,60px); line-height:1.1">O que os dados revelam.</h2>
+    <p class="text-muted mb-16 text-sm">Resultados reais de pacientes da Clínica Vértice. Métricas, não opiniões.</p>
+    <div class="carousel no-scrollbar md:grid md:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">−43%</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Redução de Marcadores Inflamatórios</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Meu cardiologista perguntou o que eu tinha feito de diferente. Respondi: finalmente entendi o que estava acontecendo dentro de mim."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">M.A., 52 anos — Protocolo Cardiovascular</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">+38%</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Aumento de Testosterona Livre (sem reposição)</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Energia, foco e disposição que não tinha há 10 anos. Tudo com intervenção nutricional e suplementação de precisão."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">R.S., 47 anos — Equilíbrio Hormonal</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">−18kg</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Redução de Massa Gorda (DEXA 90 dias)</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Não perdi peso. Perdi gordura e mantive músculo. A diferença é enorme — e agora eu tenho dados para provar isso."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">C.F., 44 anos — Metabolismo &amp; Composição</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">−62%</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Queda de Insulina em Jejum</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Estava no caminho para o diabetes. Com o protocolo, revertemos completamente. Meu médico anterior nunca havia medido isso."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">L.B., 56 anos — Longevidade Executiva</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">8/10</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Aumento em Qualidade de Sono (wearable)</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Acordava cansado toda manhã. Descobrimos uma disfunção hormonal e uma deficiência de magnésio que nenhum exame convencional mostrava."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">P.O., 39 anos — Sono &amp; Cognição</span>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card-hover min-w-[280px] md:min-w-0" style="background:#080C12; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-1" style="font-size:52px; color:#B87333; line-height:1">−9</span>
+        <p class="text-[10px] uppercase tracking-wider text-muted mb-4">Anos na Idade Biológica (Clock Epigenético)</p>
+        <p class="text-muted text-sm italic leading-relaxed mb-6">"Com 54 anos, meu organismo funciona como um de 45. Isso não é marketing — está no laudo do teste epigenético."</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1rem">
+          <span class="text-[11px] text-muted">A.M., 54 anos — Longevidade Executiva</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S7] DEPOIMENTOS ═══ -->
+<section style="padding:8rem 0; background:#080C12">
+  <div class="max-w-6xl mx-auto px-6">
+    <span class="label section-label block mb-4">Depoimentos</span>
+    <h2 class="serif mb-16" style="font-size:clamp(36px,5vw,60px); line-height:1.1">Quem mapeou, nunca volta atrás.</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- T1 -->
+      <div style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:48px; color:rgba(184,115,51,.3); line-height:1">"</span>
+        <p class="text-snow/75 text-base leading-relaxed italic mb-6">Passei 20 anos fazendo check-up todo ano e me achando saudável. Na Vértice, descobri riscos que existiam há tempo. Foi assustador e libertador ao mesmo tempo.</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1.25rem">
+          <p class="text-snow font-semibold text-sm">Fernando A., 51 anos — CEO</p>
+          <p class="text-copper text-[11px] uppercase tracking-wider mt-1">Longevidade Executiva</p>
+          <p class="text-copper text-sm mt-2">★★★★★</p>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:48px; color:rgba(184,115,51,.3); line-height:1">"</span>
+        <p class="text-snow/75 text-base leading-relaxed italic mb-6">O Dr. Rafael não me deu uma dieta. Me entregou um mapa do meu organismo com um plano de ação. Seis meses depois, sou literalmente outro nível de saúde.</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1.25rem">
+          <p class="text-snow font-semibold text-sm">Renata K., 43 anos — Médica</p>
+          <p class="text-copper text-[11px] uppercase tracking-wider mt-1">Saúde Hormonal &amp; Metabólica</p>
+          <p class="text-copper text-sm mt-2">★★★★★</p>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div style="background:#0E1420; border:1px solid #1A2235; padding:2rem">
+        <span class="serif block mb-4" style="font-size:48px; color:rgba(184,115,51,.3); line-height:1">"</span>
+        <p class="text-snow/75 text-base leading-relaxed italic mb-6">Invisto em empresas com base em dados. Fazia sentido investir na minha saúde da mesma forma. A Clínica Vértice é exatamente isso: inteligência aplicada ao corpo humano.</p>
+        <div style="border-top:1px solid #1A2235; padding-top:1.25rem">
+          <p class="text-snow font-semibold text-sm">Marcelo D., 48 anos — Investidor</p>
+          <p class="text-copper text-[11px] uppercase tracking-wider mt-1">Longevidade Executiva</p>
+          <p class="text-copper text-sm mt-2">★★★★★</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S8] AGENDAMENTO ═══ -->
+<section id="agendamento" style="padding:8rem 0; background:#060A0D">
+  <div class="max-w-2xl mx-auto px-6">
+    <div class="glass" style="padding:3rem md:4rem">
+      <div class="text-center mb-10">
+        <span class="label section-label block mb-4">Avaliação Inicial Gratuita</span>
+        <h2 class="serif mb-4" style="font-size:clamp(28px,4vw,44px); line-height:1.1">Pronto para saber o que está acontecendo dentro de você?</h2>
+        <p class="text-muted text-sm">Comece com uma consulta de avaliação gratuita. Dr. Rafael analisa seu histórico e define se você é candidato ao Protocolo de Longevidade.</p>
+      </div>
+      <form class="space-y-5" onsubmit="return false">
+        <input type="text" placeholder="Nome completo *"
+          class="w-full px-5 py-4 text-snow text-sm placeholder-[#4A5568]"
+          style="background:transparent; border:1px solid rgba(255,255,255,.15); outline:none; transition:border-color .3s"
+          onfocus="this.style.borderColor='#B87333'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"/>
+        <input type="tel" placeholder="WhatsApp *"
+          class="w-full px-5 py-4 text-snow text-sm placeholder-[#4A5568]"
+          style="background:transparent; border:1px solid rgba(255,255,255,.15); outline:none; transition:border-color .3s"
+          onfocus="this.style.borderColor='#B87333'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"/>
+        <input type="email" placeholder="E-mail *"
+          class="w-full px-5 py-4 text-snow text-sm placeholder-[#4A5568]"
+          style="background:transparent; border:1px solid rgba(255,255,255,.15); outline:none; transition:border-color .3s"
+          onfocus="this.style.borderColor='#B87333'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"/>
+        <select class="w-full px-5 py-4 text-muted text-sm appearance-none"
+          style="background:#0E1420; border:1px solid rgba(255,255,255,.15); outline:none; color:#7A8499; transition:border-color .3s"
+          onfocus="this.style.borderColor='#B87333'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+          <option value="">Programa de interesse...</option>
+          <option>Longevidade Executiva</option>
+          <option>Saúde Cardiovascular</option>
+          <option>Equilíbrio Hormonal</option>
+          <option>Metabolismo &amp; Composição</option>
+          <option>Sono &amp; Cognição</option>
+          <option>Quero avaliar / Não sei ainda</option>
+        </select>
+        <select class="w-full px-5 py-4 text-muted text-sm appearance-none"
+          style="background:#0E1420; border:1px solid rgba(255,255,255,.15); outline:none; color:#7A8499; transition:border-color .3s"
+          onfocus="this.style.borderColor='#B87333'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+          <option value="">Melhor horário...</option>
+          <option>Manhã (8h–12h)</option>
+          <option>Tarde (12h–17h)</option>
+          <option>Noite (17h–20h)</option>
+        </select>
+        <button type="submit" class="btn-copper w-full py-5 text-sm">
+          Solicitar minha Avaliação Gratuita
+        </button>
+      </form>
+      <div class="flex flex-wrap justify-center gap-6 mt-6 text-[11px] text-muted">
+        <span>🔒 Sigilo médico garantido</span>
+        <span>⚡ Retorno em até 4h</span>
+        <span>✦ Sem compromisso</span>
+      </div>
+      <div class="text-center mt-10 space-y-1 text-muted text-sm">
+        <p>📍 Av. Paulista, 2064 — cj. 112 · Bela Vista, São Paulo — SP</p>
+        <p>📞 (11) 97732-4410</p>
+        <p>🕐 Seg–Sex: 7h às 19h · Sáb: 8h às 13h</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [S9] FOOTER ═══ -->
+<footer style="background:#080C12; border-top:1px solid #1A2235; padding:4rem 0 2rem">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      <div>
+        <span class="serif text-snow text-2xl block tracking-tight">VÉRTICE</span>
+        <span class="block text-[10px] uppercase tracking-[.3em] text-copper mb-6" style="margin-top:4px">Medicina Preventiva</span>
+        <p class="text-muted text-xs leading-relaxed">Referência em medicina preventiva de alta precisão em São Paulo.</p>
+      </div>
+      <div>
+        <h4 class="label mb-6">Programas</h4>
+        <ul class="space-y-3 text-muted text-xs">
+          <li><a href="#" class="hover:text-snow transition-colors">Longevidade Executiva</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Cardiovascular</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Hormonal</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Metabolismo</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Sono &amp; Cognição</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="label mb-6">Institucional</h4>
+        <ul class="space-y-3 text-muted text-xs">
+          <li><a href="#" class="hover:text-snow transition-colors">Sobre o Dr. Rafael</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Metodologia</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Resultados</a></li>
+          <li><a href="#" class="hover:text-snow transition-colors">Blog científico</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="label mb-6">Contato</h4>
+        <ul class="space-y-3 text-muted text-xs">
+          <li>(11) 97732-4410</li>
+          <li>contato@clinicavertice.com.br</li>
+          <li>Av. Paulista, 2064 — SP</li>
+        </ul>
+        <div class="flex gap-4 mt-6">
+          <a href="#" class="text-muted hover:text-copper transition-colors text-xs uppercase tracking-wider">Instagram</a>
+          <a href="#" class="text-muted hover:text-copper transition-colors text-xs uppercase tracking-wider">LinkedIn</a>
+          <a href="#" class="text-muted hover:text-copper transition-colors text-xs uppercase tracking-wider">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4" style="border-top:1px solid #1A2235; padding-top:2rem">
+      <p class="text-[10px] text-muted/50 uppercase tracking-wider">© 2026 Clínica Vértice Medicina Preventiva · CRM-SP 145.832 · Todos os direitos reservados</p>
+      <div class="flex gap-6 text-[10px] text-muted/50 uppercase tracking-wider">
+        <a href="#" class="hover:text-muted transition-colors">Política de Privacidade</a>
+        <a href="#" class="hover:text-muted transition-colors">LGPD</a>
+        <a href="#" class="hover:text-muted transition-colors">CFM</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLOAT ═══ -->
+<div id="wa-btn"
+  class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14"
+  style="background:#25D366; border-radius:9999px; box-shadow:0 8px 24px rgba(37,211,102,.3); opacity:0; transform:translateY(20px); transition:transform .3s, filter .2s; cursor:pointer"
+  onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='brightness(1)'">
+  <!-- Tooltip -->
+  <span id="wa-tip" class="absolute right-full mr-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-wider text-snow px-3 py-2 pointer-events-none transition-opacity duration-200 opacity-0"
+    style="background:#0E1420; border:1px solid #1A2235">Fale com nossa equipe</span>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</div>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Mobile menu toggle
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+
+  // WhatsApp button entrance (2s delay)
+  setTimeout(() => {
+    const btn = document.getElementById('wa-btn');
+    btn.style.opacity = '1';
+    btn.style.transform = 'translateY(0)';
+  }, 2000);
+
+  // WhatsApp tooltip
+  const waBtn = document.getElementById('wa-btn');
+  const waTip = document.getElementById('wa-tip');
+  waBtn.addEventListener('mouseenter', () => waTip.style.opacity = '1');
+  waBtn.addEventListener('mouseleave', () => waTip.style.opacity = '0');
+
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── DATA VIZ CARD TRIGGER ──
+  const vizCard = document.getElementById('viz-card');
+  const scanLine = document.getElementById('scan-line');
+  let vizTriggered = false;
+
+  const vizObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !vizTriggered) {
+        vizTriggered = true;
+
+        // Show scan line
+        scanLine.style.opacity = '1';
+
+        // Progress counter (0 → 78)
+        let pct = 0;
+        const pctEl = document.getElementById('prog-pct');
+        const counter = setInterval(() => {
+          pct++;
+          if (pctEl) pctEl.textContent = pct;
+          if (pct >= 78) clearInterval(counter);
+        }, 14);
+
+        vizObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  vizObserver.observe(vizCard);
+
+  // ── SECTION REVEAL: add .reveal to key blocks ──
+  document.querySelectorAll('section > div > h2, section > div > p, .card-hover, .stat-box').forEach((el, i) => {
+    if (!el.closest('#viz-card')) {
+      el.classList.add('reveal');
+      if (i % 3 === 1) el.classList.add('reveal-delay-1');
+      if (i % 3 === 2) el.classList.add('reveal-delay-2');
+      revealObserver.observe(el);
+    }
+  });
+</script>
+</body>
+</html>

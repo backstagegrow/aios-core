@@ -1,7 +1,7 @@
 # =============================================================================
 # Client Briefing — Espaco Network Constru
 # =============================================================================
-# Synkra AIOS Client Briefing | Template: client-briefing-tmpl.yaml
+# Synkra AIOS Client Briefing | Master Version 1.3
 # =============================================================================
 
 # --- META -------------------------------------------------------------------
@@ -9,8 +9,8 @@ meta:
   client_id: "enc_001"
   client_name: "EspacoNetworkConstru"
   status: draft
-  last_updated: "2026-03-13"
-  version: "1.0"
+  last_updated: "2026-03-30"
+  version: "1.3"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -40,6 +40,14 @@ business:
     - "Palestras e paineis com especialistas do setor"
   geographic_focus: "Alphaville, Barueri, SP (Grande Sao Paulo)"
 
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "Setorial Networking Hub"
+  pillars:
+    - "Curadoria: Filtro de participantes para networking de alto impacto"
+    - "Foco Vertical: Dedicacao exclusiva ao mercado imobiliario e construcao"
+    - "Encontros de Negocios: Estrutura voltada para fechamento de parcerias, não apenas social"
+
 # --- ICP (Ideal Customer Profile) -------------------------------------------
 icp:
   primary_persona:
@@ -50,40 +58,32 @@ icp:
     income: "R$15.000-R$50.000/mes"
     location: "Alphaville, Barueri e Grande Sao Paulo"
   pain_points:
-    - "Dificuldade de fazer networking qualificado no setor (feiras sao massivas e impessoais)"
-    - "Falta de espaco dedicado ao setor construtivo para eventos menores e mais focados"
-    - "Necessidade de gerar leads e parcerias no setor sem depender so de licitacoes"
-    - "Eventos genericos nao atraem o publico certo do setor"
-    - "Pouca visibilidade para fornecedores que atendem nichos da construcao"
+    - "Dificuldade de fazer networking qualificado no setor"
+    - "Falta de espaco dedicado ao setor construtivo para eventos focados"
+    - "Eventos genericos nao atraem o publico certo"
   desires:
     - "Acesso a um grupo qualificado de profissionais do setor"
-    - "Oportunidades reais de negocio (nao so troca de cartao)"
-    - "Espaco sofisticado que represente bem a empresa em eventos"
-    - "Conteudo relevante e atualizado sobre o mercado construtivo"
-    - "Relacionamento de longo prazo com parceiros estrategicos"
+    - "Oportunidades reais de negocio"
+    - "Espaco sofisticado que represente bem a empresa"
   objections:
     - "Ja participo de associacoes do setor (SECOVI, SINDUSCON)"
-    - "Alphaville e longe para quem esta em SP capital"
-    - "Nao sei se o publico certo vai estar la"
+    - "Localizacao em Alphaville para quem esta na capital"
   buying_triggers:
-    - "Lancamento de novo empreendimento ou produto para construcao"
-    - "Busca ativa por fornecedores ou parceiros no setor"
-    - "Indicacao de colega do setor que participou de evento"
-    - "Necessidade de se posicionar como referencia na regiao de Alphaville"
+    - "Lancamento de novo empreendimento ou produto"
+    - "Busca ativa por fornecedores ou parceiros"
+    - "Necessidade de se posicionar como referencia em Alphaville"
 
 # --- POSITIONING ------------------------------------------------------------
 positioning:
-  value_proposition: "Espaco Network Constru e o hub de networking premium em Alphaville onde profissionais da construcao civil e mercado imobiliario se conectam, geram negocios e fortalecem o setor."
+  value_proposition: "Hub de networking premium em Alphaville onde profissionais da construcao e mercado imobiliario se conectam e geram negocios reais."
   differentiators:
-    - "Foco exclusivo no setor de construcao civil e mercado imobiliario"
-    - "Localizacao estrategica em Alphaville (polo empresarial da Grande SP)"
-    - "Curadoria de participantes para garantir networking qualificado"
-    - "Espaco premium projetado para eventos de alto padrao"
+    - "Foco 100% vertical no setor construtivo"
+    - "Localizacao estrategica em polo empresarial (Alphaville)"
+    - "Curadoria rígida de participantes"
   main_competitors:
     - "Feiras do setor (Feicon, ExpoRevestir)"
     - "Associacoes setoriais (SECOVI, SINDUSCON)"
-    - "Espacos de eventos genericos na regiao"
-  competitive_advantage: "Unico espaco dedicado 100% ao setor construtivo com curadoria de networking — nao e feira massiva nem associacao burocratica, e encontro de negocios real"
+  competitive_advantage: "Agilidade e foco de um nicho vertical contra feiras massivas e associacoes burocraticas."
 
 # --- COPY -------------------------------------------------------------------
 copy:
@@ -91,35 +91,29 @@ copy:
     - "O setor da construcao se encontra aqui"
     - "Networking que gera contrato, nao so cartao de visita"
     - "Em Alphaville, o ponto de conexao do mercado construtivo"
-    - "Eventos feitos por quem entende o setor, para quem vive o setor"
-    - "Construa parcerias tao solidas quanto seus projetos"
   emotional_triggers:
-    - "Pertencimento a um grupo seleto do setor"
-    - "Oportunidade de negocio que pode mudar o trimestre"
-    - "Credibilidade de estar em um ambiente premium"
-    - "FOMO — nao ficar de fora onde os decisores se encontram"
+    - "Pertencimento (Grupo seleto)"
+    - "Credibilidade (Ambiente premium)"
+    - "FOMO (Onde os decisores estao)"
   proof_elements:
     testimonials_available: false
-    case_studies: false
-    certifications: []
-    social_proof_numbers: "Profissionais do setor construtivo conectados em eventos"
-  primary_cta: "Participe do proximo evento"
-  secondary_cta: "Reserve o espaco para seu evento"
+    case_studies:
+      - "Encontros de Networking Alphaville"
+      - "Cases de Lancamentos Imobiliarios"
+    social_proof_numbers: "Centenas de profissionais do setor conectados"
 
 # --- OFFERS -----------------------------------------------------------------
 offers:
   main_offer:
     name: "Locacao de Espaco para Evento Setorial"
     price_range: "sob consulta"
-    description: "Espaco premium em Alphaville para eventos corporativos do setor construtivo e imobiliario, com infraestrutura completa"
+    description: "Espaco premium com infraestrutura completa para o setor."
   entry_offer:
     name: "Ingresso para Evento de Networking"
     price_range: "R$150 - R$500"
-    description: "Participacao em encontro tematico com networking estruturado e conteudo setorial"
   upsell:
     name: "Patrocinio de Evento"
     price_range: "R$5.000 - R$20.000"
-    description: "Cota de patrocinio com exposicao de marca, palestra e acesso VIP ao networking"
 
 # --- CHANNELS ---------------------------------------------------------------
 channels:
@@ -127,30 +121,21 @@ channels:
     - instagram
     - linkedin
     - whatsapp-groups
-    - email-marketing
-    - indicacao-setorial
   primary_channel: "linkedin"
   content_types:
-    - "fotos e recaps de eventos"
-    - "conteudo sobre mercado construtivo"
-    - "entrevistas com profissionais do setor"
-    - "anuncios de proximos eventos"
-    - "posts de parceiros e patrocinadores"
+    - "recaps de eventos"
+    - "entrevistas setoriais"
+    - "anuncios de eventos"
 
 # --- CONSTRAINTS ------------------------------------------------------------
 constraints:
   what_to_avoid:
-    - "Linguagem muito informal ou giriasa"
-    - "Conteudo generico sem relevancia setorial"
-    - "Imagens de banco que nao representem o setor"
-    - "Promessas de resultado sem base"
-    - "Tom de vendas agressivo"
+    - "Linguagem informal excessiva"
+    - "Conteudo generico"
   brand_restrictions:
-    - "Sempre contextualizar conteudo para o setor construtivo/imobiliario"
-    - "Manter equilibrio entre premium e acessivel (nao elitista)"
-    - "Fotos reais de eventos e do espaco"
-  legal_notes: "LGPD para captacao de dados em eventos. Contratos de locacao com seguro de responsabilidade civil."
+    - "Sempre contextualizar para o setor construtivo"
+    - "Fotos reais apenas"
+  legal_notes: "LGPD para captacao de dados."
 
-# USO: Este briefing deve ser carregado por agentes antes de qualquer trabalho neste cliente.
-# Agentes: copy-chief, nano-banana-generator, aios-dev, aios-ux
-# Comando: leia este arquivo como contexto antes de gerar copy, assets ou codigo para este cliente.
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands: []

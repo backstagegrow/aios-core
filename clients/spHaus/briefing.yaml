@@ -1,7 +1,7 @@
 # =============================================================================
 # Client Briefing — spHaus
 # =============================================================================
-# Synkra AIOS Client Briefing | Master Version
+# Synkra AIOS Client Briefing | Master Version 1.3
 # =============================================================================
 
 # --- META -------------------------------------------------------------------
@@ -9,8 +9,8 @@ meta:
   client_id: "sph_001"
   client_name: "spHaus"
   status: active
-  last_updated: "2026-03-13"
-  version: "1.0"
+  last_updated: "2026-03-30"
+  version: "1.3"
 
 # --- BRAND ------------------------------------------------------------------
 brand:
@@ -38,6 +38,14 @@ business:
     - "Lançamentos de produtos sensoriais"
     - "Ecossistema criativo para Marcas Globais"
   geographic_focus: "Polo Criativo, São Paulo, SP"
+
+# --- STRATEGIC MECHANISM ----------------------------------------------------
+mechanism:
+  name: "theSpace Immersive Ecosystem"
+  pillars:
+    - "Arquitetura: Design que induz comportamento e foco"
+    - "Imersão: Infraestrutura nativa para projeção 360"
+    - "Fidigital: União perfeita entre o físico e o digital"
 
 # --- ICP (Ideal Customer Profile) -------------------------------------------
 icp:
@@ -87,12 +95,11 @@ copy:
     - "Foco (Engajamento sensorial recorde)"
     - "Exclusividade (Polo criativo em SP)"
   proof_elements:
+    testimonials_available: false
     case_studies:
-      - "Cases Acer"
-      - "Cases Vichy"
-    social_proof_numbers: "Arquitetura premiada e suporte a marcas globais."
-  primary_cta: "Solicite um Diagnóstico Sensorial"
-  secondary_cta: "Conheça theSpace"
+      - "Acer"
+      - "Vichy"
+    social_proof_numbers: "Arquitetura premiada e suporte a marcas globais"
 
 # --- OFFERS -----------------------------------------------------------------
 offers:
@@ -126,3 +133,6 @@ constraints:
     - "Manter o tom de voz inovador e autoral"
     - "Sempre mostrar a integração entre o físico e o digital"
   legal_notes: "Direitos de imagem para conteúdos gerados em theSpace; conformidade com normas técnicas de SP."
+
+# --- OPTIONAL: SERVICE PROVIDER DATA ----------------------------------------
+authorized_brands: []

@@ -6,11 +6,12 @@
 | **spHaus** | `sph_001` | 🟢 Ativo | Experiência Imersiva | R$ 3.000,00 | 📋 **Procedure** | [Acessar](spHaus/memory_strategy.md) |
 | **Espaço Network Constru** | `enc_001` | 🟢 Ativo | Networking/Eventos | R$ 3.000,00 | 📋 **Procedure** | [Acessar](EspacoNetworkConstru/memory_strategy.md) |
 | **GT House** | `gth_001` | 🟢 Ativo | Espaço B2B | R$ 1.300,00 | 📋 **Procedure** | [Acessar](GTHouse/memory_strategy.md) |
-| **Novo Cliente B2B** | `ncb_005` | 🟡 Onboarding | (A Definir) | R$ 4.000,00 | 📋 **Procedure** | [Acessar](NovoClienteB2B/memory_strategy.md) |
-| **BKS Grow** | `bks_001` | 🔵 Interno | Agência Growth | — | 📋 **Procedure** | [Acessar](BKSGrow/memory_strategy.md) |
-| **BackStageFy** | `bsf_001` | 🔵 Interno | Tech/SaaS | — | 🚀 **Rocket Science** | — |
-| **Alpha Business Academy** | `aba_001` | 🟡 Onboarding | Educação B2B | R$ 35.000,00 | 💼 **Gray Hair** | [Acessar](AlphaBusinessAcademy/memory_strategy.md) |
+| **Alpha Business Academy** | `aba_001` | 🟡 Onboarding | Educação B2B | — (R$ 35k/Ment) | 💼 **Gray Hair** | [Acessar](AlphaBusinessAcademy/memory_strategy.md) |
 | **Jotta Manutenções** | `jmt_001` | 🟢 Ativo | Manutenção Industrial | — | 📋 **Procedure** | [Acessar](JottaManutencoes/memory_strategy.md) |
+| **SM Sabores** | `sms_001` | 🟡 Onboarding | (Empresa Nova) | — | 📋 **Procedure** | — |
+| **Eder Silveira** | `eds_001` | 🟡 Onboarding | (Empresa Nova) | — | 📋 **Procedure** | — |
+| **BKS Grow** | `bks_001` | 🔵 Interno | Agência Growth | — | 📋 **Procedure** | [Acessar](BKSGrow/memory_strategy.md) |
+| **BackStageFy** | `bsf_001` | 🔵 Interno | Tech/SaaS | — | 🚀 **Rocket Science** | [Acessar](BackStageFy/memory_strategy.md) |
 
 ---
 **Legenda:**
@@ -19,4 +20,4 @@
 🔵 **Interno**: Divisões da própria BKS.
 🔴 **Pausado**: Campanha ou contrato suspenso.
 
-*Última Auditoria do Board: 26/03/2026*
+*Última Auditoria Morgan (@pm): 30/03/2026*

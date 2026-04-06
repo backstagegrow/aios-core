@@ -2,19 +2,58 @@
     "niches": [
         "beef",
         "poultry",
-        "halal"
+        "fish",
+        "halal",
+        "corn",
+        "soy",
+        "sugar"
     ],
     "regions": [
         "Dubai",
         "China",
         "Saudi Arabia",
         "Brazil",
-        "USA"
+        "USA",
+        "Middle East"
+    ],
+    "brands": [
+        "Almadina",
+        "Al Fajr",
+        "BFT Foods",
+        "JBS",
+        "BRF"
+    ],
+    "high_value_products": [
+        "Beef Striploin",
+        "Beef Tenderloin",
+        "Chicken Paws",
+        "Chicken Griller",
+        "Inner Fillet",
+        "Knee Cartilage",
+        "Beef Knuckle",
+        "Beef Topside"
     ],
     "triggers": [
         "tariffs",
         "import surge",
         "trade agreement",
-        "record consumption"
+        "record consumption",
+        "port logistics",
+        "maritime trading",
+        "halal certification",
+        "freight rates",
+        "shipping lines negotiation",
+        "cash flow financing",
+        "logistics tracking",
+        "supply chain visibility"
+    ],
+    "portals": [
+        "halalfocus.com",
+        "portwatch.io",
+        "maritimespecialist.com",
+        "globalmeatnews.com",
+        "beefcentral.com",
+        "thepoultrysite.com",
+        "datamarnews.com"
     ]
 }

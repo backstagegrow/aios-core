@@ -17,23 +17,37 @@ const apiKey = defaultClient.authentications['api-key'];
 apiKey.apiKey = process.env.BREVO_API_KEY || '';
 
 const apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
+const transactionalApi = new SibApiV3Sdk.TransactionalEmailsApi();
+const contactsApi = new SibApiV3Sdk.ContactsApi();
+const listsApi = new SibApiV3Sdk.ListsApi();
+
+export interface BrevoSender {
+    name: string;
+    email: string;
+}
 
 export async function createAndSendCampaign(
     campaignName: string,
     subject: string,
     htmlContent: string,
-    listIds: number[] = [2] // Default test list
+    listIds: number[] = [2], // Default test list
+    sender?: BrevoSender
 ) {
     if (!apiKey.apiKey) {
         console.warn('[Brevo] Missing BREVO_API_KEY in environment.');
         return null;
     }
 
+    const resolvedSender: BrevoSender = sender ?? {
+        name: process.env.BREVO_SENDER_NAME || 'BKSGrow',
+        email: process.env.BREVO_SENDER_EMAIL || 'devbksgrow@gmail.com',
+    };
+
     try {
         const emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign();
         emailCampaigns.name = campaignName;
         emailCampaigns.subject = subject;
-        emailCampaigns.sender = { name: 'BKSGrow', email: 'devbksgrow@gmail.com' };
+        emailCampaigns.sender = resolvedSender;
         emailCampaigns.type = 'classic';
         emailCampaigns.htmlContent = htmlContent;
         emailCampaigns.recipients = { listIds: listIds };
@@ -58,6 +72,84 @@ export async function createAndSendCampaign(
             console.error(error.response.body);
         } else {
             console.error(error);
+        }
+        throw error;
+    }
+}
+
+export async function sendTransactionalEmail(
+    to: { email: string; name?: string },
+    subject: string,
+    htmlContent: string,
+    sender?: BrevoSender
+) {
+    if (!apiKey.apiKey) {
+        console.warn('[Brevo] Missing BREVO_API_KEY in environment.');
+        return null;
+    }
+
+    const resolvedSender: BrevoSender = sender ?? {
+        name: process.env.BREVO_SENDER_NAME || 'BKSGrow',
+        email: process.env.BREVO_SENDER_EMAIL || 'devbksgrow@gmail.com',
+    };
+
+    try {
+        const email = new SibApiV3Sdk.SendSmtpEmail();
+        email.to = [to];
+        email.subject = subject;
+        email.sender = resolvedSender;
+        email.htmlContent = htmlContent;
+
+        const data = await transactionalApi.sendTransacEmail(email);
+        console.log(`[Brevo] Email transacional enviado para ${to.email} — messageId: ${data.messageId}`);
+        return data.messageId;
+    } catch (error: unknown) {
+        console.error('[Brevo] Error sending transactional email:');
+        if (hasApiErrorShape(error) && error.response?.body) {
+            console.error(error.response.body);
+        } else {
+            console.error(error);
+        }
+        throw error;
+    }
+}
+
+export async function addContactToList(email: string, name: string, listId: number) {
+    try {
+        const contact = new SibApiV3Sdk.CreateContact();
+        contact.email = email;
+        contact.attributes = { FIRSTNAME: name };
+        contact.listIds = [listId];
+        contact.updateEnabled = true;
+        await contactsApi.createContact(contact);
+        console.log(`[Brevo] Contato adicionado: ${email} → lista ${listId}`);
+    } catch (error: unknown) {
+        if (hasApiErrorShape(error) && error.response?.body) {
+            console.error(`[Brevo] Erro ao adicionar ${email}:`, error.response.body);
+        } else {
+            console.error(`[Brevo] Erro ao adicionar ${email}:`, error);
+        }
+    }
+}
+
+export async function createBrevoList(name: string, folderId: number = 1): Promise<number> {
+    const list = new SibApiV3Sdk.CreateList();
+    list.name = name;
+    list.folderId = folderId;
+    const data = await listsApi.createList(list);
+    console.log(`[Brevo] Lista criada: "${name}" → ID ${data.id}`);
+    return data.id as number;
+}
+
+export async function fireCampaignNow(campaignId: number) {
+    try {
+        await apiInstance.sendEmailCampaignNow(campaignId);
+        console.log(`[Brevo] Campanha ${campaignId} disparada.`);
+    } catch (error: unknown) {
+        if (hasApiErrorShape(error) && error.response?.body) {
+            console.error(`[Brevo] Erro ao disparar campanha ${campaignId}:`, error.response.body);
+        } else {
+            console.error(`[Brevo] Erro ao disparar campanha ${campaignId}:`, error);
         }
         throw error;
     }

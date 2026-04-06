@@ -8,15 +8,9 @@
 # - File types for categorization
 #
 version: 4.4.6
-<<<<<<< HEAD
-generated_at: "2026-03-30T11:53:57.530Z"
+generated_at: "2026-03-30T14:09:53.388Z"
 generator: scripts/generate-install-manifest.js
 file_count: 1156
-=======
-generated_at: "2026-03-14T21:13:57.437Z"
-generator: scripts/generate-install-manifest.js
-file_count: 1135
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -1259,15 +1253,9 @@ files:
     type: data
     size: 131
   - path: data/entity-registry.yaml
-<<<<<<< HEAD
-    hash: sha256:ff622fa02c5699e0d104ff8add421cc3ef8b01d855aabc9544a89e2f4fd48c15
+    hash: sha256:87d4082abe66cf151635483d57234a52052b7c18a09c930c17297fbb9af785c2
     type: data
-    size: 547462
-=======
-    hash: sha256:3c6fa0575b45751234b267ae69c48f82a167f04f08a28eb9e2fd7dda93ee0b9e
-    type: data
-    size: 543248
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
+    size: 554978
   - path: data/learned-patterns.yaml
     hash: sha256:24ac0b160615583a0ff783d3da8af80b7f94191575d6db2054ec8e10a3f945dc
     type: data
@@ -1336,7 +1324,6 @@ files:
     hash: sha256:f6b79ef8eb0c6724f59432a2f10a8f4a9b67b79ec0a74f13857fefe738b8f5b1
     type: data
     size: 597466
-<<<<<<< HEAD
   - path: data/offer-architect-library/OFFER-ARCHITECT-PLAYBOOK.md
     hash: sha256:ed22417ec172844eca0f1e2f4e44a6a5d5ddeed231efc6f8dd8745923e8ec6b1
     type: data
@@ -1381,8 +1368,6 @@ files:
     hash: sha256:59c350e7fbb2e587278650dce0d2fbf0e2a5a377dcfc591d3de6ad331e0c90b6
     type: data
     size: 61212
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: data/offer-architect-library/QUICK-REFERENCE.md
     hash: sha256:1e6f894390c358d5992b6c79dd32730fd526444aac045515c060cce0a3a442e2
     type: data
@@ -1411,7 +1396,6 @@ files:
     hash: sha256:5ebd3d8e003f14341e5e5a6e4725b02fa67f846738e717325112998f8f1f7b12
     type: template
     size: 52446
-<<<<<<< HEAD
   - path: data/registry-backups/healing/heal-1773607233445-d4a0ed35.yaml
     hash: sha256:b4598c3920d7408ff6d1c146758b90f7cdf3377545c2234a354a8b6ba2caad39
     type: data
@@ -1420,8 +1404,6 @@ files:
     hash: sha256:5145788c713d6f6a3cf3a7be1a0d61027d09277f47e9c19a8d85e87e6e95dd48
     type: data
     size: 546162
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: data/tech-presets/_template.md
     hash: sha256:1a7262912c8c8e264d307f0d38a1109bdb2b9bff9ea7d8855c768835201aa59b
     type: data
@@ -1531,10 +1513,9 @@ files:
     type: agent
     size: 3080
   - path: development/agents/conselho-dos-sabios.md
-<<<<<<< HEAD
-    hash: sha256:7299172f2de02f0e47754ab78b72c34da44301df967b487522bd8bdb5fb2655c
+    hash: sha256:d7fad9955b5f906bc40b02089a6b4156704a2d8e86b03f44156956878afe2758
     type: agent
-    size: 7319
+    size: 7016
   - path: development/agents/content-planner.md
     hash: sha256:241f3598f637eaf7a597befb0ac969411468d0281df109e94ca25cd77f6f3e1d
     type: agent
@@ -1555,23 +1536,6 @@ files:
     hash: sha256:9c5f1bfeea2d3328d8e4e1989d0b44323f4b552aca36b44bdc8232ad7f19354f
     type: agent
     size: 6817
-=======
-    hash: sha256:da766af2ad0b113231ca5035b0ae013b68f57e378522181172d33a86a9126924
-    type: agent
-    size: 6451
-  - path: development/agents/copy-chief.md
-    hash: sha256:8abc3a5187a3fca2ffa28117e6fcb90caef398b2713fcbb79c65cf9d61b5b6db
-    type: agent
-    size: 9113
-  - path: development/agents/cyber-chief.md
-    hash: sha256:6c9de51d28b4343f1f2aee4a3201aa84168f5231fc17359830e3e56b867c79a7
-    type: agent
-    size: 7022
-  - path: development/agents/data-chief.md
-    hash: sha256:9c5f1bfeea2d3328d8e4e1989d0b44323f4b552aca36b44bdc8232ad7f19354f
-    type: agent
-    size: 7001
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: development/agents/data-engineer.md
     hash: sha256:76c4cfc5d4c44cc25424cdcc0a541f86fc404e3869b9dcae40649b7d071579e1
     type: agent
@@ -1583,11 +1547,7 @@ files:
   - path: development/agents/design-chief.md
     hash: sha256:3cdc1c53d3e5b1539e42d85ca86b33b1a1dad40909816bfa358a802c06c487c6
     type: agent
-<<<<<<< HEAD
     size: 6796
-=======
-    size: 6980
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: development/agents/dev.md
     hash: sha256:1b5b64709eaa95a8870c5aa012d508c1ac48ed0ead2539d2cd85a9fed5b7c70e
     type: agent
@@ -1607,7 +1567,6 @@ files:
   - path: development/agents/legal-chief.md
     hash: sha256:ad68ed746090efffa30b6f60f991b4310846333ff3dbf57caee051332d27b084
     type: agent
-<<<<<<< HEAD
     size: 7695
   - path: development/agents/MEMORY.md
     hash: sha256:613a60c7abed758eab7ad0546e9ade7b7ebd2358ce369d33997a7c3f2af523ec
@@ -1617,9 +1576,6 @@ files:
     hash: sha256:2732d18bb076285a150348521ab44da64849a1328e78c9c28aa9f49556403945
     type: agent
     size: 7763
-=======
-    size: 7891
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: development/agents/pm.md
     hash: sha256:3d1eec3bb89642a9b6ad49b32f405fe1f88167cac07058071494eb652470f890
     type: agent
@@ -1641,9 +1597,9 @@ files:
     type: agent
     size: 8013
   - path: development/agents/product-team-content-generation.md
-    hash: sha256:b97b72f14bb740fb2eee918f852cfd5e365bf24c2505d650158a21dca30102e3
+    hash: sha256:155c1198458131e13b828e2a5f76e18c874640669355f9b318bbf890f51e678b
     type: agent
-    size: 6759
+    size: 9513
   - path: development/agents/qa.md
     hash: sha256:3312e0b7a962fa1c71128e304458d65becd1e8a2729415c631de3b0c1ba5dd65
     type: agent
@@ -1667,19 +1623,11 @@ files:
   - path: development/agents/story-chief.md
     hash: sha256:6e09691efe5cc91d8ce771aadb0ca76a8db7e67a1a109d1eb26e7244d2b8e08a
     type: agent
-<<<<<<< HEAD
     size: 7774
   - path: development/agents/traffic-masters-chief.md
     hash: sha256:e91dd434e3897cee87732863129a254a5c09fffed6b6650483434ead6e22b42d
     type: agent
     size: 7381
-=======
-    size: 7978
-  - path: development/agents/traffic-masters-chief.md
-    hash: sha256:e91dd434e3897cee87732863129a254a5c09fffed6b6650483434ead6e22b42d
-    type: agent
-    size: 7572
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   - path: development/agents/ux-design-expert.md
     hash: sha256:7edda1401e9aa6e8e48fe1a6614d9e1869f9e7e7efeac109e1de9540e79e93f1
     type: agent

@@ -22,10 +22,10 @@ const LINKEDIN_PASSWORD = process.env.LINKEDIN_PASSWORD || '';
 // ─── Templates de mensagem (baseados nos scripts de copy) ─────────────────────
 
 function buildMessage(businessName: string): string {
-    // Versão A — Curiosidade + auto-seleção (sem assumir problema)
-    return `Oi! Vi o trabalho da ${businessName} no setor de eventos — trabalho sério.
+    // Versão A — Dor visível (sem site = perdendo cliente para concorrente)
+    return `Oi! Pesquisei a ${businessName} e notei que vocês ainda não têm site.
 
-Estou mapeando as empresas do setor que estão construindo canal de aquisição B2B próprio em 2026. Faz sentido bater um papo rápido?`;
+Hoje quando alguém busca pelo serviço de vocês no Google, provavelmente encontra um concorrente. Tenho ajudado negócios locais a resolver isso rápido e sem complicação. Faz sentido bater um papo?`;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#313030",
+                        "outline-variant": "#4d463a",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#081b3b",
+                        "inverse-primary": "#745a27",
+                        "surface-container-highest": "#353534",
+                        "surface-bright": "#3a3939",
+                        "on-primary": "#412d00",
+                        "primary": "#e6c487",
+                        "primary-fixed-dim": "#e4c285",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#d8c594",
+                        "secondary-container": "#524620",
+                        "surface-tint": "#e4c285",
+                        "tertiary-fixed-dim": "#b6c6ef",
+                        "secondary-fixed": "#f5e1ae",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed-variant": "#524620",
+                        "surface-dim": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#374669",
+                        "secondary-fixed-dim": "#d8c594",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#5a4312",
+                        "background": "#131313",
+                        "primary-container": "#c9a96e",
+                        "outline": "#998f81",
+                        "tertiary-container": "#9dadd5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#b8c8f2",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#231b00",
+                        "on-secondary-container": "#c5b484",
+                        "on-tertiary-container": "#314163",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-container": "#543d0c",
+                        "on-surface-variant": "#d0c5b5",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#ffdea4",
+                        "on-primary-fixed": "#261900",
+                        "on-tertiary": "#203051",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#3a2f0b"
+                    },
+                    fontFamily: {
+                        "headline": ["Playfair Display"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "none": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .reveal-border:hover::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid #e6c487;
+            pointer-events: none;
+        }
+        .gold-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(201, 169, 110, 0.05) 0%, transparent 70%);
+        }
+        /* Scrollbar hide */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+        /* Navbar scroll effect */
+        #navbar { transition: background 0.4s ease, border-color 0.4s ease; }
+        #navbar.scrolled {
+            background: rgba(10,10,10,0.92) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1F1F1F;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 w-full z-50 bg-transparent">
+<nav class="flex justify-between items-center px-6 md:px-12 py-5 w-full max-w-screen-xl mx-auto">
+    <div class="font-headline text-xl tracking-tighter text-primary">
+        REVELA <span class="font-body text-[10px] tracking-[0.3em] uppercase text-primary-container align-middle ml-1">ODONTOLOGIA</span>
+    </div>
+    <div class="hidden md:flex gap-10 items-center">
+        <a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#servicos">Serviços</a>
+        <a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#processo">Processo</a>
+        <a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#resultados">Resultados</a>
+        <a class="text-on-surface-variant font-body text-xs uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#sobre">Sobre</a>
+    </div>
+    <a href="#agendar" class="bg-primary-container text-on-primary-container px-6 py-2.5 font-body font-semibold text-xs tracking-widest uppercase hover:bg-primary transition-all duration-300 active:scale-[0.98]">
+        Agendar Avaliação
+    </a>
+</nav>
+</header>
+
+<main>
+<!-- [S1] HERO -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+    <div class="absolute inset-0 gold-glow opacity-60 pointer-events-none"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,169,110,0.04) 0%, transparent 70%);"></div>
+    <div class="container mx-auto px-6 md:px-12 z-10 pt-24 pb-16 max-w-screen-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+            <!-- Left -->
+            <div class="lg:col-span-3">
+                <span class="animate-fade-up delay-100 font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-8 block">ODONTOLOGIA DIGITAL • SÃO PAULO</span>
+                <h1 class="animate-fade-up delay-200 font-headline leading-[1.05] tracking-tight text-on-surface mb-8">
+                    <span class="block text-5xl md:text-7xl lg:text-8xl">Seu sorriso</span>
+                    <span class="block text-5xl md:text-7xl lg:text-8xl">foi feito para</span>
+                    <span class="block text-5xl md:text-7xl lg:text-8xl">ser <em class="text-primary-container not-italic">revelado.</em></span>
+                </h1>
+                <p class="animate-fade-up delay-300 font-body text-on-surface-variant text-lg leading-relaxed mb-12 max-w-lg">
+                    Odontologia estética e implantes com tecnologia Digital Smile Design. Visualize seu resultado antes mesmo de começar o tratamento.
+                </p>
+                <div class="animate-fade-up delay-400 flex flex-col sm:flex-row items-start gap-4 mb-12">
+                    <a href="#agendar" class="bg-primary-container text-on-primary-container px-8 py-4 font-body font-semibold tracking-widest uppercase text-xs hover:bg-primary transition-all duration-300 w-full sm:w-auto text-center">
+                        Agendar minha Avaliação Digital
+                    </a>
+                    <a href="#resultados" class="border border-primary-container text-primary-container px-8 py-4 font-body font-semibold tracking-widest uppercase text-xs hover:bg-primary-container/10 transition-all duration-300 w-full sm:w-auto text-center">
+                        Ver casos reais →
+                    </a>
+                </div>
+                <div class="animate-fade-up delay-500 flex flex-wrap gap-6 text-xs text-on-surface-variant font-body">
+                    <span>✦ +1.200 sorrisos transformados</span>
+                    <span>✦ Digital Smile Design certificado</span>
+                    <span>✦ Av. Faria Lima, SP</span>
+                </div>
+            </div>
+            <!-- Right image -->
+            <div class="lg:col-span-2 hidden lg:block">
+                <div class="relative aspect-[3/4] border border-primary-container/20 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFZHuMBezb603A0E905QNWClaKI60sDx6XHdO52RYDW0bGBGkMFFa8_yEpD5AbRgw_tpQFF7fkceSwiHVuAQcT5jMXnoHD8uSYBZ1W5dw10iwiTMKneJv1xqGTIm039_itjzOg6jDxxkZzCfSGRk0wC9LuEZYbnFdiEp977JL7i659SL8w_TBfJ-TMIiG23uGEIfOa1WWUgKljPLhUR5lBKqp7e8I7NB4kM3LzebaoKl2SExHnmEwx0mogZsgZUel1_U3CYH8XYhLT"
+                         alt="Sorriso transformado"
+                         class="w-full h-full object-cover" />
+                    <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 60%, #0A0A0A 100%);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+        <span class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant">scroll</span>
+        <div class="w-px h-8 bg-primary-container animate-pulse"></div>
+    </div>
+</section>
+
+<!-- [S2] DIFERENCIAIS -->
+<section id="servicos" class="py-32 bg-surface">
+    <div class="container mx-auto px-6 md:px-12 max-w-screen-xl">
+        <div class="mb-20 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">NOSSOS DIFERENCIAIS</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Por que a Revela<br/>é diferente?</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20 border border-outline-variant/20">
+            <div class="bg-surface p-10 md:p-12 hover:bg-surface-container transition-all duration-500 reveal-border relative reveal reveal-delay-1 group">
+                <span class="material-symbols-outlined text-primary-container mb-6 block text-4xl group-hover:scale-110 transition-transform duration-300">monitor</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Digital Smile Design</h3>
+                <p class="font-body text-on-surface-variant leading-relaxed text-sm">Antes de qualquer procedimento, você vê o resultado final em vídeo. Aprovação total — ou não começamos.</p>
+            </div>
+            <div class="bg-surface p-10 md:p-12 hover:bg-surface-container transition-all duration-500 reveal-border relative reveal reveal-delay-2 group">
+                <span class="material-symbols-outlined text-primary-container mb-6 block text-4xl group-hover:scale-110 transition-transform duration-300">scanner</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Escaneamento 3D Intraoral</h3>
+                <p class="font-body text-on-surface-variant leading-relaxed text-sm">Sem moldagem com silicone. Mapeamos toda a sua boca em minutos com precisão de 0,01mm.</p>
+            </div>
+            <div class="bg-surface p-10 md:p-12 hover:bg-surface-container transition-all duration-500 reveal-border relative reveal reveal-delay-3 group">
+                <span class="material-symbols-outlined text-primary-container mb-6 block text-4xl group-hover:scale-110 transition-transform duration-300">bolt</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Protocolo One Day</h3>
+                <p class="font-body text-on-surface-variant leading-relaxed text-sm">Implantes provisórios em um único dia. Saia da clínica com seu sorriso novo ainda na consulta.</p>
+            </div>
+            <div class="bg-surface p-10 md:p-12 hover:bg-surface-container transition-all duration-500 reveal-border relative reveal reveal-delay-4 group">
+                <span class="material-symbols-outlined text-primary-container mb-6 block text-4xl group-hover:scale-110 transition-transform duration-300">biotech</span>
+                <h3 class="font-headline text-2xl text-on-surface mb-4">Materiais de última geração</h3>
+                <p class="font-body text-on-surface-variant leading-relaxed text-sm">Lentes em cerâmica e-max, alinhadores Invisalign certificados, próteses fresadas em zircônia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- [S3] ESPECIALIDADES -->
+<section class="py-32 bg-surface-container-lowest">
+    <div class="container mx-auto px-6 md:px-12 max-w-screen-xl">
+        <div class="mb-20 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">TRATAMENTOS</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Tratamentos que transformam.</h2>
+        </div>
+        <!-- Desktop grid -->
+        <div class="hidden md:grid grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
+            <div class="bg-[#0F0F0F] p-8 border-r border-outline-variant/20 group hover:bg-surface transition-all duration-500 reveal reveal-delay-1">
+                <div class="font-headline text-6xl text-primary-container/10 mb-6 select-none">01</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Lentes de Contato Dental</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Facetas ultrafinas que corrigem forma, cor e tamanho dos dentes — sem desgaste excessivo. Resultado imediato e duradouro.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 inline-block">Ver mais →</span>
+            </div>
+            <div class="bg-[#0F0F0F] p-8 border-r border-outline-variant/20 group hover:bg-surface transition-all duration-500 reveal reveal-delay-2">
+                <div class="font-headline text-6xl text-primary-container/10 mb-6 select-none">02</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Implantes Dentários</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Substituição permanente de dentes perdidos com titânio biocompatível. Protocolos All-on-4 e All-on-6 disponíveis.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 inline-block">Ver mais →</span>
+            </div>
+            <div class="bg-[#0F0F0F] p-8 group hover:bg-surface transition-all duration-500 reveal reveal-delay-3">
+                <div class="font-headline text-6xl text-primary-container/10 mb-6 select-none">03</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Alinhadores Invisíveis</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Ortodontia discreta com alinhadores Invisalign. Removíveis, transparentes, confortáveis.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 inline-block">Ver mais →</span>
+            </div>
+            <div class="bg-[#0F0F0F] p-8 border-t border-r border-outline-variant/20 group hover:bg-surface transition-all duration-500 col-span-1 reveal reveal-delay-1">
+                <div class="font-headline text-6xl text-primary-container/10 mb-6 select-none">04</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Clareamento Dental</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Protocolo whitening de consultório com resultado até 8 tons mais claro em uma sessão.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 inline-block">Ver mais →</span>
+            </div>
+            <div class="bg-[#0F0F0F] p-8 border-t border-outline-variant/20 group hover:bg-surface transition-all duration-500 col-span-2 reveal reveal-delay-2">
+                <div class="font-headline text-6xl text-primary-container/10 mb-6 select-none">05</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Harmonização do Sorriso</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Combinação personalizada de procedimentos para reequilibrar proporções e criar um sorriso natural e harmonioso.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 inline-block">Ver mais →</span>
+            </div>
+        </div>
+        <!-- Mobile carousel -->
+        <div class="flex md:hidden overflow-x-auto gap-4 snap-x snap-mandatory no-scrollbar pb-4">
+            <div class="min-w-[85vw] snap-start bg-[#0F0F0F] border border-outline-variant/20 p-8">
+                <div class="font-headline text-6xl text-primary-container/10 mb-4">01</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Lentes de Contato Dental</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Facetas ultrafinas que corrigem forma, cor e tamanho dos dentes.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest">Ver mais →</span>
+            </div>
+            <div class="min-w-[85vw] snap-start bg-[#0F0F0F] border border-outline-variant/20 p-8">
+                <div class="font-headline text-6xl text-primary-container/10 mb-4">02</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Implantes Dentários</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Substituição permanente com protocolos All-on-4 e All-on-6.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest">Ver mais →</span>
+            </div>
+            <div class="min-w-[85vw] snap-start bg-[#0F0F0F] border border-outline-variant/20 p-8">
+                <div class="font-headline text-6xl text-primary-container/10 mb-4">03</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Alinhadores Invisíveis</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Ortodontia discreta com Invisalign. Removíveis, transparentes.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest">Ver mais →</span>
+            </div>
+            <div class="min-w-[85vw] snap-start bg-[#0F0F0F] border border-outline-variant/20 p-8">
+                <div class="font-headline text-6xl text-primary-container/10 mb-4">04</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Clareamento Dental</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Até 8 tons mais claro em uma sessão.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest">Ver mais →</span>
+            </div>
+            <div class="min-w-[85vw] snap-start bg-[#0F0F0F] border border-outline-variant/20 p-8">
+                <div class="font-headline text-6xl text-primary-container/10 mb-4">05</div>
+                <h3 class="font-headline text-xl text-on-surface mb-3">Harmonização do Sorriso</h3>
+                <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-4">Combinação personalizada de procedimentos.</p>
+                <span class="font-label text-primary-container text-xs uppercase tracking-widest">Ver mais →</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- [S4] DSD PROCESSO -->
+<section id="processo" class="py-32 bg-surface">
+    <div class="container mx-auto px-6 md:px-12 max-w-screen-xl">
+        <div class="text-center mb-24 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">COMO FUNCIONA</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Do projeto ao sorriso: 3 etapas.</h2>
+        </div>
+        <div class="relative">
+            <div class="hidden md:block absolute top-8 left-[16.666%] right-[16.666%] h-px bg-outline-variant/30"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="relative text-center reveal reveal-delay-1">
+                    <div class="w-16 h-16 border border-primary-container bg-surface text-primary-container font-headline text-xl flex items-center justify-center mx-auto mb-8 relative z-10">01</div>
+                    <h4 class="font-headline text-xl text-on-surface mb-4">Análise Digital</h4>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">Fotografias e vídeos do seu sorriso são processados em software especializado. Mapeamos proporções, linha do sorriso e harmonia facial.</p>
+                </div>
+                <div class="relative text-center reveal reveal-delay-2">
+                    <div class="w-16 h-16 border border-primary-container bg-surface text-primary-container font-headline text-xl flex items-center justify-center mx-auto mb-8 relative z-10">02</div>
+                    <h4 class="font-headline text-xl text-on-surface mb-4">Seu Projeto Personalizado</h4>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">A Dra. Camila desenvolve um projeto 3D do seu novo sorriso. Você aprova — ou refinamos até ficar perfeito.</p>
+                </div>
+                <div class="relative text-center reveal reveal-delay-3">
+                    <div class="w-16 h-16 border border-primary-container bg-surface text-primary-container font-headline text-xl flex items-center justify-center mx-auto mb-8 relative z-10">03</div>
+                    <h4 class="font-headline text-xl text-on-surface mb-4">Execução com Precisão</h4>
+                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">Com o projeto aprovado, executamos com exatidão milimétrica. Sem surpresas. Só o resultado que você viu.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-16 reveal">
+            <a href="#agendar" class="border border-primary-container text-primary-container px-10 py-4 font-body font-semibold tracking-widest uppercase text-xs hover:bg-primary-container/10 transition-all duration-300 inline-block">
+                Quero visualizar meu sorriso →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- [S5] SOBRE DRA. CAMILA -->
+<section id="sobre" class="bg-surface-container-lowest overflow-hidden">
+    <div class="flex flex-col lg:flex-row">
+        <div class="w-full lg:w-5/12 h-[400px] lg:h-auto relative">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZRHRmV-egysBaTkssNiaFZe3izFHmED_AWOiEIyV0Z2zpAF8cgrfIoHZcB95-Mp5Rx3FTW56sJ7KALuyQIJrazJvMatMclTqOEyJ1tqWS1f6IOF3BkgFB-J5bs-AaEC7jOqpTey4xRTQh_zscXOcErftFNo2XR_uqZk7Qw68uhDRpCieEp_aTUcKCNCgwdyE7-68NhZZxjx3F-iqL1-FRip3w8s3fGn8qpAV6X64B4AcbD0PU5Wz1wfdbfH2joQGaJUMguh4DItox"
+                 alt="Dra. Camila Rocha"
+                 class="w-full h-full object-cover"
+                 style="filter: grayscale(20%);" />
+            <div class="absolute inset-0 hidden lg:block" style="background: linear-gradient(to right, transparent 70%, #0e0e0e 100%);"></div>
+        </div>
+        <div class="w-full lg:w-7/12 py-16 px-8 md:px-16 lg:px-20 flex flex-col justify-center reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-6 block">SOBRE A ESPECIALISTA</span>
+            <h2 class="font-headline text-3xl md:text-4xl text-on-surface mb-8 leading-tight">Por trás de cada sorriso,<br/>uma especialista comprometida.</h2>
+            <p class="font-body text-on-surface-variant leading-relaxed mb-10 max-w-xl">
+                Dra. Camila Rocha formou-se pela USP com especialização em Prótese Dentária e Implantodontia pela APCD. Com mais de 12 anos de experiência, especializou-se em odontologia estética digital e foi certificada internacionalmente em Digital Smile Design em Lisboa. Sua abordagem combina rigor técnico com escuta genuína: entender o que cada paciente quer — e ir além.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <span class="border border-primary-container/30 text-primary-container text-xs px-4 py-2 font-label tracking-wide">CRO-SP 18.432</span>
+                <span class="border border-primary-container/30 text-primary-container text-xs px-4 py-2 font-label tracking-wide">Especialista em Prótese (ABO)</span>
+                <span class="border border-primary-container/30 text-primary-container text-xs px-4 py-2 font-label tracking-wide">DSD Certified Clinician</span>
+                <span class="border border-primary-container/30 text-primary-container text-xs px-4 py-2 font-label tracking-wide">USP Graduação</span>
+                <span class="border border-primary-container/30 text-primary-container text-xs px-4 py-2 font-label tracking-wide">APCD Especialização</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- [S6] CASOS REAIS -->
+<section id="resultados" class="py-32 bg-surface">
+    <div class="container mx-auto px-6 md:px-12 max-w-screen-xl">
+        <div class="mb-20 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">RESULTADOS</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Resultados que falam por si.</h2>
+            <p class="font-body text-on-surface-variant text-sm">Antes e depois reais de pacientes da Revela. Sem filtros, sem edição.</p>
+        </div>
+        <!-- Desktop grid -->
+        <div class="hidden md:grid grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-1">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQ_vIpm6vQXa6zwqIHjuEbQrMuS4CHaUAApA4Pg6N8ayyBxgzlOpxKbpkCVBdjqIecppGfM02aIS_3RgFvR8YQUq4waxnY2DbitWmDqL4tpthxDmb3jh9RCe3bXKCFaPwOFmWBrF3nuhv0X0hzOfVIwKj0lV_-KiMq2e7a12mZPRj5rFelUGatKomGu67q4MVE_ndPJpZeAe_Fs0dD2yBkFOd_ZoqgphplOurZJ-j6T26Xh91-TT8VUt7PIjJ0UbXCe5V1O9iU59c"
+                         alt="Caso 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">Lentes de contato</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">2 sessões</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-2">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7hOjChW_z3VVyNLtI5hUdgtJohHIRGPRjB5o6N1nkEnA1dcxa9X3pDmXFAK0f0wZz9ngUJEVE71exQ8--4WLz3poxeM0ouLMgOUNRbE_zwpfhUZZTmuOgxCcaz4C4F_Slj73fxcsPUDIXEkyRU1BsIJ3TyQWgxOLZvbmLDQjgkhzAVyONW88fUHIm8jxZeByYIjRN7-JT9gYRCjOsxcepcPtLNNFy1Jylhr8rQZJvRxxNQ1L0BdbC76sgqRcWPEQyCtswf5zqeHay"
+                         alt="Caso 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">All-on-4 superior</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">Protocolo 1 dia</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-3">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFD4xImphG_V4gENl2dIZF0luUKPsDEb72T1JnBf7POVVwHTSXsIGt338BCpbvbDzKAwO1sQw7RbgubLMH6Jyg76zvFGXJbQyGP8rAmCU-2sfuOBRSQcdPrgAyye14imqBKOYP-kUGhRkrjSk1twDvQs-O4hBrevl6xvQwmBIvK6J_mBqU5q0ej_T3hXPb3Yu_icI57hc_-0K4dBV_ULA9fm2YSM-PWnxAOx668RrW7Cxqr5W8SbUIeNsx5k9TkaLS5Qu9HoY-gZjv"
+                         alt="Caso 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">Alinhadores Invisalign</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">8 meses</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-1">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA0JP3o5dlEh6_PpS_oL6nXzF8UOyaFto6RrC8ERxCBD75Ix4prQBDTn2ksnKgsRijsgS37LQA4RGqMlv1ZKxRKLw1mZi1eIC43ysQJ_pEOtFUSrocp854pUfNjAY8IQH93Bku6iIZg3ExyyfUnSqljXpJTWNvaftVFAuI1aSoiTWX11BVIj-ey-sbyq0BYTsiKUHE_m4aMCVRzgjjjGkMdFmH1SJMv6htl5DbfFm_FzQ33TEoqlhz1IcQLlRy3KkOKA2fqmN9el5K"
+                         alt="Caso 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">Clareamento + reanatomização</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">1 sessão</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-2">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHx26i0AfJygrWHdnr09OMlkvPA_mDJQtKiBGzkGCXKlDTZDZU81bEvxHTSauEaIPfsDiFAumE2Mk22g_fReIuP-ISryH7DJszYdBnjzWE5TpAfDK1ZB4w-bCtN180I7lUsjihBkHfUUkbUHe_42zdZquhq9DvvtP1pV3gE9C41HDje1nV2cLcxlTgLg-mVtPc2j09yQYcXwzEr2_L98dLw9sl3xn8ebfMKVz21AX2nWiuGJ07KvcTBLNsnOCyb18Vtk9WPZLt_F64"
+                         alt="Caso 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">Facetas e-max</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">6 dentes</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest overflow-hidden group relative reveal reveal-delay-3">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOy8OAc6rjpuxPdUPDfetVPotWzrWHnPV1jw9lnBrAVHa21QTufSGth_nuuf4Xe2_lEKoVVXgGxWOxjnbZ3Xh4vIBTIRe8Fer1MP6TUdoYVTrcx1Url_jpRI5Ac1cZD_WsxcuHjnDYXwVbBizeb-I_7a1-d9xxDclunz1rP0PEjMJLfJNanl7JKYBsPXcOEitKC1xBNMbLn8Z4esRidGLBmhopjeLoHGLc8KJtUd6s_v3h8EKD8WlQAFUZKZZEa7JOcsfcaHj71GsC"
+                         alt="Caso 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1 font-label tracking-wide">Antes</span>
+                    <span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1 font-label tracking-wide">Depois</span>
+                </div>
+                <div class="p-5 border-t border-outline-variant/20">
+                    <p class="font-headline text-sm text-on-surface">Harmonização completa</p>
+                    <p class="font-body text-xs text-on-surface-variant mt-1">3 sessões</p>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile carousel casos -->
+        <div class="flex md:hidden overflow-x-auto gap-4 snap-x snap-mandatory no-scrollbar pb-4">
+            <div class="min-w-[85vw] snap-start bg-surface-container-lowest border border-outline-variant/20 overflow-hidden">
+                <div class="relative aspect-[4/3]"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkQ_vIpm6vQXa6zwqIHjuEbQrMuS4CHaUAApA4Pg6N8ayyBxgzlOpxKbpkCVBdjqIecppGfM02aIS_3RgFvR8YQUq4waxnY2DbitWmDqL4tpthxDmb3jh9RCe3bXKCFaPwOFmWBrF3nuhv0X0hzOfVIwKj0lV_-KiMq2e7a12mZPRj5rFelUGatKomGu67q4MVE_ndPJpZeAe_Fs0dD2yBkFOd_ZoqgphplOurZJ-j6T26Xh91-TT8VUt7PIjJ0UbXCe5V1O9iU59c" alt="Caso 1" class="w-full h-full object-cover"/><span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1">Antes</span><span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1">Depois</span></div>
+                <div class="p-4"><p class="font-headline text-sm text-on-surface">Lentes de contato</p><p class="font-body text-xs text-on-surface-variant">2 sessões</p></div>
+            </div>
+            <div class="min-w-[85vw] snap-start bg-surface-container-lowest border border-outline-variant/20 overflow-hidden">
+                <div class="relative aspect-[4/3]"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7hOjChW_z3VVyNLtI5hUdgtJohHIRGPRjB5o6N1nkEnA1dcxa9X3pDmXFAK0f0wZz9ngUJEVE71exQ8--4WLz3poxeM0ouLMgOUNRbE_zwpfhUZZTmuOgxCcaz4C4F_Slj73fxcsPUDIXEkyRU1BsIJ3TyQWgxOLZvbmLDQjgkhzAVyONW88fUHIm8jxZeByYIjRN7-JT9gYRCjOsxcepcPtLNNFy1Jylhr8rQZJvRxxNQ1L0BdbC76sgqRcWPEQyCtswf5zqeHay" alt="Caso 2" class="w-full h-full object-cover"/><span class="absolute top-3 left-3 bg-black/70 text-white text-xs px-2 py-1">Antes</span><span class="absolute top-3 right-3 bg-primary-container text-on-primary-container text-xs px-2 py-1">Depois</span></div>
+                <div class="p-4"><p class="font-headline text-sm text-on-surface">All-on-4 superior</p><p class="font-body text-xs text-on-surface-variant">Protocolo 1 dia</p></div>
+            </div>
+        </div>
+        <div class="text-center mt-12 reveal">
+            <a href="#" class="border border-primary-container text-primary-container px-10 py-4 font-body font-semibold tracking-widest uppercase text-xs hover:bg-primary-container/10 transition-all duration-300 inline-block">Ver galeria completa →</a>
+        </div>
+    </div>
+</section>
+
+<!-- [S7] DEPOIMENTOS -->
+<section class="py-32 bg-surface-container-lowest">
+    <div class="container mx-auto px-6 md:px-12 max-w-screen-xl">
+        <div class="mb-20 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">DEPOIMENTOS</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface">O que nossos pacientes dizem.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
+            <div class="bg-surface-container-lowest p-8 reveal reveal-delay-1">
+                <div class="text-4xl text-primary-container/40 font-headline leading-none mb-6">"</div>
+                <p class="font-body text-on-surface/80 text-base leading-relaxed italic mb-8">Sempre tive vergonha de sorrir em fotos. Fiz as lentes de contato com a Dra. Camila e mudou minha relação com o espelho — e com as pessoas.</p>
+                <div class="border-t border-outline-variant/20 pt-6">
+                    <p class="font-body font-semibold text-sm text-on-surface">Marina S., 34 anos</p>
+                    <p class="font-label text-primary-container text-xs uppercase tracking-widest mt-1">Lentes de contato dental</p>
+                    <p class="text-primary-container mt-2 text-sm">★★★★★</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-8 reveal reveal-delay-2">
+                <div class="text-4xl text-primary-container/40 font-headline leading-none mb-6">"</div>
+                <p class="font-body text-on-surface/80 text-base leading-relaxed italic mb-8">Perdi um dente e travei por 2 anos sem fazer nada. O All-on-4 da Revela foi a melhor decisão da minha vida. Saí do consultório com dentes novos no mesmo dia.</p>
+                <div class="border-t border-outline-variant/20 pt-6">
+                    <p class="font-body font-semibold text-sm text-on-surface">Roberto F., 52 anos</p>
+                    <p class="font-label text-primary-container text-xs uppercase tracking-widest mt-1">Implante All-on-4</p>
+                    <p class="text-primary-container mt-2 text-sm">★★★★★</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-lowest p-8 reveal reveal-delay-3">
+                <div class="text-4xl text-primary-container/40 font-headline leading-none mb-6">"</div>
+                <p class="font-body text-on-surface/80 text-base leading-relaxed italic mb-8">O Digital Smile Design me convenceu. Ver como ficaria antes de fazer qualquer coisa me deu segurança total. Resultado exatamente como foi projetado.</p>
+                <div class="border-t border-outline-variant/20 pt-6">
+                    <p class="font-body font-semibold text-sm text-on-surface">Juliana M., 28 anos</p>
+                    <p class="font-label text-primary-container text-xs uppercase tracking-widest mt-1">Harmonização do sorriso</p>
+                    <p class="text-primary-container mt-2 text-sm">★★★★★</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- [S8] AGENDAMENTO -->
+<section id="agendar" class="py-32 relative" style="background-color: #0F0C06;">
+    <div class="container mx-auto px-6 md:px-12 max-w-2xl">
+        <div class="text-center mb-12 reveal">
+            <span class="font-label text-primary-container tracking-[0.3em] text-[10px] uppercase mb-4 block">AVALIAÇÃO GRATUITA</span>
+            <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Pronto para revelar seu sorriso?</h2>
+            <p class="font-body text-on-surface-variant">Comece com uma avaliação digital gratuita. Sem compromisso — veja seu resultado antes de decidir.</p>
+        </div>
+        <div class="backdrop-blur-md border border-white/10 p-8 md:p-12 reveal" style="background: rgba(255,255,255,0.04);">
+            <form class="space-y-5" onsubmit="return false;">
+                <input type="text" placeholder="Nome completo *"
+                    class="w-full bg-transparent border border-white/20 text-on-surface placeholder-[#555] px-5 py-4 focus:outline-none focus:border-primary-container transition-all duration-300 font-body text-sm" />
+                <input type="tel" placeholder="WhatsApp *"
+                    class="w-full bg-transparent border border-white/20 text-on-surface placeholder-[#555] px-5 py-4 focus:outline-none focus:border-primary-container transition-all duration-300 font-body text-sm" />
+                <select class="w-full bg-[#0F0C06] border border-white/20 text-on-surface-variant px-5 py-4 focus:outline-none focus:border-primary-container transition-all duration-300 font-body text-sm">
+                    <option value="">Tratamento de interesse...</option>
+                    <option>Lentes de contato</option>
+                    <option>Implantes</option>
+                    <option>Alinhadores</option>
+                    <option>Clareamento</option>
+                    <option>Quero avaliar / Não sei ainda</option>
+                </select>
+                <select class="w-full bg-[#0F0C06] border border-white/20 text-on-surface-variant px-5 py-4 focus:outline-none focus:border-primary-container transition-all duration-300 font-body text-sm">
+                    <option value="">Melhor horário...</option>
+                    <option>Manhã (8h–12h)</option>
+                    <option>Tarde (12h–17h)</option>
+                    <option>Noite (17h–20h)</option>
+                </select>
+                <button type="submit" class="w-full bg-primary-container text-on-primary-container py-5 font-body font-semibold text-sm tracking-widest uppercase hover:bg-primary transition-all duration-300 mt-4">
+                    Agendar minha Avaliação Digital Gratuita
+                </button>
+            </form>
+            <div class="flex flex-wrap justify-center gap-6 mt-6 text-xs text-on-surface-variant font-body">
+                <span>🔒 Seus dados estão seguros</span>
+                <span>⚡ Resposta em até 2h</span>
+                <span>✦ Sem spam</span>
+            </div>
+        </div>
+        <div class="text-center mt-10 space-y-3 text-sm text-on-surface-variant font-body reveal">
+            <p>📍 Av. Brigadeiro Faria Lima, 3477 — cj. 82 · Itaim Bibi, São Paulo — SP</p>
+            <p>📞 (11) 9984-3310</p>
+            <p>🕐 Seg–Sex: 8h às 20h · Sáb: 9h às 14h</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#0A0A0A] border-t border-outline-variant/20 py-16 px-6 md:px-12">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="md:col-span-1">
+                <div class="font-headline text-2xl text-on-surface tracking-tight mb-1">REVELA</div>
+                <div class="font-body text-xs tracking-[0.3em] uppercase text-primary-container mb-6">ODONTOLOGIA</div>
+                <p class="font-body text-xs text-on-surface-variant leading-relaxed">Seu sorriso, redesenhado digitalmente.</p>
+            </div>
+            <div>
+                <h5 class="font-label text-xs uppercase tracking-widest text-primary-container mb-6">Especialidades</h5>
+                <ul class="space-y-3 font-body text-xs text-on-surface-variant">
+                    <li><a href="#" class="hover:text-primary transition-colors">Lentes de contato</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Implantes</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Alinhadores</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Clareamento</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label text-xs uppercase tracking-widest text-primary-container mb-6">Institucional</h5>
+                <ul class="space-y-3 font-body text-xs text-on-surface-variant">
+                    <li><a href="#sobre" class="hover:text-primary transition-colors">Sobre a Dra. Camila</a></li>
+                    <li><a href="#processo" class="hover:text-primary transition-colors">Tecnologia DSD</a></li>
+                    <li><a href="#resultados" class="hover:text-primary transition-colors">Casos reais</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label text-xs uppercase tracking-widest text-primary-container mb-6">Contato</h5>
+                <ul class="space-y-3 font-body text-xs text-on-surface-variant">
+                    <li>(11) 9984-3310</li>
+                    <li>contato@revelaodonto.com.br</li>
+                    <li>Av. Faria Lima, 3477 — SP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-outline-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body text-xs text-on-surface-variant/50">© 2026 Revela Odontologia · CRO-SP 18.432 · Todos os direitos reservados</p>
+            <p class="font-body text-xs text-on-surface-variant/50">Política de Privacidade · LGPD</p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => observer.observe(el));
+</script>
+
+<!-- WhatsApp Floating Button -->
+<style>
+    #whatsapp-btn {
+        position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+        width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
+    }
+    #whatsapp-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    #whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+    #whatsapp-tooltip {
+        position: fixed; bottom: 34px; right: 90px;
+        background: #0A0A0A; color: #F5F5F0; font-size: 11px;
+        padding: 6px 12px; border: 1px solid #1F1F1F; white-space: nowrap;
+        opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 9998;
+    }
+    #whatsapp-btn:hover + #whatsapp-tooltip { opacity: 1; }
+</style>
+<div id="whatsapp-btn" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</div>
+<div id="whatsapp-tooltip">Fale conosco</div>
+
+</body>
+</html>

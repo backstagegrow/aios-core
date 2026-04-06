@@ -74,6 +74,10 @@ clone_metadata:
   sources_count: 130
   status: "active"
   role_in_roundtable: "Intellectual Villain / Disruptor"
+  calibration_score: 95
+  status_title: "MASTER_READY"
+  calibration_date: "2026-04-05"
+  calibration_notes: "Score 95 — MASTER_READY (2026-04-05). DNA v2.0.0 recriado via NotebookLM (130 fontes). Frameworks: Barbell, Cisne Negro, Antifragilidade, Skin in the Game, Via Negativa, Efeito Lindy, Ergodicidade. Persona do Vilão Intelectual calibrada para mesa redonda."
 calibration_questions:
   - "Qual o maior erro que as startups cometem ao tentar escalar rápido?"
   - "Por que você diz que a maioria dos consultores de negócios são charlatães?"
