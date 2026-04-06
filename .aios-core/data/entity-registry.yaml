@@ -1,27 +1,16 @@
 metadata:
   version: 1.0.1
-<<<<<<< HEAD
   lastUpdated: '2026-03-30T11:54:56.450Z'
   entityCount: 798
-=======
-  lastUpdated: '2026-03-14T18:00:00.000Z'
-  entityCount: 774
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   checksumAlgorithm: sha256
   resolutionRate: 100
   changelog:
     - version: 1.0.1
       date: '2026-03-14'
       changes:
-<<<<<<< HEAD
         - Adicionados 8 C-Level Chiefs (copy, cyber, data, design, legal, story, traffic, squad)
         - Adicionada seção squads com 11 nexus squads
         - Adicionado clone-dna-schema.yaml à seção data
-=======
-        - "Adicionados 8 C-Level Chiefs (copy, cyber, data, design, legal, story, traffic, squad)"
-        - "Adicionada seção squads com 11 nexus squads"
-        - "Adicionado clone-dna-schema.yaml à seção data"
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
 entities:
   tasks:
     add-mcp:
