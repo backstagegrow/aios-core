@@ -2213,13 +2213,8 @@ entities:
         score: 0.8
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:0f630df4796cac74db3de3d20f2c4c05b1a8b1f1c786ea4a76687908d9154233
       lastVerified: '2026-03-25T11:47:24.990Z'
-=======
-      checksum: sha256:0345d330c6b4b934ff576bd5ac79440f186f0622d1637d706806e99c8ede77fb
-      lastVerified: '2026-03-14T11:21:55.647Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     generate-documentation:
       path: .aios-core/development/tasks/generate-documentation.md
       layer: L2
@@ -5511,7 +5506,6 @@ entities:
         extensionPoints: []
       checksum: sha256:f128542695ae1bd358ab553fd777e41ead19c7af31bb97b31d89771f88960332
       lastVerified: '2026-03-14T11:21:55.765Z'
-<<<<<<< HEAD
     project-status:
       path: .aios-core/development/tasks/project-status.md
       layer: L2
@@ -5533,8 +5527,6 @@ entities:
         extensionPoints: []
       checksum: sha256:3cb76eeb42b7e0b46a06ce0827bc68d2f507a7f4021174b1bd9e68d82463e5e6
       lastVerified: '2026-03-29T16:34:54.554Z'
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   templates:
     activation-instructions-inline-greeting:
       path: .aios-core/product/templates/activation-instructions-inline-greeting.yaml
@@ -6677,7 +6669,6 @@ entities:
         extensionPoints: []
       checksum: sha256:c0621a46f2a37ec8c8cfe6b6b240eaf207738693c80199ead7c338d4223d15c2
       lastVerified: '2026-03-14T11:21:55.827Z'
-<<<<<<< HEAD
     elicitation:
       path: .aios-core/product/templates/engine/elicitation.js
       layer: L2
@@ -6693,8 +6684,6 @@ entities:
         extensionPoints: []
       checksum: sha256:1994cc9ecca5c9073f399b369b3a5611bb225c836da5d6cfe6d38ea1b85fefac
       lastVerified: '2026-03-29T16:28:54.263Z'
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   scripts:
     activation-runtime:
       path: .aios-core/development/scripts/activation-runtime.js
@@ -8289,13 +8278,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:1b6a6eabc35847866e40a57586381deb408c58975235fa082829a5c70bb53aaa
       lastVerified: '2026-03-29T16:45:01.218Z'
-=======
-      checksum: sha256:4d812dc503650ef90249ad2993b3f713aea806138a27455a6a9757329d829c8e
-      lastVerified: '2026-03-14T11:21:55.922Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     registry-syncer:
       path: .aios-core/core/code-intel/registry-syncer.js
       layer: L1
@@ -8335,13 +8319,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:8393bfacd856d94a53cf85f511a3b5d704225f422d043fb9c28298a17d1f3f52
       lastVerified: '2026-03-29T16:45:01.214Z'
-=======
-      checksum: sha256:aaf83bdf870fc9b876643677e07c178c77dc410a97744b0cd051251bc69edcc4
-      lastVerified: '2026-03-14T11:21:55.924Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     config-loader:
       path: .aios-core/core/config/config-loader.js
       layer: L1
@@ -8361,13 +8340,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:a20bb3437e632043e1d859448be6198d1b4fc5cb9137b8bd9fa5e6eb09d54294
       lastVerified: '2026-03-29T16:37:53.823Z'
-=======
-      checksum: sha256:6ee26fbb7837004a2d39270b861730acc148a62dc2f904f489d005f329fb82e4
-      lastVerified: '2026-03-14T11:21:55.925Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     config-resolver:
       path: .aios-core/core/config/config-resolver.js
       layer: L1
@@ -8718,13 +8692,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:7e3c54370a7120ae79fc4356aff516f9f18f4ae7786b9ef38160d4e8eee9bc9d
       lastVerified: '2026-03-29T16:37:53.827Z'
-=======
-      checksum: sha256:e93b61dbef7f9be6b3c18d2fea08145954d8379f81a5fc148ff10dd4973f9ba1
-      lastVerified: '2026-03-14T11:21:55.935Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     context-injector:
       path: .aios-core/core/execution/context-injector.js
       layer: L1
@@ -10446,13 +10415,8 @@ entities:
         score: 0.4
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:f0aa527e4337c8873ecf9c4c8ab106c867c69ad8c226c4c56fcd42948585f4e5
       lastVerified: '2026-03-29T16:37:53.829Z'
-=======
-      checksum: sha256:9538e95d3dae99a28aa0f7486733276686bdd48307bac8554ef657bda96a3199
-      lastVerified: '2026-03-14T11:21:56.003Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     creation-helper:
       path: .aios-core/core/code-intel/helpers/creation-helper.js
       layer: L1
@@ -10751,11 +10715,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:fbf07087b997250f1c00a2f698910f0689f82f4a3ddfcc007c084a81a784ef87
-<<<<<<< HEAD
       lastVerified: '2026-03-15T20:40:33.471Z'
-=======
-      lastVerified: '2026-03-14T11:21:56.016Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     entity-registry:
       path: .aios-core/core/doctor/checks/entity-registry.js
       layer: L1
@@ -13577,13 +13537,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:294c184ba4cd89bee51aca8d6262640c02d187260cc9bf5b97e8133a4177104c
       lastVerified: '2026-03-14T21:16:24.935Z'
-=======
-      checksum: sha256:96a945827e15b25a6cd13eb01b423b6dfb0fa7be8256edc5cec47a6635231536
-      lastVerified: '2026-03-14T11:21:56.146Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     ux-design-expert:
       path: .aios-core/development/agents/ux-design-expert.md
       layer: L2
@@ -13621,7 +13576,6 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:7edda1401e9aa6e8e48fe1a6614d9e1869f9e7e7efeac109e1de9540e79e93f1
       lastVerified: '2026-03-25T11:47:24.987Z'
     MEMORY:
@@ -13633,20 +13587,6 @@ entities:
         - memory
         - agent
         - (quinn)
-=======
-      checksum: sha256:7f0fd6273685dc2d5104fb4cb8acbe7cf69cce3a7646907ad04c6d6efbe40970
-      lastVerified: '2026-03-14T11:21:56.147Z'
-    MEMORY:
-      path: .aios-core/development/agents/analyst/MEMORY.md
-      layer: L3
-      type: agent
-      purpose: Analyst Agent Memory (Atlas)
-      keywords:
-        - memory
-        - analyst
-        - agent
-        - (atlas)
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       usedBy: []
       dependencies: []
       externalDeps: []
@@ -13656,7 +13596,6 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:5d2eebbcf85737bf04c470d5ef2167601197a549509dbccc732c82f74a4f4623
       lastVerified: '2026-03-25T11:30:37.048Z'
     conselho-dos-sabios:
@@ -13902,10 +13841,6 @@ entities:
         extensionPoints: []
       checksum: sha256:43c57d24352cdde376b5bf5104697cb4d04c34d1b6d2e731bfe984890d7295d8
       lastVerified: '2026-03-30T11:54:56.425Z'
-=======
-      checksum: sha256:eb2a3f733781f4094ffac4f52656d917c4cdf93ee1bdb26ea4c54728b8ba0b34
-      lastVerified: '2026-03-14T11:21:56.148Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   checklists:
     agent-quality-gate:
       path: .aios-core/development/checklists/agent-quality-gate.md
@@ -14028,12 +13963,8 @@ entities:
         - sales
         - chief
         - tier
-<<<<<<< HEAD
       usedBy:
         - nexus-copy-elite
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14081,12 +14012,8 @@ entities:
         - clv
         - pmf
         - chief
-<<<<<<< HEAD
       usedBy:
         - nexus-data-analysis
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14109,12 +14036,8 @@ entities:
         - ux
         - visual
         - chief
-<<<<<<< HEAD
       usedBy:
         - nexus-multimodal-uiux
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14138,12 +14061,8 @@ entities:
         - contracts
         - brazil
         - chief
-<<<<<<< HEAD
       usedBy:
         - nexus-legal-team
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14191,12 +14110,8 @@ entities:
         - youtube
         - growth
         - chief
-<<<<<<< HEAD
       usedBy:
         - nexus-growth-command
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -14220,14 +14135,7 @@ entities:
         - routing
         - chief
       usedBy: []
-<<<<<<< HEAD
       dependencies: []
-=======
-      dependencies:
-        - oalanicolas
-        - pedro-valerio
-        - sop-extractor
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       externalDeps: []
       plannedDeps: []
       lifecycle: production
@@ -14239,7 +14147,6 @@ entities:
           - clone-pipeline
       lastVerified: '2026-03-14T00:00:00.000Z'
   squads:
-<<<<<<< HEAD
     social-content-squad:
       path: squads/social-content-squad/squad.yaml
       layer: L4
@@ -14267,8 +14174,6 @@ entities:
       externalDeps: []
       lifecycle: active
       lastVerified: '2026-03-23T00:00:00.000Z'
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     nexus-copy-elite:
       path: squads/nexus-copy-elite/squad.yaml
       layer: L4
@@ -14281,12 +14186,8 @@ entities:
         - nexus
       orchestrator: nexus_copy_chief
       version: 2.0.0
-<<<<<<< HEAD
       usedBy:
         - social-content-squad
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies:
         - copy-chief
       externalDeps: []
@@ -14406,12 +14307,8 @@ entities:
         - multimodal
         - nexus
       orchestrator: uiux_coordinator
-<<<<<<< HEAD
       usedBy:
         - social-content-squad
-=======
-      usedBy: []
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies:
         - design-chief
       externalDeps: []
@@ -14475,13 +14372,9 @@ entities:
       path: squads/conselho-dos-sabios/squad.yaml
       layer: L4
       type: squad
-<<<<<<< HEAD
       purpose: >-
         Conselho Pessoal de Sábios — 9 conselheiros históricos e contemporâneos para jornada técnica, filosófica,
         espiritual e estratégica. Não é board executivo — é sabedoria multidimensional de vida.
-=======
-      purpose: Conselho Pessoal de Sábios — 9 conselheiros históricos e contemporâneos para jornada técnica, filosófica, espiritual e estratégica. Não é board executivo — é sabedoria multidimensional de vida.
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       keywords:
         - sábios
         - conselho
@@ -14522,16 +14415,11 @@ entities:
       path: .aios-core/data/clone-dna-schema.yaml
       layer: L3
       type: data
-<<<<<<< HEAD
       purpose: Padronizar o output do DNA Mapper em 5 camadas para garantir
-=======
-      purpose: Schema padrão para extração e armazenamento de DNA de clones em 5 camadas (philosophy, mental_model, heuristics, frameworks, methodology).
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       keywords:
         - clone
         - dna
         - schema
-<<<<<<< HEAD
       usedBy: []
       dependencies: []
       adaptability:
@@ -14540,26 +14428,6 @@ entities:
         extensionPoints: []
       checksum: sha256:41d9d2aa60f1933106443eec599a260c50391d6b3a4e6a5bdd4ba067354beac5
       lastVerified: '2026-03-14T21:16:24.923Z'
-=======
-        - mega-brain
-        - dna-mapper
-        - skill-generator
-        - conclave
-      usedBy:
-        - squad-chief
-        - squad
-      dependencies: []
-      externalDeps: []
-      plannedDeps: []
-      lifecycle: production
-      adaptability:
-        score: 0.8
-        constraints: []
-        extensionPoints:
-          - voice-dna
-          - conclave-config
-      lastVerified: '2026-03-14T00:00:00.000Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     agent-config-requirements:
       path: .aios-core/data/agent-config-requirements.yaml
       layer: L3
@@ -14619,13 +14487,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:5145788c713d6f6a3cf3a7be1a0d61027d09277f47e9c19a8d85e87e6e95dd48
       lastVerified: '2026-03-15T20:40:57.771Z'
-=======
-      checksum: sha256:0f47cede001820cde0bbaad53d0c382f93e7a84f84792ba16746a2e0792bce89
-      lastVerified: '2026-03-14T11:21:56.161Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     learned-patterns:
       path: .aios-core/data/learned-patterns.yaml
       layer: L3
@@ -14728,13 +14591,8 @@ entities:
         score: 0.5
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:fb348aef584da50c93a27edf0d0edd51458f0aeca33b5ae03cb82d990f3c8871
       lastVerified: '2026-03-30T11:30:13.677Z'
-=======
-      checksum: sha256:6108dd8b68fff04a962828d5927f5fe64273e434bae12f641472133bdb32ebb7
-      lastVerified: '2026-03-14T11:21:56.165Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     workflow-patterns:
       path: .aios-core/data/workflow-patterns.yaml
       layer: L3
@@ -14924,7 +14782,6 @@ entities:
         extensionPoints: []
       checksum: sha256:1a7262912c8c8e264d307f0d38a1109bdb2b9bff9ea7d8855c768835201aa59b
       lastVerified: '2026-03-14T11:21:56.171Z'
-<<<<<<< HEAD
     INTEGRATION-GUIDE:
       path: .aios-core/data/offer-architect-library/INTEGRATION-GUIDE.md
       layer: L3
@@ -15019,8 +14876,6 @@ entities:
         extensionPoints: []
       checksum: sha256:1c7b9edf87b4bfc51af8ca9987b25ffedb10fcf5a791690deb0569010468a704
       lastVerified: '2026-03-18T12:24:28.603Z'
-=======
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
   workflows:
     auto-worktree:
       path: .aios-core/development/workflows/auto-worktree.yaml
@@ -15866,13 +15721,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:4c1a7ca846cfb262e94753f2103b0012993498cc1b703847f071cbb43bffcd4f
       lastVerified: '2026-03-29T16:45:01.219Z'
-=======
-      checksum: sha256:8f9e8a7130df48314e7d57808a2c5f26edb1910d646a18e255bfb39021435752
-      lastVerified: '2026-03-14T11:21:56.217Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     config-loader:
       path: .aios-core/infrastructure/scripts/config-loader.js
       layer: L2
@@ -16964,13 +16814,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:638cea4bc3672c2561ce00760c7b8b68880d1c94bc5d534c99962a621421ca91
       lastVerified: '2026-03-29T16:28:54.243Z'
-=======
-      checksum: sha256:d025d620641f2d36f4749197d0e5970e91ee65b9bee8996f68f6f239efe18f78
-      lastVerified: '2026-03-14T11:21:56.255Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     transaction-manager:
       path: .aios-core/infrastructure/scripts/transaction-manager.js
       layer: L2
@@ -17032,13 +16877,8 @@ entities:
         score: 0.7
         constraints: []
         extensionPoints: []
-<<<<<<< HEAD
       checksum: sha256:b68f810561ae5041850fe2b6b79fcf41f93057eb0f665cedf44cf49ccc331fc8
       lastVerified: '2026-03-25T11:30:37.079Z'
-=======
-      checksum: sha256:fec0f03f6b5e5d47ece9a7347417a27959b972a6e5a54d527f954147805f2493
-      lastVerified: '2026-03-14T11:21:56.257Z'
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
     validate-antigravity-integration:
       path: .aios-core/infrastructure/scripts/validate-antigravity-integration.js
       layer: L2
@@ -17583,12 +17423,7 @@ entities:
         - install
         - llm
         - routing
-<<<<<<< HEAD
       usedBy: []
-=======
-      usedBy:
-        - setup-llm-routing
->>>>>>> 44537696 (Refactor: AlphaBusinessAcademy landing page and add new core packages and scripts)
       dependencies: []
       externalDeps: []
       plannedDeps: []
