@@ -1,34 +1,38 @@
 @import "tailwindcss";
 
 :root {
+  /* UFOP Institutional Red: #9D2235 */
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
-  /* UFOP RED: #9D2235 -> HSL(351, 65%, 37%) */
-  --primary: 351 65% 37.5%; 
+  --primary: 351 65% 37.5%;
   --primary-foreground: 0 0% 100%;
-  
   --card: 240 10% 3.9%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 351 65% 37.5%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
 }
 
+/* Tailwind v4: expose all tokens as oklch-compatible values */
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  /* Primary = UFOP Red #9D2235 */
+  --color-primary: #9D2235;
+  --color-primary-foreground: #ffffff;
+
+  /* Transparent variants used with Tailwind opacity modifier */
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+  --color-zinc-800: #27272a;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-500: #71717a;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-100: #f4f4f5;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
