@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-03-30T11:54:56.450Z'
+  lastUpdated: '2026-04-18T21:08:36.944Z'
   entityCount: 798
   checksumAlgorithm: sha256
   resolutionRate: 100
@@ -702,8 +702,7 @@ entities:
         - update
         - task
         - clickup-create-update-task
-      usedBy:
-        - clickup-ops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -727,8 +726,7 @@ entities:
         - management
         - report
         - clickup-generate-management-report
-      usedBy:
-        - clickup-reporting
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -751,8 +749,7 @@ entities:
         - publish
         - task
         - clickup-publish-task
-      usedBy:
-        - clickup-ops
+      usedBy: []
       dependencies: []
       externalDeps: []
       plannedDeps: []
@@ -12984,16 +12981,13 @@ entities:
       path: .aios-core/development/agents/clickup-ops.md
       layer: L2
       type: agent
-      purpose: Show all available commands
+      purpose: '''Show all available commands'''
       keywords:
         - clickup
         - ops
         - clickup-ops
       usedBy: []
-      dependencies:
-        - clickup-publish-task
-        - clickup-create-update-task
-        - clickup
+      dependencies: []
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -13001,21 +12995,19 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
-      lastVerified: '2026-03-14T11:21:56.119Z'
+      checksum: sha256:aa60c60ab1fc3ea753abd9a2adf0848a1ca2aa085318c90e45044db55bf30b36
+      lastVerified: '2026-04-18T21:08:36.935Z'
     clickup-reporting:
       path: .aios-core/development/agents/clickup-reporting.md
       layer: L2
       type: agent
-      purpose: Show available commands
+      purpose: '''Show all available commands'''
       keywords:
         - clickup
         - reporting
         - clickup-reporting
       usedBy: []
-      dependencies:
-        - clickup-generate-management-report
-        - clickup
+      dependencies: []
       externalDeps: []
       plannedDeps: []
       lifecycle: experimental
@@ -13023,8 +13015,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
-      lastVerified: '2026-03-14T11:21:56.120Z'
+      checksum: sha256:adad569f31c936254321fea83a53447e7634a1150ffadf6f7acfb2581a2351f7
+      lastVerified: '2026-04-18T21:08:36.938Z'
     data-engineer:
       path: .aios-core/development/agents/data-engineer.md
       layer: L2
@@ -13771,8 +13763,8 @@ entities:
         score: 0.3
         constraints: []
         extensionPoints: []
-      checksum: sha256:b97b72f14bb740fb2eee918f852cfd5e365bf24c2505d650158a21dca30102e3
-      lastVerified: '2026-03-30T11:54:56.424Z'
+      checksum: sha256:9caf63249c653814117c54567e1979da0063f3a7d2330cb6ff377385db3d8f27
+      lastVerified: '2026-04-18T21:08:36.940Z'
     content-planner:
       path: .aios-core/development/agents/content-planner.md
       layer: L2
@@ -17699,8 +17691,6 @@ entities:
       keywords:
         - clickup
       usedBy:
-        - clickup-ops
-        - clickup-reporting
         - sm
       dependencies: []
       externalDeps: []
