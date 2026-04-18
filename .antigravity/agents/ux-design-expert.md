@@ -107,25 +107,6 @@ agent:
     COMMAND-TO-TASK MAPPING (TOKEN OPTIMIZATION):
     Use DIRECT Read() with exact paths. NO Search/Grep.
 
-<<<<<<< HEAD
-    Phase 0 Commands (PRE-CREATION — always run before page/component work):
-    *create-site       → Read(".antigravity/workflows/site-creation.md")
-    *discover          → Read(".antigravity/tasks/discover-design-system.md")
-    *create-page       → Read(".antigravity/tasks/discover-design-system.md") THEN Read(".antigravity/tasks/create-page.md")
-    *spec-page         → Read(".antigravity/tasks/spec-page.md")
-    *generate-manifest → Read(".antigravity/tasks/generate-project-manifest.md")
-    *load-brand-tokens → Read(".antigravity/tasks/load-brand-engine-tokens.md")
-    *deploy            → Read(".antigravity/tasks/deploy.md")
-    *copy-page        → Read(".antigravity/tasks/write-copy.md")  # PAGE MODE: skeleton → approve → generate all sections
-    *write-copy       → Read(".antigravity/tasks/write-copy.md")  # SECTION MODE: generate one section
-    *refine-copy      → Read(".antigravity/tasks/write-copy.md")  # REFINE MODE: rewrite one section only
-    NOTE: *write-copy loads clone DNA from experts/{slug}/dna/compiled_dna.md and outputs copy ready for *create-page.
-    NOTE: *create-site is the FULL workflow: manifest → tokens → spec → pages → deploy. Use for new sites.
-    NOTE: *create-page auto-runs *discover first. Never skip this step.
-    NOTE: *spec-page should run before *create-page for complex pages (4+ sections, forms, integrations).
-    NOTE: *generate-manifest runs once per project to persist context across sessions.
-=======
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
     Phase 1 Commands:
     *research        → Read(".aios-core/development/tasks/ux-user-research.md")
     *wireframe       → Read(".aios-core/development/tasks/ux-create-wireframe.md")
@@ -207,20 +188,6 @@ core_principles:
 # All commands require * prefix when used (e.g., *help)
 # Commands organized by 5 phases for clarity
 commands:
-<<<<<<< HEAD
-  # === PHASE 0: DESIGN SYSTEM CONTEXT (run before any page/component work) ===
-  create-site {client-slug}: 'Full site creation workflow: manifest → brand tokens → spec → pages → deploy'
-  discover: 'Auto-discover design system tokens, components and pages in the project'
-  create-page {name}: 'Create a complete page using the project design system (runs discover first)'
-  spec-page {name}: 'Run specification pipeline for complex pages before building (4+ sections)'
-  deploy: 'Deploy the current project to its configured platform (cloudflare-pages | vercel | netlify)'
-  copy-page {page-name}: 'Generate full page copy skeleton → approval gate → section-by-section generation. Saves draft to .copy-drafts/'
-  write-copy {section}: 'Generate copy for one specific section using expert clones (hero|pain|mechanism|proof|offer|cta|faq|story|vsl|ad)'
-  refine-copy {section}: 'Rewrite a single already-generated section without touching others'
-  generate-manifest: 'Generate project-manifest.yaml to persist design context across sessions'
-  load-brand-tokens {slug}: 'Load brand tokens from packages/brand-engine/clients/{slug}/'
-=======
->>>>>>> df260655 (feat: improve brand engine, clones and documentation update)
   # === PHASE 1: UX RESEARCH & DESIGN ===
   research: 'Conduct user research and needs analysis'
   wireframe {fidelity}: 'Create wireframes and interaction flows'

@@ -1,0 +1,98 @@
+# Acougue do Romeu -- Client Profile
+# Usado por @copy-specialist e @content-planner para alinhar tom e estrategia de conteudo.
+# Campos marcados com "TODO:" precisam ser preenchidos pelo usuario.
+
+slug: acougue-do-romeu
+name: Acougue do Romeu
+status: active
+
+# -- Dados do Negocio ---
+business:
+  city: Sao Goncalo do Rio Abaixo
+  state: MG
+  address: "Rua Jose Pedro Barcelos, 60 - Centro - CEP 35935-000"
+  phone_fixed: "(31) 3380-2615"
+  whatsapp: "(31) 99313-8468"
+  hours:
+    weekdays: "08:00 - 18:00"
+    saturday: "08:00 - 16:00"
+    sunday: fechado
+
+# -- Identidade da Marca ---
+brand:
+  segment: Alimentacao / Acougue
+  positioning: "Acougue de bairro com qualidade premium -- cortes selecionados e atendimento personalizado"
+  usp: "Qualidade, frescor e o atendimento de quem conhece voce pelo nome"
+  tagline: TODO: Ex -- "A carne certa pro seu churrasco"
+  visual_identity:
+    status: existente
+    colors: ["#CC0000", "#1A1A1A", "#FFFFFF"]
+    description: "Logo com ilustracao de boi em P&B + tipografia em vermelho bold. Paleta: vermelho + preto + branco."
+    logo_hires: TODO: solicitar PNG fundo transparente
+
+# -- Publico-Alvo ---
+audience:
+  primary: "Homens e mulheres 30-55 anos, classes B/C, moradores do bairro/regiao, que valorizam qualidade da carne"
+  secondary: "Churrasqueiros amadores e entusiastas de gastronomia"
+  pain_points:
+    - "Carne de supermercado sem qualidade e sem orientacao de corte"
+    - "Nao saber qual corte ideal para cada tipo de preparo"
+  desires:
+    - "Ter um acougue de confianca com carne fresca e bem cortada"
+    - "Receber orientacao sobre cortes e preparo"
+
+# -- Tom de Voz ---
+tone_of_voice:
+  style: proximo, acolhedor, com autoridade em carnes
+  avoid:
+    - linguagem muito tecnica ou academica
+    - tom distante ou corporativo
+    - humor pesado ou polemico
+  use:
+    - linguagem acessivel como conversa de vizinho
+    - referencias a churrasco, familia e momentos de reuniao
+    - dicas praticas de preparo e escolha de cortes
+
+# -- Pilares de Conteudo ---
+content_pillars:
+  - name: Produto em Destaque
+    description: Fotos e artes de cortes especificos com nome, sugestao de preparo e uso culinario
+  - name: Dicas e Educacao
+    description: Como escolher carne, dicas de preparo, temperatura ideal, curiosidades sobre cortes
+  - name: Promocao/Oferta
+    description: Ofertas da semana, combos, kits churrasco, precos especiais
+  - name: Bastidores
+    description: Equipe, rotina do acougue, chegada de mercadoria, processo de selecao
+  - name: Prova Social
+    description: Depoimentos, clientes satisfeitos, movimento na loja
+  - name: Sazonal
+    description: Datas comemorativas do segmento (Dia do Churrasco, Dia dos Pais, Natal, etc.)
+
+# -- Servico Contratado ---
+service:
+  plan: social_media_design
+  artes_por_mes: 10
+  inclui:
+    - criacao de artes para feed
+    - adaptacao para stories (quando aplicavel)
+  nao_inclui:
+    - gestao de redes sociais
+    - criacao de copy/legendas
+    - agendamento de posts
+
+# -- Social Media ---
+associations:
+  - name: ACE / ACIASGRA
+    url: "https://www.aceassociados.com.br/plataforma/aplicativo/saogoncalodorioabaixo/segmento/acougue/1"
+
+competitors:
+  - name: Acougue Araujo
+    instagram: "@acouguearaujosgra"
+    followers: 2812
+    posts: 335
+    notes: "Mercearia ampla (bovinos, suinos, aves, ovos, roca). Mesma cidade, mesmo bairro. Presenca digital consolidada."
+
+social:
+  instagram: "@acougue_do_romeu"
+  instagram_status: "0 posts | 197 seguidores | conta em fase inicial"
+  whatsapp: "(31) 99313-8468"

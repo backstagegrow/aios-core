@@ -1,36 +1,36 @@
 const https = require('https');
 
-const { API_KEY, clickupRequest } = require('./lib/clickup-env');
+const { clickupRequest } = require('./lib/clickup-env.cjs');
 const TEAM_ID = '90132645314';
 
-function clickupRequest(path) {
-  return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'api.clickup.com',
-      port: 443,
-      path: `/api/v2${path}`,
-      method: 'GET',
-      headers: {
-        'Authorization': API_KEY,
-        'Content-Type': 'application/json',
-      },
-    };
+// Removed duplicate function declaration
+return new Promise((resolve, reject) => {
+  const options = {
+    hostname: 'api.clickup.com',
+    port: 443,
+    path: `/api/v2${path}`,
+    method: 'GET',
+    headers: {
+      'Authorization': API_KEY,
+      'Content-Type': 'application/json',
+    },
+  };
 
-    const req = https.request(options, (res) => {
-      let data = '';
-      res.on('data', (chunk) => data += chunk);
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          try { resolve(JSON.parse(data)); } catch (e) { resolve(data); }
-        } else {
-          reject(new Error(`Status ${res.statusCode}: ${data}`));
-        }
-      });
+  const req = https.request(options, (res) => {
+    let data = '';
+    res.on('data', (chunk) => data += chunk);
+    res.on('end', () => {
+      if (res.statusCode >= 200 && res.statusCode < 300) {
+        try { resolve(JSON.parse(data)); } catch (e) { resolve(data); }
+      } else {
+        reject(new Error(`Status ${res.statusCode}: ${data}`));
+      }
     });
-
-    req.on('error', (e) => reject(e));
-    req.end();
   });
+
+  req.on('error', (e) => reject(e));
+  req.end();
+});
 }
 
 async function run() {

@@ -22,6 +22,9 @@ npm-debug.log*
 build/*.txt
 web-bundles/
 
+# ClickUp audit/diagnostic scripts (one-off tooling, not operational)
+scripts/audit/
+
 # Environment variables
 .env
 .env.local
@@ -401,3 +404,4 @@ clients/bks-grow/.env
 
 # State files
 .state.yaml
+projects/ufop-sas

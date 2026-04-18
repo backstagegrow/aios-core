@@ -3,6 +3,7 @@ clickup_ops:
     id: "90132645314"
     name: "Gerenciamento de Clientes"
     url: "https://app.clickup.com/90132645314/v/o/s/901312834269"
+
   reporting:
     management_space:
       name: "Gestão Empresarial"
@@ -10,20 +11,47 @@ clickup_ops:
       reports_doc_target_id: "4006945040979908393"
 
   members:
-    backstage_grow: "248595236"
-    darlon_do_prado: "112074266"
-    erick_moreira_sena_silveira: "111906470"
-    robson_nobre: "112074279"
-    vitoria_santos: "112048722"
+    henrique_backstage:
+      id: "118007770"
+      role: "Tráfego Pago"
+    robson_nobre:
+      id: "112074279"
+      role: "Automação"
+    vitoria_santos:
+      id: "112048722"
+      role: "Creative Lead / Copy Chief"
+    erick_moreira_sena_silveira:
+      id: "111906470"
+      role: "CTO / co-Founder / Design Head"
+    backstage_grow:
+      id: "248595236"
+      role: "CEO / Founder / Operations"
 
+  # ──────────────────────────────────────────────
+  # CLIENTES ATIVOS
+  # Auditado via broad_clickup_scan — 2026-04-11
+  # ──────────────────────────────────────────────
   folders:
     social_media:
       id: "901316465410"
       name: "Gestão de Social Media"
-      url: "https://app.clickup.com/90132645314/v/o/f/901316465410?pr=901312834269"
+    trafego_pago:
+      id: "901316473884"
+      name: "Gestão de Tráfego Pago"
+    automacoes:
+      id: "901316842694"
+      name: "Gestão das Automações"
+    design_web:
+      id: "901317898967"
+      name: "Design Web"
+    onboarding:
+      id: "901316473918"
+      name: "Gestão de Onboarding"
 
   lists:
+    # ── BACKSTAGE GROW (interno) ──────────────────
     backstage_grow_social_media:
+      client: "Backstage Grow"
       name: "Backstage Grow (Social Media)"
       list_id: "901324771638"
       custom_fields:
@@ -58,42 +86,40 @@ clickup_ops:
           field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
           type: "date"
 
-    espaco_constru_social_media:
-      name: "Espaço Constru (Social Media)"
-      list_id: "901324526474"
+    backstage_grow_trafego_pago:
+      client: "Backstage Grow"
+      name: "Backstage Grow (Tráfego Pago)"
+      list_id: "901324771662"
       custom_fields:
-        formato:
-          field_id: "bab7ab8a-b178-4dcf-bf47-c39fe7164476"
+        veiculando_nos_ads:
+          field_id: "89800538-d8c3-4cf2-9427-19e8b384f0a3"
+          type: "checkbox"
+
+    backstage_grow_automacoes:
+      client: "Backstage Grow"
+      name: "Backstage Grow (Automações)"
+      list_id: "901325044221"
+      custom_fields: {}
+
+    backstage_grow_design_web:
+      client: "Backstage Grow"
+      name: "Backstage Grow (Design Web)"
+      list_id: "901326596815"
+      custom_fields:
+        tipo_de_entrega:
+          field_id: "f3c01667-929e-4ffa-8d96-a5a47b562a1f"
           type: "drop_down"
-          options:
-            reels: "8eb367da-1037-4aaa-9a39-845910008c18"
-            carrossel: "dde7fc87-9cb6-46a5-9402-a98cd04c099b"
-            estatico: "9addfe3e-211b-42ea-acf2-1e606faaddde"
-            stories: "cbc79c4d-0411-4cae-b1ff-08aa7ee011f8"
-        acao:
-          field_id: "4a01c86c-52f8-4c9c-aff0-a5591a5e8e10"
-          type: "drop_down"
-          options:
-            gerar_autoridade: "7f88b6ae-68cd-4ae4-bbcf-97b81a843809"
-            aumentar_medias_visualizacoes: "5401ad67-2d96-41f1-9d9b-c74b43b30db2"
-            gerar_interacao: "3dfa7d88-70f8-4cbd-8b38-9c992567a250"
-            gerar_compartilhamento: "8d89d49f-7d42-44d6-82ac-df6cbf5ef215"
-            converter_seguidores: "1a25ee30-d63c-409b-94f1-561796cb84ca"
-        objetivo:
-          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
-          type: "drop_down"
-          options:
-            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
-            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
-            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
-            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
-            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
-            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
-        entrega_do_design:
-          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
+          options: [Landing Page, Banner, Ajuste de Site, Atualização]
+        link_publicado:
+          field_id: "e7e103b5-abef-4d91-b257-49843c5813ab"
+          type: "url"
+        prazo_de_entrega:
+          field_id: "1e97e1bd-6bcb-48a3-9c9a-667e6092d572"
           type: "date"
 
+    # ── GT HOUSE ──────────────────────────────────
     gt_house_social_media:
+      client: "GT House"
       name: "GT House (Social Media)"
       list_id: "901324517019"
       custom_fields:
@@ -128,7 +154,46 @@ clickup_ops:
           field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
           type: "date"
 
+    gt_house_trafego_pago:
+      client: "GT House"
+      name: "GT House (Tráfego Pago)"
+      list_id: "901324526554"
+      custom_fields:
+        veiculando_nos_ads:
+          field_id: "89800538-d8c3-4cf2-9427-19e8b384f0a3"
+          type: "checkbox"
+
+    gt_house_automacoes:
+      client: "GT House"
+      name: "GT House (Automações)"
+      list_id: "901325044211"
+      custom_fields: {}
+
+    gt_house_design_web:
+      client: "GT House"
+      name: "GT House (Design Web)"
+      list_id: "901326596709"
+      custom_fields:
+        tipo_de_entrega:
+          field_id: "b904c7d8-c7ab-4148-baa0-84542bff47ca"
+          type: "drop_down"
+          options: [Landing Page, Banner, Ajuste de Site, Atualização]
+        link_publicado:
+          field_id: "e7e103b5-abef-4d91-b257-49843c5813ab"
+          type: "url"
+        prazo_de_entrega:
+          field_id: "1e97e1bd-6bcb-48a3-9c9a-667e6092d572"
+          type: "date"
+
+    gt_house_onboarding:
+      client: "GT House"
+      name: "GT House (Onboarding)"
+      list_id: "901324526598"
+      custom_fields: {}
+
+    # ── VIA BR CENOGRAFIA ─────────────────────────
     via_br_cenografia_social_media:
+      client: "Via BR Cenografia"
       name: "Via BR Cenografia (Social Media)"
       list_id: "901324514634"
       custom_fields:
@@ -163,122 +228,116 @@ clickup_ops:
           field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
           type: "date"
 
-    sp_haus_social_media:
-      name: "sp HAUS (Gestão de Social Media)"
-      list_id: "901324514510"
-      custom_fields:
-        formato:
-          field_id: "6c3b84f0-ce83-49b2-8f2f-c6186343ecac"
-          type: "drop_down"
-          options:
-            reels: "7fcdd070-6320-4a31-b491-e03bab3a6a01"
-            carrossel: "beb43ae5-2521-401f-b64e-2bd1d4a0d3bf"
-            estatico: "196dd42c-b19a-4532-9368-10a6d4ec01d8"
-            stories: "3a796451-5e68-431a-a031-9a58304e6128"
-        objetivo:
-          field_id: "00ecc8c2-310d-4d99-a2c8-1401c8a308f9"
-          type: "drop_down"
-          options:
-            atrair: "ea379384-5c42-432e-ae58-00bfe8074e61"
-            educar: "f58bbc86-f3e7-4ee4-ae54-53fb44665a63"
-            conectar: "9ba43941-d3e1-4129-9a8f-a9bc074395a7"
-            posicionar: "e8ca18bf-39e1-4879-a036-3f0c089a2226"
-            antecipar: "e0f1f485-e646-4914-9f7a-9df8af1d26c7"
-            promover_servicos: "a5f143c0-830d-4391-9b1d-ea0627bae497"
-        acao:
-          field_id: "4a01c86c-52f8-4c9c-aff0-a5591a5e8e10"
-          type: "drop_down"
-          options:
-            gerar_autoridade: "7f88b6ae-68cd-4ae4-bbcf-97b81a843809"
-            aumentar_medias_visualizacoes: "5401ad67-2d96-41f1-9d9b-c74b43b30db2"
-            gerar_interacao: "3dfa7d88-70f8-4cbd-8b38-9c992567a250"
-            gerar_compartilhamento: "8d89d49f-7d42-44d6-82ac-df6cbf5ef215"
-            converter_seguidores: "1a25ee30-d63c-409b-94f1-561796cb84ca"
-        entrega_do_design:
-          field_id: "ec2feb7c-8208-49c5-9811-f0ec3e4df2c8"
-          type: "date"
-
-    sp_haus_trafego_pago:
-      name: "sp HAUS (Gestão de Tráfego Pago)"
-      list_id: "901324526553"
-      custom_fields: {}
-
-    gt_house_trafego_pago:
-      name: "GT House (Gestão de Tráfego Pago)"
-      list_id: "901324526554"
-      custom_fields: {}
-
-    sp_haus_automacoes:
-      name: "sp HAUS (Automações)"
-      list_id: "4006927771270429340"
-      custom_fields: {}
-
-    via_br_cenografia_automacoes:
-      name: "Via BR Cenografia (Automações)"
-      list_id: "4006946623684212362"
-      custom_fields: {}
-
-    espaco_constru_automacoes:
-      name: "Espaço Constru (Automações)"
-      list_id: "4006911367424542286"
-      custom_fields: {}
-
-    backstage_grow_automacoes:
-      name: "Backstage Grow (Automações)"
-      list_id: "4006967380295741386"
-      custom_fields: {}
-
-    gt_house_automacoes:
-      name: "GT House (Automações)"
-      list_id: "4006925123372848283"
-      custom_fields: {}
-
-    backstage_grow_trafego_pago:
-      name: "Backstage Grow (Tráfego Pago)"
-      list_id: "901324771662"
-      custom_fields: {}
-
-    espaco_constru_trafego_pago:
-      name: "Espaço Constru (Tráfego Pago)"
-      list_id: "901324526551"
-      custom_fields: {}
-
     via_br_cenografia_trafego_pago:
+      client: "Via BR Cenografia"
       name: "Via BR Cenografia (Tráfego Pago)"
       list_id: "901324526552"
-      custom_fields: {}
+      custom_fields:
+        veiculando_nos_ads:
+          field_id: "89800538-d8c3-4cf2-9427-19e8b384f0a3"
+          type: "checkbox"
 
-    espaco_constru_onboarding:
-      name: "Espaço Constru (Onboarding)"
-      list_id: "4006911058032940449"
-      custom_fields: {}
-
-    gt_house_onboarding:
-      name: "GT House (Onboarding)"
-      list_id: "4006926170538287220"
+    via_br_cenografia_automacoes:
+      client: "Via BR Cenografia"
+      name: "Via BR Cenografia (Automações)"
+      list_id: "901325044224"
       custom_fields: {}
 
     via_br_cenografia_onboarding:
+      client: "Via BR Cenografia"
       name: "Via BR Cenografia (Onboarding)"
-      list_id: "4006905575449557889"
+      list_id: "901324526597"
       custom_fields: {}
 
-    sp_haus_onboarding:
-      name: "sp HAUS (Onboarding)"
-      list_id: "4006937845762530674"
+    # ── IMERSÃO ABA ───────────────────────────────
+    imersao_aba_social_media:
+      client: "Imersão ABA"
+      name: "Imersão ABA (Social Media)"
+      list_id: "901325984602"
       custom_fields: {}
 
+    imersao_aba_trafego_pago:
+      client: "Imersão ABA"
+      name: "Imersão ABA (Tráfego Pago)"
+      list_id: "901325984626"
+      custom_fields:
+        veiculando_nos_ads:
+          field_id: "89800538-d8c3-4cf2-9427-19e8b384f0a3"
+          type: "checkbox"
+
+    imersao_aba_onboarding:
+      client: "Imersão ABA"
+      name: "Imersão ABA (Onboarding)"
+      list_id: "901325984637"
+      custom_fields: {}
+
+    # ── ALPHA BUSINESS ────────────────────────────
+    alpha_business_design_web:
+      client: "Alpha Business"
+      name: "Alpha Business (Design Web)"
+      list_id: "901326596794"
+      custom_fields:
+        tipo_de_entrega:
+          field_id: "294498dd-ae62-44a2-a41e-bd66ec46463d"
+          type: "drop_down"
+          options: [Landing Page, Banner, Ajuste de Site, Atualização]
+        link_publicado:
+          field_id: "e7e103b5-abef-4d91-b257-49843c5813ab"
+          type: "url"
+        prazo_de_entrega:
+          field_id: "1e97e1bd-6bcb-48a3-9c9a-667e6092d572"
+          type: "date"
+
+    # ── BACKSTAGIFY (produto interno) ─────────────
+    backstagify_automacoes:
+      client: "BackStageFy"
+      name: "BackStageFy (Automações)"
+      list_id: "901325828552"
+      custom_fields: {}
+
+  # ──────────────────────────────────────────────
+  # CLIENTES INATIVOS (Churn)
+  # NÃO criar tarefas nestas listas
+  # ──────────────────────────────────────────────
+  clients_inactive:
+    sp_haus:
+      status: "inactive"
+      churn_date: "2026-04"
+      lists:
+        social_media: "901324514510"
+        automacoes: "901325044225"
+        onboarding: "901324526599"
+        # trafego_pago: não existia
+      docs:
+        manual: "2ky561e2-2453"
+        ia_concierge: "2ky561e2-3413"
+
+    espaco_constru:
+      status: "churn"
+      churn_folder_id: "901317881847"
+      lists:
+        social_media: "901324526474"
+        automacoes: "901325044223"
+      docs:
+        manual: "2ky561e2-3073"
+
+  # ──────────────────────────────────────────────
+  # ROUTING — quem recebe cada tipo de tarefa
+  # ──────────────────────────────────────────────
   routing:
     copy: "112048722"
-    design: "112074279"
+    design: "111906470"
     social_media: "112048722"
-    paid_media: "112074266"
+    paid_media: "118007770"
     onboarding: "248595236"
     automacao: "112074279"
-    relatorio: "111906470"
+    relatorio: "248595236"
     revisao: "248595236"
     fallback_assignee: "248595236"
 
+  # ──────────────────────────────────────────────
+  # STATUS PADRÃO POR LISTA
+  # ──────────────────────────────────────────────
   status_by_list:
     default:
       - "TO DO"
@@ -287,120 +346,10 @@ clickup_ops:
       - "APROVADO"
       - "CONCLUÍDO"
 
-    backstage_grow_social_media:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    espaco_constru_social_media:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    gt_house_social_media:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    via_br_cenografia_social_media:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    sp_haus_social_media:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-
-    sp_haus_trafego_pago:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    gt_house_trafego_pago:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    backstage_grow_trafego_pago:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    espaco_constru_trafego_pago:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
+    # Via BR Tráfego usa status diferente — CORRIGIR NA UI
     via_br_cenografia_trafego_pago:
       - "aberto"
       - "em progresso"
       - "revisão"
       - "aprovação"
       - "finalizado"
-
-    sp_haus_automacoes:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    via_br_cenografia_automacoes:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    espaco_constru_automacoes:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    backstage_grow_automacoes:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    gt_house_automacoes:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-
-    espaco_constru_onboarding:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    gt_house_onboarding:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    via_br_cenografia_onboarding:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"
-    sp_haus_onboarding:
-      - "TO DO"
-      - "EM PRODUÇÃO"
-      - "REVISÃO"
-      - "APROVADO"
-      - "CONCLUÍDO"

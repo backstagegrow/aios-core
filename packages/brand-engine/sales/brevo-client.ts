@@ -19,7 +19,7 @@ apiKey.apiKey = process.env.BREVO_API_KEY || '';
 const apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
 const transactionalApi = new SibApiV3Sdk.TransactionalEmailsApi();
 const contactsApi = new SibApiV3Sdk.ContactsApi();
-const listsApi = new SibApiV3Sdk.ListsApi();
+const listsApi = new SibApiV3Sdk.ContactsApi();
 
 export interface BrevoSender {
     name: string;
@@ -114,7 +114,7 @@ export async function sendTransactionalEmail(
     }
 }
 
-export async function addContactToList(email: string, name: string, listId: number) {
+export async function addContactToList(email: string, name: string, listId: number): Promise<boolean> {
     try {
         const contact = new SibApiV3Sdk.CreateContact();
         contact.email = email;
@@ -122,14 +122,18 @@ export async function addContactToList(email: string, name: string, listId: numb
         contact.listIds = [listId];
         contact.updateEnabled = true;
         await contactsApi.createContact(contact);
-        console.log(`[Brevo] Contato adicionado: ${email} → lista ${listId}`);
+        console.log(`[Brevo] ✓ ${email} → lista ${listId}`);
+        return true;
     } catch (error: unknown) {
-        if (hasApiErrorShape(error) && error.response?.body) {
-            console.error(`[Brevo] Erro ao adicionar ${email}:`, error.response.body);
-        } else {
-            console.error(`[Brevo] Erro ao adicionar ${email}:`, error);
-        }
+        const body = hasApiErrorShape(error) && error.response?.body ? error.response.body : error;
+        console.error(`[Brevo] ✗ Erro ao adicionar ${email} → lista ${listId}:`, JSON.stringify(body));
+        return false;
     }
+}
+
+export async function getBrevoLists(limit = 50, offset = 0): Promise<Array<{ id: number; name: string; uniqueSubscribers: number }>> {
+    const data = await listsApi.getLists(limit, undefined, offset);
+    return (data.lists || []) as Array<{ id: number; name: string; uniqueSubscribers: number }>;
 }
 
 export async function createBrevoList(name: string, folderId: number = 1): Promise<number> {

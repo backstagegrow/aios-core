@@ -1,0 +1,57 @@
+# Imersão ABA — Client Profile
+# Usado por @copy-specialist e @content-planner para alinhar tom e estratégia de conteúdo.
+# Campos marcados com "TODO:" precisam ser preenchidos pelo usuário.
+
+slug: imersao-aba
+name: Imersão ABA
+status: active
+
+# ── Identidade da Marca ───────────────────────────────────────────────────────
+brand:
+  segment: Educação / Eventos / Imersão de Negócios
+  positioning: TODO: Ex — "A imersão que transforma empreendedores em donos de negócios de alta performance"
+  usp: TODO: Ex — "Metodologia Alpha Business Academy em formato imersivo de alto impacto"
+  tagline: TODO: Ex — "Em X dias, sua mentalidade e seu negócio nunca mais são os mesmos"
+
+# ── Público-Alvo ──────────────────────────────────────────────────────────────
+audience:
+  primary: TODO: Ex — "Empreendedores 25-45 anos que querem escalar seus negócios"
+  secondary: TODO: Ex — "Gestores e líderes que buscam desenvolvimento profissional acelerado"
+  pain_points:
+    - TODO: Ex — "Negócio estagnado sem clareza de como crescer"
+    - TODO: Ex — "Falta de network de qualidade e mentoria prática"
+  desires:
+    - TODO: Ex — "Transformação real e rápida com aplicação imediata"
+    - TODO: Ex — "Conexão com outros empreendedores de alto nível"
+
+# ── Tom de Voz ────────────────────────────────────────────────────────────────
+tone_of_voice:
+  style: TODO: Ex — inspirador, urgente, transformador, direto
+  avoid:
+    - linguagem acadêmica fria
+    - promessas sem substância
+  use:
+    - TODO: Ex — storytelling de transformação e resultados de ex-participantes
+    - TODO: Ex — urgência real (vagas limitadas, datas fixas)
+    - TODO: Ex — gatilhos de pertencimento e comunidade de alto nível
+
+# ── Pilares de Conteúdo ───────────────────────────────────────────────────────
+content_pillars:
+  - name: Transformação
+    description: Depoimentos e resultados de participantes anteriores
+  - name: Conteúdo de Valor
+    description: Insights de negócios, mentalidade, estratégias aplicáveis
+  - name: Bastidores
+    description: O que acontece na imersão, ambiente, dinâmicas, equipe
+  - name: Prova Social
+    description: Cases de sucesso, antes/depois de alunos
+  - name: Oferta
+    description: Próxima edição, benefícios, inscrições, urgência
+
+# ── ClickUp IDs ───────────────────────────────────────────────────────────────
+clickup:
+  social_media_list: "901325984602"
+  ads_list: "901325984626"
+  onboarding_list: "901325984637"
+  design_web_list: "901326596794"   # compartilhado com Backstage Grow (Alpha Business Design Web)
+  doc_manual_id: "2ky561e2-4173"

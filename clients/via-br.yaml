@@ -1,0 +1,55 @@
+# Via BR Cenografia — Client Profile
+# Usado por @copy-specialist e @content-planner para alinhar tom e estratégia de conteúdo.
+# Campos marcados com "TODO:" precisam ser preenchidos pelo usuário.
+
+slug: via-br
+name: Via BR Cenografia
+status: active
+
+# ── Identidade da Marca ───────────────────────────────────────────────────────
+brand:
+  segment: Cenografia e Produção de Eventos
+  positioning: TODO: Ex — "A empresa de cenografia que transforma eventos em experiências inesquecíveis"
+  usp: TODO: Ex — "Cenografia criativa com execução rápida e alta qualidade visual"
+  tagline: TODO: Ex — "Cada evento conta uma história"
+
+# ── Público-Alvo ──────────────────────────────────────────────────────────────
+audience:
+  primary: TODO: Ex — "Produtoras de eventos, empresas B2B para eventos corporativos, cerimonialistas"
+  secondary: TODO: Ex — "Noivos e famílias para eventos sociais de alto padrão"
+  pain_points:
+    - TODO: Ex — "Fornecedores de cenografia que não entregam no prazo"
+    - TODO: Ex — "Falta de criatividade e personalização nas produções"
+  desires:
+    - TODO: Ex — "Evento impactante visualmente que surpreenda os convidados"
+    - TODO: Ex — "Parceiro de confiança que entenda a visão do evento"
+
+# ── Tom de Voz ────────────────────────────────────────────────────────────────
+tone_of_voice:
+  style: TODO: Ex — criativo, confiante, visual, profissional
+  avoid:
+    - linguagem genérica de eventos
+    - foco excessivo em preço
+  use:
+    - TODO: Ex — imagens mentais de impacto e transformação de espaços
+    - TODO: Ex — números e resultados (eventos realizados, m² de cenografia)
+
+# ── Pilares de Conteúdo ───────────────────────────────────────────────────────
+content_pillars:
+  - name: Portfolio
+    description: Registros de eventos realizados, detalhes de cenografia
+  - name: Bastidores
+    description: Processo de montagem, equipe em ação, making-of
+  - name: Educação
+    description: Tendências de cenografia, tipos de materiais, dicas de produção
+  - name: Prova Social
+    description: Depoimentos de clientes, cases de sucesso
+  - name: Oferta
+    description: Serviços disponíveis, briefing de eventos, contato
+
+# ── ClickUp IDs ───────────────────────────────────────────────────────────────
+clickup:
+  social_media_list: "901324514634"
+  onboarding_list: "901324526597"
+  doc_manual_id: "2ky561e2-3093"
+  # Nota: status customizado "aprovado" ativo nesta lista (exceção no yaml)

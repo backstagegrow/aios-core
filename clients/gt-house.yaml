@@ -1,0 +1,55 @@
+# GT House — Client Profile
+# Usado por @copy-specialist e @content-planner para alinhar tom e estratégia de conteúdo.
+# Campos marcados com "TODO:" precisam ser preenchidos pelo usuário.
+
+slug: gt-house
+name: GT House
+status: active
+
+# ── Identidade da Marca ───────────────────────────────────────────────────────
+brand:
+  segment: Decoração e Design de Interiores
+  positioning: TODO: Ex — "A referência em móveis planejados e ambientes sofisticados em [cidade]"
+  usp: TODO: Ex — "Design exclusivo com entrega e instalação completa"
+  tagline: TODO: Ex — "Seu espaço, nossa arte"
+
+# ── Público-Alvo ──────────────────────────────────────────────────────────────
+audience:
+  primary: TODO: Ex — "Mulheres 30-50 anos, classe B/A, interesse em decoração e casa"
+  secondary: TODO: Ex — "Arquitetos e designers de interiores parceiros"
+  pain_points:
+    - TODO: Ex — "Dificuldade de encontrar móveis com qualidade e personalização"
+    - TODO: Ex — "Medo de errar na escolha do estilo para o ambiente"
+  desires:
+    - TODO: Ex — "Ter um lar que reflete personalidade e elegância"
+    - TODO: Ex — "Processo de reforma sem estresse"
+
+# ── Tom de Voz ────────────────────────────────────────────────────────────────
+tone_of_voice:
+  style: TODO: Ex — sofisticado, inspirador, próximo
+  avoid:
+    - linguagem muito técnica
+    - gírias
+  use:
+    - TODO: Ex — referências a lifestyle e bem-estar em casa
+    - TODO: Ex — storytelling de transformação de ambiente
+
+# ── Pilares de Conteúdo ───────────────────────────────────────────────────────
+content_pillars:
+  - name: Inspiração
+    description: Posts de ambientes decorados, tendências, moodboards
+  - name: Educação
+    description: Dicas de decoração, como escolher móveis, erros comuns
+  - name: Bastidores
+    description: Processo de criação, equipe, projeto em andamento
+  - name: Prova Social
+    description: Depoimentos, antes/depois de clientes, projetos entregues
+  - name: Oferta
+    description: Produtos em destaque, promoções, lançamentos
+
+# ── ClickUp IDs ───────────────────────────────────────────────────────────────
+clickup:
+  social_media_list: "901324517019"
+  design_web_list: "901326596709"
+  onboarding_list: "901324526598"
+  doc_manual_id: "2ky561e2-3053"

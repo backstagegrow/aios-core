@@ -8,7 +8,7 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-04-06T17:38:50.908Z"
+generated_at: "2026-04-18T21:05:00.240Z"
 generator: scripts/generate-install-manifest.js
 file_count: 1156
 files:
@@ -1505,13 +1505,13 @@ files:
     type: agent
     size: 1989
   - path: development/agents/clickup-ops.md
-    hash: sha256:87c6ef67f2b872bb1f8b37f13a9461fd6694b68ac46473c58ea03a6da3a3a9a7
+    hash: sha256:aa60c60ab1fc3ea753abd9a2adf0848a1ca2aa085318c90e45044db55bf30b36
     type: agent
-    size: 3684
+    size: 11719
   - path: development/agents/clickup-reporting.md
-    hash: sha256:6327ffc43710cb41fa2341d5e1e7c6a234ce21ca96c84bc0d6521fe46c4015c5
+    hash: sha256:adad569f31c936254321fea83a53447e7634a1150ffadf6f7acfb2581a2351f7
     type: agent
-    size: 3080
+    size: 7582
   - path: development/agents/conselho-dos-sabios.md
     hash: sha256:d7fad9955b5f906bc40b02089a6b4156704a2d8e86b03f44156956878afe2758
     type: agent
@@ -1597,9 +1597,9 @@ files:
     type: agent
     size: 8013
   - path: development/agents/product-team-content-generation.md
-    hash: sha256:155c1198458131e13b828e2a5f76e18c874640669355f9b318bbf890f51e678b
+    hash: sha256:9caf63249c653814117c54567e1979da0063f3a7d2330cb6ff377385db3d8f27
     type: agent
-    size: 9513
+    size: 9515
   - path: development/agents/qa.md
     hash: sha256:3312e0b7a962fa1c71128e304458d65becd1e8a2729415c631de3b0c1ba5dd65
     type: agent

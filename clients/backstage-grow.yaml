@@ -1,0 +1,54 @@
+# Backstage Grow — Client Profile
+# Usado por @copy-specialist e @content-planner para alinhar tom e estratégia de conteúdo.
+# Campos marcados com "TODO:" precisam ser preenchidos pelo usuário.
+
+slug: backstage-grow
+name: Backstage Grow
+status: active
+
+# ── Identidade da Marca ───────────────────────────────────────────────────────
+brand:
+  segment: TODO: Ex — Consultoria de Crescimento / Marketing / Negócios
+  positioning: TODO: Ex — "A empresa que faz negócios crescerem com estratégia e execução"
+  usp: TODO: Ex — "Combinamos estratégia de marketing com gestão de crescimento acelerado"
+  tagline: TODO: Ex — "Crescimento nos bastidores, resultados no palco"
+
+# ── Público-Alvo ──────────────────────────────────────────────────────────────
+audience:
+  primary: TODO: Ex — "Empreendedores e donos de PME buscando crescimento estruturado"
+  secondary: TODO: Ex — "Gestores de marketing em busca de metodologia de growth"
+  pain_points:
+    - TODO: Ex — "Crescimento travado sem saber onde está o gargalo"
+    - TODO: Ex — "Marketing sem retorno mensurável"
+  desires:
+    - TODO: Ex — "Escalar o negócio com previsibilidade"
+    - TODO: Ex — "Ter clareza do próximo passo estratégico"
+
+# ── Tom de Voz ────────────────────────────────────────────────────────────────
+tone_of_voice:
+  style: TODO: Ex — direto, estratégico, provocativo, orientado a resultado
+  avoid:
+    - promessas genéricas de "sucesso"
+    - motivacional vazio
+  use:
+    - TODO: Ex — dados, métricas, resultados concretos
+    - TODO: Ex — linguagem de bastidores — o que a maioria não vê
+
+# ── Pilares de Conteúdo ───────────────────────────────────────────────────────
+content_pillars:
+  - name: Estratégia
+    description: Frameworks de crescimento, metodologias, visão estratégica
+  - name: Resultados
+    description: Cases, números alcançados, transformações de clientes
+  - name: Educação
+    description: Conteúdo educativo sobre marketing, growth, gestão
+  - name: Bastidores
+    description: Como a Backstage Grow trabalha, processo interno, equipe
+  - name: Oferta
+    description: Serviços, como contratar, vagas e consultorias
+
+# ── ClickUp IDs ───────────────────────────────────────────────────────────────
+clickup:
+  social_media_list: "901324771638"
+  design_web_list: "901326596794"
+  doc_manual_id: "2ky561e2-3033"

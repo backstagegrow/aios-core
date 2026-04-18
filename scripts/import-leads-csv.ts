@@ -24,8 +24,9 @@ const FILE_EXTENSION_TLD = /\.(png|gif|svg|jpg|jpeg|webp|ico|bmp|tiff?|raw|psd|a
 const PLACEHOLDER_EMAILS = /^(exemplo|example|yourmail|yourname|seu\.email|^email@|info@new|info@meusite|info@mysite|test@|noreply@)/i;
 const FAKE_DOMAINS = /(gserviceaccount\.com|sentry\.io|mailservice\.com)$/i;
 
-function isValidEmail(email: string): boolean {
-    if (!email || email.includes('%20')) return false;
+function isValidEmail(raw: string): boolean {
+    const email = raw.trim(); // sempre sanitiza antes de validar
+    if (!email || email.includes('%20') || email.includes('%25')) return false;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return false;
     const domain = email.split('@')[1];
     if (FILE_EXTENSION_TLD.test(domain)) return false;
@@ -85,17 +86,17 @@ async function importCsv(csvPath: string) {
         const brevo_list_id = imported < BATCH_SIZE ? LIST_A_ID : LIST_B_ID;
         const lead = {
             business_name: row['empresa'] || row['business_name'] || '',
-            phone:         row['telefone'] || row['phone'] || null,
-            email:         row['email'] || null,
-            website:       row['site'] || row['website'] || null,
+            phone: row['telefone'] || row['phone'] || null,
+            email: (row['email'] || '').trim() || null,  // ← trim aqui
+            website: row['site'] || row['website'] || null,
             instagram_url: row['instagram'] || null,
-            linkedin_url:  row['linkedin'] || null,
+            linkedin_url: row['linkedin'] || null,
             google_maps_url: row['google_maps_url'] || null,
-            location:      row['cidade'] || null,
-            niche:         row['nicho'] || row['niche'] || null,
-            status:        row['status'] || 'no_website',
-            client_id:     'SitesSales',
-            current_step:  0,
+            location: row['cidade'] || null,
+            niche: row['nicho'] || row['niche'] || null,
+            status: row['status'] || 'no_website',
+            client_id: 'SitesSales',
+            current_step: 0,
             brevo_list_id,
         };
 

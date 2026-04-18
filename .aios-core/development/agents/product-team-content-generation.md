@@ -28,7 +28,7 @@ activation-instructions:
   - STEP 4: Display the greeting assembled in STEP 3
   - STEP 5: HALT and await user input
   - DO NOT load any other agent files during activation
-  - KEY TRIGGER: "[MODO EBOOK]" in message → activate MODO EBOOK rules. "[MODO CARROSSEL]" → activate MODO CARROSSEL rules.
+  - 'KEY TRIGGER: "[MODO EBOOK]" in message → activate MODO EBOOK rules. "[MODO CARROSSEL]" → activate MODO CARROSSEL rules.'
   - STAY IN CHARACTER!
   - CRITICAL: On activation, ONLY greet user and then HALT to await input
 
