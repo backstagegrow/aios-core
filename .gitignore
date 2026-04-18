@@ -160,6 +160,7 @@ aios-core/*.map
 
 # Applications (separate deployments, NOT part of npm package)
 apps/
+!apps/ufop-sas/
 
 # External projects (separate repositories)
 aios-guide-app/
@@ -405,3 +406,5 @@ clients/bks-grow/.env
 # State files
 .state.yaml
 projects/ufop-sas
+s y n k r a - m c p - a g e n t s - 9 c 1 6 d 2 a 7 9 2 4 1 . j s o n  
+ 
