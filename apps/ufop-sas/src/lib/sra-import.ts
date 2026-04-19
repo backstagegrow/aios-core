@@ -21,13 +21,19 @@ export const processSRAExport = async (file: File) => {
                 const sheet = workbook.Sheets[sheetName]
                 const rows = XLSX.utils.sheet_to_json<SRAStudentRow>(sheet)
 
-                // Mapeamento básico para as tabelas do projeto
-                const studentsToInsert = rows.map(row => ({
-                    nome: row.nome || (row as any)['Nome do Aluno'],
-                    matricula: row.matricula || (row as any)['Matrícula'],
-                    email: row.email || (row as any)['E-mail'],
-                    data_ingresso: row.data_ingresso || (row as any)['Data de Ingresso']
-                }))
+                // Mapeamento básico para as tabelas do projeto lidando com variações e linhas vazias
+                const studentsToInsert = rows
+                    .map(row => {
+                        const r = row as any;
+                        return {
+                            nome: row.nome || r['Nome do Aluno'] || r['Nome'] || r['NOME'] || r['Aluno'],
+                            matricula: row.matricula || r['Matrícula'] || r['Matricula'] || r['MATRÍCULA'] || r['Registro'],
+                            email: row.email || r['E-mail'] || r['Email'] || r['EMAIL'],
+                            data_ingresso: row.data_ingresso || r['Data de Ingresso'] || r['Ingresso'] || r['Data']
+                        }
+                    })
+                    // Remove linhas vazias (onde não há nome nem matricula)
+                    .filter(student => student.nome && student.matricula)
 
                 const { data: result, error } = await supabase
                     .from('alunos')
