@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { listGoogleSheets } from '@/lib/google-sheets'
 
+export const dynamic = "force-static"
+
 export async function GET() {
     try {
         const files = await listGoogleSheets()

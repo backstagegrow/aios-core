@@ -7,6 +7,12 @@ import { Users, Search, Filter, History, Clock, AlertTriangle } from 'lucide-rea
 export default function AlunosPage() {
     const [alunos, setAlunos] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('')
+
+    const alunosFiltrados = alunos.filter(a =>
+        a.nome?.toLowerCase().includes(search.toLowerCase()) ||
+        a.matricula?.toLowerCase().includes(search.toLowerCase())
+    )
 
     const fetchAlunos = async () => {
         setLoading(true)
@@ -66,7 +72,7 @@ export default function AlunosPage() {
                 <div className="p-4 border-b border-zinc-800 bg-zinc-900/50 flex justify-between items-center">
                     <div className="relative w-80">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={16} />
-                        <input className="w-full bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-xs text-zinc-300 outline-none" placeholder="Buscar por nome ou matrícula..." />
+                        <input className="w-full bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-xs text-zinc-300 outline-none" placeholder="Buscar por nome ou matrícula..." value={search} onChange={e => setSearch(e.target.value)} />
                     </div>
                     <button className="text-xs text-zinc-400 flex items-center gap-2 hover:text-white transition-colors">
                         <Filter size={14} /> Filtros Avançados
@@ -88,7 +94,7 @@ export default function AlunosPage() {
                             <tr><td colSpan={5} className="px-6 py-12 text-center text-zinc-500 animate-pulse">Carregando dados discentes...</td></tr>
                         ) : alunos.length === 0 ? (
                             <tr><td colSpan={5} className="px-6 py-12 text-center text-zinc-500">Importe a planilha SRA para popular a lista.</td></tr>
-                        ) : alunos.map((a) => (
+                        ) : alunosFiltrados.map((a) => (
                             <tr key={a.id} className="hover:bg-zinc-800/30 transition-colors">
                                 <td className="px-6 py-4">
                                     <div className="font-bold text-sm text-zinc-200">{a.nome}</div>

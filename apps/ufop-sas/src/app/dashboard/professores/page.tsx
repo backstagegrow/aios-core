@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
-import { Plus, GraduationCap, Link as LinkIcon, RefreshCw, Search, FileCode, UploadCloud } from 'lucide-react'
+import { Plus, GraduationCap, Link as LinkIcon, RefreshCw, Search, UploadCloud } from 'lucide-react'
 import { parseLattesXML } from '@/lib/lattes-xml-parser'
 
 export default function ProfessoresPage() {
@@ -11,6 +11,12 @@ export default function ProfessoresPage() {
     const [syncing, setSyncing] = useState<string | null>(null)
     const [showAddForm, setShowAddForm] = useState(false)
     const [newProf, setNewProf] = useState({ nome: '', email: '', link_lattes: '' })
+    const [search, setSearch] = useState('')
+
+    const professoresFiltrados = professores.filter(p =>
+        p.nome?.toLowerCase().includes(search.toLowerCase()) ||
+        p.email?.toLowerCase().includes(search.toLowerCase())
+    )
 
     const fetchProfessores = async () => {
         setLoading(true)
@@ -37,23 +43,90 @@ export default function ProfessoresPage() {
             reader.onload = async (e) => {
                 const xmlContent = e.target?.result as string
                 const indicators = await parseLattesXML(xmlContent)
+                const errors: string[] = []
 
-                // Salvar produções no Supabase
-                const productions = indicators.artigos.map(art => ({
-                    professor_id: profId,
-                    titulo: art.titulo,
-                    journal: art.periodico,
-                    data_publicacao: art.ano ? `${art.ano}-01-01` : null,
-                }))
+                // Limpa dados anteriores do professor para re-importação limpa
+                await supabase.from('producoes').delete().eq('professor_id', profId)
+                await supabase.from('conferencias').delete().eq('professor_id', profId)
+                await supabase.from('projetos').delete().eq('professor_id', profId)
+                await supabase.from('orientacoes').delete().eq('professor_id', profId)
 
-                const { error } = await supabase
-                    .from('producoes')
-                    .insert(productions)
+                // Artigos
+                if (indicators.artigos.length > 0) {
+                    const { error } = await supabase.from('producoes').insert(
+                        indicators.artigos.map(art => ({
+                            professor_id: profId,
+                            tipo: 'ARTIGO',
+                            titulo: art.titulo,
+                            journal: art.periodico,
+                            doi: art.doi,
+                            data_publicacao: art.ano ? `${art.ano}-01-01` : null,
+                        }))
+                    )
+                    if (error) errors.push(`Artigos: ${error.message}`)
+                }
 
-                if (error) alert('Erro ao salvar produções: ' + error.message)
-                else alert(`Sucesso! ${productions.length} produções importadas.`)
+                // Conferências
+                if (indicators.conferencias.length > 0) {
+                    const { error } = await supabase.from('conferencias').insert(
+                        indicators.conferencias.map(c => ({
+                            professor_id: profId,
+                            titulo: c.titulo,
+                            ano: c.ano,
+                            evento: c.evento,
+                            cidade: c.cidade,
+                            natureza: c.natureza,
+                            classificacao: c.classificacao,
+                        }))
+                    )
+                    if (error) errors.push(`Conferências: ${error.message}`)
+                }
+
+                // Projetos
+                if (indicators.projetos.length > 0) {
+                    const { error } = await supabase.from('projetos').insert(
+                        indicators.projetos.map(p => ({
+                            professor_id: profId,
+                            titulo: p.titulo,
+                            ano_inicio: p.ano_inicio,
+                            ano_fim: p.ano_fim,
+                            situacao: p.situacao,
+                            financiador: p.financiador,
+                        }))
+                    )
+                    if (error) errors.push(`Projetos: ${error.message}`)
+                }
+
+                // Orientações
+                if (indicators.orientacoes.length > 0) {
+                    const { error } = await supabase.from('orientacoes').insert(
+                        indicators.orientacoes.map(o => ({
+                            professor_id: profId,
+                            tipo: o.tipo,
+                            titulo: o.titulo,
+                            ano: o.ano,
+                            orientado: o.orientado,
+                            situacao: o.situacao,
+                            instituicao: o.instituicao,
+                        }))
+                    )
+                    if (error) errors.push(`Orientações: ${error.message}`)
+                }
+
+                if (errors.length > 0) {
+                    alert('Erros:\n' + errors.join('\n'))
+                } else {
+                    alert(
+                        `Lattes importado com sucesso!\n` +
+                        `• ${indicators.artigos.length} artigos\n` +
+                        `• ${indicators.conferencias.length} conferências\n` +
+                        `• ${indicators.projetos.length} projetos\n` +
+                        `• ${indicators.orientacoes.length} orientações`
+                    )
+                }
 
                 setSyncing(null)
+                fetchProfessores()
             }
             reader.readAsText(file)
         } catch (err: any) {
@@ -132,9 +205,9 @@ export default function ProfessoresPage() {
                 <div className="p-4 border-b border-zinc-800 bg-zinc-900/50 flex justify-between items-center">
                     <div className="relative w-72">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={16} />
-                        <input className="w-full bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-xs text-zinc-300 focus:ring-1 focus:ring-zinc-700 outline-none" placeholder="Filtrar por nome ou e-mail..." />
+                        <input className="w-full bg-zinc-800 border-none rounded-lg py-2 pl-10 pr-4 text-xs text-zinc-300 focus:ring-1 focus:ring-zinc-700 outline-none" placeholder="Filtrar por nome ou e-mail..." value={search} onChange={e => setSearch(e.target.value)} />
                     </div>
-                    <div className="text-xs text-zinc-500 font-medium">Total: {professores.length} Professores</div>
+                    <div className="text-xs text-zinc-500 font-medium">Total: {professoresFiltrados.length} Professores</div>
                 </div>
 
                 <table className="w-full text-left">
@@ -162,7 +235,7 @@ export default function ProfessoresPage() {
                             <tr>
                                 <td colSpan={5} className="px-6 py-12 text-center text-zinc-500">Nenhum professor cadastrado ainda.</td>
                             </tr>
-                        ) : professores.map((p) => (
+                        ) : professoresFiltrados.map((p) => (
                             <tr key={p.id} className="hover:bg-zinc-800/30 transition-colors group">
                                 <td className="px-6 py-4">
                                     <div className="font-bold text-sm text-zinc-200">{p.nome}</div>

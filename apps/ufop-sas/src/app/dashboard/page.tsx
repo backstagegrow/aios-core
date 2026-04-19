@@ -1,15 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { processSRAExport } from '@/lib/sra-import'
-import { Upload, Users, GraduationCap, FileSpreadsheet, LogOut, LayoutDashboard } from 'lucide-react'
+import { Upload, Users, GraduationCap, FileSpreadsheet, LayoutDashboard } from 'lucide-react'
 
 export default function Dashboard() {
     const router = useRouter()
-    const [loading, setLoading] = useState(false)
-    const [user, setUser] = useState({ email: 'coordenacao@ufop.br' })
     const [uploading, setUploading] = useState(false)
 
     useEffect(() => {
@@ -30,13 +27,6 @@ export default function Dashboard() {
             setUploading(false)
         }
     }
-
-    const handleSignOut = async () => {
-        await supabase.auth.signOut()
-        router.push('/login')
-    }
-
-    if (loading) return <div className="flex h-screen items-center justify-center bg-zinc-950 text-white font-mono">Orquestrando o sistema...</div>
 
     return (
         <div className="p-8">
@@ -103,7 +93,7 @@ export default function Dashboard() {
                 {/* Main Chart/Table Area */}
                 <div className="lg:col-span-2 space-y-6">
                     <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-                        <h3 className="font-bold text-white mb-6">Fluxo de Publicações (Mock)</h3>
+                        <h3 className="font-bold text-white mb-6">Fluxo de Publicações</h3>
                         <div className="h-64 w-full flex items-end gap-3 px-2">
                             {[40, 70, 45, 90, 65, 80, 50, 100, 75, 85].map((h, i) => (
                                 <div key={i} className="flex-1 bg-zinc-800 rounded-t-lg relative group transition-all hover:bg-primary/40" style={{ height: `${h}%` }}>
@@ -169,10 +159,10 @@ export default function Dashboard() {
                         </div>
                     </section>
 
-                    <section className="bg-primary/80/10 border border-primary/20 rounded-2xl p-6">
+                    <section className="border border-primary/20 rounded-2xl p-6" style={{ backgroundColor: 'rgba(157, 34, 53, 0.08)' }}>
                         <h3 className="font-bold text-primary text-sm mb-2">Dica de Orion</h3>
                         <p className="text-xs text-zinc-400 leading-relaxed">
-                            Configure a **API do Google Sheets** para que os dados dos formulários de banca sejam sincronizados automaticamente sem precisar de uploads manuais.
+                            Configure a <span className="text-zinc-200 font-medium">API do Google Sheets</span> para que os dados dos formulários de banca sejam sincronizados automaticamente sem precisar de uploads manuais.
                         </p>
                     </section>
                 </div>

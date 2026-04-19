@@ -5,7 +5,7 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { supabase } from '@/lib/supabase'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { GraduationCap } from 'lucide-react'
+
 
 export default function LoginPage() {
     const router = useRouter()
@@ -29,13 +29,13 @@ export default function LoginPage() {
     }, [router])
 
     if (loading) return (
-        <div className="min-h-screen bg-[#8b0000] flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#9D2235' }}>
             <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
         </div>
     )
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-[#8b0000] p-6 relative overflow-hidden">
+        <div className="flex min-h-screen items-center justify-center p-6 relative overflow-hidden" style={{ backgroundColor: '#9D2235' }}>
             {/* Background Decorative Elements */}
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-white/5 blur-[120px] rounded-full"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-white/5 blur-[120px] rounded-full"></div>
@@ -110,7 +110,7 @@ export default function LoginPage() {
                     />
                 </div>
 
-                <p className="text-center text-xs text-zinc-600 mt-8">
+                <p className="text-center text-xs text-white/50 mt-8">
                     &copy; {new Date().getFullYear()} Universidade Federal de Ouro Preto. <br />
                     Sistema de Gerenciamento Acadêmico.
                 </p>

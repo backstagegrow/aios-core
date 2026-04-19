@@ -12,6 +12,7 @@ import {
     LogOut,
 } from 'lucide-react'
 import { ReactNode, useEffect, useState } from 'react'
+import ChatWidget from '@/components/ChatWidget'
 
 // UFOP Institutional Red
 const UFOP_RED = '#9D2235'
@@ -121,7 +122,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
                 <button
                     onClick={handleSignOut}
-                    className="mt-auto flex items-center gap-3 text-zinc-500 hover:text-white px-8 py-4 transition-colors border-t border-zinc-800 text-sm"
+                    className="mt-auto flex items-center gap-3 text-zinc-500 hover:text-white px-4 py-3 transition-colors border-t border-zinc-800 text-sm"
                 >
                     <LogOut size={18} /> Sair
                 </button>
@@ -130,6 +131,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             <main className="flex-1 ml-64 min-h-screen">
                 {children}
             </main>
+            <ChatWidget />
         </div>
     )
 }
