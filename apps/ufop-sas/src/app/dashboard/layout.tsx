@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { ReactNode, useEffect, useState } from 'react'
 import ChatWidget from '@/components/ChatWidget'
+import { ToastProvider } from '@/components/Toast'
 
 // UFOP Institutional Red
 const UFOP_RED = '#9D2235'
@@ -70,7 +71,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     )
 
     return (
-        <div className="min-h-screen bg-zinc-950 text-zinc-100 flex">
+        <ToastProvider><div className="min-h-screen bg-zinc-950 text-zinc-100 flex">
             <aside className="w-64 border-r border-zinc-800 bg-zinc-900/50 flex flex-col fixed h-full shrink-0">
                 {/* Header/Logo */}
                 <div className="p-6 border-b border-zinc-800">
@@ -132,6 +133,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 {children}
             </main>
             <ChatWidget />
-        </div>
+        </div></ToastProvider>
     )
 }

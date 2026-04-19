@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { processSRAExport } from '@/lib/sra-import'
 import { Upload, Users, GraduationCap, FileSpreadsheet, LayoutDashboard } from 'lucide-react'
+import { useToast } from '@/components/Toast'
 
 export default function Dashboard() {
     const router = useRouter()
+    const toast = useToast()
     const [uploading, setUploading] = useState(false)
 
     useEffect(() => {
@@ -20,9 +22,9 @@ export default function Dashboard() {
             if (!file) return
 
             await processSRAExport(file)
-            alert('Importação concluída com sucesso!')
+            toast('Importação concluída com sucesso!')
         } catch (error: any) {
-            alert('Erro na importação: ' + error.message)
+            toast('Erro na importação: ' + error.message, 'error')
         } finally {
             setUploading(false)
         }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { Plus, GraduationCap, Link as LinkIcon, RefreshCw, Search, UploadCloud } from 'lucide-react'
 import { parseLattesXML } from '@/lib/lattes-xml-parser'
+import { useToast } from '@/components/Toast'
 
 export default function ProfessoresPage() {
     const [professores, setProfessores] = useState<any[]>([])
@@ -12,6 +13,7 @@ export default function ProfessoresPage() {
     const [showAddForm, setShowAddForm] = useState(false)
     const [newProf, setNewProf] = useState({ nome: '', email: '', link_lattes: '' })
     const [search, setSearch] = useState('')
+    const toast = useToast()
 
     const professoresFiltrados = professores.filter(p =>
         p.nome?.toLowerCase().includes(search.toLowerCase()) ||
@@ -114,14 +116,10 @@ export default function ProfessoresPage() {
                 }
 
                 if (errors.length > 0) {
-                    alert('Erros:\n' + errors.join('\n'))
+                    toast('Erros na importação: ' + errors.join(', '), 'error')
                 } else {
-                    alert(
-                        `Lattes importado com sucesso!\n` +
-                        `• ${indicators.artigos.length} artigos\n` +
-                        `• ${indicators.conferencias.length} conferências\n` +
-                        `• ${indicators.projetos.length} projetos\n` +
-                        `• ${indicators.orientacoes.length} orientações`
+                    toast(
+                        `Lattes importado! ${indicators.artigos.length} artigos · ${indicators.conferencias.length} conferências · ${indicators.projetos.length} projetos · ${indicators.orientacoes.length} orientações`
                     )
                 }
 
@@ -130,7 +128,7 @@ export default function ProfessoresPage() {
             }
             reader.readAsText(file)
         } catch (err: any) {
-            alert('Erro no processamento: ' + err.message)
+            toast('Erro no processamento: ' + err.message, 'error')
             setSyncing(null)
         }
     }
@@ -146,7 +144,7 @@ export default function ProfessoresPage() {
             setNewProf({ nome: '', email: '', link_lattes: '' })
             fetchProfessores()
         } else {
-            alert(error.message)
+            toast(error.message, 'error')
         }
     }
 
