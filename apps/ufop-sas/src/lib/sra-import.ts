@@ -21,15 +21,23 @@ export const processSRAExport = async (file: File) => {
                 const sheet = workbook.Sheets[sheetName]
                 const rows = XLSX.utils.sheet_to_json<SRAStudentRow>(sheet)
 
-                // Mapeamento básico para as tabelas do projeto lidando com variações e linhas vazias
+                // Normalização das chaves do Excel para evitar problemas de espaços (' DATA INGRESSO') ou capitalização ('NOME')
                 const studentsToInsert = rows
                     .map(row => {
-                        const r = row as any;
+                        const rawRow = row as Record<string, any>;
+                        const normalizedRow: Record<string, any> = {};
+
+                        // Limpa os nomes das colunas: remove espaços em volta e deixa tudo maiúsculo
+                        for (const key in rawRow) {
+                            normalizedRow[key.trim().toUpperCase()] = rawRow[key];
+                        }
+
                         return {
-                            nome: row.nome || r['Nome do Aluno'] || r['Nome'] || r['NOME'] || r['Aluno'],
-                            matricula: row.matricula || r['Matrícula'] || r['Matricula'] || r['MATRÍCULA'] || r['Registro'],
-                            email: row.email || r['E-mail'] || r['Email'] || r['EMAIL'],
-                            data_ingresso: row.data_ingresso || r['Data de Ingresso'] || r['Ingresso'] || r['Data']
+                            nome: normalizedRow['NOME'] || normalizedRow['NOME DO ALUNO'] || normalizedRow['ALUNO'],
+                            matricula: normalizedRow['MATRICULA'] || normalizedRow['MATRÍCULA'],
+                            email: normalizedRow['EMAIL INSTITUCIONAL'] || normalizedRow['EMAIL'] || normalizedRow['E-MAIL'],
+                            data_ingresso: normalizedRow['DATA INGRESSO'] || normalizedRow['ANO INGRESSO'] || normalizedRow['DATA DE INGRESSO'] || null,
+                            status_bolsa: normalizedRow['BOLSA'] || normalizedRow['DESCRICAO BOLSA'] || 'Nenhuma'
                         }
                     })
                     // Remove linhas vazias (onde não há nome nem matricula)
