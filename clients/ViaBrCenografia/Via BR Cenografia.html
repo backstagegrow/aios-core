@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Via BR Cenografia — Cenografia de alto impacto desde 1994</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          vborange: {
+            DEFAULT: '#FF6600',
+            50: '#FFF3EB',
+            100: '#FFE0CC',
+            600: '#E65A00',
+            700: '#CC5000',
+          },
+          ink: '#0A0A0A',
+          paper: '#FFFFFF',
+          mist: '#F7F7F5',
+          line: '#E7E7E3',
+          slate: '#4A4A47',
+        },
+        fontFamily: {
+          sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html, body { background: #FFFFFF; color: #0A0A0A; }
+  body { font-family: Inter, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #FF6600; color: #FFFFFF; }
+  /* Subtle grain on orange hero */
+  .grain-on-orange {
+    position: relative;
+  }
+  .grain-on-orange::after {
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.07; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  /* Marquee */
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marq { animation: marq 38s linear infinite; }
+  .no-bar::-webkit-scrollbar { display: none; }
+  .no-bar { scrollbar-width: none; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #FFFFFF; }
+  ::-webkit-scrollbar-thumb { background: #0A0A0A; }
+  .placeholder-stripes {
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 10px, transparent 10px 22px);
+  }
+  .placeholder-stripes-dark {
+    background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.05) 0 10px, transparent 10px 22px);
+  }
+  /* Focus rings */
+  input:focus, textarea:focus { outline: none; }
+</style>
+</head>
+<body class="antialiased">
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/framer-motion@11.3.19/dist/framer-motion.js"></script>
+
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect, useRef } = React;
+const FM = window.Motion || window.FramerMotion || window.framerMotion || {};
+const M = FM.motion || { div:'div', section:'section', h1:'h1', p:'p', span:'span', button:'button', a:'a', li:'li' };
+
+const Icon = ({ name, size=22, className='', stroke=2 }) => {
+  const p = {
+    lightbulb: <><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></>,
+    rocket: <><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></>,
+    target: <><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></>,
+    box: <><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></>,
+    sparkles: <><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></>,
+    compass: <><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></>,
+    truck: <><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></>,
+    arrowRight: <><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></>,
+    arrowLeft: <><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></>,
+    arrowUpRight: <><path d="M7 7h10v10"/><path d="M7 17 17 7"/></>,
+    plus: <><path d="M12 5v14"/><path d="M5 12h14"/></>,
+    minus: <><path d="M5 12h14"/></>,
+    menu: <><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></>,
+    x: <><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>,
+    whatsapp: <><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></>,
+    mapPin: <><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></>,
+    phone: <><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></>,
+    mail: <><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></>,
+    check: <><path d="M20 6 9 17l-5-5"/></>,
+    layers: <><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.91a1 1 0 0 0 0-1.83Z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></>,
+    users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>,
+    hardhat: <><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><path d="M14 6a6 6 0 0 1 6 6v3"/></>,
+    calendar: <><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></>,
+  };
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"
+      className={className}>{p[name]}</svg>
+  );
+};
+
+const Reveal = ({ children, delay=0, y=24, className='' }) => (
+  <M.div
+    initial={{ opacity: 0, y }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.7, ease: [0.2,0.7,0.2,1], delay }}
+    className={className}>{children}</M.div>
+);
+
+// Logo — official VIA BR mark (uploaded SVG)
+const Logo = ({ variant='dark' }) => (
+  <div className="flex items-center">
+    <img
+      src="assets/viabr-logo.svg"
+      alt="Via BR Cenografia"
+      className="h-9 md:h-10 w-auto"
+      style={variant === 'white' ? { filter: 'brightness(0) invert(1)' } : variant === 'orange' ? { filter: 'brightness(0) saturate(100%) invert(48%) sepia(89%) saturate(2476%) hue-rotate(7deg) brightness(100%) contrast(103%)' } : {}}
+    />
+  </div>
+);
+
+// ---------- NAV ----------
+const Nav = () => {
+  const [open, setOpen] = useState(false);
+  const links = [['Serviços','#servicos'],['Portfólio','#portfolio'],['Processo','#processo'],['FAQ','#faq']];
+  return (
+    <header className="sticky top-0 z-50 bg-white border-b border-line">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8 py-4 flex items-center justify-between">
+        <a href="#"><Logo/></a>
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map(([l,h])=>(
+            <a key={l} href={h} className="text-[12px] font-semibold tracking-[0.18em] uppercase text-ink hover:text-vborange transition-colors">{l}</a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <a href="#contato" className="hidden sm:inline-flex items-center gap-2 bg-vborange text-white px-5 py-3 rounded-md font-semibold text-[13px] tracking-wide hover:bg-vborange-600 transition-colors">
+            Fale Conosco <Icon name="arrowRight" size={16}/>
+          </a>
+          <button onClick={()=>setOpen(!open)} className="md:hidden p-2">
+            <Icon name={open?'x':'menu'}/>
+          </button>
+        </div>
+      </div>
+      {open && (
+        <div className="md:hidden border-t border-line px-6 py-4 space-y-3">
+          {links.map(([l,h])=>(
+            <a key={l} href={h} onClick={()=>setOpen(false)} className="block text-lg font-semibold">{l}</a>
+          ))}
+          <a href="#contato" onClick={()=>setOpen(false)} className="inline-flex items-center gap-2 bg-vborange text-white px-5 py-3 rounded-md font-semibold text-sm">Fale Conosco</a>
+        </div>
+      )}
+    </header>
+  );
+};
+
+// ---------- HERO ----------
+const Hero = () => {
+  const [form, setForm] = useState({
+    name:'', email:'', company:'', phone:'', location:'',
+    day:'', month:'', year:'', budget:'', service:''
+  });
+  const [sent, setSent] = useState(false);
+  const [errs, setErrs] = useState({});
+  const submit = (e) => {
+    e.preventDefault();
+    const x = {};
+    if (!form.name.trim()) x.name = '!';
+    if (!form.email.trim() || !/@/.test(form.email)) x.email = '!';
+    if (!form.company.trim()) x.company = '!';
+    setErrs(x);
+    if (Object.keys(x).length === 0) setSent(true);
+  };
+  return (
+    <section className="relative bg-ink overflow-hidden border-b border-white/5">
+      {/* Subtle decorative grid - keeping it but on dark */}
+      <div aria-hidden className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="h-full w-full" style={{backgroundImage:'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)', backgroundSize:'72px 72px'}}></div>
+      </div>
+      
+      {/* Visual Depth Glows */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-vborange/10 blur-[120px] rounded-full -mr-64 -mt-64"></div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-vborange/5 blur-[100px] rounded-full -ml-32 -mb-32"></div>
+
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left */}
+        <div>
+          <Reveal delay={0.04}>
+            <div className="inline-flex items-center gap-2 bg-vborange/10 border border-vborange/20 text-vborange px-3 py-1.5 rounded-full text-[11px] tracking-[0.18em] uppercase font-bold mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-vborange animate-pulse"></span>
+              31 anos, 3 continentes, +420 projetos
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="text-white font-bold leading-[1.15] tracking-tight" style={{fontSize:'clamp(1.6rem, 3vw, 2.5rem)'}}>
+              35 anos, 3 continentes,<br/>
+              <span className="text-vborange">projetos que definiram<br/>o padrão do setor.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="text-white/60 text-lg md:text-xl mt-7 max-w-[54ch] font-light leading-relaxed">
+              São Paulo, Lisboa, Miami, mais de 420 projetos entregues para marcas que exigem estrutura física à altura do seu marketing. Feiras, convenções e ativações globais.
+            </p>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="mt-9 flex flex-wrap items-center gap-6">
+              <a href="#portfolio" className="inline-flex items-center gap-2 bg-vborange text-white px-8 py-4 rounded-md font-bold text-sm tracking-wide hover:bg-vborange/90 transition-all shadow-[0_20px_40px_-10px_rgba(255,102,0,0.3)]">
+                Ver Portfólio <Icon name="arrowRight" size={16}/>
+              </a>
+              <a href="#servicos" className="inline-flex items-center gap-2 text-white/80 font-bold text-sm tracking-wide border-b-2 border-white/10 pb-1 hover:border-vborange hover:text-white transition-all">
+                Conhecer serviços
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delay={0.32}>
+            <div className="mt-16 flex flex-wrap items-center gap-12 text-white">
+              <div>
+                <div className="text-4xl md:text-5xl font-black leading-none flex items-baseline">
+                  <span className="text-vborange mr-1">+</span>30
+                </div>
+                <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/40 mt-3">Anos de Mercado</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-black leading-none flex items-baseline">
+                  <span className="text-vborange mr-1">+</span>420
+                </div>
+                <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/40 mt-3">Entregas Reais</div>
+              </div>
+              <div className="hidden sm:block">
+                <div className="text-4xl md:text-5xl font-black leading-none flex items-baseline">
+                  3
+                </div>
+                <div className="text-[10px] tracking-[0.25em] uppercase font-bold text-white/40 mt-3">Continentes</div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Right — Form (Glassmorphism) */}
+        <Reveal delay={0.15}>
+          <div className="relative group">
+            {/* Ambient Glow */}
+            <div className="absolute inset-0 bg-vborange/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            
+            <div className="relative bg-white/[0.03] backdrop-blur-3xl rounded-2xl p-7 md:p-10 border border-white/10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)]">
+              {sent ? (
+                <div className="py-20 text-center">
+                  <div className="w-20 h-20 mx-auto rounded-full bg-vborange text-white flex items-center justify-center mb-8 shadow-xl shadow-vborange/20 animate-bounce"><Icon name="check" size={40}/></div>
+                  <h3 className="text-3xl font-black text-white mb-4 tracking-tight">Recebido!</h3>
+                  <p className="text-white/50 text-lg leading-relaxed max-w-[24ch] mx-auto">Nossa diretoria de cenografia entrará em contato em até 48h.</p>
+                  <button onClick={()=>setSent(false)} className="mt-10 text-sm font-bold text-vborange hover:text-white transition-colors uppercase tracking-widest">Enviar novo briefing</button>
+                </div>
+              ) : (
+                <form onSubmit={submit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-vborange">Nome da Empresa *</label>
+                      <input 
+                        type="text" 
+                        placeholder="Sua Marca"
+                        className={`w-full bg-transparent border-b ${errs.company?'border-red-500/50':'border-white/10'} focus:border-vborange py-2 text-white placeholder:text-white/10 transition-all outline-none`}
+                        value={form.company} onChange={e=>setForm({...form,company:e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-vborange">Email Corporativo *</label>
+                      <input 
+                        type="email" 
+                        placeholder="nome@empresa.com"
+                        className={`w-full bg-transparent border-b ${errs.email?'border-red-500/50':'border-white/10'} focus:border-vborange py-2 text-white placeholder:text-white/10 transition-all outline-none`}
+                        value={form.email} onChange={e=>setForm({...form,email:e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-vborange">Telefone</label>
+                      <input 
+                        type="tel" 
+                        placeholder="+55 (11) 00000-0000"
+                        className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-2 text-white placeholder:text-white/10 transition-all outline-none"
+                        value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-vborange">Local do evento</label>
+                      <input 
+                        type="text" 
+                        placeholder="Cidade/Estado"
+                        className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-2 text-white placeholder:text-white/10 transition-all outline-none"
+                        value={form.location} onChange={e=>setForm({...form,location:e.target.value})}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-vborange block mb-3">Data do evento</label>
+                    <div className="grid grid-cols-3 gap-6">
+                      <input type="text" placeholder="Dia" className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-2 text-white text-center outline-none" value={form.day} onChange={e=>setForm({...form,day:e.target.value})} />
+                      <select className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-2 text-white/40 outline-none appearance-none" value={form.month} onChange={e=>setForm({...form,month:e.target.value})}>
+                        <option className="bg-ink">Mês</option>
+                        {['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'].map(m=><option key={m} className="bg-ink" value={m}>{m}</option>)}
+                      </select>
+                      <input type="text" placeholder="Ano" className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-2 text-white text-center outline-none" value={form.year} onChange={e=>setForm({...form,year:e.target.value})} />
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-vborange block mb-1">Qual a verba estimada para o seu evento?</label>
+                    <select className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-3 text-white/40 outline-none appearance-none" value={form.budget} onChange={e=>setForm({...form,budget:e.target.value})}>
+                      <option className="bg-ink">Selecione o intervalo</option>
+                      <option className="bg-ink">Até R$ 50 mil</option>
+                      <option className="bg-ink">De R$ 51 mil até R$ 70 mil</option>
+                      <option className="bg-ink">De R$ 71 mil até R$ 120 mil</option>
+                      <option className="bg-ink">De R$ 121 mil até R$ 300 mil</option>
+                      <option className="bg-ink">De R$ 301 mil até R$ 600 mil</option>
+                      <option className="bg-ink">De R$ 601 mil até R$ 800 mil</option>
+                      <option className="bg-ink">Acima de R$ 1 Milhão</option>
+                    </select>
+                  </div>
+
+                  <div className="mt-8">
+                    <label className="text-[10px] uppercase tracking-widest font-bold text-vborange block mb-1">Como iremos te atender?</label>
+                    <select className="w-full bg-transparent border-b border-white/10 focus:border-vborange py-3 text-white/40 outline-none appearance-none" value={form.service} onChange={e=>setForm({...form,service:e.target.value})}>
+                      <option className="bg-ink">Selecione o serviço</option>
+                      <option className="bg-ink">Projeto Cenográfico</option>
+                      <option className="bg-ink">Mecanismo e Efeitos Especiais</option>
+                      <option className="bg-ink">Estandes Customizados</option>
+                    </select>
+                  </div>
+
+                  <button type="submit" className="w-full bg-white hover:bg-vborange text-ink hover:text-white font-black uppercase tracking-widest text-xs py-5 rounded-full transition-all duration-500 shadow-xl shadow-black/20 mt-10">
+                    Fale com um especialista agora
+                  </button>
+                  
+                  <p className="text-center text-[9px] uppercase tracking-[0.2em] text-white/20 mt-6">Atendimento Prioritário, Sigilo Absoluto</p>
+                </form>
+              )}
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="relative bg-black text-white">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8 py-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[11px] tracking-[0.2em] uppercase font-semibold">
+          <span className="text-vborange">★</span>
+          <span>Feiras & Convenções</span>
+          <span className="text-vborange">,</span>
+          <span>Ativações de marca</span>
+          <span className="text-vborange">,</span>
+          <span>Experiências imersivas</span>
+          <span className="text-vborange">,</span>
+          <span>Logística global</span>
+          <span className="text-vborange">★</span>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+
+// ---------- VISIONARY (3 COL) ----------
+const Visionary = () => {
+  const items = [
+    { i:'lightbulb', t:'Criatividade Estratégica', d:'Cada projeto nasce de um diagnóstico de marca. Conceito, narrativa espacial e direção criativa integrados.' },
+    { i:'rocket',    t:'Execução Impecável',      d:'Time fixo do briefing à desmontagem. Cronograma milimétrico, zero repasse, qualidade auditada.' },
+    { i:'target',    t:'Impacto Mensurável',      d:'Relatório pós-evento com tempo de permanência, leads, recall e imagem gerada. Presença em KPI.' },
+  ];
+  return (
+    <section className="bg-white py-24 lg:py-32 relative overflow-hidden">
+      {/* Subtle Blueprint Grid */}
+      <div aria-hidden className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="h-full w-full" style={{backgroundImage:'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)', backgroundSize:'40px 40px'}}></div>
+      </div>
+
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="text-[10px] tracking-[0.3em] uppercase font-bold text-vborange mb-4">DNA Operacional</div>
+            <h2 className="text-ink font-black leading-[1.05] tracking-tight" style={{fontSize:'clamp(2rem,4.5vw,3.5rem)'}}>
+              Por que <span className="text-vborange">marcas globais</span><br className="hidden md:block"/>escolhem a nossa engenharia?
+            </h2>
+            <p className="mt-6 text-slate text-lg leading-relaxed font-light">
+              Três décadas entregando presença de marca que atravessa fronteiras.
+              Unimos o rigor da engenharia à sensibilidade da arquitetura efêmera.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {items.map((it,i)=>(
+            <Reveal key={it.t} delay={i*0.08}>
+              <div className="group relative bg-white p-10 border border-line rounded-xl hover:border-vborange/50 transition-all duration-500 h-full overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-vborange/5 rounded-bl-full -mr-12 -mt-12 group-hover:bg-vborange/10 transition-colors"></div>
+                <div className="w-14 h-14 rounded-lg bg-ink text-vborange flex items-center justify-center mb-8 shadow-xl shadow-ink/10 group-hover:bg-vborange group-hover:text-white transition-all duration-500">
+                  <Icon name={it.i} size={24}/>
+                </div>
+                <h3 className="font-black text-xl mb-4 tracking-tight">{it.t}</h3>
+                <p className="text-slate/80 leading-relaxed font-light">{it.d}</p>
+                <div className="absolute bottom-0 left-0 h-1 w-0 bg-vborange group-hover:w-full transition-all duration-700"></div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-16 text-center">
+            <a href="#portfolio" className="group inline-flex items-center gap-3 bg-ink text-white px-8 py-4 rounded-md font-bold text-sm tracking-wide hover:bg-vborange transition-all">
+              Explorar Portfólio <Icon name="arrowRight" size={16} className="group-hover:translate-x-1 transition-transform"/>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- PROJECT SHOWCASE (CAROUSEL) ----------
+const Showcase = () => {
+  const items = [
+    { id:'adventista', t:'Convenção Adventista', c:'Igreja Adventista', m:'1.200 m²', tag:'Cenografia Corporativa', img:'./assets/portfolio/ADVENTISTA/IMG-20250703-WA0019.jpg' },
+    { id:'games', t:'Experiência Imersiva', c:'Publisher de Games', m:'820 m²', tag:'Ativação de Marca', img:'./assets/portfolio/Games/MSI_SP_00.jpg' },
+    { id:'sena', t:'Sena Expo', c:'Senna Brands', m:'650 m²', tag:'Estande Customizado', img:'./assets/portfolio/Sena expo/a86fa8cb16a48f24caa0ba1dbea1d180.jpg' },
+    { id:'conmebol', t:'A Glória Eterna', c:'Conmebol', m:'2.400 m²', tag:'Cenografia Esportiva', img:'./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-2.jpg' },
+    { id:'miami', t:'Miami Open', c:'Itaú', m:'480 m²', tag:'Ativação Internacional', img:'./assets/portfolio/MIami open/itau_tenis_01.jpg' },
+    { id:'heineken', t:'Heineken F1', c:'Heineken', m:'1.800 m²', tag:'Estande e Ativação', img:'./assets/portfolio/HEINEKEN F1/HEINEKEN 3.jpg' },
+  ];
+  const [idx, setIdx] = React.useState(0);
+  const prev = () => setIdx(i => (i - 1 + items.length) % items.length);
+  const next = () => setIdx(i => (i + 1) % items.length);
+
+  // Show 2 cards at a time (current + next)
+  const visible = [items[idx], items[(idx + 1) % items.length]];
+
+  return (
+    <section id="portfolio" className="bg-mist py-24 lg:py-32 overflow-hidden">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-4">Portfólio</div>
+              <h2 className="text-ink font-black leading-[1.1] tracking-tight" style={{fontSize:'clamp(1.6rem,3vw,2.5rem)'}}>
+                Confira alguns de nossos<br/>
+                <span className="text-vborange">últimos projetos.</span>
+              </h2>
+              <p className="mt-4 text-slate text-lg font-light">Do diagnóstico à desmontagem, tudo sob uma mesma assinatura.</p>
+            </div>
+
+            {/* Navigation Arrows */}
+            <div className="flex items-center gap-4 shrink-0">
+              <span className="text-sm font-bold text-slate/50 tabular-nums">
+                {String(idx + 1).padStart(2,'0')} / {String(items.length).padStart(2,'0')}
+              </span>
+              <button onClick={prev} className="w-12 h-12 rounded-full border-2 border-ink/10 hover:border-vborange hover:bg-vborange hover:text-white text-ink flex items-center justify-center transition-all group" aria-label="Anterior">
+                <Icon name="arrowLeft" size={18}/>
+              </button>
+              <button onClick={next} className="w-12 h-12 rounded-full bg-ink hover:bg-vborange text-white flex items-center justify-center transition-all" aria-label="Próximo">
+                <Icon name="arrowRight" size={18}/>
+              </button>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Carousel Track */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {visible.map((it, i) => (
+            <a key={`${idx}-${i}`} href={`gallery.html?id=${it.id}`} className="group block animate-[fadeIn_0.4s_ease]">
+              <div className="relative aspect-[4/3] bg-ink rounded-xl overflow-hidden shadow-[0_24px_48px_-20px_rgba(0,0,0,0.35)]">
+                {/* Photo image */}
+                <div className="absolute inset-0 bg-ink/50 group-hover:scale-105 transition-transform duration-700 ease-out z-0">
+                  <img src={it.img} alt={it.t} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                </div>
+                
+                {/* Background overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent z-10 pointer-events-none"></div>
+
+                {/* Tags */}
+                <div className="absolute top-5 left-5 right-20 flex gap-2 z-20 flex-wrap">
+                  <span className="bg-vborange text-white text-[10px] tracking-[0.22em] uppercase font-bold px-3 py-1.5 rounded">{it.m}</span>
+                  <span className="bg-white/10 backdrop-blur-md text-white text-[10px] tracking-[0.15em] uppercase font-semibold px-3 py-1.5 rounded border border-white/5">{it.tag}</span>
+                </div>
+
+                {/* Info overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-6 z-20">
+                  <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-2">{it.c}</div>
+                  <h3 className="text-white text-2xl lg:text-3xl font-black leading-tight group-hover:text-vborange transition-colors">{it.t}</h3>
+                </div>
+
+                {/* Arrow button */}
+                <span className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 backdrop-blur text-white flex items-center justify-center group-hover:bg-vborange transition-colors z-20 border border-white/5">
+                  <Icon name="arrowUpRight" size={16}/>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="mt-10 flex items-center justify-center gap-2">
+          {items.map((_,i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`rounded-full transition-all ${i === idx ? 'w-8 h-2 bg-vborange' : 'w-2 h-2 bg-ink/20 hover:bg-ink/40'}`}
+              aria-label={`Projeto ${i+1}`}
+            />
+          ))}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-12 text-center">
+            <a href="#contato" className="inline-flex items-center gap-2 bg-ink text-white px-8 py-4 rounded-md font-bold text-sm tracking-wide hover:bg-vborange transition-colors">
+              Solicitar orçamento <Icon name="arrowRight" size={16}/>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- SERVICES (DARK) ----------
+const Services = () => {
+  const items = [
+    { g:'assets/service-1.gif?v=2', t:'Cenografia Corporativa Sob Medida',           d:'Auditórios, convenções e experiências imersivas. Arquitetura efêmera com assinatura permanente.' },
+    { g:'assets/service-2.gif?v=2', t:'Projetos Especiais & Soluções Únicas',         d:'Pop-ups, instalações artísticas e soluções únicas para eventos globais de grande escala.' },
+    { g:'assets/service-3.gif?v=2', t:'Estandes Personalizados para Feiras & Convenções', d:'Feiras nacionais e internacionais. Design focado em engajamento e ROI em cada metro quadrado.' },
+  ];
+  return (
+    <section id="servicos" className="bg-black text-white py-24 lg:py-32">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center max-w-2xl mx-auto">
+            <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-4">Serviços</div>
+            <h2 className="font-black leading-[1.05] tracking-tight" style={{fontSize:'clamp(2rem,4.5vw,3.5rem)'}}>
+              O que a Via BR <span className="text-vborange">constrói</span>.
+            </h2>
+            <div className="mx-auto mt-6 h-1 w-24 bg-vborange rounded"></div>
+            <p className="mt-6 text-white/70 text-lg leading-relaxed">
+              Três frentes, uma única assinatura — do convite à desmontagem.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {items.map((it,i)=>(
+            <Reveal key={it.t} delay={i*0.08}>
+              <div className="h-full text-center flex flex-col items-center">
+                <div className="relative w-44 h-44 flex items-center justify-center mb-7">
+                  <img src={it.g} alt={it.t} className="w-full h-full object-contain drop-shadow-[0_12px_30px_rgba(255,102,0,0.35)]"/>
+                </div>
+                <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-2">0{i+1} / 03</div>
+                <h3 className="text-xl md:text-2xl font-black leading-tight max-w-[24ch]">{it.t}</h3>
+                <p className="text-white/70 mt-4 leading-relaxed max-w-[34ch]">{it.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-16 text-center">
+            <a href="#contato" className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-md font-bold text-xs tracking-[0.18em] uppercase hover:bg-white hover:text-black transition-colors">
+              Veja o que podemos fazer por você <Icon name="arrowRight" size={16}/>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- CLIENTS / SOCIAL PROOF ----------
+const Clients = () => {
+  const logos = [
+    './assets/logos/bauduco.png',
+    './assets/logos/cerveja-devassa-seeklogo.png',
+    './assets/logos/f1.png',
+    './assets/logos/logo-miami.png',
+    './assets/logos/pubg-mobile-seeklogo.svg',
+    './assets/logos/Riot_Games-Logo.wine.svg'
+  ];
+  const doubled = [...logos, ...logos, ...logos, ...logos];
+  return (
+    <section className="bg-ink py-16 lg:py-20 border-y border-white/5 relative overflow-hidden">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8 text-center mb-10">
+        <Reveal>
+          <div className="text-[10px] tracking-[0.3em] uppercase font-bold text-white/30 mb-4 flex items-center justify-center gap-4">
+            <div className="h-px w-8 bg-vborange/30"></div>
+            Marcas que confiam na nossa engenharia
+            <div className="h-px w-8 bg-vborange/30"></div>
+          </div>
+        </Reveal>
+      </div>
+      <div className="overflow-hidden relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-ink to-transparent z-10"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-ink to-transparent z-10"></div>
+        
+        <div className="flex marq whitespace-nowrap gap-24 px-6">
+          {doubled.map((logo, i)=>(
+            <div key={i} className="flex items-center justify-center gap-24 min-w-[200px]">
+              <img src={logo} alt="Cliente Via BR" className="max-h-16 md:max-h-20 w-auto object-contain opacity-50 hover:opacity-100 transition-all brightness-0 invert" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ---------- PROCESS ----------
+const Process = () => {
+  const steps = [
+    { n:'01', i:'users',   t:'Diagnóstico & Briefing',    d:'Imersão no território da marca, objetivos, audiência e métricas. Alinhamento em 48h.' },
+    { n:'02', i:'layers',  t:'Projeto & Aprovação',       d:'Conceito, direção criativa e projeto executivo com renders, plantas e cronograma.' },
+    { n:'03', i:'hardhat', t:'Produção & Logística',      d:'Fabricação auditada, transporte internacional e montagem com time fixo da Via BR.' },
+    { n:'04', i:'target',  t:'Impacto & Relatório',       d:'Operação do evento, desmontagem e relatório pós-evento com KPIs de marca.' },
+  ];
+  return (
+    <section id="processo" className="bg-black text-white py-24 lg:py-32 relative overflow-hidden">
+      <div aria-hidden className="absolute inset-0 placeholder-stripes opacity-40"></div>
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center max-w-2xl mx-auto">
+            <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-4">Como Trabalhamos</div>
+            <h2 className="font-black leading-[1.05] tracking-tight" style={{fontSize:'clamp(2rem,4.5vw,3.5rem)'}}>
+              Quatro etapas. <span className="text-vborange">Zero surpresas.</span>
+            </h2>
+            <p className="mt-6 text-white/70 text-lg">Um método refinado em três décadas e três continentes.</p>
+          </div>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((s,i)=>(
+            <Reveal key={s.n} delay={i*0.08}>
+              <div className="relative bg-white/[0.03] border border-white/10 rounded-xl p-7 h-full hover:border-vborange transition-colors duration-500">
+                <div className="flex items-start justify-between mb-8">
+                  <span className="text-[80px] leading-none font-black text-vborange/30" style={{letterSpacing:'-0.05em'}}>{s.n}</span>
+                  <div className="w-11 h-11 rounded-md bg-vborange text-black flex items-center justify-center">
+                    <Icon name={s.i} size={20}/>
+                  </div>
+                </div>
+                <h3 className="font-black text-xl leading-tight">{s.t}</h3>
+                <p className="text-white/70 mt-3 leading-relaxed text-[15px]">{s.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-14 text-center">
+            <a href="#contato" className="inline-flex items-center gap-2 bg-vborange text-black px-7 py-4 rounded-md font-bold text-sm tracking-wide hover:bg-white transition-colors">
+              Agendar conversa <Icon name="arrowRight" size={16}/>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- FAQ ----------
+const FAQ = () => {
+  const faqs = [
+    { q:'Em quanto tempo a Via BR responde a um briefing?', a:'Respondemos em até 48 horas úteis. Para projetos com data em menos de 60 dias, priorizamos resposta em 24h.' },
+    { q:'Qual o ticket mínimo de um projeto?', a:'Nossos projetos partem de R$ 500 mil. Para ativações pontuais, consulte formatos especiais no contato.' },
+    { q:'Vocês atendem fora do Brasil?', a:'Sim. Operamos em três continentes com estrutura fixa em São Paulo, Lisboa e Miami. Logística e montagem locais.' },
+    { q:'Como funciona a direção criativa?', a:'Cada projeto tem um diretor criativo sênior responsável do briefing à entrega — sem repasse, sem ruído de comunicação.' },
+    { q:'Vocês assinam NDA?', a:'Sim. Enviamos modelo de NDA antes de qualquer troca de briefing detalhado.' },
+    { q:'E a sustentabilidade dos materiais?', a:'Trabalhamos com fornecedores auditados e uma lista crescente de materiais de reaproveitamento. Pedimos o balanço ao final de cada projeto.' },
+  ];
+  const [open, setOpen] = useState(0);
+  return (
+    <section id="faq" className="bg-white py-24 lg:py-32">
+      <div className="mx-auto max-w-[900px] px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center">
+            <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-vborange mb-4">FAQ</div>
+            <h2 className="font-black text-ink leading-[1.05] tracking-tight" style={{fontSize:'clamp(2rem,4.5vw,3.25rem)'}}>
+              Perguntas frequentes
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 divide-y divide-line border-t border-b border-line">
+          {faqs.map((f,i)=>{
+            const active = open === i;
+            return (
+              <Reveal key={f.q} delay={i*0.04}>
+                <button onClick={()=>setOpen(active?-1:i)} className="w-full text-left py-6 flex items-center justify-between gap-6 group">
+                  <span className={`font-bold text-lg md:text-xl transition-colors ${active?'text-vborange':'text-ink group-hover:text-vborange'}`}>{f.q}</span>
+                  <span className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${active?'bg-vborange text-white':'bg-mist text-ink group-hover:bg-ink group-hover:text-white'}`}>
+                    <Icon name={active?'minus':'plus'} size={18}/>
+                  </span>
+                </button>
+                <div className={`grid transition-all duration-500 ${active?'grid-rows-[1fr] opacity-100 pb-6':'grid-rows-[0fr] opacity-0'}`}>
+                  <div className="overflow-hidden">
+                    <p className="text-slate text-[16px] leading-relaxed max-w-[66ch]">{f.a}</p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-12 text-center">
+            <p className="text-slate">Tem outra pergunta?</p>
+            <a href="#contato" className="mt-3 inline-flex items-center gap-2 bg-vborange text-white px-6 py-3 rounded-md font-bold text-sm tracking-wide hover:bg-vborange-600 transition-colors">
+              Fale com a equipe <Icon name="arrowRight" size={16}/>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- CONTACT FORM ----------
+const ContactForm = () => {
+  const [formData, setFormData] = React.useState({ nome: '', email: '', telefone: '', empresa: '', briefing: '' });
+  const [status, setStatus] = React.useState('idle');
+
+  const supabaseUrl = 'https://euiwcwkmsnriwclrazzp.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1aXdjd2ttc25yaXdjbHJhenpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0NjIxMjgsImV4cCI6MjA4ODAzODEyOH0.YlR4XNJA9nIE20AwnzAADLooihKFBVGo3iyq-z5vDrc';
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      // 1. Salvar no Supabase
+      const { data, error } = await supabase
+        .from('viabr_leads')
+        .insert([{ 
+          nome: formData.nome, 
+          email: formData.email, 
+          telefone: formData.telefone, 
+          empresa: formData.empresa, 
+          mensagem: formData.briefing,
+          origem: 'Site Via BR'
+        }]);
+
+      if (error) console.error("Erro no Supabase:", error); // Salva mesmo se der erro no banco (foca no email)
+
+      // 2. Disparar Email via Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("access_key", "c00360e5-7e9c-448d-94db-b3f87fea3b10");
+      web3FormData.append("from_name", "Via BR Cenografia - Site");
+      web3FormData.append("subject", `Novo Briefing de ${formData.nome} (${formData.empresa})`);
+      web3FormData.append("Nome", formData.nome);
+      web3FormData.append("Email", formData.email);
+      web3FormData.append("Telefone", formData.telefone);
+      web3FormData.append("Empresa", formData.empresa);
+      web3FormData.append("Briefing/Mensagem", formData.briefing);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: web3FormData
+      });
+
+      const web3Result = await response.json();
+      if (!web3Result.success) throw new Error("Erro no envio do e-mail");
+
+      setStatus('success');
+      setFormData({ nome: '', email: '', telefone: '', empresa: '', briefing: '' });
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+
+  return (
+    <section id="contato" className="bg-vborange text-black py-24 lg:py-32">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <Reveal>
+          <div className="text-[11px] tracking-[0.22em] uppercase font-bold text-black mb-4">Contato</div>
+          <h2 className="font-black leading-[0.98] tracking-tight mb-6" style={{fontSize:'clamp(2rem,4vw,3.5rem)'}}>
+            Pronto para construir o próximo projeto?
+          </h2>
+          <p className="text-black/80 text-lg mb-10 max-w-md leading-relaxed font-medium">
+            Conte a data, o volume e o objetivo. Nossa equipe responde em até 48h úteis com um direcionamento inicial.
+          </p>
+          
+          <div className="flex flex-col gap-6">
+            <a href="mailto:briefing@viabrcenografia.com" className="inline-flex items-center gap-4 text-black hover:opacity-70 transition-opacity font-bold text-lg">
+              <span className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shrink-0">
+                <Icon name="mail" size={20}/>
+              </span>
+              briefing@viabrcenografia.com
+            </a>
+            <a href="tel:+5511940001994" className="inline-flex items-center gap-4 text-black hover:opacity-70 transition-opacity font-bold text-lg">
+              <span className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shrink-0">
+                <Icon name="phone" size={20}/>
+              </span>
+              +55 11 94.1994-0031
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
+            {status === 'success' ? (
+              <div className="text-center py-10">
+                <div className="w-20 h-20 rounded-full bg-vborange/10 text-vborange flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 className="text-2xl font-black text-ink mb-4">Briefing Recebido!</h3>
+                <p className="text-slate text-lg">Nossa equipe de engenharia avaliará as informações e entrará em contato em até 48 horas úteis.</p>
+                <button onClick={() => setStatus('idle')} className="mt-8 bg-ink text-white px-8 py-3 rounded-md font-bold text-sm tracking-wide hover:bg-vborange transition-colors uppercase">
+                  Enviar nova mensagem
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <h3 className="text-2xl font-black text-ink mb-2">Envie seu Briefing</h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate mb-2">Nome completo</label>
+                    <input required type="text" value={formData.nome} onChange={e=>setFormData({...formData, nome: e.target.value})} className="w-full bg-mist border-none rounded-lg px-4 py-4 text-ink focus:ring-2 focus:ring-vborange outline-none transition-all placeholder:text-slate/40" placeholder="Ex: João Silva" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate mb-2">Empresa</label>
+                    <input required type="text" value={formData.empresa} onChange={e=>setFormData({...formData, empresa: e.target.value})} className="w-full bg-mist border-none rounded-lg px-4 py-4 text-ink focus:ring-2 focus:ring-vborange outline-none transition-all placeholder:text-slate/40" placeholder="Sua marca" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate mb-2">E-mail corporativo</label>
+                    <input required type="email" value={formData.email} onChange={e=>setFormData({...formData, email: e.target.value})} className="w-full bg-mist border-none rounded-lg px-4 py-4 text-ink focus:ring-2 focus:ring-vborange outline-none transition-all placeholder:text-slate/40" placeholder="joao@empresa.com" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate mb-2">Telefone / WhatsApp</label>
+                    <input required type="tel" value={formData.telefone} onChange={e=>setFormData({...formData, telefone: e.target.value})} className="w-full bg-mist border-none rounded-lg px-4 py-4 text-ink focus:ring-2 focus:ring-vborange outline-none transition-all placeholder:text-slate/40" placeholder="(11) 99999-9999" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-slate mb-2">Detalhes do Projeto</label>
+                  <textarea required value={formData.briefing} onChange={e=>setFormData({...formData, briefing: e.target.value})} rows="4" className="w-full bg-mist border-none rounded-lg px-4 py-4 text-ink focus:ring-2 focus:ring-vborange outline-none transition-all placeholder:text-slate/40 resize-none" placeholder="Conte-nos sobre a data, formato, metragem esperada e local..."></textarea>
+                </div>
+
+                {status === 'error' && (
+                  <div className="bg-red-50 text-red-500 p-4 rounded-lg text-sm font-semibold">
+                    Houve um erro ao enviar. Verifique sua internet ou tente via e-mail.
+                  </div>
+                )}
+
+                <button disabled={status==='loading'} type="submit" className="mt-2 w-full bg-ink text-white px-8 py-5 rounded-lg font-black text-[13px] tracking-widest hover:bg-black transition-colors uppercase flex items-center justify-center gap-3 disabled:opacity-70">
+                  {status === 'loading' ? 'Enviando...' : 'Enviar Solicitação'} <Icon name="arrowRight" size={16}/>
+                </button>
+              </form>
+            )}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+// ---------- FOOTER ----------
+const Footer = () => {
+  return (
+    <footer className="bg-ink text-white pt-24 pb-12 border-t border-white/5">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-white/5">
+          {/* Brand Col */}
+          <div className="lg:col-span-1">
+            <Logo variant="white" />
+            <p className="mt-8 text-white/40 text-sm leading-relaxed max-w-[28ch]">
+              Engenharia cenográfica para marcas que demandam execução impecável em escala global.
+            </p>
+            <div className="mt-8 flex gap-4">
+              {['instagram','linkedin','facebook'].map(s=>(
+                <a key={s} href={`#${s}`} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-vborange hover:border-vborange transition-all">
+                  <Icon name={s} size={18}/>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Nav Col */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-vborange mb-8">Navegação</h4>
+            <ul className="space-y-4">
+              {[['Onde Atuamos','#portfolio'], ['Nossa Engenharia','#servicos'], ['O Método','#processo'], ['Diretoria','#contato'], ['FAQ','#faq']].map(([l,h])=>(
+                <li key={l}><a href={h} className="text-white/60 hover:text-white transition-colors text-sm">{l}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Locations Col */}
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-vborange mb-8">Sede Brasil</h4>
+              <p className="text-white/60 text-sm leading-relaxed">
+                R. Manifesto, 94, Vila Mariana, São Paulo, SP<br/>
+                04578-910
+              </p>
+              <p className="mt-4 text-white/60 text-sm">+55 11 94.1994-0031</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-vborange mb-8">Presença Global</h4>
+              <div className="space-y-6">
+                <div>
+                  <span className="block text-white font-bold text-xs uppercase tracking-widest mb-1">Miami, USA</span>
+                  <p className="text-white/40 text-[13px]">Logistics Hub & Operations</p>
+                </div>
+                <div>
+                  <span className="block text-white font-bold text-xs uppercase tracking-widest mb-1">Lisboa, PT</span>
+                  <p className="text-white/40 text-[13px]">European Design Office</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-[10px] uppercase tracking-[0.2em] text-white/20">
+            © 1994 – 2026 Via BR Cenografia, Todos os direitos reservados
+          </div>
+          <div className="flex gap-8 text-[10px] uppercase tracking-[0.2em] text-white/20">
+            <a href="#privacidade" className="hover:text-vborange transition-colors">Privacidade</a>
+            <a href="#termos" className="hover:text-vborange transition-colors">Termos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+// ---------- WHATSAPP FLOAT ----------
+const Whatsapp = () => (
+  <a href="#contato" className="fixed bottom-6 right-6 z-40 bg-vborange text-white rounded-full shadow-xl w-14 h-14 flex items-center justify-center hover:scale-105 transition-transform" aria-label="Whatsapp">
+    <Icon name="whatsapp" size={26}/>
+  </a>
+);
+
+// ---------- APP ----------
+const App = () => (
+  <>
+    <Nav/>
+    <main>
+      <Hero/>
+      <Clients/>
+      <Visionary/>
+      <Showcase/>
+      <Services/>
+      <Process/>
+      <FAQ/>
+      <ContactForm/>
+    </main>
+    <Footer/>
+    <Whatsapp/>
+  </>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

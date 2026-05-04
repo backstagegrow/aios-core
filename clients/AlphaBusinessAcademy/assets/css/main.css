@@ -1,0 +1,139 @@
+/* =========================================================
+   Alpha Business Academy — Main UI Styles
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+/* Brand CSS is imported in the HTML */
+
+:root {
+  --container-max: 1200px;
+}
+
+body {
+  background-color: var(--aba-black);
+  color: var(--aba-fg-1);
+  font-family: var(--aba-font-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+.font-display { font-family: var(--aba-font-display); }
+.font-sans { font-family: var(--aba-font-sans); }
+.font-mono { font-family: var(--aba-font-mono); }
+
+/* Semantic Components per README */
+.aba-eyebrow {
+  font-family: var(--aba-font-sans);
+  font-size: var(--aba-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--aba-ls-widest);
+  color: var(--aba-gold);
+}
+
+.aba-h1 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 8vw, var(--aba-text-5xl));
+  line-height: var(--aba-lh-tight);
+  letter-spacing: var(--aba-ls-tight);
+  color: var(--aba-fg-1);
+}
+
+.aba-h1 em {
+  font-style: normal;
+  color: var(--aba-gold);
+}
+
+.aba-h2 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, var(--aba-text-4xl));
+  line-height: var(--aba-lh-tight);
+  letter-spacing: var(--aba-ls-tight);
+  color: var(--aba-fg-1);
+}
+
+.aba-h3 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: var(--aba-text-2xl);
+  line-height: var(--aba-lh-snug);
+  color: var(--aba-fg-1);
+}
+
+.aba-body {
+  font-family: var(--aba-font-sans);
+  font-weight: 400;
+  font-size: var(--aba-text-base);
+  line-height: var(--aba-lh-loose);
+  color: var(--aba-fg-2);
+}
+
+.aba-lead {
+  font-family: var(--aba-font-sans);
+  font-weight: 300;
+  font-size: var(--aba-text-lg);
+  line-height: var(--aba-lh-loose);
+  color: var(--aba-fg-2);
+}
+
+/* Buttons */
+.aba-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: var(--aba-grad-gold);
+  color: var(--aba-black);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--aba-radius-pill);
+  text-decoration: none;
+  transition: all var(--aba-dur-mid) var(--aba-ease-elite);
+  box-shadow: var(--aba-shadow-1);
+}
+
+.aba-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--aba-shadow-gold-strong);
+  filter: brightness(1.1);
+}
+
+/* Cards */
+.aba-card {
+  background: var(--aba-bg-elev-2);
+  border: 1px solid var(--aba-border-1);
+  border-radius: var(--aba-radius-lg);
+  padding: var(--aba-space-6);
+  transition: all var(--aba-dur-mid) var(--aba-ease-elite);
+}
+
+.aba-card:hover {
+  border-color: var(--aba-gold);
+  box-shadow: var(--aba-shadow-gold);
+}
+
+/* Utilities */
+.section-padding {
+  padding-top: var(--aba-space-9);
+  padding-bottom: var(--aba-space-9);
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--aba-space-10);
+    padding-bottom: var(--aba-space-10);
+  }
+}
+
+.bg-vignette {
+  background: var(--aba-grad-bg-vignette);
+}
+
+.hairline-gold {
+  border-bottom: 1px solid var(--aba-border-1);
+}

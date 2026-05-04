@@ -1,0 +1,297 @@
+/* =========================================================
+   Alpha Business Academy — Colors & Typography Tokens
+   Brand: Elite / Premium / Black & Gold
+   ========================================================= */
+
+/* ---------- Webfonts ----------
+   Brand sans    = Inter (variable, official upload).
+   Brand display = Heuristica (official upload, OTF) — a refined
+                   slab/serif used for the editorial/luxe headlines.
+   Mono          = JetBrains Mono (Google Fonts).
+*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@font-face {
+  font-family: 'Heuristica';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Heuristica-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Heuristica';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Heuristica-Italic.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Heuristica';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Heuristica-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Heuristica';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Heuristica-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype-variations'),
+       url('fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+  font-variation-settings: 'opsz' 18;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype-variations'),
+       url('fonts/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+  font-variation-settings: 'opsz' 18;
+}
+
+:root {
+  /* =========== CORE BRAND COLORS =========== */
+  --aba-black:        #0A0A0A;   /* Primary brand black   */
+  --aba-gold:         #C9A24A;   /* Primary brand gold    */
+  --aba-gold-light:   #E6C879;   /* Highlight / hover     */
+  --aba-gold-deep:    #8E6F25;   /* Pressed / engraved    */
+  --aba-ivory:        #F5EFE0;   /* Warm off-white        */
+
+  /* =========== NEUTRAL SCALE (warm-black) =========== */
+  --aba-ink-950:      #0A0A0A;
+  --aba-ink-900:      #111111;
+  --aba-ink-850:      #161412;   /* Card surface on black */
+  --aba-ink-800:      #1C1A17;
+  --aba-ink-700:      #2A2722;
+  --aba-ink-600:      #3D3830;
+  --aba-ink-500:      #5A544A;
+  --aba-ink-400:      #7C7669;
+  --aba-ink-300:      #A39A86;
+  --aba-ink-200:      #CFC6B2;
+  --aba-ink-100:      #ECE6D5;
+  --aba-ink-050:      #F8F4E8;
+
+  /* =========== GOLD SCALE =========== */
+  --aba-gold-50:      #FBF5E3;
+  --aba-gold-100:     #F2E2B0;
+  --aba-gold-200:     #E6C879;
+  --aba-gold-300:     #D9B25C;
+  --aba-gold-400:     #C9A24A;   /* = brand */
+  --aba-gold-500:     #B08A36;
+  --aba-gold-600:     #8E6F25;
+  --aba-gold-700:     #6B521A;
+  --aba-gold-800:     #483710;
+  --aba-gold-900:     #2A2008;
+
+  /* =========== SEMANTIC =========== */
+  --aba-success:      #4FA86A;   /* Used sparingly        */
+  --aba-warning:      #E0A93B;
+  --aba-danger:       #C84A3D;   /* Urgency / CTA accent  */
+  --aba-info:         #5C8AA8;
+
+  /* =========== SURFACE / FOREGROUND =========== */
+  --aba-bg:           var(--aba-black);
+  --aba-bg-elev-1:    var(--aba-ink-900);
+  --aba-bg-elev-2:    var(--aba-ink-850);
+  --aba-bg-elev-3:    var(--aba-ink-800);
+
+  --aba-fg-1:         #F5EFE0;   /* Primary text on dark  */
+  --aba-fg-2:         #C9C2B0;   /* Secondary text        */
+  --aba-fg-3:         #8A8273;   /* Muted / captions      */
+  --aba-fg-disabled:  #4A4438;
+
+  --aba-fg-on-light-1: var(--aba-ink-950);
+  --aba-fg-on-light-2: var(--aba-ink-700);
+  --aba-fg-on-light-3: var(--aba-ink-500);
+
+  --aba-border-1:     rgba(201, 162, 74, 0.22);   /* Gold hairline */
+  --aba-border-2:     rgba(245, 239, 224, 0.10);  /* Ivory hairline */
+  --aba-border-strong:rgba(201, 162, 74, 0.55);
+
+  /* =========== GRADIENTS — used sparingly =========== */
+  --aba-grad-gold:    linear-gradient(135deg, #E6C879 0%, #C9A24A 45%, #8E6F25 100%);
+  --aba-grad-gold-soft: linear-gradient(180deg, #D9B25C 0%, #C9A24A 100%);
+  --aba-grad-engrave: linear-gradient(180deg, #E6C879 0%, #C9A24A 50%, #8E6F25 100%);
+  --aba-grad-bg-vignette: radial-gradient(ellipse at 50% 0%, #1C1A17 0%, #0A0A0A 70%);
+  --aba-grad-curtain: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.85) 70%, #0A0A0A 100%);
+
+  /* =========== SHADOWS — premium, soft =========== */
+  --aba-shadow-1:     0 1px 2px rgba(0,0,0,0.4);
+  --aba-shadow-2:     0 8px 24px rgba(0,0,0,0.5);
+  --aba-shadow-3:     0 24px 60px rgba(0,0,0,0.6);
+  --aba-shadow-gold:  0 0 0 1px rgba(201,162,74,0.35), 0 8px 32px rgba(201,162,74,0.18);
+  --aba-shadow-gold-strong: 0 0 0 1px rgba(201,162,74,0.6), 0 12px 48px rgba(201,162,74,0.35);
+  --aba-inset-engrave:inset 0 1px 0 rgba(230,200,121,0.4), inset 0 -1px 0 rgba(0,0,0,0.4);
+
+  /* =========== RADII =========== */
+  --aba-radius-xs:    2px;
+  --aba-radius-sm:    4px;
+  --aba-radius-md:    8px;
+  --aba-radius-lg:    14px;
+  --aba-radius-xl:    22px;
+  --aba-radius-pill:  999px;
+
+  /* =========== SPACING (8pt base) =========== */
+  --aba-space-1:      4px;
+  --aba-space-2:      8px;
+  --aba-space-3:      12px;
+  --aba-space-4:      16px;
+  --aba-space-5:      24px;
+  --aba-space-6:      32px;
+  --aba-space-7:      48px;
+  --aba-space-8:      64px;
+  --aba-space-9:      96px;
+  --aba-space-10:     128px;
+
+  /* =========== TYPE FAMILIES =========== */
+  --aba-font-display: 'Heuristica', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --aba-font-sans:    'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --aba-font-mono:    'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  /* =========== TYPE SCALE =========== */
+  --aba-text-xs:      12px;
+  --aba-text-sm:      14px;
+  --aba-text-base:    16px;
+  --aba-text-md:      18px;
+  --aba-text-lg:      22px;
+  --aba-text-xl:      28px;
+  --aba-text-2xl:     36px;
+  --aba-text-3xl:     48px;
+  --aba-text-4xl:     64px;
+  --aba-text-5xl:     88px;
+  --aba-text-6xl:     120px;
+
+  /* =========== LINE HEIGHTS =========== */
+  --aba-lh-tight:     1.05;
+  --aba-lh-snug:      1.2;
+  --aba-lh-normal:    1.5;
+  --aba-lh-loose:     1.7;
+
+  /* =========== LETTER SPACING =========== */
+  --aba-ls-tight:     -0.02em;
+  --aba-ls-normal:    0em;
+  --aba-ls-wide:      0.08em;
+  --aba-ls-wider:     0.16em;
+  --aba-ls-widest:    0.28em;   /* Used for eyebrow caps */
+
+  /* =========== MOTION =========== */
+  --aba-ease-elite:   cubic-bezier(.22, 1, .36, 1);   /* Long, refined ease */
+  --aba-ease-snap:    cubic-bezier(.4, 0, .2, 1);
+  --aba-dur-fast:     180ms;
+  --aba-dur-mid:      320ms;
+  --aba-dur-slow:     560ms;
+}
+
+/* =========== SEMANTIC TYPE TOKENS =========== */
+
+.aba-eyebrow {
+  font-family: var(--aba-font-sans);
+  font-size: var(--aba-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--aba-ls-widest);
+  color: var(--aba-gold);
+}
+
+.aba-h1 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 8vw, var(--aba-text-6xl));
+  line-height: var(--aba-lh-tight);
+  letter-spacing: var(--aba-ls-tight);
+  color: var(--aba-fg-1);
+}
+
+.aba-h2 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, var(--aba-text-4xl));
+  line-height: var(--aba-lh-tight);
+  letter-spacing: var(--aba-ls-tight);
+  color: var(--aba-fg-1);
+}
+
+.aba-h3 {
+  font-family: var(--aba-font-display);
+  font-weight: 400;
+  font-size: var(--aba-text-2xl);
+  line-height: var(--aba-lh-snug);
+  color: var(--aba-fg-1);
+}
+
+.aba-h4 {
+  font-family: var(--aba-font-sans);
+  font-weight: 700;
+  font-size: var(--aba-text-xl);
+  line-height: var(--aba-lh-snug);
+  letter-spacing: var(--aba-ls-tight);
+  color: var(--aba-fg-1);
+}
+
+.aba-lead {
+  font-family: var(--aba-font-sans);
+  font-weight: 300;
+  font-size: var(--aba-text-lg);
+  line-height: var(--aba-lh-loose);
+  color: var(--aba-fg-2);
+}
+
+.aba-body {
+  font-family: var(--aba-font-sans);
+  font-weight: 400;
+  font-size: var(--aba-text-base);
+  line-height: var(--aba-lh-loose);
+  color: var(--aba-fg-2);
+}
+
+.aba-small {
+  font-family: var(--aba-font-sans);
+  font-weight: 400;
+  font-size: var(--aba-text-sm);
+  line-height: var(--aba-lh-normal);
+  color: var(--aba-fg-3);
+}
+
+.aba-caption {
+  font-family: var(--aba-font-sans);
+  font-weight: 500;
+  font-size: var(--aba-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--aba-ls-wide);
+  color: var(--aba-fg-3);
+}
+
+.aba-quote {
+  font-family: var(--aba-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--aba-text-2xl);
+  line-height: var(--aba-lh-snug);
+  color: var(--aba-fg-1);
+}
+
+.aba-mono {
+  font-family: var(--aba-font-mono);
+  font-size: var(--aba-text-sm);
+  letter-spacing: 0;
+  color: var(--aba-fg-2);
+}
+
+/* Gold engrave effect — for premium numerals & badges */
+.aba-text-engrave {
+  background: var(--aba-grad-engrave);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}

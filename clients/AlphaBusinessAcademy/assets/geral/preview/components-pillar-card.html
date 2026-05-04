@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Pillar Card</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:16px;font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:#161412;border:1px solid rgba(201,162,74,.22);border-radius:14px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  .num{font-family:var(--aba-font-display);font-weight:700;font-size:46px;line-height:1;background:linear-gradient(180deg,#E6C879,#C9A24A 50%,#8E6F25);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .ttl{font-family:var(--aba-font-display);font-size:22px;font-weight:500;margin:8px 0 4px;color:#F5EFE0;letter-spacing:-.01em}
+  .desc{font-size:13px;line-height:1.55;color:#C9C2B0;margin:0}
+  .card.hover{box-shadow:0 0 0 1px rgba(201,162,74,.6),0 12px 48px rgba(201,162,74,.25);border-color:transparent}
+  .badge{display:inline-block;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8A8273;font-weight:700;margin-bottom:8px}
+</style></head><body>
+<div class="label">Pillar Card · default · hover</div>
+<div class="grid">
+  <div class="card">
+    <div class="badge">Default</div>
+    <div class="num">III</div>
+    <div class="ttl">Decisão sob pressão</div>
+    <p class="desc">Decida em 90 segundos com método. O dono que terceiriza decisão constrói uma operação que não para de pedir socorro.</p>
+  </div>
+  <div class="card hover">
+    <div class="badge" style="color:#C9A24A">Hover</div>
+    <div class="num">III</div>
+    <div class="ttl">Decisão sob pressão</div>
+    <p class="desc">Decida em 90 segundos com método. O dono que terceiriza decisão constrói uma operação que não para de pedir socorro.</p>
+  </div>
+</div>
+</body></html>

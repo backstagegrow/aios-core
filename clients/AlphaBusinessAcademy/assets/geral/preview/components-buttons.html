@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:32px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:20px;font-weight:600}
+  .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn{font-family:var(--aba-font-sans);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border:0;cursor:pointer;padding:16px 28px;border-radius:999px;display:inline-flex;align-items:center;gap:10px;transition:all 320ms cubic-bezier(.22,1,.36,1)}
+  .btn.primary{background:linear-gradient(180deg,#D9B25C 0%,#C9A24A 100%);color:#0A0A0A;box-shadow:0 8px 24px rgba(201,162,74,.25),inset 0 1px 0 rgba(230,200,121,.6)}
+  .btn.secondary{background:transparent;color:#F5EFE0;border:1px solid #C9A24A;padding:15px 27px}
+  .btn.ghost{background:transparent;color:#C9A24A;padding:14px 18px}
+  .btn.danger{background:#C84A3D;color:#F5EFE0}
+  .arrow{font-family:var(--aba-font-display);font-size:18px}
+</style></head><body>
+<div class="label">Buttons</div>
+<div class="row">
+  <button class="btn primary">Garantir minha vaga <span class="arrow">→</span></button>
+  <button class="btn secondary">Saber mais</button>
+  <button class="btn ghost">Ver programa <span class="arrow">→</span></button>
+  <button class="btn danger">Últimas 3 vagas</button>
+</div>
+</body></html>

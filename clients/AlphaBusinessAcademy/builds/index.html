@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Business Academy | O Caminho do Dono</title>
+    <meta name="description" content="Transforme-se de escravo da operação em CEO de elite. Imersão presencial para donos de negócios em Food Service e PMEs.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../assets/css/brand.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0A0A0A',
+                            gold: '#C9A24A',
+                            'gold-light': '#E6C879',
+                            ivory: '#F5EFE0'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-150 { transition-delay: 150ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Carousel */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-brand-ivory selection:bg-brand-gold selection:text-brand-black">
+
+    <!-- ============================================================ HERO -->
+    <section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-vignette">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
+            <div class="reveal">
+                <div class="aba-eyebrow mb-6">Imersão Presencial · 2 Dias · São Paulo</div>
+                <h1 class="aba-h1 mb-8">
+                    DE ESCRAVO DA OPERAÇÃO A <em class="italic">CEO DE ELITE</em>: O CAMINHO PARA UMA EMPRESA QUE LUCRA SEM VOCÊ.
+                </h1>
+                <p class="aba-lead mb-10 max-w-xl">
+                    Pare de apagar incêndios 14 horas por dia. Conheça a metodologia de <strong>Lucas Silva</strong> e <strong>José Ricardo</strong> que já estruturou mais de <strong class="text-brand-gold">500 operações de food service</strong>. Saia do balcão e construa um negócio que funciona sem você.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                    <a href="#vaga" class="aba-btn-primary">QUERO SAIR DO OPERACIONAL</a>
+                    <div class="flex items-center gap-3 px-2">
+                        <div class="flex -space-x-3">
+                            <img src="../assets/img/mentores/lucas-silva.webp" class="w-10 h-10 rounded-full border-2 border-brand-black object-cover" alt="Lucas Silva">
+                            <img src="../assets/img/mentores/jose-ricardo.webp" class="w-10 h-10 rounded-full border-2 border-brand-black object-cover" alt="José Ricardo">
+                            <img src="../assets/img/mentores/Robert.webp" class="w-10 h-10 rounded-full border-2 border-brand-black object-cover" alt="Robert">
+                        </div>
+                        <span class="aba-small">+500 Negócios Acelerados</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative reveal delay-300">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-gold/50 to-transparent blur opacity-20 rounded-2xl"></div>
+                <div class="relative border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="../assets/img/hero/hero_transformation.png" alt="Transformação Alpha Business Academy" class="w-full">
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent">
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <div class="bg-white/10 text-white/70 px-3 py-1 rounded text-xs font-bold uppercase tracking-tighter backdrop-blur-sm">Antes · operador</div>
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-gold"></i>
+                            <div class="bg-brand-gold text-brand-black px-3 py-1 rounded text-xs font-bold uppercase tracking-tighter">Depois · CEO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ DIAGNÓSTICO -->
+    <section id="problemas" class="section-padding hairline-gold bg-brand-black/50">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <div class="aba-eyebrow mb-4">O Diagnóstico</div>
+            <h2 class="aba-h2 mb-12">Você tem uma empresa ou um <em class="italic text-brand-gold">emprego caro</em>?</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="aba-card text-left p-8">
+                    <i data-lucide="clock" class="text-brand-gold mb-6 w-10 h-10"></i>
+                    <h3 class="aba-h3 text-xl mb-4">Operação Infinita</h3>
+                    <p class="aba-body text-sm">Você fatura, mas trabalha 14 horas por dia e não vê a cor do dinheiro no final do mês.</p>
+                </div>
+                <div class="aba-card text-left p-8">
+                    <i data-lucide="users" class="text-brand-gold mb-6 w-10 h-10"></i>
+                    <h3 class="aba-h3 text-xl mb-4">Refém do Time</h3>
+                    <p class="aba-body text-sm">Seus funcionários são seu maior gargalo e você sente que nada funciona se você não estiver presente.</p>
+                </div>
+                <div class="aba-card text-left p-8">
+                    <i data-lucide="trending-down" class="text-brand-gold mb-6 w-10 h-10"></i>
+                    <h3 class="aba-h3 text-xl mb-4">Escala Travada</h3>
+                    <p class="aba-body text-sm">Você quer crescer, mas tem medo de quebrar se tirar 15 dias de férias hoje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ METODOLOGIA -->
+    <section id="metodologia" class="section-padding bg-vignette">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-16 reveal">
+                <div class="max-w-2xl">
+                    <div class="aba-eyebrow mb-4">O Tripé da Excelência Empresarial™</div>
+                    <h2 class="aba-h2">Os Pilares Estratégicos para a <em class="italic text-brand-gold">Escala Real</em>.</h2>
+                </div>
+                <p class="aba-body text-white/60 mb-2 md:mb-0 max-w-xs">Metodologia validada em mais de 500 operações de Food Service e franquias.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <div class="aba-card group">
+                    <div class="aba-text-engrave text-4xl font-display mb-6">01</div>
+                    <h4 class="aba-h4 text-lg mb-3">Receita Previsível</h4>
+                    <p class="aba-body text-xs leading-relaxed text-white/50 group-hover:text-white/80 transition-colors">Pipeline de vendas claro. Proposta que converte. Execução que não depende do dono fechar cada mesa. Vendas com margem e recorrência.</p>
+                </div>
+                <div class="aba-card group">
+                    <div class="aba-text-engrave text-4xl font-display mb-6">02</div>
+                    <h4 class="aba-h4 text-lg mb-3">Escala com Estrutura</h4>
+                    <p class="aba-body text-xs leading-relaxed text-white/50 group-hover:text-white/80 transition-colors">Crescimento que não quebra. Processos documentados. Expansão com ROI calculado — não com feeling. De 1 para 3 unidades sem caos.</p>
+                </div>
+                <div class="aba-card group">
+                    <div class="aba-text-engrave text-4xl font-display mb-6">03</div>
+                    <h4 class="aba-h4 text-lg mb-3">Pessoas Autônomas</h4>
+                    <p class="aba-body text-xs leading-relaxed text-white/50 group-hover:text-white/80 transition-colors">Time que entrega resultado mesmo quando você não está. Cultura real, não discurso. Contratação por caráter, treinamento por processo.</p>
+                </div>
+                <div class="aba-card group">
+                    <div class="aba-text-engrave text-4xl font-display mb-6">04</div>
+                    <h4 class="aba-h4 text-lg mb-3">Margem Protegida</h4>
+                    <p class="aba-body text-xs leading-relaxed text-white/50 group-hover:text-white/80 transition-colors">DRE que você entende. Decisões baseadas em números reais. Cada real gasto justificado. Lucro que sobrevive ao crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ MENTORES -->
+    <section id="mentores" class="section-padding bg-brand-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <div class="aba-eyebrow mb-4">Autoridade</div>
+                <h2 class="aba-h2">Mentores que vivem o que ensinam.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center reveal">
+                    <div class="relative w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-2 border-brand-gold/30">
+                        <img src="../assets/img/mentores/lucas-silva.webp" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="Lucas Silva">
+                    </div>
+                    <h4 class="aba-h4">Lucas Silva</h4>
+                    <p class="aba-small text-brand-gold mb-4 uppercase">Alpha Master Mentor</p>
+                    <p class="aba-body text-sm text-white/60">CEO da Ponto Alpha Café e executivo de expansão da Monster Dog. Construiu a operação de dentro para fora — sabe o que é ficar no balcão e sabe como sair dele.</p>
+                </div>
+                <div class="text-center reveal delay-150">
+                    <div class="relative w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-2 border-brand-gold/30">
+                        <img src="../assets/img/mentores/jose-ricardo.webp" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="José Ricardo">
+                    </div>
+                    <h4 class="aba-h4">José Ricardo</h4>
+                    <p class="aba-small text-brand-gold mb-4 uppercase">Fundador do Ponto Alpha</p>
+                    <p class="aba-body text-sm text-white/60">De camelô a fundador de uma rede com +500 lojas. Não é teoria — é uma jornada construída com as mãos no caixa. Entende cada dor porque já viveu cada uma delas.</p>
+                </div>
+                <div class="text-center reveal delay-300">
+                    <div class="relative w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-2 border-brand-gold/30">
+                        <img src="../assets/img/mentores/Robert.webp" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="Robert CFO">
+                    </div>
+                    <h4 class="aba-h4">Robert</h4>
+                    <p class="aba-small text-brand-gold mb-4 uppercase">Mentor & CFO</p>
+                    <p class="aba-body text-sm text-white/60">Estratégia financeira e governança para negócios que querem crescer sem quebrar. Alta performance com os pés no chão. O cara que faz a DRE parecer fácil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ ÚLTIMA IMERSÃO -->
+    <section class="section-padding bg-brand-black/60 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Texto esquerda -->
+                <div class="reveal">
+                    <div class="aba-eyebrow mb-4">Edição Anterior</div>
+                    <h2 class="aba-h2 mb-6">Quem esteve na última imersão <em class="italic text-brand-gold">não saiu o mesmo</em>.</h2>
+                    <p class="aba-body text-white/60 mb-8 leading-relaxed">
+                        Dois dias de decisão, diagnóstico e construção real. Donos de restaurantes, cafeterias e franquias saíram com plano de execução, clareza financeira e um network de alto nível.
+                    </p>
+                    <div class="space-y-5 mb-10">
+                        <div class="flex items-start gap-4">
+                            <span class="text-brand-gold font-black mt-0.5 shrink-0">→</span>
+                            <p class="aba-body text-sm text-white/70">Ambiente de alta performance e decisão real</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-brand-gold font-black mt-0.5 shrink-0">→</span>
+                            <p class="aba-body text-sm text-white/70">Mentoria direta com Lucas Silva e José Ricardo</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-brand-gold font-black mt-0.5 shrink-0">→</span>
+                            <p class="aba-body text-sm text-white/70">Network de empresários sérios do setor de food service</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-brand-gold font-black mt-0.5 shrink-0">→</span>
+                            <p class="aba-body text-sm text-white/70">Plano de 90 dias construído durante a imersão</p>
+                        </div>
+                    </div>
+                    <a href="#vaga" class="aba-btn-primary inline-block">QUERO PARTICIPAR DA PRÓXIMA</a>
+                </div>
+
+                <!-- Carrossel de fotos direita -->
+                <div class="reveal delay-300">
+                    <div class="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+                        <div class="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" id="photoTrack">
+
+                            <!-- SLOT 1 — substituir src pela foto real -->
+                            <div class="flex-none w-full">
+                                <div class="aspect-[4/3] bg-white/[0.03] flex flex-col items-center justify-center">
+                                    <i data-lucide="image" class="w-12 h-12 text-brand-gold/20 mb-3"></i>
+                                    <p class="text-white/20 text-xs tracking-widest uppercase">Foto 01</p>
+                                    <!-- <img src="../assets/img/galeria/galeria-01.jpg" class="w-full h-full object-cover" alt="Imersão ABA"> -->
+                                </div>
+                            </div>
+
+                            <!-- SLOT 2 -->
+                            <div class="flex-none w-full">
+                                <div class="aspect-[4/3] bg-white/[0.03] flex flex-col items-center justify-center">
+                                    <i data-lucide="image" class="w-12 h-12 text-brand-gold/20 mb-3"></i>
+                                    <p class="text-white/20 text-xs tracking-widest uppercase">Foto 02</p>
+                                    <!-- <img src="../assets/img/galeria/galeria-02.jpg" class="w-full h-full object-cover" alt="Imersão ABA"> -->
+                                </div>
+                            </div>
+
+                            <!-- SLOT 3 -->
+                            <div class="flex-none w-full">
+                                <div class="aspect-[4/3] bg-white/[0.03] flex flex-col items-center justify-center">
+                                    <i data-lucide="image" class="w-12 h-12 text-brand-gold/20 mb-3"></i>
+                                    <p class="text-white/20 text-xs tracking-widest uppercase">Foto 03</p>
+                                    <!-- <img src="../assets/img/galeria/galeria-03.jpg" class="w-full h-full object-cover" alt="Imersão ABA"> -->
+                                </div>
+                            </div>
+
+                            <!-- SLOT 4 -->
+                            <div class="flex-none w-full">
+                                <div class="aspect-[4/3] bg-white/[0.03] flex flex-col items-center justify-center">
+                                    <i data-lucide="image" class="w-12 h-12 text-brand-gold/20 mb-3"></i>
+                                    <p class="text-white/20 text-xs tracking-widest uppercase">Foto 04</p>
+                                    <!-- <img src="../assets/img/galeria/galeria-04.jpg" class="w-full h-full object-cover" alt="Imersão ABA"> -->
+                                </div>
+                            </div>
+
+                            <!-- SLOT 5 -->
+                            <div class="flex-none w-full">
+                                <div class="aspect-[4/3] bg-white/[0.03] flex flex-col items-center justify-center">
+                                    <i data-lucide="image" class="w-12 h-12 text-brand-gold/20 mb-3"></i>
+                                    <p class="text-white/20 text-xs tracking-widest uppercase">Foto 05</p>
+                                    <!-- <img src="../assets/img/galeria/galeria-05.jpg" class="w-full h-full object-cover" alt="Imersão ABA"> -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Controles -->
+                    <div class="flex items-center justify-between mt-4 px-1">
+                        <button id="photoPrev" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold/50 hover:text-brand-gold transition-all" aria-label="Foto anterior">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <div class="flex gap-2" id="photoDots">
+                            <button class="photo-dot w-2 h-2 rounded-full bg-brand-gold transition-all" data-index="0"></button>
+                            <button class="photo-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index="1"></button>
+                            <button class="photo-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index="2"></button>
+                            <button class="photo-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index="3"></button>
+                            <button class="photo-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index="4"></button>
+                        </div>
+                        <button id="photoNext" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold/50 hover:text-brand-gold transition-all" aria-label="Próxima foto">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ VÍDEO INSTITUCIONAL -->
+    <section class="section-padding bg-brand-black/80 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <div class="aba-eyebrow mb-4">A Imersão</div>
+                <h2 class="aba-h2">Veja como é o <em class="italic text-brand-gold">Caminho do Dono</em>.</h2>
+            </div>
+            <div class="reveal relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <video class="w-full" controls preload="metadata" poster="../assets/img/hero/hero_transformation.png">
+                    <source src="../assets/videos/Institucional horizontal/0501 (1).mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ DEPOIMENTOS (CARROSSEL) -->
+    <section class="section-padding bg-vignette overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="aba-eyebrow mb-4">Prova Social</div>
+                <h2 class="aba-h2">Resultados Reais de Donos Reais.</h2>
+            </div>
+
+            <div class="reveal" id="carousel">
+                <div class="overflow-hidden rounded-2xl">
+                    <div class="carousel-track" id="carouselTrack">
+
+                        <div class="carousel-slide">
+                            <div class="aba-card p-0 overflow-hidden">
+                                <video class="w-full aspect-[9/16] object-cover bg-black" controls preload="metadata" poster="../assets/img/hero/hero_transformation.png">
+                                    <source src="../assets/videos/depoimentos/vinicius.mp4" type="video/mp4">
+                                </video>
+                                <div class="p-6">
+                                    <p class="aba-quote text-lg mb-2">"Escalamos com método e resultado."</p>
+                                    <p class="aba-small text-brand-gold">— Vinícius, Franqueado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="aba-card p-0 overflow-hidden">
+                                <video class="w-full aspect-[9/16] object-cover bg-black" controls preload="metadata" poster="../assets/img/hero/hero_transformation.png">
+                                    <source src="../assets/videos/depoimentos/Debora.mp4" type="video/mp4">
+                                </video>
+                                <div class="p-6">
+                                    <p class="aba-quote text-lg mb-2">"Recuperei minha liberdade."</p>
+                                    <p class="aba-small text-brand-gold">— Débora, Restaurante</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="aba-card p-0 overflow-hidden">
+                                <video class="w-full aspect-[9/16] object-cover bg-black" controls preload="metadata" poster="../assets/img/hero/hero_transformation.png">
+                                    <source src="../assets/videos/depoimentos/marcio.mp4" type="video/mp4">
+                                </video>
+                                <div class="p-6">
+                                    <p class="aba-quote text-lg mb-2">"Apliquei e aumentei 50% do faturamento."</p>
+                                    <p class="aba-small text-brand-gold">— Márcio, Franqueado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Controles -->
+                <div class="flex items-center justify-center gap-6 mt-10">
+                    <button id="prevBtn" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold/50 hover:text-brand-gold transition-all" aria-label="Anterior">
+                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex gap-2" id="dots">
+                        <button class="dot w-2.5 h-2.5 rounded-full bg-brand-gold transition-all" data-index="0" aria-label="Slide 1"></button>
+                        <button class="dot w-2.5 h-2.5 rounded-full bg-white/20 transition-all" data-index="1" aria-label="Slide 2"></button>
+                        <button class="dot w-2.5 h-2.5 rounded-full bg-white/20 transition-all" data-index="2" aria-label="Slide 3"></button>
+                    </div>
+                    <button id="nextBtn" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-gold/50 hover:text-brand-gold transition-all" aria-label="Próximo">
+                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ OFERTA FINAL -->
+    <section id="vaga" class="section-padding bg-brand-gold text-brand-black text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10 reveal">
+            <h2 class="aba-h1 mb-6 text-brand-black">SUA MUDANÇA DE JOGO COMEÇA AQUI.</h2>
+            <p class="aba-lead mb-12 text-brand-black/80 font-bold">
+                As vagas para a próxima Imersão são limitadas. Processo seletivo de 3 minutos. Resposta em até 48h via WhatsApp.
+            </p>
+            <div class="bg-brand-black text-brand-ivory p-10 rounded-2xl shadow-2xl mb-12 max-w-md mx-auto">
+                <div class="text-xs uppercase tracking-widest text-brand-gold mb-4">Investimento</div>
+                <div class="text-6xl font-display mb-2">R$ 2.497</div>
+                <p class="aba-small text-white/50 mb-10">ou em 12x no cartão de crédito</p>
+                <a href="#" class="aba-btn-primary block w-full py-5 text-center">GARANTIR MINHA VAGA AGORA</a>
+            </div>
+            <div class="flex items-center justify-center gap-10 flex-wrap">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    <span class="text-xs font-bold uppercase">Garantia Incondicional</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="lock" class="w-5 h-5"></i>
+                    <span class="text-xs font-bold uppercase">Pagamento Seguro</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    <span class="text-xs font-bold uppercase">21 e 22 de Março · SP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ FOOTER -->
+    <footer class="py-12 bg-brand-black border-t border-white/5 text-center">
+        <img src="../assets/logos/aba-logo.png" alt="ABA Logo" class="h-10 mx-auto mb-8 opacity-50 grayscale">
+        <p class="aba-small text-white/30">&copy; 2026 Alpha Business Academy. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- ============================================================ SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Carousel
+        const track    = document.getElementById('carouselTrack');
+        const dots     = document.querySelectorAll('.dot');
+        const slides   = document.querySelectorAll('.carousel-slide');
+        let current    = 0;
+
+        function goTo(index) {
+            const currentVideo = slides[current].querySelector('video');
+            if (currentVideo) currentVideo.pause();
+
+            current = index;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => {
+                d.classList.toggle('bg-brand-gold', i === current);
+                d.classList.toggle('w-5',           i === current);
+                d.classList.toggle('bg-white/20',   i !== current);
+                d.classList.toggle('w-2.5',         i !== current);
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            goTo((current - 1 + slides.length) % slides.length);
+        });
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            goTo((current + 1) % slides.length);
+        });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => goTo(+dot.dataset.index));
+        });
+
+        // Photo carousel
+        const photoTrack = document.getElementById('photoTrack');
+        const photoDots  = document.querySelectorAll('.photo-dot');
+        const photoSlides = document.querySelectorAll('#photoTrack > div');
+        let photoIndex = 0;
+
+        function goToPhoto(index) {
+            photoIndex = index;
+            photoTrack.style.transform = `translateX(-${photoIndex * 100}%)`;
+            photoDots.forEach((d, i) => {
+                d.classList.toggle('bg-brand-gold', i === photoIndex);
+                d.classList.toggle('bg-white/20',   i !== photoIndex);
+            });
+        }
+
+        document.getElementById('photoPrev').addEventListener('click', () => {
+            goToPhoto((photoIndex - 1 + photoSlides.length) % photoSlides.length);
+        });
+        document.getElementById('photoNext').addEventListener('click', () => {
+            goToPhoto((photoIndex + 1) % photoSlides.length);
+        });
+        photoDots.forEach(dot => {
+            dot.addEventListener('click', () => goToPhoto(+dot.dataset.index));
+        });
+
+        // Auto-advance photo carousel every 4s
+        setInterval(() => goToPhoto((photoIndex + 1) % photoSlides.length), 4000);
+    </script>
+
+</body>
+</html>

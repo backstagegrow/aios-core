@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Imagery</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:14px;font-weight:600}
+  .grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:12px}
+  .img{height:240px;background-size:cover;background-position:center;position:relative;border-radius:6px;overflow:hidden}
+  .img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,10,.85) 100%)}
+  .cap{position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#F5EFE0;font-weight:600;z-index:1}
+</style></head><body>
+<div class="label">Imagery · editorial · warm · before/after</div>
+<div class="grid">
+  <div class="img" style="background-image:url('../assets/hero-transformation.jpg')"><span class="cap">Antes / Depois · Hero</span></div>
+  <div class="img" style="background-image:url('../assets/portrait-lucas.webp');background-position:top"><span class="cap">Lucas Silva · Mentor</span></div>
+  <div class="img" style="background-image:url('../assets/portrait-robert.webp');background-position:top"><span class="cap">Convidado</span></div>
+</div>
+</body></html>

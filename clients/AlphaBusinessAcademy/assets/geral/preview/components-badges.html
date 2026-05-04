@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Badges</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:18px;font-weight:600}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .b{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;padding:8px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+  .b.gold{background:rgba(201,162,74,.12);color:#C9A24A;border:1px solid rgba(201,162,74,.4)}
+  .b.solid{background:#C9A24A;color:#0A0A0A}
+  .b.outline{background:transparent;color:#F5EFE0;border:1px solid rgba(245,239,224,.2)}
+  .b.danger{background:rgba(200,74,61,.15);color:#C84A3D;border:1px solid rgba(200,74,61,.45)}
+  .dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 1.6s infinite}
+  @keyframes pulse{50%{opacity:.4}}
+</style></head><body>
+<div class="label">Badges & Tags</div>
+<div class="row">
+  <span class="b gold">Imersão presencial</span>
+  <span class="b solid">Edição I · 2026</span>
+  <span class="b outline">3 dias</span>
+  <span class="b danger"><span class="dot"></span>Últimas 3 vagas</span>
+</div>
+</body></html>

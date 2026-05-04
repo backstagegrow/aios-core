@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Hairlines</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:28px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:18px;font-weight:600}
+  .demo{display:flex;flex-direction:column;gap:18px}
+  .row{display:flex;align-items:center;gap:14px}
+  .key{width:140px;font-family:var(--aba-font-mono);font-size:11px;color:#8A8273}
+  .line{flex:1;height:1px}
+  .gold{background:rgba(201,162,74,.55)}
+  .gold-soft{background:rgba(201,162,74,.22)}
+  .ivory{background:rgba(245,239,224,.1)}
+  .gold-grad{background:linear-gradient(90deg,transparent,rgba(201,162,74,.7),transparent)}
+  .center{display:flex;align-items:center;gap:14px}
+  .ornament{font-family:var(--aba-font-display);color:#C9A24A;font-style:italic;font-size:18px}
+</style></head><body>
+<div class="label">Dividers · hairlines · ornaments</div>
+<div class="demo">
+  <div class="row"><div class="key">border-strong</div><div class="line gold"></div></div>
+  <div class="row"><div class="key">border-1 (cards)</div><div class="line gold-soft"></div></div>
+  <div class="row"><div class="key">border-2 (neutral)</div><div class="line ivory"></div></div>
+  <div class="row"><div class="key">grad-fade</div><div class="line gold-grad"></div></div>
+  <div class="row"><div class="key">section ornament</div><div class="center" style="flex:1;justify-content:center"><div class="line gold-soft" style="max-width:120px"></div><span class="ornament">§</span><div class="line gold-soft" style="max-width:120px"></div></div></div>
+</div>
+</body></html>

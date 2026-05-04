@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Form</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:18px;font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lf{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8A8273;font-weight:600;margin-bottom:6px;display:block}
+  input,select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(201,162,74,.3);color:#F5EFE0;font-family:var(--aba-font-sans);font-size:16px;padding:10px 0;outline:none;box-sizing:border-box;transition:border-color 320ms cubic-bezier(.22,1,.36,1)}
+  input:focus{border-bottom-color:#C9A24A}
+  input::placeholder{color:#5A544A}
+  .full{grid-column:1/-1}
+  .check{display:flex;gap:10px;align-items:center;font-size:13px;color:#C9C2B0}
+  .check .b{width:16px;height:16px;border:1px solid #C9A24A;border-radius:3px;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:11px;background:#0A0A0A}
+</style></head><body>
+<div class="label">Form Inputs · editorial underline</div>
+<div class="grid">
+  <div><span class="lf">Nome</span><input value="Lucas Silva"/></div>
+  <div><span class="lf">WhatsApp</span><input value="(11) 9 9999-9999"/></div>
+  <div class="full"><span class="lf">E-mail</span><input placeholder="seuemail@empresa.com.br"/></div>
+  <div><span class="lf">Faturamento mensal</span><input value="R$ 50–150 mil"/></div>
+  <div><span class="lf">Segmento</span><input value="Food Service"/></div>
+  <div class="full check"><span class="b">✓</span> Aceito receber comunicações da Alpha Business Academy.</div>
+</div>
+</body></html>

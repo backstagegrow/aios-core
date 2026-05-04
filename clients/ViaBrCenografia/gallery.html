@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR" className="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria do Projeto - Via BR Cenografia</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { vborange: '#FF6600', ink: '#0F0F0F', slate: '#5C5C5C', mist: '#F5F5F5' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-mist text-ink antialiased">
+<div id="root"></div>
+
+<script type="text/babel">
+const Icon = ({name}) => {
+  const icons = {
+    arrowLeft: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />,
+    close: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  };
+  return <svg className="w-current h-current" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" fill="none">{icons[name]}</svg>;
+};
+
+const galleries = {
+  "adventista": {
+    title: "Convenção Adventista",
+    client: "Igreja Adventista",
+    tag: "Cenografia",
+    images: [
+      "./assets/portfolio/ADVENTISTA/IMG-20250703-WA0019.jpg",
+      "./assets/portfolio/ADVENTISTA/IMG-20250703-WA0034.jpg",
+      "./assets/portfolio/ADVENTISTA/IMG-20250703-WA0036.jpg",
+      "./assets/portfolio/ADVENTISTA/IMG-20250703-WA0037.jpg"
+    ]
+  },
+  "conmebol": {
+    title: "A Glória Eterna",
+    client: "Conmebol",
+    tag: "Cenografia Esportiva",
+    images: [
+      "./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-2.jpg",
+      "./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-28.jpg",
+      "./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-3.jpg",
+      "./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-32.jpg",
+      "./assets/portfolio/Conmebol - A Gloria Eterna/A GLÓRIA ETERNA-6.jpg"
+    ]
+  },
+  "games": {
+    title: "Experiência Imersiva",
+    client: "Publisher de Games",
+    tag: "Ativação de Marca",
+    images: [
+      "./assets/portfolio/Games/52058234867_3647f5fe8a_o.jpg",
+      "./assets/portfolio/Games/52059312813_bd21314793_o.jpg",
+      "./assets/portfolio/Games/52059505219_afc45f240e_o.jpg",
+      "./assets/portfolio/Games/52059514839_26edb327cf_o.jpg",
+      "./assets/portfolio/Games/MSI_SP_00.jpg",
+      "./assets/portfolio/Games/MSI_SP_03.jpg",
+      "./assets/portfolio/Games/MSI_SP_04.jpg",
+      "./assets/portfolio/Games/MSI_SP_05.jpg",
+      "./assets/portfolio/Games/MSI_SP_07.jpg"
+    ]
+  },
+  "heineken": {
+    title: "Heineken F1",
+    client: "Heineken",
+    tag: "Estande e Ativação",
+    images: [
+      "./assets/portfolio/HEINEKEN F1/HEINEKEN 14.jpeg",
+      "./assets/portfolio/HEINEKEN F1/HEINEKEN 15.jpeg",
+      "./assets/portfolio/HEINEKEN F1/HEINEKEN 18.jpeg",
+      "./assets/portfolio/HEINEKEN F1/HEINEKEN 3.jpg",
+      "./assets/portfolio/HEINEKEN F1/HEINEKEN 4.jpg"
+    ]
+  },
+  "miami": {
+    title: "Miami Open",
+    client: "Itaú",
+    tag: "Ativação Internacional",
+    images: [
+      "./assets/portfolio/MIami open/5.jpg",
+      "./assets/portfolio/MIami open/IMG-20250311-WA0042 (1).jpg",
+      "./assets/portfolio/MIami open/IMG-20250311-WA0042.jpg",
+      "./assets/portfolio/MIami open/Imagem do WhatsApp de 2025-03-26 à(s) 11.16.46_c936a3cf.jpg",
+      "./assets/portfolio/MIami open/itau_tenis_01.jpg"
+    ]
+  },
+  "sena": {
+    title: "Sena Expo",
+    client: "Senna Brands",
+    tag: "Estande Customizado",
+    images: [
+      "./assets/portfolio/Sena expo/8adfc6cded628a33d99233899ace7815.jpg",
+      "./assets/portfolio/Sena expo/Capturar4.JPG",
+      "./assets/portfolio/Sena expo/a86fa8cb16a48f24caa0ba1dbea1d180.jpg",
+      "./assets/portfolio/Sena expo/accccewe.jpg",
+      "./assets/portfolio/Sena expo/anexos_checkurl.jpg",
+      "./assets/portfolio/Sena expo/asc.jpg"
+    ]
+  }
+};
+
+const Gallery = () => {
+  const [data, setData] = React.useState(null);
+  const [modalImg, setModalImg] = React.useState(null);
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (id && galleries[id]) {
+      setData(galleries[id]);
+    } else {
+      setData(null);
+    }
+  }, []);
+
+  if (!data) return (
+    <div className="min-h-screen flex items-center justify-center bg-ink text-white">
+      <div className="text-center">
+        <h1 className="text-3xl font-black mb-4">Projeto não encontrado</h1>
+        <a href="index.html" className="text-vborange hover:underline">Voltar para o site</a>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-ink">
+      <nav className="bg-ink border-b border-white/10 sticky top-0 z-50">
+        <div className="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+          <a href="index.html#portfolio" className="text-white/70 hover:text-white flex items-center gap-2 transition-colors font-bold text-sm tracking-widest uppercase">
+            <span className="w-6 h-6 bg-white/10 flex items-center justify-center rounded-full"><Icon name="arrowLeft"/></span> Voltar
+          </a>
+          <img src="assets/viabr-logo.svg" alt="Via BR" className="h-6 brightness-0 invert opacity-50" />
+        </div>
+      </nav>
+
+      <header className="max-w-[1280px] mx-auto px-6 py-16 md:py-24 text-white">
+        <div className="inline-block bg-vborange px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-6">{data.tag}</div>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">{data.title}</h1>
+        <p className="text-white/60 text-xl mt-4 max-w-2xl">{data.client}</p>
+      </header>
+
+      <section className="max-w-[1280px] mx-auto px-6 pb-24">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          {data.images.map((img, i) => (
+            <div key={i} className="break-inside-avoid relative group cursor-pointer" onClick={() => setModalImg(img)}>
+              <div className="absolute inset-0 bg-vborange/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 rounded-xl mix-blend-overlay"></div>
+              <img src={img} alt={`${data.title} ${i}`} className="w-full h-auto rounded-xl shadow-xl transition-transform duration-500 group-hover:scale-[1.02]" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {modalImg && (
+        <div className="fixed inset-0 z-[100] bg-ink/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8" onClick={() => setModalImg(null)}>
+          <button className="absolute top-6 right-6 text-white hover:text-vborange bg-white/10 p-3 rounded-full transition-colors" onClick={() => setModalImg(null)}>
+            <Icon name="close"/>
+          </button>
+          <img src={modalImg} alt="Zoomed" className="max-w-full max-h-full object-contain rounded-xl shadow-2xl" onClick={e => e.stopPropagation()} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Gallery/>);
+</script>
+</body>
+</html>

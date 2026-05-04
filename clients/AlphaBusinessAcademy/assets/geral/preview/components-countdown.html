@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Countdown</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:14px;font-weight:600}
+  .bar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:#161412;border:1px solid rgba(201,162,74,.4);border-radius:14px}
+  .left{display:flex;align-items:center;gap:12px}
+  .pulse{width:8px;height:8px;border-radius:50%;background:#C84A3D;animation:pulse 1.4s infinite}
+  @keyframes pulse{50%{opacity:.4;transform:scale(.85)}}
+  .txt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#F5EFE0;font-weight:600}
+  .txt em{color:#C84A3D;font-style:normal}
+  .timer{display:flex;gap:14px}
+  .unit{text-align:center;min-width:54px}
+  .unit .v{font-family:var(--aba-font-display);font-size:38px;font-weight:600;line-height:1;background:linear-gradient(180deg,#E6C879,#C9A24A 50%,#8E6F25);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .unit .u{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8A8273;font-weight:700;margin-top:4px}
+</style></head><body>
+<div class="label">Urgency · Countdown</div>
+<div class="bar">
+  <div class="left"><span class="pulse"></span><span class="txt">Inscrições encerram em <em>23 de Maio</em></span></div>
+  <div class="timer">
+    <div class="unit"><div class="v">12</div><div class="u">Dias</div></div>
+    <div class="unit"><div class="v">07</div><div class="u">Horas</div></div>
+    <div class="unit"><div class="v">42</div><div class="u">Min</div></div>
+    <div class="unit"><div class="v">19</div><div class="u">Seg</div></div>
+  </div>
+</div>
+</body></html>

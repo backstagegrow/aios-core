@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"/>
+<title>ABA — Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  html,body{margin:0;background:#0A0A0A;color:#F5EFE0;font-family:var(--aba-font-sans);padding:24px;box-sizing:border-box}
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C9A24A;margin-bottom:18px;font-weight:600}
+  .row{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+  .item{display:flex;flex-direction:column;align-items:center;gap:8px;color:#C9A24A}
+  .item .ic{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+  .item svg{width:32px;height:32px;stroke-width:1.5}
+  .item .n{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#8A8273;font-weight:600}
+  .num{font-family:var(--aba-font-display);font-weight:700;font-size:34px;line-height:1;background:linear-gradient(180deg,#E6C879,#C9A24A 50%,#8E6F25);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+</style></head><body>
+<div class="label">Iconography · Lucide 1.5px · serif numerals</div>
+<div class="row">
+  <div class="item"><div class="ic"><i data-lucide="crown"></i></div><div class="n">Crown</div></div>
+  <div class="item"><div class="ic"><i data-lucide="target"></i></div><div class="n">Target</div></div>
+  <div class="item"><div class="ic"><i data-lucide="trending-up"></i></div><div class="n">Trend</div></div>
+  <div class="item"><div class="ic"><i data-lucide="users"></i></div><div class="n">Team</div></div>
+  <div class="item"><div class="ic"><i data-lucide="bar-chart-3"></i></div><div class="n">Metrics</div></div>
+  <div class="item"><div class="ic"><i data-lucide="check"></i></div><div class="n">Check</div></div>
+  <div class="item"><div class="ic"><i data-lucide="arrow-right"></i></div><div class="n">CTA</div></div>
+  <div class="item"><div class="num">I</div><div class="n">Numeral I</div></div>
+  <div class="item"><div class="num">VII</div><div class="n">Numeral VII</div></div>
+  <div class="item"><div class="num">XII</div><div class="n">Numeral XII</div></div>
+</div>
+<script>lucide.createIcons();</script>
+</body></html>
