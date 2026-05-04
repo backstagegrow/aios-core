@@ -1,0 +1,41 @@
+﻿Source: 3e3ed18a-7ebe-45b0-a57c-9fc7ee312f11
+Title: ejim-04-2024-0470en.pdf
+Characters: 82,734
+
+Content:
+Balancing openness and ownership: open innovation strategies for AI development
+Jacopo Cricchio 
+Sant’Anna School of Advanced Studies, Institute of Management, Pisa, Italy 
+Abstract Purpose – This paper explores how firms configure open innovation (OI)
+strategies when integrating artificial 
+intelligence (AI) into their innovation models. Through the case of Baidu, it 
+examines how OI contributes to business model innovation, highlighting how 
+firms navigate the tension between openness and ownership in AI development. 
+Design/methodology/approach – Adopting an exploratory case study approach, the 
+research employs big data 
+analysis methods, including thematic network and collaboration cluster 
+analyses. These methods are applied to a comprehensive dataset of granted 
+patents and scientific publications spanning 2000 to 2023, sourced from Orbis 
+intellectual property and Web of Science databases. 
+Findings – The analysis reveals a dual OI configuration: Baidu engages openly 
+in scientific collaborations to 
+foster value creation, while relying on centralized patenting strategies to 
+secure value capture. This modular approach reflects a dynamic governance of 
+knowledge across research and patenting domains. Baidu structures its AI 
+innovation through selective openness, enabling agile adaptation in a rapidly 
+evolving technological landscape. 
+Originality/value – This study contributes to research on AI, OI, business 
+model innovation and dynamic 
+capabilities by illustrating how hybrid openness strategies function as 
+organizational mechanisms for sensing, seizing and transforming. It offers 
+interpretive insights into the design tensions of OI and provides a grounded 
+perspective on how firms strategically navigate collaboration, protection and 
+innovation in data-intensive contexts. 
+Keywords China, Dynamic capabilities, Artificial intelligence, Business model, 
+Open innovation, 
+Lexical analysis 
+Paper type Research article 
+1. Introduction 
+In the era of rapid technological a
+
+... (80,734 more chars, use -o to save full content)

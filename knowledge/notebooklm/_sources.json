@@ -1,0 +1,577 @@
+﻿{
+  "notebook_id": "62302602-b15f-4b8f-9c0a-9bbcd1a7edc7",
+  "notebook_title": "TCC artigos",
+  "sources": [
+    {
+      "index": 1,
+      "id": "1e354470-ea0a-42cb-91d9-3b7dae7b0740",
+      "title": "1-s2.0-S0001691825006808-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 2,
+      "id": "0fda6d7c-d458-49d8-8998-2f760cf52e6e",
+      "title": "1-s2.0-S0001691825008017-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 3,
+      "id": "2afa4a12-5c10-4c72-b9d4-ffbefcf497df",
+      "title": "1-s2.0-S0007681325001405-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 4,
+      "id": "7165e576-dca8-4d7c-aff0-035b017e9218",
+      "title": "1-s2.0-S0024630125000287-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 5,
+      "id": "67b73ad0-815f-4967-9f2f-70ba3fe3d6fd",
+      "title": "1-s2.0-S0040162525001921-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 6,
+      "id": "002809b1-a5d0-443f-94ea-4c296a50bfad",
+      "title": "1-s2.0-S0148296323001133-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 7,
+      "id": "b5881dd7-9ea8-4ec0-a9e5-e251b51a0a6c",
+      "title": "1-s2.0-S0148296323005349-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 8,
+      "id": "8089a1b3-13e2-444c-a1a4-1457bcc98f2e",
+      "title": "1-s2.0-S0148296323005556-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 9,
+      "id": "5a10f57e-3566-4e65-b3b6-6768bdb1ab01",
+      "title": "1-s2.0-S0148296323005842-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 10,
+      "id": "1a230dd1-34e6-4005-a8ef-ca1a99022e21",
+      "title": "1-s2.0-S0148296323006033-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 11,
+      "id": "08f99409-5644-4334-b1c8-f40b48e322a2",
+      "title": "1-s2.0-S0148296324005320-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 12,
+      "id": "59490e5c-e3ef-413e-96c5-4dd714bca0db",
+      "title": "1-s2.0-S0148296325000943-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 13,
+      "id": "e8baf9dd-3f96-4c73-a267-5f2081f97e7b",
+      "title": "1-s2.0-S0166497224001925-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 14,
+      "id": "f02fcedf-c700-425b-8d5d-9e8bf101e8ad",
+      "title": "1-s2.0-S026840122400029X-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 15,
+      "id": "2317b457-a18b-4930-befe-2832f96443d7",
+      "title": "1-s2.0-S1029313225000016-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 16,
+      "id": "59aa07e2-9596-4f5e-96d4-7735670e8e67",
+      "title": "1-s2.0-S1059056025003867-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 17,
+      "id": "b094a1cb-55c4-4850-8ad3-39ff4444cdfb",
+      "title": "1-s2.0-S1877050922007451-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 18,
+      "id": "1e30dbb2-a315-4daf-a51d-d3a7dcdac0e9",
+      "title": "1-s2.0-S1877050924000152-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 19,
+      "id": "064fe709-0886-4470-b181-2eed3d975d23",
+      "title": "1-s2.0-S1877050924000735-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 20,
+      "id": "b1a05def-8469-43ee-a052-04c319f5745e",
+      "title": "1-s2.0-S1877050924001807-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 21,
+      "id": "e448fe7e-e0c6-487c-a247-b64feabcca71",
+      "title": "1-s2.0-S1877050925003564-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 22,
+      "id": "e01ae671-adbb-4334-9f45-408444e71a5f",
+      "title": "1-s2.0-S1877050925006465-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 23,
+      "id": "b232477f-ea64-4187-8096-4f6b34440762",
+      "title": "1-s2.0-S1877050925021350-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 24,
+      "id": "0f8020fc-3071-4809-a02d-26900ca06383",
+      "title": "1-s2.0-S1877050925023695-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 25,
+      "id": "bf686ab8-edef-423e-b116-6c8754f4d587",
+      "title": "1-s2.0-S2199853122007545-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 26,
+      "id": "6c595592-98cb-43ae-9766-a844bd46c7c0",
+      "title": "1-s2.0-S219985312200765X-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 27,
+      "id": "3f9ebf26-4e04-4765-94b5-9c585d6be639",
+      "title": "1-s2.0-S2199853122007697-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 28,
+      "id": "20585250-a5f2-466e-b587-ac37ad15d438",
+      "title": "1-s2.0-S2199853123001713-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 29,
+      "id": "2599f6bb-4f41-45ce-a4ff-13e86bf6b554",
+      "title": "1-s2.0-S2199853124001781-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 30,
+      "id": "ea617d44-7d02-4418-8f9c-d3784f036d51",
+      "title": "1-s2.0-S219985312500054X-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 31,
+      "id": "78703a5b-3c52-41e7-8571-76f65beeb15f",
+      "title": "1-s2.0-S2212827122002980-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 32,
+      "id": "9b74d47b-4d06-4359-b3d8-79af38cd0292",
+      "title": "1-s2.0-S2405844024165723-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 33,
+      "id": "9a735367-524c-473e-b96d-5fca653bc2d1",
+      "title": "1-s2.0-S2444569X23000318-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 34,
+      "id": "fa9d13fa-53c3-437d-afea-292cafeb5f6b",
+      "title": "1-s2.0-S2444569X24001707-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 35,
+      "id": "86010cd1-3b55-45d9-8960-bce06718fbbf",
+      "title": "1-s2.0-S2444569X25000812-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 36,
+      "id": "0f31d431-c041-435a-9d20-8ecba7bb157c",
+      "title": "1-s2.0-S2444569X25001374-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 37,
+      "id": "28f12923-3291-4a96-89af-17f0abdb3f2e",
+      "title": "1-s2.0-S2444569X25002203-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 38,
+      "id": "f7b034b4-bf33-43b7-a545-eb52d02d0afb",
+      "title": "1-s2.0-S2444883423000104-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 39,
+      "id": "e6a93b9e-1bc6-4e8c-989d-d7efecf6aed5",
+      "title": "1-s2.0-S2444883425000233-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 40,
+      "id": "b81f0db3-d0d5-4a14-b9d6-dedb07a9bd7c",
+      "title": "1-s2.0-S2590123025033353-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 41,
+      "id": "388d5a9c-66a0-4b77-9e8a-89de3432c3a8",
+      "title": "1-s2.0-S2590291125006795-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 42,
+      "id": "2fc7df8f-2beb-4e7e-a7d4-5d218786cd68",
+      "title": "1-s2.0-S2590291125008915-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 43,
+      "id": "cc5e40b2-ee45-425d-87a5-82a79271ad52",
+      "title": "1-s2.0-S2666764925000505-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 44,
+      "id": "8f8c9324-c8ac-4714-896f-8313555780b0",
+      "title": "1-s2.0-S2666954424000115-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 45,
+      "id": "8111f07c-181e-4454-abaa-354f961fe4b7",
+      "title": "1-s2.0-S3050700625000404-main.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 46,
+      "id": "25461175-e04a-44ab-97b6-389604dbd658",
+      "title": "Antecedents-to-the-Adoption-of-Digital-Marketing-by-Start-Ups-Under-Startup-India-and-E-Governance-Initiatives_-A-BRT-Perspective.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 47,
+      "id": "8bac39c5-3999-4802-81f9-3624033b1938",
+      "title": "PIIS2405844023014482.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 48,
+      "id": "f78803cf-375d-4fbd-9a5d-827185549eb5",
+      "title": "TSP_CMC_57094.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 49,
+      "id": "ad0a2abf-7fea-4a64-9951-04ada297f7d6",
+      "title": "The-Impact-of-Artificial-Intelligence-Capabilities-on-Decision-Making-Performance_-A-Longitudinal-Study.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 50,
+      "id": "9e35e87f-b7ae-4ff0-8adb-ee246b4f7144",
+      "title": "Unrealistic-Optimism-Regarding-Artificial-Intelligence-Opportunities-in-Human-Resource-Management.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 51,
+      "id": "79badbc5-e976-4c7f-99a3-5fa53c724b6b",
+      "title": "bpmj-06-2024-0467en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 52,
+      "id": "258278c2-cfa6-41ae-ab14-1ad9a47ff230",
+      "title": "ejim-02-2023-0108.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 53,
+      "id": "3e3ed18a-7ebe-45b0-a57c-9fc7ee312f11",
+      "title": "ejim-04-2024-0470en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 54,
+      "id": "3877f178-1810-4646-a622-514e0ff6309c",
+      "title": "ejim-07-2024-0770en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 55,
+      "id": "ca23483c-1845-46ea-897a-02dec2c99d4f",
+      "title": "ijebr-05-2025-0738en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 56,
+      "id": "716198dd-88ec-423c-9a84-fdafbfbfd08f",
+      "title": "intr-02-2024-0195en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    },
+    {
+      "index": 57,
+      "id": "7e1b7533-5f1a-429d-8180-163a9217af74",
+      "title": "jeim-03-2025-0230en.pdf",
+      "type": "SourceType.PDF",
+      "url": null,
+      "status": "ready",
+      "status_id": 2,
+      "created_at": "2026-04-26T11:01:51"
+    }
+  ],
+  "count": 57
+}

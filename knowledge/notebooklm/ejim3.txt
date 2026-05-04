@@ -1,0 +1,48 @@
+﻿Source: 3877f178-1810-4646-a622-514e0ff6309c
+Title: ejim-07-2024-0770en.pdf
+Characters: 123,009
+
+Content:
+Adoption of AI by micro and small health enterprises: effects of 
+entrepreneurial orientation 
+on the TOE model 
+Giulia Nevi 
+Department of Management, Polytechnic University of Marche, Ancona, Italy 
+Lucia Pizzichini 
+Department of Business Administration, Jonkoping International Business School,
+Jonkoping University, J€onk€oping, Sweden and 
+Department of Management and Economics, Pegaso Telematic University, Naples, 
+Italy 
+Anna Bastone 
+Department of Management and Quantitative Studies, 
+University of Naples “Parthenope” “Parthenope”, Naples, Italy, and 
+Luca Dezi 
+Department of Communication and Social Research, Sapienza University, Rome, 
+Italy 
+Abstract Purpose – This study aims to investigate the adoption of artificial 
+intelligence (AI) in micro and small enterprises, 
+particularly pharmacies, exploring the role of technological adoption models 
+and entrepreneurial orientation. 
+Design/methodology/approach – A mixed-methods approach was employed, beginning 
+with a qualitative 
+analysis through semi-structured interviews with 11 pharmacists to identify 
+suitable adoption models. This was followed by a quantitative regression 
+analysis study of a final sample of 217 Italian pharmacist orders validating 
+the proposed model processed with SPSS V27. 
+Findings – Technology and environmental dimensions, such as individual 
+entrepreneurial orientation, 
+significantly influence AI adoption in micro and small enterprises. However, 
+organizational factors and perceived risk have less impact. 
+Research limitations/implications – The study’s limitations include its focus 
+solely on pharmacies and its 
+geographical scope. Future research could expand into different sectors and 
+regions. 
+Practical implications – The findings suggest that enhancing technological 
+capabilities and aligning them with 
+strategic goals are crucial for successful AI adoption in micro and small 
+enterprises. 
+Social implications – Understanding the factors influencing AI adoption can 
+foster innovation and 
+co
+
+... (121,009 more chars, use -o to save full content)

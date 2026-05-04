@@ -1,0 +1,42 @@
+﻿Source: 79badbc5-e976-4c7f-99a3-5fa53c724b6b
+Title: bpmj-06-2024-0467en.pdf
+Characters: 144,829
+
+Content:
+Unveiling how business process management capabilities foster dynamic 
+decision-making for effectiveness of sustainable digital transformation 
+Pham Quang Huy 
+School of Accounting, University of Economics Ho Chi Minh City (UEH), 
+Ho Chi Minh City, Vietnam, and 
+Vu Kien Phuc 
+School of Accounting, University of Economics Ho Chi Minh City (UEH), Vinh Long
+Campus, Vinh Long, Vietnam 
+Abstract Purpose – This research aims at investigating how business process 
+management capabilities (BPMC) impact 
+the effectiveness of sustainable digital transformation (ESDT). Furthermore, it
+delves into the mediation of dynamic decision-making (DDM) in the relationship 
+between BPMC and ESDT. 
+Design/methodology/approach – This research employed the hypothetico-deductive 
+technique. The statistical 
+database was generated from sample of 712 respondents from small and medium 
+companies (SMEs) in Vietnam, utilizing convenience and snowball sampling 
+methods. The two-step process utilizing structural equation modeling, supported
+by SmartPLS version 4.1.0.9 and AMOS 28, was employed to assess the measurement
+model, while SmartPLS version 4.1.0.9 was used to evaluate the structural 
+model. 
+Findings – The results of the analysis emphasize significant and positive 
+correlations between the proposed 
+constructs related to significance and effect size. The statistical results 
+indicated that BPMC had a significant and beneficial effect on ESDT. This 
+relationship was partially mediated by DMM. 
+Practical implications – The salient point emphasized that practitioners should
+prioritize enhancing focus on 
+BPMC and DDM, as this would significantly facilitate more comprehensive 
+solutions, enabling SMEs to achieve optimal success in sustainable digital 
+transformation. Policymakers and government influencers are urged to 
+concentrate on innovative attributes and ensure a conducive environment for the
+implementation of innovation by enacting regulations that promote the 
+application of digital technology. 
+Or
+
+... (142,829 more chars, use -o to save full content)

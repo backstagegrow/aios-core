@@ -1,0 +1,42 @@
+﻿Source: 7e1b7533-5f1a-429d-8180-163a9217af74
+Title: jeim-03-2025-0230en.pdf
+Characters: 124,731
+
+Content:
+AI in enterprise management: determinants of purchase intention among CEOs 
+without AI experience 
+Luis-Alfonso Maldonado-Canca, Juan-Pedro Cabrera-S�anchez and 
+Ana-Mar�ıa Casado-Molina 
+Departamento de Organizaci�on de Empresas y Marketing, Universidad de M�alaga, 
+M�alaga, Spain 
+Abstract Purpose – This study introduces a novel model of AI adoption focused 
+on purchase intention by CEOs with no 
+prior AI experience – a key shift from traditional usage-based approaches. It 
+addresses how executives make strategic investment decisions under uncertainty,
+emphasizing trust and perceived value over readiness factors. 
+Design/methodology/approach – Survey data from 252 CEOs were analyzed using 
+PLS-SEM and necessary 
+condition analysis (NCA). The model evaluates the effects of security, 
+perceived value, response costs, organizational compatibility and facilitating 
+conditions, explaining 73.7% of purchase intention 
+variance (R 2 5 0.737). 
+Findings – Security and perceived value emerged as the strongest drivers of AI 
+purchase intention, while 
+response costs act as a significant deterrent. Although facilitating conditions
+and organizational compatibility are relevant, their impact is secondary at the
+pre-adoption stage. The model also identifies perceived value and 
+organizational compatibility as necessary – but not sufficient – conditions for
+adoption. 
+Originality/value – This research makes three key contributions: (1) it 
+reconceptualizes AI adoption as a staged 
+strategic process centered on purchase intention; (2) it applies upper echelons
+theory to explain how CEOs’ lack of AI experience shapes their cognitive 
+evaluations of risk, cost and strategic value during early-stage adoption 
+decisions, offering a novel context for its use in AI adoption research and (3)
+combines PLS-SEM and NCA to identify both drivers and prerequisites for 
+early-stage AI investment. 
+Keywords Artificial intelligence, Purchase intention, CEO, Strategic management
+executive decision-making, 
+T
+
+... (122,731 more chars, use -o to save full content)

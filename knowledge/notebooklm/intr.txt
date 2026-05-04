@@ -1,0 +1,44 @@
+﻿Source: 716198dd-88ec-423c-9a84-fdafbfbfd08f
+Title: intr-02-2024-0195en.pdf
+Characters: 95,079
+
+Content:
+Artificial intelligence adoption and revenue growth in European SMEs: 
+synergies with IoT and big data analytics 
+Lorenzo Ardito 
+Politecnico di Bari, Bari, Italy and 
+Mount Royal University, Calgary, Canada 
+Raffaele Filieri 
+Audencia Business School, Nantes, France 
+Elisabetta Raguseo 
+Politecnico di Torino, Turin, Italy and Aix Marseille Univ, CERGAM, FEG, 
+Aix-en-Provence, France, and 
+Claudio Vitari 
+Aix Marseille Univ, CERGAM, FEG, Aix-en-Provence, France 
+Abstract Purpose – The conventional notion that adopting Artificial 
+Intelligence (AI) positively affects firm performance 
+is often confronted with various examples of failures. In this context, 
+large-scale empirical evidence of the economic performance implications of 
+adopting AI is poor, especially in the context of Small and Medium Sized 
+Enterprises (SMEs). Drawing upon the Resource-Based View and the Digital 
+Complementary Asset literature, we assessed whether the adoption of AI affects 
+SMEs’ revenue growth. 
+Design/methodology/approach – First, we examine the relationship between the 
+adoption of AI and SMEs’ 
+revenue growth. Second, we assess whether AI complements the Internet of Things
+(IoT) and Big Data Analytics (BDA). We use firm-level data from the European 
+Commission in 2020 on 11,429 European SMEs (Flash Eurobarometer 486). 
+Findings – Among the key findings, we found that ceteris paribus, the adoption 
+of AI positively affects SMEs’ 
+revenue growth and, in conjunction with IoT and BDA, appears to be even more 
+beneficial. 
+Originality/value – Our results suggest that AI fosters SME growth, especially 
+in combination with IoT and 
+BDA. Thus, SME managers should be aware of the positive impacts of investments 
+in AI and make decisions accordingly. Likewise, policymakers are aware of the 
+positive effects of SMEs’ reliance on AI, so they may design policies and 
+funding schemes to push this digitalization of SMEs further. 
+Keywords Artificial intelligence, Revenue growth, Small and medium sized 
+enterprise
+
+... (93,079 more chars, use -o to save full content)
