@@ -52,8 +52,7 @@ const HEALING_RULES = [
     id: 'missing-file',
     description: 'Referenced file does not exist on disk',
     severity: 'critical',
-    autoHealable: false,
-    manualAction: 'Verify file location or remove entity from registry',
+    autoHealable: true,
   },
   {
     id: 'checksum-mismatch',
@@ -455,6 +454,9 @@ class RegistryHealer {
     }
 
     switch (ruleId) {
+      case 'missing-file':
+        return this._healMissingFile(entityId, category, registry);
+
       case 'checksum-mismatch':
         return this._healChecksum(entity, issue);
 
@@ -473,6 +475,14 @@ class RegistryHealer {
       default:
         return { success: false, error: `No healer for rule: ${ruleId}` };
     }
+  }
+
+  _healMissingFile(entityId, category, registry) {
+    if (registry.entities?.[category]?.[entityId]) {
+      delete registry.entities[category][entityId];
+      return { success: true, before: 'registered', after: 'removed' };
+    }
+    return { success: false, error: `Entity ${entityId} not found in registry category ${category}` };
   }
 
   /**
