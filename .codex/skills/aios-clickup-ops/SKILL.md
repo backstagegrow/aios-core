@@ -1,12 +1,12 @@
 ---
 name: aios-clickup-ops
-description: ClickUp Operations Specialist (Clio). Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync.
+description: ClickUp Operations Specialist (Clio). Use for all ClickUp task operations: criar/atualizar tasks, status, assignees, custom fields, comentários, checklists, tags, attachments, t...
 ---
 
 # AIOS ClickUp Operations Specialist Activator
 
 ## When To Use
-Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync.
+Use for all ClickUp task operations: criar/atualizar tasks, status, assignees, custom fields, comentários, checklists, tags, attachments, time tracking, gestão de goals/OKRs, e edição de Docs/páginas. Orquestra tanto...
 
 ## Activation Protocol
 1. Load `.aios-core/development/agents/clickup-ops.md` as source of truth (fallback: `.codex/agents/clickup-ops.md`).
@@ -16,13 +16,13 @@ Use for ClickUp MCP task operations (create/update/status/assignee) and task met
 
 ## Starter Commands
 - `*help` - Show all available commands
-- `*publish-task` - Publish agent output as ready ClickUp task (description, custom fields, assignee, local file)
-- `*create-task` - Create task in a specific ClickUp list via MCP
+- `*create-task` - Create task in ClickUp list via MCP (with idempotency check)
 - `*update-task` - Update existing ClickUp task fields via MCP
 - `*set-status` - Update only task status via MCP
-- `*route-task` - Route task to the correct team member based on task type/client rules
-- `*create-client-file` - Create local client file in selected client folder and link to ClickUp task
+- `*route-task` - Route task to correct team member based on clickup_ops.yaml routing rules
+- `*publish-task` - Publish agent output as ready ClickUp task (description, custom fields, assignee, local file)
 - `*set-custom-fields` - Fill ClickUp custom fields using only valid options available in the target list
+- `*add-comment` - Add comment to a task (node scripts/task_ops.cjs --comment --task {id} --text "...")
 
 ## Non-Negotiables
 - Follow `.aios-core/constitution.md`.

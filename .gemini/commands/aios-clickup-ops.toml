@@ -1,4 +1,4 @@
-description = "ClickUp Operations Specialist (Use for ClickUp MCP task operations (create/update/status/assignee) and task metadata sync)"
+description = "ClickUp Operations Specialist (Use for all ClickUp task operations: criar/atualizar tasks, status, assignees, custom fields, comentários, checklists,…)"
 prompt = """
 Ative o agente clickup-ops:
 1. Leia a definição completa em .gemini/rules/AIOS/agents/clickup-ops.md

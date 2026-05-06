@@ -1,4 +1,5 @@
 import { google } from 'googleapis'
+import { logError } from '@/lib/logger'
 
 const getAuthClient = () => {
     return new google.auth.JWT({
@@ -31,7 +32,7 @@ export const listGoogleSheets = async () => {
         })
         return response.data.files || []
     } catch (error) {
-        console.error('Erro ao listar arquivos do Drive:', error)
+        logError('Erro ao listar arquivos do Drive:', error)
         throw error
     }
 }
@@ -45,7 +46,7 @@ export const getSpreadsheetData = async (spreadsheetId: string, range: string) =
         })
         return response.data.values
     } catch (error) {
-        console.error('Erro ao buscar dados do Google Sheets:', error)
+        logError('Erro ao buscar dados do Google Sheets:', error)
         throw error
     }
 }

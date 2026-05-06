@@ -10,6 +10,12 @@ import {
     FileText,
     Share2,
     LogOut,
+    Mic,
+    FlaskConical,
+    BookOpen,
+    Scroll,
+    Calendar,
+    BookMarked,
 } from 'lucide-react'
 import { ReactNode, useEffect, useState } from 'react'
 import ChatWidget from '@/components/ChatWidget'
@@ -107,18 +113,38 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     <Link href="/dashboard/alunos" {...navLink('/dashboard/alunos')}>
                         <GraduationCap size={18} /> Alunos
                     </Link>
+                    <Link href="/dashboard/disciplinas" {...navLink('/dashboard/disciplinas')}>
+                        <BookMarked size={18} /> Disciplinas
+                    </Link>
+                    <Link href="/dashboard/producoes" {...navLink('/dashboard/producoes')}>
+                        <Scroll size={18} /> Produções
+                    </Link>
+                    <Link href="/dashboard/bancas" {...navLink('/dashboard/bancas')}>
+                        <Calendar size={18} /> Bancas
+                    </Link>
                     <Link href="/dashboard/relatorios" {...navLink('/dashboard/relatorios')}>
                         <FileText size={18} /> Relatórios CAPES
                     </Link>
 
-                    {perfil?.role === 'admin' && (
-                        <div className="pt-4 mt-4 border-t border-zinc-800">
-                            <span className="px-4 text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2 block">Orion Engine</span>
-                            <Link href="/dashboard/integracoes" {...navLink('/dashboard/integracoes')}>
-                                <Share2 size={18} /> Integrações
-                            </Link>
-                        </div>
-                    )}
+                    <div className="pt-4 mt-4 border-t border-zinc-800">
+                        <span className="px-4 text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2 block">Produção Lattes</span>
+                        <Link href="/dashboard/conferencias" {...navLink('/dashboard/conferencias')}>
+                            <Mic size={18} /> Conferências
+                        </Link>
+                        <Link href="/dashboard/projetos" {...navLink('/dashboard/projetos')}>
+                            <FlaskConical size={18} /> Projetos
+                        </Link>
+                        <Link href="/dashboard/orientacoes" {...navLink('/dashboard/orientacoes')}>
+                            <BookOpen size={18} /> Orientações
+                        </Link>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-zinc-800">
+                        <span className="px-4 text-[10px] uppercase tracking-widest font-black text-zinc-600 mb-2 block">Orion Engine</span>
+                        <Link href="/dashboard/integracoes" {...navLink('/dashboard/integracoes')}>
+                            <Share2 size={18} /> Integrações
+                        </Link>
+                    </div>
                 </nav>
 
                 <button

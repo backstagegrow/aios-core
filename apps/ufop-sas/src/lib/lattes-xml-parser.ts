@@ -12,20 +12,20 @@ export interface ConferenciaLattes {
     ano: string
     evento: string
     cidade?: string
-    natureza: string // COMPLETO, RESUMO, RESUMO-EXPANDIDO
-    classificacao: string // INTERNACIONAL, NACIONAL, REGIONAL, LOCAL
+    natureza: string
+    classificacao: string
 }
 
 export interface ProjetoLattes {
     titulo: string
     ano_inicio: string
     ano_fim?: string
-    situacao: string // EM_ANDAMENTO, CONCLUIDO
+    situacao: string
     financiador?: string
 }
 
 export interface OrientacaoLattes {
-    tipo: string // MESTRADO, DOUTORADO, POS-DOUTORADO, IC, TCC
+    tipo: string
     titulo: string
     ano: string
     orientado: string
@@ -47,33 +47,67 @@ function toArray<T>(val: T | T[] | undefined): T[] {
     return Array.isArray(val) ? val : [val]
 }
 
+function findCurriculum(jsonObj: any): any {
+    if (!jsonObj || typeof jsonObj !== 'object') return null
+
+    // Busca direta
+    for (const key of Object.keys(jsonObj)) {
+        if (key.toUpperCase().includes('CURRICULO')) {
+            return jsonObj[key]
+        }
+    }
+
+    // Fallback: primeiro valor que seja objeto (ignora strings/números)
+    for (const key of Object.keys(jsonObj)) {
+        if (key === '?xml' || key === 'xml') continue
+        const val = jsonObj[key]
+        if (val && typeof val === 'object') return val
+    }
+
+    return null
+}
+
 export const parseLattesXML = async (xmlContent: string): Promise<LattesIndicators> => {
     const parser = new XMLParser({
         ignoreAttributes: false,
-        attributeNamePrefix: ''
+        attributeNamePrefix: '',
+        trimValues: true,
+        parseAttributeValue: false,
+        processEntities: true,
     })
 
-    const jsonObj = parser.parse(xmlContent)
-    const curriculum = jsonObj['CURRICULO-VITAE']
+    let jsonObj: any
+    try {
+        jsonObj = parser.parse(xmlContent)
+    } catch (e: any) {
+        throw new Error(`Falha ao parsear o XML: ${e.message}`)
+    }
+
+    const curriculum = findCurriculum(jsonObj)
+
+    if (!curriculum) {
+        const keys = Object.keys(jsonObj ?? {}).join(', ')
+        throw new Error(`XML não reconhecido como Lattes. Tags raiz encontradas: [${keys}]`)
+    }
 
     // ── Artigos em Periódicos ──────────────────────────────────────────────────
-    const producaoBibliografica = curriculum['PRODUCAO-BIBLIOGRAFICA'] || {}
+    const producaoBibliografica = curriculum['PRODUCAO-BIBLIOGRAFICA'] ?? {}
 
     const artigos: ArtigoLattes[] = toArray(
         producaoBibliografica['ARTIGOS-PUBLICADOS']?.['ARTIGO-PUBLICADO']
     ).map((art: any) => ({
         titulo: art['DADOS-BASICOS-DO-ARTIGO']?.['TITULO-DO-ARTIGO'] ?? '',
-        ano: art['DADOS-BASICOS-DO-ARTIGO']?.['ANO-DO-ARTIGO'] ?? '',
+        ano: String(art['DADOS-BASICOS-DO-ARTIGO']?.['ANO-DO-ARTIGO'] ?? ''),
         periodico: art['DETALHAMENTO-DO-ARTIGO']?.['TITULO-DO-PERIODICO-OU-REVISTA'] ?? '',
         doi: art['DADOS-BASICOS-DO-ARTIGO']?.['DOI'],
     }))
 
-    // ── Trabalhos em Eventos (Conferências) ───────────────────────────────────
+    // ── Trabalhos em Eventos ──────────────────────────────────────────────────
     const conferencias: ConferenciaLattes[] = toArray(
         producaoBibliografica['TRABALHOS-EM-EVENTOS']?.['TRABALHO-EM-EVENTOS']
     ).map((t: any) => ({
         titulo: t['DADOS-BASICOS-DO-TRABALHO']?.['TITULO-DO-TRABALHO'] ?? '',
-        ano: t['DADOS-BASICOS-DO-TRABALHO']?.['ANO-DO-TRABALHO'] ?? '',
+        ano: String(t['DADOS-BASICOS-DO-TRABALHO']?.['ANO-DO-TRABALHO'] ?? ''),
         natureza: t['DADOS-BASICOS-DO-TRABALHO']?.['NATUREZA'] ?? '',
         evento: t['DETALHAMENTO-DO-TRABALHO']?.['NOME-DO-EVENTO'] ?? '',
         cidade: t['DETALHAMENTO-DO-TRABALHO']?.['CIDADE-DO-EVENTO'],
@@ -94,8 +128,8 @@ export const parseLattesXML = async (xmlContent: string): Promise<LattesIndicato
             const dados = pesq['DADOS-BASICOS-DA-PESQUISA-E-DESENVOLVIMENTO'] ?? {}
             projetos.push({
                 titulo: dados['NOME-DO-PROJETO'] ?? dados['TITULO-DO-PROJETO'] ?? '',
-                ano_inicio: dados['ANO-INICIO'] ?? '',
-                ano_fim: dados['ANO-FIM'],
+                ano_inicio: String(dados['ANO-INICIO'] ?? ''),
+                ano_fim: dados['ANO-FIM'] ? String(dados['ANO-FIM']) : undefined,
                 situacao: dados['SITUACAO'] ?? '',
                 financiador: toArray(pesq['FINANCIADORES']?.['FINANCIADOR'])
                     .map((f: any) => f['NOME-DA-INSTITUICAO-FINANCIADORA'])
@@ -106,20 +140,20 @@ export const parseLattesXML = async (xmlContent: string): Promise<LattesIndicato
     }
 
     // ── Orientações Concluídas ────────────────────────────────────────────────
-    const outraProducao = curriculum['OUTRA-PRODUCAO'] || {}
+    const outraProducao = curriculum['OUTRA-PRODUCAO'] ?? {}
     const orientacoesConcluidas: OrientacaoLattes[] = toArray(
         outraProducao['ORIENTACOES-CONCLUIDAS']?.['ORIENTACAO-CONCLUIDA']
     ).map((ori: any) => ({
         tipo: ori['DADOS-BASICOS-DE-ORIENTACOES-CONCLUIDAS']?.['NATUREZA'] ?? '',
         titulo: ori['DADOS-BASICOS-DE-ORIENTACOES-CONCLUIDAS']?.['TITULO'] ?? '',
-        ano: ori['DADOS-BASICOS-DE-ORIENTACOES-CONCLUIDAS']?.['ANO'] ?? '',
+        ano: String(ori['DADOS-BASICOS-DE-ORIENTACOES-CONCLUIDAS']?.['ANO'] ?? ''),
         orientado: ori['DETALHAMENTO-DE-ORIENTACOES-CONCLUIDAS']?.['NOME-DO-ORIENTADO'] ?? '',
         situacao: 'CONCLUIDA',
         instituicao: ori['DETALHAMENTO-DE-ORIENTACOES-CONCLUIDAS']?.['NOME-DA-INSTITUICAO'],
     }))
 
     // ── Orientações em Andamento ──────────────────────────────────────────────
-    const orientAndamento = curriculum['DADOS-GERAIS']?.['ORIENTACOES-EM-ANDAMENTO'] || {}
+    const orientAndamento = curriculum['DADOS-GERAIS']?.['ORIENTACOES-EM-ANDAMENTO'] ?? {}
     const orientacoesAndamento: OrientacaoLattes[] = []
 
     const tiposAndamento: [string, string, string][] = [
@@ -137,7 +171,7 @@ export const parseLattesXML = async (xmlContent: string): Promise<LattesIndicato
             orientacoesAndamento.push({
                 tipo,
                 titulo: dados['TITULO'] ?? '',
-                ano: dados['ANO-DE-INICIO'] ?? '',
+                ano: String(dados['ANO-DE-INICIO'] ?? ''),
                 orientado: det['NOME-DO-ORIENTANDO'] ?? '',
                 situacao: 'EM_ANDAMENTO',
                 instituicao: det['NOME-DA-INSTITUICAO'],

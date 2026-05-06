@@ -1,4 +1,4 @@
-description = "Gerador de Conteúdo do Time de Produto (Use para criação automatizada de eBooks (Obsidian) e Carrosséis (Canva))"
+description = "Gerador de Conteúdo do Time de Produto (Use para criação automatizada de eBooks (Obsidian) e Carrosséis (Canva Pro Bulk Create))"
 prompt = """
 Ative o agente product-team-content-generation:
 1. Leia a definição completa em .gemini/rules/AIOS/agents/product-team-content-generation.md

@@ -1,164 +1,251 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { supabase } from '@/lib/supabase'
-import { FileSpreadsheet, TrendingUp, Award, BarChart3, Download, Filter } from 'lucide-react'
-import { calculateProgramScore, QUALIS_WEIGHTS } from '@/lib/capes-logic'
+import { FileText, RefreshCw } from 'lucide-react'
+
+const UFOP_RED = '#9D2235'
 
 export default function RelatoriosPage() {
-    const [productions, setProductions] = useState<any[]>([])
-    const [stats, setStats] = useState<any>(null)
-    const [loading, setLoading] = useState(false)
+    const [alunos, setAlunos] = useState<any[]>([])
+    const [producoes, setProducoes] = useState<any[]>([])
+    const [professores, setProfessores] = useState<any[]>([])
+    const [bancas, setBancas] = useState<any[]>([])
+    const [loading, setLoading] = useState(true)
 
-    const fetchData = async () => {
+    const fetchAll = useCallback(async () => {
         setLoading(true)
-        const { data, error } = await supabase
-            .from('producoes')
-            .select('*, professores(nome)')
-
-        if (!error) {
-            setProductions(data || [])
-            setStats(calculateProgramScore(data || []))
-        }
+        const [{ data: a }, { data: p }, { data: prof }, { data: b }] = await Promise.all([
+            supabase.from('alunos').select('id, data_ingresso, prazo_jubilamento, status_bolsa, professor_orientador_id'),
+            supabase.from('producoes').select('id, qualis'),
+            supabase.from('professores').select('id, nome'),
+            supabase.from('bancas').select('aluno_id, tipo'),
+        ])
+        setAlunos(a ?? [])
+        setProducoes(p ?? [])
+        setProfessores(prof ?? [])
+        setBancas(b ?? [])
         setLoading(false)
-    }
-
-    const handleExportCSV = () => {
-        if (productions.length === 0) {
-            alert('Não há dados para exportar ainda. Importe o Lattes de um docente primeiro.')
-            return
-        }
-
-        const headers = ['ID', 'Professor', 'Título', 'Ano', 'Qualis']
-        const csvRows = [
-            headers.join(','),
-            ...productions.map(p => [
-                p.id,
-                `"${p.professores?.nome || 'N/A'}"`,
-                `"${p.titulo}"`,
-                p.ano,
-                p.qualis || 'S/Q'
-            ].join(','))
-        ]
-
-        const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' })
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.setAttribute('href', url)
-        link.setAttribute('download', `relatorio-capes-${new Date().getFullYear()}.csv`)
-        link.style.visibility = 'hidden'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-    }
-
-    useEffect(() => {
-        fetchData()
     }, [])
 
-    if (loading) return <div className="p-8 text-zinc-500 font-mono">Gerando indicadores...</div>
+    useEffect(() => { fetchAll() }, [fetchAll])
+
+    // Média de Integralização: avg % do prazo consumido por aluno
+    const mediaIntegralizacao = useMemo(() => {
+        const hoje = new Date()
+        const valid = alunos.filter(a => a.data_ingresso && a.prazo_jubilamento)
+        if (!valid.length) return 0
+        const sum = valid.reduce((acc, a) => {
+            const ingresso = new Date(a.data_ingresso).getTime()
+            const jubilamento = new Date(a.prazo_jubilamento).getTime()
+            const total = jubilamento - ingresso
+            const decorrido = hoje.getTime() - ingresso
+            return acc + Math.min(Math.max(decorrido / total, 0), 1)
+        }, 0)
+        return ((sum / valid.length) * 100).toFixed(1)
+    }, [alunos])
+
+    // Alunos Qualificados: % que tem banca de Qualificação
+    const alunosQualificados = useMemo(() => {
+        const comQual = new Set(bancas.filter(b => b.tipo === 'Qualificação' && b.aluno_id).map(b => b.aluno_id))
+        return alunos.length > 0 ? ((comQual.size / alunos.length) * 100).toFixed(1) : '0.0'
+    }, [alunos, bancas])
+
+    // Bolsas por agência
+    const bolsas = useMemo(() => {
+        const counts: Record<string, number> = {}
+        alunos.forEach(a => {
+            const b = (a.status_bolsa || '').trim()
+            if (b && b.toLowerCase() !== 'nenhuma' && b !== '') {
+                const key = b.toUpperCase()
+                counts[key] = (counts[key] || 0) + 1
+            }
+        })
+        return counts
+    }, [alunos])
+
+    const totalBolsas = Object.values(bolsas).reduce((s, n) => s + n, 0)
+
+    // Qualis CAPES
+    const qualisCounts = useMemo(() => {
+        const counts: Record<string, number> = { A1: 0, A2: 0, A3: 0, A4: 0, B1: 0, B2: 0 }
+        producoes.forEach(p => { if (p.qualis && counts[p.qualis] !== undefined) counts[p.qualis]++ })
+        return counts
+    }, [producoes])
+
+    // Carga de orientação por docente
+    const cargaOrientacao = useMemo(() => {
+        const map: Record<string, { nome: string; count: number }> = {}
+        professores.forEach(p => { map[p.id] = { nome: p.nome, count: 0 } })
+        alunos.forEach(a => {
+            if (a.professor_orientador_id && map[a.professor_orientador_id])
+                map[a.professor_orientador_id].count++
+        })
+        return Object.values(map).filter(p => p.count > 0).sort((a, b) => b.count - a.count).slice(0, 8)
+    }, [alunos, professores])
+
+    const maxOrientacoes = Math.max(...cargaOrientacao.map(p => p.count), 1)
+
+    const BADGE_COLORS: Record<string, string> = {
+        Q1: 'bg-red-900/40 text-red-300 border-red-800',
+        Q2: 'bg-orange-900/40 text-orange-300 border-orange-800',
+        Q3: 'bg-blue-900/40 text-blue-300 border-blue-800',
+        Q4: 'bg-zinc-800 text-zinc-400 border-zinc-700',
+    }
 
     return (
         <div className="p-8 pb-12">
             <header className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-                        <BarChart3 className="text-primary" size={32} />
-                        Relatórios CAPES
+                        <FileText className="text-primary" size={32} />
+                        Inteligência Acadêmica
                     </h1>
-                    <p className="text-zinc-500 mt-1">Consolidação automática de indicadores de produção e impacto.</p>
+                    <p className="text-zinc-500 mt-1">Dados agregados para gestão e Plataforma Sucupira</p>
                 </div>
-                <div className="flex gap-3">
-                    <button className="bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all">
-                        <Filter size={18} /> Filtrar Ano
-                    </button>
-                    <button
-                        onClick={handleExportCSV}
-                        className="bg-primary/80 hover:bg-primary text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all"
-                    >
-                        <Download size={18} /> Exportar CSV
-                    </button>
-                </div>
+                <button
+                    onClick={fetchAll}
+                    disabled={loading}
+                    className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded-xl text-sm text-zinc-300 transition-colors disabled:opacity-50"
+                >
+                    <RefreshCw size={16} className={loading ? 'animate-spin' : ''} /> Atualizar
+                </button>
             </header>
 
-            {/* KPI Overview */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <TrendingUp className="text-primary mb-4" size={24} />
-                    <h3 className="text-zinc-400 text-sm font-medium">Score Qualis Total</h3>
-                    <p className="text-4xl font-bold mt-2">{stats?.totalScore || 0}</p>
-                    <div className="mt-4 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-primary" style={{ width: '65%' }}></div>
+            <div className="grid grid-cols-3 gap-6 mb-6">
+                {/* EFICIÊNCIA DISCENTE */}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="w-5 h-5 rounded-full border-2 border-zinc-500 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-zinc-400" />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Eficiência Discente</span>
+                    </div>
+
+                    <div className="mb-6">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-2">Média de Integralização</p>
+                        <p className="text-3xl font-black mb-2" style={{ color: UFOP_RED }}>{loading ? '—' : `${mediaIntegralizacao}%`}</p>
+                        <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                            <div className="h-full rounded-full transition-all" style={{ width: `${mediaIntegralizacao}%`, backgroundColor: UFOP_RED }} />
+                        </div>
+                    </div>
+
+                    <div className="mb-6">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-2">Alunos Qualificados</p>
+                        <p className="text-3xl font-black text-blue-400 mb-2">{loading ? '—' : `${alunosQualificados}%`}</p>
+                        <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                            <div className="h-full bg-blue-500 rounded-full transition-all" style={{ width: `${alunosQualificados}%` }} />
+                        </div>
+                    </div>
+
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-3">Bolsas Ativas</p>
+                        {loading ? <div className="h-8 bg-zinc-800 rounded animate-pulse" /> : (
+                            <div className="flex gap-3 flex-wrap">
+                                {totalBolsas === 0 ? (
+                                    <span className="text-zinc-600 text-xs">Nenhuma bolsa cadastrada</span>
+                                ) : Object.entries(bolsas).map(([agencia, count]) => (
+                                    <div key={agencia} className="text-center">
+                                        <p className="text-xl font-black text-amber-400">{count}</p>
+                                        <p className="text-[9px] font-bold uppercase text-zinc-500">{agencia}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <Award className="text-blue-500 mb-4" size={24} />
-                    <h3 className="text-zinc-400 text-sm font-medium">Média por Produção</h3>
-                    <p className="text-4xl font-bold mt-2">{stats?.averagePerProd || 0}</p>
-                    <p className="text-xs text-zinc-500 mt-2">Peso médio ponderado</p>
+                {/* QUALIDADE (CAPES) */}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="w-5 h-5 rounded-full border-2 border-zinc-500 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-zinc-400" />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Qualidade (CAPES)</span>
+                    </div>
+
+                    <div className="mb-5">
+                        <p className="text-4xl font-black" style={{ color: UFOP_RED }}>{loading ? '—' : producoes.length}</p>
+                        <p className="text-xs text-zinc-500 mt-0.5">produções</p>
+                    </div>
+
+                    <div className="mb-5">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-2">JCR Quartil</p>
+                        <div className="grid grid-cols-4 gap-1.5">
+                            {['Q1', 'Q2', 'Q3', 'Q4'].map(q => (
+                                <div key={q} className={`rounded-lg px-2 py-2 text-center border ${BADGE_COLORS[q]}`}>
+                                    <p className="text-base font-black">0</p>
+                                    <p className="text-[9px] font-bold">{q}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-2">Qualis CAPES</p>
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-1.5">
+                            {Object.entries(qualisCounts).map(([q, count]) => (
+                                <div key={q} className="flex items-center justify-between">
+                                    <span className="text-xs font-bold text-zinc-400">{q}</span>
+                                    <span className="text-xs font-mono text-zinc-300">{loading ? '—' : count}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <FileSpreadsheet className="text-amber-500 mb-4" size={24} />
-                    <h3 className="text-zinc-400 text-sm font-medium">Total de Artigos</h3>
-                    <p className="text-4xl font-bold mt-2">{productions.length}</p>
-                    <p className="text-xs text-zinc-500 mt-2">{Object.keys(stats?.countByQualis || {}).length} estratos diferentes</p>
+                {/* CORPO DOCENTE */}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="w-5 h-5 rounded-full border-2 border-zinc-500 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-zinc-400" />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Corpo Docente</span>
+                    </div>
+
+                    <div className="mb-5">
+                        <p className="text-4xl font-black text-purple-400">{loading ? '—' : professores.length}</p>
+                        <p className="text-xs text-zinc-500 mt-0.5">docentes</p>
+                    </div>
+
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-3">Carga de Orientação</p>
+                        {loading ? (
+                            <div className="space-y-2">
+                                {[1, 2, 3, 4].map(i => <div key={i} className="h-4 bg-zinc-800 rounded animate-pulse" />)}
+                            </div>
+                        ) : (
+                            <div className="space-y-2 overflow-y-auto max-h-48">
+                                {cargaOrientacao.map(({ nome, count }) => (
+                                    <div key={nome} className="flex items-center gap-2">
+                                        <span className="text-[10px] text-zinc-400 w-24 truncate shrink-0">{nome.split(' ').slice(0, 2).join(' ').toUpperCase()}</span>
+                                        <div className="flex-1 h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full rounded-full"
+                                                style={{ width: `${(count / maxOrientacoes) * 100}%`, backgroundColor: '#7c3aed' }}
+                                            />
+                                        </div>
+                                        <span className="text-[10px] font-bold text-zinc-400 w-4 text-right">{count}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Distribuição por Qualis */}
-                <section className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
-                    <h3 className="font-bold text-white mb-6">Distribuição por Estrato Qualis</h3>
-                    <div className="space-y-4">
-                        {Object.entries(QUALIS_WEIGHTS).map(([q, weight]) => {
-                            const count = stats?.countByQualis?.[q] || 0
-                            const percentage = (count / (productions.length || 1)) * 100
-                            return (
-                                <div key={q} className="group">
-                                    <div className="flex justify-between text-xs mb-1.5">
-                                        <span className="font-bold text-zinc-300">{q} <span className="font-normal text-zinc-500 ml-2">({weight} pts)</span></span>
-                                        <span className="text-zinc-400">{count} artigos</span>
-                                    </div>
-                                    <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-                                        <div
-                                            className={`h-full transition-all duration-500 ${weight >= 85 ? 'bg-primary' : 'bg-zinc-600 group-hover:bg-zinc-500'}`}
-                                            style={{ width: `${percentage}%` }}
-                                        ></div>
-                                    </div>
-                                </div>
-                            )
-                        })}
+            {/* Relatório Consolidado para Sucupira */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'rgba(157,34,53,0.15)' }}>
+                        <FileText size={20} style={{ color: UFOP_RED }} />
                     </div>
-                </section>
-
-                {/* Produções Recentes */}
-                <section className="bg-zinc-900 border border-zinc-800 rounded-2xl flex flex-col">
-                    <div className="p-6 border-b border-zinc-800 flex justify-between items-center">
-                        <h3 className="font-bold text-white">Últimas Importações</h3>
-                        <span className="text-[10px] text-primary font-bold bg-primary/10 px-2 py-0.5 rounded">LIVE</span>
+                    <div>
+                        <p className="text-sm font-bold text-zinc-200">Relatório Consolidado para Sucupira</p>
+                        <p className="text-xs text-zinc-500">Gere o arquivo pronto para importação no módulo de Coleta da CAPES.</p>
                     </div>
-                    <div className="flex-1 overflow-auto max-h-[400px]">
-                        <table className="w-full text-left text-xs">
-                            <tbody className="divide-y divide-zinc-800">
-                                {productions.slice(0, 10).map((prod) => (
-                                    <tr key={prod.id} className="hover:bg-zinc-800/30 transition-colors">
-                                        <td className="px-6 py-4">
-                                            <div className="font-bold text-zinc-200 line-clamp-1">{prod.titulo}</div>
-                                            <div className="text-zinc-500 mt-0.5">{prod.professores?.nome}</div>
-                                        </td>
-                                        <td className="px-6 py-4 text-right">
-                                            <span className={`px-2 py-0.5 rounded font-mono font-bold ${prod.qualis?.startsWith('A') ? 'bg-primary/10 text-primary' : 'bg-zinc-800 text-zinc-500'}`}>
-                                                {prod.qualis || 'S/Q'}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-600">EM DESENVOLVIMENTO</span>
             </div>
         </div>
     )

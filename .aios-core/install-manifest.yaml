@@ -8,9 +8,9 @@
 # - File types for categorization
 #
 version: 4.4.6
-generated_at: "2026-04-18T22:40:02.379Z"
+generated_at: "2026-05-06T12:29:17.651Z"
 generator: scripts/generate-install-manifest.js
-file_count: 1156
+file_count: 1158
 files:
   - path: cli/commands/config/index.js
     hash: sha256:ebcad2ce3807eda29dcddff76d7a95ddc9b7fa160df21fd608f94b802237e862
@@ -733,9 +733,9 @@ files:
     type: core
     size: 4431
   - path: core/ids/registry-healer.js
-    hash: sha256:8e68b00f5291b7934e7d95ed609b55248051fb9301025dfcc4a6aa8ba1e4795e
+    hash: sha256:9b4faf51bfa48026be105d60755492827c122fca8936573760def2518127231e
     type: core
-    size: 26179
+    size: 26543
   - path: core/ids/registry-loader.js
     hash: sha256:88c67bace0a5ab6a14cb1d096e3f9cab9f5edc0dd8377788e27b692ccefbd487
     type: core
@@ -1253,9 +1253,9 @@ files:
     type: data
     size: 131
   - path: data/entity-registry.yaml
-    hash: sha256:8b60d873cd2a5b590c6fac3d2d0145734697ecaeb7eea0f172d84c5b6fedc3ad
+    hash: sha256:9b358de0cf52af6c93ebbb338b9322e5dcff6e84be863a82a5ed4c251d527f67
     type: data
-    size: 547211
+    size: 548315
   - path: data/learned-patterns.yaml
     hash: sha256:24ac0b160615583a0ff783d3da8af80b7f94191575d6db2054ec8e10a3f945dc
     type: data
@@ -1404,6 +1404,14 @@ files:
     hash: sha256:5145788c713d6f6a3cf3a7be1a0d61027d09277f47e9c19a8d85e87e6e95dd48
     type: data
     size: 546162
+  - path: data/registry-backups/healing/heal-1776554460671-35ea4617.yaml
+    hash: sha256:8b60d873cd2a5b590c6fac3d2d0145734697ecaeb7eea0f172d84c5b6fedc3ad
+    type: data
+    size: 547211
+  - path: data/registry-backups/healing/heal-1776554598166-d87a2baa.yaml
+    hash: sha256:027240857a1e5ce01bbfd9ec014613744cd5cb3c7e935e035de6b1a0f19823ed
+    type: data
+    size: 548971
   - path: data/tech-presets/_template.md
     hash: sha256:1a7262912c8c8e264d307f0d38a1109bdb2b9bff9ea7d8855c768835201aa59b
     type: data

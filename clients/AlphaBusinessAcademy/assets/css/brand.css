@@ -61,18 +61,18 @@
 
 :root {
   /* =========== CORE BRAND COLORS =========== */
-  --aba-black:        #0A0A0A;   /* Primary brand black   */
+  --aba-black:        #0B141F;   /* Primary brand navy    */
   --aba-gold:         #C9A24A;   /* Primary brand gold    */
   --aba-gold-light:   #E6C879;   /* Highlight / hover     */
   --aba-gold-deep:    #8E6F25;   /* Pressed / engraved    */
   --aba-ivory:        #F5EFE0;   /* Warm off-white        */
 
-  /* =========== NEUTRAL SCALE (warm-black) =========== */
-  --aba-ink-950:      #0A0A0A;
-  --aba-ink-900:      #111111;
-  --aba-ink-850:      #161412;   /* Card surface on black */
-  --aba-ink-800:      #1C1A17;
-  --aba-ink-700:      #2A2722;
+  /* =========== NEUTRAL SCALE (navy-black) =========== */
+  --aba-ink-950:      #0B141F;
+  --aba-ink-900:      #0D1B2A;
+  --aba-ink-850:      #111E2C;   /* Card surface on navy */
+  --aba-ink-800:      #152536;
+  --aba-ink-700:      #1A3045;
   --aba-ink-600:      #3D3830;
   --aba-ink-500:      #5A544A;
   --aba-ink-400:      #7C7669;
@@ -122,8 +122,9 @@
   --aba-grad-gold:    linear-gradient(135deg, #E6C879 0%, #C9A24A 45%, #8E6F25 100%);
   --aba-grad-gold-soft: linear-gradient(180deg, #D9B25C 0%, #C9A24A 100%);
   --aba-grad-engrave: linear-gradient(180deg, #E6C879 0%, #C9A24A 50%, #8E6F25 100%);
-  --aba-grad-bg-vignette: radial-gradient(ellipse at 50% 0%, #1C1A17 0%, #0A0A0A 70%);
-  --aba-grad-curtain: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.85) 70%, #0A0A0A 100%);
+  --aba-grad-bg-vignette: radial-gradient(ellipse at 50% 0%, #1C2A3A 0%, #0B141F 70%);
+
+  --aba-grad-curtain: linear-gradient(180deg, rgba(11,20,31,0) 0%, rgba(11,20,31,0.85) 70%, #0B141F 100%);
 
   /* =========== SHADOWS — premium, soft =========== */
   --aba-shadow-1:     0 1px 2px rgba(0,0,0,0.4);
@@ -172,7 +173,7 @@
   --aba-text-6xl:     120px;
 
   /* =========== LINE HEIGHTS =========== */
-  --aba-lh-tight:     1.05;
+  --aba-lh-tight:     1.15;
   --aba-lh-snug:      1.2;
   --aba-lh-normal:    1.5;
   --aba-lh-loose:     1.7;
@@ -204,17 +205,17 @@
 }
 
 .aba-h1 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
-  font-size: clamp(48px, 8vw, var(--aba-text-6xl));
+  font-family: var(--aba-font-sans);
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 88px);
   line-height: var(--aba-lh-tight);
   letter-spacing: var(--aba-ls-tight);
   color: var(--aba-fg-1);
 }
 
 .aba-h2 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
+  font-family: var(--aba-font-sans);
+  font-weight: 700;
   font-size: clamp(36px, 5vw, var(--aba-text-4xl));
   line-height: var(--aba-lh-tight);
   letter-spacing: var(--aba-ls-tight);
@@ -222,8 +223,8 @@
 }
 
 .aba-h3 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
+  font-family: var(--aba-font-sans);
+  font-weight: 700;
   font-size: var(--aba-text-2xl);
   line-height: var(--aba-lh-snug);
   color: var(--aba-fg-1);
@@ -272,9 +273,9 @@
 }
 
 .aba-quote {
-  font-family: var(--aba-font-display);
+  font-family: var(--aba-font-sans);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
   font-size: var(--aba-text-2xl);
   line-height: var(--aba-lh-snug);
   color: var(--aba-fg-1);

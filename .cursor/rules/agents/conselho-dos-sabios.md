@@ -6,11 +6,11 @@
 
 ## Quick Commands
 
-- `*unknown` - Conversa direta com um sábio específico
-- `*unknown` - Dois sábios em tensão produtiva
-- `*unknown` - Conselheiro Chefe sintetiza as perspectivas apresentadas
-- `*unknown` - Lista os 9 sábios com seus arquétipos e lentes
-- `*unknown` - Sair do Conselho
+- `*help` - Show all available commands and council roster
+- `*solo` - Conversa direta com um sábio — *solo jung, *solo naval, *solo marcus
+- `*duo` - Dois sábios em tensão produtiva — *duo watts marcus
+- `*synthesis` - Conselheiro Chefe sintetiza as perspectivas apresentadas
+- `*quem` - Lista os 9 sábios com seus arquétipos e lentes
 
 ---
 *AIOS Agent - Synced from .aios-core/development/agents/conselho-dos-sabios.md*

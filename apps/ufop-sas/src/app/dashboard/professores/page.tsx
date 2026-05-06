@@ -37,98 +37,95 @@ export default function ProfessoresPage() {
     const handleLattesUpload = async (profId: string, event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0]
         if (!file) return
+        event.target.value = ''
 
+        setSyncing(profId)
         try {
-            setSyncing(profId)
-            const reader = new FileReader()
+            const xmlContent = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader()
+                reader.onload = e => resolve(e.target?.result as string)
+                reader.onerror = () => reject(new Error('Falha ao ler o arquivo XML.'))
+                reader.readAsText(file, 'ISO-8859-1')
+            })
 
-            reader.onload = async (e) => {
-                const xmlContent = e.target?.result as string
-                const indicators = await parseLattesXML(xmlContent)
-                const errors: string[] = []
+            const indicators = await parseLattesXML(xmlContent)
+            const errors: string[] = []
 
-                // Limpa dados anteriores do professor para re-importação limpa
-                await supabase.from('producoes').delete().eq('professor_id', profId)
-                await supabase.from('conferencias').delete().eq('professor_id', profId)
-                await supabase.from('projetos').delete().eq('professor_id', profId)
-                await supabase.from('orientacoes').delete().eq('professor_id', profId)
+            await supabase.from('producoes').delete().eq('professor_id', profId)
+            await supabase.from('conferencias').delete().eq('professor_id', profId)
+            await supabase.from('projetos').delete().eq('professor_id', profId)
+            await supabase.from('orientacoes').delete().eq('professor_id', profId)
 
-                // Artigos
-                if (indicators.artigos.length > 0) {
-                    const { error } = await supabase.from('producoes').insert(
-                        indicators.artigos.map(art => ({
-                            professor_id: profId,
-                            tipo: 'ARTIGO',
-                            titulo: art.titulo,
-                            journal: art.periodico,
-                            doi: art.doi,
-                            data_publicacao: art.ano ? `${art.ano}-01-01` : null,
-                        }))
-                    )
-                    if (error) errors.push(`Artigos: ${error.message}`)
-                }
-
-                // Conferências
-                if (indicators.conferencias.length > 0) {
-                    const { error } = await supabase.from('conferencias').insert(
-                        indicators.conferencias.map(c => ({
-                            professor_id: profId,
-                            titulo: c.titulo,
-                            ano: c.ano,
-                            evento: c.evento,
-                            cidade: c.cidade,
-                            natureza: c.natureza,
-                            classificacao: c.classificacao,
-                        }))
-                    )
-                    if (error) errors.push(`Conferências: ${error.message}`)
-                }
-
-                // Projetos
-                if (indicators.projetos.length > 0) {
-                    const { error } = await supabase.from('projetos').insert(
-                        indicators.projetos.map(p => ({
-                            professor_id: profId,
-                            titulo: p.titulo,
-                            ano_inicio: p.ano_inicio,
-                            ano_fim: p.ano_fim,
-                            situacao: p.situacao,
-                            financiador: p.financiador,
-                        }))
-                    )
-                    if (error) errors.push(`Projetos: ${error.message}`)
-                }
-
-                // Orientações
-                if (indicators.orientacoes.length > 0) {
-                    const { error } = await supabase.from('orientacoes').insert(
-                        indicators.orientacoes.map(o => ({
-                            professor_id: profId,
-                            tipo: o.tipo,
-                            titulo: o.titulo,
-                            ano: o.ano,
-                            orientado: o.orientado,
-                            situacao: o.situacao,
-                            instituicao: o.instituicao,
-                        }))
-                    )
-                    if (error) errors.push(`Orientações: ${error.message}`)
-                }
-
-                if (errors.length > 0) {
-                    toast('Erros na importação: ' + errors.join(', '), 'error')
-                } else {
-                    toast(
-                        `Lattes importado! ${indicators.artigos.length} artigos · ${indicators.conferencias.length} conferências · ${indicators.projetos.length} projetos · ${indicators.orientacoes.length} orientações`
-                    )
-                }
-
-                setSyncing(null)
-                fetchProfessores()
+            if (indicators.artigos.length > 0) {
+                const { error } = await supabase.from('producoes').insert(
+                    indicators.artigos.map(art => ({
+                        professor_id: profId,
+                        tipo: 'ARTIGO',
+                        titulo: art.titulo,
+                        journal: art.periodico,
+                        doi: art.doi,
+                        data_publicacao: art.ano ? `${art.ano}-01-01` : null,
+                    }))
+                )
+                if (error) errors.push(`Artigos: ${error.message}`)
             }
-            reader.readAsText(file)
+
+            if (indicators.conferencias.length > 0) {
+                const { error } = await supabase.from('conferencias').insert(
+                    indicators.conferencias.map(c => ({
+                        professor_id: profId,
+                        titulo: c.titulo,
+                        ano: c.ano,
+                        evento: c.evento,
+                        cidade: c.cidade,
+                        natureza: c.natureza,
+                        classificacao: c.classificacao,
+                    }))
+                )
+                if (error) errors.push(`Conferências: ${error.message}`)
+            }
+
+            if (indicators.projetos.length > 0) {
+                const { error } = await supabase.from('projetos').insert(
+                    indicators.projetos.map(p => ({
+                        professor_id: profId,
+                        titulo: p.titulo,
+                        ano_inicio: p.ano_inicio,
+                        ano_fim: p.ano_fim,
+                        situacao: p.situacao,
+                        financiador: p.financiador,
+                    }))
+                )
+                if (error) errors.push(`Projetos: ${error.message}`)
+            }
+
+            if (indicators.orientacoes.length > 0) {
+                const { error } = await supabase.from('orientacoes').insert(
+                    indicators.orientacoes.map(o => ({
+                        professor_id: profId,
+                        tipo: o.tipo,
+                        titulo: o.titulo,
+                        ano: o.ano,
+                        orientado: o.orientado,
+                        situacao: o.situacao,
+                        instituicao: o.instituicao,
+                    }))
+                )
+                if (error) errors.push(`Orientações: ${error.message}`)
+            }
+
+            if (errors.length > 0) {
+                toast('Erros parciais: ' + errors.join(' | '), 'error')
+            } else {
+                toast(
+                    `Lattes importado! ${indicators.artigos.length} artigos · ${indicators.conferencias.length} conferências · ${indicators.projetos.length} projetos · ${indicators.orientacoes.length} orientações`
+                )
+            }
+
+            fetchProfessores()
         } catch (err: any) {
-            toast('Erro no processamento: ' + err.message, 'error')
+            toast('Erro: ' + (err.message ?? 'Falha desconhecida'), 'error')
+        } finally {
             setSyncing(null)
         }
     }
@@ -156,7 +153,7 @@ export default function ProfessoresPage() {
                         <GraduationCap className="text-primary" size={32} />
                         Corpo Docente
                     </h1>
-                    <p className="text-zinc-500 mt-1">Gerencie os 18 professores permanentes e seus indicadores Lattes.</p>
+                    <p className="text-zinc-500 mt-1">Gerencie os {loading ? '...' : professores.length} professores permanentes e seus indicadores Lattes.</p>
                 </div>
                 <button
                     onClick={() => setShowAddForm(!showAddForm)}

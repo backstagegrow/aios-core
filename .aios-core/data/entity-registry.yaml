@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.1
-  lastUpdated: '2026-05-04T18:54:20.366Z'
+  lastUpdated: '2026-05-04T18:57:29.407Z'
   entityCount: 797
   checksumAlgorithm: sha256
   resolutionRate: 100
@@ -9108,7 +9108,7 @@ entities:
         constraints: []
         extensionPoints: []
       checksum: sha256:9b4faf51bfa48026be105d60755492827c122fca8936573760def2518127231e
-      lastVerified: '2026-05-04T18:54:20.337Z'
+      lastVerified: '2026-05-04T18:57:29.401Z'
     registry-loader:
       path: .aios-core/core/ids/registry-loader.js
       layer: L1

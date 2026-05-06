@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Share2, CheckCircle2, AlertCircle, RefreshCw, Link as LinkIcon, Save, Database, ExternalLink } from 'lucide-react'
+import { Share2, CheckCircle2, AlertCircle, RefreshCw, Link as LinkIcon, Database, ExternalLink } from 'lucide-react'
+import { logError } from '@/lib/logger'
 
 interface DriveFile {
     id: string
@@ -9,11 +10,39 @@ interface DriveFile {
     modifiedTime: string
 }
 
+interface SyncResult {
+    read: number
+    inserted: number
+    updated: number
+    errors: { linha: number; mensagem: string }[]
+}
+
 export default function IntegracoesPage() {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
     const [driveFiles, setDriveFiles] = useState<DriveFile[]>([])
     const [syncingId, setSyncingId] = useState<string | null>(null)
+    const [syncResults, setSyncResults] = useState<Record<string, SyncResult | { error: string; details?: string[] }>>({})
     const [lastScan, setLastScan] = useState<string>('Nunca')
+    const [authStatus, setAuthStatus] = useState<'checking' | 'connected' | 'error'>('checking')
+
+    const checkGoogleAuth = async () => {
+        setAuthStatus('checking')
+        try {
+            const res = await fetch('/api/google/drive')
+            const data = await res.json()
+            setAuthStatus(res.ok && !data.error ? 'connected' : 'error')
+        } catch {
+            setAuthStatus('error')
+        }
+    }
+
+    useEffect(() => {
+        const saved = localStorage.getItem('orion_drive_files')
+        const savedTime = localStorage.getItem('orion_last_scan')
+        if (saved) setDriveFiles(JSON.parse(saved))
+        if (savedTime) setLastScan(savedTime)
+        checkGoogleAuth()
+    }, [])
 
     const handleScanDrive = async () => {
         setStatus('loading')
@@ -22,20 +51,24 @@ export default function IntegracoesPage() {
             const data = await response.json()
 
             if (data.files) {
+                const time = new Date().toLocaleTimeString()
                 setDriveFiles(data.files)
                 setStatus('success')
-                setLastScan(new Date().toLocaleTimeString())
+                setLastScan(time)
+                localStorage.setItem('orion_drive_files', JSON.stringify(data.files))
+                localStorage.setItem('orion_last_scan', time)
             } else {
                 setStatus('error')
             }
         } catch (error) {
-            console.error('Erro ao scanear drive:', error)
+            logError('Erro ao scanear drive:', error)
             setStatus('error')
         }
     }
 
     const handleSyncSheet = async (fileId: string) => {
         setSyncingId(fileId)
+        setSyncResults(prev => { const n = { ...prev }; delete n[fileId]; return n })
         try {
             const response = await fetch('/api/google/sheets', {
                 method: 'POST',
@@ -43,14 +76,14 @@ export default function IntegracoesPage() {
                 body: JSON.stringify({ spreadsheetId: fileId })
             })
             const data = await response.json()
-
-            if (data.data) {
-                alert(`Sincronizado! Orion leu ${data.data.length} linhas com sucesso.`)
+            if (!response.ok) {
+                setSyncResults(prev => ({ ...prev, [fileId]: { error: data.error ?? `Erro ${response.status}`, details: data.details } }))
             } else {
-                alert('Erro na leitura dos dados. Verifique as permissões.')
+                setSyncResults(prev => ({ ...prev, [fileId]: data as SyncResult }))
             }
         } catch (error) {
-            console.error('Erro na sincronização:', error)
+            logError('Erro na sincronização:', error)
+            setSyncResults(prev => ({ ...prev, [fileId]: { error: 'Falha de conexão com o servidor' } }))
         } finally {
             setSyncingId(null)
         }
@@ -101,12 +134,43 @@ export default function IntegracoesPage() {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-zinc-800/50">
-                                        {driveFiles.map((file) => (
+                                        {driveFiles.map((file) => {
+                                            const result = syncResults[file.id]
+                                            const isSuccess = result && 'read' in result
+                                            const isError = result && 'error' in result
+                                            return (
                                             <tr key={file.id} className="hover:bg-primary/[0.02] transition-colors group">
                                                 <td className="px-6 py-4">
                                                     <div className="flex items-center gap-3">
                                                         <div className="w-8 h-8 bg-zinc-950 rounded-lg border border-zinc-800 flex items-center justify-center text-primary text-[10px] font-black group-hover:border-primary/30 transition-colors">XLS</div>
-                                                        <span className="font-semibold text-zinc-300 group-hover:text-white transition-colors">{file.name}</span>
+                                                        <div>
+                                                            <span className="font-semibold text-zinc-300 group-hover:text-white transition-colors">{file.name}</span>
+                                                            {isSuccess && (
+                                                                <div className="flex items-center gap-3 mt-1">
+                                                                    <span className="text-[10px] text-zinc-500">Lidas: <span className="text-zinc-300 font-bold">{(result as SyncResult).read}</span></span>
+                                                                    <span className="text-[10px] text-emerald-400 font-bold">+{(result as SyncResult).inserted} novas</span>
+                                                                    <span className="text-[10px] text-blue-400 font-bold">↻ {(result as SyncResult).updated} atualizadas</span>
+                                                                    {(result as SyncResult).errors.length > 0 && (
+                                                                        <span className="text-[10px] text-amber-400 font-bold">⚠ {(result as SyncResult).errors.length} erros</span>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                            {isError && (
+                                                                <p className="text-[10px] text-red-400 mt-1">
+                                                                    ⚠ {(result as { error: string }).error}
+                                                                    {(result as { error: string; details?: string[] }).details?.map((d, i) => (
+                                                                        <span key={i} className="block pl-2">· {d}</span>
+                                                                    ))}
+                                                                </p>
+                                                            )}
+                                                            {isSuccess && (result as SyncResult).errors.length > 0 && (
+                                                                <ul className="mt-1 space-y-0.5">
+                                                                    {(result as SyncResult).errors.map((e, i) => (
+                                                                        <li key={i} className="text-[10px] text-amber-400">Linha {e.linha}: {e.mensagem}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td className="px-6 py-4 text-zinc-500 text-xs">
@@ -126,7 +190,8 @@ export default function IntegracoesPage() {
                                                     </button>
                                                 </td>
                                             </tr>
-                                        ))}
+                                        )})}
+
                                     </tbody>
                                 </table>
                             ) : (
@@ -165,8 +230,16 @@ export default function IntegracoesPage() {
                         </div>
                         <ul className="space-y-6">
                             {[
-                                { l: 'Google Sheets API', v: 'ATIVO', s: 'text-primary' },
-                                { l: 'Google Drive Search', v: 'ATIVO', s: 'text-primary' },
+                                {
+                                    l: 'Google Sheets API',
+                                    v: authStatus === 'checking' ? 'Verificando...' : authStatus === 'connected' ? 'ATIVO' : 'DESCONECTADO',
+                                    s: authStatus === 'checking' ? 'text-zinc-500' : authStatus === 'connected' ? 'text-primary' : 'text-red-400'
+                                },
+                                {
+                                    l: 'Google Drive Search',
+                                    v: authStatus === 'checking' ? 'Verificando...' : authStatus === 'connected' ? 'ATIVO' : 'ERRO DE AUTENTICAÇÃO',
+                                    s: authStatus === 'checking' ? 'text-zinc-500' : authStatus === 'connected' ? 'text-primary' : 'text-red-400'
+                                },
                                 { l: 'Conexão Supabase', v: 'ESTÁVEL', s: 'text-blue-400' },
                                 { l: 'Último Scan', v: lastScan, s: 'text-zinc-500' }
                             ].map((item, i) => (

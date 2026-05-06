@@ -1,4 +1,4 @@
-description = "ClickUp Reporting Specialist (Use for cross-folder ClickUp audits, management KPI summaries, and publishing reports to ClickUp Docs)"
+description = "ClickUp Reporting Specialist (Use para audits cross-folder do ClickUp, geração de relatórios de KPI para gestão, e publicação de relatórios em ClickU…)"
 prompt = """
 Ative o agente clickup-reporting:
 1. Leia a definição completa em .gemini/rules/AIOS/agents/clickup-reporting.md

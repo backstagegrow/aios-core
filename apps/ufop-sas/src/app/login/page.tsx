@@ -58,6 +58,7 @@ export default function LoginPage() {
                 <div className="bg-white p-8 rounded-3xl shadow-2xl">
                     <Auth
                         supabaseClient={supabase as any}
+                        redirectTo={`${typeof window !== 'undefined' ? window.location.origin : ''}/auth/confirm`}
                         appearance={{
                             theme: ThemeSupa,
                             variables: {

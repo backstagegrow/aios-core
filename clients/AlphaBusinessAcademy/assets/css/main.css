@@ -2,7 +2,7 @@
    Alpha Business Academy — Main UI Styles
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 /* Brand CSS is imported in the HTML */
 
@@ -24,61 +24,7 @@ body {
 .font-mono { font-family: var(--aba-font-mono); }
 
 /* Semantic Components per README */
-.aba-eyebrow {
-  font-family: var(--aba-font-sans);
-  font-size: var(--aba-text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--aba-ls-widest);
-  color: var(--aba-gold);
-}
-
-.aba-h1 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
-  font-size: clamp(40px, 8vw, var(--aba-text-5xl));
-  line-height: var(--aba-lh-tight);
-  letter-spacing: var(--aba-ls-tight);
-  color: var(--aba-fg-1);
-}
-
-.aba-h1 em {
-  font-style: normal;
-  color: var(--aba-gold);
-}
-
-.aba-h2 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
-  font-size: clamp(32px, 5vw, var(--aba-text-4xl));
-  line-height: var(--aba-lh-tight);
-  letter-spacing: var(--aba-ls-tight);
-  color: var(--aba-fg-1);
-}
-
-.aba-h3 {
-  font-family: var(--aba-font-display);
-  font-weight: 400;
-  font-size: var(--aba-text-2xl);
-  line-height: var(--aba-lh-snug);
-  color: var(--aba-fg-1);
-}
-
-.aba-body {
-  font-family: var(--aba-font-sans);
-  font-weight: 400;
-  font-size: var(--aba-text-base);
-  line-height: var(--aba-lh-loose);
-  color: var(--aba-fg-2);
-}
-
-.aba-lead {
-  font-family: var(--aba-font-sans);
-  font-weight: 300;
-  font-size: var(--aba-text-lg);
-  line-height: var(--aba-lh-loose);
-  color: var(--aba-fg-2);
-}
+/* Os tokens de tipografia .aba-h1, .aba-h2, etc., agora são controlados exclusivamente pelo brand.css */
 
 /* Buttons */
 .aba-btn-primary {
@@ -136,4 +82,47 @@ body {
 
 .hairline-gold {
   border-bottom: 1px solid var(--aba-border-1);
+}
+
+/* =========================================================
+   Mobile: centralizar textos e conteúdos (< 768px)
+   ========================================================= */
+@media (max-width: 767px) {
+
+  body, h1, h2, h3, h4, p, span, .aba-h1, .aba-h2, .aba-h3, .aba-eyebrow, .aba-lead, .aba-body, .aba-small {
+    text-align: center !important;
+  }
+  
+  .hero-text-col {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Edição anterior — bullet list centralizada */
+  .flex.items-start.gap-4 {
+    justify-content: center;
+  }
+
+  /* Seção metodologia — header stack centralizado */
+  .flex.flex-col.md\:flex-row.items-end.justify-between {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Badge de vagas e CTA no hero — centralizar */
+  .flex.flex-col.gap-4.items-start {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Selos do footer da oferta */
+  .flex.items-center.justify-center.gap-8.flex-wrap {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Diagnóstico cards — texto left mantido mas container centrado */
+  .aba-card.text-left {
+    text-align: left;
+  }
 }
